@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/88-1943/19900221a_88-1943.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH W. STARR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GILL DEFORD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 88-1943, Office of Personnel Management v. Charles Richmond. General Starr.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I ask a question about your theory? I suppose it might be possible for the Executive Branch to deliberately try to thwart the policies set by Congress, for example, in a benefit program, if the Executive thought that program was unwise and unfortunate and, therefore, in their policy they would just make it a policy not to tell people about deadlines, or do anything they could to discourage people from taking advantage of the program Congress has set up. Now, under your theory, no estoppel is possible. And yet under those circumstances the Executive would be thwarting the will of Congress.",
       "time": "00:04:46.28"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But there would still be no estoppel.",
       "time": "00:05:46.49"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And would this... the result be the same if there were an active intentional misrepresentation?",
       "time": "00:07:13.31"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, at some point acts... acts of government officials can deprive someone of a constitutional right then?",
       "time": "00:08:16.61"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what do you do? Is that... was that the situation in PICCO or the Pennsylvania case?",
       "time": "00:08:28.94"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if that had been just a civil case that you were trying to recover from... from that... from that particular party the costs of removing some obstruction and yet the... and yet the party had been affirmatively misled by that regulation? Do you think the result would have been different if that would have been a civil case?",
       "time": "00:08:59.79"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it was, wasn't it?",
       "time": "00:09:37.25"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes?",
       "time": "00:09:40.37"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, the--",
       "time": "00:09:42.20"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Would the... would the result have been the same in a civil case as in a criminal?",
       "time": "00:09:44.70"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You couldn't... you couldn't fine him on the criminal case but you could make him... you could recover a large sum of money from him in a civil case?",
       "time": "00:09:54.21"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then are you saying--",
       "time": "00:10:30.72"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--if in this case there had been a misdemeanor to earn more money than the... instead of a forfeiture of the remaining pension, you couldn't have... the government would have been estopped from enforcing the criminal prohibition?",
       "time": "00:10:32.42"
     },
@@ -215,13 +215,13 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll resume there at 1:00, General Starr.",
       "time": "00:11:46.95"
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll resume our argument in Office of Personnel Management v. Charles Richmond. General Starr.",
       "time": "00:11:50.33"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Starr, the advise in this case was obtained from the Navy Employee Relations Specialists?",
       "time": "00:14:19.87"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I... I suppose the typical employee figures that these people probably will know what they're talking about.",
       "time": "00:14:28.72"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And they should know.",
       "time": "00:14:48.88"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did he lose any money?",
       "time": "00:15:08.86"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but if he earned more than he should have before the disability.",
       "time": "00:15:15.43"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:15:27.07"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But General Starr maybe that... maybe that could be your point. Justice Story is talking about the public fisc, and this case involves the public fisc. And the Constitution specifically says that no money shall be drawn from the Treasury, no funds shall be drawn from the Treasury except by appropriation. Why isn't it enough for us to decide this case to simply hold that... that provision of the Constitution at least cannot be overcome by estoppel? And we don't have to worry about criminal cases or criminal penalties or civil penalties or anything else.",
       "time": "00:16:47.92"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that wouldn't be very narrow. I mean, I think that's a... that's a sizeable principle.",
       "time": "00:18:10.39"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That if you're mislead in any... in any respect that causes you to claim entitlement to some money from the Treasury, you're out of court if your only basis is the estoppel.",
       "time": "00:18:15.88"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not terribly narrowing.",
       "time": "00:18:30.17"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--to be greedy.",
       "time": "00:18:32.62"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but it's-- --What would be the basis-- --it's also a-- --What would be the basis for... for that ruling if you're saying those cases are different than other kinds of cases?",
       "time": "00:18:38.71"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But would the... would the carrying out of the federal circuit's judgment here really require the expenditure of any money that hadn't been appropriated by Congress? Doesn't Congress appropriate kind of en bloc for these various programs?",
       "time": "00:19:09.88"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then you can make the argument then about some of these... about a lot of these programs would be... could be put up in constitutional terms. Just... you're making a... you're making a claim here that's just wrong and if... you're making a claim for money that's never been appropriated.",
       "time": "00:19:49.63"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the argument--",
       "time": "00:20:16.87"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--isn't that the money isn't appropriated really. The argument is that they're just... that-- --It wasn't properly-- --Well, the money's been appropriated for a specific purpose and if they pay it out, why, that's out for that purpose.",
       "time": "00:20:18.02"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but that's always the case whenever we're challenging the applicability of a regulation under Health and Human Services, say. It's never phrased in constitutional terms.",
       "time": "00:20:51.40"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that your broad theory that you just enunciated or the narrow one that you would settle for? [Laughter]",
       "time": "00:21:36.19"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that... that presentation does not answer the question that I raised before lunch where the Executive is in effect violating the policy set by Congress.",
       "time": "00:22:22.66"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I... I thought you were going to say that... that recognizing estoppel against the government not only doesn't solve Justice O'Connor's problem but perhaps aggravates it because it enables the President not only to frustrate a federal program by deceiving people into believing it doesn't exist, but to create federal programs where there are none, which couldn't be done without an estoppel theory. That is, he couldn't tell somebody, you're entitled to money, and the person would be entitled to it. The most he could do is tell him, you're not entitled to money, and cause a person not to... not to apply.",
       "time": "00:23:43.11"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, the only reason this case comes up is that the... is that the... well, I guess there's plenty of reasons, but one reason that would eliminate a case like this is if the Federal Tort Claims Act covered negligent misrepresentation.",
       "time": "00:24:30.60"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you--",
       "time": "00:24:58.84"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--think that Congress could solve this xx of a problem by saying if there's a negligent misre, sentation, you can pay out money that we've never author.",
       "time": "00:24:59.82"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah, but why is this... why is this different in terms of the absolute power of no appropriations and all the rest... different from the... as an equitable matter, tolling the statute of limitations against the government for inequitable conduct? Why... why isn't that also flatly prohibited by the requirement that you can't spend money the government didn't authorize?",
       "time": "00:25:41.05"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why couldn't the Court do the same thing with this statute and say of course they can't pay unless they're misled into having... having... you know, earned a little more money than they thought was appropriate? Can you just... the same... the same sort of approach, just construe the statute to say it makes an exception for this kind of situation?",
       "time": "00:26:21.27"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I suppose Congress has rejected the notion that they... that there should be some recovery for negligent misrepresentation. Affirmatively it said so.",
       "time": "00:26:43.52"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then you're... you're asking us to overrule the Moser case, aren't you?",
       "time": "00:27:07.47"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're asking us to overrule the Moser case, aren't you?",
       "time": "00:27:10.84"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it didn't say estoppel?",
       "time": "00:27:57.20"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, General Starr. Mr. Deford... is that how you pronounce your name?",
       "time": "00:28:10.04"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Deford. Mr. Deford.",
       "time": "00:28:17.68"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Deford, I must say, even if... even if the equitable doctrine of estoppel were applicable, I'm... it's not clear to me how the equities are in this case. It seems to me what your client is complaining about is... is that in fact his earning... his earning capacity had been restored. He went out and was able to make as much money as the statute said would demonstrate that his earning capacity had been restored. I don't view it to be the purpose of this statute that even though you may earn enough money to get off of the public welfare, which this statute provides, you may continue to sit at home and earn right up to the dollar next to that even though you still have the working capacity. Do you think that that's--",
       "time": "00:29:23.51"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and equitable case for your client?",
       "time": "00:30:16.64"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That... that he mistakenly used the... the working capacity that he had instead of sitting at home and... and collecting his... his benefits?",
       "time": "00:30:18.79"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't sue in court claiming the benefits of equity--",
       "time": "00:30:36.17"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--as your client--",
       "time": "00:30:41.17"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--They... they are adhering to the letter of the law. You're coming in and saying, give us equity, and I don't... I don't see a very strong equitable case on the part of your client. He can earn enough money, demonstrably, to not be entitled to... to these funds.",
       "time": "00:30:42.39"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The only complaint is... is that had he known that the law was the way it was, he would have sat at home instead of earned as much money as he could have. That's the whole basis for the estoppel.",
       "time": "00:31:24.48"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right.",
       "time": "00:31:38.04"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't--",
       "time": "00:31:40.76"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--just don't consider that a strong equitable--",
       "time": "00:31:41.74"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It's phrased in the terms of he will be deemed to have had his earning capacity restored. The object of the statute is that when the person's earning capacity is restored, he gets off the program. And there's one way that he's clearly deemed to have had it restored, and that is if he's earning this much money. But I'm not sure that it's in accord with the spirit of the statute to carefully calculate how much you earn each year so that you... even though your earning capacity is restored, it will not be deemed to have been restored. I agree as a matter of strict law your client was... would have been entitled to the money if he had played it that way. But he's coming into... into court now and saying, forget the letter of the law, give me equity. If he wants equity, I'm not sure he wins.",
       "time": "00:32:04.37"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How was he misled then? The only basis for claiming he was misled is that had I known, I wouldn't have taken the job. That's the only basis for claiming an estoppel.",
       "time": "00:33:20.67"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That he would voluntarily have refrained from earning money.",
       "time": "00:33:31.60"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then, if I had known that, I would have sat at home and been idle--",
       "time": "00:33:55.18"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--instead of getting off of this program.",
       "time": "00:33:59.31"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Sounds like he had a bad lawyer.",
       "time": "00:34:15.61"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The lawyer probably would have asked the Navy anyway, wouldn't he? [Laughter]",
       "time": "00:34:53.45"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah, you don't need a lawyer just to call the same person that you would have called if you hadn't hired a lawyer. Do you accept the explanation that the Solicitor General's Office gave of how the error occurred?",
       "time": "00:35:00.93"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, just out of... just out of date.",
       "time": "00:35:42.82"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Maybe this should have been a class action. [Laughter]",
       "time": "00:36:11.84"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, has the court... has this Court ever held that the government is estopped in a situation like this?",
       "time": "00:36:59.18"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's... it's left the question open, has it not?",
       "time": "00:37:20.82"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "By what case?",
       "time": "00:38:01.30"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which didn't even use the word estoppel?",
       "time": "00:38:06.78"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it didn't even... Moser doesn't even cite Federal Crop Insurance.",
       "time": "00:38:20.11"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or didn't know about it perhaps. [Laughter]",
       "time": "00:38:32.00"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about... what about PICCO?",
       "time": "00:38:43.66"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, at least the agency had said it in a regulation.",
       "time": "00:39:05.57"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But... but that was the case, wasn't it?",
       "time": "00:39:13.01"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I guess the government has never claimed in this case that the person that gave the advise wasn't seemingly authorized to give such advise?",
       "time": "00:39:50.66"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it was a written--",
       "time": "00:40:08.84"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Mr. Deford, how does... how does your theory work in a case such as this? Let's assume that this statute was passed and there's a limitation on earnings for beneficiaries of $10,000 a year, the statute is presented to the President and he vetoes it. He thinks there shouldn't be any earnings limitations, let people earn as much as they want and still draw benefits. That veto is overridden so the statue is enacted with a $10,000 limitation. The President then issues a regulation that says there is no limitation on the amount of... on the amount you may earn and still draw benefits. What happens?",
       "time": "00:40:21.40"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The... the... the President tried to eliminate the earnings provision. He was unsuccessful. But he writes a regulation eliminating it.",
       "time": "00:41:06.43"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm... I'm asking what happens in a lawsuit. The... the people who rely on his statement would win, I assume. Right?",
       "time": "00:41:24.56"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't it strike you as odd that he can achieve by estoppel what he couldn't achieve by veto?",
       "time": "00:41:37.50"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're talking about the theory of... of what you're urging upon the Court, the theory that somehow the Executive can contradict what the Congress has said and make it stick.",
       "time": "00:41:55.58"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I had always thought estoppel was even worse if it was intentional. You're telling me it's not as bad if it's intentional?",
       "time": "00:42:21.86"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It turns everything upside down.",
       "time": "00:42:28.76"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you mean by a vested right?",
       "time": "00:42:58.55"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how about... how about the hypothetical that Justice Scalia put to you where the President says by regulation that there's no earnings limitation?",
       "time": "00:43:37.39"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How would they... how would they have gotten the vested right?",
       "time": "00:43:50.75"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Congress says that--",
       "time": "00:44:01.29"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But are you... are you saying that conceivably by the President's regulation, contrary to what Congress provided, saying there are no earnings limitations, people could get money payments from a court?",
       "time": "00:44:07.61"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, don't use the term vested. Just answer the question without it, if you can.",
       "time": "00:44:25.74"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How did this case get started? Did he apply for--",
       "time": "00:44:35.36"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, I know, but how did it get to the merit... the Merits Board? What did he do? Did he--",
       "time": "00:44:43.53"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--This got started in an administrative proceeding?",
       "time": "00:44:52.80"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose that... that... they just notified him that they were stopping his--",
       "time": "00:45:08.66"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--How did the facts of your case differ in legal significance from the Schweiker facts?",
       "time": "00:45:59.25"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:46:06.23"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that would ordinarily go to the reasonableness of the reliance, I would think. There was no contention in Schweiker that the... the agent couldn't speak for the agency, was there?",
       "time": "00:46:21.43"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I would think if... if it's affirmative misconduct to give out bad information, in one case the agency was guilty of affirmative misconduct, in the other case an employee of the agency was guilty of it.",
       "time": "00:46:55.67"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why do you say... are you... are you suggesting it was intentional misconduct here?",
       "time": "00:47:41.29"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how can you--",
       "time": "00:47:56.35"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--How can you tell that?",
       "time": "00:47:57.29"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if... if estoppel is available at all, that's their argument.",
       "time": "00:49:30.61"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does the Tort Claims Act just bar any claim of recklessness?",
       "time": "00:54:24.23"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but negligent misrepresentation or just--",
       "time": "00:54:34.96"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, I understand that.",
       "time": "00:54:58.57"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you don't have to go that far to win your case.",
       "time": "00:56:23.31"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, OPM didn't have--",
       "time": "00:56:24.68"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--to do anything.",
       "time": "00:56:26.08"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they didn't... are you saying that OPM had a duty to... an affirmative duty to get information out to people?",
       "time": "00:56:38.30"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but now you're... I think you've just made two inconsistent statements. I thought a moment ago you were saying that the OPM has an affirmative duty to notify these people of the change in the law. Is that your position or is it not?",
       "time": "00:56:51.94"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But now you've just said it over again. They had an affirmative obligation to make sure that people knew what the law was.",
       "time": "00:57:14.22"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, it... it wouldn't be enough for the Navy to say, we just aren't... we're cutting our personnel department because it makes so many misrepresentations, from now on go to the statutes at large?",
       "time": "00:57:31.93"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if... what if the Navy had done that?",
       "time": "00:57:45.86"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what would have been the result in this case? He wouldn't have been misrepresented?",
       "time": "00:57:49.56"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so he goes to another Navy personnel office. But that's disbanded too.",
       "time": "00:57:57.92"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't the real gist of your complaint that OPM had misinformation out?",
       "time": "00:58:19.33"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not that it had a duty to advise them of... of a change in the law.",
       "time": "00:58:24.49"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It really didn't have misinformation out. It had out a circular dated 1976 which said what the law was in 1976. That was accurate.",
       "time": "00:58:42.36"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What you're complaining about is that it didn't have out a circular that said what the law was in 1986 or--",
       "time": "00:58:51.90"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I don't know what the dates are.",
       "time": "00:59:00.07"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whatever the dates are. But it was accurate--",
       "time": "00:59:01.31"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--as far as it went.",
       "time": "00:59:03.74"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Deford. Mr. Starr, you have four... General Starr, you have four minutes remaining.",
       "time": "00:59:07.15"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where are you--",
       "time": "01:00:37.20"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Starr. The case is submitted.",
       "time": "01:03:14.87"
     }

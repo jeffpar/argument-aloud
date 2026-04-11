@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2003/03-724/20040426a_03-724.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN M. SHAPIRO",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "R. HEWITT PATE, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 03-724, Hoffman-LaRoche v. Empagran S.A.-- Mr. Shapiro.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did... did the court of appeals explain how that issue would be litigated or decided whether someone else had a claim?",
       "time": "00:02:19.70"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The... the respondent says in... in its brief without much detail, just makes the allegation, well, it's the single market, this is the nation, this is a global market, so there's nothing you can do. It... it does seem to me that there would be difficulties in... in defining what is the foreign commerce affecting the United States and what is foreign commerce that does not. How is this resolved in your... best resolved in your view?",
       "time": "00:02:48.83"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I... I guess my point is, is it... is it all that clear in the real world that these are discrete concepts?",
       "time": "00:03:53.13"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The... the claim here is that because of the... because of the worldwide nature of the market, our foreign commerce is necessarily injured, because the market being worldwide, if a lower charge had been assessed in the United States, which would have been the case absent the alleged violations of the antitrust laws, there would have been arbitrage, and we would have exported some of these drugs abroad by reason of the fact that they had been purchased at lower prices in the United States. Why... why doesn't that make out an injury to foreign commerce?",
       "time": "00:04:23.66"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but there... there was an overcharge in the United States. You're... you're not--",
       "time": "00:05:17.90"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--contesting that... that--",
       "time": "00:05:22.44"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that the conspiracy included the United States?",
       "time": "00:05:24.14"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but I'm talking about the effect on foreign commerce. If there had not been the overcharge in the United States, if realistic market-based prices had been charged in the United States, we would have re-exported a lot of these drugs to foreign countries that were still being overcharged, wouldn't we?",
       "time": "00:05:33.52"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Shapiro, can I ask you a question--",
       "time": "00:06:16.60"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--about your theory, about your theory? What if the plaintiff is engaged in business in both the United States and in a foreign market and suffers injuries in both? May he recover for both injuries or only the injury in the United States in your view?",
       "time": "00:06:18.78"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it... would that have been the case before this statute was passed, do you think?",
       "time": "00:06:38.08"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No. The injury in the... under the statutory language, they has to... the plaintiff has to suffer an injury to his business or property, but you say that does not include the business or property that's conducted abroad?",
       "time": "00:07:01.38"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that... do you think maintaining that position is necessary for you to prevail in this case?",
       "time": "00:07:39.67"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose they... suppose these foreign buyers had alleged, well, they heard that the United States is a good place to buy things and they tried to buy the vitamins in the United States and found the same rigged prices?",
       "time": "00:08:04.76"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm asking you if that would do under your theory. They said, we really wanted to make these purchases in the United States.",
       "time": "00:08:26.56"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose they show that they in fact attempted to buy drugs here and they found... vitamins here... and they found that the price was the same.",
       "time": "00:08:50.00"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I would think your defense against that is... is... is not to assert that there's no effect on... on foreign commerce, on our exports, because I think... I think there is. I... I would... I would think your defense is... is in... in Section 2 of the Foreign Trade Antitrust Improvements Act, which requires that this effect on commerce, on export commerce, gives rise to a claim under the provisions of Sections 1 to 7, and... and the only way it gives rise to a claim on the part of these people is a claim as second purchasers, and Illinois Brick would have excluded their claim, I assume, if they are re-buying from the... the... from people in the United States. Wouldn't that be the case?",
       "time": "00:09:10.13"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, they... they're alleging that they would have purchased from... from Americans. That would have been down the stream, it seems to me.",
       "time": "00:10:19.73"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's... let's assume that... that we find the textual argument in... in effect a... a draw. One way to go your way would be to accept a comity analysis, but I take it comity was never raised.",
       "time": "00:11:16.45"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if we... if we accept that and textually the statute is a draw, we... we wouldn't have to get to this interpretative principle. I mean, one reason for getting to the interpretative principle that you now suggest is... is simply the submissions of... of foreign countries as well as the United States in this particular case.",
       "time": "00:12:21.41"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how... but how... how do we know those two factors? How do we know what's consistent with international law? How do we know what's consistent with not antagonizing our allies?",
       "time": "00:13:02.62"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But surely there... there are other partners who have not been heard from.",
       "time": "00:13:18.39"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "These are nations with... with fairly effective antitrust laws and antitrust enforcement.",
       "time": "00:13:31.69"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about the majorities of nations in the world that don't have effective antitrust enforcement, if indeed they have any antitrust laws? Might they not be eager to have us do the job for them?",
       "time": "00:13:38.31"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, their argument is that these cases simply come together anyway, these cases will piggyback their way in or at least come hand in hand with the domestic cases.",
       "time": "00:14:22.97"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, I suppose that's the penalty for engaging in worldwide conspiracy.",
       "time": "00:14:57.23"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could you just deny class action certification if that's... if you have that kind of problem, but no... nobody, none of these plaintiffs are trying to sue on behalf of the whole world.",
       "time": "00:15:27.29"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Has any Federal court ever certified a class that size, that all purchases around the globe?",
       "time": "00:15:59.46"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Shapiro. Mr. Pate, we'll hear from you.",
       "time": "00:16:41.34"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Can you tell us how... how it would jeopardize your... your efforts? Suppose we rule for the respondent here, wouldn't that make foreign conspirators and... and American companies all the more eager to come to you, because then they could get immunity both for U.S. actions and... and the global effects?",
       "time": "00:17:49.29"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Pate, do you agree with Mr. Shapiro's answer to my question about a plaintiff, an American plaintiff who has business both in this country and abroad and suffers... and both are hurt by the conspiracy?",
       "time": "00:19:12.75"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in my hypothetical it is his injury, he does business both in the United States and in Europe.",
       "time": "00:19:30.82"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I don't follow the-- --I... I thought Hartford left that question open.",
       "time": "00:19:59.15"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, Hartford specifically addressed the export, but it... it... my recollection is, in the footnote, it expressly left any... any further effect of the statute in open question.",
       "time": "00:20:03.29"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The FTAIA was passed in 1982, is that right?",
       "time": "00:20:52.08"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The division keeps track, I guess, but is there any instance, or what instances are there, I'd like to write them down unless there are dozens, in which a foreign cartel injures the United States and also separately injures people abroad. What instances were there in which the people in Uruguay or wherever could sue the perpetrators in Holland in an American court prior to 1982?",
       "time": "00:20:56.24"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No such instance. I'll ask the other side the same question.",
       "time": "00:21:27.73"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you've looked it up and you can find nothing in your opinion that counts as such an instance?",
       "time": "00:21:40.67"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Pate. Mr. Goldstein, we'll hear from you.",
       "time": "00:26:24.30"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Goldstein, do you agree with the position of your opponents that the FTAIA was a limiting statute and that if there was no claim before FTAIA, that there certainly is none afterwards for your case?",
       "time": "00:26:45.43"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, I mean, their argument I take it is simply, of course, there... the quinine cartel, which I had heard of, I'd not heard, the quinine cartel sets in Holland and raises the price of quinine that's sold all over the world, and of course it violates our law and we're out there and they're lobbing these shells at us in a sense, and so of course we can bring a claim against them, it hurts us. But other countries have different laws, and as far as they're concerned, those laws... what they are doing in Holland is fine. And so what business do we have telling Uruguay, which thinks depression cartels, or Japan, which thinks oppression cartels are the greatest thing, and they may be, and so does Holland think that. And what business do we have saying that a citizen of Japan who's hurt by something that the Japanese think is just fine and the Dutch think is just fine come to our court and enforce our law against those other countries where it doesn't affect us? That's their claim. It's a kind of like we're engaged in legal imperialism. If we think our law is better, convince them. Don't apply our law to them against their consent. Now, that, I take it, is the argument, not what the prosecution says. So I'd be interested in your response.",
       "time": "00:28:33.73"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It says it's illegal, period.",
       "time": "00:30:28.95"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but Pfizer was doing business in this country.",
       "time": "00:31:32.61"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you have... you not only accept it, it's a fact, so you're-- [Laughter]",
       "time": "00:31:39.23"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I... if you're on a... it sounds to me like you're a verbal point, which I'm not against. Of course we say it is illegal what they do in Holland. It's illegal when they hurt us, it's illegal when we hurt them, we think it's illegal plain and simple. I accept that. But what I don't see follows from that is that we give a claim for damages by a... to person in Uruguay for activity that takes place in Holland, which we think is illegal, but the Dutch and the Uruguayans don't. And so I can't get mileage for you unless I'm wrong in thinking that out of words in indictments that say American Tobacco, what they did was illegal everywhere. I like... I think the antitrust laws are a marvelous policy, okay, so I'm tempted to say, yes, it's illegal everywhere. But that isn't where I'm having the problem. I'm having the problem about finding... I... I'd be repeating myself, so have you taken it in?",
       "time": "00:31:55.85"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, what's the answer?",
       "time": "00:33:02.42"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Correct. And if we had that alone, that would be strong support, and the problem is we have another sentence, which is the first sentence in the FTAIA, whatever it is, and then you get to the second.",
       "time": "00:33:35.16"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm... I'm not... I got off the train even earlier. I'm not... I'm not sure that... that when an indictment describes an international conspiracy as an international conspiracy, it amounts to saying that that portion of the international conspiracy which does not affect this country in any way is illegal. I don't think that... I think you're bound in your indictment to describe the... the actual conspiracy, and if it indeed is one that covered the whole world, you're... are you supposed to describe it as one that only applied to the United States? Of course not. You describe the actual conspiracy. That does not prove that the portion of it which does not affect the United States is in any sense illegal under United States law. I don't think it is illegal.",
       "time": "00:33:44.88"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But all of that is true and it does not necessarily follow that we do or should permit a cause of action.",
       "time": "00:35:57.32"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're... you're talking about FTAIA?",
       "time": "00:36:52.49"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the court of appeals relied very heavily on the act.",
       "time": "00:36:54.86"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it just did. I mean, not did--",
       "time": "00:37:00.51"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Good to know. [Laughter]",
       "time": "00:37:08.68"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the... I... the court of appeals, I thought, said the language, give rise to a claim, meant that you didn't have to show the claim of any particular person. Do... do you agree with the court of appeals there?",
       "time": "00:39:17.69"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I... I just want... don't want you to lose part 3, and let... let you focus on that, the comity.",
       "time": "00:40:54.95"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "One possibility floating through my mind is that there are international quinine or maybe this, international vitamin cartels, where it's pure price-fixing, and in such instances, prices in one country may be interdependent on another, and in such instances if you lose this case here, now, you may still have a claim, because it flows in part, the injury, from effects in the United States. But there are many other parts of the antitrust law which are highly controversial. To name a few, information sharing, vertical restrictions of different kinds. And if you win here, not only do you not have to show this interdependent thing, but anybody could come in under all those under provisions too, which many other countries don't like at all, and bring lawsuits and there's no way to prevent our law from becoming generally imperialistic in this sense that I've been talking about. That's a way of focusing you back on the comity question, and you can answer mine, the comity, whatever you like.",
       "time": "00:41:01.10"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But how... how is it, in... in the hypothetical that Justice Breyer posed, that comity is built in? If they... simply because someone says it doesn't mean that it is. I... I just don't see how it is.",
       "time": "00:43:05.20"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, may I stop you there, because you are dividing the universe up in to claims that everybody agrees and more controversial applications of U.S. antitrust law, but one of the principal objections, as I understand it, from other nations is to the treble damages feature. They say, for their consumers, the way they regulate antitrust, there are no treble damages.",
       "time": "00:44:33.98"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about a forum non conveniens policy that says, you're a foreign purchaser, you purchased abroad, you have a nice forum abroad to go to, don't burden the U.S. courts.",
       "time": "00:45:44.18"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't really see what it's doing on the table. I mean, it didn't require a Nobel Prize winner to make me figure out that in fact the worse you treat the people who make the cartel, the less likely they are to do it. But I mean, fine, you're right, if you hung and quartered them or whatever, they'd do it even less. But what... what is that to do with the price of fish, so to speak?",
       "time": "00:47:26.77"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but I'm... I'm not sure that the rule you're advocating... you say that don't... don't worry about the other case, because your case is okay. But we are worried about the other case.",
       "time": "00:48:50.69"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I'm waiting for that rule.",
       "time": "00:49:10.38"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's still on the table.",
       "time": "00:49:12.05"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you have flushed them all out that way. Now, the ones you have left, which is yours which you like, why can't you bring... fit right within the language here that where this worldwide market is in fact such that its price in Bolivia is never going to hold up unless the price in the United States holds up if you've got the necessary causal relationship to effects in the United States. That's the second half which you said we should remand. I mean, maybe that's a good half. What's wrong with that?",
       "time": "00:49:34.42"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you think that the forum non conveniens point would work, let's say, for our trading partners who have told us they don't like treble damages in any case, so are we going to make a distinction then and accept the complaint of customers, purchasers of vitamins in countries that don't have any antitrust laws, but we would reject claims coming from, say, the U.K. or Canada?",
       "time": "00:51:25.33"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that... that in itself is a rather elaborate inquiry that you find nowhere in the statute.",
       "time": "00:52:06.92"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah, but forum non conveniens is ordinarily not that you have different law, but there are other factors that make it inconvenient to try the case.",
       "time": "00:52:21.00"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, she's perfectly capable of speaking her own view. If you'd just answer your... my question.",
       "time": "00:52:33.56"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But... but the people from Canada cannot go somewhere else and vindicate their claim because the Canadian law is different.",
       "time": "00:52:51.20"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I... I thought your answer was that the ones that don't can sue here, and the ones that do can't sue here.",
       "time": "00:53:09.51"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But then you said a moment ago, I thought, that the Canadians could sue here, but I... now you're saying they'd be turned away.",
       "time": "00:53:17.17"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But would you get to my Illinois Brick question before your time runs out.",
       "time": "00:53:51.55"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And just so I put the question as... as clearly as possible, it seems extraordinary to me that if this... if a foreign company had been injured by buying drugs from an American company that bought them from the conspirators at an excessively high price, that foreign company would not have a cause of action. But you're saying that a foreign company has a cause of action by reason of the fact that had the American company not purchased at the artificially high conspiratorial price, but at a lower price, they might have purchased from that... from that intermediate person, and... whereas Illinois Brick would clearly bar the first suit, you're saying it doesn't bar the second suit as a rationale for allowing them to sue here, and that strikes me as very strange.",
       "time": "00:53:55.73"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As far as your first point is concerned, I understand the other side to concede that if you could demonstrate that you would have bought from one of these American companies that manufactured in connection with this conspiracy and sold at the conspiratorial price, you would... you would have a cause of action. That clearly would have... would... would be... affect the export commerce from the United States.",
       "time": "00:55:59.20"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Goldstein. Now, Mr. Shapiro, you have four minutes remaining.",
       "time": "00:56:36.54"
     },
@@ -987,13 +987,13 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Shapiro. The case is submitted.",
       "time": "01:00:43.48"
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "01:00:45.03"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/302/19570423a_302.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
       },
       {
         "name": "SOL A. ROSENBLATT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MONROE J. WINSTEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- Cornelius Vanderbilt, Jr., Petitioner versus Patricia W. Vanderbilt and Thomas F. McCoy. Mr. Rosenblatt.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Court of Appeals held for what?",
       "time": "00:01:10.11"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there a -- is there a Court of Appeals decision that residents means domicile?",
       "time": "00:08:37.79"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A lot of things that are well-known that I don't know.",
       "time": "00:08:47.99"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, I would.",
       "time": "00:08:51.64"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I -- you --",
       "time": "00:13:56.71"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You're suggesting --",
       "time": "00:13:58.32"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You're suggesting that she swore falsely, has that been the determination of any of the New York courts?",
       "time": "00:13:59.25"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, were any of those issues before the New York courts?",
       "time": "00:14:27.81"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And they were all decided adversely to your position?",
       "time": "00:14:32.08"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't quite -- I don't quite follow you, Mr. Rosenblatt.",
       "time": "00:16:33.55"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do I understand from -- in view of your last remark about New York not being honest, as you put it, that if New York had -- had been dishonest as you want them to be and just said that a woman in this situation could get maintenance, would that have been all right, that statute?",
       "time": "00:16:36.64"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, I'm --",
       "time": "00:16:59.41"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Although, she -- although, there'd been a divorce between her and her husband in a sister State to which respect would have to be accorded by New York?",
       "time": "00:17:03.46"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that your trouble is that -- or your -- your attack on this statute is that although if this same obligation could have been imposed, would have been -- might have been imposed by a statute which simply and candidly says, \"Mr. Vanderbilt must maintain this lady who once was his wife and had been dully divorced, but nevertheless because she was once his wife, New York State has a constitutional interest that may impose a maintenance liability on the husband, that would have been all right.\"",
       "time": "00:17:15.32"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I'm --",
       "time": "00:17:58.76"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That it wouldn't have been all right --",
       "time": "00:18:05.68"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, so that the question comes -- to the question and seems from your point of view, they are different -- they had a very different -- different exception in this case. From your point of view, you're asking us to pursuit Justice Brennan's question to say that -- that those conditions which in your -- from your point of view would make this a valid statute, namely, that there was some type, some domiciliary type between this woman in New York, that was the precondition of the obligation and you say the New York Court of Appeals didn't -- was not warranted in the facts to make such a finding, it did make such a finding and we must overrule that finding as a matter of constitutional law, is that it?",
       "time": "00:18:10.59"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can pursue it provided it's relevant or you can pursue it anyhow. That's -- that's your hour.",
       "time": "00:18:58.62"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What I want to know is how of this Court is in a position to go behind determination of whether a woman lived in New York for a year and how she lived there whether permanently or anything else. All those questions of constitutionality rather than determinations of fact on which, usually, the majority of a court is a court's decision. How can I tell whether who is right or who is wrong? Would we take testimony?",
       "time": "00:19:03.37"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that's (Voice Overlap) --",
       "time": "00:19:32.18"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the Court has applied.",
       "time": "00:19:33.26"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is it common --",
       "time": "00:19:39.67"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is it common sense the -- the equivalent or can that dispense for the determination of a whole judicial system to with New York that certain facts were facts?",
       "time": "00:19:41.47"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's in the record on the basis of which I draw independent conclusion to the extent that there's no basis for the determination of the state court, is that this kind of a situation?",
       "time": "00:19:59.51"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Very well.",
       "time": "00:20:10.84"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, is that (Voice Overlap) --",
       "time": "00:20:28.92"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that conceded by the New York court?",
       "time": "00:20:31.85"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What about a person has matrimonial domicile and I think in the question of law, the question of the existence of the certain facts from which a conclusion is drawn. And what you are saying now is that this record is absolutely so barren of any support for those underlying facts on which the Court of Appeals to -- based its decision that no court in reason could have reached that conclusion.",
       "time": "00:20:34.75"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then that's the proposition you have to maintain.",
       "time": "00:20:59.22"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Dissent seemed to be popular with people who have use for them but they are not decisions of courts.",
       "time": "00:21:13.27"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's a legal proposition.",
       "time": "00:21:58.43"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that isn't if you're standing on as I follow you argument --",
       "time": "00:22:01.18"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- or I can't follow it. That's a legal proposition, namely, I -- I adhere to that for myself that you can't -- New York can't differentiate and treat disadvantageous a divorce rendered outside the State for one rendered inside the State. I understand that.",
       "time": "00:22:04.29"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's a legal proposition. That is what you're tendering.",
       "time": "00:22:23.09"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because you don't --",
       "time": "00:22:29.69"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because you don't expect the -- because you don't accept the facts found by the New York Court of Appeals.",
       "time": "00:22:31.21"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, are you --",
       "time": "00:23:26.04"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you then resting on Pennoyer and Neff that this is a judgment of a personal character and that your client wasn't properly served?",
       "time": "00:23:29.47"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you will establish only one of those proposition on which you're resting, so far as I am concerned, that's enough.",
       "time": "00:23:51.39"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Just one of them. If it's Pennoyer and Neff, that ought to be established. If it's discrimination to which you referred and what I had said in Estin, I understand that. But I can't understand asking me to say that the underlying alleged facts found against you by the Court of Appeals are reviewable here except on the theory of -- one of due process because there's no foundation whatever as disclosed by this record.",
       "time": "00:23:58.10"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would it make a difference or what --",
       "time": "00:31:36.17"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that make a difference?",
       "time": "00:32:20.45"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:32:22.55"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How much of the --",
       "time": "00:32:24.11"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- argument will be a matter that makes no difference.",
       "time": "00:32:25.20"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you mind stating first what you understand the issue legally should be.",
       "time": "00:32:53.19"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, is that the -- what you understand that these are legal issues?",
       "time": "00:33:04.66"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean that the legal issue -- there was no federal question raised below, is that what you mean?",
       "time": "00:33:22.11"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's your answer to that?",
       "time": "00:34:02.71"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any other issue here but the --",
       "time": "00:35:05.86"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the other issues that you understand, this legal issue?",
       "time": "00:35:16.99"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Besides the fact that the difference between you. He says you have not -- the New York did not give full faith and credit to this divorce decree. You say they did because they recognize it as dissolution of the marriage.",
       "time": "00:35:21.37"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, what is the other ground which you understand?",
       "time": "00:35:35.78"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose they had, what would you say?",
       "time": "00:35:49.28"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "One of them is, you say they did not purport to do it. In the other deals as you say if they did purport to do it, they didn't have a constitutional right to do so.",
       "time": "00:36:07.14"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under Nevada law, doesn't that mean that Nevada determined that she was not entitled in -- in alimony?",
       "time": "00:37:03.38"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about the Sweeney case in -- was that the name of it in Nevada?",
       "time": "00:37:24.65"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Voice Overlap) in New York as holding according to the New York's interpretation of the Nevada law that the decree does have the effect that your opponent claims under Nevada law, irrespective of whether constitutionally it could have that effect.",
       "time": "00:37:30.91"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I put a question to you?",
       "time": "00:41:30.14"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Assuming that one would conclude that Nevada undertook to adjudicate alimony and assuming that the further conclusion that constitutionally, it had the power to do so, what's left of your case?",
       "time": "00:41:32.51"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the Estin case did not hold that. The Estin case is a totally different proposition. The Estin case holds that a later divorce in Nevada cannot supplant an earlier imposition of obligation in New York and that's all Estin holds. The question there was whether the later divorce could displace an obligation which New York had the right at the time that imposed it to impose.",
       "time": "00:42:32.97"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "By a judgment in the maintenance --",
       "time": "00:43:03.29"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and support case in Estin (Voice Overlap) --",
       "time": "00:43:05.58"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm limiting the Estin case to what the Estin case was based on. I'm not saying that's the last word in a different situation.",
       "time": "00:43:16.18"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'd like to hold decisions to what they decide --",
       "time": "00:43:23.66"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and not something else.",
       "time": "00:43:26.63"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know what that means.",
       "time": "00:43:31.24"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know what that means, it wasn't limited. It dealt with the situation of whether a later divorce render -- can render null and void and displace, as I said earlier, a prior valid judgment by a New York court.",
       "time": "00:43:33.16"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, as I understand the case here is the divorce in Nevada prior thereto no obligation defined or exercised power to impose an obligation exercised by New York. But after divorce, New York says, \"This ex-wife is entitled to maintenance.\" Isn't that this case?",
       "time": "00:44:04.26"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I (Voice Overlap) --",
       "time": "00:44:32.78"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's an appropriate argument for you to urge that this Court should in this case hold that that furnishes constitutional power for New York to impose an obligation. I'm trying to hold you to what Estin decided, and Estin decided whether or not Nevada because she later divorced the person who then had a right under the New York -- a declared right, not an argumentative right out of which you get a right but an existing declared obligation whether that was determining, whether that was held because lately there was a divorce. That -- this case is the opposite of that, namely, Nevada comes first, take action and the question is and that you can argue, the way you can argue as I understand that.",
       "time": "00:45:00.43"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that is in Estin.",
       "time": "00:45:53.43"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's a perfectly good argument for you to make but it's an argument and not what Estin decided, not what Armstrong decided.",
       "time": "00:46:23.33"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A little thing like that, whether or not Nevada could -- has the power to undue a valid exercise of power by New York trial thereto. A little difference like that. Very often in light that makes a difference who comes first.",
       "time": "00:46:46.08"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I can understand your argument there but don't say we decided that.",
       "time": "00:47:03.37"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "00:47:09.25"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You have the liberty of course to argue that we decided and rather trying to believe with you.",
       "time": "00:47:10.22"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you would argue with the words.",
       "time": "00:47:15.82"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There were some dissents in Estin, weren't there?",
       "time": "00:47:32.10"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And because there were dissents, the case stands for more than it stood, is that it?",
       "time": "00:47:39.15"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You pay no attention to my dissent. Concentrate on what the Court decides.",
       "time": "00:48:01.33"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where do you -- will you -- may I ask you how you get what a court decide other than -- otherwise than to the -- through the Court statement of what the issue is which it is about to decide. Let me read you. The case here and this case here on certiorari present an important question under the Full Faith and Credit Clause. It is -- it is, that's the question, it is whether a New York decree awarding the respondent $180 per month for maintenance and support in a separation proceeding survived a Nevada divorce decree which he separate -- subsequently was granted. What you're arguing is that those words, whether it survived a Nevada decree subsequently granted were supplant which is immaterial, redundant, have no meaning.",
       "time": "00:48:32.82"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I suppose when this Court states what the issue is that's the issue, not something else.",
       "time": "00:49:30.15"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You can argue what you think about the rest of the opinion too if you decide of course.",
       "time": "00:49:36.05"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You cannot do anything.",
       "time": "00:49:40.71"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can get any use of your time that you please.",
       "time": "00:49:42.05"
     },
@@ -1093,19 +1093,19 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm merely directing counsel --",
       "time": "00:49:44.40"
     },
     {
       "turn": 177,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And I will extend your time if you lose too much of it.",
       "time": "00:49:45.22"
     },
     {
       "turn": 178,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And I'm directing counsel's attention to the fact that opinions has to be read in the light of what they decide --",
       "time": "00:49:47.71"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and not what is hoped will be subsequent, derivations from it.",
       "time": "00:49:53.51"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You could do anything you please with your time. And the mere fact that questions are asked do not usually extend counsel's time.",
       "time": "00:49:58.01"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, in this case if you -- if you don't have enough time, I will extend your time.",
       "time": "00:50:05.70"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Assuming -- assuming your client had gone into Florida which she had no connection whatever, do you think the case would be any different from your standpoint than it is now?",
       "time": "00:54:53.24"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "She had gone into Florida with which she had no connection prior to the Nevada decree and had then gone in, in Florida and had a statute of this kind which she had sought to avail herself of the Florida statute, would your case be any different in your view?",
       "time": "00:55:11.21"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that isn't quite my point. As I take it in your answer to me you indicate that whether she was domiciled in New York or not, it is a matter of irrelevancy so far as your position is concerned.",
       "time": "00:55:44.40"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing Florida had had a statute like New York and said anybody after 20 days of residence in the State can maintain this kind of an action. Would your case be any different from your view?",
       "time": "00:56:47.73"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What we have here now.",
       "time": "00:57:04.17"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Now, in New York it's one year?",
       "time": "00:58:20.95"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is this specific finding here that Mrs. Vanderbilt was a domiciliary of New York for the one year period preceding the execution of this action.",
       "time": "00:58:24.72"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Specific --",
       "time": "00:58:38.37"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What I'm trying to get at is this, is it your view that this Nevada decree was not entitled to a full faith and credit so far as alimony is concerned in any State, no matter what the defendant's -- what your client's connection with that State was? If I already chose to take jurisdiction ten years from now to entertain your client's action, ten years after the divorce in Nevada, could it be your position that Florida then could say notwithstanding the -- the Nevada decree will take jurisdiction and adjudicate alimony?",
       "time": "00:58:49.29"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Voice Overlap) --",
       "time": "00:59:33.63"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--your position rests on this (Voice Overlap) --",
       "time": "00:59:34.95"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is there is a specific finding on that question to -- in the record here that Mr. Vanderbilt was a domiciliary of New York before the institution of the divorce doctrine in Nevada?",
       "time": "01:00:05.04"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, does that mean for example that New York domiciliary wives who -- as to whom they were ex parte divorce is just as this and who lived in the State of New York before New York recognized post-divorce maintenance would not be able to avail themselves of this statute in New York today?",
       "time": "01:02:10.01"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As I understand it here, Mrs. Vanderbilt acquired a New York domicile when this statute was on the books?",
       "time": "01:02:41.74"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Prior to the enactment?",
       "time": "01:02:49.94"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And when was this statute?",
       "time": "01:02:56.80"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And if the --",
       "time": "01:03:20.60"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Suppose he'd moved out to Nevada a month earlier and had obtained his divorce a week or two before this New York statute became effective?",
       "time": "01:03:22.61"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's why I don't quite understand why you answered Justice Harlan that it might depend in the New Mexico case that should been a domiciliary of New Mexico on New Mexico's law at the time of the divorce. What difference does it make on -- as I understand your argument, basically it is that based on Estin, Armstrong, Pennoyer and Neff, Nevada could not in anywise by its decree affect personal rights.",
       "time": "01:04:09.24"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then what difference does it make whether in a given State where she was a domiciliary at the time they don't recognize any personal right.",
       "time": "01:04:36.18"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Don't agree with me. I -- I don't --",
       "time": "01:04:48.26"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, how could it make a difference?",
       "time": "01:05:12.80"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How?",
       "time": "01:05:14.55"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How? I don't understand --",
       "time": "01:05:15.54"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) question, how could it make a difference?",
       "time": "01:05:17.31"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I thought you were also arguing, however, that the nexus under this statute is her domicile in the State of New York? That --",
       "time": "01:06:14.70"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That the nexus with New York by reason of her domicile there is the reason that New York may give her the relief that this statute provides.",
       "time": "01:06:25.49"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if that's the fact then -- then I don't follow you why anything that New Mexico could do could affect that basis of New York power.",
       "time": "01:06:33.97"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of domiciliaries?",
       "time": "01:06:55.20"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then what difference does it make?What, as a domiciliary of New Mexico, New Mexico may have done in respect of not recognizing that she had any rights, that they were cut off so long as she was a New Mexico domiciliary?",
       "time": "01:06:57.78"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There's nothing in this statute which suggest that, isn't (Voice Overlap) --",
       "time": "01:07:26.95"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The statute is based only, as I understand it, upon the one invoking its benefits, establishing domicile in New York.",
       "time": "01:07:31.47"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "For the requisite period.",
       "time": "01:07:40.39"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And does it -- why do you think it makes any difference whether the time when the divorce was granted in relation to the passage of the statute have anything to do with this?",
       "time": "01:07:42.35"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well (Voice Overlap) --",
       "time": "01:07:55.89"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it's irrelevant, isn't it?",
       "time": "01:07:59.20"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And it's irrelevant as to when she became a domiciliary, except for the time period, isn't it?",
       "time": "01:08:02.31"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I'm confused --",
       "time": "01:08:11.22"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not disagreeing with you.",
       "time": "01:08:17.09"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm going beyond your own support for your own position.",
       "time": "01:08:18.49"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At the time of the divorce?",
       "time": "01:08:41.49"
     },
@@ -1645,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And so if later on the State says, \"There are so many ex-wives in our State who are at large and we now enunciate a new policy that all ex-wives may bring maintenance proceedings against their former husband.\" Why is that any less constitutional than this? I don't see that.",
       "time": "01:08:44.85"
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is all a question of whether a State have, as Justice Brennan indicated a minute ago, a State may by virtue of the fact that it affect citizens of its own, domiciliaries of its own, may provide that the ex-husband should maintain the ex-wife.",
       "time": "01:09:18.13"
     },
@@ -1669,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That -- that's what you ultimately have to rest on?",
       "time": "01:09:39.41"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And I -- I should --",
       "time": "01:09:43.00"
     },
@@ -1693,7 +1693,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- I think it makes no difference whether that preceded a divorce of that policy, preceded a divorce or follow the divorce, as far as I can see about constitutional power.",
       "time": "01:09:43.92"
     },
@@ -1705,7 +1705,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I don't think that case helps you any because that, in the first place it is, (Inaudible) outmoded. I don't believe that decision would hold today. That was the last remnant of recognizing legislative divorces.",
       "time": "01:10:33.65"
     },
@@ -1717,7 +1717,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's a nice way of simplifying a problem in a unitary State but it isn't that way with us where we've got right to a different State pulling in different direction.",
       "time": "01:11:25.07"
     },
@@ -1729,7 +1729,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now, your refer this to this quote at 547?",
       "time": "01:12:17.43"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You didn't get quite to the sentence but Section 1170-b to the extent that it applies has changed that old New York policy, that is on ex parte in New York --",
       "time": "01:12:21.75"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- divorces. Is that what you say is a holding?",
       "time": "01:12:32.72"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then let me ask this question. Is that a holding that if ever there was a New York law which gave the effect to ex parte divorces that your adversary insist New York law did, this is a holding that that law was changed by 1170-b?",
       "time": "01:12:45.56"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, has the New York Court of Appeals spoken in any other case since this decision on this subject?",
       "time": "01:14:13.33"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you --",
       "time": "01:18:42.15"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you a question --",
       "time": "01:18:42.81"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- on the other subject? Under your view of Estin and Estin, it would mean that any dissatisfied wife could shop around for any jurisdiction that she has thought most favorable and subject to the laws of the particular jurisdiction, get an alimony adjudication despite the Nevada decree as it would be in this case.",
       "time": "01:18:44.13"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You don't have to go that far and recognize it but you -- as I understood you in answer to Justice Frankfurter, you would say you -- you prepared to argue that if you had that kind of a case.",
       "time": "01:19:13.61"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Therefore, what you're saying in fact is that the domiciliary relationship of your client to New York gave New York a sufficient interest so that the point of view of full faith and credit, it did not have to recognize the Nevada decree. Is that your position?",
       "time": "01:19:27.00"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 302,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And in that, you're assuming (a), that Nevada undertook to adjudicate alimony and (b), that it had the right to adjudicate alimony. You're willing to assume that for the purposes of this argument?",
       "time": "01:20:06.87"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 304,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that but of course if you're right in that then all of this talk about whether she was domiciled or not becomes irrelevant because Nevada would not have the right.",
       "time": "01:20:33.12"
     },
@@ -1873,7 +1873,7 @@
     },
     {
       "turn": 306,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It couldn't have adjudicated alimony.",
       "time": "01:20:45.67"
     },
@@ -1885,7 +1885,7 @@
     },
     {
       "turn": 308,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Therefore, when you -- when you go back to your domiciliary point, it must be on the assumption that Nevada undertook to and could constitutionally adjudicate that right. And on constant because of New York's interest in the -- in the status of this woman, it did not have to give full faith and credit?",
       "time": "01:20:48.35"
     },
@@ -1897,7 +1897,7 @@
     },
     {
       "turn": 310,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where am I --",
       "time": "01:21:19.40"
     },
@@ -1909,7 +1909,7 @@
     },
     {
       "turn": 312,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where in my hope to deem on that, I'm just trying to get (Voice Overlap) --",
       "time": "01:21:21.44"
     },
@@ -1921,7 +1921,7 @@
     },
     {
       "turn": 314,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you are right in that then it seems to me the case is over. You won your case.",
       "time": "01:21:56.89"
     },
@@ -1933,7 +1933,7 @@
     },
     {
       "turn": 316,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But without regard to what connection this woman had, without connection to what stage you sued in or without anything more.",
       "time": "01:22:02.49"
     },
@@ -1945,7 +1945,7 @@
     },
     {
       "turn": 318,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But that is -- doesn't seem to be the position you take referring to (Voice Overlap) --",
       "time": "01:22:12.13"
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "turn": 320,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right.",
       "time": "01:22:19.39"
     },
@@ -1969,7 +1969,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I ask you to restate what you're not prepared to defend? I just want to know because I -- I'm (Voice Overlap) --",
       "time": "01:22:31.83"
     },
@@ -1981,7 +1981,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At the time that the divorce --",
       "time": "01:23:07.46"
     },
@@ -1993,7 +1993,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) the decree.",
       "time": "01:23:09.29"
     },
@@ -2005,7 +2005,7 @@
     },
     {
       "turn": 328,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it can't possibly conflict with the Full Faith and Credit Clause if -- if either Nevada shouldn't undertake to adjudicate alimony which is Armstrong against Armstrong --",
       "time": "01:23:34.78"
     },
@@ -2017,7 +2017,7 @@
     },
     {
       "turn": 330,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- or if, although it did undertake to adjudicate alimony, it had no power to do so --",
       "time": "01:23:48.57"
     },
@@ -2029,7 +2029,7 @@
     },
     {
       "turn": 332,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- under your interpretation of Estin against Estin.",
       "time": "01:23:54.57"
     },
@@ -2041,7 +2041,7 @@
     },
     {
       "turn": 334,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And therefore, everything else that you've argued is unnecessary (Voice Overlap) --",
       "time": "01:23:57.38"
     },
@@ -2053,7 +2053,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I suggest that there may be a different view. The fact that you don't have to play -- the fact that the Full Faith and Credit Clause doesn't come into play, doesn't ipso facto approve that a State can impose an obligation on one person for the maintenance of another.",
       "time": "01:24:04.28"
     },
@@ -2065,7 +2065,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That -- therefore, I don't see that one follows from the other because it doesn't have to -- because the full faith and credit -- because that divorce judgement doesn't carry with it an adjudication that Smith need not support Mrs. Smith thereafter. From that, you don't jump automatically that therefore the State of New York or any other State can say that Mr. Smith must support Mrs. Smith. The power for that -- that exercise of power must rest on something else --",
       "time": "01:24:29.03"
     },
@@ -2077,7 +2077,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- not merely that there was no adjudication.",
       "time": "01:25:04.35"
     },
@@ -2089,19 +2089,19 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Winsten, I -- I appreciate that it's not here and I don't want to take your time with it, but do you proceed in the other important aspect of divisible divorce, custody of children, somewhat the same problem if the children -- if there were minor children non-residence of Nevada at the time it was --",
       "time": "01:25:09.11"
     },
     {
       "turn": 343,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the whole question.",
       "time": "01:25:30.84"
     },
     {
       "turn": 344,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the divorce was obtained and the wife, the domiciliary of New York and the children with her in New York and do Nevada purported to make as part of its decree some provision for custody of the children that the same full faith and credit problem may arise?",
       "time": "01:25:31.37"
     },
@@ -2113,7 +2113,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well --",
       "time": "01:26:53.53"
     },
@@ -2125,7 +2125,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) patriae factor in that anyway, I suppose.",
       "time": "01:26:59.59"
     },
@@ -2137,7 +2137,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I say you have parens patriae involved in the State where the children actually are (Voice Overlap) --",
       "time": "01:27:02.83"
     },
@@ -2149,7 +2149,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Don't take anymore of your time (Voice Overlap) --",
       "time": "01:27:16.24"
     },
@@ -2161,7 +2161,7 @@
     },
     {
       "turn": 354,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that argument is sort of a stand off, isn't it? They're both ex parte.",
       "time": "01:28:46.62"
     },
@@ -2173,7 +2173,7 @@
     },
     {
       "turn": 356,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your opponents got a pretty good argument on his side to rebut all that. This isn't a case of the ordinary quickie divorce, this man was domiciled out there, and this is as far as this record shows. And so far as the in personam character of the divorce decree why you are simply begging for question that's involved in Estin -- Estin against Estin.",
       "time": "01:29:36.95"
     },
@@ -2185,7 +2185,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your time is up.",
       "time": "01:30:46.53"
     },
@@ -2197,7 +2197,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your time is up.",
       "time": "01:30:49.82"
     },
@@ -2215,7 +2215,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you one question --",
       "time": "01:40:33.34"
     },
@@ -2227,7 +2227,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- before you sit down.",
       "time": "01:40:35.44"
     },
@@ -2239,7 +2239,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose the wife had gone to Nevada instead of the husband --",
       "time": "01:40:36.96"
     },
@@ -2251,7 +2251,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and there have been constructive service --",
       "time": "01:40:41.57"
     },
@@ -2263,7 +2263,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- could she have gotten a decree for alimony?",
       "time": "01:40:44.28"
     },
@@ -2275,7 +2275,7 @@
     },
     {
       "turn": 373,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think it would have been valid? Suppose they had (Voice Overlap) --",
       "time": "01:40:52.06"
     },
@@ -2287,7 +2287,7 @@
     },
     {
       "turn": 375,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose they had ordered there now that she (Voice Overlap) --",
       "time": "01:40:56.45"
     },
@@ -2299,7 +2299,7 @@
     },
     {
       "turn": 377,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- be allowed to take his property.",
       "time": "01:40:59.05"
     },
@@ -2311,7 +2311,7 @@
     },
     {
       "turn": 379,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose they had divided -- decided that he be allowed so much for than a half his property, would that have been a valid decree?",
       "time": "01:41:01.66"
     },
@@ -2323,7 +2323,7 @@
     },
     {
       "turn": 381,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Having --",
       "time": "01:41:09.41"
     },
@@ -2335,7 +2335,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why?",
       "time": "01:41:10.43"
     },
@@ -2347,7 +2347,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But your position -- your position is that the husband can get a valid decree depriving the right of alimony on constructive service but she cannot get a valid decree granted for alimony on constructive service, it maybe a good position, that -- is that your position?",
       "time": "01:41:21.78"
     },
@@ -2359,7 +2359,7 @@
     },
     {
       "turn": 387,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm --",
       "time": "01:41:42.50"
     },
@@ -2371,7 +2371,7 @@
     },
     {
       "turn": 389,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm talking about the constitutional right.",
       "time": "01:41:44.61"
     },
@@ -2383,7 +2383,7 @@
     },
     {
       "turn": 391,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't make --",
       "time": "01:42:02.59"
     },
@@ -2395,7 +2395,7 @@
     },
     {
       "turn": 393,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't make my position clear and I don't clear this out. I just wanted to get your view. What is your view with reference to whether or not it would form a due process for a wife or a husband to have a wife denied alimony, now that she has a stay on constructive service, constitutionally speaking?",
       "time": "01:42:03.27"
     },
@@ -2407,7 +2407,7 @@
     },
     {
       "turn": 395,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are there any case? Let's forget this case for the moment (Inaudible)",
       "time": "01:42:31.23"
     },
@@ -2419,7 +2419,7 @@
     },
     {
       "turn": 397,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "01:42:38.21"
     },
@@ -2431,7 +2431,7 @@
     },
     {
       "turn": 399,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And --",
       "time": "01:42:52.81"
     },
@@ -2443,7 +2443,7 @@
     },
     {
       "turn": 401,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "01:42:54.89"
     },
@@ -2455,7 +2455,7 @@
     },
     {
       "turn": 403,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) Forget all about misconduct. The whole basis of Judge Fuld's opinion on which you are relying is that alimony isn't just a personal obligation like a man suing on a debt, on a note. The view of Judge Fuld is that it isn't -- that alimony is an incident to the status and thereby do not see how you can escape. In fairly answering Justice Black's question that in as much as Nevada can cutoff alimony, Nevada can impose alimony in favor of New York to be respected in other State.",
       "time": "01:43:25.06"
     },
@@ -2467,7 +2467,7 @@
     },
     {
       "turn": 405,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't know what (Voice Overlap) --",
       "time": "01:44:14.77"
     },
@@ -2479,7 +2479,7 @@
     },
     {
       "turn": 407,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'm talking about the analysis which Judge Fuld made.",
       "time": "01:44:28.26"
     },
@@ -2491,7 +2491,7 @@
     },
     {
       "turn": 409,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can't take what you want and reject what you don't like.",
       "time": "01:44:33.00"
     },
@@ -2503,7 +2503,7 @@
     },
     {
       "turn": 411,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "01:44:38.07"
     },
@@ -2515,7 +2515,7 @@
     },
     {
       "turn": 413,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- with anybody.",
       "time": "01:44:38.83"
     },
@@ -2527,7 +2527,7 @@
     },
     {
       "turn": 415,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:44:46.89"
     },

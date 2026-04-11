@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-585/19831004a_82-585.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD L. GRIFFITH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM DAVID DEXTER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Griffith, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about a next income tax, Mr. Griffith?",
       "time": "00:04:57.66"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there all that much difference between a gross income tax and a net income tax?",
       "time": "00:05:05.02"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say that a gross income tax is necessarily one on the passenger? I wouldn't have thought so, or perhaps I misunderstood you. The statute is defined four different ways, to hit a tax directly on the passenger or a tax on the carriage of that passenger, or a tax on the sale of air transportation, or a tax on the gross receipts realized by the airline. Yes, but what I am try... what I want to ask you is whether a gross income tax or gross receipts tax on the airline that is collected at the head office of the airline, it isn't imposed on passengers individually at all--",
       "time": "00:05:27.20"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is that appreciably different from a net income tax similarly reflected?",
       "time": "00:06:09.18"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How?",
       "time": "00:06:16.89"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, the act does not prohibit, I gather, a property tax or a franchise tax to be levied by the state.",
       "time": "00:06:38.62"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what reason would Congress have to forbid the use of gross receipts as a measure for imposing a property tax or a franchise tax?",
       "time": "00:06:48.98"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the amount is the same?",
       "time": "00:07:02.06"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I know that is what you have argued on the purpose, but if the state can get the same revenue and just label it something else, it is little hard to understand the position.",
       "time": "00:07:45.34"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, now, Congress has amended the law in a way that doesn't apply to the tax years in question here.",
       "time": "00:08:03.26"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But they have since amended it, and they have created a new exemption for in lieu taxes. Now, if that were applicable today, does that have any implication on this?",
       "time": "00:08:11.15"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Griffith, if you should prevail here, is there anything to prevent the state from turning around and levying even a higher income tax on your clients?",
       "time": "00:09:02.74"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But you might win a Pyhrric victory then here.",
       "time": "00:09:23.66"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That isn't the only kind of tax they could levy either, is it?",
       "time": "00:09:30.27"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "If you were entirely an intrastate airline, didn't fly over international waters, you would have no case here, would you?",
       "time": "00:10:04.90"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Griffith--",
       "time": "00:17:17.38"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--The airlines over a number of years accepted this tax, didn't they?",
       "time": "00:17:18.21"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Your client didn't. That is--",
       "time": "00:17:25.31"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--You represent Aloha?",
       "time": "00:17:30.95"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, did you file protests every year or something? Did you--",
       "time": "00:17:33.34"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Dexter?",
       "time": "00:23:09.14"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Dexter, you will speak about the language of the statute, won't you, because I have gone through your brief and I do not find it quoted anywhere.",
       "time": "00:23:48.42"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dexter, you didn't mention in responding to Justice Blackmun, or at least I didn't hear you--",
       "time": "00:25:17.12"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--That the prohibition is not just on taxing the sale of air transportation but goes as they are on the gross receipts derived therefrom.",
       "time": "00:25:22.84"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is this a gross receipts tax?",
       "time": "00:26:40.64"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's a tax on gross receipts.",
       "time": "00:26:50.91"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On what, gross receipts?",
       "time": "00:26:54.71"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's not on gross receipts.",
       "time": "00:27:06.02"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then how is that measured? How is it measured?",
       "time": "00:27:57.34"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Receipts.",
       "time": "00:28:03.60"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, so this is a gross income tax.",
       "time": "00:28:06.19"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And it is different from gross receipts.",
       "time": "00:28:09.52"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, don't you require them to report their gross, \"their gross receipts\"?",
       "time": "00:28:14.99"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then you say that is not a gross receipts tax.",
       "time": "00:28:23.22"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I have problems.",
       "time": "00:28:31.00"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, Mr. Dexter, they don't say anything about the value of the franchise in the statute itself, do they?",
       "time": "00:28:55.36"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it says there shall be leveled and assessed upon each airline a tax of 4 percent of its gross income each year from the airline business.",
       "time": "00:29:05.59"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is really something else.",
       "time": "00:29:14.62"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what definition of public utility?",
       "time": "00:29:18.93"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that statute quoted in the briefs?",
       "time": "00:29:45.73"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that statute quoted?",
       "time": "00:29:46.90"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But none of them pay the federal 8 percent transportation tax, do they?",
       "time": "00:33:49.90"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I just, nevertheless, none of them have to charge their customers the 8 percent.",
       "time": "00:34:02.68"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Okay.",
       "time": "00:34:09.16"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dexter, that argument would carry considerable weight if the claim here were that the tax on your... the levy by Hawaii violated equal protection, but it is that it violates a specific prohibition in an act of Congress.",
       "time": "00:34:27.93"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it just certainly, its language just doesn't bear that construction, do you think?",
       "time": "00:35:04.57"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, gross receipts tax on air transportation is a tax of general applicability, don't you think? I don't see why a gross receipts tax on air transportation or receipts is any less a tax of general applicability than a net income tax on the revenue from air transportation.",
       "time": "00:35:45.07"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Am I wrong that the purpose of this tax was to build the airports?",
       "time": "00:37:23.56"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if they didn't build them, you'd have to build them, wouldn't you?",
       "time": "00:37:32.93"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Sure.",
       "time": "00:37:42.71"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your real problem here is that gross receipts doesn't mean gross receipts.",
       "time": "00:37:44.84"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Isn't that your problem?",
       "time": "00:37:52.43"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, so far as I am concerned, I will take on the problem if what a gross receipt is or happens to be.",
       "time": "00:38:03.67"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Dexter, supporting that you had a... say you win this case, and there is another state that doesn't have the same history of taxing in the way you say Hawaii always has, but just decides, well, since Hawaii can impose this tax, I think it's a pretty good idea, let's impose a gross income tax in the language of the Hawaii statute. Would that statute be valid?",
       "time": "00:39:44.77"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even if their new statute I described is in exactly the same language as the Hawaii statute?",
       "time": "00:40:42.62"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Concerned about airlines, certain carriers: there shall be levied and assessed upon each airline a tax of 4 percent of its gross income. Say I am in Ohio or Iowa or someplace like that, would I have to look at the history of Iowa and Ohio taxes to decide whether that was constitutional, I mean, consistent with the federal statute, not constitutional.",
       "time": "00:40:51.96"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How do you tell that other than by the fact the statute applies only to airlines? This statute only applies to airlines.",
       "time": "00:41:16.59"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if they imposed a property tax measured by $10 per passenger flying on the aircraft?",
       "time": "00:41:51.57"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why isn't this an indirect gross receipts tax?",
       "time": "00:42:04.86"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the trouble is the statute says the tax will be on gross income, and that sounds like the subject to me.",
       "time": "00:46:07.90"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it doesn't in the taxing part of it.",
       "time": "00:46:33.89"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Tell me, have some of the airlines paid the tax and without any objection for some time?",
       "time": "00:48:54.58"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you, what has been... what's the airlines' practice under this tax? Do they add it to the fare?",
       "time": "00:49:25.54"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Put they don't say on their... they don't have a separate item they add to the bill for taxes for each passenger.",
       "time": "00:49:44.53"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does any of them, does any of them do that?",
       "time": "00:49:57.09"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does any of them do that, just automatically add the gross income tax to the fare?",
       "time": "00:49:59.01"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are there other airlines than these two involved in this controversy directly or indirectly?",
       "time": "00:50:26.96"
     },
@@ -867,25 +867,25 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. Do you have anything further?",
       "time": "00:54:42.80"
     },
     {
       "turn": 138,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Thank you. Just a couple of quick points. My learned friend has described at length the Ohio tax as a discriminatory one, but I would point out to the Court that the Tax Commissioner of Ohio appeared before the House Commerce Committee and went to great lengths to list the various Ohio taxes and to show that in fact the Ohio tax was not discriminatory as compared to the railroads, the truckers, or other businesses, and he then submitted language to the Congress to permit a nondiscriminatory gross excise tax. The Congress declined his invitation. They did not accept his language, and I think that tells us that Congress was concerned about much more than discriminatory taxes. Finally, I would just point out that the Hawaii statute says that it is levied and assessed upon each airline a tax of 4 percent of its gross income each year from the airline business, and then it goes on later on to say that that tax is in lieu of the Hawaii general excise tax which is also a gross income, gross receipts tax. I have no further points.",
       "time": "00:54:52.06"
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:56:15.47"
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at 10:00.",
       "time": "00:56:17.38"
     }

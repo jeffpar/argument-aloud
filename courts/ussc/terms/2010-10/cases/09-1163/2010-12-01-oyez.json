@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/09-1163/20101201a_09-1163.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID S. MANN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ANTHONY A. YANG",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Case 09-1163, Milner v. The Department of the Navy. Mr. Mann.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I ask you this. The D.C. Circuit's decision in Crooker has been the leading decision in this -- on this issue for nearly 30 years and there has been a great deal of reliance on it, certainly by the lower courts in general, and perhaps also by Congress and by the Executive Branch. Do you think there is anything to be said for deference to that decision based on the fact that it has been -- there has been reliance on it to such a great degree for such a period of time?",
       "time": "00:02:15.00"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I ask -- I ask the question because the world has changed in a lot of ways since 1981, and one is that there is now I think much greater concern about the disclosure of information that has perhaps profound security implications. That was not as much of a concern in -- in 1981. If you think about, for example, suppose there is a Federal building with a hallway that is accessible only to somebody who has a code key. Would that be -- is that -- does that have to be disclosed under FOIA? Or architectural plans for a Federal building that would disclose the size of the bomb that would be necessary to bring the building down or bring part of the building down; is there any FOIA exemption that covers things like that?",
       "time": "00:03:23.48"
     },
@@ -83,19 +83,19 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Even though--",
       "time": "00:04:52.55"
     },
     {
       "turn": 8,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "7 and 3--",
       "time": "00:04:53.82"
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Even though you -- you said that -- about Exemption 7, the amendment to that, so you don't need 2, you still -- as far as I know every court of appeals that has weighed in has accepted Crooker. And I was a little puzzled why you were so intent on rejecting so-called High 2, because after all, in this very case, Judge Fletcher dissenting to, but he said he accepts Crooker, he accepts High 2, and he still thinks you win, so you don't need to reject Crooker to prevail.",
       "time": "00:04:54.69"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Why does that show that? Why doesn't it show acceptance of Crooker?",
       "time": "00:06:10.57"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, if Crooker was interpreting section 2, that was the interpretation. If everyone had followed it, every court, nobody disagreed. All your four arguments Judge Edwards went into thoroughly. Everyone but Judge Wilkie approved it. And so Congress reads that, and they make it specific in 7 but they say nothing about 2.",
       "time": "00:06:16.04"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you get a different Congress. I mean, the Congress that passed the law is not necessarily the same Congress that failed to amend the law. Are we to consider laws to be in effect only for so long as the Congress that passed them is sitting, and then the failure to make any changes in light of judicial decisions by later Congresses effectively amends the law?",
       "time": "00:07:09.56"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's an extraordinary proposition.",
       "time": "00:07:39.44"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How do you know, what we have is 7 E in front of us? 7 E says we want to be sure something like Crooker's interpretation of 2 applies for law enforcement. It's simply a case -- so they apply it with law enforcement. Absolutely now it's guaranteed. Crooker is not guaranteed because it could be overturned. You never know what will happen. But what in that suggests they don't want Crooker to apply to the Fed for example, or to the Navy, which is here storing -- it's here storing explosives. Why would -- I can't get anything one way or the other from the fact they passed 7. Why should I get one rather than the other? For every argument you make, I can see an argument on the other side that they make.",
       "time": "00:08:00.86"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's your answer to that? It was a question, really.",
       "time": "00:08:50.20"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But there was a proposal to amend 2--",
       "time": "00:09:07.46"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--And it was a conscious decision by Congress not to do 2 to conform to Crooker more generally, but to only pass 7. So there has to be a meaning to the decision to limit the amendment.",
       "time": "00:09:11.31"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Mann, do you assume there is always a reason for Congress's not passing a law? I mean, it's hard enough to figure out their reason for passing a law, but there could be an infinitude of reasons why a law is not passed.",
       "time": "00:09:57.23"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you know of any case in which the failure of Congress to amend a law in order to overrule a court decision other than a decision of this Court has been held to be an implicit approval of that decision? Do we have a single case where we said, oh, there was a line of court of appeals cases and since Congress failed to amend the statute to take account of those court of appeals cases, Congress must have approved them. Do we have any case like that?",
       "time": "00:10:15.42"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know of any.",
       "time": "00:10:51.79"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, in Rose we talked about a legitimate public purpose in seeking information. I tie my question to Justice Alito's, which is at what point does -- is it legitimate for the public to seek information, internal information relating to the rules and practices of personnel? Can the public seek information that places the community at a severe security risk? Is it possible for us to say that that kind of information, given our line of reasoning in Rose, could not be legitimate public information?",
       "time": "00:11:36.99"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of course, if that's the outcome of this case and if you prevail, that would mean that more things will be classified and withdrawn wholly from scrutiny, whereas if other exemptions are used they can be shared to a greater extent. So really what you are arguing for is for withholding more information from more people.",
       "time": "00:14:30.22"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do you want to know? How wide the corridors are in some Federal buildings, and terrorists could use that to bad purpose, but we want to give it to the firemen because they will use it for a good purpose. We want the policemen to know, we want different civic groups sometimes to know, but we want to keep a limitation. We want it restricted, restricted to minimize the chance it will get into the wrong hands. I don't see anything illogical about that. What's illogical about that?",
       "time": "00:16:16.40"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:16:46.50"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's a different argument.",
       "time": "00:16:47.79"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, your four arguments seem to me to be the same arguments that Judge Edwards in the D.C. Circuit considered, and they are excellent arguments, and there are arguments on both sides, and then they considered it and came to a conclusion. But this is a different argument you are making here and I was addressing that.",
       "time": "00:16:49.71"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, it's only addressed from law enforcement. It's -- there are many dangerous -- for example, this isn't law enforcement; this is munitions. The Navy thinks, rightly or wrongly, I guess you can -- that they don't want these maps circulated because they think it would make it easier to blow up the munitions. They want the firemen to have them, they want the civil defense workers to have them, but they don't want people who might blow them up to have them.",
       "time": "00:17:27.98"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's -- that's their reasoning. Now, that isn't addressed, it seems to me, in 7, because 7 deals with law enforcement.",
       "time": "00:17:51.43"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "As I -- as I read the D.C. Circuit decision, you are assuming or you are suggesting that the D.C. Circuit saw a gap that Congress hadn't provided for, and it fills that gap. And now the add-on that the D.C. Circuit made is no longer necessary, so we lop it off. But the judges on that, in that court, thought that they were interpreting the statute going through all of the steps that you outlined. Language is rarely so plain that there is no room for a different interpretation. And then Judge Edwards looked to the legislative history to see how that might inform the decision, but -- but really, to suggest that Crooker was just sort of a stopgap until Congress amended the statute I think is not fair to that decision.",
       "time": "00:18:14.38"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Mann, I thought you disagreed with the premise of Justice Ginsburg's question; that is, that you assert that the language related solely to the internal personnel rules and practices of an agency is quite clear.",
       "time": "00:20:51.18"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought maybe you were abandoning that.",
       "time": "00:21:07.62"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How is it -- how is it broader? I looked for the words. I just missed them, and you can point them out. When I read about the circumvention, what Crooker says is: \"We hold that since the document for which disclosure is sought meets the test of predominant internality and since its disclosure significantly risks circumvention of Federal statutes or regulations, it is exempt. \" It didn't say anything about circumvention because there is a regulated entity and it is that regulated entity that we'll circumvent. It just spoke of circumvention, as far as I saw. But maybe there's another place where it talks about regulated entity. Is there?",
       "time": "00:21:34.61"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Oh, that -- if we're looking at Crooker, I just read the words \"would there be circumvention\", and it seemed to me in this case the Navy has plans and they use those plans to store munitions safely, and the risk that they worry about is someone will get ahold of the plans and use the positions of those munitions in order to make them unsafe, for example, blowing them up. So that seemed like a very serious circumvention of what the regulation was there for.",
       "time": "00:22:21.82"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's correct, and I didn't find anything in Crooker that said -- and I don't know why you would have such a theory. I don't know what the point of the theory would be, that you would care whether blowing up took place by somebody who technically was regulated by the Navy or blowing up took place by some other person, whom they are worried about.",
       "time": "00:22:57.97"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you have any reason to -- just out of curiosity, do you have any reason to believe that the current version of the ESQD map is different from the one that was published in the newspaper previously?",
       "time": "00:24:29.21"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Yang.",
       "time": "00:25:33.74"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you tell me what the textual basing for Crooker's \"predominantly internal\" and \"circumvention of agency regulation\" requirements is? Where in the text are those words and how do you create them except through sort of judicial crafting?",
       "time": "00:25:59.81"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The problem with that in this case is that it's a mixed document. It is predominantly for internal use, but not exclusively.",
       "time": "00:26:40.53"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So how do you square that with the words \"related solely to internal\"?",
       "time": "00:26:52.61"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, the case summaries there were internal solely. They were created only for purposes of the agency's honor code review or discipline review.",
       "time": "00:27:39.75"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And yet we ordered it disclosed. We created an exception to the plain language of the rule, it seems to me.",
       "time": "00:27:52.39"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, I agree. But I think the distinction it made was that it's only internal rules and practices of the agency, personnel agency, if the public has no legitimate interest in it.",
       "time": "00:28:26.73"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Yang, the information about location I thought was disclosed, where these explosives were stored.",
       "time": "00:29:09.88"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we know they are in the building. We may not know--",
       "time": "00:29:29.61"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought that that information was given out for the Bangor facility.",
       "time": "00:29:48.92"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Have you compared the two situations, in Seattle and in Bangor? What -- because--",
       "time": "00:30:53.19"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why, if these maps are so sensitive as you suggested, why weren't they classified?",
       "time": "00:31:36.05"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry, I don't understand that. It's different to classify when?",
       "time": "00:31:50.23"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, surely you classify documents that are shared outside the Federal Government?",
       "time": "00:32:27.90"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Would you classify these maps after -- I mean, assume that you don't prevail, could you then classify these documents, preventing their release before they are released?",
       "time": "00:32:36.39"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Isn't it the case when a government agency has to go through its records in response to a FOIA request and comes upon records that would otherwise be disclosable, they can at that point say we are going to classify this so we don't have to disclose it.",
       "time": "00:32:53.12"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "There is a document on the FBI web site called \"Security clearance process for state and local law enforcement. \" which seems to address exactly the situation in which there is a need to -- it says: \"It is the policy of the Federal Bureau Of Investigation to share with law enforcement personnel pertinent information regarding terrorism. \" \"And it provides a procedure for sharing that classified information. \"",
       "time": "00:33:34.99"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It seems to me you're asking us to do your job. You have got to go through these documents and say, you are telling us how sensitive these are and therefore it would harm the national interest if they have to be disclosed. If that's true you can classify them and, instead of coming to us and saying you should torture the language in FOIA, to allow us to determine that this is sensitive to the national interest and therefore should be disclosed.",
       "time": "00:34:15.65"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So can we talk about that reading, Mr. Yang? Let's talk about the meaning of the statute. The key word, key term, is \"personnel rules and practices\". If I said to you, what's a personnel file, what would you say?",
       "time": "00:34:50.22"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It could be referring to Exemption 6 or it could be referring to just generally in a conversation. Your personnel file, what does it mean?",
       "time": "00:35:06.73"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Can you think of another context in which it means something other than that?",
       "time": "00:35:19.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It's a kind of H.R. file, right?",
       "time": "00:35:30.61"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So why should there be any difference if you look at the term H.R. files and practices.",
       "time": "00:35:33.56"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All the rules of an agency would -- would -- would be sucked in, wouldn't it?",
       "time": "00:36:10.92"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All the rules the agency promulgates are supposed to be enforced by the personnel of the agency.",
       "time": "00:36:15.74"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So they become personnel rules and practices.",
       "time": "00:36:22.23"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that begs, I think Justice Scalia's question. One could argue that everything that the agency develops except rules telling the public how to come to the agency with a complaint, et cetera -- virtually everything will govern either the internal personnel practices or the agency's practices vis-a-vis the public.",
       "time": "00:37:20.92"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if the -- if the agency has a rule that says put explosive A in building 1 and put explosive B in building 2, that's hard for me to explain that it's just a personnel rule, other than, as Justice Scalia says, everything, all functions have to be undertaken by humans.",
       "time": "00:38:04.53"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what about my hypothetical? Why -- why is that a person -- primarily or solely a personnel rule?",
       "time": "00:38:41.30"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that goes back to the point that -- I forgot about a computer age, but, forgetting that, humans have to do most things now.",
       "time": "00:38:55.53"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose the Office of Personnel Management has a pretty broad charter, then, on your theory of what the adjective means. OPM must be a very powerful agency. [Laughter]",
       "time": "00:39:35.35"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Can we go back to the origin of the Exemption 2? I thought there was a concern in Congress that under the APA section 3 was shielding too much from the public, and so they wanted to have a narrower category. Now, listening to you, I really don't see how we have something that's narrower, -- narrower than the old section 3 of the APA. And if you can give me an example, this is what the APA shielded that would not be shielded under section 2, maybe I would--",
       "time": "00:39:57.60"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I would have thought that the amendment to Exemption 7 really cut the other way. They amended Exemption 7, they didn't amend Exemption 2.",
       "time": "00:43:14.54"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "To adopt more or less Crooker, right?",
       "time": "00:43:24.46"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes. Exactly, not this one.",
       "time": "00:43:29.76"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What happens -- I'm just curious. If you classify -- suppose you have a document, \"in case of emergency, these are the evacuation procedures. \" of a big Federal building. And now you want to show that to the firemen but you don't want it to be in the newspaper. Right? And the firemen don't have classifications and they were not cleared.",
       "time": "00:45:17.72"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I guess in order to see it they would have to be cleared.",
       "time": "00:45:40.26"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How long does it take, approximately, roughly, to clear a fireman so that he could, in fact, see the evacuation manual from the Federal building.",
       "time": "00:45:44.97"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you give me a rough idea?",
       "time": "00:45:57.92"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "For what level of classification? I gather the investigation of the person is quite different depending upon what level you want, if you want to give--",
       "time": "00:46:07.85"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--The lower things below secret--",
       "time": "00:46:26.09"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Are those sufficient classifications to prevent disclosure under FOIA? What is it, sensitive--",
       "time": "00:46:28.48"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So if you label something confidential, you don't have to disclose it under FOIA?",
       "time": "00:46:36.21"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you think it's practical to classify all of the information that might have security implications?",
       "time": "00:46:53.89"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Architectural designs, passwords.",
       "time": "00:47:04.86"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. You wouldn't regard internal security procedures for computer systems as confidential?",
       "time": "00:47:38.50"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would you classify those as internal procedural rules -- personnel rules? And would you also classify architectural specifications as internal personnel rules?",
       "time": "00:48:03.24"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What about architectural specifications?",
       "time": "00:48:29.97"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So basically anything that the agency uses to craft its internal employee practices and rules gets swept up as private, as internal?",
       "time": "00:49:05.64"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If -- if--",
       "time": "00:49:18.88"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So you are taking out the records related to personnel and not making it a condition of the disclosure. You are saying if any document circumvents the agency's functioning, that is exempted. You are not tying -- that's where I'm--",
       "time": "00:49:40.13"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--How do the documents that the agency reviews to determine and craft its internal rules and practices fall under the rubric of being related to, solely related to, personnel practices and rules? If they were created separately, if they were created for multiple purposes, if they were used in different circumstances besides the relationship of employees to others--",
       "time": "00:50:06.28"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--The map doesn't. You use the map to do the latter things.",
       "time": "00:50:58.81"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you see -- I'm sorry. I'm cutting you off because your light is on. Do you see any difference between the position you are taking and Crooker?",
       "time": "00:51:14.90"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We formulate your test very differently than Crooker does. What are those differences?",
       "time": "00:51:23.24"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Yang, if -- if we assume that a majority of this Court finds this statutory interpretation untenable and that you lose, but that the Court is also concerned about the government's reliance interests here, and about this set of documents that have been exempted under exemption 2 that would become unexempt, is there anything that the Court can do about that? Is there anything that the government would need to -- to advance -- to deal with those reliance interests?",
       "time": "00:51:57.98"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I am assuming, yes. That's just an assumption.",
       "time": "00:52:39.95"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You couldn't return to Congress if you had to classify documents falling into the category that you previously thought, dealt with in Crooker. How long would that take? How many documents would you guess there were in the Federal government? Millions? Thousands?",
       "time": "00:52:58.75"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And all of which you already have to review to compile the Vaughn index and to make sure there are not other exemptions that are applicable, right? You don't just grab a bunch of files and turn them over. You look at them before you release them under FOIA.",
       "time": "00:53:22.80"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That wasn't my question. My question did not concern those documents that were requested. It concerns the documents that might be requested, which is every document that might be requested. And I wonder if it ranges into the millions, tens of millions, hundreds of thousands, 5,000, or if it--",
       "time": "00:53:38.95"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't have to go through everything. You have to go through the material that is requested, and you go through that material already.",
       "time": "00:54:07.60"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And it takes forever to get the documents.",
       "time": "00:54:19.31"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I just nail down one particular point? It is the view of -- you are representing the government, and it is the view of the government that classification is not a practicable solution to the problem that is highlighted here.",
       "time": "00:54:55.32"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Mann, you have four minutes remaining.",
       "time": "00:55:47.70"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:57:54.68"
     }

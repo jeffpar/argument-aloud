@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-708/19840229a_82-708.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "WARREN M. CHRISTOPHER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LOUIS F. CLAIBORNE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "NANCY ALVARADO SAGGESE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Summa Corporation against State Lands Commission and City of Los Angeles. Mr. Christopher, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Christopher, is that a holding or a statement of the California Supreme Court that you are quoting from or one of the California appellate courts?",
       "time": "00:02:18.66"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Christopher, may I interrupt you and ask you one question? I understand that you don't in your brief argue the point that the government does in the first point of their brief about what happened with the actual original conveyance. If you assume that the trust was reserved in the original conveyance, contrary to the government's position, what is your view as to the status of the title to the trust interest the day after California was admitted to the union and before the 1851 Act was passed?",
       "time": "00:06:24.31"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't think that answers my question, Mr. Christopher. I am assuming that before it was answered, that the correct answer would have been that it was something other than what happened in 1851. You are saying that the activity pursuant to the 1851 statute conveyed that interest regardless of what its status was before, as I understand it. You say that even though that would have enlarged the rights of your clients.",
       "time": "00:08:08.13"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:08:55.80"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Christopher, I am interested in just how this is a federal question. Supposing this happened, that your client had a confirmed patent from the Mexican land grant that had been authorized by the Claims Commission, and so forth, and adjoining your client's property was another property which didn't come under the Treaty of Guadaloupe Hidalgo, and there was just a classic surveying dispute, say, as to 20 feet of their property. The Mexican patent showed that your client owned it. The deed under the authority of the state of California showed that the other people owned it. And that is litigated in the California courts, and the California Supreme Court applies its rule as to how you solve these surveying ambiguity disputes, and rules against your client, saying that the Mexican patent description doesn't prevail. Do you think your client could come here on the grounds that it is a federal question because the full latitude of the description in the confirmed Mexican patent wasn't confirmed by the Supreme Court of California?",
       "time": "00:09:10.54"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can this case be decided without passing on the treaty problems that you mentioned?",
       "time": "00:11:38.22"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Christopher, don't we have to decide the treaty questions in this case?",
       "time": "00:12:22.82"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, that very question, isn't that a federal question?",
       "time": "00:12:40.69"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Christopher, let me follow through a little on Justice Rehnquist's inquiry. If you prevail here, are we not constructing, what shall I call it, a Mason-Dixon line between... in the southern part of California with these old Mexican grants, and in the northern part where there are no Mexican grants, with different rules of law flowing from each?",
       "time": "00:12:46.87"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Christopher, does the California public trust doctrine embrace any land other than tidal land?",
       "time": "00:14:19.63"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "So we are not simply addressing in this case tidal lands in terms of the consequences of a decision?",
       "time": "00:15:21.62"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Claiborne.",
       "time": "00:16:57.85"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Claiborne, is it possible that that holding could rest on the notion that the trust did not in fact change the value of the lands as opposed to a holding that there was no such trust interest.",
       "time": "00:23:37.03"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Claiborne, is it your position, and I take it you say it is supported by the cases if it is, that land grants coming under the Treaty of Guadaloupe Hidalgo based on old Mexican grants prior to the accession of... the Mexican cession stand on a different and higher footing in the world of land transactions than, say, a grant from the United States, simply a patent from the United States made by the General Land Office.",
       "time": "00:27:00.45"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in the Borax case in 296 U.S., the Court distinguishes Knight and some of those other cases, saying those involved Mexican land grants, and we are kind of going to apply a different rule where Mexican land grants aren't involved.",
       "time": "00:28:00.58"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Saggese?",
       "time": "00:28:51.65"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you concede that there is a federal question presented here?",
       "time": "00:29:34.99"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But may I interrupt? On the 1851 Act, if we take your adversary's position, I understand them to be arguing that that may have enlarged the title of the Mexican grantees, and it seems to me that is a federal question as to whether the federal patent could convey more than the Mexican government had previously conveyed. Wouldn't that be a federal question?",
       "time": "00:30:38.13"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's the argument. One of the arguments is that it did grant more. Even if the Mexican grant did not include the trust reservation, as I understand their position, although the government is a little ambiguous in its brief, they in effect argue that there was an enlargement of the grant.",
       "time": "00:31:09.07"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but whether it is correct or incorrect is a federal question, is all I am addressing my remark to.",
       "time": "00:31:43.19"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What treaty, Ms. Sagesse, did the New Orleans case grow out of?",
       "time": "00:34:23.22"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there was no expressed counterpart to the provision in the Treaty of Guadaloupe Hidalgo in the Louisiana Purchase treaty?",
       "time": "00:34:52.69"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you are right there, then we are not talking about just a federal right that arises under any patent confirming a prior Mexican grant in the whole Mexican cession area, but we are talking about the area between the Mississippi and the Rocky Mountains and the Gulf of Mexico and the Canadian border.",
       "time": "00:35:16.79"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it that it isn't entirely impossible under your theory that the Supreme Court of Nebraska, which is a state that was acquired in the Louisiana Purchase, could next year decide that under old French law the state owned the bottom of all the riverbeds, even though that had never been the law in Nebraska up to now, and presumably that would then depend on an examination of the old French authorities prior to the Louisiana Purchase.",
       "time": "00:36:30.79"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Sagesse, why isn't the California court bound by the determination of the question of historical fact in the 1851 Act proceedings that the lands weren't tidelands?",
       "time": "00:38:33.95"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did it have jurisdiction to determine whether they were tidelands or not?",
       "time": "00:39:37.19"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Sagesse, some time during your argument would you mind taking out the map that appears at the back of the brief for the petitioner and identifying which of the lands there are the subject of this particular dispute?",
       "time": "00:42:21.90"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The very bottom of the map?",
       "time": "00:43:00.73"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where it says Del Ray Lagoon?",
       "time": "00:43:06.60"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "North of the entrance channel.",
       "time": "00:43:11.45"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Part of the... the southern part of the Ballona Lagoon? Is that what we are--",
       "time": "00:43:19.33"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--No, that is what I was trying to find out. Thank you very much.",
       "time": "00:43:42.68"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "One point that is made by your opponents, and they dispute the Supreme Court of California on this, I guess, is, they say that we are not really talking here about an incident of sovereignty. We are talking about essentially a proprietary interest in the land, because presumably it is so extensive in their view. Do you think that the distinction between the so-called sovereign power that you say it is and the ordinary property interest is a rather clear one?",
       "time": "00:44:24.86"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under your theory, is it essential that this public trust doctrine or its counterpart had existed under Mexican law at the time of the 1839 grant?",
       "time": "00:46:19.93"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In view of the Coronado Beach and some of the others kind of attaching special significance to Mexican land grants, I would think if this hadn't existed under Mexican law you would have a real problem.",
       "time": "00:46:37.58"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Before you do that, could I ask, what evidence is there in the record about the existence of the easement in the original Mexican grant?",
       "time": "00:46:54.15"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That is the only language?",
       "time": "00:47:20.67"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question? You don't dispute, as I understand you, that title to the tidelands itself is in your opponent. It is just the trust interest in the--",
       "time": "00:50:25.02"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So that is a little different. In the Coronado Beach case there was actually a dispute over the ownership of the tidelands themselves.",
       "time": "00:50:39.66"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Could I ask you, I take it that under the California public trust doctrine, the state could actually take possession of the property and develop it?",
       "time": "00:50:52.69"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it could take possession and develop it.",
       "time": "00:51:12.22"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that was true of the reserved right which you claimed existed in favor of the sovereign in Mexico and under Mexican law?",
       "time": "00:51:15.12"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Were there any improvements on this lagoon at the time this complaint was filed?",
       "time": "00:52:13.74"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "None today?",
       "time": "00:52:23.47"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would the owner of the fee have had the right, say, to put a large marina on it?",
       "time": "00:52:25.15"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Could the city of Los Angeles have enjoined an improvement that it thought interfered, perhaps, with its wetland rights?",
       "time": "00:53:06.45"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Before any development could be made, permission has to be obtained?",
       "time": "00:53:38.42"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I am puzzled about that. Is this public trust interest something that the state can or cannot convey to a private owner?",
       "time": "00:54:04.86"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can they surrender entirely?",
       "time": "00:54:22.93"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You rely on the Illinois Central case, which I understood held that if it is this kind of animal, this kind of trust right, the state legislature does not have the power to divest the state of it.",
       "time": "00:54:51.48"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is what I am asking. Could the state of California divest its entire ownership in this particular... what is in dispute here.",
       "time": "00:55:10.27"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As I understand it, meanwhile, the fee title, without the permission of the Lands Commission, you can't do anything--",
       "time": "00:55:45.58"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Yes, but can he make that use... perhaps I misunderstood you. I thought you said any use he wants to make of it, the consistency with the state interest has to be determined, and that is by the Lands Commission.",
       "time": "00:56:02.53"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "My question is, doesn't he have to get that determination?",
       "time": "00:56:22.45"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would automatically happen how? He would have to go to the--",
       "time": "00:56:32.11"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--My question is, he can't do anything without that permission, can he? You say he wouldn't--",
       "time": "00:56:39.12"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Well, anything? I mean, he could build on it?",
       "time": "00:56:54.35"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but what can he do without getting a permit, with the Mexican lands?",
       "time": "00:57:06.61"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, but I still don't understand. What may he do without getting a Lands Commission permit?",
       "time": "00:57:18.05"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, whatever it may be.",
       "time": "00:57:30.43"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He couldn't develop it without it. What may he do without going to the Lands Commission?",
       "time": "00:57:43.71"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what does that mean? He can fish? He can hunt?",
       "time": "00:58:00.05"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But it can't produce too much income for the fee title owner, can it?",
       "time": "00:58:15.49"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I follow up, please, ma'am? We have an amicus brief filed on behalf of the Title Examiners Association of California, the Title Insurance Companies, I guess it is.",
       "time": "00:58:21.01"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "They say that thousands of policies have been issued that have not recognized California law to be as your brief describes it. Is this just attributable to the ignorance of the lawyers who examine the titles? Or what is the explanation of that?",
       "time": "00:58:35.39"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Related to that question, has the state of California asserted before this case in other cases involving Mexican rancho grants this public trust?",
       "time": "00:59:26.07"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it is a recent position taken by the state.",
       "time": "01:00:27.08"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Your time has expired.",
       "time": "01:00:40.53"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Christopher, do you have any more?",
       "time": "01:00:48.85"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But if they get the permission in the first place, that determination is made by the commission, is it?",
       "time": "01:01:55.23"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:03:02.80"
     }

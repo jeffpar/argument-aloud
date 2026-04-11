@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1545/19850114a_83-1545.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "GORDON DEAN BOOTH, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "RAYMOND C. FAY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Booth, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what precisely did the company mean by reversing the seniority or inverting the seniority? No one was contending that because the flight engineer had been around longer he could tell the captain what to do?",
       "time": "00:07:11.60"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but as to the captains, you say the company advances a reasonable factor other than age, the fact it would invert the seniority, if I understand. What does that mean?",
       "time": "00:07:39.07"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what is so bad about that?",
       "time": "00:08:24.41"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Someone who has previously been a captain is more apt to second-guess or backseat drive?",
       "time": "00:09:07.92"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, that is not true for all airlines, is it?",
       "time": "00:09:14.02"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if the captain flying as a flight engineer gets out of line, he's very easily dealt with.",
       "time": "00:09:55.16"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He's grounded, right?",
       "time": "00:10:04.69"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The other airlines have no trouble with it.",
       "time": "00:10:35.78"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I hope you're not relying on that only.",
       "time": "00:10:53.74"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Booth, can I ask you kind of a basic question that puzzles me a little. I've had a little trouble focusing on the issues in this case. It seems to me there's some tension between arguing on the one hand that the discrimination was based on a factor other than age, your first basic argument, and secondly arguing that it was based on age, but it was a BFOQ.",
       "time": "00:13:04.74"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see, one applies to one set of Plaintiffs and the other applies to the other.",
       "time": "00:13:30.41"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your objection there is to the form of the instruction which placed the burden of proof on you?",
       "time": "00:13:58.82"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say that, even though it's an affirmative defense, you apply the McDonnell Douglas approach. That's your basic argument.",
       "time": "00:14:02.91"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On the instruction point concerning reasonable factor other than age, where in the instruction did the court tell the jury that it was an affirmative defense?",
       "time": "00:14:16.32"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where is that?",
       "time": "00:14:44.20"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I just didn't find anyplace where the trial judge said the reasonable factor other than age was an affirmative defense and that the burden was on Western Airlines. And I wondered where you could point out.",
       "time": "00:15:01.87"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So that argument may fail simply because that isn't what the judge instructed.",
       "time": "00:15:22.10"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Then you made this argument that the court had to apply that McDonnell Douglas approach on reasonable factors other than age. Do you think that this Court's opinion a few days ago in TWA versus Thurston now forecloses that argument?",
       "time": "00:15:29.69"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, isn't that direct evidence of age discrimination, so that you have to face it head-on rather than in a McDonnell Douglas approach?",
       "time": "00:16:13.52"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess all we had here were captains who had reached the age that precluded them from being captains.",
       "time": "00:16:44.62"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:16:53.81"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Booth, can I interrupt again. I don't know why, I had a little difficulty getting focused on the issues in this case. But if you are right about your reasonable factors other than age and they had a right... or assume they had a right, you had a right to refuse to let them bid down, but you would have discharged them at age 60 anyway, because I presume your age 60 rule would have applied. How is there any damage at stake on the reasonable factor other than age issue? I don't quite understand how that could affect the ultimate outcome anyway, because if you lose on the BFOQ isn't that the end of the ballgame?",
       "time": "00:18:04.36"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I don't see how a captain could possibly have suffered injury by being forbidden to bid down if he was going to get fired when he was 60 anyway.",
       "time": "00:18:47.16"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because he would presumably earn more money as a captain.",
       "time": "00:18:57.39"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:19:08.80"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they would have been fired when they reached their sixtieth birthday anyway.",
       "time": "00:19:20.90"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's right. But it wouldn't have done them any good if you win on the BFOQ.",
       "time": "00:19:28.53"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I just don't understand how the reasonable factor other than age can possibly determine anybody's rights, that issue in this case. Maybe I missed something.",
       "time": "00:19:33.64"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Pardon me?",
       "time": "00:19:43.82"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it would be two or three years at a lower salary.",
       "time": "00:19:48.15"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you don't want to try it on that issue if you're going to lose anyway on the BFOQ issue. I'm not saying you do lose, but I just frankly don't quite understand. Well, anyway, go ahead.",
       "time": "00:20:03.78"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Booth, may I ask one other question. Does the record before us contain your objections to the trial court's instructions on BFOQ?",
       "time": "00:24:31.67"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, my question is did you, after it was made or after you knew what it was going to be, make objections to it?",
       "time": "00:24:57.87"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I find them in the record. Could you help me find them in the record if I were to look for them?",
       "time": "00:25:08.72"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And did you propose a different instruction and is that in the record?",
       "time": "00:25:14.02"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But somebody representing your client.",
       "time": "00:25:23.57"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And where are the instructions that your client proposed on BFOQ?",
       "time": "00:25:26.02"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:25:32.17"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On page 79 of the joint appendix there are some responses to requests. Those are requests for admissions, I think. Those are just request for admissions, aren't they? I don't see any... I guess it must be in the full record that's filed here.",
       "time": "00:25:43.64"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Were they recorded or not?",
       "time": "00:26:30.99"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is the instruction to which you address your challenge embraced within the instruction that begins on page 51 of the appendix?",
       "time": "00:26:46.38"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Booth, to try to clarify your point, if I can, the trial judge instructed that, in 1978 when these Plaintiffs were retired, the jury had to find it was highly impractical for Western to deal with each second officer over 60 on an individualized basis to determine his ability. Now, you made objection to that instruction, is that right, or trial counsel for Western made objection to that, is that correct?",
       "time": "00:27:02.21"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And did the clarifying paragraphs make it clearer that it was enough for the jury to find that the employer simply had a reasonable basis in fact to think it was highly impractical?",
       "time": "00:27:59.10"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that's what you're urging today.",
       "time": "00:28:34.88"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You urge that the trial judge should have said the employer had a reasonable basis in fact to believe it was impractical.",
       "time": "00:28:38.51"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that seems like a separate point, and of course the trial judge did instruct that safety was a factor.",
       "time": "00:29:04.62"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Although you did not propose the \"perfect charge\" at the time?",
       "time": "00:29:22.98"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Booth, did the Court of Appeals review that charge?",
       "time": "00:29:33.53"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Fay.",
       "time": "00:31:03.22"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did you try the case?",
       "time": "00:31:35.58"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is what you're going to tell us in the record or is it just your memory?",
       "time": "00:31:37.76"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean everything you say is going to be in the record?",
       "time": "00:31:44.64"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. [Laughter]",
       "time": "00:31:47.53"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, counsel--",
       "time": "00:34:08.85"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--what about that portion of the instruction dealing with the instruction that the jury had to find it was in fact highly impractical for individualized testing?",
       "time": "00:34:10.04"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in the first proposed instruction they had asked for the rational basis in fact language?",
       "time": "00:35:40.13"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00 o'clock, counsel. You may continue. RESUMED ORAL ARGUMENT OF RAYMOND C. FAY, ESQ. , ON BEHALF OF RESPONDENTS--",
       "time": "00:36:50.11"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What page of the instructions is that on, Mr. Fay?",
       "time": "00:39:14.50"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:39:24.23"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you--",
       "time": "00:42:42.08"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--did Western take the position in the trial court that the reason they're insisting on a BFOQ for the flight engineer was that it's the training ground for the captain's position?",
       "time": "00:42:43.76"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because we haven't... I don't know that we have any cases that say that a carrier can't adopt a scheme for training pilots that means, we're going to take everybody in as a flight engineer, nobody can be a pilot who hasn't been a flight engineer, and the flight engineering job is a training ground for pilots.",
       "time": "00:43:00.16"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why not?",
       "time": "00:43:28.64"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:43:30.70"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what I asked you.",
       "time": "00:43:33.51"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It did not assert it?",
       "time": "00:43:35.22"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you say that it could have a progression line like that and say, therefore all flight engineers that we hire must meet the requirements of a pilot?",
       "time": "00:43:42.36"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you say that... no, no.",
       "time": "00:43:57.66"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, and they also couldn't be over 60, just like a pilot couldn't be.",
       "time": "00:44:00.33"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So your answer is that they can't have--",
       "time": "00:44:14.36"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--a flat rule against a progression?",
       "time": "00:44:16.55"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could they say, could they have a rule that, because the flight engineer is a training seat for pilots, we'll never hire a flight engineer over 60?",
       "time": "00:44:24.57"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about your position on that?",
       "time": "00:44:34.06"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, no.",
       "time": "00:44:38.17"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would it be sustainable?",
       "time": "00:44:40.26"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In the abstract?",
       "time": "00:44:45.07"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could TWA say, look, we're training pilots by making them flight engineers, so we refuse to hire anybody as a flight engineer who's over 60?",
       "time": "00:44:47.05"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because of this progression.",
       "time": "00:45:04.12"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's related to safety in the sense that this is where we get all our pilots, and therefore, if the pilot BFOQ is related to safety, so is this one.",
       "time": "00:45:14.34"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But supposing they just don't want to hire someone at 60 when the position is a line promotion to something else that he can never fill. What's wrong with that?",
       "time": "00:45:34.47"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but I just want to know your answer to the question in the abstract.",
       "time": "00:45:47.13"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But Mr. Booth, it's not farfetched. Back in the railroad days you couldn't be an engineer unless you'd been a fireman, right?",
       "time": "00:45:57.85"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean, it was an absolute rule.",
       "time": "00:46:11.97"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So I mean, it's not too farfetched, from saying that you have to be an engineer... I mean, that you have to be a flight engineer before you can be a pilot.",
       "time": "00:46:14.45"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, they also had up-or-out, too.",
       "time": "00:46:50.68"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even if you concede what Justice White and Justice Rehnquist were asking you, how does that affect your case?",
       "time": "00:47:01.97"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it might affect whether an overage pilot can go take a seat as a flight engineer that would keep it away from some younger man who would be training for a pilot.",
       "time": "00:47:11.31"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the record tell us what happens to a flight engineer who has a medical certificate good enough to be a flight engineer, but is not physically qualified to be a pilot? Does he lose his job?",
       "time": "00:47:28.93"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, he couldn't be training, obviously, for the pilot job.",
       "time": "00:47:52.76"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Mr. Wallace.",
       "time": "00:49:59.81"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So is it your position, Mr. Wallace, then that there is direct evidence of discrimination on the basis of age, and therefore the RFOA defense doesn't apply?",
       "time": "00:51:35.73"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, if you're running an airline and you simply leave that question up to the jury in every case, it doesn't help much in making decisions as to what you can do.",
       "time": "00:54:08.32"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or if you leave it up to a judge in every case, it doesn't help much.",
       "time": "00:54:28.22"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, on the second prong of that Tamiami test requirement for a BFOQ, what is an airline supposed to do if two medical reports come to it, one that says the tests to screen out unqualified people over 50 are valid and will properly identify the people who should be eliminated, and the other medical report says, no, those tests won't tell you who's safe and who isn't safe? Now, is the employer supposed to risk public safety and hire the person over 60, or not hire the people over 60 and be hauled into court for the violation of ADEA? I mean, that's a pretty tough position.",
       "time": "00:54:46.99"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would it be appropriate to at least instruct the jury that, if the employer has a rational basis in fact to think the tests won't screen out individually the people who are at risk, that the employer is not liable under ADEA?",
       "time": "00:56:03.54"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is the union a party to this case?",
       "time": "01:00:13.56"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:54.82"
     }

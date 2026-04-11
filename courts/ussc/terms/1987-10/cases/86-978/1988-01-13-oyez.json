@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-978/19880113a_86-978.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN L. KIRWIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL J. LARKIN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAURIE N. DAVISON",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Kirwin, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Who was the District Judge, MacLaughlin?",
       "time": "00:07:57.32"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kirwin, is the only named Plaintiff in this action with standing to assert the notice issue, Kathryn Jenkins?",
       "time": "00:14:13.53"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And a letter was given to Ms. Jenkins when, September?",
       "time": "00:14:29.79"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Of 1981?",
       "time": "00:14:39.98"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Which made reference to this lump-sum change?",
       "time": "00:14:42.10"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it is your position that that did constitute written notice, if written notice was required?",
       "time": "00:14:51.87"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In your responses to interrogatories, in the proceedings below, did you acknowledge that written notice was required to recipients, as well as applicants?",
       "time": "00:15:01.49"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The respondents, I thought, said that was the case. That the responses to interrogatories made no distinction between the notice required to applicants and to recipients.",
       "time": "00:15:23.31"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I see.",
       "time": "00:15:43.14"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you don't answer questions of law in interrogatories anyway, do you?",
       "time": "00:15:44.35"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And was that what was done here?",
       "time": "00:15:56.54"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Kirwin, we will hear now, from you, Mr. Larkin.",
       "time": "00:17:52.40"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Larkin, can I backup for a second? You described three different categories of notice that you say the Secretary under its regulations must give. One is applicants about the basic information and the second was recipients were told to contact their caseworker and third, is the statement of reasons when there is an adverse action. As to the first, which you referred only to applicants, that you are referring are you not, to the regulation which the interrogatory answer that I think Justice O'Connor referred to earlier, described as referring to applicants and recipients.",
       "time": "00:22:40.61"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think it is 206.10(a)(ii).",
       "time": "00:23:16.36"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What were the pages again?",
       "time": "00:23:33.06"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is A-89, you say?",
       "time": "00:23:59.12"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which of those, just to help? I have in front of me the red brief at Page 18, which quotes one of these, which is 18 and 19 of the red brief. I gather that is the one at 89, isn't it?",
       "time": "00:24:06.55"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay, I am sorry.",
       "time": "00:24:24.51"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. And is it I that refers to applicants and II that refers to recipients, is that how it works?",
       "time": "00:25:37.72"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:25:44.44"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Larkin. I will hear now from you, Ms. Davison.",
       "time": "00:27:24.24"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, the particular plaintiff here, if she had contacted her caseworker, as she was supposed to, would have presumably been advised of the rule by her caseworker.",
       "time": "00:28:58.19"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought that the record was clear that she did not report the lump-sum payment to her caseworker as she was supposed to.",
       "time": "00:29:22.80"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought she... the family also received $16,000 in a workmens' compensation lump-sum benefit which was never reported?",
       "time": "00:30:09.75"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you say that is in dispute. In any event, was there some letter sent in 1981, dated September 18, 1981, that made some mention of the lump-sum rule?",
       "time": "00:30:46.89"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And Ms. Jenkins received that?",
       "time": "00:31:01.88"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So she did get something other than what was in that pamphlet?",
       "time": "00:31:05.60"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:31:11.42"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Davison, can I interrupt you right there, because there is one fact I am a little puzzled about. She was a re-applicant was she, in November of 1982, having been off the rolls for how long?",
       "time": "00:32:41.88"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then was she a recipient in September of 1981?",
       "time": "00:32:53.04"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So she got the September letter?",
       "time": "00:32:58.01"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the fact then, I mean if that were adequate and I know you dispute that, but if that were adequate then she would be on notice of at least the contents of that letter.",
       "time": "00:33:01.13"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:33:13.85"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When did she get that?",
       "time": "00:33:22.14"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:33:26.78"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That was because the program did not go into effect until February of 1982?",
       "time": "00:33:45.32"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But she did have notice that lump-sums were a matter of special interest to the agency.",
       "time": "00:33:54.18"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand what it was, but she did have a duty to report lump-sums.",
       "time": "00:34:04.97"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "She reported the second lump-sum--",
       "time": "00:34:12.22"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, I don't understand. On the one hand you seem to be telling me that November 1892 her lump-sum was explained to her and it had been treated under the old rule and therefore, she had a right to rely on it and now you seem to be saying that she did not know anything about it.",
       "time": "00:34:40.99"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, she had been told in September of 1981, though, she had gotten that letter.",
       "time": "00:34:58.37"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:35:07.39"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well?",
       "time": "00:35:13.21"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, is the only lump-sum that she received that is relevant, the one that she received between the receipt of the letter and the time she reapplied?",
       "time": "00:35:35.39"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And was that lump-sum reported?",
       "time": "00:35:49.32"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But she already spent it.",
       "time": "00:35:55.12"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the problem was that she had already spent it in those two days, that is right, I remember it now.",
       "time": "00:36:05.50"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Davison, your opponent says that the District Court in the Eighth Circuit required payments to be made to your clients which were contrary to the Congressional authorization. What is your response to that?",
       "time": "00:37:15.76"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even though it was clearly an overpayment under the Act of Congress?",
       "time": "00:38:20.18"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What authority did the Eighth Circuit cite for that proposition? What of our cases?",
       "time": "00:38:24.27"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There was a violation of the regulation, as you contend.",
       "time": "00:39:02.93"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Davison, the statute not only deprived her of eligibility but there is also an explicit provision in the statute requiring recoupment of overpayments, isn't there? The Court, in effect, fashioned a remedy that overrode that provision.",
       "time": "00:39:19.72"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see.",
       "time": "00:39:57.51"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have tried to think of an analog of some other case I could come up with where the Court has fashioned a remedy that specifically allows somebody to do something which a statute prohibits. And I can't think of one, can you? And I did not see any in your brief. Do you know any other example, where a Court has said, because somebody has violated a regulation or because of some other rule, we are going to say you can ignore the statute?",
       "time": "00:40:47.18"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That is a Constitutional problem.",
       "time": "00:41:27.72"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I go back for a moment to the... your claim depends on there having been a violation of law by the state administrator, at the time of the second application in November of 1982, by failure to explain the lump-sum requirement. Would in your view, would it have been satisfactory to explain that requirement orally?",
       "time": "00:42:04.34"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what it says is in writing about coverage conditions of eligibility, scope of the program, and related services available. I suppose there is some ambiguity in precisely what detail that information has to be given in.",
       "time": "00:42:35.43"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:43:02.35"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what if, at the time of the application, your client got a pamphlet was it that--",
       "time": "00:43:23.76"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And they are in the record, I gather?",
       "time": "00:43:29.75"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do they mention the lump-sum requirements?",
       "time": "00:43:32.37"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No mention of lump-sum?",
       "time": "00:43:35.07"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But, Ms. Jenkins had received the September 18, 1981 letter which did mention the new rule.",
       "time": "00:43:36.80"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume... so it would not make any difference in your position if the letter she got when she was a recipient was adequate notice?",
       "time": "00:43:48.16"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would say that letter is just irrelevant because she should have had another notice when she reapplied?",
       "time": "00:44:02.47"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because she got no notice then?",
       "time": "00:44:40.59"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question? In the Joint Appendix at A-29 there is one pamphlet and another one at A-31, are those the two she got? She got both of those?",
       "time": "00:44:52.07"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:45:05.09"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course most people don't get explanations of changes in law. I mean, there have been massive changes in the Internal Revenue Code for example and my friendly revenue agent has not advised me what changes there are going to be. Now, to be sure, that just applies to matters that are not as crucial as getting subsistence payments, but nonetheless, it is the principle of our law that it is up to you to find out what your entitlements are.",
       "time": "00:47:41.33"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we have to agree with you that applicant and recipient are one and the same in order to agree with you about the regulation? Or is part of your claim that she did not get a notice when she was a new applicant is that--",
       "time": "00:48:30.51"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That does not affect the one remaining named Plaintiff, anyway?",
       "time": "00:49:32.22"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, I gather that your point is that the requirement for oral consultation is not adequate because you are not required to contact your caseworker immediately upon receiving the lump-sum payment, is that it?",
       "time": "00:50:51.62"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that between the time you receive it and the 8th of the next month, or 10 days, whichever is longer is that--",
       "time": "00:51:06.96"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Whichever is shorter, you can blow the whole thing and then it is too late.",
       "time": "00:51:15.15"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just ask one other question about the specific violation of the regulation was that you treat the lump-sum as a condition of eligibility that should have been explained, is that right? The pamphlets are okay on coverage and scope of the program but this one condition of eligibility is not adequately explained or is it that the responsibilities of the recipients are not adequately explained?",
       "time": "00:53:08.32"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And here, she knew she had to report but she did not know that she had to report before she spent the money?",
       "time": "00:54:10.21"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me that your case must depend on the assumption that she would have been told, because then the failure of her to report... I mean telling her the responsibility would not have done any good.",
       "time": "00:54:28.07"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the letter pretty much said that but that it is not in so many words, I realize. But it made it clear that she could be ineligible for a period of months, which would be a change from the old rule.",
       "time": "00:55:03.16"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Davison, suppose that I disagree with you that the Court can give, can prevent the requirement that she give the money back? Could I nonetheless uphold the rest of the relief that the Court gave? I mean the, in particular, the mandate that this information be included?",
       "time": "00:55:44.49"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can I do that though, because who would have had standing? She certainly does not have standing to get that relief. That relief does her no good. She is already, you know, she is not an applicant any more, she is on the program.",
       "time": "00:56:04.97"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the relief has to benefit the individual that is suing and I don't see how this relief, other than the monetary relief does her a bit of good.",
       "time": "00:56:35.19"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that is the government who came up here, isn't it?",
       "time": "00:56:52.65"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they object to more things than just getting the money back.",
       "time": "00:56:59.72"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And aren't they entitled to, even though there is only one party on the other side?",
       "time": "00:57:06.39"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the government is entitled to object to that relief?",
       "time": "00:57:28.22"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I don't... do you want to defend it or not?",
       "time": "00:57:32.22"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:57:36.49"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:57:38.14"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you, Ms. Davison. Mr. Kirwin, you have three minutes remaining.",
       "time": "00:57:55.70"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kirwin, may I ask you to tell us what written notice was given to applicants for welfare before 1985 about the lump-sum rule, in writing?",
       "time": "00:58:05.26"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, in writing.",
       "time": "00:58:25.82"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But got no specific written notice about it until as a result of this lawsuit? You implemented new information?",
       "time": "00:59:07.57"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And do you agree that the regulation of the Secretary does require written notice to be given to applicants?",
       "time": "00:59:21.66"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Concerning the lump-sum rule?",
       "time": "00:59:30.93"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So when the Secretary in response to the written interrogatories said that information, in writing, had to be given to applicants about the lump-sum rule and its operation that was wrong, is that right?",
       "time": "01:00:08.81"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that is on Page 89 of the Joint Appendix.",
       "time": "01:00:27.44"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, it has, Mr. Kirwin, thank you. The case is submitted.",
       "time": "01:01:06.20"
     }

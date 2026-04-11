@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-6470/19851106a_84-6470.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES DOUGLAS CRAWFORD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MADELEINE W. MANSIER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "CHARLES FRIED",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Crawford, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There you could argue that the state actor did, in a general sense, intend the taking and meet a general intent requirement.",
       "time": "00:09:48.78"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You too would limit recovery to the prison setting I would conclude.",
       "time": "00:11:04.17"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, when you say we have a clear duty here, what is the source of that duty? Is it federal law or state law, the duty not to be negligent in the--",
       "time": "00:11:51.95"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--It is in the Due Process Clause?",
       "time": "00:12:03.77"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, I guess you would give me the same answer that was given in the previous case, that if a visitor was injured by an inmate by reason of negligent supervision by the guards, the visitor would have no cause of action. Say he injured both the visitor and an inmate, but the inmate would.",
       "time": "00:12:15.72"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because it is his status as an inmate rather than the fact of immunity that really is the predicate for the federal claim.",
       "time": "00:12:52.39"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Immunity is crucial but it is not sufficient because... I am not sure under the New Jersey statute, but you conceivably could have an immunity statute which would bar a claim by a visitor as well as an inmate and that wouldn't be sufficient to give them a federal claim though, because you need both the--",
       "time": "00:13:43.04"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The basis for the claim is that the state has deprived the person of liberty.",
       "time": "00:13:58.88"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Through negligence.",
       "time": "00:14:09.56"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is still hooked to a deprivation of liberty.",
       "time": "00:14:11.40"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And without any remedy for it.",
       "time": "00:14:16.50"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, would you say that if there is remedy there never was a deprivation, a constitutional deprivation?",
       "time": "00:14:18.67"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "General, you may proceed.",
       "time": "00:15:03.38"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mrs. Mansier, don't you think the majority of the Court rejected that sort of definition of deprivation in the Parratt case?",
       "time": "00:17:32.78"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask the same question I guess I asked earlier, but your submission is that negligence can never constitute a deprivation?",
       "time": "00:18:58.77"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing the warden negligently executed the wrong defendant and killed him by mistake. Would that not be a deprivation of life?",
       "time": "00:19:05.85"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is wrong with my hypothetical? Couldn't they make a mistake? It is conceivable.",
       "time": "00:19:22.42"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is right, but they didn't say that... They didn't rely on the reason of negligence not constituting a deprivation.",
       "time": "00:19:32.73"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Take that case. Supposing a sheriff makes out a search warrant and negligently they type in the wrong name and search the wrong house. Would there not be a deprivation of the right to be free of an unreasonable search just because it was negligent instead of deliberate? What does that have to do with whether the constitutional right has been violated?",
       "time": "00:19:46.41"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, you are not contending that negligence can never give rise to a 1983 action. You are just saying never give rise to a deprivation of liberty.",
       "time": "00:20:14.73"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose your answer in part to the execution question is that there was an intent to execute someone. It wasn't an unintended consequence of the action.",
       "time": "00:20:22.61"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, it can be deprivation. But, in the circumstance that we just heard about of a pillow on the stairs, it was never contemplated or intended that someone would be physically injured as a result of placement of a pillow on the stairs.",
       "time": "00:20:36.88"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but may I ask this question? You have separated prisoners out in your immunity statute as I read it. The prisoner may not recover for this kind of negligence, but a visitor could. A visitor or a guard could recover if the guard was negligent and an inmate, instead of injuring a fellow inmate, injured either the visitor or the guard. So, you have put the prisoner in a lesser position than the others, is that not correct?",
       "time": "00:24:04.93"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Have you answered Justice Stevens' question? You are giving him fewer rights than anyone else.",
       "time": "00:25:18.48"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Sort of a penalogical fellow-servant doctrine. [Laughter]",
       "time": "00:25:41.83"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about... You say negligence never then, is that it, can form the basis? What about a negligence in knowing what the law is, what the governing law is?",
       "time": "00:27:38.11"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:27:59.30"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right. What if there is a standard of law... a standard of conduct imposed by law that says you may not do this or you may or you may not do certain things and some prison guard just doesn't know what the law is and he goes ahead and does it intentionally.",
       "time": "00:28:07.21"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:28:33.96"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. How about gross negligence or recklessness?",
       "time": "00:28:50.33"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, just simple negligence, negligently failing to give medical treatment is not... doesn't give a cause of action?",
       "time": "00:29:50.93"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, we have held... Is that because the Eighth Amendment controls?",
       "time": "00:30:01.44"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you think that it could be any other kind of a case? I am surprised that you just don't argue that in the prison context the Eighth Amendment should really govern just like it did in Estelle.",
       "time": "00:30:10.38"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:30:30.73"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Solicitor General?",
       "time": "00:34:00.47"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Fried, I suppose the Petitioners in these two cases would say to you, well, we are only concerned about the situation in a prison setting.",
       "time": "00:37:31.10"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What did the prisoner do that was voluntary? Did he go to jail voluntarily?",
       "time": "00:38:30.56"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did he stay there voluntarily?",
       "time": "00:38:37.03"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how do you get involuntarily?",
       "time": "00:38:39.23"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You compare him with the man in the street struck by an automobile. I fail to see the comparison.",
       "time": "00:38:43.47"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, he stood in the street.",
       "time": "00:38:54.51"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And, he didn't have to stand there.",
       "time": "00:38:58.16"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He didn't have to stand in that street.",
       "time": "00:39:03.32"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, isn't that the difference? The prisoner has to do whatever the guard tells him to do, whenever he tells him to do it, and however he tells him to do it, and that is the difference between that and an ordinary citizen getting stuck by an automobile.",
       "time": "00:39:06.88"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it took some rather recent cases to make all that so awfully clear.",
       "time": "00:40:29.42"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it may not have been all that clear for a long, long time.",
       "time": "00:40:38.92"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Nevertheless, if it had been all that clear about the Due Process Clause, that language wouldn't have appeared in Parratt.",
       "time": "00:41:09.64"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not if the states have provided remedies, I suppose.",
       "time": "00:42:05.12"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, they may.",
       "time": "00:42:18.30"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What happens to the state's freedom when the tort is intentional?",
       "time": "00:43:16.90"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which would deprive the state of its immunity.",
       "time": "00:43:47.15"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Despite the legislature's judgment.",
       "time": "00:43:56.34"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, your argument really hinges on the construction of the word \"deprive\".",
       "time": "00:44:08.13"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Crawford?",
       "time": "00:44:19.06"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you making that a distinction between the intentional and the negligent act?",
       "time": "00:45:04.17"
     },
@@ -723,13 +723,13 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:46:12.05"
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until Tuesday next at 10 o'clock.",
       "time": "00:46:15.41"
     }

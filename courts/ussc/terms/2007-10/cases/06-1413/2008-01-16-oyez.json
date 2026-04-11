@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2007/06-1413/20080116a_06-1413.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "BETH S. BRINKMANN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "BRIAN F. BAROV",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument next in Case 06-1413, Mead Westvaco v. The Illinois Department of Revenue. Ms. Brinkmann.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You are saying to me, Ms. Brinkmann... we talk about an asset, an investment. This was one company. This... it's strange to talk about unitary basis or investment. This is a division of one company. And we are talking about a sale of assets. Not the sale of stock of a subsidiary. So what more is there than this is one company, it sells some of its assets?",
       "time": "00:00:54.23"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we have any cases... do we have any decisions that go against the state taxing authority that involve divisions as opposed to subsidiaries?",
       "time": "00:01:36.59"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I go back to sort of a fundamental question I'm not quite sure I know the answer to. Supposing we don't have corporations here, but an individual resident of New York owned this whole business and a big bunch of it was activities in Illinois, and he sold the business. Would Illinois have the authority to impose any tax on that transaction?",
       "time": "00:02:54.57"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm assuming it's not the domicile. The owner lives in New York. The business is all over the country, but does millions of dollars of business in Illinois. And they sell the whole business. Would the owner be subject to any tax of any kind in Illinois on that transaction? Could he constitutionally be subjected to any tax?",
       "time": "00:03:23.99"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Assume it's not the domiciliary State.",
       "time": "00:03:51.00"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could we get an answer without reference to cases? Do you think Illinois would have the authority to impose a tax on that transaction?",
       "time": "00:03:59.85"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Millions of dollars of business in Illinois, that's my assumption.",
       "time": "00:04:14.61"
     },
@@ -143,19 +143,19 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No.",
       "time": "00:04:26.50"
     },
     {
       "turn": 18,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could they tax the sale of the business?",
       "time": "00:04:26.85"
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I have the same--",
       "time": "00:04:29.29"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're saying only the domicile could impose a tax?",
       "time": "00:04:34.77"
     },
@@ -179,13 +179,13 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if they owned a truck instead of a business, they could tax that transaction, I suppose?",
       "time": "00:04:50.08"
     },
     {
       "turn": 24,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't have a unitary business... a person who is a unitary business. I mean, a person can't be unitary with Exxon. I mean, when you speak of a unitary business you're talking about a corporation which, you know, is unitary with another corporation.",
       "time": "00:04:54.34"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Once you put it into a personal taxation scheme, it seems to me the whole unitary business notion has no application at all.",
       "time": "00:05:10.39"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is... what does the domicile State... we have Ohio. But you say as a matter of constitutional law, not State tax policy, as a matter of constitutional law, the only State that has authority to tax the capital gain is Ohio?",
       "time": "00:05:25.14"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does Ohio... would Ohio give credit for the tax that its sister State thinks is due? What is, in fact, Ohio's tax law in this respect? Does Ohio give credit to taxes paid by other States... to other States?",
       "time": "00:05:44.98"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can I have an answer to a very simple question? If Illinois claimed the tax, would Ohio give credit for the tax paid in Illinois?",
       "time": "00:06:39.39"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we know what... what Ohio does in these situations?",
       "time": "00:06:58.31"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What has Ohio done--",
       "time": "00:07:43.26"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--What has Ohio done up to this point with respect to this transaction?",
       "time": "00:07:45.23"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "To Ohio?",
       "time": "00:07:54.15"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Brinkmann, you begin your brief by saying this, a paper company, that happens to own a data processing company. Why couldn't you equally say this is a data processing company that happens to own a paper company?",
       "time": "00:08:00.22"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, and Lexis/Nexis has been a data processing company since whenever.",
       "time": "00:08:18.10"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's not the oldest... whichever is oldest isn't the one that gets to be regarded as the dominant partner, is it?",
       "time": "00:08:27.12"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is General Electric a light bulb company or, since it owns NBC, a media company.",
       "time": "00:08:38.51"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why isn't the answer both? Why isn't the answer both, just as here it is both a paper or office supply company and a Lexis/Nexis, electronic data company?",
       "time": "00:08:49.90"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's because they sell paper in Illinois?",
       "time": "00:09:19.67"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, Lexis sells data services in Illinois, too.",
       "time": "00:09:22.51"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, why doesn't... I mean, you just said, as I understand it, Illinois has the right to tax Lexis under business activities in Illinois. Illinois would argue the reason it has a capital gain is partly because they were doing business in Illinois and so we should be entitled to part of that capital gain. Almost... I mean, it seems to me it would be pretty easy if they get to tax 2 percent of Lexis's business, well then maybe they should get 2 percent of the capital gain when it's sold or tax 2 percent.",
       "time": "00:09:49.51"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They're raising it in... in support of the judgment. So if it's novel, but it supports the judgment, then at least shouldn't the Illinois courts have a chance to look at it and say, oh, that's what we really meant, we just got... explained it the wrong way?",
       "time": "00:10:51.15"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I think this is part of the substance. I thought that as part of one of your answers you said that Ohio is free to allocate part of this capital gains tax to Illinois? Did I hear you say that, because I don't understand that?",
       "time": "00:11:42.95"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I see.",
       "time": "00:12:10.10"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, isn't it kind of like futures hedging? I mean, you've got a paper company and then you've got something that is sort of the paperless aspect, and they can look at it and say, well, we're kind of hedging our paper business by investing heavily in something that's supposedly going to take away the need for paper.",
       "time": "00:12:39.20"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are you saying this is a passive investment?",
       "time": "00:13:11.27"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How can you call it a passive investment, not only when there was... I think undisputedly... as... as much interest and activity in Nexis's business planning by the Mead people? But to my mind even more importantly, when in fact Mead, I think a couple of times, merged with... with Nexis... with Lexis... when that provided a tax advantage, by... by giving them loss carryforwards that reduced their taxes. Why isn't it fair to... to say under the operational function test that if... if the company is... if Nexis is... is mergeable with Mead when it produces a tax advantage and is certainly in a very operational sense functional then, because it's saving them a lot of money... and that's, that has nothing to do with passive investment. If it's usable in a merger scenario there, it ought when the... when the tide turns be... be regarded as close enough in operational function to be taxable when the gain comes in.",
       "time": "00:13:14.89"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's... that's right. But weren't the enrichment cases in which income was being generated by an investment? The investor, of course, was the... was the taxpayer company, and it simply reaped the benefits of a profitable investment. That's something very different from merging corporations, then unmerging them, and then merging them again to provide not merely enrichment, but great tax savings; and if they are operationally close enough to produce great tax savings, why shouldn't they be treated as operationally close enough when in fact they... they produce a capital gain?",
       "time": "00:14:46.55"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The gain alone certainly is not. If they had absolutely done nothing but make their investment and wait to see whether the ship came in, I would understand your argument. But between the investment and the return of the ship, they were merging these corporations back and forth for... for their... for Mead's tax advantage. And that seems to me to take it out... take the facts of this case out of the sort of the paradigm of the... the operational or the nonoperational function cases.",
       "time": "00:15:33.10"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was a sale of stock in that case, wasn't it?",
       "time": "00:16:23.26"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was the sale of a subsidiary. And here we have a sale of assets of one company, and that's why it's so hard for me to see this, as, why are we talking about unitary or not? There is only one company; it's Mead.",
       "time": "00:16:26.22"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You told me that there was no case that the tax... taxing authority lost that involved divisions of a single company and sale of assets, rather than the sale of stock.",
       "time": "00:17:02.84"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, we're talking about what Due Process permits States to do, and you're asking us to declare a restriction that, as far as I know, has never been declared in any case.",
       "time": "00:17:29.82"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not just that it's an investment, it's not just that it's holding on to the shares in another company. It's both of these are ongoing businesses, Lexis/Nexis and Mead, and they are both generating income, and all along Illinois has been taxing the income of both of them, right?",
       "time": "00:17:59.24"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Weren't those foreign corporations?",
       "time": "00:18:58.20"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So running them as... as a single company would have been a little harder.",
       "time": "00:19:02.12"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Don't we start... I don't mean to cut off your argument, but don't we start with the assumption that this is not a unitary business? Wasn't that the finding of the trial court which was not disturbed on appeal?",
       "time": "00:19:35.66"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You can say it if you want, but I wanted to make sure--",
       "time": "00:19:47.06"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Am I thinking about that part correctly? I... I found this difficult. I go back to the railroad; that seems the easiest case. You have a railroad in 50 States, and Illinois finds it very hard to evaluate its... evaluate its value, its railroad property in Illinois, because the value of that depends on service everywhere. So the court says that's the unitary principle; and really what you're supposed to look at is whether when you look at the supposedly separate part of the business, does that separate part of the business contribute to the whole thing? So that if you were in fact trying to say what is Illinois doing without considering that separate part, it would be tough to do. I mean, that's the underlying theme.",
       "time": "00:19:56.24"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if that's so, there is no second test. I mean, I grant you there is language, but really what people have done is they've said, we are here in a special situation because we have an interest in another company, and that's a special part of our business, and has nothing to do with the rest of the business. And then the argument is no, it does have something to do with the rest of the business. And if it does, like it provides you with working capital, it's just like the railroad track in California vis a vis Illinois.",
       "time": "00:20:41.28"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if it doesn't, it doesn't. So now, if that's right, then it's the form of analysis rather than the result that's wrong in the court below. Because they start talking about two separate tests and then people argue whether the second should swallow up the first, and at that point I get totally lost. It's fairly long, but I'd appreciate your evaluating what I've just said.",
       "time": "00:21:16.27"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, there is, Ms. Brinkmann. The Illinois appellate court never got to that question. Illinois argued all along this is a unitary business. The only one who said it wasn't was this trial court, and the Illinois intermediate appellate court says, well, we don't have to deal with that because if you use the other label, operational function, that comes out all right, too. But this argument was certainly the number one argument that Illinois was making. It lost only in the trial court on... on it. And the appellate court said we don't have to get to it. So I think your answer to Justice Souter really wasn't accurate because it isn't--",
       "time": "00:21:50.18"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--All we know is that a trial judge said that was so.",
       "time": "00:22:37.66"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Maybe when we're talking about Due Process and Commerce Clause limitations on what States can tax, we ought to ask ourselves if those three... is that it? If we're trying to measure, is there a sufficient relationship between Lexis/Nexis, Mead, and the State of Illinois to make it fair for them to tax? And you say, oh, yes. Each year when they're making income, when they are a going concern, Illinois can get a piece of it. But when the assets are sold, assets that would have generated income for Illinois year after year, but when those assets are sold, Illinois can get nothing to represent... to substitute for that stream of income that it would have gotten.",
       "time": "00:23:35.68"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Lexis/Nexis is gone.",
       "time": "00:24:32.37"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose it had been Delaware, and there was nothing there in Delaware except it was a Delaware corporation.",
       "time": "00:24:53.28"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Brinkmann, one thing that concerns me is how this will complicate the process. I think, with respect to ordinary income, the States work this out, and they figure we get 5 percent because we have 5 percent of the presence or business, whatever. Now, they're going to have that, and they're going to have an overlay on that. They're going to say, well, it's 5 percent; but, you know, we sold this asset that doesn't have any connection to Illinois; and that's part of the income we've got. So you don't get quite 5 percent of all. And another... Illinois is going to come back and say, well, yes, but you sold this other one; and, as to that one, you've got sufficient connection with Illinois. It seems to me it's going to be impossible to sort this out.",
       "time": "00:25:08.86"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't like to intrude on the white light, but if I could just ask one question. If the unitary tax argument has been preserved and is met and if there's a finding that they are unitary, does Illinois have the right to tax the sale, or to... to a portion of it?",
       "time": "00:26:42.75"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no. Assume... assume it is unitary. Can Illinois then, in your view, have a part of... tax part of the gain on the sale?",
       "time": "00:27:02.35"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Ms. Brinkmann. Mr. Barov.",
       "time": "00:27:22.98"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if you did not proceed on the unitary business there, let's take that off the table. It seems to me that Lexis's presence in Illinois is quite irrelevant.",
       "time": "00:27:54.10"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me that, under your theory, you could tax the sale, even if Lexis were not in Illinois at all, just because Mead is.",
       "time": "00:28:08.37"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's not the question. I thought that the... I agree with the same question Justice Kennedy had. Suppose that I'm a Massachusetts company that sells tables, and I sell some tables in Illinois. And one day I take some of the money, and I buy an iron mine in New Mexico. And then I sell the iron mine. And Illinois, not Massachusetts, wants to impose a tax. And suppose there is no connection whatsoever between the iron mine and anything else but for four, which are the four listed on page 13a: One, that I have contributed capital support to the iron mine. Two, I approve the major capital expenditures of the iron mine, sitting in my office in Massachusetts. Three, sometimes... and this is a tougher one... I call the iron mine a division of my table company. And, four, I sometimes retain tax benefits and control over the extra cash of the iron mine, but I'm not using it in my day to day work. Now, are those four things alone sufficient for Illinois to tax the sale of my iron mine? That, it seems to me, is the way they presented it. Maybe it is a unitary business really, but I guess we have to send it back for that.",
       "time": "00:28:26.67"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Then why isn't that the end of this case? That's what they said it was. That's what they said, perhaps wrongly, that this isn't a unitary business. And, therefore, we are left with those four facts, and why not send it back and say you haven't reached the unitary business question; go reach it?",
       "time": "00:30:06.17"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And if I can just add on to that same question: If you're going to have the unitary tax theory, that's... that's very helpful. But if we take the unitary tax theory off the table, it seems to me that you are confusing the law by having some midway test. I don't know what your theory is, that... in relation to this part of Justice Breyer's question.",
       "time": "00:30:24.11"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But Mead didn't receive... pardon me... Lexis didn't receive the money for the sale, Mead did.",
       "time": "00:31:20.58"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Unless, again, if Mead's presence or nonpresence is simply irrelevant to what happened here, absent a unitary theory.",
       "time": "00:31:32.12"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think that if there had been a separate corporation and that Lexis was a subsidiary corporation and the subsidiary was... it was sold, that, again, absent a finding of unitary, Illinois then could have had a tax?",
       "time": "00:32:14.21"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So, then, the asset stock doesn't make any difference?",
       "time": "00:32:32.51"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That gets back to Justice Stevens's initial hypothetical. If you live in New York and you have an investment in a company that does a lot of business in Illinois and you in New York, a resident individual, sell that stock, under your theory Illinois could tax it.",
       "time": "00:32:46.95"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If you traded places with Ohio, how would you have treated this transaction under your tax laws?",
       "time": "00:34:16.09"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Say that Mead was domiciled in Illinois but Lexis/Nexis operated in Ohio, would you have just taken... would you have allocated or would you have claimed that... the right to tax the entire capital gain?",
       "time": "00:34:23.70"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you know what... or did you know what Ohio did in the--",
       "time": "00:34:48.98"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Well, what would you say... I mean, we talk about apportioning income and allocating income, allocating to the commercial headquarters. What in an enterprise like this would you say is allocated to the commercial headquarters as opposed to being apportioned among all the States?",
       "time": "00:35:08.96"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Barov, I just want to go back to an earlier answer to see how far you would go with the position that you took. Assume that, exclusive of Nexis, Mead is the same kind of unitary corporation as under... under everybody's understanding now. Assume, also, as you suggested in a hypo, that Lexis was doing business in Illinois. So that at least a... a portion of its own activity could be taxed in Illinois. And assume, third, that the relationship between Mead and Lexis is simply one of passive investment. Mead simply bought a lot of stock, maybe 100 percent of the stock at the right time; and, otherwise, it kept hands off. And at this point Mead now... now sells. On... on your theory, would... would the State of Illinois be able to tax a portion of the capital gain?",
       "time": "00:36:24.73"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but that would be, in effect, the portion of the Nexis business, total business that took place in Illinois, total sales, total payroll, however you do it.",
       "time": "00:37:37.76"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But the only point I wanted to be clear on to understand your position is that purely passive investment would be enough to trigger your theory?",
       "time": "00:37:47.11"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:37:57.69"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, why isn't your friend correct that you have waived any argument based on the presence of Lexis in Illinois?",
       "time": "00:37:59.04"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And... and I'm not following your argument, because I thought that the argument that this was a unitary enterprise was made in the Illinois appellate court, and the appellate court recognizes that it was made, and said we are not going to reach it because we have this operational function test?",
       "time": "00:38:41.53"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but that's... they are very different from your current argument, which you emphasize that whether they are unitary or not, Lexis/Nexis was in Illinois.",
       "time": "00:39:02.55"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. Now, as to that argument, at least I am very reluctant to overturn a State court on an argument that they didn't have an opportunity to consider. And whether it's technically waived because you raised it in the trial court or not, it certainly was not an argument you made to the Illinois appellate courts.",
       "time": "00:39:11.68"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it wasn't in Allied-Signal. In Allied-Signal the asset that was sold was in New Jersey, and that was totally irrelevant to how we treated the issue in that case.",
       "time": "00:39:40.14"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question just... it shows my ignorance, but if the unitary business approach to taxation was not applied in this case, how did you compute the amount of the tax?",
       "time": "00:40:24.07"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you use a different formula from the normal three factor formula to compute the tax?",
       "time": "00:41:00.01"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it seems to me that those factors are wholly irrelevant to the fact of sale. It's just whimsical. It has nothing to do with the sale. The reason we use apportionment in other cases is, just as in Justice Breyer's railroad example, there is no other way to tell, and so forth. But here the presence of Lexis in Illinois is wholly accidental with reference to what went on in the sale.",
       "time": "00:41:10.38"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's why it's even more dramatic to me that you didn't raise the argument based on the Lexis connection to Illinois. That's the basis on which your auditor is claiming these taxes; and, yet, you don't even raise it before the Illinois appellate court as a ground for being able to reach the Lexis/Nexis income.",
       "time": "00:41:53.31"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In the Illinois courts, they did argue that as a matter of Federal constitutional law the tax is impermissible, didn't they?",
       "time": "00:42:46.43"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We couldn't do anything more if we said you haven't waived it, we couldn't do anything more than send it back. You're telling us Lexis has this presence in Illinois, but we have nothing in the record about that.",
       "time": "00:43:03.74"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where is that?",
       "time": "00:43:36.38"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I just... usually appellate courts don't make findings. That's why I'm curious--",
       "time": "00:43:49.78"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was there any sort of stipulation between the parties to say what each, what Lexis/Nexis was doing in Illinois, what Mead was doing in Illinois?",
       "time": "00:43:54.90"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let me ask you about the theory that both the trial court and the intermediate appellate court went on, this operational function test, which has been brought up in a few of our cases, but I don't know any that was decided. Did we ever have any case that turned on the operational function test to hold for the State taxing authority?",
       "time": "00:44:23.01"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes. But one of the problems with applying it as you urge here is that that would just override... why would anyone go to the trouble of making a case under the so called unitary business test, because the operational function test would be much easier to meet? So--",
       "time": "00:44:52.71"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What? What could it be? That is... as I read this, I thought, well, there is no separate test. It's just there's a certain situation that comes up fairly commonly where someone claims that an asset of a company was really quite separate, and therefore when they get income from it or they sell it it has nothing to do with my business. And the answer is: It did have something to do with your business, you used the working capital and so forth, in which case it's part of the business. So how... how is it... how is it different from that?",
       "time": "00:45:38.15"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, if you agree with that, do you really agree, because if you agree with that there's no such separate test, this court was wrong to consider it separately, the lower court, and they should have reached the question they didn't reach, which was is this whole thing one single business, which is normally called the unitary business test?",
       "time": "00:46:15.69"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Good. All right.",
       "time": "00:46:37.17"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So say you... but you would be asking us, if you were going to go on that operational function, to take two examples that were given in Allied-Signal that are quite different from what's involved here, and to make that a doctrine when you recognize that we have never used that theory to hold for a State taxing authority in the context of a multi state enterprise?",
       "time": "00:48:15.69"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question. Does the record tell us whether other States have sought to tax the capital gain on this transaction?",
       "time": "00:49:21.40"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As far as we know, Illinois is out on its own here?",
       "time": "00:49:30.32"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You'd not wager, however, right?",
       "time": "00:49:42.96"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If Illinois... if Ohio is, in fact, taxing the whole gain at its full rate on the theory that this entire income should be allocated to Ohio, then you do have an element of double taxation, right?",
       "time": "00:50:21.80"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I thought... I've been looking, too. I thought 18A does say that they had $46 million of sales attributable to Lexis/Nexis.",
       "time": "00:51:38.12"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, only 46 million.",
       "time": "00:51:52.39"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It said 46, not hundreds of millions.",
       "time": "00:51:55.53"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're taxing Mead, not Nexis/Lexis?",
       "time": "00:52:13.57"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what relevance is it that Nexis/Lexis has business in Illinois?",
       "time": "00:52:18.73"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean that's fine if that's who you're taxing.",
       "time": "00:52:25.60"
     },
@@ -1313,19 +1313,19 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is different--",
       "time": "00:53:02.56"
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I might say that I don't follow that. It seems to me what you can establish from the fact that it did a lot of business in Illinois is that can you tax it and... but I don't see how.",
       "time": "00:53:03.96"
     },
     {
       "turn": 214,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was no \"it\" to tax, right?",
       "time": "00:53:15.01"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "At the time of this sale of Lexis/Nexis assets, there was only one taxpayer; it was Mead.",
       "time": "00:53:36.03"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you have any case like that where your ability to tax a surviving corporation has to do with, not whether the surviving corporation itself has sufficient contacts with the State, but whether some other corporation that has disappeared now but that merged into it had sufficient... it seems to me you have to establish connection with the taxpayer. Not... not with somebody from whom the taxpayer made some money.",
       "time": "00:54:05.93"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's fine.",
       "time": "00:54:52.93"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that isn't established by the mere fact that Lexis/Nexis did business there. Ultimately you have to come down to connecting it to Mead, either by your unitary business doctrine or by this functional doctrine that you're relying on.",
       "time": "00:54:58.76"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But the proration, it seems to me... that should have nothing to do with the extent of Lexis in Illinois--",
       "time": "00:55:43.01"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--nor does it have to do with the extent of Mead in Illinois.",
       "time": "00:55:50.90"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you tax me on stock... on stock that I own on companies that do business in Illinois?",
       "time": "00:56:51.07"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you know any State that tries to do it.",
       "time": "00:57:02.89"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's extraordinary. I don't know of any tax that a State could possibly impose, that no State has imposed. [Laughter]",
       "time": "00:57:06.90"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. Ms. Brinkmann, you have three minutes.",
       "time": "00:57:39.59"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Brinkmann, your final point.",
       "time": "00:58:55.55"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ohio.",
       "time": "00:59:04.59"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Illinois or Ohio, were you talking about?",
       "time": "00:59:20.78"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Brinkmann, on the waiver point... I'm looking at page 18a... it not only says that Lexis/Nexis contributed $46 million from its presence in Illinois; it begins the sentence by saying \"as the Department notes, $46 million of Mead's income came from Lexis/Nexis activities in Illinois. \" So that doesn't sound like a waiver of that point to me.",
       "time": "00:59:30.71"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Initially, it's about the context in which... what I regard as an important fact... was raised, whether it was raised in the context of an argument on unitary business or whether or not they went too far, but the stubborn fact is still there.",
       "time": "01:00:06.36"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you. The case is submitted.",
       "time": "01:00:39.62"
     }

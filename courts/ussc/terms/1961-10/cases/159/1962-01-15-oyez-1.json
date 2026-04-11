@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/159/19620115a_159_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD ARENS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "BURKE MARSHALL",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 159, Frederick C. Lynch, Petitioner, versus Winfred Overholser, Superintendent of St. Elizabeths Hospital. Mr. Shea. Mr. Arens, I beg your pardon.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Did you represent him in the trial court, Mr. Shea?",
       "time": "00:01:48.83"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Mr. Arens, I beg your pardon.",
       "time": "00:01:53.66"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "He had a lawyer, though.",
       "time": "00:02:00.25"
     },
@@ -99,13 +99,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And this --",
       "time": "00:03:16.91"
     },
     {
       "turn": 10,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind stating the detailed -- that led to that commitment?",
       "time": "00:03:16.95"
     },
@@ -117,7 +117,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there any assumption or presumption to be entered through him?",
       "time": "00:03:41.39"
     },
@@ -129,7 +129,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All I want to know is if the judge could do this out of hand just capriciously?",
       "time": "00:03:46.84"
     },
@@ -141,7 +141,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then he must have --",
       "time": "00:03:59.92"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- had some basis for it.",
       "time": "00:04:00.42"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There was no transcript at all.",
       "time": "00:04:12.51"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's the -- statute provides so far as commitment for observation at the time of arraignment?",
       "time": "00:04:17.98"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It must be assumed that the conditions of the section were satisfied.",
       "time": "00:04:50.61"
     },
@@ -201,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "When he entered his plea of not guilty, did he have counsel?",
       "time": "00:05:24.02"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does the statute leave room for challenge of the judge's action?",
       "time": "00:05:28.88"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I'm talking now about this preliminary commitment for observation (Voice Overlap) --",
       "time": "00:05:43.53"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- before an arraignment.",
       "time": "00:05:47.57"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because the statute gives the judge power to do it, doesn't it?",
       "time": "00:05:52.43"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And so far as -- upon observation.",
       "time": "00:05:57.82"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Are you saying this to shock us? Does that seem shocking to you?",
       "time": "00:06:16.80"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's -- those are the terms of the statute, aren't they? They're not confined to the nature or magnitude or gravity of the crime that the person is --",
       "time": "00:06:30.74"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Charged at all. They are directed to the person's condition not to the magnitude of the offense that (Voice Overlap) --",
       "time": "00:06:40.09"
     },
@@ -309,13 +309,13 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:06:48.34"
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I want to know exactly what the proposition is that you're tendering to the Court. Suppose a man is -- appears before -- been brought before a magistrate and he gives evidence of being a raving maniac, if one may assume that such evidence may overtly be made. Does the judge -- must the judge stop then and there and appoint counsel and go through the proceedings of having the counsel raise the question or may he at once make arraignments for the transfer of that individual to St. Elizabeths?",
       "time": "00:06:49.30"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you say -- and do you -- is your submission that that is violative of the Due Process Clause?",
       "time": "00:07:30.84"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you do not know -- we do not know on what valid or substantial or satisfying basis the commitment here was made. He may not have been a raving maniac, if that term is still permissible in these days, but may have been a basis just as -- justified on.",
       "time": "00:07:48.13"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is not your main point. Would you mind --",
       "time": "00:08:09.44"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- stating exactly what it is you're tendering to the Court?",
       "time": "00:08:11.27"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I -- perhaps one could understand better what the significance of the facts are if you will tell us with reference to what are to be judged.",
       "time": "00:08:19.78"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But now why do you refer to that as a disaster? It's a sad condition, but assuming that this person is mentally ill, why is it disastrous to send him to a mental institution to be cured?",
       "time": "00:09:29.96"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Isn't -- the point is that there's never yet been an affirmative determination that he is insane, whatever that means.",
       "time": "00:10:42.34"
     },
@@ -411,19 +411,19 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, there must be --",
       "time": "00:10:54.81"
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now -- go ahead.",
       "time": "00:10:55.05"
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There must be -- I probably was wrong to ask you to state your general proposition because there must be more to the facts than one rejection ceased of --",
       "time": "00:10:57.94"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- because all you've told us specify is that the record doesn't show what the basis was on which the magistrate did make the commitment.",
       "time": "00:11:08.92"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could you start -- would you start again with those facts please, the procedural facts so we can have them all in mind?",
       "time": "00:11:33.95"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I interrupt?",
       "time": "00:14:35.52"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose the plea -- of guilty has been accepted, what procedure would have followed?",
       "time": "00:14:36.96"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Two years?",
       "time": "00:14:51.63"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would the issue of insanity at all come into play?",
       "time": "00:14:55.55"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But responsibilities for the crime to which he pled guilty was not conducible.",
       "time": "00:15:22.97"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How about probation condition upon voluntary commitment to in-patient treatment, commitment to an institution?",
       "time": "00:15:48.71"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose nobody's completely free of every abnormal mental condition, what's that mean?",
       "time": "00:16:43.76"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That bothers me.",
       "time": "00:16:52.22"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is this the statute as construed by the Court of Appeals?",
       "time": "00:18:03.62"
     },
@@ -567,19 +567,19 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens --",
       "time": "00:18:15.15"
     },
     {
       "turn": 88,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Mr. Arens -- go ahead.",
       "time": "00:18:15.29"
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens, I was going to ask you when court counsel was appointed then the defendant came into court and then asked permission to change his plea from not guilty to guilty, was it necessary for the court then to proceed with the trial or did the court have the power if it desired to do so, to direct that a civil proceeding be initiated to determine his sanity if the court believed that there was a question as to whether he actually was competent to proceed with the trial?",
       "time": "00:18:17.34"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, did it have to dismiss the charges?",
       "time": "00:19:10.35"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why? I don't get it.",
       "time": "00:19:23.73"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It could be any criminal charge pending against the person, is that it?",
       "time": "00:19:40.89"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "00:19:45.84"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There must be no criminal charge pending if a civil proceeding is to be conducted, is that correct?",
       "time": "00:19:46.97"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if he doesn't do that, if the magistrate doesn't do that, he must accept a plea of guilty, although he had before him reliable indicia indicating mental disturbance at the time the crime was committed. That's your position, is it not, under law?",
       "time": "00:20:08.40"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not questioning it. I just want to know. I'm in a state of confusion.",
       "time": "00:20:26.49"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I didn't --",
       "time": "00:20:43.31"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't -- I don't -- I'm not reaching the legal questions of my own legal thinking because I'm not yet clear what the situation is and therefore I'm much troubled here. If a plea of guilty is offered, is tendered, the court must either accept it or out of hand dismiss the charge though he has no evidence that the man isn't guilty. He must dismiss that out of hand in order to begin civil mental process, is that right?",
       "time": "00:20:44.17"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore the alternative is to accept the plea of guilty, is that right?",
       "time": "00:21:22.25"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is the judge -- could the judge sua sponte have summoned or did he by chance, summoned the psychiatrist, take the witness stand, put him through a course of questioning. Then conclude what he did conclude on the basis of the written report? He could do that, could he?",
       "time": "00:21:46.27"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:22:09.12"
     },
@@ -735,13 +735,13 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He could not?",
       "time": "00:22:11.67"
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But he did, didn't he?",
       "time": "00:22:12.84"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What? I'm again -- I'm still more confused. I thought you just said that the prosecution that there could be a trial of the issue of the claimed insanity making him irresponsible for the commission of the deed, is that right?",
       "time": "00:22:21.64"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you said there was a third.",
       "time": "00:22:48.66"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then I must ask you this question.",
       "time": "00:22:58.02"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose the Government had called this psychiatrist instead of having the municipal court judge act on the written report, suppose the Government said “Your Honor, I'd like to summon Dr. Jones”, and then put Dr. Jones who merely repeated verbatim what he had in his report. Could the judge then act as he did?",
       "time": "00:23:00.96"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then what is the third alternative? I don't understand it.",
       "time": "00:23:22.69"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of the Government's proof, if the witnesses for the Government showed the commission of the act of writing a check against its official funds but further showed that the act was done under such circumstances as to show incontrovertibly that the man was insane when he did it, now -- then what would the judge have to do?",
       "time": "00:23:42.49"
     },
@@ -825,25 +825,25 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you think a judge, a conscientious judge, could --",
       "time": "00:24:20.07"
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is that to say that the court -- excuse me, excuse me, I think you were talking --",
       "time": "00:24:23.35"
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Go ahead.",
       "time": "00:24:27.31"
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is that to say that the court may sentence a person whom the evidence shows to have been of unsound mind at the time of the commission of the crime?",
       "time": "00:24:29.12"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and does --",
       "time": "00:25:10.31"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- your first answer carry with it that that's -- that that -- what you denominate the common law, the Iowa law is required by the due process clause? Because we're not concerned here with what is common law or Iowa law. We're concerned here in view of your submission that there was a deprivation of a constitutional right.",
       "time": "00:25:10.47"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Pardon me?",
       "time": "00:25:32.31"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you say as a matter of constitutional due process that he may insist on -- for some -- what you call strategy and that is an ill sound to my ear but, the strategy is protected by the constitution. This is a game that as a matter of due process he must be sent to jail although the Government is ready to prove whatever the adequacy of proof may be that in fact he was mentally irresponsible.",
       "time": "00:25:34.67"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But those are words.",
       "time": "00:26:13.72"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there a claim here by assigned counsel that he wants to disprove the substantiality of the psychiatrist's claim or testimony on the court? As I understood your argument thus far it is that absolutely, a man has a right to insist on a plea of guilty being taken and entertained no matter what the showing of mentally responsibility of the act for which he's being -- to which he pled guilty.",
       "time": "00:26:34.69"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The upshot of which is, he's rid of the charge of crime against him. That is wiped out and he can now defend perhaps successfully that he's mentally unbalanced. Those are the constitutional rights for which you claim.",
       "time": "00:27:41.16"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But Mr. Arens, are you arguing that the Government used this criminal leads as the substitute for or to debate the civil process for examining that?",
       "time": "00:27:57.71"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could I go back to something you said earlier? I want to make sure I understand it. I understood you to say that there is no civil commitment proceeding possible in the District of Columbia where there is a criminal charge pending against a man.",
       "time": "00:28:49.31"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Now, does that mean --",
       "time": "00:29:07.01"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Does that mean that in a case where a man has been convicted, no plea of insanity, no suggestion of insanity, he is committed to prison. He then becomes insane in prison during the service of his sentence. Is there no power of the warden to institute some kind of a proceeding to transfer him to an insane asylum?",
       "time": "00:29:08.52"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You mean the hospital would have to release him after the term of his sentence even though he continues to be insane?",
       "time": "00:29:59.00"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens, may I ask you this question. When the court refused to accept the defendant's plea of guilty, was there any statement on his part that the reason he was not doing it was because he felt this man was more likely to be insane than guilty and that therefore he was offering the defense of not guilty by reason of insanity?",
       "time": "00:30:18.14"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is it in the record?",
       "time": "00:30:52.97"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did interpose? Did the judge interpose a plea of not guilty by reason of insanity?",
       "time": "00:30:55.05"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, wouldn't the minutes of the court show that?",
       "time": "00:31:05.02"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I am not questioning that. I'm not questioning that at all but I suppose the minutes of the court will show that the defense -- the defendant once pled not guilty and then that he offered to plead guilty and was denied that opportunity.",
       "time": "00:31:20.01"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It is shown. Now --",
       "time": "00:31:37.83"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- is there anything in addition to that to show that the court itself interposed a plea of not guilty by reason of insanity for this defendant?",
       "time": "00:31:38.90"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:32:09.01"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If they -- that he did not request it.",
       "time": "00:33:22.87"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So far as --",
       "time": "00:33:26.07"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Mr. Arens, what would've been your position, your constitutional position, had there been a plea of insanity imposed here and the same procedure followed under the statute?",
       "time": "00:33:38.86"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "No, no. I meant supposing he had voluntarily entered a plea or his counsel had (Inaudible)-- a plea of in -- not guilty by reason of insanity. Then the Court had held him not guilty by a reason of insanity and that then follow the procedure under the statute, would you have a case?",
       "time": "00:34:00.14"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, would that have been a constitutional proceeding?",
       "time": "00:34:26.72"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Is your -- your basic constitutional position as I understand it from your colloquy with Justice Brennan is that he was committed to St. Elizabeths without any determination of insanity.",
       "time": "00:34:59.13"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Now, had there been a voluntary plea of not guilty by a reason of insanity and an acquittal by that reason, would that have amounted to a finding that he was insane?",
       "time": "00:35:11.79"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "A reasonable doubt, exactly.",
       "time": "00:35:33.11"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "But what I am trying --",
       "time": "00:36:01.71"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What I am trying to get at is the reach of your constitutional position. Is it that even under the hypothetical case that I put that that would render the application of the statute unconstitutional?",
       "time": "00:36:02.68"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Or, is your position limited to the situation where there has been no voluntary plea of insanity imposed and one simply entered by the court.",
       "time": "00:36:16.29"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "All --",
       "time": "00:36:27.68"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Arens, I'm not sure I understood you, but did you say that a plea of not guilty under the law of the District of Columbia embraces a defense of insanity?",
       "time": "00:36:43.18"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well then, a plea of not guilty here was in fact a plea of not guilty for any cause including insanity.",
       "time": "00:37:05.27"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Now one more question please. I understood you a while ago to say that the trial judge might have dismissed this proceeding. How could he have done that in the absence of evidence showing illegal irresponsibility for the client?",
       "time": "00:37:17.25"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I suppose -- I would think that you could've given the judge an easier route, if I understand the statute correctly, namely to accept his plea, send him to St. Elizabeths, alert the warden, the warden finds he's presently insane, he can transfer him to St. Elizabeths to the expiration of his sentence and then a civil commitment proceeding.",
       "time": "00:38:12.44"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could the court have done that?",
       "time": "00:38:34.52"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, why do you have to go through this other (Voice Overlap) --",
       "time": "00:38:36.50"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Isn't that a much more direct way of reaching the problem that you're complaining about as going through the mechanics of dismissing a criminal proceeding that's --",
       "time": "00:39:07.79"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- undismissable?",
       "time": "00:39:15.33"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens, may I ask you this question. Is there not another alternative? Could not the judge before he placed him on trial at the suggestion of the prosecution or the hospital or anybody else have dismissed this criminal case against him and then had a civil proceeding to determine his sanity without having to put him in jeopardy?",
       "time": "00:39:19.81"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And then after the civil proceeding was over, if he was found to be sane then they could've charged him again with the same crime, tried him, and convicted him.",
       "time": "00:39:47.22"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Who can initiate an involuntary commitment proceeding under the District of Columbia law?Can anybody or does it have to be a member of the --",
       "time": "00:41:00.73"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- his family or what?",
       "time": "00:41:10.45"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What does the statute provide, do you happen to know, does it -- as to who can initiate the proceeding?",
       "time": "00:41:29.86"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did the Government -- did the Government offer this proof of insanity in its case in chief or in rebuttal?",
       "time": "00:43:11.80"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I thought you (Inaudible) --",
       "time": "00:43:22.09"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you told us earlier we don't know who.",
       "time": "00:43:24.02"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do I rightly infer that what the municipal court did was warrant it under the statute and that you read -- you reach the constitutionality of the statute, is that right?",
       "time": "00:43:53.29"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's construed by the Court of Appeals.",
       "time": "00:44:16.91"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that means -- that means that in effect the Court of Appeals construed the statute to lay down as a rule of law that the duty of proving mental responsibility is an affirmative duty on the part of the prosecution. That's what is implied.",
       "time": "00:44:24.82"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think it's unconstitutional to make any such requirement that the prosecution has the duty of affirmatively proving mental capacity?",
       "time": "00:44:42.16"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know this Court has said that it's not unconstitutional to do the reverse but I wonder if we've reached the point where it's unconstitutional to put the burden of proving mental responsibility upon the prosecution whether that violates due process.",
       "time": "00:44:51.12"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's what he did here.",
       "time": "00:45:14.91"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In other words, it's unfair and irrational to put this extra burden on the prosecution instead of resting on the presumption it entered by the decision, part of presumption that is entered.",
       "time": "00:45:31.24"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well you're not here because the record doesn't permit you to be here. In this Court, there is no record on which to base it. That in fact the proof was lacking in those -- essential that what we call due process. This case isn't here, but there is no basis for finding that the prosecution didn't maintain its responsibility of proving that mental responsibility.",
       "time": "00:45:54.99"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You are here on the assumption and the inevitable influence that the prosecution undertook that burden, that it established it, that the judgment warranted in finding it -- what it established and that it violates due process to put this extra burden on the prosecution.",
       "time": "00:46:18.24"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You're reading a totally different question. That's the -- that's like our recent Thompson case. What you've now said was -- there was no basis for such a finding by the court. I can understand that claim but as I also understand it, we haven't got the basis on which to pass on it.",
       "time": "00:47:34.32"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I thought your point was that there's no finding at all.",
       "time": "00:47:52.66"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Is there --",
       "time": "00:48:30.02"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Do you find anything in the legislative history of this statute that would prevent a reading that it was intended to apply only in a situation where there had been a defense of insanity interposed?",
       "time": "00:48:31.93"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What are you reading from?",
       "time": "00:49:03.37"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Of your --",
       "time": "00:49:06.66"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Your brief?",
       "time": "00:49:07.91"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Was the Durham case the mode of power behind the statute?",
       "time": "00:50:04.05"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well that mode of power behind making it mandatory.",
       "time": "00:50:10.25"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's required, that I gather, to the discretion.",
       "time": "00:50:13.47"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Arens, would you please enlighten me. You answer Justice Douglas a minute ago that there was no finding that the judge didn't find that he was not guilty.",
       "time": "00:50:17.19"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What did you say?",
       "time": "00:50:30.53"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No, there has been -- no finding of insanity.",
       "time": "00:50:33.27"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's what the -- page 9, please explain what that means. Is it the direction that the superintendent think of then? The court having found the accused not guilty on the ground that he was insane at the time of the commission of the offense. Isn't that a finding of insanity?",
       "time": "00:50:35.41"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying that there's a -- that it's justified that there was proof of it but there is certainly as a finding, if I understand what that word means.",
       "time": "00:50:52.69"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does the Government agree with you?",
       "time": "00:51:18.55"
     },
@@ -1731,13 +1731,13 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Arens --",
       "time": "00:51:24.23"
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, the hospital agrees with you to some extent at least, did it not? Didn't they make a differentiation between his mental condition at the time of the commission of the offense and as of the time of the trial?",
       "time": "00:51:24.58"
     },
@@ -1749,7 +1749,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did they say that he had improve greatly and that he was then able to understand his surroundings and to cooperate with counsel in the conduct of his defense?",
       "time": "00:51:39.41"
     },
@@ -1761,7 +1761,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's on page 24 of the record (Inaudible)",
       "time": "00:52:09.11"
     },
@@ -1773,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And What you are saying is that it's unconstitutional for the Congress of the United States to say if a man is found insane at the time of the -- insane for the transaction for which he's tried and he's acquitted because of that mental state, Congress of the United States can't say you -- that the judge should send him for observation at a hospital for his mental state. That's your ultimate position, is it?",
       "time": "00:52:15.62"
     },
@@ -1785,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It is separate because there's always the opportunity for relief --",
       "time": "00:53:09.82"
     },
@@ -1797,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- in terms of his commitment so states, “each in your custody on guilty shall be discharged by due course of law.” As always, an accessibility to the Court as to -- in every case of mental confinement.",
       "time": "00:53:13.90"
     },
@@ -1809,25 +1809,25 @@
     },
     {
       "turn": 294,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:53:42.68"
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Must you say 10 days, a month? The whole point is that this is an observation in the hospital.",
       "time": "00:53:44.18"
     },
     {
       "turn": 296,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:53:51.80"
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I know, but in order to determine what to treat or how to treat, you must observe. This is an effort to ascertain facts on the basis of which rational judgments can be based.",
       "time": "00:53:52.96"
     },
@@ -1839,13 +1839,13 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that isn't the case we have before us. We have this statute and this action.",
       "time": "00:54:13.48"
     },
     {
       "turn": 300,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I was wondering if we have before us at all the release part of this statute about which I for one, would have considerable doubts, but do we have that before us here?",
       "time": "00:54:19.76"
     },
@@ -1857,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But has it -- this man hasn't tried to be released, has he?",
       "time": "00:54:52.36"
     },
@@ -1869,19 +1869,19 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, if we were reviewing his --",
       "time": "00:55:18.11"
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There's no (Voice Overlap) --",
       "time": "00:55:18.32"
     },
     {
       "turn": 306,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- the denial of his release, it would be one thing. We'd have that before us. We have those release provisions before us and I under -- you just said he's been denied at least twice and has he tested this out judicially?",
       "time": "00:55:19.54"
     },
@@ -1893,7 +1893,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then we'd have those provisions before us but we'd have now before us something quite different, don't we? We don't have those before us.",
       "time": "00:55:34.23"
     },
@@ -1905,7 +1905,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When you say “involuntary” all you're saying is that before a judge accepted a plea of guilty, he wanted to have established and put upon the prosecution the burden of establishing that he's to send to jail a man of a charge, may have been mentally irresponsible. That's what you mean by involuntary. That's all you can mean in the context of these facts. Of course, that's involuntary, in that entire control of the judicial proceedings are not in the hands of the defendant where an issue is his mental responsibility.",
       "time": "00:56:00.64"
     },
@@ -1917,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It isn't so extraordinary to me since this is exactly the English provision as a result of the most thorough investigation by a royal conviction, a thorough examination of the House of Commerce before the Act of 1959 was passed.",
       "time": "00:57:14.21"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It decided Section 60 Subsection 2 of that statute?",
       "time": "00:57:41.28"
     },
@@ -1941,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I am talking about the Act of 1978 Elizabeth Protecting Chapter 72, Section 60 Subdivision 2.",
       "time": "00:58:06.17"
     },
@@ -1953,13 +1953,13 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In which gives exactly what you've -- so far as I can read it, so should I read it. The first one deals with the powers of court after conviction, Section 2 Subdivision 2, where a person is charged before a magistrate's court with any act or omission of a -- as an offense, the Court would have power on convicting him of that offense to make an order under Subsection 1 of this Section. Then, if the court is satisfied that the accused did the act or made the omission charged, the court may if it sees fit make such an order without convicting him.",
       "time": "00:58:16.53"
     },
     {
       "turn": 319,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well after all we're not trying him under English procedure, are we?",
       "time": "00:58:55.84"
     },
@@ -1971,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I ask you this question? Referring back to the question of Mr. Justice Stewart about whether this case might more properly be here on a writ of habeas corpus to release him because of his penal -- present mental condition, would you be in any better position in that kind of a proceeding to raise these questions that you are now raising here than you are in this proceeding?",
       "time": "00:59:00.05"
     },
@@ -1983,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:00:04.10"
     },
@@ -1995,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "My point Mr. Arens is this. Could you in such a proceeding raise these procedural questions as to his commitment to the institution?",
       "time": "01:00:05.46"
     },
@@ -2007,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I don't believe you could, so if you can't raise it in this kind of a proceeding, you couldn't raise it in any proceeding, could you?",
       "time": "01:00:18.86"
     },
@@ -2019,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I wasn't suggesting Mr. Arens that you couldn't raise most of the questions you've raised. I was simply suggesting that the release provisions of the statute are not directly an issue in this case.",
       "time": "01:00:30.12"
     },
@@ -2031,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you brought the kind of action suggested by the Chief Justice, you could raise those but you couldn't probably raise some of the ones that you're raising in this case --",
       "time": "01:00:41.23"
     },
@@ -2043,13 +2043,13 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- (Inaudible) to the other cases.",
       "time": "01:00:50.21"
     },
     {
       "turn": 334,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens, we've taken so much of your time in argument that I'm (Inaudible) answering -- passing you questions that I'm going to give you five more minutes in rebuttal to --",
       "time": "01:00:52.86"
     },
@@ -2061,7 +2061,7 @@
     },
     {
       "turn": 336,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- in which you may be able to sum up your argument. Mr. Marshall.",
       "time": "01:01:03.99"
     },
@@ -2073,7 +2073,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's begging the question as to they're criminal if he was sane, they're not criminal if he was insane.",
       "time": "01:03:08.31"
     },
@@ -2085,7 +2085,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Unless he had defenses --",
       "time": "01:03:19.55"
     },
@@ -2097,7 +2097,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- which made them non-criminal.",
       "time": "01:03:20.92"
     },
@@ -2109,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:04:09.81"
     }

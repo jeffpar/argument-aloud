@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/73-1766/19740708a_73-1766.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "LEON JAWORSKI",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES ST. CLAIR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "PHILIP A. LACOVARA",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll hear arguments in 73-1766, United States of America against Nixon and the cross-petition, Richard M. Nixon against the United States. Mr. Jaworski, there has been a request for additional time. The court then set additional time of one-and-a half hours, I understand.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It’ll be allowed to each side and we will not interrupt the argument with any recess. We’ll go right through until you’re finished.",
       "time": "00:00:34.70"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may proceed whenever you’re ready, Mr. Jaworski.",
       "time": "00:00:42.19"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I don’t see the relevancy of the fact that the grand jury indicted the President as co-conspirator. The legal issue, as to the duty to deliver pursuant to the subpoena that you are asking for --",
       "time": "00:06:23.14"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes, but 17c presupposes a subpoena running against the party, and the President is no party. He’s not a defendant in one of these cases.",
       "time": "00:06:53.46"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I thought that was primarily just for the collage information of the House Judiciary Committee.",
       "time": "00:07:23.85"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The grand jury sent it to the House Committee, didn’t it?",
       "time": "00:07:48.94"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’d still be here, Mr. Jaworski, whether or not the President had been named as an unindicted co-conspirator but that simply gives you another string to your bow. Isn’t that about it?",
       "time": "00:08:16.56"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right, but even had the President not been named, you would still have subpoena at least part of this material.",
       "time": "00:08:29.80"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you’d still be here.",
       "time": "00:08:40.92"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Would you not?",
       "time": "00:08:41.94"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "No one yet has ever suggested that if you’re in a criminal trial, conspiracy trial, and some evidence is authored of an out-of-court statement of someone who’s alleged to be a co-conspirator, that it’s enough for the prosecution to then show that the grand jury had named him the co-conspirator.",
       "time": "00:08:57.97"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That never gets you or will never get you over the --",
       "time": "00:09:18.08"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, then that was the point. That was the direction of your --",
       "time": "00:09:22.79"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I understand that.",
       "time": "00:09:37.60"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But --",
       "time": "00:09:39.49"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you do not suggest that that’s all you need to show. Is that it?",
       "time": "00:09:40.54"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or you don’t suggest that the grand jury finding is binding on the court or not?",
       "time": "00:09:45.00"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Let me understand this, Mr. Jaworski. You don’t suggest that your right to this evidence depends upon the President having the name as an unindicted co-conspirator.",
       "time": "00:09:57.52"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And so, for the purposes of our decision, we could lay that fact aside, couldn’t we?",
       "time": "00:10:08.17"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, could we?",
       "time": "00:10:16.93"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Jaworski.",
       "time": "00:10:43.27"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "As I understand your brief, you go beyond what you have addressed so far. I think you say that the mere fact that the President was named as an unindicted co-conspirator forecloses his claim of privilege.",
       "time": "00:10:45.24"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It’s in page 91 of your brief.",
       "time": "00:11:03.43"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, that reduces him, in it of itself, to the status of any other person accused of crime.",
       "time": "00:11:10.43"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But only prima facie.",
       "time": "00:11:31.86"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Jaworski.",
       "time": "00:14:52.60"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The President went to a court. He went to the District Court with his motion to quash and then he filed a cross-petition here. He’s not -- he’s asking the court to say that his position is correct as a matter of law. Is he not?",
       "time": "00:14:53.94"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Correct.",
       "time": "00:15:14.88"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And he’s asking -- he’s submitting his position to the court and asking us to agree with him. He went, first, to the District Court and he petitioned in this court. He’s not -- he has, himself, invoked the judicial process and he is committed to it.",
       "time": "00:15:15.44"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Didn’t he file a motion to quash the subpoenas in the District Court or the United States?",
       "time": "00:15:33.17"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As a matter of law. He’s making that argument to a court. As a matter of constitutional law, he is correct.",
       "time": "00:15:42.62"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As a matter of law, if his position is correct --",
       "time": "00:15:59.19"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then he is the sole judge.",
       "time": "00:16:01.29"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And he’s asking this court to agree with that proposition as a matter of constitutional law.",
       "time": "00:16:02.96"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then this court will tell him so. That’s what this case is about, isn’t it?",
       "time": "00:16:21.03"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In submitting himself to the judicial process in the same sense that you are, is that not so, Mr. Jaworski?",
       "time": "00:16:27.17"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You take one position and he takes another.",
       "time": "00:16:36.75"
     },
@@ -507,13 +511,13 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think this matter may be one of semantics. Each of you is taking a different position on the basic question and each of you is submitting for decision to this court.",
       "time": "00:17:06.95"
     },
     {
       "turn": 78,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, we start with --",
       "time": "00:17:20.25"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We start with a constitution that does not contain the words “executive privilege,” is that right?",
       "time": "00:17:21.55"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "So, why don’t we go on from there?",
       "time": "00:17:27.67"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Perhaps it would further narrow the area if, as I take it from your briefs, you do emphasize there is no claim here of typical military secrets or diplomatic secrets or what, in the Burr case, were referred to as state secretes. None of those things are in this case. Is that right?",
       "time": "00:17:41.95"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Jaworski, at this point, help me over one hurdle. Do you feel that the mandamus case as such as here? I searched your petition --",
       "time": "00:19:30.95"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I searched your petition for certiorari in vain to find even a mention of it, and I wonder. It’s a technical question but the -- what is your position? That the issue is in any of entered here?",
       "time": "00:19:42.19"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whether the case is not --",
       "time": "00:19:54.13"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mentioned it in your second brief on the merits.",
       "time": "00:20:14.48"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But not at all in your petition for certiorari.",
       "time": "00:20:18.28"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:20:59.94"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, in a mandamus action, Judge Sirica would be the party respondent and he’s not a party in this case and he’s not represented by counsel here, is he?",
       "time": "00:21:51.84"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the mandamus would be Nixon versus Sirica, would it not?",
       "time": "00:22:05.09"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What was the chronology, Mr. Jaworski? The notice of appeal from Judge Sirica’s order was the first step taken to get to the Court of Appeals, was it?",
       "time": "00:22:24.24"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And while that was pending, then I gather, the President petitioned for mandamus was brought.",
       "time": "00:22:34.95"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then the last step was that you filed the petition to bypass here.",
       "time": "00:22:40.64"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that petition to bypass filed, I gather, to whatever case was pending in the Court of Appeals?",
       "time": "00:22:47.26"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And at that time, the case pending was both the appeal from Judge Sirica’s office --",
       "time": "00:22:53.85"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the President’s petition --",
       "time": "00:22:59.33"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Which you feel they are not two cases?",
       "time": "00:23:01.53"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And yet, you could bring each up separately if you so chose.",
       "time": "00:23:05.61"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It seems to me there’re two cases.",
       "time": "00:23:09.12"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Except, I would suggest again that, with respect to the mandamus action, one of the parties isn’t here in court or presented by counsel. He is the party respondent.",
       "time": "00:23:21.76"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Who represents him here?",
       "time": "00:24:02.45"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Has he filed any brief or made an appearance at all in any sense?",
       "time": "00:24:07.15"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if you’re right that, at any event, Judge Sirica’s order was an appealable order.",
       "time": "00:24:16.85"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If you’re correct in that submission, do we ever have to reach any issues raised by the mandamus?",
       "time": "00:24:24.16"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the mandamus is not your action.",
       "time": "00:24:34.90"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you’re not obliging the defendant, are you?",
       "time": "00:24:38.46"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It’s not important. What does consensus mean, unanimous?",
       "time": "00:28:46.07"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I take it when you make reference to this you are, in effect, suggesting that your position is certainly different than if a United States attorney were prosecuting this case.",
       "time": "00:28:57.09"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Jaworski.",
       "time": "00:29:26.72"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Quasi-independent in the sense of an agency?",
       "time": "00:29:27.52"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am troubled with your position being similar to US attorney because the US attorney is absolutely under the thumb of the Attorney General.",
       "time": "00:29:42.46"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I’m sorry.",
       "time": "00:29:59.54"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Nixon versus Sirica was different, in that, the parties there where the grand jury, on the one hand, represented to be sure by the Special Prosecutor. But the grand jury, which is an adjunct of the Judicial Branch of Government on the one hand, and the Chief Executive on the other. And here, now that an indictment has been returned, the two parties are both members of the Executive Branch. Isn’t that correct that there is that difference?",
       "time": "00:31:32.73"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, you are a member. You’re United States and the People of United States, whom you represent. You are not a member of the Judicial Branch unlike the grand jury in Nixon against Sirica. You’re a member of the Executive Branch of Government, are you not?",
       "time": "00:32:11.26"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And there is that difference.",
       "time": "00:32:28.16"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It might be a crucial difference, was it not?",
       "time": "00:32:30.54"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No. You’re, if anything, more independent than Mr. Cox was under the regulation.",
       "time": "00:32:45.23"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that doesn’t really go to the question that I raised.",
       "time": "00:32:50.56"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’re quoting from whom and what --",
       "time": "00:34:03.71"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And in what occasion?",
       "time": "00:34:10.01"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "00:34:20.60"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is the term “executive privilege” an ancient one?",
       "time": "00:42:25.77"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is the term “executive privilege” an ancient one?",
       "time": "00:42:29.91"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Are you, now, arguing that there is no such thing as executive privilege.",
       "time": "00:42:50.97"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn’t think so.",
       "time": "00:42:54.53"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you think, if anything, it’s a common law privilege? Is that your point?",
       "time": "00:42:58.13"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In Sawyer against Rose I thought we held that there is a common law privilege in the Executives dealing at the state level, but that it is a qualified privilege, is that not so?",
       "time": "00:43:16.33"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When you say “has taken a good close look,” without looking at the evidence sometimes has taken a good close look at the claim and the basis of the claim. Is that what you mean?",
       "time": "00:43:52.33"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But hasn’t this court said that it did have constitutional overtone?",
       "time": "00:44:04.93"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Tort claims, I think.",
       "time": "00:44:18.73"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was (Inaudible) Chemical Corporation who supported the claims.",
       "time": "00:44:29.00"
     },
@@ -1149,13 +1153,13 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In that great review.",
       "time": "00:44:32.95"
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It’s judicially tailored?",
       "time": "00:44:34.61"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is it your view that there are no inferences to be arrived from the Doctrine of Separation of Powers or you’re saying this is purely an evidentiary privilege?",
       "time": "00:44:41.65"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In Reynolds, the court ended up treating the assertion of privilege there as an evidentiary privilege, but it did allude to the fact that there was a constitutional question and said the court wasn’t reaching it, as I recall.",
       "time": "00:45:47.59"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It certainly would not be true in case the Fifth Amendment was involved, but that’s not present here.",
       "time": "00:47:30.38"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is that the issue, Mr. Jaworski, or is the issue whether there could be a collateral attack?",
       "time": "00:50:29.18"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I thought we have put that issue aside a while ago. I just don’t understand what relevance it is to this case.",
       "time": "00:50:53.79"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I just wonder, Mr. Jaworski, why you don’t, on content, with just arguing it is irrelevant without thinking on the right --",
       "time": "00:51:23.74"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, except, part of the grounds on which you rest in subpoenaing this material is the fact that the President has himself been named as a co-conspirator, an unindicted one. And, that’s true, isn’t it? That’s a part of --",
       "time": "00:51:50.61"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These two grounds upon which you rest in subpoenaing this material. And, the response to that is, the President cannot constitutionally be named as an unidicted co-conspirator. So, to that extent, it’s in this case. The question’s in this case.",
       "time": "00:52:06.79"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that’s something quite different again, whether or not there was sufficient evidence before the grand jury to justify the grand jury in naming the President. That’s quite a different and, as Chief Justice suggested, a collateral issue.",
       "time": "00:52:36.81"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the issue of whether or not the President can constitutionally be named by a grand jury as a co-conspirator, even though an unindicted one, it is at least tangentially before us because that’s -- it’s the fact that he’s part of the rounds and part of the foundation upon which you have based your subpoena duces tecum.",
       "time": "00:52:49.34"
     },
@@ -1287,13 +1291,13 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I understand, right.",
       "time": "00:53:35.19"
     },
     {
       "turn": 208,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But whether or not he had the authority, they did, it is a fact that the grand jury did it.",
       "time": "00:53:37.34"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So it doesn’t -- I don’t see how we have anything to do with whether they had authority or not. It’s a fact. Isn’t that true?",
       "time": "00:53:48.85"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I thought the heart of this case were the rights of defendants in criminal trial?",
       "time": "00:54:05.56"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Nevertheless --",
       "time": "00:54:13.64"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That may be exculpatory and free them of all liabilities. I don’t know but I --",
       "time": "00:54:15.97"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the Brady question really lurks just in the background, does it not? That is, if you get information, whatever you get --",
       "time": "00:55:04.75"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You would concede is available to any defendant --",
       "time": "00:55:14.77"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "who can make the showing.",
       "time": "00:55:18.71"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the question of whether or not the defendants, under the Brady Doctrine, are entitled to subpoenaing information. And material that’s not now in your possession, but is in the possession of the President, was an issue that was left undecided by the District Court.",
       "time": "00:55:21.38"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Am I right about that?",
       "time": "00:55:37.00"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair.",
       "time": "00:56:00.36"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "None of our problems, are they?",
       "time": "00:56:52.39"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The sole authority to impeach this in the House --",
       "time": "00:57:02.01"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The sole authority to try this in the Senate.",
       "time": "00:57:06.84"
     },
@@ -1461,13 +1465,13 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "How is that?",
       "time": "00:57:17.69"
     },
     {
       "turn": 237,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just how is this done?",
       "time": "00:57:18.53"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How is this case implemented?",
       "time": "00:57:19.93"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Which are in the record?",
       "time": "00:57:25.05"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, but are they in the record, not what he’s mentioned.",
       "time": "00:57:29.35"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, we’re just an adjunct of the House. This case should be dismissed as improvidently granted, isn’t it?",
       "time": "00:57:33.49"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the District Court’s decision stands. Is that what you want?",
       "time": "00:57:47.56"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If we dismiss as improvidently granted, I submit the District Court’s premium would -- the judgment would stand.",
       "time": "00:57:54.88"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The case would be on appeal in the Court of Appeals if we dismissed it.",
       "time": "00:58:09.40"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you now talking about the bypassing of the Court of Appeals?",
       "time": "00:58:13.68"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if we dismiss this appeal as improvidently granted, it would go back to the Court of Appeals.",
       "time": "00:58:26.09"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, really what you mean, isn’t it, you think that the order of Judge Sirica should be vacated --",
       "time": "00:58:35.17"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And set aside.",
       "time": "00:58:40.08"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That’s quite different from dismissing the case.",
       "time": "00:58:41.06"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That’s deciding it on the merits.",
       "time": "00:58:43.84"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it’s a political question here --",
       "time": "00:59:08.53"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It’s a political question in the District Court.",
       "time": "00:59:10.36"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Did you argue that to the District Judge?",
       "time": "00:59:20.83"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your position is that the issuance of a subpoena duces tecum is not a justiciable issue.",
       "time": "00:59:33.68"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that, as I understand it, was not among the material that was conveyed to the grand jury. There seems to be, if I’m -- at least that’s what I understood Mr. Jaworski to tell us this morning.",
       "time": "01:00:58.32"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, just a moment. I understood Mr. Jaworski to tell us this morning, very unambiguously and explicitly, that the fact that the President was named as an unindicted co-conspirator was not conveyed to the grand jury.",
       "time": "01:01:13.05"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It was released, I think, to the House of Representatives.",
       "time": "01:01:27.60"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I thought—",
       "time": "01:01:32.35"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Exactly, and that’s what Mr. Jaworski has represented again to us this morning, was the fact of the matter.",
       "time": "01:01:42.18"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, followed in what form?",
       "time": "01:02:01.60"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, it wasn’t sent from the court over to the House, was it?",
       "time": "01:02:04.37"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I’m not sure, perhaps you can help me. Are you suggesting that there was some duty on the part of the Special Prosecutor to disclose to the District Judge that there was this secret indictment before the judge passed on whether the material should be sent to the House?",
       "time": "01:02:23.32"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How far does your point go? Let’s assume that a murder took place on the streets of Washington of which the President happen to be one of the very few eyewitnesses, and somebody was indicted for that murder and the President was subpoenaed as a witness. Would you say he cannot be subpoenaed now because there is an impeachment inquiry going on and the courts absolutely have to stop dead on their tracks of doing their ordinary judicial business?",
       "time": "01:04:33.44"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Setting that to one side.",
       "time": "01:05:12.34"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’re saying that the courts, as I understand it, have to stop dead in their tracks from doing their ordinary business in any matter involving even, tangentially, the President of the United States if or as of when the Committee of the House of Representative is investigating impeachment.",
       "time": "01:05:14.09"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, here are --",
       "time": "01:05:37.37"
     },
@@ -1827,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Seven people have been indicted. Six of whom remain under indictment.",
       "time": "01:05:39.23"
     },
@@ -1839,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The trial is scheduled for next September 9.",
       "time": "01:05:44.64"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The prosecutor is preparing for that trial. He is trying to, under Rule 17 of the Federal Rules of Criminal Procedure, to adduce matters to be used in evidence at that trial. You say that cannot go forward because of some tangential effect or, you say, direct effect upon some other matter going out in another branch of the government. And how far does your --",
       "time": "01:05:47.71"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How do we know?",
       "time": "01:06:26.96"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what --",
       "time": "01:06:30.55"
     },
@@ -1887,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "One in these tapes involves the impeachment proceedings.",
       "time": "01:06:30.62"
     },
@@ -1899,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What, in any of these tapes, is involved in the impeachment proceedings?",
       "time": "01:06:34.89"
     },
@@ -1911,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I don’t know which of the tapes. I assume you do.",
       "time": "01:06:44.31"
     },
@@ -1923,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don’t know either. Well, how do you know that they’re subject to the greater privilege?",
       "time": "01:06:49.80"
     },
@@ -1935,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Regardless of what it is.",
       "time": "01:07:02.39"
     },
@@ -1947,13 +1951,13 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you don’t know.",
       "time": "01:07:09.01"
     },
     {
       "turn": 318,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But does not the Special Prosecutor claim that the subject matter is the same?",
       "time": "01:07:10.14"
     },
@@ -1965,7 +1969,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "This claim was honored but this court -- all would have to leave the evidence and go to Judge Sirica who would take it, examine it in cameras.",
       "time": "01:07:24.22"
     },
@@ -1977,7 +1981,7 @@
     },
     {
       "turn": 322,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair, going back to this murder witness situation. If the President, any president, witnessed an automobile accident and was the sole witness of murder, as Mr. Justice Stewart suggested, you’re not indicating that his testimony, his evidence, would not be available to the court but merely that he can’t be subpoenaed but might give it back by deposition as several presidents have in the past.",
       "time": "01:07:45.86"
     },
@@ -1989,7 +1993,7 @@
     },
     {
       "turn": 324,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The testimony of the Justices of this court has been given in past times by depositions, has it not?",
       "time": "01:08:12.11"
     },
@@ -2001,7 +2005,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If that’s true, why are you willing to give up 20 or so?",
       "time": "01:08:38.04"
     },
@@ -2013,7 +2017,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I’m talking about this case. You say you’ll give up 20 of them in this case.",
       "time": "01:08:52.45"
     },
@@ -2025,7 +2029,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The tapes or the transcription?",
       "time": "01:09:00.81"
     },
@@ -2037,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The tapes?",
       "time": "01:09:11.18"
     },
@@ -2049,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would the tapes that you’re willing to release be valuable to the Watergate Committee in time?",
       "time": "01:09:31.78"
     },
@@ -2061,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I thought you said you didn’t want them to have anything.",
       "time": "01:09:42.80"
     },
@@ -2073,7 +2077,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And this was merely an evident way of getting stuff over to him, but you were getting some.",
       "time": "01:09:46.30"
     },
@@ -2085,7 +2089,7 @@
     },
     {
       "turn": 340,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That’s the problem. He has no right to take that view.",
       "time": "01:10:01.47"
     },
@@ -2097,7 +2101,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So if the House can get them, the President can get them, and the only people I know who can’t get them is the court.",
       "time": "01:10:12.52"
     },
@@ -2109,7 +2113,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You have been pointing to me that we’re brought into it by deciding this case. How are we drawn into the impeachment proceedings by deciding this case?",
       "time": "01:10:43.20"
     },
@@ -2121,7 +2125,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, any number --",
       "time": "01:10:56.76"
     },
@@ -2133,7 +2137,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Any number of decisions of this court has --",
       "time": "01:10:59.28"
     },
@@ -2145,7 +2149,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You’ve been arguing we have absolutely no authority --",
       "time": "01:11:10.06"
     },
@@ -2157,7 +2161,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Constitutionally to decide this case.",
       "time": "01:11:13.93"
     },
@@ -2169,7 +2173,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But as I have said before, we have the beneficiaries here are six defendants who are being tried for criminal charges. And, what the President has made freedom completely --",
       "time": "01:11:49.21"
     },
@@ -2181,7 +2185,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is that true theoretically?",
       "time": "01:12:05.39"
     },
@@ -2193,7 +2197,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And was not decided by the District Court.",
       "time": "01:12:15.60"
     },
@@ -2205,7 +2209,7 @@
     },
     {
       "turn": 360,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair, you left me in a little bit of doubt about this mechanical problem. I think, perhaps, we diverted you from it. Are you suggesting that on a given tape, which is a real type of thing having an hour or more of material and maybe several hours or --",
       "time": "01:13:33.65"
     },
@@ -2217,7 +2221,7 @@
     },
     {
       "turn": 362,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Two or three days? I see. That the first three hours might be the material which has already been transcribed and released, the next three or four hours might be a conference with the joint Chief of Staff or the Chairman of the Atomic Energy Commission on the program to give under developed nations, for example aid for peaceful uses of atomic energy, matters totally irrelevant but confidential. Is that your argument?",
       "time": "01:13:51.55"
     },
@@ -2229,7 +2233,7 @@
     },
     {
       "turn": 364,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you want some mechanism set u so that these things can be screened out.",
       "time": "01:14:28.46"
     },
@@ -2241,7 +2245,7 @@
     },
     {
       "turn": 366,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Have you, at any time, tendered or proffered a statement that a particular tape from 18 minutes after 11 until 3:00 that afternoon, including the lunch hour, included a conference with the Secretary of State, the Secretary of Defense, and someone else having to do with totally unrelated matters, has that kind of a tender been made?",
       "time": "01:14:49.43"
     },
@@ -2253,7 +2257,7 @@
     },
     {
       "turn": 368,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But no explanation of why it’s left out.",
       "time": "01:15:22.49"
     },
@@ -2265,7 +2269,7 @@
     },
     {
       "turn": 370,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any particular reason why at least the identity of the coquetries could not be made --",
       "time": "01:15:33.96"
     },
@@ -2277,7 +2281,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But in the --",
       "time": "01:16:21.36"
     },
@@ -2289,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But in the tapes that they ask for in this subpoena duces tecum, which is the only thing for court, has any effort been made to say what, if any, part of that can be published?",
       "time": "01:16:23.86"
     },
@@ -2301,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why not?",
       "time": "01:16:43.89"
     },
@@ -2313,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why -- well, you don’t think --",
       "time": "01:16:49.54"
     },
@@ -2325,7 +2329,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don’t think that a subpoena duces tecum is sufficient reason for you to pry?",
       "time": "01:16:52.64"
     },
@@ -2337,7 +2341,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You just ignored it, didn’t you?",
       "time": "01:16:58.29"
     },
@@ -2349,7 +2353,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You filed a motion to quash it, didn’t you?",
       "time": "01:17:01.32"
     },
@@ -2361,7 +2365,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the difference between ignoring and filing a motion to quash is what? I want his answer. What?",
       "time": "01:17:03.53"
     },
@@ -2373,7 +2377,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You’re submitting the matter to this court.",
       "time": "01:17:13.53"
     },
@@ -2385,7 +2389,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You still leave it up to this court to decide it.",
       "time": "01:17:18.55"
     },
@@ -2397,7 +2401,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes?",
       "time": "01:17:25.44"
     },
@@ -2409,7 +2413,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, in what sense?",
       "time": "01:17:26.72"
     },
@@ -2421,7 +2425,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You are submitting to this court for us to decide whether or not executive privilege is available in this case.",
       "time": "01:17:35.61"
     },
@@ -2433,7 +2437,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I said, in this case. Can you make it any narrower than that?",
       "time": "01:17:56.89"
     },
@@ -2445,7 +2449,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, do you agree that that’s what’s before this court and you are submitting it to this court for decision?",
       "time": "01:18:03.33"
     },
@@ -2457,7 +2461,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you submitting it to this court for this court’s decision?",
       "time": "01:18:20.21"
     },
@@ -2469,7 +2473,7 @@
     },
     {
       "turn": 404,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If it were not so, you would not be here.",
       "time": "01:18:28.57"
     },
@@ -2481,7 +2485,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, why wouldn’t this case be here if this were a United States attorney? I think I agree with you, but I’d like to ask you your answer in knowing why.",
       "time": "01:19:39.16"
     },
@@ -2493,7 +2497,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "By whom?",
       "time": "01:19:48.72"
     },
@@ -2505,7 +2509,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I thought the Attorney General was the one who directed the United States attorney.",
       "time": "01:19:51.61"
     },
@@ -2517,7 +2521,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, in the normal case, the President doesn’t know anything about mine-run federal prosecutions. That’s fair to say, isn’t it?",
       "time": "01:19:58.25"
     },
@@ -2529,7 +2533,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And, in fact, in mine-run cases the Attorney General doesn’t know much about it.",
       "time": "01:20:07.04"
     },
@@ -2541,7 +2545,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But let’s -- just a moment.[Laughter]",
       "time": "01:20:12.22"
     },
@@ -2553,7 +2557,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.[Laughter] So, the United States attorney brings to prosecution and in the course of that prosecution he, before trial, subpoenas under Rule 17 of the Federal Rules of Criminal Procedure. The jury subpoenas material in the custody of the President. So, what happens?",
       "time": "01:20:15.60"
     },
@@ -2565,7 +2569,7 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, it’s the United States attorney subpoenaing it under your hypothetical case.",
       "time": "01:20:44.52"
     },
@@ -2577,7 +2581,7 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And so, what happens?",
       "time": "01:20:48.92"
     },
@@ -2589,7 +2593,7 @@
     },
     {
       "turn": 424,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the United States attorney says “I’m not going to do that because I’m --",
       "time": "01:20:56.44"
     },
@@ -2601,7 +2605,7 @@
     },
     {
       "turn": 426,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The one who upholds justice and—[Laughter] Well, how would you have a new United States attorney?",
       "time": "01:21:00.15"
     },
@@ -2613,7 +2617,7 @@
     },
     {
       "turn": 428,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, I’m being serious because --",
       "time": "01:21:08.65"
     },
@@ -2625,7 +2629,7 @@
     },
     {
       "turn": 430,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know.",
       "time": "01:21:14.82"
     },
@@ -2637,7 +2641,7 @@
     },
     {
       "turn": 432,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it’s set by statute. It’s vested in the law enforcement. It’s vested in the Attorney General.",
       "time": "01:21:22.18"
     },
@@ -2649,7 +2653,7 @@
     },
     {
       "turn": 434,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes?",
       "time": "01:21:32.39"
     },
@@ -2661,7 +2665,7 @@
     },
     {
       "turn": 436,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But, I’m afraid, your argument would be -- isn’t very good as a matter of political science. It would be a very fine one as a matter of constitutional and probably statutory law, except it hasn’t. Your client dealt himself out of that argument by what’s been done in the creation of the Special Prosecutor.",
       "time": "01:21:50.18"
     },
@@ -2673,7 +2677,7 @@
     },
     {
       "turn": 438,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’ve just pointed out the Special Prosecutor is quite different from the United States attorney.",
       "time": "01:22:12.02"
     },
@@ -2685,7 +2689,7 @@
     },
     {
       "turn": 440,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As a matter --",
       "time": "01:22:17.05"
     },
@@ -2697,7 +2701,7 @@
     },
     {
       "turn": 442,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But he has --",
       "time": "01:22:33.09"
     },
@@ -2709,7 +2713,7 @@
     },
     {
       "turn": 444,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Excuse me.",
       "time": "01:22:35.38"
     },
@@ -2721,7 +2725,7 @@
     },
     {
       "turn": 446,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He didn’t what? He could not and probably could not --",
       "time": "01:23:12.08"
     },
@@ -2733,7 +2737,7 @@
     },
     {
       "turn": 448,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know, not the unfettered right to get it but the right to go to court and ask a court to decide whether or not he’s entitled to it.",
       "time": "01:23:18.82"
     },
@@ -2745,7 +2749,7 @@
     },
     {
       "turn": 450,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’re making those defenses in --",
       "time": "01:23:30.58"
     },
@@ -2757,7 +2761,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why not?",
       "time": "01:23:51.64"
     },
@@ -2769,7 +2773,7 @@
     },
     {
       "turn": 454,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "We don’t know that.",
       "time": "01:23:55.41"
     },
@@ -2781,7 +2785,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but -- and if surely you’re right, as I say, a lawsuit between the Secretary of Commerce, for example, suing the President over a matter of executive policy, we both agree, would be unthinkable. And since any cabinet officer is the creature of the President who appointed him, the answer would be “you’re fired,” if you want to --",
       "time": "01:23:57.01"
     },
@@ -2793,7 +2797,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If it goes that far.",
       "time": "01:24:18.04"
     },
@@ -2805,7 +2809,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But aren’t we here both factually and, I suggest, legally with quite a different situation?",
       "time": "01:24:19.47"
     },
@@ -2817,7 +2821,7 @@
     },
     {
       "turn": 462,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the sovereign people of the United States.",
       "time": "01:24:43.52"
     },
@@ -2829,7 +2833,7 @@
     },
     {
       "turn": 464,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But hasn’t your client also inhibited himself from the ultimate sanction that you suggested he could impose with respect to your hypothetical United States attorney, i.e. the sanction of dismissing the Special Prosecutor.",
       "time": "01:25:19.36"
     },
@@ -2841,7 +2845,7 @@
     },
     {
       "turn": 466,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And as a matter of law, regulations that have the force of law.",
       "time": "01:25:38.16"
     },
@@ -2853,7 +2857,7 @@
     },
     {
       "turn": 468,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And until or unless he is --",
       "time": "01:25:43.94"
     },
@@ -2865,7 +2869,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "We have a case of controversy of a very real kind.",
       "time": "01:25:46.69"
     },
@@ -2877,7 +2881,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Certainly, he hasn’t.",
       "time": "01:26:00.84"
     },
@@ -2889,7 +2893,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You’re a living testimony of the fact that he did not give up his right to defend his position in court.",
       "time": "01:26:03.37"
     },
@@ -2901,7 +2905,7 @@
     },
     {
       "turn": 476,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The very fact that the delegation to Mr. Jaworski gave him the right to contest the President’s claim of privilege presupposes that the President had a right to assert the privilege but not the right to assert it necessarily with complete finality.",
       "time": "01:26:11.39"
     },
@@ -2913,7 +2917,7 @@
     },
     {
       "turn": 478,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That’s the --",
       "time": "01:26:30.93"
     },
@@ -2925,7 +2929,7 @@
     },
     {
       "turn": 480,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That’s what we’re really arguing about here today, isn’t? Now --",
       "time": "01:26:31.72"
     },
@@ -2937,7 +2941,7 @@
     },
     {
       "turn": 482,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair.",
       "time": "01:27:24.73"
     },
@@ -2949,7 +2953,7 @@
     },
     {
       "turn": 484,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "With reference to your point about whether there are three branches or three-and-some fraction, is not the Controller General something of an autonomous fractional more than a-third branch figure?",
       "time": "01:27:25.90"
     },
@@ -2961,7 +2965,7 @@
     },
     {
       "turn": 486,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He’s a creature --",
       "time": "01:27:45.72"
     },
@@ -2973,7 +2977,7 @@
     },
     {
       "turn": 488,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But he may proceed but not --",
       "time": "01:27:54.90"
     },
@@ -2985,7 +2989,7 @@
     },
     {
       "turn": 490,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He may proceed with reference to the Executive Branch and, I would assume, with reference to expenditures of the Legislative Branch and without consulting either one of them. Is that not it?",
       "time": "01:27:59.04"
     },
@@ -2997,7 +3001,7 @@
     },
     {
       "turn": 492,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Jaworski, as I understand it, is claiming that he’s somewhat like, not necessarily precisely like but somewhat like the Controller General. That, he may make decisions and that Congress cannot recall him short as, I believe, a 15-year term for the Controller General and no President can fire the Controller General. And, I suppose, the court could not fire him.",
       "time": "01:28:28.23"
     },
@@ -3009,7 +3013,7 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Can this court decide what’s necessary for trial of a criminal case?",
       "time": "01:29:38.67"
     },
@@ -3021,7 +3025,7 @@
     },
     {
       "turn": 496,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My only question was if this is a subpoena duces tecum that was issued by a judge, right?",
       "time": "01:29:54.48"
     },
@@ -3033,7 +3037,7 @@
     },
     {
       "turn": 498,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Slightly judicial.",
       "time": "01:30:05.56"
     },
@@ -3045,7 +3049,7 @@
     },
     {
       "turn": 500,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that’s what before us.",
       "time": "01:30:09.42"
     },
@@ -3057,7 +3061,7 @@
     },
     {
       "turn": 502,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But that’s what’s before us.",
       "time": "01:30:12.82"
     },
@@ -3069,7 +3073,7 @@
     },
     {
       "turn": 504,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only thing before us is whether or not the subpoena is at issue.",
       "time": "01:30:19.81"
     },
@@ -3081,7 +3085,7 @@
     },
     {
       "turn": 506,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That’s right.",
       "time": "01:30:28.08"
     },
@@ -3093,7 +3097,7 @@
     },
     {
       "turn": 508,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, that’s not political.",
       "time": "01:30:29.82"
     },
@@ -3105,7 +3109,7 @@
     },
     {
       "turn": 510,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We mean political -- well, I don’t see whether House has got anything to do with the court that I’m talking about. You said it’s a political and not judicial. And, I submit it could be judicial because it involves the issue of subpoena.",
       "time": "01:30:50.69"
     },
@@ -3117,7 +3121,7 @@
     },
     {
       "turn": 512,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That’s right.",
       "time": "01:31:08.35"
     },
@@ -3129,7 +3133,7 @@
     },
     {
       "turn": 514,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well the executive function is, as I understated, the discussion as to whether he should voluntarily turn over to the Special Prosecutor. We have passed that stage. We are now at the stage where the prosecutor has asked the court to assist him and the court has assisted him. Does that not take it a step beyond pure political or executive?",
       "time": "01:31:22.93"
     },
@@ -3141,7 +3145,7 @@
     },
     {
       "turn": 516,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I get that. I see.",
       "time": "01:32:01.93"
     },
@@ -3153,7 +3157,7 @@
     },
     {
       "turn": 518,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that’s actually -- now, you’re arguing absolute privilege.",
       "time": "01:32:16.82"
     },
@@ -3165,7 +3169,7 @@
     },
     {
       "turn": 520,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Absolute executive even though everyday it’s so you loose another one.",
       "time": "01:32:22.16"
     },
@@ -3177,7 +3181,7 @@
     },
     {
       "turn": 522,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You turn things loose everyday, I suppose.",
       "time": "01:32:26.87"
     },
@@ -3189,7 +3193,7 @@
     },
     {
       "turn": 524,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is he getting ready to turn 20 more case loose.",
       "time": "01:32:39.42"
     },
@@ -3201,7 +3205,7 @@
     },
     {
       "turn": 526,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I thought you said in your brief you would turn 20 loose?",
       "time": "01:32:46.70"
     },
@@ -3213,7 +3217,7 @@
     },
     {
       "turn": 528,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You released those tapes?",
       "time": "01:32:53.77"
     },
@@ -3225,7 +3229,7 @@
     },
     {
       "turn": 530,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That’s --",
       "time": "01:32:58.69"
     },
@@ -3237,7 +3241,7 @@
     },
     {
       "turn": 532,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You still saying the absolute privilege to decide what shall be released and what shall not be released is vested in one person and nobody can question it.",
       "time": "01:33:04.35"
     },
@@ -3249,7 +3253,7 @@
     },
     {
       "turn": 534,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you’re now dealing, as I understand --",
       "time": "01:33:19.78"
     },
@@ -3261,7 +3265,7 @@
     },
     {
       "turn": 536,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. St. Clair with the jurisdictional question and, as I further understand it, that that argument of yours, at least I got it from the brief, involves at least two separate concepts and maybe three. One is that this is an intra-branch dispute, and that argument would be fully valid under the analogy you use in your brief. If this were a dispute between, let’s say, two committees in one of the houses of the Congress and one committee sued the other for jurisdiction of a particular matter, you suggest and probably quite correctly, that that would not be a matter for the judiciary to determine. That’s one argument. That this is purely an Intra-Executive Branch controversy, as it would be between two congressional committees. This is Intra-Article 2 Branch. The hypothetical case would be Intra-Article 1 Branch. And then, you have quite a separate argument, it seems to me, i.e. that the President constitutionally is the Chief Prosecutor since he is the executive. And, it is not for the courts to decide what a prosecutor shall use in prosecuting a criminal case. Now, isn’t that -- aren’t those two separate arguments? You make both of them under this rule brick.",
       "time": "01:33:21.95"
     },
@@ -3273,7 +3277,7 @@
     },
     {
       "turn": 538,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it seems to me they’re quite separate.",
       "time": "01:34:43.46"
     },
@@ -3285,7 +3289,7 @@
     },
     {
       "turn": 540,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the second argument will have no relevance at all to your analogy of the Legislative Branch.",
       "time": "01:34:49.07"
     },
@@ -3297,7 +3301,7 @@
     },
     {
       "turn": 542,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But ultimately, you tell us that, constitutionally, the President as Chief Executive and, therefore, as constitutionally the Chief Prosecutor or whatever the statutes might provide --",
       "time": "01:35:04.49"
     },
@@ -3309,7 +3313,7 @@
     },
     {
       "turn": 544,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Has unrestricted discretion to determine what evidence he will or will not use in prosecuting a case.",
       "time": "01:35:15.14"
     },
@@ -3321,7 +3325,7 @@
     },
     {
       "turn": 546,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which is quite a different concept from the other concept. You make them both under the same rule brick, as I say. But I -- it seems to me, they’re quite separate arguments.",
       "time": "01:35:22.26"
     },
@@ -3333,7 +3337,7 @@
     },
     {
       "turn": 548,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know you do or you wouldn’t make them.",
       "time": "01:35:33.39"
     },
@@ -3345,7 +3349,7 @@
     },
     {
       "turn": 550,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. St. Clair, if I may interrupt you again. Is this -- is what you’re telling us now directed to your point that this is a non-justiciable political question or is it directed to your point that executive privilege is absolute and that the determination of it is to be made public?",
       "time": "01:39:46.41"
     },
@@ -3357,7 +3361,7 @@
     },
     {
       "turn": 552,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, let’s assume we accept that proposition. What follows from it?",
       "time": "01:41:19.95"
     },
@@ -3369,7 +3373,7 @@
     },
     {
       "turn": 554,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I should think you could run the argument the other way saying that since the President cannot be indicted then all that can happen to him is that he can be named as an unindicted co-conspirator.",
       "time": "01:41:37.12"
     },
@@ -3381,7 +3385,7 @@
     },
     {
       "turn": 556,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, the President or any President could be sued for backtaxes, penalties, or what not?",
       "time": "01:42:02.68"
     },
@@ -3393,7 +3397,7 @@
     },
     {
       "turn": 558,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But it speaks of persons, any persons?",
       "time": "01:42:17.25"
     },
@@ -3405,7 +3409,7 @@
     },
     {
       "turn": 560,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It may be if one of these defendants might be exonerated from something in one of those cases.",
       "time": "01:42:43.78"
     },
@@ -3417,7 +3421,7 @@
     },
     {
       "turn": 562,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. St. Clair, do you suggest then that even if the prosecutor could get this from a normal third party witness, he can’t get it from the President because of executive privilege, that there must be a further showing beyond the relevance showing 17c?",
       "time": "01:46:37.36"
     },
@@ -3429,7 +3433,7 @@
     },
     {
       "turn": 564,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well your answer is yes, isn’t it, that there is a further showing necessary?",
       "time": "01:46:56.07"
     },
@@ -3441,7 +3445,7 @@
     },
     {
       "turn": 566,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But how does a District Court go about to decide a question like that in advance of trial without it unless the prosecutor lays out his entire evidence and says “it’s my judgment that this is evidence. Without this evidence, I might loose the case.”",
       "time": "01:47:05.84"
     },
@@ -3453,7 +3457,7 @@
     },
     {
       "turn": 568,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But you would suggest that he would have to do that.",
       "time": "01:47:28.09"
     },
@@ -3465,7 +3469,7 @@
     },
     {
       "turn": 570,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I must say that while I’ve got you interrupted, I want to make something else.",
       "time": "01:47:40.79"
     },
@@ -3477,7 +3481,7 @@
     },
     {
       "turn": 572,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And it’s related to this. No matter how absolute the executive privilege is that you claim on behalf of the President, I assume you are talking about conversations to which the privilege would apply.",
       "time": "01:47:44.71"
     },
@@ -3489,7 +3493,7 @@
     },
     {
       "turn": 574,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Now, is it --",
       "time": "01:48:01.18"
     },
@@ -3501,7 +3505,7 @@
     },
     {
       "turn": 576,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You wouldn’t suggest that every conversation the President had while he was in office would be subject to executive privilege.",
       "time": "01:48:05.62"
     },
@@ -3513,7 +3517,7 @@
     },
     {
       "turn": 578,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, it has to be in the course of his duties as President.",
       "time": "01:48:14.88"
     },
@@ -3525,7 +3529,7 @@
     },
     {
       "turn": 580,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Carrying out his duties as President as under the constitution.",
       "time": "01:48:19.86"
     },
@@ -3537,7 +3541,7 @@
     },
     {
       "turn": 582,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Now, I don’t suppose if he was talking with one of his aids, Mr. Haldeman and Mr. Ehrlichman, about an investment of his out in California or some other place.",
       "time": "01:48:26.98"
     },
@@ -3549,7 +3553,7 @@
     },
     {
       "turn": 584,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes, you wouldn’t suggested that --",
       "time": "01:48:39.14"
     },
@@ -3561,7 +3565,7 @@
     },
     {
       "turn": 586,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, how about conversations about a campaign, about the Nixon campaign? Now, that’s hardly quite an --",
       "time": "01:48:44.13"
     },
@@ -3573,7 +3577,7 @@
     },
     {
       "turn": 588,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, it’s very close to the -- yes, this is very close to --",
       "time": "01:48:53.90"
     },
@@ -3585,7 +3589,7 @@
     },
     {
       "turn": 590,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is very close to executing the laws of the United Sates and running a political campaign.",
       "time": "01:48:57.88"
     },
@@ -3597,7 +3601,7 @@
     },
     {
       "turn": 592,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And so conversations --",
       "time": "01:49:06.39"
     },
@@ -3609,7 +3613,7 @@
     },
     {
       "turn": 594,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Conversations about that subject matter --",
       "time": "01:49:07.86"
     },
@@ -3621,7 +3625,7 @@
     },
     {
       "turn": 596,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I know but shouldn’t you -- shouldn’t the President have to say at least even if the privilege is as absolute as you say it is, shouldn’t he at least have to say I believe or assert that the executive privilege applies to this tape because this conversation is in the course of the performance of his duties as President?",
       "time": "01:49:12.30"
     },
@@ -3633,7 +3637,7 @@
     },
     {
       "turn": 598,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You haven’t done that either, have you?",
       "time": "01:49:39.98"
     },
@@ -3645,7 +3649,7 @@
     },
     {
       "turn": 600,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would you automatically say every conversation about Watergate is in the course of the performance of the duties of the President of the United States?",
       "time": "01:49:50.53"
     },
@@ -3657,7 +3661,7 @@
     },
     {
       "turn": 602,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Why is that?",
       "time": "01:49:58.47"
     },
@@ -3669,7 +3673,7 @@
     },
     {
       "turn": 604,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And how about -- do you concede or view -- what is your view of the privilege with respect to whether it reaches factual assertions in a conversation? The difference that was made in the Mink case and another with respect to opinions and judgments as distinguished from the facts?",
       "time": "01:50:43.24"
     },
@@ -3681,7 +3685,7 @@
     },
     {
       "turn": 606,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Statutory case.",
       "time": "01:51:05.94"
     },
@@ -3693,7 +3697,7 @@
     },
     {
       "turn": 608,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So what is your view? Would you say if a conversation is merely a recitation of fact, it is still covered by executive privilege or --",
       "time": "01:51:08.70"
     },
@@ -3705,7 +3709,7 @@
     },
     {
       "turn": 610,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That hasn’t got much to do with the decision making process, just pure cold facts.",
       "time": "01:51:25.01"
     },
@@ -3717,7 +3721,7 @@
     },
     {
       "turn": 612,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "With respect with that particular incidence, the one here involves the relevancy of materials to a criminal trial and, that, normally has been a part of the judicial power under Article III, not the executive power.",
       "time": "01:52:55.10"
     },
@@ -3729,7 +3733,7 @@
     },
     {
       "turn": 614,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Except they didn’t put him in the constitution.",
       "time": "01:56:06.78"
     },
@@ -3741,7 +3745,7 @@
     },
     {
       "turn": 616,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Inaudible)",
       "time": "01:56:24.09"
     },
@@ -3753,7 +3757,7 @@
     },
     {
       "turn": 618,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because the constitution said so.",
       "time": "01:56:40.17"
     },
@@ -3765,7 +3769,7 @@
     },
     {
       "turn": 620,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if we can’t find it in the constitution, what happens to your argument?",
       "time": "01:56:51.33"
     },
@@ -3777,7 +3781,7 @@
     },
     {
       "turn": 622,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The question is if we can’t find it, what happens to your argument?",
       "time": "01:57:01.88"
     },
@@ -3789,7 +3793,7 @@
     },
     {
       "turn": 624,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, sir.",
       "time": "01:57:06.94"
     },
@@ -3801,7 +3805,7 @@
     },
     {
       "turn": 626,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don’t you -- you haven’t lost your other point which says this court can set up the same kind of privilege that they’ve set up in others.",
       "time": "01:57:13.63"
     },
@@ -3813,7 +3817,7 @@
     },
     {
       "turn": 628,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We’ve been asked many times to do that in other cases with respect to the grand juries. Up today, I don’t think we’ve ever come near anywhere to it.",
       "time": "01:58:23.01"
     },
@@ -3825,7 +3829,7 @@
     },
     {
       "turn": 630,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That’s very true.",
       "time": "01:58:36.36"
     },
@@ -3837,7 +3841,7 @@
     },
     {
       "turn": 632,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That, of course, have never been decided either.",
       "time": "01:58:57.94"
     },
@@ -3849,7 +3853,7 @@
     },
     {
       "turn": 634,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair, you have not mentioned in your argument a few moments ago on the question of the absence of any provision for immunity for judges or Presidents, you haven’t mentioned the holding of this court in Pierson against Raid whereas, I recall it, the court assumed with the sentence or two that there was absolute privilege for the judiciary but that the privileges of the executive, in that case a policeman, was qualified. The court had no difficulty in concluding that it did not require an express constitutional provision to spell out an absolute privilege for judges. These were state judges in that case of course.",
       "time": "02:01:26.09"
     },
@@ -3861,7 +3865,7 @@
     },
     {
       "turn": 636,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or a Vice President.",
       "time": "02:03:19.30"
     },
@@ -3873,7 +3877,7 @@
     },
     {
       "turn": 638,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is pretty far-field from the basic question here, which is the testimonial privilege.",
       "time": "02:03:38.68"
     },
@@ -3885,7 +3889,7 @@
     },
     {
       "turn": 640,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not prosecutorial immunity, but testimonial privileges are what we’re dealing with here basically.",
       "time": "02:03:45.46"
     },
@@ -3897,7 +3901,7 @@
     },
     {
       "turn": 642,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand that.",
       "time": "02:04:00.48"
     },
@@ -3909,7 +3913,7 @@
     },
     {
       "turn": 644,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand your argument. But this matter --",
       "time": "02:04:05.80"
     },
@@ -3921,7 +3925,7 @@
     },
     {
       "turn": 646,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Whether or not they can -- a judge can be prosecuted criminally or is --",
       "time": "02:04:08.76"
     },
@@ -3933,7 +3937,7 @@
     },
     {
       "turn": 648,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It has nothing to do with testimonial privilege, does it?",
       "time": "02:04:14.87"
     },
@@ -3945,7 +3949,7 @@
     },
     {
       "turn": 650,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand that. Since I have already interrupted you, may I?",
       "time": "02:04:27.18"
     },
@@ -3957,7 +3961,7 @@
     },
     {
       "turn": 652,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To rail upon your good nature a little more Mr. St. Clair, to ask you whether it is your claim that any of these materials have to do with what have sometimes been called matters of state, i.e. matters of international relations or national defense. Mr. Jaworski assure to us that they did not involve matters of state, but I’m about to hear what you have to say about that, because as you well know both the commentators and court decisions have made a dichotomy between the privilege that exist with respect to ordinary general confidentiality on one hand of the executive, and matters of state on the other to which a higher privilege has sometimes been thought to be accorded.",
       "time": "02:04:31.82"
     },
@@ -3969,7 +3973,7 @@
     },
     {
       "turn": 654,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you --",
       "time": "02:05:31.57"
     },
@@ -3981,7 +3985,7 @@
     },
     {
       "turn": 656,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But in this tape --",
       "time": "02:06:09.39"
     },
@@ -3993,7 +3997,7 @@
     },
     {
       "turn": 658,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Am I correct in believing, Mr. St. Clair, in understanding, Mr. St. Clair, that in this case to date no representation has been made by affidavit or professional representation or otherwise that any of these materials have to do with national defense or international relations?",
       "time": "02:06:18.10"
     },
@@ -4005,7 +4009,7 @@
     },
     {
       "turn": 660,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that would be, therefore, a matter to be under the existing order now under review of Judge Sirica. That would be submitted to him later in camera, correct?",
       "time": "02:06:38.56"
     },
@@ -4017,7 +4021,7 @@
     },
     {
       "turn": 662,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I say under his existing order.",
       "time": "02:06:52.19"
     },
@@ -4029,7 +4033,7 @@
     },
     {
       "turn": 664,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "02:06:54.87"
     },
@@ -4041,7 +4045,7 @@
     },
     {
       "turn": 666,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Who is to determine how much evidence a prosecutor needs? Only the prosecutor --",
       "time": "02:08:29.29"
     },
@@ -4053,7 +4057,7 @@
     },
     {
       "turn": 668,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Many cases --",
       "time": "02:08:46.85"
     },
@@ -4065,7 +4069,7 @@
     },
     {
       "turn": 670,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Many cases have been lost because the prosecutor had too much evidence.",
       "time": "02:08:48.19"
     },
@@ -4077,7 +4081,7 @@
     },
     {
       "turn": 672,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, I’ve tried a few too, but Mr. St. Clair—[Laughter] I was just wondering. Where do you see the burden here? Is it on the prosecution?",
       "time": "02:09:07.83"
     },
@@ -4089,7 +4093,7 @@
     },
     {
       "turn": 674,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Alright, and now, how much is enough for our phrase to be kicking around prima facie here?",
       "time": "02:09:25.38"
     },
@@ -4101,7 +4105,7 @@
     },
     {
       "turn": 676,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. St. Clair, just to pinpoint another issue, let’s assume for the moment that we didn’t agree with you on your test of privilege and let’s just assume that the only issue that was left in the case was the 17c issue. Now --",
       "time": "02:10:04.18"
     },
@@ -4113,7 +4117,7 @@
     },
     {
       "turn": 678,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, because?",
       "time": "02:10:25.50"
     },
@@ -4125,7 +4129,7 @@
     },
     {
       "turn": 680,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You think --",
       "time": "02:10:33.99"
     },
@@ -4137,7 +4141,7 @@
     },
     {
       "turn": 682,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I suppose there are two parts to the question. One, how much of a showing does he have to make as to what’s on -- what might be on the tape and, secondly, if that matter that he claimed is on the tape is on the tape, is that relevant and admissible under 17c?",
       "time": "02:10:37.31"
     },
@@ -4149,7 +4153,7 @@
     },
     {
       "turn": 684,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But, Mr. St. Clair --",
       "time": "02:11:09.95"
     },
@@ -4161,7 +4165,7 @@
     },
     {
       "turn": 686,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You can’t put an impossible task on someone who wants a subpoena against a third party witness or against anybody else. As to showing what is precisely on innocent documents, I would suppose.",
       "time": "02:11:14.95"
     },
@@ -4173,7 +4177,7 @@
     },
     {
       "turn": 688,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Here --",
       "time": "02:11:30.81"
     },
@@ -4185,7 +4189,7 @@
     },
     {
       "turn": 690,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "He’s never listened to the tapes. He doesn’t know precisely what’s on them. You would say that he could never subpoena a tape unless he had already gotten it.",
       "time": "02:11:35.74"
     },
@@ -4197,7 +4201,7 @@
     },
     {
       "turn": 692,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, that isn’t what 17 --",
       "time": "02:12:13.76"
     },
@@ -4209,7 +4213,7 @@
     },
     {
       "turn": 694,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The cases you’re talking about are cases where a defendant sought discovery of evidence from the -- or sought material in a prosecutor’s files.",
       "time": "02:12:17.94"
     },
@@ -4221,7 +4225,7 @@
     },
     {
       "turn": 696,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So once he gets through with the grand jury, he shouldn’t be using a subpoena to develop his case?",
       "time": "02:13:06.24"
     },
@@ -4233,7 +4237,7 @@
     },
     {
       "turn": 698,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you think that’s the practice in the --",
       "time": "02:13:13.77"
     },
@@ -4245,7 +4249,7 @@
     },
     {
       "turn": 700,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. St. Clair, may I get back to what seems rather fundamental to me? Let us assume that it had been established the conversations we are talking about here today did involve a criminal conspiracy. Would you still be asserting an absolute privilege?",
       "time": "02:13:30.80"
     },
@@ -4257,7 +4261,7 @@
     },
     {
       "turn": 702,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Right, and as I understand it, the public interest behind that privilege is the preservation of candor in discussions between the President and his closes did.",
       "time": "02:13:55.24"
     },
@@ -4269,7 +4273,7 @@
     },
     {
       "turn": 704,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I follow that up?",
       "time": "02:14:10.38"
     },
@@ -4281,7 +4285,7 @@
     },
     {
       "turn": 706,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "What public interest is there in preserving secrecy with respect to a criminal conspiracy?",
       "time": "02:14:12.75"
     },
@@ -4293,7 +4297,7 @@
     },
     {
       "turn": 708,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "My question was based on the assumption that it had been established that the conversation did relate to a criminal conspiracy.",
       "time": "02:14:27.39"
     },
@@ -4305,7 +4309,7 @@
     },
     {
       "turn": 710,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, no. It could have been established in various ways. As you’ve just said, a number of people have already confessed and these people were participants in some of these conversations.",
       "time": "02:14:39.76"
     },
@@ -4317,7 +4321,7 @@
     },
     {
       "turn": 712,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Of course. But anyway, your answer is that you would still assert the action through.",
       "time": "02:14:53.16"
     },
@@ -4329,7 +4333,7 @@
     },
     {
       "turn": 714,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is the public interest in keeping that secret?",
       "time": "02:15:28.67"
     },
@@ -4341,7 +4345,7 @@
     },
     {
       "turn": 716,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He did release them for the grand jury in this case.",
       "time": "02:15:56.20"
     },
@@ -4353,7 +4357,7 @@
     },
     {
       "turn": 718,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But don’t you think it would be important if the judge and the President were discussing how they’re going to make appointments for money?",
       "time": "02:16:46.39"
     },
@@ -4365,7 +4369,7 @@
     },
     {
       "turn": 720,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don’t you think it would be important in a hypothetical case if an about to be appointed judge was making a deal with the President for money?",
       "time": "02:16:59.79"
     },
@@ -4377,7 +4381,7 @@
     },
     {
       "turn": 722,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But under yours it couldn’t be. In public interest, you couldn’t release that.",
       "time": "02:17:09.46"
     },
@@ -4389,7 +4393,7 @@
     },
     {
       "turn": 724,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are you going to impeach him if you don’t know about it?",
       "time": "02:17:28.43"
     },
@@ -4401,7 +4405,7 @@
     },
     {
       "turn": 726,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You’re on a prong. It’s a dilemma.",
       "time": "02:17:35.19"
     },
@@ -4413,7 +4417,7 @@
     },
     {
       "turn": 728,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you know the President is doing something wrong, you can impeach him but the only way you can find out is this way. You can’t impeach him so you don’t impeach him. You loose me someplace along there.[Laughter]",
       "time": "02:17:38.76"
     },
@@ -4425,7 +4429,7 @@
     },
     {
       "turn": 730,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What you’re telling us also could be argued the other way, that there has been a waiver and neither --",
       "time": "02:18:22.82"
     },
@@ -4437,7 +4441,7 @@
     },
     {
       "turn": 732,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your brother has talked about waiver. I don’t know what he suggested.",
       "time": "02:18:31.08"
     },
@@ -4449,7 +4453,7 @@
     },
     {
       "turn": 734,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. St. Clair, you’re cutting into your rebuttal time now.",
       "time": "02:19:25.03"
     },
@@ -4461,7 +4465,7 @@
     },
     {
       "turn": 736,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lacovara.",
       "time": "02:19:42.63"
     },
@@ -4473,7 +4477,7 @@
     },
     {
       "turn": 738,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The fact that I’d like to ask before you get too far, let’s assume you get by the jurisdictional matters and also the standing question, the intra-executive dispute matter, and we get to the executive privilege or we get to the merits, so-called.",
       "time": "02:21:41.01"
     },
@@ -4485,7 +4489,7 @@
     },
     {
       "turn": 740,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which into this case would we normally start at anyway, the 17c end or the executive privilege end?",
       "time": "02:21:56.64"
     },
@@ -4497,7 +4501,7 @@
     },
     {
       "turn": 742,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Lacovara, Judge Sirica found that you had satisfied the requirements.",
       "time": "02:22:22.67"
     },
@@ -4509,7 +4513,7 @@
     },
     {
       "turn": 744,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Then what’s the scope of our review?",
       "time": "02:22:29.45"
     },
@@ -4521,7 +4525,7 @@
     },
     {
       "turn": 746,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What’s our standard of appellate review?",
       "time": "02:22:56.40"
     },
@@ -4533,7 +4537,7 @@
     },
     {
       "turn": 748,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Clearly erroneous?",
       "time": "02:23:01.88"
     },
@@ -4545,7 +4549,7 @@
     },
     {
       "turn": 750,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What about the standard?",
       "time": "02:23:04.64"
     },
@@ -4557,7 +4561,7 @@
     },
     {
       "turn": 752,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Based on the standard he followed, what about the basic standard of 17c?",
       "time": "02:23:07.87"
     },
@@ -4569,7 +4573,7 @@
     },
     {
       "turn": 754,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The government is in agreement that the standards of Iozia must be satisfied in this case under 17c?",
       "time": "02:23:18.65"
     },
@@ -4581,7 +4585,7 @@
     },
     {
       "turn": 756,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, that’s what I’m asking you. What is your position?",
       "time": "02:23:29.66"
     },
@@ -4593,7 +4597,7 @@
     },
     {
       "turn": 758,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So the parties are not in agreement at all?",
       "time": "02:23:44.26"
     },
@@ -4605,7 +4609,7 @@
     },
     {
       "turn": 760,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you mean a necessity standard?",
       "time": "02:23:58.12"
     },
@@ -4617,7 +4621,7 @@
     },
     {
       "turn": 762,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, what about Mr. St. Clair’s argument? Under 17c you can’t possibly satisfy its requirements because you don’t know what’s in the tapes.",
       "time": "02:24:18.60"
     },
@@ -4629,7 +4633,7 @@
     },
     {
       "turn": 764,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You think Iozia just means only evidentiary and relevant. Is that what you -- is that your reading?",
       "time": "02:25:08.56"
     },
@@ -4641,7 +4645,7 @@
     },
     {
       "turn": 766,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So you don’t think Iozia and Bowman requires any showing that this particular evidence be something more than evidentiary and relevant?",
       "time": "02:25:32.18"
     },
@@ -4653,7 +4657,7 @@
     },
     {
       "turn": 768,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but you apparently concede that you can’t use it just for discovery.",
       "time": "02:26:15.27"
     },
@@ -4665,7 +4669,7 @@
     },
     {
       "turn": 770,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you say the evidence you’re seeking by a subpoena, you must make some kind of a minimal showing of admissibility. You can’t, for example, seek something that would admittedly be an admissible hearsay.",
       "time": "02:26:20.47"
     },
@@ -4677,7 +4681,7 @@
     },
     {
       "turn": 772,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I just want to get the government’s position because it is a rather important part of the case.",
       "time": "02:27:32.47"
     },
@@ -4689,7 +4693,7 @@
     },
     {
       "turn": 774,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Lacovara, I don’t think it’d be very hard to understand the developments of a showing at the trial for purposes of evidence that certain people are co-conspirators --",
       "time": "02:28:37.30"
     },
@@ -4701,7 +4705,7 @@
     },
     {
       "turn": 776,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "For purposes of introduction of evidence. But, that’s a little different question than the relevance of grand jury having come to that conclusion.",
       "time": "02:28:50.84"
     },
@@ -4713,7 +4717,7 @@
     },
     {
       "turn": 778,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It may be so but even if they named it in the indictment, that isn’t enough on which to base the introduction of out-of-court statements by an unindicted co-conspirator.",
       "time": "02:29:26.29"
     },
@@ -4725,7 +4729,7 @@
     },
     {
       "turn": 780,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One of your grounds for the non-applicability of the privilege is that these conversations were in the course of the conspirators.",
       "time": "02:31:44.38"
     },
@@ -4737,7 +4741,7 @@
     },
     {
       "turn": 782,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that, you say, is satisfied by merely the grand jury?",
       "time": "02:31:52.21"
     },
@@ -4749,7 +4753,7 @@
     },
     {
       "turn": 784,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just a moment.",
       "time": "02:31:58.73"
     },
@@ -4761,7 +4765,7 @@
     },
     {
       "turn": 786,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It isn’t satisfied merely by the grand jury finding so a court must go on and make it so a determination if they were going to agree with you on this ground.",
       "time": "02:31:59.66"
     },
@@ -4773,7 +4777,7 @@
     },
     {
       "turn": 788,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That showing or such a showing could arguably have been made whether or not the grand jury had named the President, would it not?",
       "time": "02:33:21.45"
     },
@@ -4785,7 +4789,7 @@
     },
     {
       "turn": 790,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And you say it was?",
       "time": "02:33:31.95"
     },
@@ -4797,7 +4801,7 @@
     },
     {
       "turn": 792,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Isn’t it your position that it was independently of the naming of the President as an unindicted co-conspirator?",
       "time": "02:33:34.05"
     },
@@ -4809,7 +4813,7 @@
     },
     {
       "turn": 794,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Lacovara.",
       "time": "02:34:55.00"
     },
@@ -4821,7 +4825,7 @@
     },
     {
       "turn": 796,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Just back up a minute. Do you concede that an incumbent President of the United States could not be indicted and tried for crime?",
       "time": "02:34:57.28"
     },
@@ -4833,7 +4837,7 @@
     },
     {
       "turn": 798,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You do not. Do you think he could be?",
       "time": "02:35:07.34"
     },
@@ -4845,7 +4849,7 @@
     },
     {
       "turn": 800,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Let’s assume for the moment that he could not be, would you still argue that the grand jury had the power or the right and, if so, by virtue of what?",
       "time": "02:35:16.47"
     },
@@ -4857,7 +4861,7 @@
     },
     {
       "turn": 802,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "To name him as an unindicted co-conspirator.",
       "time": "02:35:30.24"
     },
@@ -4869,7 +4873,7 @@
     },
     {
       "turn": 804,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The thing that I was wondering about is that there is only one President and the executive power is vested in him, and I do wonder whether or not the precedents you said with respect to other people would vest this to a grand jury either on his own motion or because of some prosecutor suggested while the President is in office to name him as an unindicted co-conspirator with grand jury sitting all over the United States. And, occasionally, you find a politically motivated prosecutor. That’s a rather far-reaching power, if it exists.",
       "time": "02:37:18.10"
     },
@@ -4881,25 +4885,25 @@
     },
     {
       "turn": 806,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Mr. Laco --",
       "time": "02:40:06.01"
     },
     {
       "turn": 807,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Laco—",
       "time": "02:40:07.53"
     },
     {
       "turn": 808,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Excuse me.",
       "time": "02:40:08.24"
     },
     {
       "turn": 809,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lacovara, I wanted to get to this mechanical question that Mr. St. Clair brought up. Assume for the moment that a given tape, one of the 46 is it that you’re asking for?",
       "time": "02:40:09.26"
     },
@@ -4911,7 +4915,7 @@
     },
     {
       "turn": 811,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "64, I hadn’t transposed. One of the 64 tapes is, in fact, one-eighth of the total time, which might be several hours apparently because they’re long tapes but, one-eighth involves discussions of the people who are indictment here. But the seven-eighths of it in fact, now you have to assume this, includes conferences with the Secretaries of the Cabinet, the Joint Chiefs of Staffs, the Chairman of the Atomic Energy Commission, very high-level people and perhaps some staff people as well. Including in those conversations some highly sensitive material, not sensitive in the sense that it’s national military secrets or diplomatic secrets but sensitive in the sense of confidentiality. Would you not think that some mechanism ought to be available that if the participants are identified, as you got them all identified by the voluntary submission of the President as to the 64, that if the participants are identified in the timeframe specified that the certificate of the major persons present that the subject was atomic energy, all sorts of other things, would be sufficient to foreclose the court from examining it in camera.",
       "time": "02:40:21.20"
     },
@@ -4923,7 +4927,7 @@
     },
     {
       "turn": 813,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I’m asking you, would you think so?",
       "time": "02:42:02.50"
     },
@@ -4935,7 +4939,7 @@
     },
     {
       "turn": 815,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then, as to these hypothetical seven-eighths, there is, you suggest, no disagreement between you and Mr. St. Clair and Mr. Jaworski, and you on the one hand.",
       "time": "02:43:48.89"
     },
@@ -4947,7 +4951,7 @@
     },
     {
       "turn": 817,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Lacovara, I know you have only very few minutes. Are you going to address Mr. St. Clair’s opening argument that the pendency of the House judiciary impeachment inquiry either should leave the court to conclude that this whole business before us are non-justiciable matter. Therefore, necessarily with Judge Sirica’s order should be quashed or, in any event, that because of the possible effect of a decision on the issue presented upon the impeachment inquiry, that the court should stay its hand.",
       "time": "02:44:45.89"
     },
@@ -4959,7 +4963,7 @@
     },
     {
       "turn": 819,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He decided it in favor of President Jefferson, didn’t he?",
       "time": "02:48:23.36"
     },
@@ -4971,7 +4975,7 @@
     },
     {
       "turn": 821,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He didn’t?",
       "time": "02:48:27.16"
     },
@@ -4983,7 +4987,7 @@
     },
     {
       "turn": 823,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He surely decided it that Jefferson won the case of the battle but the lost the war.",
       "time": "02:48:31.20"
     },
@@ -4995,7 +4999,7 @@
     },
     {
       "turn": 825,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of a judicial supremacy.",
       "time": "02:48:36.44"
     },
@@ -5007,7 +5011,7 @@
     },
     {
       "turn": 827,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But in that sense --",
       "time": "02:48:45.75"
     },
@@ -5019,7 +5023,7 @@
     },
     {
       "turn": 829,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the basic ruling in the case related to the original jurisdiction of the court under Article III, did it not?",
       "time": "02:49:15.37"
     },
@@ -5031,7 +5035,7 @@
     },
     {
       "turn": 831,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Lacovar. Mr. St. Clair, you have 15 minutes left.",
       "time": "02:53:14.46"
     },
@@ -5043,7 +5047,7 @@
     },
     {
       "turn": 833,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, under that theory, all the criminal trials that are going on should stop today.",
       "time": "02:55:10.47"
     },
@@ -5055,7 +5059,7 @@
     },
     {
       "turn": 835,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. St. Clair. Thank you, Mr. Jaworski, Mr. Lacovara. The case is submitted.",
       "time": "02:59:09.56"
     }

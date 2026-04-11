@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/00-151/20010328a_00-151.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "BARBARA D. UNDERWOOD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "GERALD F. UELMEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 00-151, the United States v. Oakland Cannabis Buyers. General Underwood.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one question on that subject Ms. Underwood? You have a footnote in your brief, footnote 11, that describes some of the situations there that gives the impression that this whole case is a sham, that it's really just a front for using marijuana and I'm wondering if... and your argument you're just making now suggests there are always alternatives. Do you think we should take the case on the assumption that there really are some people for whom this is a medical necessity or should we assume that there are no such people.",
       "time": "00:03:28.26"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Underwood, may I just stop you there because take one of the examples that was in the brief, the one about the man who was constantly vomiting and the only thing that calmed him down, he had a lymphoma or something like that, that is not an uncommon experience and what surprised me about this case was that that kind of thing has been going on, individual doctor prescribing marijuana just to prevent that kind of extreme suffering, and that seemed to have gone without enforcement until California passes this proposition and you get clinics selling it, not individual doctor. Am I wrong in thinking that there has been quite a bit of this going on in the medical profession.",
       "time": "00:04:33.59"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Underwood, these judgments made by the federal agencies, the FDA and the DEA, I think they take into account the overall public interest, I mean, they... I'm not sure that they have come to the conclusion that marijuana would never ever, ever be helpful to someone who's in extreme pain. I think what they've probably done is made the judgment that the chances of its being that helpful and not being replaceable by something else are so slim that in view of the abuses to which general permission for its use would lead it's best that it be proscribed, is that an inaccurate determination on my part? Could you really say that there has been a determination by the federal government that marijuana is never medically useful.",
       "time": "00:06:21.33"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Underwood, it would help me, General Underwood, if you would tell me why the word preemption doesn't appear in the government's brief because I took the simple-minded approach looking at this, Congress says this is a schedule one drug and California says you can have it if you've got a note from a doctor that says you have a migraine headache. Why isn't the federal law that says this is the schedule one drug preemptive, it must have been with some thought that you didn't use that word.",
       "time": "00:08:42.35"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Explain that to me because I thought to comply with federal law you can't sell it.",
       "time": "00:10:05.52"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All it says you'll be at the mercy of the feds and we won't go after you.",
       "time": "00:10:21.74"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "General Underwood, there's some indication in the trial court's observation, he had no choice but to enter this injunction, that's something of an over-reading, but suppose I were the district judge and I said, you know, General Underwood, you want me to basically supervise what's going to be a major effort to prosecute people and you're doing this under my contempt power, I don't want the court to get involved in this, you have your own United States and assistant United States attorneys, you have investigate these, bring these as prosecutions and then we'll hear these cases and if there's a necessity defense or something we can rule on it, but you're basically asking me to issue an injunction and in order to enforce it I'm going to have to make prosecutorial decisions, I don't want to be bothered with that because I think it intrudes upon a separation of powers balance, it's making me more of a prosecutor than a neutral judge. If he said that would he be abusing his discretion?",
       "time": "00:11:03.94"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question, does the executive, the district attorney have prosecutorial discretion not to bring a case if he thinks a particular defendant really is a person that has this serious illness and so forth.",
       "time": "00:13:03.50"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why would a judge have less discretion than a prosecutor?",
       "time": "00:13:18.07"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If the judge reacts to precisely the same reasons that motivate a prosecutor not to bring a case, would that be an abuse of discretion?",
       "time": "00:13:38.46"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the judge has legitimate concerns that given the resources of the court that it's going to make him basically substitute for the United States attorney in the Northern District of California, he's going to have to decide who to prosecute for contempt and it's going to be criminal contempt and so forth, basically it seems to me that he's now being put in the role of the supervising prosecutor just in order to enforce his injunction.",
       "time": "00:14:03.58"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm sure that he has or should have a major say in how he's going to enforce his injunction, who he's going to bring to court for the contempt action in the first instance, what kind of examples he's going to make, et cetera.",
       "time": "00:14:36.83"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, maybe it will, but isn't the real concern, and I want to state a variant on Justice Kennedy's question, isn't the real concern behind this that with the passage of the California proposition and the popularity within the California population that that necessarily entails, it will be very, very difficult for the government ever to get a criminal conviction in a jury trial, and the reason, it seems to me, that the reason I assumed this was being brought was to avoid hung juries in criminal cases. If the trial court in fact were to conclude that that is the reason and that's why the injunctive remedy was being invoked, would that be a good reason for the court to say it is not certainly a necessary and maybe not an appropriate use of equity to give the government an alternative to six month or less sentences for criminal contempt in order, in effect, to make a criminal statute enforceable which in the normal criminal course is not. Would that be an abuse of discretion?",
       "time": "00:15:50.32"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would not be an abuse of--",
       "time": "00:17:17.13"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You scared me there for a minute.",
       "time": "00:17:21.87"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No matter what the lengths of sentence requested?",
       "time": "00:17:43.43"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Underwood, do you agree with all of the premises of these questions? I mean is--",
       "time": "00:17:45.90"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is it true that California juries generally don't convict people of crimes that they don't agree with? Is that the practice in... I haven't lived in California in quite a while but California juries only enforce those criminal laws they like, is that the general practice.",
       "time": "00:17:52.06"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we know whether this United States attorney brought this as a civil... as a civil matter precisely because of the legal doubt or rather in order to avoid a jury trial, do we have any idea which of the two it is.",
       "time": "00:18:09.78"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And of course, this entire argument would disappear if Congress eliminated the criminal penalty and then presumably the U.S. attorney would be free to get as many injunctions as he liked with the same consequences.",
       "time": "00:18:28.51"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There's one aspect of this General Underwood that Respondent says and this I think you might know the answer to, Respondent says that overwhelmingly this Act is enforced by a criminal prosecution rather than civil injunction. And do you know that, what is the enforcement practice with respect to the CSA.",
       "time": "00:18:47.57"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Romero-Barcelo was a civil injunction in connection with the EPA, wasn't it?",
       "time": "00:19:31.80"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course you can make the same argument for bringing criminal prosecution, so presumably you put somebody in jail, they'll stop doing it too.",
       "time": "00:20:29.51"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're referring to the legislative history I presume, it doesn't say that in the statute, does it?",
       "time": "00:20:51.44"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Some little piece of Congress said that, right?",
       "time": "00:20:57.61"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes but those are cases where there's a legitimate difference of opinion on whether there was a violation of law. Your view here that violation of law is so obvious and clear that there isn't even any colorable argument to the contrary.",
       "time": "00:21:16.40"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is the advantage the government has from an injunction rather than a concerted effort of discrete prosecutions by the United States attorney's office?",
       "time": "00:22:28.56"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then you do want us to rule on the issue that the Ninth Circuit... you're ruling just as a general matter that there's no medical-necessity defense.",
       "time": "00:23:08.50"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm concerned about using the courts to answer questions so remote from specific disputes.",
       "time": "00:23:23.56"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, then you're very pleased with what the Ninth Circuit did in one sense because now you can get the issue resolved up here.",
       "time": "00:24:13.30"
     },
@@ -419,13 +423,13 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I just don't think that's a good use of the federal district court's authority.",
       "time": "00:24:22.81"
     },
     {
       "turn": 64,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Out of evil cometh good, General Underwood, isn't that wonderful.",
       "time": "00:24:25.27"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I just said out of evil cometh good is your position on the Ninth Circuit.",
       "time": "00:24:30.23"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Underwood, if you take it as a criminal prosecution and it's an unsettled question of law whether it is a medical-necessity defense, a typical district trial judge is probably going to err on the side of letting it in since you can't say one way or the other and you may not get it resolved in a criminal prosecution.",
       "time": "00:24:52.10"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Underwood, what is the penalty for violating an injunction?",
       "time": "00:25:11.52"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would be criminal contempt?",
       "time": "00:25:25.05"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What I'm getting to is would you be entitled to a jury in the trial for contempt?",
       "time": "00:25:33.51"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Still it's civil so it wouldn't be beyond a reasonable doubt, it would be I think it's clear and convincing in this case; is that right?",
       "time": "00:25:42.44"
     },
@@ -509,13 +513,13 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would make a big difference to a jury who doesn't want to convict this person. I mean, at the end of the road there's a jury, which is going to let you off if it wants to let you off, whatever the standard of proof is so that if the U.S. attorney here were only trying to avoid a jury, he ought to be replaced.",
       "time": "00:25:52.84"
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the juries... there can be a criminal contempt proceeding if the injunction is violated under the statute, correct? Something was said a minute ago about its being just a civil jury. The U.S. attorney could bring criminal contempt if someone violated it and I thought your answer was under the statute even if it's criminal contempt and the penalty would be... the penalty requested would be within the minor offense range, they'd still get a jury trial and that was the answer to my suggestion.",
       "time": "00:26:12.24"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I understood you before in answer to the question about why the civil injunction to say that you wouldn't do that with a street peddler but you want to put this clinic out of business.",
       "time": "00:27:03.32"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well General Underwood. Mr. Uelmen, we'll hear from you.",
       "time": "00:27:52.81"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did your Respondents ask to be prosecuted criminally, was that their preference?",
       "time": "00:28:21.56"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How did it deprive them, I mean, Ms. Underwood's answer was they get a jury trial in any case.",
       "time": "00:28:29.16"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean for a criminal contempt?",
       "time": "00:28:50.29"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What about criminal?",
       "time": "00:28:53.41"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's the sanction for finding of a civil contempt violation? It can't be jail.",
       "time": "00:29:05.32"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In a civil contempt they say you have the key to the jail in your own pocket because it's enforced to cause to you do something, you can be jailed I believe on civil contempt.",
       "time": "00:29:18.59"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Right.",
       "time": "00:29:33.84"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did they ask for a jury trial?",
       "time": "00:29:47.80"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And what was the penalty that was being requested, was the penalty a fine or cumulative incarceration?",
       "time": "00:30:10.23"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What was requested when you went to trial, did the government say, we forego any incarceration as punishment we're going to ask for a fine as punishment, did the government make any specification of that sort?",
       "time": "00:30:19.89"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's just like a civil nuisance action, it's just a nuisance action in the federal court is all it amounts to.",
       "time": "00:30:55.72"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you're in effect saying that even if it's purely civil contempt if they are found to violated the injunction and they do not agree to abide by the injunction in the future they can at least be jailed coercively. Is that the point?",
       "time": "00:31:10.35"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:31:25.70"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just... I take it that if I'm a trial judge and I have someone who's violated my injunction, I can't say, I'm going to put you in jail now until you sign an agreement not to do this anymore. I can't do that. It's a coercive action for something that's within the power... within your power to perform, to turnover some goods, to unlock a locker to... but that's not... so there can't be any... there can't be incarceration--",
       "time": "00:31:47.99"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But these are all past acts, there's nothing to incarcerate for or am I wrong? Am I missing something, did the judge incarcerated these people? He couldn't.",
       "time": "00:32:28.15"
     },
@@ -731,13 +735,13 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I disagree with that but we'll leave it.",
       "time": "00:33:01.34"
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. I thought that this kind of civil contempt where you have the key in your pocket is only for the kind of contempt that's in the presence of the court where you refuse to testify or disrupt proceedings or something like that, I'm not sure that... any way, we can look that up. Let me come to your perception that it would be unthinkable that it could be up to the U.S. attorney whether to bring a criminal action or not, but a federal judge could not decide that he won't issue an injunction using the same sort of discretion, why is that so unthinkable? I mean, in a criminal case the federal judge certainly can't say, you know, I don't think this criminal case should have been brought at all.",
       "time": "00:33:06.10"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a stupid prosecution and I'm going to ignore it. He can't do that, can he?",
       "time": "00:33:54.29"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To say this civil action should not have been brought, I disagree with the United States attorney that this civil action which is authorized... which he's authorized to bring under the statute should have been brought and therefore I will nullify it, you think a court has that power.",
       "time": "00:34:12.52"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's your case authority for that sort of a proposition because the cases you cite in your brief strike me as quite far off the point, Hecht and company and Romero-Barcelo. In those cases the person was either in compliance by the time it got to court or else the court said, look, I won't issue an injunction, Romero-Barcelo, but you have to go get a permit. In no case did the Court ever say well we think you've got a defense to this act so we're not going to issue the injunction.",
       "time": "00:34:42.17"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because in one way it said, the violations had been cured as promptly as they'd been called the attention that Hecht's had put in a new staff to try to do things. I mean, it's quite different from your case where you say we're going to just go ahead and do this.",
       "time": "00:35:31.36"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there wasn't any failure to rule on what the law is in both of those cases. The judge adjudicated the case and said you did wrong, but I'm not going to slap you with an injunction because in the Bowles case it was inadvertent and I have ever reason to believe you won't do it again. I didn't get from any of the cases you cite authority that a judge would have to say, I'm just not going to participate in the adjudication of this case.",
       "time": "00:35:55.31"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It seems to me what happened here is that it originally went to a federal district court judge who granted an injunction and then it was appealed--",
       "time": "00:36:44.14"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--at the Ninth Circuit and the Ninth Circuit appeared at least to create some kind of a blanket exception to the provisions of the Controlled Substances Act and returned it to the district court which it required to withdraw or to enter.",
       "time": "00:36:56.40"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It was a kind of a blanket medical-necessity defense that it recognized when I would have thought that the initial trial judge did not abuse his discretion at all and that the Ninth Circuit erred at the point that it created this blanket defense.",
       "time": "00:37:43.46"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the action is brought against the clinic not against the individual sufferers, so you seem to be putting together two things that don't mix, you're saying that an individual might have a plea of medical necessity, but the judge who is faced with a clinic that's selling to all kinds of people, some of them don't fit that description at all.",
       "time": "00:38:35.64"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It doesn't sound to me limited at all, even with drugs that can be dispensed, doctors are required, prescriptions are required, that wasn't any part of this injunction as envisioned by the Ninth Circuit at all.",
       "time": "00:39:19.64"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Nonmedical people deciding the so-called medical necessity. That's a huge rewriting of the statute.",
       "time": "00:39:33.20"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "To say it wasn't contemplated by Congress when Congress made a finding that there's no known medical use for it doesn't make much sense, I think.",
       "time": "00:40:29.31"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the definition of schedule one in the Controlled Substances Act.",
       "time": "00:40:45.48"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But presumably if it did it itself, it must have thought that it qualified for schedule one under those criteria, it just didn't want to leave it up to an administrative agency to make the decision.",
       "time": "00:41:13.74"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's the case how could it be that the patient wouldn't be able to get a prescription. I mean, you're saying it's absolutely necessary for you to stop the patient from dying or from vomiting or whatever.",
       "time": "00:42:05.12"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's not a doctor in California who will say, you know, here I'll write you a prescription.",
       "time": "00:42:18.78"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, so it's not just a requirement of a prescription that Congress is prescribing.",
       "time": "00:42:28.50"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any other case in which this Court has recognized the medical-necessity defense.",
       "time": "00:43:17.67"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I asked you a question.",
       "time": "00:43:27.19"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's based on common law, is it not?",
       "time": "00:43:40.57"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What you have here is a statute that Congress enacted that quite arguably simply ruled out the sort of defense that you're urging.",
       "time": "00:43:43.73"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or from its placement on schedule one.",
       "time": "00:44:07.63"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do I understand you correctly Mr. Uelmen from what you've argued about medical necessity, the California initiative is essentially irrelevant because you'd be making the same argument in any state; is that correct.",
       "time": "00:44:33.39"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I guess would it be limited to cannabis or would you have a similar exception to any of the prohibitions.",
       "time": "00:45:06.95"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would be up to the individual who wants it to take his chances and say I think there's medical necessity and then try and prove that later--",
       "time": "00:45:26.03"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, you know if he really thinks he's going to die that's an easy gamble right, a jury versus the grim reaper, I'll take the jury any day.",
       "time": "00:45:44.24"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How serious does your medical condition have to be? I mean, I gather cannabis is not a life-saving drug. It alleviates great pain and discomfort.",
       "time": "00:46:18.34"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So how serious... how serious does a case have to be before this medical-necessity defense kicks in, in your view.",
       "time": "00:46:45.59"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What sort of harm?",
       "time": "00:46:57.79"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Stomachache?",
       "time": "00:47:03.30"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a harm, isn't it?",
       "time": "00:47:04.92"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have to add some adjective to just imminent harm, you want imminent life-threatening harm, imminent what? You want to exclude a stomachache and an earache maybe.",
       "time": "00:47:17.07"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose Congress were to say we don't want a medical... we didn't... we thought controlled substance schedule one is prohibited. Now we're going to make clear there's no medical-necessity defense then what happens to your--",
       "time": "00:47:37.40"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--May I just ask you a question? I take it there was no constitutional litigation below that you're raising the constitutional issue here on the constitutional avoidance rationale.",
       "time": "00:48:10.93"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Was it, I mean, did you put in evidence on it or did you argue it or was it just one of those things that you never got to?",
       "time": "00:48:26.68"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you also raise the Commerce Clause on constitutionality?",
       "time": "00:48:58.08"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you press both of those in the court of appeals when you were appealing from the original injunction.",
       "time": "00:49:03.37"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the court of appeals didn't pass on them I gather.",
       "time": "00:49:12.10"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you're asking us to uphold that this defense exists in broad general terms, it's a sweeping proposition with no specific plaintiff in front of us, with no specific symptoms or testimony from a doctor as to this person, which--",
       "time": "00:49:21.70"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Which led me to question that the whole use of the injunctive power to begin with but so long as we have the injunction, the statutory authority, it seems to me you have to wait for a specific case to raise this defense.",
       "time": "00:49:43.01"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but in the meantime it seems to me that nuisance can be enjoined and if the defendant wants to take his chances on a criminal contempt he can do so.",
       "time": "00:50:06.93"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think it was pointed out earlier that the district court here whose discretion it is originally granted the injunction just what the government asked for, and it was the court of appeals who does not have discretion which directed the district court to exercise it in a different way.",
       "time": "00:50:28.22"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what should we do if we decide that the court of appeals misconceived the law? I mean, what should we do with this case?",
       "time": "00:50:53.40"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Uelmen, let me talk about the medical, I had understood medical-necessity defense, if it existed, to be a defense on the part of the person who is in medical necessity and who uses marijuana or any other prohibited drug when he shouldn't. Now you would extend this also to the person who provides it to any persons who was in such needs.",
       "time": "00:51:30.83"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you would extend it beyond that to someone who opens up a business in order to provide prohibited drugs to people who need them. That's a vast expansion beyond any necessity defense that I've ever heard of before.",
       "time": "00:51:53.73"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I've heard of necessity defense on the part of defendant who used it or whatnot, but you're saying by reason of a necessity defense you can open up a business to provide for these necessities.",
       "time": "00:52:17.15"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what choice of evils is the provider faced with?",
       "time": "00:52:55.57"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, of not being able to supply the person. I mean it certainly isn't the provider's responsibility to look after the individual.",
       "time": "00:53:04.52"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say letting someone die.",
       "time": "00:53:14.11"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But is this is a regular druggist, this is not a druggist who's in the business of providing illegal drugs to people in necessity. I mean you're making a business out of it. I can understand--",
       "time": "00:53:42.20"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I don't think your example from the model penal code would envision a pharmacist filling a prescription or filling an order for some drug that is on schedule one which no prescription is good for.",
       "time": "00:54:18.07"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's one thing to say that a state law requiring a prescription for a bunch of drugs can be violated in an emergency. It's another thing to say that a schedule one law which says there's no useful medical purpose for this drug shall be violated.",
       "time": "00:54:44.40"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought it came out of a settlement of a lawsuit.",
       "time": "00:57:29.75"
     },
@@ -1385,13 +1389,13 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Successfully in what way did the plaintiff get a judgment in that case?",
       "time": "00:57:48.44"
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "You said there was a settlement.",
       "time": "00:57:51.56"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you, Mr. Uelmen. General Underwood, you have three minutes remaining.",
       "time": "00:58:03.23"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you General Underwood. The case is submitted.",
       "time": "01:00:13.58"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1997/96-1469/19980113a_96-1469.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID C. FREDERICK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL R. LEVINE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 96-1469, United States v. Hernan Ramirez. Mr. Frederick.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just a preliminary question: is the warrant in the record? I couldn't find it.",
       "time": "00:01:55.13"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:02:06.67"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And another preliminary matter. Do you accept the notion that the Fourth Amendment does impose some kind of restraints on the amount of force that officers can use in effecting a no-knock entry?",
       "time": "00:02:09.07"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Another preliminary question. Assume probable cause. This case is the same with or without the warrant, is it not, or is that incorrect?",
       "time": "00:02:55.41"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no. Assume that it's probable cause.",
       "time": "00:03:05.71"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your argument here would be the same if there were no warrant but the police had probable cause, would it not?",
       "time": "00:03:10.69"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand.",
       "time": "00:03:25.72"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you would... the... you would make the same argument here whether or not the no-knock waiver was in the warrant or not?",
       "time": "00:03:40.52"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Frederick, may I go back to the question that was... I think Justice O'Connor asked you, and that is, you said that there could be a Fourth Amendment control of excessive force. What would be the implementation of that? Suppose the agents here had come in like gangbusters and destroyed everything in their path, and also picked up some incriminating evidence, what would be the consequences? You said the Fourth Amendment is involved, how? Do we exclude the evidence that would be garnered in such an unreasonable search?",
       "time": "00:04:25.22"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But supposing there is authority, though, and there's no Fourth Amendment violation, and they break the door down of a third party, don't they have to pay for the damage?",
       "time": "00:05:57.00"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the obligation to pay for the damage isn't dependent at all on whether it was justified or not.",
       "time": "00:06:05.15"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it would... is this person... at the time of the entry, this... the property owner was not a wrongdoer. Of course, you found out later he had some stuff in the house, but--",
       "time": "00:06:36.29"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What did the officers do here by way of property damage?",
       "time": "00:07:16.41"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Frederick, I am less concerned about... well, just as concerned, I suppose, but I am less troubled by what the Fourth Amendment might provide than I am by section 3109, which says the officer may break open any outer or inner door or window or any part of the house, or anything therein, to execute a search warrant if, after notice of his authority and purpose, he is refused admittance, which didn't occur here, or when necessary to liberate himself or a person aiding him in the execution of the warrant, which didn't occur here. I don't see what the purpose of that statute is unless it is meant to exclude other break-ins, which isn't to say that the other break-ins would exclude all the evidence that's found, and I assume that your answer to what would happen if there's a violation of 3109 is the same thing as your answer to what happens if you use excessive force, right?",
       "time": "00:07:43.78"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The exclusionary rule would not apply, but you'd be liable for whatever damage you've caused.",
       "time": "00:08:45.93"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Well, why shouldn't I read 3109 that way, saying these are the only... these are the only reasons why a Federal officer can break anything in a house?",
       "time": "00:08:50.33"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it... but it clearly doesn't, unless you're wrong about what the common law allows.",
       "time": "00:09:16.42"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see. We've never construed it to mean what it says.",
       "time": "00:09:24.99"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What effect does 3109 have if we do that? Is it just a superfluous statute?",
       "time": "00:10:19.95"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just sort of there to say, you don't really mean just this, do whatever you like?",
       "time": "00:10:25.82"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't say that.",
       "time": "00:10:48.21"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does it do anything other than what our decision says the Fourth Amendment does with respect to the States?",
       "time": "00:10:49.73"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So then you really don't... this is just kind of a statement that doesn't matter, because the Fourth Amendment certainly binds Federal officers.",
       "time": "00:11:22.01"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We're talking about whether you have to pay for the window or the door. I mean, you're not talking about letting the culprit skip away under the exclusionary rule if this provision has been violated.",
       "time": "00:12:15.02"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If the provision... I mean, I don't know that there is such a massive importance in interpreting 3109 so broadly, because if it has been violated, the only consequence is that the window has to be paid for, or the door that's broken down has to be paid for.",
       "time": "00:12:27.87"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you one question. Did the Sabbath case take any position on whether there might be an exclusionary rule in connection with the violation of 3109?",
       "time": "00:12:58.35"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, no... I see now in the first paragraph it says, we hold the method of entry vitiated the arrest and therefore that evidence seized in the subsequent search should not have been admitted at petitioner's trial.",
       "time": "00:13:17.54"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that if we say this violates 3109, unless we do something to Sabbath you get an exclusionary rule right along with it.",
       "time": "00:13:29.75"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That wasn't a holding of the case, of course. That wasn't a holding of the case. It was just an assumption which never had to be applied. Oh, I don't think that they reversed the judgment of the lower court. This... you know, the first paragraph-- --They didn't exclude the evidence-- --They said in the first paragraph the evidence will have to be excluded. I mean--",
       "time": "00:13:52.60"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Where did it come from--",
       "time": "00:14:28.45"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--3109 doesn't forbid anything.",
       "time": "00:14:30.40"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So it must... it says it came from the field code in New York in 1880, or something, and so at that time they must have think... thought there was some different rule of law that forbids something, and then they said, despite that different rule of law, this permits something. How did it work? What were they thinking, do you know? You may not know--",
       "time": "00:14:33.97"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, if we say that reading the record in all of the circumstances here the entry was reasonable, you would prevail in this case. That... I'm not sure that that would answer the question you wanted answered, or am I incorrect?",
       "time": "00:17:22.83"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would that be a perfectly satisfactory disposition, or would it still leave the twotier rule in effect?",
       "time": "00:17:36.95"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But in the course of saying that, it seems to me that we will still... we would still say, if we agreed with you, that the ultimate standard is reasonableness, that the... you cannot destroy more property than is reasonably necessary, given all of the circumstances and given the necessity to protect your officers.",
       "time": "00:18:00.66"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or that they believe they encounter.",
       "time": "00:19:01.83"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You said the reasonableness of the fortifications. You don't mean that, do you?",
       "time": "00:19:06.98"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Reacting to them.",
       "time": "00:19:16.67"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Frederick. Mr. Levine, we'll hear from you.",
       "time": "00:20:01.33"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but I suppose that if the door had been unlocked here and they just burst through the door and everything else was the same, the fear of the occupants would have been precisely the same.",
       "time": "00:21:24.70"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But unless you disagree with my suggestion in my hypothetical, all we're talking about here is a broken windowpane.",
       "time": "00:21:52.73"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that same danger would have been applied if they'd burst through the door, assuming the door's unlocked, or they had a pass key... they have a pass key.",
       "time": "00:22:16.25"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I just don't think there's any empirical evidence for that. I just find it very difficult to write an opinion based on that assumption.",
       "time": "00:22:38.27"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if the officers were just clumsy and negligent and poked a hole through a window by virtue of their negligence, and it frightened the homeowner and... should we apply some higher standard for the resulting entry?",
       "time": "00:23:09.97"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Levine--",
       "time": "00:23:56.73"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I didn't understand the difference between a kicked-down door, which was... which case was that? That was Richards--",
       "time": "00:23:57.19"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and a rammed door. It seems to me that that does more damage than breaking one windowpane.",
       "time": "00:24:02.75"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But are you suggesting that the standard that this Court said was proper in those two cases wasn't tight enough because there was damage to property?",
       "time": "00:24:14.50"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, and in Wilson, too.",
       "time": "00:24:26.86"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they both involved, not just walking through a door gently.",
       "time": "00:24:29.29"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Isn't the test that applies, though... is there some disagreement about this, that... I'm reading from Richards v. Wisconsin. It says, to justify a no-knock entry the police must have a reasonable suspicion that knocking and announcing under the particular circumstances would be dangerous or futile, or would inhibit the effective investigation of the crime.",
       "time": "00:26:28.31"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's the test. We just... I mean--",
       "time": "00:26:50.98"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That's what it is, isn't it? That's what it says.",
       "time": "00:26:53.27"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's not the test?",
       "time": "00:26:56.17"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you're saying we should overrule... overturn that, or--",
       "time": "00:27:02.24"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, but--",
       "time": "00:27:29.31"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--but Richards involved a forcible entry.",
       "time": "00:27:30.96"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I just don't think that the Ninth Circuit opinion is faithful to that. I mean, for you to prevail, I guess you're right, we'd have to change Richards.",
       "time": "00:27:36.73"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what's the problem? That is to say, presumably, as I read it so far... and you're much more familiar--",
       "time": "00:27:50.09"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Are you... you are much more familiar with the record than I am.",
       "time": "00:27:55.90"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought here that the police thought that this person that they wanted to arrest was somewhat dangerous... he had assaulted people, he had violently escaped before... that they came to arrest him and they didn't want to announce themselves because they thought there's a person in the house whom we need to take by surprise or he may pick up a gun and shoot somebody.",
       "time": "00:27:59.21"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or who knows what he'll do.",
       "time": "00:28:21.96"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then they had reasonable suspicion that he was dangerous, so why isn't that--",
       "time": "00:28:31.94"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--the end of it? All right. Yes, all right.",
       "time": "00:28:36.32"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, obviously you're right, that he has to present a danger, i.e., he might hurt somebody now, okay. So they think, here's a person who's hurt people in the past, here is a person who's violently escaped in the past, here is a person who might have a gun, and we're afraid that if we announce ourselves he's going to shoot somebody, now.",
       "time": "00:28:54.61"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, how is that not--",
       "time": "00:29:14.91"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--You mean presently armed in the sense of right then at 6:00 in the morning he had a gun on him?",
       "time": "00:29:34.08"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, can you first answer my question?",
       "time": "00:29:43.81"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say the district court found that Mr. Shelby was not \"presently\" armed. Are you suggesting that this finding means that at 6:15 in the morning he was not presently armed?",
       "time": "00:29:46.59"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you would have... you would then require, in order to break the window of a garage door, that the police have reason to believe that the person was armed, I suppose carrying a gun, at the very moment they were going to break in?",
       "time": "00:30:03.48"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, but they quote--",
       "time": "00:30:27.02"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--They quote on this. I mean, in the dissent, Judge Kozinski's quoting from somewhere. I thought it was the record. Shelby was a major methamphetamine manufacturer and has had access to large caches of weapons.",
       "time": "00:30:28.45"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I haven't heard you make one argument that wouldn't apply equally to the application for the no-knock warrant in and of itself.",
       "time": "00:30:54.80"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me what you're saying to me is that the officers should have knocked and announced.",
       "time": "00:31:03.39"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So--",
       "time": "00:31:11.04"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--we have to take this case on the premise that a knock and announce was not required. That's because there were some exigent circumstances, some indications of danger. Now, you want us to parse this and say, well, there are two levels. You want us--",
       "time": "00:31:14.01"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--You don't agree that--",
       "time": "00:31:27.15"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Would you agree with this statement in Becker: to justify what the Ninth Circuit case--",
       "time": "00:31:30.50"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that preceded McConney. To justify physical destruction of property, more specific inferences of exigency are necessary.",
       "time": "00:31:34.24"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but doesn't the court of appeals say that they want more specific evidence of danger if there's going to be property damage?",
       "time": "00:32:48.92"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or break in a garage window.",
       "time": "00:33:02.20"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay, but also in the agreed stipulation of facts, to which your client apparently agreed, it said that other information from the Government's informant indicated that the defendant, Ramirez, was possibly involved in drugs which he kept in the garage. The informant also indicated there were supposed to be several guns in the garage, and what we had here was breaking of a windowpane in the garage so that this... officers could surveil... conduct surveillance of that space as they entered.",
       "time": "00:33:29.35"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, how is that... how does that fail the reasonability test required by--",
       "time": "00:34:10.79"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--this Court's cases?",
       "time": "00:34:18.89"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why isn't that... isn't... obviously at the bottom you say, if only they'd announced this, there was less of a chance of somebody getting hurt.",
       "time": "00:34:59.64"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They think if the way to stop people from getting hurt was to see if somebody ran for a gun the second that we go into the building, so we want to go and see if somebody's running for a gun. So we have a difference of opinion about the best way to stop somebody from getting hurt.",
       "time": "00:35:08.55"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, as long as theirs is a reasonable way of going about it here, that they think theirs is the best way to stop somebody from getting hurt, and they... you know, on the basis of--",
       "time": "00:35:24.93"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--reasonable facts and so forth--",
       "time": "00:35:33.72"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--then legally don't we have to go along with it?",
       "time": "00:35:35.01"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not saying defer. I thought the ground was whether they had a reasonable suspicion.",
       "time": "00:35:40.29"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I was thinking that you keep saying that the best way to get... keep people safe was to announce, but they're just denying that. They think the best way was to break the window to look and see if somebody went for a gun.",
       "time": "00:35:58.75"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, my problem is, I... given the standard--",
       "time": "00:36:12.67"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "00:36:15.78"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Levine, you're saying, then, it's not reasonable for the police to break a garage window, a pane of glass, after they've been informed that there may be guns in the garage and that Shelby is armed and... could be armed and dangerous?",
       "time": "00:37:20.19"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but--",
       "time": "00:37:53.91"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr.... just a minute.",
       "time": "00:37:56.80"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Calm down.",
       "time": "00:37:58.65"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're not suggesting that the police have to do what is most reasonable, are you? The test is whether what they did was \"reasonable\".",
       "time": "00:38:00.18"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I'm saying I have no idea, frankly. I wasn't there. I don't know, based on what I've read. I have no more reason to think that the police were careless in hurting people than they were helpful in trying to hurt people, trying to prevent them from helping... you see, look, the difficult judgment: there are guns in the place, and this person has assaulted people previously and has had guns previously. I can understand--",
       "time": "00:38:39.36"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I can understand why a policeman, knowing that, might think he ought to see if somebody's going to run for a gun, and if I can understand that based on this record, then it seems to me the standard makes the answer favorable to the Government, so that's what I was asking you to respond to.",
       "time": "00:39:02.68"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Government says that to read the statute as literally as you suggest would be inconsistent with our Miller opinion in '58. What's your response to that?",
       "time": "00:42:39.79"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's the same Court.",
       "time": "00:43:36.66"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The statute says nothing about excluding evidence that was obtained in violation of it.",
       "time": "00:43:48.94"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think Mr. Frederick said something about inevitable discovery.",
       "time": "00:44:21.42"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That they were authorized to go in without knocking and announcing. If they had simply done that and not broken the window as well, they would have found the same things.",
       "time": "00:44:25.98"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if that's so, if this statute, although it's phrased not to forbid anything--",
       "time": "00:45:10.82"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--If we read the statute as forbidding something, namely that which it doesn't permit, which is what you're doing, 3109... you're reading it as forbidding that which it doesn't permit.",
       "time": "00:45:16.72"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Does that mean that then a police officer who knows that if he announces himself there'll be a hail of bullets, he knows that, that he would still have to announce himself?",
       "time": "00:45:27.49"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, why wouldn't... the statute doesn't give an exception, does it, for officer safety?",
       "time": "00:45:40.70"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So then in your view if the policeman knows that if he announces himself he will be killed instantly, in your--",
       "time": "00:45:51.31"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. Of course, it would be absurd.",
       "time": "00:45:58.75"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, so... but then, that's why I'm confused about how the statute's actually supposed to work. You've just abandoned your statutory argument, in other words. You have to take the... well, the bitter with the sweet.",
       "time": "00:46:00.29"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you want us to read the statute literally, that is what it says.",
       "time": "00:46:11.39"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Levine. Mr. Frederick. Mr. Frederick, may I ask you this question: you know, I can understand the Government's feeling that on the facts this case shouldn't have come out this way, and that was also what the dissenting opinion of Judge Kozinski said, but he didn't say that you cannot take into account... he didn't criticize the general rule of the Ninth Circuit that you can't take into account the manner of entry, including the breaking of property, in deciding whether it's an unreasonable search and seizure. I don't understand what new rule to replace the California formulation of the test you want us to adopt. I... I'm... which makes it hard to write an opinion.",
       "time": "00:46:27.88"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's fine, but that... does mere reasonable suspicion and not a higher degree of suspicion become necessary if you're going to do substantial property damage? I mean, let's say the only way to get in without knocking and announcing is to blow up one side of the house. Now, I can understand that... you do it, if it's a serial murderer in there and you've been looking for him for 10 years, there's no other way to get him, and you're very sure he's there. But do you mean if it's just ordi... the same reasonable suspicion that would justify breaking the window would justify taking out the whole side of the house?",
       "time": "00:47:28.94"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wow.",
       "time": "00:48:04.74"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, sure, what manner you use depends on those other factors, how sure you are the guy is there.",
       "time": "00:48:34.66"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're not as sure that he's there.",
       "time": "00:48:56.93"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, maybe he's staying at Scalia's house. I don't mind they're taking away one of my walls if they think they're going after, you know, Jack the Ripper, but if they're really not sure he's there, I would like that wall of my house to still be there.",
       "time": "00:49:00.12"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not quarreling with you... I'm not quarreling with you on the facts here.",
       "time": "00:49:20.97"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree with Judge Kozinski. But to set forth a rule that you don't, you know, property damage-- --There is no... you wouldn't do that. --does not take--",
       "time": "00:49:23.79"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--does not affect the degree... you want us to say the property damage does not affect the degree of probable cause that you need?",
       "time": "00:49:31.89"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why do you say that? Why--",
       "time": "00:49:43.20"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, if property damage does not have to affect probable cause, does it affect the exigent circumstances that are necessary for the extraordinary means of entry?",
       "time": "00:49:55.78"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the special circumstances one.",
       "time": "00:50:14.11"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not sure how that's so different from what the Ninth Circuit said.",
       "time": "00:50:30.94"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying the same degree of certainty that this criminal is in there, only the same degree... 20 percent chance he's in there... you need that to break a little window, and you also need that, and no more than that, to take out a wall.",
       "time": "00:50:45.15"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you get me to adopt that rule I may well up my interpretation of what a reasonable suspicion consists of. If I know that the consequence of a reasonable suspicion is I'm going to lose the side of my house, I might well require your agents to be a lot more sure than I otherwise would.",
       "time": "00:51:32.78"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it ought to be... it ought to be fairly substantial, should it not, in light of the long tradition of knock and announce? I mean, I don't--",
       "time": "00:51:59.92"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--I don't see how that can be some casual standard there.",
       "time": "00:52:08.54"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We all have in mind what happened at Waco. I think we do have some concerns here.",
       "time": "00:52:15.32"
     },
@@ -1631,13 +1635,13 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Frederick. The case is submitted.",
       "time": "00:52:45.41"
     },
     {
       "turn": 266,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:52:49.14"
     }

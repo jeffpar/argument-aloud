@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1974/74-5140/19750121a_74-5140.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "FREDERICK S. KLEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM J. SCHAFER, III",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Cassius against Arizona, 74-5140.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Klein.",
       "time": "00:00:24.32"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you know why?",
       "time": "00:02:45.94"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you know whether the state had-- would it be fair to say that the state concluded it was satisfied with one guilty plea that would have a substantial sentence even though the man had apparently committed two criminal acts?",
       "time": "00:02:59.29"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Apparently, with emphasis.",
       "time": "00:03:17.30"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Klein, is-- there are three crimes, aren't there?",
       "time": "00:03:34.29"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Klein, just to go back so-- I'm not sure it's quite clear in my mind. There was a plea bargain.",
       "time": "00:04:32.63"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Under which the first burglary charge was dismissed. There was a guilty plea to the second burglary charge?",
       "time": "00:04:41.95"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And what did the bargain have to say, if anything, about the 1580 charge?",
       "time": "00:04:50.64"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So there was no-- so, what was done was exactly in accord with the bargain?",
       "time": "00:05:14.04"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "00:05:21.59"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Klein, do you know is this statute frequently used by the prosecution in Arizona?",
       "time": "00:05:23.57"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would be your position on this issue if he had entered a guilty plea to the first charge, been sentenced, then a guilty plea to the subsequent charges? Would you think that would be waivered or what could be your view? You'd made the point that you haven't had the chance to test out, which is correct. The truth of the first charge, except as there is some passive admission involved in the so-called bargain negotiation, but if he had been found guilty and had his day in Court on that first one, either by plea or by trial.",
       "time": "00:06:08.97"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What elements does the state have to prove, Mr. Klein, in 1580?",
       "time": "00:07:50.04"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what was the proof at the trial of this 1580 charge?",
       "time": "00:08:48.65"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you regard your client as having been free and at large by virtue of a constitutional right or by virtue of a statutory provision?",
       "time": "00:09:32.75"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of course, we'd all agree that the federal constitution doesn't guarantee the right to be released on bail, but merely that they may not be regard to furnish excessive bail. Is that not correct?",
       "time": "00:10:19.88"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Klein, we keep peppering you with questions.",
       "time": "00:11:00.13"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I think I understand your double jeopardy approach. Suppose Arizona, however, instead of having this statute which seems to me to be a fairly unusual one, provided that the punishment for burglary shall be x-years, but the punishment for burglary committed while on an RPR or after one being charged with a felony is y-years, y being greater than x. Anything unconstitutional about that, drawing the distinction in punishment as distinguished from making under separate crime?",
       "time": "00:11:04.00"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And yet, the same result would be accomplished, as the state claim is accomplished here.",
       "time": "00:12:01.85"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the state legislative could-- legislatively could attach all those consequences to a single crime of committing burglary while on bail just like it attaches a higher penalty, perhaps, and then--",
       "time": "00:12:55.34"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know that that argument is a-- that argument would go to cases where the-- where anyone act is broken up into several crimes, and they're all prosecuted at once.",
       "time": "00:13:32.91"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That it would tell the double jeopardy argument.",
       "time": "00:14:16.43"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, you think you still have an arguable opinion?",
       "time": "00:14:19.44"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Klein, do you think Blockburger is consistent with your double jeopardy argument?",
       "time": "00:14:59.96"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was Blockburger's said to rest by the Court on double jeopardy?",
       "time": "00:15:27.11"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You think that the-- Justice Sutherland relied on the Double Jeopardy Clause in Blockburger? He didn't even mention it, so far as I know.",
       "time": "00:15:35.91"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you one more question about what I guess are basically the facts. In the proceedings before Judge Marks resolving doubts of facts and so forth in favor of the prevailing party as we do here, can it fairly be said that Judge Marks found that your client had committed the second burglary?",
       "time": "00:15:57.94"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He pleaded guilty to the second burglary.",
       "time": "00:16:25.69"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, then the-- were there any contested issues of fact tried before the trial judge?",
       "time": "00:16:28.63"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, the only factual element of the crime is that at least the second burglary or the commission of the crime while on bail that your client plead guilty to.",
       "time": "00:16:53.85"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it was conceded that he did it while on bail?",
       "time": "00:17:13.81"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, there really weren't any factual issues and dispute in the 1580 proceeding?",
       "time": "00:17:18.06"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you reserved this issue in-- on your guilty plea?",
       "time": "00:17:25.26"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you said that.",
       "time": "00:17:30.56"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Some state Supreme Courts and perhaps some Courts of Appeal have held that there is no constitutional problem about defining a certain crimes as more serious and in subject to greater punishment when they're committed, for example, within a prison, an assault on a prison guard, an assault on a fellow prisoner, a killing of a prison guard. I take it, concede that a statute couldn't be drawn which would impose the greater punishment for the commission of a crime while on bail without regard to whether that issue of fact on the first crime, while on-- for which he was bailed, was ever tried out. The question may be a little confusing.",
       "time": "00:17:43.58"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You concede that a greater punishment could be imposed constitutionally for committing a crime while on bail without regard to whether or not there's even a crime--",
       "time": "00:18:44.27"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Find in your two trials. There was only one trial.",
       "time": "00:19:13.98"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When was the trial?",
       "time": "00:19:50.58"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mentioned a minute ago all of the difficulties in this as compared to an enhanced sentence. I don't see but one and that is he has two convictions. I don't see anything else.",
       "time": "00:20:10.15"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Command the results after it's done.",
       "time": "00:20:35.45"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm not talking about the double jeopardy now. I'm talking about the difference between being convicted and given five years because you did it while you were a felon, as contrast it to two-and-a half years if you did it without being out on bail. And, you gave a whole lot of sentencing but one, and that is you get two convictions. That's the only--",
       "time": "00:20:47.52"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Which the legislature could've stopped.",
       "time": "00:21:19.05"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Didn't the legislature say if you commit a felony while out on bail, you shall not be eligible for parole ever?",
       "time": "00:21:22.30"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But maybe your sentencing is within the power of the state legislature.",
       "time": "00:21:45.15"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There's only one limit, cruel and inhuman. Is there another one?",
       "time": "00:21:52.49"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it meant for this sentence?",
       "time": "00:22:01.59"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, we all thought wide beyond the matter, but if-- I have a bit of difficulty with-- they could enhance it. There's no problem about that.",
       "time": "00:22:06.91"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There's no problem about that, and that the only problem here is that instead of that, you get another “trail” on the same offense and that's it.",
       "time": "00:22:27.31"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Klein, I suppose the only additional element under your statutory crime is being out on bail or an RPR. That in itself isn't criminal, is it?",
       "time": "00:23:32.47"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, there may be no sense in it, but I guess what I'm asking is whether the difference between burglary and the offense under the special statute is only an element which in itself isn't criminal.",
       "time": "00:23:58.11"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And yet, the legislature here has made it an element of criminal responsibility.",
       "time": "00:24:26.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are subject to kind of addition constraints while on bail. The “don't commit any crimes,” etcetera, that the ordinary person is not subject to it in terms of a judicial injunction in it.",
       "time": "00:24:40.39"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Except your bail can be revoked if you don't obey the law when you're on bail, and an ordinary citizen, if he doesn't obey the law, has to go through a full criminal proceeding because his liberty could be restrained.",
       "time": "00:25:09.50"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And, to that extent, he's in a different spot than the person who has never been arraigned in the first place.",
       "time": "00:25:57.83"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Different consequences attached to a breach.",
       "time": "00:26:12.29"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, Mr. Klein, in the case like this, does the man have bail-- I mean, is bail revoked to him?",
       "time": "00:26:23.95"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there-- it's not in this case, but do they have a statute on a parolee committing a crime?",
       "time": "00:26:43.18"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just curious.",
       "time": "00:26:55.39"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may. Mr. Klein, you may surely. Mr. Schafer.",
       "time": "00:27:00.70"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is used in Pima County regularly the way it was here to make two separate offenses and in this case with consecutive sentences or is it just used to make one conviction on an aggravated offense?",
       "time": "00:28:15.09"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Arizona is a state, isn't it, Mr. Schafer, where the County Attorney of the individual county has the primary discretion to determine prosecution policy?",
       "time": "00:29:51.91"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How many counties?",
       "time": "00:30:25.00"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "At least you don't have 80 or 90 different prosecution policies. Some states do that.",
       "time": "00:30:27.96"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Not even anything else, not even the word “constitution” appears, does it?",
       "time": "00:31:37.99"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I suppose you'd agree, perhaps your friend might even agree, that if there'd been a guilty plea to both burglaries but with an agreement that contemplated the aggregate punishment the same as was actually entered here, that that would be eliminated to deal with his argument.",
       "time": "00:33:14.95"
     },
@@ -839,13 +839,13 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And the presumption of innocence argument which he separated from his double jeopardy.",
       "time": "00:33:39.76"
     },
     {
       "turn": 134,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it still has the conviction though under 1580. That's the problem here.",
       "time": "00:33:46.84"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Sorry, it wasn't in the first but I think the first burglary charge was dismissed. There was no conviction.",
       "time": "00:34:26.95"
     },
@@ -869,13 +869,13 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought you referred to the first burglary conviction. There's only one burglary conviction, isn't there?",
       "time": "00:34:37.36"
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There's the first burglary.",
       "time": "00:34:42.49"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The charge.",
       "time": "00:34:49.55"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That was dismissed afterwards.",
       "time": "00:34:50.39"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the plea bargain.",
       "time": "00:34:51.42"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:34:52.78"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:34:55.34"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the-- there was a second burglary conviction and that he was convicted of burglary while on bail on a felony charge.",
       "time": "00:35:02.24"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There were two burglary convictions. One on the guilty plea and one on the judge's finding on agreed facts.",
       "time": "00:35:13.15"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Isn't that right?",
       "time": "00:35:20.13"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:35:29.49"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:35:41.48"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that was for committing a burglary while he was on bail on a felony charge.",
       "time": "00:35:48.18"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:35:57.78"
     },
@@ -1031,13 +1031,13 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could he also be charged with the first burglary?He had been.",
       "time": "00:36:01.00"
     },
     {
       "turn": 166,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could it have been three?",
       "time": "00:36:04.13"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But could he have been convicted?",
       "time": "00:36:07.55"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He could have had three convictions.",
       "time": "00:36:10.89"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But whether or not he was convicted on the first charge, from which he was released on his OR, has nothing to do with the issues in this case.",
       "time": "00:36:14.45"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then, I take it, you are arguing that these are separate and distinct crimes.",
       "time": "00:39:01.29"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That this is not an enhancement of punishment statute.",
       "time": "00:39:05.88"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is it separate or two?",
       "time": "00:39:49.43"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well the second, at least looking at page 4, the criminal complaint, the first count, he committed a burglary. He was convicted and sentenced on that. The second one is he also committed a burglary and was sentenced on that, the same burglary.",
       "time": "00:39:54.47"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Page 4 of the appendix.",
       "time": "00:40:14.54"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He was charged. As raised, I believe, the second count is that he committed a burglary while on bond and the first one is he committed a burglary.",
       "time": "00:40:17.28"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's the same burglary referred to in both.",
       "time": "00:40:29.84"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So, he's convicted twice of the same burglary.",
       "time": "00:40:34.48"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, as phrased, where the charge reads.",
       "time": "00:40:40.62"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In fact, it's quite a bad pleading, isn't it, because, if you look at the language of the statute on page 3 of the petitioner's brief, the offense doesn't occur until after the conviction on the first burglary?",
       "time": "00:40:54.81"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, they can't really be charged that way because it would-- I mean, if you think about accurate and not just the pleading.",
       "time": "00:41:08.51"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There is no second offense under-- there is no offense under 1580 until there's a conviction of the felony.",
       "time": "00:41:16.16"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's what the statute says very clearly, on page 3 of the petitioner's brief.",
       "time": "00:41:26.28"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, this indictment-- this complaint, rather, is-- couldn't be right because they couldn't charge him under count two until he'd been convicted under count one, if you take the statute's literal words to mean what they say.",
       "time": "00:41:31.02"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schafer, when the Supreme Court of Arizona vacated the Court of Appeals opinion did it indicate any doubt as to the construction that had been placed on the statutory language by the Court of Appeals?",
       "time": "00:41:44.78"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This is no separate crime. This is an additional crime, isn't it?",
       "time": "00:42:16.81"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, it's not enhancement.",
       "time": "00:42:28.09"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, I'm in trouble.",
       "time": "00:42:32.17"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's additional crime, but it's not enhancement.",
       "time": "00:42:34.19"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, if it is enhancement, it is. If these two sentences would have run concurrently, you wouldn't-- nobody would be here. The fact that you're here is because the two sentences are consecutive. That's why we're here.",
       "time": "00:42:49.31"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And, indeed, they have to be under the statute.",
       "time": "00:43:09.49"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That doesn't give you any difficulty.",
       "time": "00:43:14.16"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I'm not-- I don't know what it means in this case but, it seems to me, I still don't understand why a man is so bad and vicious that you have to give him two sentences and he ends up with five years all together for burglary. He could have given him five on the one, couldn't he?",
       "time": "00:43:41.78"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why would the same judge who's going to give him a certain number of years, why does he have to split it up?",
       "time": "00:44:10.02"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then give him less.",
       "time": "00:44:17.52"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, he gave a very long portion of the allowable penalty, did he not?",
       "time": "00:45:13.21"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the maximum penalty was what all together?",
       "time": "00:45:22.23"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, and what did they impose?",
       "time": "00:45:26.61"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but he's got a two-year minimum as against a possible 20-year maximum.",
       "time": "00:45:33.51"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do judges in Arizona ordinarily give some explanation about their sentencing process?",
       "time": "00:45:52.29"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The implication I drew from that when I saw that reference was that this is precisely a mitigating factor in his imposition of the sentence.",
       "time": "00:46:15.50"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To comply with the statute which require the separate penalty for each one, I take it, he would have had the power to suspend one of the sentences, wouldn't he, under Arizona law?",
       "time": "00:46:29.70"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if it's easier for one of us up here to attribute thought process as to a State Court judge than it is for you when you have to continue working with him.[Laughter]",
       "time": "00:46:57.69"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But on your idea that these are different offenses, the state could try the burglary first and the burglary while out on bail later.",
       "time": "00:48:33.28"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the same transaction test would say no.",
       "time": "00:48:45.36"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, there are some cases in the Court, including perhaps Blockburger or any of it or Gore, that would say that even if that's the same offenses, the fact that you're imposing two punishments does not violate the Double Jeopardy Clause.",
       "time": "00:48:56.69"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, assume a single act violates three different statutes.",
       "time": "00:49:18.70"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you impose punishments. You try them all the same time and punish-- and impose three punishments for the identical act.",
       "time": "00:49:24.91"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You have a single-sale of narcotics.",
       "time": "00:49:40.73"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But that violates three, four, five statutes.",
       "time": "00:49:43.01"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You have separate counts for the violation under each statute. You try them all together. He's convicted on them all. You can impose consecutive sentences.",
       "time": "00:49:45.85"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's with Gore. That's what Blockburger was, and I gather your argument here really is there's a single burglary but it violated two statutes.",
       "time": "00:49:55.00"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They were disposed of in the same proceeding, therefore, no double jeopardy violation.",
       "time": "00:50:03.06"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With all these-- excuse me.",
       "time": "00:50:21.36"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With all respect, I don't understand this at all, if we're going to take the statute as it's read. You can't have the-- an offense under 1580 until and after there's a conviction on the first burglary.",
       "time": "00:50:23.60"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Isn't that correct?",
       "time": "00:50:36.22"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You can't try them all together.",
       "time": "00:50:37.81"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you take the words of-- if you look at page 3 of the petitioner's brief and see what that statute says, it says a person who is convicted of committing any felony offense while released on bail. So, how could you have a violation of this 1580 until and unless there was a conviction?",
       "time": "00:50:41.50"
     },
@@ -1661,13 +1661,13 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, does that make sense?",
       "time": "00:51:03.07"
     },
     {
       "turn": 271,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Couldn't the conviction occur at his trial for the offense?",
       "time": "00:51:06.13"
     },
@@ -1679,13 +1679,13 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's a very odd way to--",
       "time": "00:51:12.00"
     },
     {
       "turn": 274,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, couldn't you charge--",
       "time": "00:51:14.34"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Couldn't it be disposed as it had gone to trial? Couldn't the-- a jury had been tried-- charged? If you find him guilty of a burglary, then you also may find him guilty of the violation of 1580.",
       "time": "00:51:15.43"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In a single trial?",
       "time": "00:51:29.19"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:51:46.29"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But they can't reach count 2 or the second question under 1580until they have crossed the bride on count 1, that is did he perform the act of the burglary.",
       "time": "00:51:51.28"
     },
@@ -1745,13 +1745,13 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If they found that he did the act which points to a conviction.",
       "time": "00:52:06.12"
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A component of the offense is a conviction, is it not?",
       "time": "00:52:11.27"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you draw no distinction between the result of a plea of guilty and any other type of conviction, do you?",
       "time": "00:52:16.47"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I thought Justice Stewart's inquiry of you was that you can't even indict for a 1580 until you have the first conviction. I take it, you can under Arizona practice.",
       "time": "00:52:30.07"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They did in this case, didn't they?",
       "time": "00:52:43.32"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Schafer. You have nothing to do more. Do you have anything further, Mr. Klein?",
       "time": "00:53:17.04"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have three minutes.",
       "time": "00:53:24.03"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What page?",
       "time": "00:54:07.09"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But, Mr. Klein, isn't the fact that under this very charge, had this first appellant gone to the jury, could the Court-- trial judge have instructed the jury “you must find him guilty first of the burglary before you address the second count. If you find him guilty of the burglary, you may then address the second count and find him guilty of that.”",
       "time": "00:54:55.53"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A jury verdict of guilty is not an element conviction.",
       "time": "00:55:27.70"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There's a lot that could happen between--",
       "time": "00:55:31.88"
     },
@@ -1871,13 +1871,13 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That verdict and a judicial conviction.",
       "time": "00:55:33.49"
     },
     {
       "turn": 306,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And, yet, the Arizona Court of Appeals is clearly in accord with Justice Brennan's comment, isn't it?",
       "time": "00:55:35.39"
     },
@@ -1889,7 +1889,7 @@
     },
     {
       "turn": 308,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Klein. You appeared here at our request by the appointment of this Court.",
       "time": "00:56:05.80"
     },
@@ -1901,13 +1901,13 @@
     },
     {
       "turn": 310,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We thank you for your assistance to the Court and, of course, your assistance to your own client. Thank you, Mr. Attorney General. The case is submitted.",
       "time": "00:56:10.57"
     },
     {
       "turn": 311,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:56:19.32"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1580/19851203a_84-1580.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW L. FREY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "HOLLY MAGUIGAN",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in United States against Inadi. You may proceed whenever you are ready, Mr. Frey.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I am curious, Mr. Frey. You talk about the tremendous significance of the issue. As I understand it, several states have determined as a matter of state constitutional law to require the enforcement of proof of unavailability and reliability to produce evidence such as this in a co-conspirator situation. Has the experience of those states been such that law enforcement agencies have been hampered in their--",
       "time": "00:05:21.72"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Would it depend in part on how strictly one has to prove unavailability?",
       "time": "00:06:47.60"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say in effect that if the declaration of an adverse party can be admitted against in open court, the declaration of an adverse party can be admitted on the same principal?",
       "time": "00:07:52.19"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does it make any difference at all that the rule treats co-conspirator statements as exempt from being hearsay, and the other rules treat exceptions to the hearsay rule?",
       "time": "00:11:42.02"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is the exemption in the case of co-conspirator evidence based on inherent reliability of that evidence?",
       "time": "00:12:14.83"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Plus the fact that they are against interest, against their--",
       "time": "00:13:15.97"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is it your understanding of respondent's position that if Lazaro had been available, the U.S. Attorney would have had to call him to the stand and put the declaration to him in kind of a cross examination?",
       "time": "00:18:26.18"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You would then have to just treat him as a normal witness?",
       "time": "00:19:06.92"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You might try to impeach him.",
       "time": "00:19:17.48"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Sure, you have to ask him first.",
       "time": "00:19:24.82"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Frey, there is a third one. The judge can call him as his witness.",
       "time": "00:19:45.71"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is what I mean.",
       "time": "00:19:52.65"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If they hadn't been able to use his testimony, they might have wanted to call him?",
       "time": "00:20:14.25"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--On the other hand, in this instance, you have the government having the benefit of capable testimony without cross examination.",
       "time": "00:22:27.40"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well--",
       "time": "00:22:45.11"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Did defendant make the motion to put this evidence in?",
       "time": "00:22:46.55"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that is who did it. You don't deny you did it?",
       "time": "00:22:51.96"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You put in evidence which was favorable to you, and unable to have it cross examined by the other side.",
       "time": "00:22:57.43"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wouldn't you prefer to have evidence for your side not cross examined?",
       "time": "00:23:38.51"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Maguigan.",
       "time": "00:26:39.95"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would you care to suggest what your cross examination would have been?",
       "time": "00:27:59.02"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess you could have called him on cross examination as a witness.",
       "time": "00:28:30.69"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I don't think I follow that.",
       "time": "00:28:42.94"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think that even if the government had called him, they could have called him and put him under cross examination as an adverse witness?",
       "time": "00:29:08.56"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, isn't a co-conspirator inherently an adverse witness and always subject to being called, it at all, on cross examination by the state?",
       "time": "00:29:23.34"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that doesn't mean they might not have been.",
       "time": "00:29:47.02"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:29:49.88"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Ms. Maguigan, just how would this have proceeded in the trial court if the government had produced Lazaro if that's his name? Could they simply have announced, here he is at counsel table, and then the recordings go in?",
       "time": "00:30:13.35"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They would have gone in whether he was present or not?",
       "time": "00:30:45.32"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, on your view of what the law ought to be... I take it you are supporting the opinion of the Third Circuit... what if the government in this case had said here at counsel table is Mr. Lazaro. We now offer in evidence Exhibits A, B, and C, which are the tape recordings or cassettes of his co-conspirator declaration.",
       "time": "00:31:03.30"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why would it not have been sufficient?",
       "time": "00:31:28.48"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So what does happen under your hypothesis if the government says here is Mr. Lazaro and we offer Exhibits A, B, and C? Does the District Court exclude those exhibits, the cassettes?",
       "time": "00:32:02.32"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so they bring Mr. Lazaro into court and say, here he is, and now they still want to offer the cassettes in evidence. Do you say they simply can't come in because he is not unavailable?",
       "time": "00:32:16.96"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I mean... can you answer my question?",
       "time": "00:32:31.42"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They have him at the table. They don't call him. They simply offer what they offered in the District Court, the cassettes.",
       "time": "00:32:41.16"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose he is there, they get him there, and they put him on the stand. Then what do they do? I would suppose you would argue they couldn't use the tapes at all. They would just have to ask him what the facts were.",
       "time": "00:33:25.05"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How would they proceed, then? Would they say, here are the tapes, did you say this, or didn't you?",
       "time": "00:33:38.63"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If he says yes?",
       "time": "00:33:51.12"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What are you going to do?",
       "time": "00:33:55.07"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "About what?",
       "time": "00:33:57.42"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose you would much rather have the government call him, but this evidence came in, so no way didn't you call him on your side of the case? Wouldn't you have rather had him on your side of the case than not at all?",
       "time": "00:34:16.84"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Apparently not.",
       "time": "00:34:34.70"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You didn't try to get him either.",
       "time": "00:34:40.22"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then that his car had broken down.",
       "time": "00:34:46.44"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What prevented you from asking for a bench warrant?",
       "time": "00:35:03.83"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting that you could not ask for it?",
       "time": "00:35:15.54"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you could get a subpoena.",
       "time": "00:35:23.47"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And they had no responsibility for him.",
       "time": "00:35:54.41"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would they ask him as Justice White has put the question to you, put him on the stand and say, are you this man by name, and did you have some telephone conversations with A, B, and C, and then drop it right there?",
       "time": "00:36:05.47"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well--",
       "time": "00:36:19.38"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--All right. Then what would be the scope of your cross examination?",
       "time": "00:36:22.02"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You would be confined to that, wouldn't you?",
       "time": "00:36:25.89"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You could certainly ask him if what he said was true, what he said on the tapes was true.",
       "time": "00:36:41.06"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is what you would try to find out.",
       "time": "00:36:48.84"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "My I ask one question? To what extent does your argument rest on the peculiar facts as you describe them here that the statement that they seek to use was a narrative of prior events rather than a statement such as go out to the airport and pick up the marijuana or something like that that isn't offered for the truth of what is said, but is really as a declaration in furtherance of an ongoing conspiracy? Would you make the same argument with respect to that kind of co-conspirator declaration?",
       "time": "00:37:49.44"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is what most of these usually are--",
       "time": "00:38:18.49"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But that is quite consistent with the general rule on hearsay, isn't it, that the declarations of an adverse party can be offered on the theory that it is rather likely that an adverse party isn't going to help himself unnecessarily, or rather that he is not going to hurt himself unnecessarily.",
       "time": "00:39:44.31"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you say it is true as a matter of law of evidence. Under what kind of law is it not true?",
       "time": "00:40:19.92"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't the confrontation clause part of the body of rules of evidence?",
       "time": "00:40:38.13"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't that mostly in cases of prior recorded testimony?",
       "time": "00:41:11.95"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Has it ever held that something that wasn't prior recorded testimony couldn't come in because of the confrontation clause even though it was acceptable under the rules of evidence?",
       "time": "00:41:23.99"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, confessions in a criminal case?",
       "time": "00:41:36.55"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Anything else?",
       "time": "00:41:39.70"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Dutton was a plurality opinion.",
       "time": "00:42:26.17"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but the ultimate holding in Dutton was that the evidence had been properly admitted.",
       "time": "00:42:55.50"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask the other question along the line I did a moment ago? I did not really recall that you brief laid the emphasis that you do today on the historical narrative of past fact. I didn't really catch that point in reading your brief, if I remember it correctly. Did you argue that? Did you make that same kind of emphasis, distinguishing that kind of statement from ones typical in furtherance--",
       "time": "00:43:38.53"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That is really a critical part of your argument this afternoon. It kind of came as a surprise to me, but you did make that argument below, too?",
       "time": "00:44:04.08"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose he had come into the courtroom, taken the stand, and taken the Fifth Amendment, refused to answer anything, including his name. What could your cross examination have been?",
       "time": "00:45:33.19"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I beg your pardon?",
       "time": "00:45:49.82"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You don't mean that you were barred, you would be barred from cross examining him, to test his Fifth Amendment claim, for example.",
       "time": "00:45:56.13"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that all? Is that all you could do?",
       "time": "00:46:07.06"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought in your brief you also advanced what is perhaps a little narrower around than you are advancing now, that even if the government is right that the actual holdings of these prior cases have been generally prior recorded testimony, co-conspirator declarations should be analyzed the same way as prior recorded testimony, and you don't have to call into question any of the other exceptions to the hearsay rule under the confrontation clause.",
       "time": "00:47:35.63"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I would suppose you would make the same argument... if there wasn't a confrontation clause, you would be making the same argument about hearsay, that there just shouldn't be an exception to the hearsay rule.",
       "time": "00:48:47.24"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I would think you would. Your argument goes right there, because in effect you are negating the exception to the hearsay rule.",
       "time": "00:49:00.32"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But at least under the hearsay rules you never had to produce the man to get--",
       "time": "00:49:50.15"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Except they really stem from the same general principles, don't they?",
       "time": "00:50:12.77"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you challenge the basis for admitting, say, a defendant's out of court statements against him?",
       "time": "00:50:45.74"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say those are sufficiently reliable or--",
       "time": "00:50:55.49"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--How about the defendant's agent?",
       "time": "00:51:01.25"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Aren't co-conspirators generally regarded as agents of each other?",
       "time": "00:51:39.04"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Fiction?",
       "time": "00:51:45.44"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Frey? You have four minutes remaining.",
       "time": "00:53:08.68"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Frey, before you get started, I want to try to see how far we can go. Am I correct that in the prosecutor's office, state and federal, when it comes time for the prosecution, your investigating group gives you a list of witnesses, saying what they will testify, and how they will stand up on cross examination? Is that true?",
       "time": "00:53:13.60"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would happen if you as a prosecutor were given the name of a witness, Lazaro, and it says either that this man is an unmitigated liar and he can't be pinned down to anything, or it says he will go along with any question that anybody asks, and on four different occasions has completely collapsed on cross examination, and you had the choice of either putting him on the stand or putting in his statement? Which would you do?",
       "time": "00:53:46.82"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you would use the statement.",
       "time": "00:54:41.81"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Frey, your argument sounds a lot like that espoused by Justice Harlan in Dutton, which wasn't adopted, of course.",
       "time": "00:54:48.73"
     },
@@ -1091,13 +1091,13 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:06.74"
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:58:10.37"
     }

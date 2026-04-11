@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1964/422/19650310a_422.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ARCHIBALD COX",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 442 -- 422, Federal Trade Commission, petitioner versus Consolidated Food Corporation.(Voive Overlap) Mr. Solicitor General.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not consumer goods I gather, these are –-",
       "time": "00:04:09.83"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And sold to food processes?",
       "time": "00:04:16.00"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not directly to the consuming public?",
       "time": "00:04:22.06"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is Food Consolidated also a food processing?",
       "time": "00:04:26.92"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It doesn't have retail stores?",
       "time": "00:04:31.86"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now Consolidated's business, their primary business is a chain retail store, is that it?",
       "time": "00:06:25.98"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It sells to retail stores.",
       "time": "00:06:35.13"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Buy –-",
       "time": "00:06:37.99"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It doesn't –-",
       "time": "00:06:40.87"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:06:46.88"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page?",
       "time": "00:11:26.29"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't find answer.",
       "time": "00:11:29.73"
     },
@@ -195,13 +195,13 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yeah.",
       "time": "00:11:39.97"
     },
     {
       "turn": 28,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yeah, volume 1 that over on 67.",
       "time": "00:11:40.22"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's the left part – left part of the sentence note that's involved.",
       "time": "00:11:47.73"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "May I ask you Mr. Solicitor General, this merger was 1951?",
       "time": "00:21:59.09"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "When did this proceeding start?",
       "time": "00:22:04.14"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But even when the proceeding is begun it can take a quite of time, doesn't it?",
       "time": "00:23:10.43"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I have just noticed these cases come here they are so stale by the time you get to it --",
       "time": "00:23:39.46"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap)",
       "time": "00:23:46.93"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Solicitor General, you say it's Consolidated's function as a distributor, as a purchaser and a distributor of a food products that is relevant here.",
       "time": "00:31:19.12"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not its function as a retailer of foods.(Voice Overlap) I take it had a chain of retail stores.",
       "time": "00:31:34.68"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I am just wondering is this important whether or not the possession of Consolidate as a wholesaler, as a wholesaler food, was a deteriorating one or an increasing one or what is the position of a food wholesaler these days is the trend directly from manufacturer to retailer? Is this just an attempt to stay in business for a diversifying or a really is --",
       "time": "00:31:49.24"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is a distributor's leverage really very big?",
       "time": "00:32:20.14"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But lets assume if I am a food distributor and I just have not send this as a true consolidator, but if I happen to be convinced that -- or I think that food distributor's days are numbered but if I want to stay in business I better be getting in some other line of business too, I might try food manufacturing plant and just to stay in business I may -- may be I may be on the way out of the distributor --",
       "time": "00:33:10.77"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-– As a distributor.",
       "time": "00:33:43.07"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But there are a number of other acquisitions.",
       "time": "00:33:51.44"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In other words they kept on picking up other business, other distributors.",
       "time": "00:33:56.29"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They weren't --",
       "time": "00:34:02.30"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, even if what I suggest was true, if it was a large enough retailer of food, if they had a -- why – it would still have the purchasing power?",
       "time": "00:34:20.39"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does the record show any special reasons why consolidator's ownership?",
       "time": "00:34:49.52"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't quite -- I am not quite sure I understand why the concentrated condition of the market is relevant to this case. Of course it's of the greatest relevance to a case where two competitors --",
       "time": "00:36:02.12"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As a (Voice Overlap) of merger.",
       "time": "00:36:13.96"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Has more selling power.",
       "time": "00:37:00.14"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We will recess now.",
       "time": "00:37:06.32"
     }

@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1236/19851105a_84-1236.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MARVIN L. WHITE, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH T. MC LAUGHLIN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Cabana against Bullock. Mr. White, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. White, has the Fifth Circuit since its decision in this case ever had presented to it the question of whether the state might go back and attempt to retry on this issue, whether that might be double jeopardy of some sort?",
       "time": "00:06:32.40"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was the disposition in this case?",
       "time": "00:07:28.24"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You were remanded for a new sentencing hearing.",
       "time": "00:07:32.28"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you lose this case, there won't be one, will there, under the Fifth Circuit's present rulings?",
       "time": "00:07:39.55"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see.",
       "time": "00:07:52.52"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see. There was.",
       "time": "00:07:53.96"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the Appellate Court couldn't.",
       "time": "00:08:03.26"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What reason did they give? The right to a jury trial?",
       "time": "00:08:07.07"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. White, in Mississippi the law requires the jury to make all the findings necessary both for guilt and sentencing. Is that correct?",
       "time": "00:08:43.40"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And has the Mississippi law been amended since this case arose with regard to Enmund?",
       "time": "00:08:55.08"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What would the law now require?",
       "time": "00:09:49.01"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you concede that the jury findings in this case were inadequate to meet Enmund?",
       "time": "00:10:10.70"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it is your position that someone who was present and who does some overt act at the time of the killing to assist meets any Enmund requirement without--",
       "time": "00:10:46.87"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, the jury instruction was a little confusing, was it not, when it said first that the jury had defined that Bullock, while acting in concert and while present at the time and place by consenting to the killing, and then went on to say that whether or not it was done with a design to effect the death. How do you reconcile--",
       "time": "00:11:22.91"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Mr. Attorney General, your argument is that there was enough of a finding even by the jury.",
       "time": "00:13:21.04"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is one of your arguments, but even if there wasn't, you say there was enough of a finding by the Mississippi Supreme Court.",
       "time": "00:13:32.43"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wholly aside from what the jury might have done. Why don't you just argue that there not only was such a finding, but that there is no need for a jury to decide it? I guess that is part of your argument, isn't it?",
       "time": "00:13:39.18"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just don't have a right to a jury trial--",
       "time": "00:13:53.74"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--to make that kind of a finding.",
       "time": "00:13:56.88"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In a sentencing phase.",
       "time": "00:14:04.72"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:14:06.22"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "We could, I suppose, analytically agree with you that the Mississippi Court could have made such a finding, but that it didn't, but it didn't make a good enough--",
       "time": "00:14:37.34"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The Fifth Circuit certainly didn't approach it as that it was an element of the crime.",
       "time": "00:15:07.86"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They just remanded for resentencing.",
       "time": "00:15:16.78"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand.",
       "time": "00:15:22.62"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why do you call it a proportionality? Why do you have to dress it up in language like that? It is just that this is a finding, a necessary finding that has to be made, but an Appellate Court may make it.",
       "time": "00:15:37.29"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just because there is no requirement for a jury to do it.",
       "time": "00:15:52.68"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I mean, that is your argument.",
       "time": "00:15:58.29"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:16:00.84"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General White, can I follow up on that? Because there is one part of your argument I don't quite follow. You argue that there was a sufficient jury finding that basically they were instructed that if he was not an unwilling participant, that that is enough of an element of intent or something along those lines, and I think the Mississippi Supreme Court said something to the same effect, that he was not an unwilling participant, but did the Mississippi Supreme Court say anything that we cannot reasonably assume that the jury itself had already found? I mean, do you argue, in other words, that the Mississippi Supreme Court in effect made a finding of fact that the jury did not make, and if so, just exactly what was it?",
       "time": "00:16:12.72"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, I understand, but even if it wasn't you say, well--",
       "time": "00:16:53.96"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And what I am trying to find out is, what is there in the Supreme Court opinion that goes beyond anything that we could reasonably attribute to the jury?",
       "time": "00:17:05.27"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see. The arguable defect in the jury instruction, at least in part, is that they might not even, if you look at certain parts of the instruction, they wouldn't have to find any kind of an intent.",
       "time": "00:17:17.09"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but the argument is that they might have understood they didn't need to find intent at all. And in that event, if you approach it that way, then the Mississippi Supreme Court certainly did find something that the jury didn't necessarily find.",
       "time": "00:17:34.54"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but the Fifth Circuit's position, I think, was that because of the instructions to the jury in the trial court, although there might have been evidence that would have supported the same finding that the Supreme Court of Mississippi made, the jury might not have made that, might not have made that finding.",
       "time": "00:18:25.38"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So I don't think it is entirely accurate to say that the Supreme Court of Mississippi did nothing that we know for sure the jury did--",
       "time": "00:18:54.57"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--If the jury didn't make it, the Supreme Court did, and you say that was enough.",
       "time": "00:19:17.52"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it is enough under... as a matter of Mississippi law as well if the jury doesn't make the finding?",
       "time": "00:19:23.51"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They thought it was consistent with Mississippi law, obviously.",
       "time": "00:19:51.92"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Until the statute was passed.",
       "time": "00:20:00.31"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General White, I won't ask you to do it now, but after lunch it would be helpful to me if you would call my attention to the portion of the Mississippi Supreme Court opinion in which you think they made a finding the jury did not make.",
       "time": "00:20:06.00"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That would be helpful, because I have a problem with it.",
       "time": "00:20:18.03"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00 o'clock, counsel.",
       "time": "00:23:04.68"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. White, you may resume your argument.",
       "time": "00:23:16.05"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What are your citations? Are you referring to... what?",
       "time": "00:24:27.34"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that... what is your citation?",
       "time": "00:24:33.66"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right. What page was that?",
       "time": "00:24:39.73"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Okay.",
       "time": "00:24:47.63"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Okay. Thank you.",
       "time": "00:24:53.30"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I am sorry, Mr. White, I didn't get your second reference.",
       "time": "00:25:15.65"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "117?",
       "time": "00:25:20.25"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, yes. Thank you very much.",
       "time": "00:25:24.76"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:25:40.93"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. McLaughlin.",
       "time": "00:26:49.44"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do you place in this whole panorama of the findings with respect to the overwhelming evidence? You are addressing primarily the charge, I take it.",
       "time": "00:28:49.69"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Eighty-one?",
       "time": "00:29:49.56"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not quite sure what your point is about what you have just read.",
       "time": "00:31:42.98"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They are merely stating a general proposition of Mississippi law, are they not?",
       "time": "00:31:48.84"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about the top of 117 and Page 81?",
       "time": "00:31:59.28"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The statement from the court on Page 117 is not a general statement of law. They are statements with respect to the evidence on this record, on the record then before them.",
       "time": "00:32:20.69"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then, what did they mean when they said the evidence is overwhelming that appellant was an active participant in the assault and homicide committed upon Mark Dickson, and so forth?",
       "time": "00:32:39.39"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are we reading the same page here?",
       "time": "00:33:23.85"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "May I read it to you? \"When the evidence\", and I assume they are referring to the record, \"is overwhelming that appellant was an active participant in the assault and homicide. \" that is not a general statement of law. It isn't a statement of law at all. It is a statement of what the record told the Supreme Court of Mississippi.",
       "time": "00:33:28.92"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, they didn't say he was present. They didn't say that at all. They said he was an active participant. I am confused about--",
       "time": "00:34:23.47"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--I think we need an interpreter here, because what I read in the English language here isn't what you are telling us.",
       "time": "00:34:32.16"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Go back to 81. This is the Supreme Court of Mississippi speaking, their evaluation of the record. The evidence is overwhelming that appellant was present, aiding, and assisting in the assault upon and the slaying of Dickson, and in removing and discarding his wallet and the personal effects and so forth, disposing of his body.",
       "time": "00:35:01.39"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Counsel, are you defending the Fifth Circuit's opinion?",
       "time": "00:35:54.46"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it certainly never addresses the finding of the Mississippi Supreme Court or whatever you want to call those words.",
       "time": "00:36:08.87"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think it should have?",
       "time": "00:36:20.71"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it seems to me this leads me to the other... suppose that there was no doubt that the Mississippi Supreme Court made the finding that Enmund, that you... even you would concede Enmund requires, that they made the finding. Would you be here then?",
       "time": "00:36:26.93"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would be saying that the jury must make the finding?",
       "time": "00:36:46.36"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say an appellate court finding, even though it reads right on Enmund, just doesn't satisfy the constitution. Is that it?",
       "time": "00:36:59.22"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That isn't what I am asking.",
       "time": "00:37:16.84"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why not?",
       "time": "00:37:20.98"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you mean it would be unconstitutional for a judge to be authorized to hold the sentencing hearing?",
       "time": "00:37:45.80"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He would be making these very findings.",
       "time": "00:37:54.99"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he would, if he was going to impose the death sentence in this. If a single judge had been authorized to hold a sentencing hearing and impose the sentence, he would have had to make the Enmunds finding if he was going to--",
       "time": "00:37:58.97"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, I know, but Mississippi law isn't going to decide our constitutional issue.",
       "time": "00:38:18.82"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What case have you got to support that statement?",
       "time": "00:38:30.29"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How do you read the Court of Appeals for the Eleventh Circuit decisions? Do they say that the Enmund finding may be made by an Appellate Court?",
       "time": "00:40:57.64"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, how about my question?",
       "time": "00:41:13.57"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why does it... the Court of Appeals for the Fifth Circuit did not even address it.",
       "time": "00:41:29.28"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Anyway, you agree that the Eleventh Circuit has held that the Appellate Court may make the finding.",
       "time": "00:41:44.20"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you disagree with that?",
       "time": "00:41:50.27"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. McLaughlin, it seems to me that your last example is a concession, whether you intended it to be or not, that it is all right for a Federal Court of Appeals to make the required finding.",
       "time": "00:43:21.45"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is your reason? You give a lot of reasons why the rule doesn't do much harm and so forth, but why do you contend, Spaziano having been decided the way it was, why do you contend that a judge or appellate court may not make a required finding? What is the reason for your position?",
       "time": "00:43:36.29"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your answer is, it is a matter of Mississippi law, this is the appropriate factfinder on this issue.",
       "time": "00:44:04.62"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if Mississippi had a different law, you might not--",
       "time": "00:44:10.41"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The Fifth Circuit didn't rely on Mississippi law, did it?",
       "time": "00:44:25.11"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't see how they could make that argument and then say there are some cases that are so clear that we sitting in the Court of Appeals in the federal collateral review status in effect--",
       "time": "00:44:33.79"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--But he was holding him in the meantime so that he could be hit with the bottle, wasn't he?",
       "time": "00:51:05.07"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is what the evidence is.",
       "time": "00:51:11.22"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What difference would it make whether he died when he was holding him or five minutes or later or an hour later?",
       "time": "00:52:12.88"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The evidence also shows, and is not disputed, that he helped tie the concrete blocks on the body to sink it into the lake.",
       "time": "00:52:20.60"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We can't even be sure that the fellow was dead by that time. He might have still been alive.",
       "time": "00:52:42.40"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Which was it, the bottle or the cement block?",
       "time": "00:52:54.20"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Obviously the jury didn't believe him when he said he was running away.",
       "time": "00:53:20.86"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you appear in the Court of Appeals?",
       "time": "00:54:38.86"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was the argument... was the Mississippi Supreme Court's treatment of the evidence urged to the Court of Appeals in terms of Enmund?",
       "time": "00:54:42.36"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It was argued by your opponent that the Mississippi Supreme Court's finding satisfied Enmund?",
       "time": "00:54:57.43"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And yet the Court of Appeals never addressed the issue at all?",
       "time": "00:55:06.41"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. White?",
       "time": "00:57:08.82"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General White, could I just ask you, because I am a little confused on it, is it correct, as your opponent says, that the evidence is also clear that he was not killed by the bottle, but he was killed by the concrete block?",
       "time": "00:58:19.42"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which happened after the striking with the bottle.",
       "time": "00:58:33.49"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did Bullock have any part in the act of hitting with the concrete block?",
       "time": "00:58:43.61"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I see. It does show that he helped use the concrete block to tie him up with a hose so that his body would sink.",
       "time": "00:58:51.70"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you consider... I am sure there are very persuasive facts, and there are certainly very troublesome facts, but are they relevant to the Enmund issue, the post-death facts of the way they disposed of the body?",
       "time": "00:59:05.55"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I just want to be... you are suggesting that the post-death facts tend to substantiate the conclusion that Bullock intended the death to occur.",
       "time": "00:59:36.13"
     },
@@ -1351,13 +1355,13 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I see.",
       "time": "00:59:45.69"
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:59:47.24"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-556/19831012a_82-556.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES D. WARD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GLENN ROBERT SALTER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Press-Enterprise Company against Superior Court of California, Riverside County. Mr. Ward, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I want to be sure not to misunderstand you. You said in a capital case. Your presentation, your submission is not limited to capital cases, or is it?",
       "time": "00:01:01.63"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:01:14.75"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But--",
       "time": "00:01:16.28"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, we can't actually do that for you, can we, Mr. Ward? We can't announce how the decision of the Supreme Court of California should be construed. The Supreme Court of California is the final authority on that.",
       "time": "00:02:02.98"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We could certainly say that if it were so construed, it would have an impact on your rights, I suppose.",
       "time": "00:02:45.51"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But doing it only in capital cases?",
       "time": "00:03:53.70"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that fairly typical in capital cases in California?",
       "time": "00:05:34.71"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it California lets the lawyers do it.",
       "time": "00:05:48.53"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Neither of those rights are in the Constitution, are they, either of them, the juror's right to privacy or the public's right to now?",
       "time": "00:07:04.19"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did you agree there is no right to know in the Constitution?",
       "time": "00:07:25.77"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think you might as well sit down if you agree with that. 0 [Generallaughter.] Will you read the passage that tells us that? Or cite it to us?",
       "time": "00:07:33.43"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You would think, I gather, that your First Amendment right would be satisfied even if you were excluded from the voir dire proceeding itself if a transcript of that proceeding were made available to you?",
       "time": "00:09:59.60"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask you, Mr. Ward, are you going to argue that there are no circumstances under which there may be closure of the voir dire?",
       "time": "00:13:21.41"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how do you suggest there be an inquiry into those circumstances, whether or not there are such circumstances?",
       "time": "00:13:39.29"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Initiated how?",
       "time": "00:13:51.51"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I mean, notice to whom? To the press?",
       "time": "00:14:03.56"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In general, what criteria do you have in mind?",
       "time": "00:14:08.01"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, not the notice, the substance of the inquiry.",
       "time": "00:14:15.68"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who would have the burden of proof?",
       "time": "00:14:38.71"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And by what standard of proof?",
       "time": "00:14:43.81"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Clear and convincing?",
       "time": "00:14:48.26"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather you would argue, Mr. Ward, that the presumption should be that the voir dire should be open.",
       "time": "00:15:04.52"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You do have a problem that some states don't take six months to pick a jury.",
       "time": "00:16:00.22"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How would you accommodate that?",
       "time": "00:16:07.78"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I see.",
       "time": "00:16:20.07"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It would make no difference to you whether it was ten minutes, a half an hour, or six months?",
       "time": "00:16:38.80"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Ward, can I ask this question? I haven't read the Hovey opinion. I have looked at it, but it is awfully long--",
       "time": "00:16:49.45"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and I don't pretend to have even begun to have read it, but if the substance of what the California Supreme Court suggests, and as I say, I don't really know whether this is true or not, is that the public... the conduct of the voir dire in public and press attention to the voir dire would somehow tend to make the jury more prone to impose the death penalty than otherwise, if that is in essence what they are saying, would that be a valid reason for closure?",
       "time": "00:16:55.28"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me take it a step further. I didn't mean to suggest that they in fact had so concluded, but say the legislature, let's say, had a series of hearings on whether... what to do about the voir dire problem. They are too long. Should we close them or not? And they came up with a statute that had findings in it and said, we are persuaded by everything, with all these studies and all the rest of it, on the facts, that the public conduct of a voir dire plus all the press attention given to the selection of a jury during this period in a capital case will tend to make the jury more willing to impose the death penalty. Would that be an adequate basis for closure?",
       "time": "00:18:07.98"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As a matter of fact, you don't think such a showing has yet been made?",
       "time": "00:19:06.13"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ward, do you think that prospective jurors do have any rights concerning questions that may be of a very personal or private nature to have the process closed that have to be considered by the trial court?",
       "time": "00:19:43.50"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Such as what alternatives?",
       "time": "00:20:42.75"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Ward, in some systems, as you no doubt know, a jury in a criminal case is put in the box and sworn within an hour, sometimes 30 minutes, sometimes 15 minutes. Now, generally, that is accomplished by way of rather comprehensive questionnaires filled out by the jurors in advance which are available to counsel on both sides, and of course to the court. Would you say that questionnaire must be available to the press, since it is in effect part of the process that is at issue here?",
       "time": "00:22:05.74"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if it is available, if, as you say, that questionnaire should be available to the media, then where is the protection of the privacy?",
       "time": "00:23:35.63"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I take it, Mr. Ward, whether the system is of individual interrogation or of the venire as a group, all you are asking is that the press be allowed to be present.",
       "time": "00:24:05.62"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I can remember interrogating prospective jurors in chambers with just counsel present, and your suggestion would be there also ought to be present at least the press. You can't very well allow the... accommodate to many of the general public.",
       "time": "00:24:32.17"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Inappropriate?",
       "time": "00:24:59.20"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ward, would your supposed rights extend beyond voir dire and into, for example, the plea bargaining process between the prosecutor and defense counsel?",
       "time": "00:25:09.39"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You are saving that for tomorrow?",
       "time": "00:25:25.01"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, to say that Globe controls, you have to show that this is really part of the trial, don't you?",
       "time": "00:26:23.62"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how do you define trial for that purpose?",
       "time": "00:26:33.04"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, suppose in this case instead of it being voir dire, it had been a motion the day before it was set for trial for a continuance, at which both sides were going to present witnesses, and then the trial judge felt there was a fair amount of reason for closing that because the witnesses might touch on some sensitive matters. Now, would you feel that under the principle that would be announced in the Globe case or in this case, you could claim that that was part of the trial?",
       "time": "00:27:24.68"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would you say that a motion for a continuance the day before the jury was scheduled to be empaneled would also be what you call a \"part of the process\"?",
       "time": "00:28:09.47"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "When you say, we are not prepared to do it at this time, it is sort of an unsatisfactory answer. What do you really think about it? It is not whether you are arguing it today. It is how do you analyze it.",
       "time": "00:28:30.43"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "We got into that in Gannett, didn't we?",
       "time": "00:28:55.25"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I say, in the Gannett case, we certainly got into pretrial material.",
       "time": "00:28:58.73"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose the whole case could go off just on whether this is part of the trial or not. If this is part of the trial, Richmond governs, and if--",
       "time": "00:29:28.08"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, you do submit it is part of the trial.",
       "time": "00:29:40.43"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If we agree with you, wouldn't Richmond control?",
       "time": "00:29:48.62"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if it isn't part of the trial, then we have to consider the relationship of Gannett and Richmond.",
       "time": "00:30:02.43"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In California, does the trial be with the jury selection for all purposes, for example double jeopardy? When does double jeopardy begin under that opinion?",
       "time": "00:30:17.80"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When does jeopardy attach, not double jeopardy?",
       "time": "00:30:30.18"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, I know, but your previous statement was that a trial commences with the select of the jury. It does for these purposes of this case.",
       "time": "00:30:47.08"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is your contention.",
       "time": "00:30:55.17"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Salter.",
       "time": "00:30:59.39"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you talking, Mr. Salter, about a juror's right to privacy guaranteed by the federal Constitution?",
       "time": "00:31:57.49"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What provision of the United States Constitution do you think guarantees a juror's right to privacy?",
       "time": "00:32:06.31"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what cases from this Court do you rely on for that proposition?",
       "time": "00:32:36.74"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could a juror refuse to answer a judge's question on the voir dire on the grounds that it would violate his right of privacy?",
       "time": "00:32:45.06"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And do you think a judge would... do what?",
       "time": "00:33:03.88"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you raise your voice a little bit, counsel?",
       "time": "00:33:14.61"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What was it, Fifth Amendment?",
       "time": "00:33:37.62"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think we are too... I am responsible for it, but I think we are too far afield, aren't we?",
       "time": "00:33:43.40"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean, you have the right of privacy not to tell your husband's work?",
       "time": "00:34:08.55"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I didn't think so.",
       "time": "00:34:17.56"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am asking for the right of privacy point. Some juror says, under my right of privacy, you don't have a right to question me.",
       "time": "00:34:19.18"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I would hate to see somebody try. I mean, I don't understand how you get the juror's point into this as a First Amendment right. I don't... it just--",
       "time": "00:34:37.80"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Suppose in the middle of a trial, we have a case here in this Court where a juror was drunk. Could that juror say, you can't question me because it would violate my right of privacy?",
       "time": "00:34:58.93"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean, could he say, you can't question me? Don't you violate my privacy?",
       "time": "00:35:20.00"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What?",
       "time": "00:35:26.06"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Other than privacy?",
       "time": "00:35:30.56"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He could say privacy, then.",
       "time": "00:35:32.92"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that's all you're telling me.",
       "time": "00:35:48.21"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Justice Rehnquist asked you, where was it in the Constitution.",
       "time": "00:35:53.99"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am asking you, where is it any place?",
       "time": "00:35:57.13"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So how do they decide that? Or is that why the voir dires take six months in California? 0 [Generallaughter.]",
       "time": "00:36:33.47"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask if the voir dire in this particular case is in the record before us? Is it available to us?",
       "time": "00:37:41.57"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Have you examined it?",
       "time": "00:37:53.19"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you didn't participate in the trial then?",
       "time": "00:37:57.53"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because I was just wondering if there is any way to find out what percentage of this massive inquiry really involved confidential matters, or privacy matters, however you want to describe them.",
       "time": "00:38:01.64"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. We are most interested in the rest of it.",
       "time": "00:38:21.91"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you suggesting that the entire off the record voir dire or whatever it is involved these matters that would not normally be conducted in open court? I had the impression that maybe 3 or 4 percent of the questions involved something fairly sensitive, but the rest of it was fairly routine. But are you telling me everything in this massive examination is sensitive?",
       "time": "00:38:42.34"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you know of any case before this Court that we were denied the right to see what we were passing upon?",
       "time": "00:39:19.81"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Including the Pentagon Papers? But we can't see this?",
       "time": "00:39:30.03"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't wish to see it. I just want to know why it is-- --Why you can't. Yes, that's right.",
       "time": "00:39:44.39"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So the answer is, we can see it.",
       "time": "00:39:53.53"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was it printed for the appeal to the California Court of Appeals?",
       "time": "00:40:13.09"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Salter, were there any feasible alternatives to a permanent sealing of that record? Could the actual sensitive responses have been deleted, or could numbers have been assigned so the identities weren't known? Were there any feasible alternatives? And should the Court consider feasible alternatives?",
       "time": "00:40:46.93"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Salter, I am sorry. I perhaps shouldn't interrupt you again, but I really am still... I think maybe the Chief Justice is concerned, too, about the length of this voir dire and the significance of all these questions. You said it is all the result of the case of People against Williams. Is that the case that involved the question of whether there could be peremptory challenges on racial grounds? And this is the matter of making a record to explain why peremptory challenges are made? Is it related to that problem?",
       "time": "00:41:51.28"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would otherwise have been just not... You have to make a record, in other words, to justify peremptory challenges if they concentrate on one minority group or something like that?",
       "time": "00:42:50.76"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In a capital case, how many peremptory challenges does each party have?",
       "time": "00:43:38.02"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose at least you could consider whether you could delete the identification of those responding.",
       "time": "00:44:12.44"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but if we are dealing with a transcript, that wouldn't be the case.",
       "time": "00:44:50.75"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Should we not presume that the citizens will tell the truth before the--",
       "time": "00:47:49.09"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, I understand that--",
       "time": "00:48:13.50"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--but that is an argument you are making in favor of closing the voir dire to the public?",
       "time": "00:48:15.00"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's what I thought you said.",
       "time": "00:48:29.84"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, now, what is the reason for not letting a newspaper man hear that reason?",
       "time": "00:48:54.09"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what are you arguing it for?",
       "time": "00:49:09.40"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you relying on it or not? That's all I'm asking.",
       "time": "00:49:13.01"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you were responding to a question.",
       "time": "00:49:17.40"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they allowed the questions, but they didn't allow the press to sit in on the questioning, did they?",
       "time": "00:51:22.17"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how is that an alternative?",
       "time": "00:51:28.34"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that the death-qualifying portion of the questioning as envisioned by the Hovey case in California should require closure?",
       "time": "00:55:27.83"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "To the press?",
       "time": "00:55:41.77"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did some of these questions relate to the Hovey requirement in the death-qualifying portion?",
       "time": "00:55:52.24"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So is there any reason why the transcript should be permanently sealed as to those questions?",
       "time": "00:56:00.63"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:56:16.73"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you are backtracking, and you are now saying that that portion should be closed if it meets the Hovey qualification--",
       "time": "00:56:36.49"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Ward, do you have anything further? You have two minutes remaining.",
       "time": "00:59:08.30"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Somewhere in these papers or in the whole treatment in the discussion of less burdensome alternatives was the idea that if a juror had some confidential matter they wanted not to be interrogated about, they go to the judge in chambers or communicate with him and explain this and then ask to be excused. If that were done, would you think the media is entitled to know the reason why the judge excused the juror?",
       "time": "01:00:00.68"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you would waive any inquiry, any claim to a right to know what the reasons were?",
       "time": "01:00:50.23"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, Mr. Ward.",
       "time": "01:01:37.36"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:01:40.11"
     }

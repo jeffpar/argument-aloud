@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/555/19560425a_555_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STANLEY REED",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "MARK WILMER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REED",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 555, Robert Sugden and Jean Sugden versus United States of America. Mr. Wilmer.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But there was no place on his report where he said it had been or had not been.",
       "time": "00:07:06.39"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Was this the place for him to make an answer?",
       "time": "00:07:13.11"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whether they had the permits or not, there were certain limitations weren't they, on the uses to which the station could be put --",
       "time": "00:08:44.69"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- even after the permit.",
       "time": "00:08:51.05"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that would not cover the warning of the wetback in the farming activity I think.",
       "time": "00:09:24.21"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you claim that the reason for this monitoring was to catch them in this immigration violation?",
       "time": "00:14:24.78"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I noticed from the Government's brief that they were also indicted for running a radio station without a license.",
       "time": "00:14:34.99"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well -- that -- those cases are not here.",
       "time": "00:15:34.00"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But would the -- would the Federal Communications Commission be entitled to cooperate with the immigration authorities for the purpose of preventing unauthorized radios from interfering with the immigration laws?",
       "time": "00:15:41.74"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that in your brief?",
       "time": "00:18:07.46"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Assuming that this was a bona fide monitoring --",
       "time": "00:21:59.49"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- for the purpose of checking up on the use of the license which I have understand you recognized they had the right to do and then they stumble across some information that shows another crime. You say they can't use that?",
       "time": "00:22:04.64"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How can you monitor without listening?",
       "time": "00:24:20.21"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then and really your answer to my question is that while they have a right to monitor, if inadvertently they stumble across something, they can't use it.",
       "time": "00:24:49.21"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Do you recognize some limitation upon that theory?Suppose they overhear a pop for immediate murderer or something that sort, can they use that to stop the murder or to warn the police and if there's some limitation to it?",
       "time": "00:27:14.68"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What does that mean, for the use of the general public?",
       "time": "00:28:41.51"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) it is in the public domain to use your analogy.",
       "time": "00:29:04.88"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you're divulging.",
       "time": "00:29:08.89"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "One is a public program.",
       "time": "00:29:17.48"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "All radios more or less in the public domain isn't it?",
       "time": "00:29:20.60"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "The radio and like telephone is more or less in the public domain to start with, isn't it?",
       "time": "00:29:24.67"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "(Inaudible)",
       "time": "00:29:38.96"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But isn't there a lot of -- isn't there. I speak with the present monumental ignorance of the subject. Isn't there a good deal of radio communication between officials? It doesn't simply add to a lot of radio communication from headquarters which officially (Inaudible)",
       "time": "00:29:44.26"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's with --",
       "time": "00:30:11.86"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All sorts of suggestion -- I suppose all sorts of communication statute (Inaudible) radio network and their correspondents, their (Inaudible) their reporters whatever they call them, communicators and (Inaudible) in regard to or rather interest in (Inaudible)",
       "time": "00:30:24.12"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The private circuits (Inaudible)",
       "time": "00:30:48.63"
     },
@@ -359,13 +363,13 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "What about the subpoenas in the local authority?",
       "time": "00:32:19.47"
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was interpreted to you (Inaudible)",
       "time": "00:32:37.51"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. Wilmer, I suppose 605 refers to license to broadcast, is there anything in the statute or in this legislative history that would limit the Federal Communications Commission in its supervision over -- over the field to either intercept or divulge broadcast for many unlicensed and therefore illegal status?",
       "time": "00:32:57.23"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "00:33:28.73"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:33:32.11"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well I'm not speaking of the guilt or innocence of these parties.",
       "time": "00:34:15.64"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I didn't want to apply the testimony in the case to that question but, how would you answer that abstract question?",
       "time": "00:34:19.47"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon.",
       "time": "00:34:32.03"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does the act define amateurs?",
       "time": "00:36:59.61"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you have that definition in your --",
       "time": "00:37:03.51"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you have the definition of amateur?",
       "time": "00:37:20.06"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What about amateur operators, did you find that?",
       "time": "00:37:39.56"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now, Mr. Wilmer.",
       "time": "00:38:03.05"
     }

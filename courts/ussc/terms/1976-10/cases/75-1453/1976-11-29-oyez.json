@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1453/19761129a_75-1453.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT V. JOHNSON, II",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "RICHARD S. KOHN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll hear arguments next in 75-1453, Wooley against Maynard. Mr. Johnson, you may proceed whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you had kept it just seen at New Hampshire, you would have avoided this litigation, wouldn’t you?",
       "time": "00:04:06.66"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You might also have some copyright problems with the words of Patrick Henry on Virginia on --",
       "time": "00:04:31.14"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "General Johnson, why did it take the General Court 160 and some years to arrive at this conclusion? Usually, they’re more traditional than that of New Hampshire, aren’t they?",
       "time": "00:04:41.44"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does your case depend upon this having been declared the motto of the State officially by the legislature?",
       "time": "00:05:32.41"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Johnson, could I interrupt before you get to the State interest? Do you challenge the District Court’s finding that the appellees’ motivation was based on a fundamental religious belief?",
       "time": "00:06:14.81"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You challenge that it is clearly erroneous and you ask us to set this aside to you?",
       "time": "00:06:31.86"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did you write that in your brief?",
       "time": "00:06:38.23"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On a sincerity, he went jailed, didn’t he?",
       "time": "00:07:14.18"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, do you -- usually, non-sincere people, they go up to closing of the door but they usually change, don’t they?",
       "time": "00:07:18.49"
     },
@@ -175,13 +175,13 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That’s a different question.(Inaudible)",
       "time": "00:07:54.40"
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I would think so. I just want to be sure you’d disagree and there is evidence which you point out that may cast doubt on the District Court’s finding. But, is there not some evidence in the record which would require us to accept the finding as not being clearly erroneous? Didn’t he testify that it was a religious belief and so forth that’s illegal behind the District Court’s findings?",
       "time": "00:07:57.99"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you concede that, don’t we have to accept the finding?",
       "time": "00:08:18.68"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "As Justice Marshall suggested in one of his questions, do people ordinarily go along and spend five days at a time in jail just to pamper a whimsy? That’s some evidence of a sincere belief, however, a misguided one might think it is and do you rest on the fact that he is departed from a particular faith that as a dissident as undermining his sincerity?",
       "time": "00:08:58.03"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think the State of New Hampshire could require citizens to carry signs, picket signs, to support the United Nations in a sincere belief by the legislature of the State that it was very important to support the efforts and work of the United Nations?",
       "time": "00:10:01.42"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could the State just as well offer its citizens, its automobile owners, an option, but if they did not want that motto on the license, they could be omitted?",
       "time": "00:11:04.16"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where are these plates made, in the State prisons?",
       "time": "00:11:30.63"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Kind of an IRA, isn’t it?[Laughter]",
       "time": "00:11:35.21"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you mean that if we rule in favor of the appellees, then everybody would take it over and (Inaudible)?",
       "time": "00:12:01.80"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If everybody’s in favor of getting rid of it, you ought to get rid of it.",
       "time": "00:12:10.49"
     },
@@ -289,13 +289,13 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I was speaking all alone there. I didn’t have a college talking about my decision?[Laughter]",
       "time": "00:12:37.09"
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it was burning enough for you to appeal, I think, wasn’t it?(Inaudible)",
       "time": "00:12:42.40"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then I understand that the Attorney General’s offer doesn’t have anything else to do that’s why they brought it up here?",
       "time": "00:13:17.30"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is it important in the State of New Hampshire or not?",
       "time": "00:13:25.85"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it’s not a burning issue?",
       "time": "00:13:33.22"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Since you speak as an individual, the first time I noticed the motto was after this case was filed. I have never paid any attention to it. I mean, New Hampshire license, (Inaudible) New Hampshire, but I didn’t live or die about it.[Laughter]",
       "time": "00:14:00.91"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what if the legislature had required them to take a choice or to put on the license plate on van or bussing, do you regard that as somewhat controversial, wouldn’t you?",
       "time": "00:14:46.12"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose on the other hand, it was -- bussing is beautiful. Would you think that was controversial?",
       "time": "00:15:02.19"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What difference does it make if the particular person finds that obnoxious and objectionable or whether it’s approved by a majority and disapproved by only a small minority?",
       "time": "00:15:14.83"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think it’s likely that either the hypotheticals put to you by the Chief Justice would be adopted by the New Hampshire legislature of the State motto or --",
       "time": "00:15:43.82"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Attorney General, a minute ago, you said that it would be very troublesome to issue license plates without the sign. I saw a license plate in New Hampshire a week ago that had letters “ER” on it, or “AB” or something, with two letters, that was pretty special, wasn’t it?",
       "time": "00:16:02.27"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Doesn’t that stand special?",
       "time": "00:16:21.40"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What I mean, they go from 1 to 9000, that’s a machine job, but the letters “ER” is not a machine job?",
       "time": "00:16:27.18"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And no computer runs on ER?",
       "time": "00:16:39.21"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, this didn't have any numbers behind it, it just had letters.",
       "time": "00:16:52.20"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:16:59.44"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, couldn't you make a vanity plate for this man, if he’d pay for it and leave --",
       "time": "00:17:00.39"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, but couldn’t you make a vanity plate without the motto?",
       "time": "00:17:11.20"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All I’m saying is it wouldn’t be any harder than just set the vanity plates. I’m not arguing the law about it. I’m arguing the (Voice Overlap).",
       "time": "00:17:24.36"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Johnson, just to give you a question somewhat like the one that the Chief Justice asked. Supposing the State of Utah adopted a motto, “The Mormon State” and then tried to put that on its license plates, would that be permissible? And if not, why not?",
       "time": "00:18:40.98"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I suppose, if one was a Christian scientist and didn’t believe in death, it might have (Voice Overlap).",
       "time": "00:19:22.78"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are there any other states that have mottos that profess the belief in death? And why a belief in death any different from a belief in the Mormon religion?",
       "time": "00:19:34.18"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what if you do it like we do it in Virginia? We don’t have it on our license plates, but we have stickers I see a lot of people paste it on the bumper “Virginia is for Lovers”.",
       "time": "00:20:10.48"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, they didn’t put it on the license plate?",
       "time": "00:20:21.87"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You could buy the sticker and say what you want.",
       "time": "00:20:24.73"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And in that case, the appellee here wouldn’t have any trouble, would he?",
       "time": "00:20:28.16"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What about the New Jersey license “The Garden State”? Do you think any resident of New Jersey believes it is?[Laughter]",
       "time": "00:21:52.52"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The flags and the flag burning cases were all the property of the person who burned them, were they not?",
       "time": "00:22:54.02"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "General Johnson, there are some New Hampshire plates that don’t carry the motto, aren’t there?",
       "time": "00:23:00.67"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And what is the explanation for that?",
       "time": "00:23:05.62"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There are sets (Voice Overlap) exhibit eight on the page 66 of the record.",
       "time": "00:23:10.36"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is it because they have to designate commercial or tractor or junk or whatever it is they want?",
       "time": "00:23:15.42"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes, but a commercial vehicle, a big truck van might go to California?",
       "time": "00:23:44.97"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Johnson, you’ve devoted your argument up to this time to the constitutional issue. Are you going to address the Younger-Huffman issue that you raise in your brief?",
       "time": "00:24:06.35"
     },
@@ -691,13 +691,13 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You would have to --",
       "time": "00:26:20.90"
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Jurisdictional issue, are not the husband and the wife here in somewhat different positions? The husband has already been prosecuted and that case is closed. All appeals are no longer available, but the wife has never been prosecuted, has she?",
       "time": "00:26:21.32"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would it not be reasonable for her to assume that she may be subject to the same kind of prosecution as her husband?",
       "time": "00:26:43.88"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Kohn.",
       "time": "00:27:16.86"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Although the latest proceeding hadn’t terminated yet, had it?",
       "time": "00:27:59.56"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was the suit to aimed that latest proceeding or not?",
       "time": "00:28:06.79"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that still stands now?",
       "time": "00:28:22.79"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So your assertion is that this suit was wholly prospective. It wasn’t aimed at any criminal proceeding and didn’t attempt to upset any possible acts.",
       "time": "00:28:35.99"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It certainly didn’t purport to try to enjoin any State proceeding?",
       "time": "00:28:50.58"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but is there’s a joint injunctive relief?",
       "time": "00:28:58.88"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why was this a case of controversy in the Federal Court under the -- what was under companion case of Younger from the Seventh Circuit?",
       "time": "00:29:03.50"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, Samuels against Mackell.",
       "time": "00:29:16.43"
     },
@@ -829,19 +829,19 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I’m thinking of the case where there was no prosecution ongoing?",
       "time": "00:29:31.69"
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Boyle against Landry.",
       "time": "00:29:34.96"
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Boyle against Landry, was that it?",
       "time": "00:29:36.05"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap)",
       "time": "00:29:39.89"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You alleged that in your complaint, didn’t you?",
       "time": "00:30:23.88"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Kohn, in Dyson, there was an attempt in the prayer as I recall to expunge a prior conviction?",
       "time": "00:30:27.25"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You didn’t seek that relief in this case?",
       "time": "00:30:36.67"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, why didn’t you take the first case out?",
       "time": "00:31:45.17"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But why didn’t Maynard take it out?",
       "time": "00:31:52.14"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, he did not intend to pay it.",
       "time": "00:32:22.90"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Couldn’t he appeal that?",
       "time": "00:32:33.46"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the answer is they could have gone through all of the Courts --",
       "time": "00:32:58.41"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, because he couldn’t afford a lawyer with two automobiles?",
       "time": "00:33:05.78"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he still had them all available to him and eventually, when he decided to abandon the New Hampshire Courts, he found a lawyer to get him into the Federal Court.",
       "time": "00:33:17.52"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What’s that got to do with this case? The point was when he needed a lawyer, he got one.",
       "time": "00:33:39.13"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I couldn’t see how we could take all of these into effect. What I’m merely asking you, he had remedies available in the State Courts. Rather than to use those, he used the Federal Court and I’m not asking you a question. I’m telling you that’s what he did.",
       "time": "00:33:48.59"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don’t care on anything about you being retained. I’m talking about what the records show.",
       "time": "00:34:11.19"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is something in the record that the Judge did advise him and that statutes do provide for it.",
       "time": "00:34:26.37"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, he had available to him a direct appeal in the machinery of the State.",
       "time": "00:34:34.91"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Maybe? Is it or not true?",
       "time": "00:34:44.47"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the Judge advised it?",
       "time": "00:34:50.13"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, what else was the State require to do?",
       "time": "00:34:52.87"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was there also a transfer proceeding in New Hampshire?",
       "time": "00:35:31.22"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the Supreme Court of New Hampshire said the statute was unconstitutional. Surely, the New Hampshire prosecutor wouldn’t continue to enforce it?",
       "time": "00:35:34.11"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When you say nonsense, what were you talking about?",
       "time": "00:36:16.47"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how about his repeated violation of the law?",
       "time": "00:36:22.16"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that could be nonsense too, couldn’t it?",
       "time": "00:36:26.27"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To determine a constitutional issue?",
       "time": "00:36:43.48"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Kohn.",
       "time": "00:37:07.81"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The Attorney General’s brief states that the constitutional issue was raised at the initial trial and was resolved in favor of the validity of the statute against this appellant, is that correct?",
       "time": "00:37:09.11"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "If it were correct, would you be out in Court here?",
       "time": "00:37:33.07"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Then on res judicata --",
       "time": "00:37:38.51"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the State doesn’t raise them, but the District Court nonetheless passes on it as the District Court did here?",
       "time": "00:37:57.46"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I would have read its opinion to pass on it.",
       "time": "00:38:09.65"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But we have lots of cases that under our rules, you must have raised a point, at the earliest possible point in State proceedings, but nonetheless, we’ve also held that if a State’s Supreme Court passes on the point even though it didn’t have to then the issue is open for --",
       "time": "00:38:25.12"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I’m a little puzzled about the res judicata argument because I don’t understand you to be attacking the judgments or any of those judgments that have been entering?",
       "time": "00:39:04.27"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They didn’t waive it. You’re not attacking those judgments.",
       "time": "00:39:17.33"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, does collateral estoppel apply to issues of law?",
       "time": "00:39:28.44"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are there two rather separate First Amendment issues here? First, the one that you summarized, whether or not this was affirmative symbolic expression on the part of your clients?",
       "time": "00:42:46.84"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And isn’t the second issue, whether the person can be compelled to advertise a relief in which she does not believe.",
       "time": "00:42:59.06"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are they not rather separable?",
       "time": "00:43:09.46"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What’s the third? I want to be sure about it.",
       "time": "00:43:24.47"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And why?",
       "time": "00:43:27.32"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that’s really the same as the second except one is involved on the free expression and the other free exercise clause.",
       "time": "00:43:42.76"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It’s compelling somebody to advertise a belief in which he doesn’t believe either because -- to which he doesn’t subscribe either because of religious reasons or political or philosophical reasons?",
       "time": "00:43:51.65"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could the State compel a person to advertise a neutral concept that did not offend the religion clauses?",
       "time": "00:44:06.35"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You’re not conceding that they’re all valid, are you?",
       "time": "00:44:24.00"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Nevada said “Gambler’s Paradise” and Nevada citizen said, “I am just that I’m very fundamentally opposed to gambling.”",
       "time": "00:44:46.85"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Kohn, then you don’t agree that the license plates belong to the State?",
       "time": "00:45:18.47"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I assumed so.",
       "time": "00:45:23.24"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That still wouldn’t avoid the problem under the power of the State to compel a citizen to carry picket signs?",
       "time": "00:45:40.41"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mt. Kohn, do you think an atheist could cross out the words or tape over the words “In God We Trust” on an American currency?",
       "time": "00:45:57.40"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have constitutional right to do that as well?",
       "time": "00:46:08.11"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let’s assume the statute is revised.",
       "time": "00:46:22.07"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the statute was mutilated?",
       "time": "00:46:36.15"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I’ll put cut out words with a razor blade “In God We Trust,” would that be mutilation?",
       "time": "00:46:43.52"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "(Voice Overlap) prosecutions, didn’t he deface the plate?",
       "time": "00:46:57.38"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There’s one other thing that I’m little confused in the record because it seems to me that it’s inconsistent. Were the Maynards willing or unwilling to purchase a vanity plate?",
       "time": "00:47:29.04"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But they did not?",
       "time": "00:47:45.26"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, wasn’t anyone privileged to do that?",
       "time": "00:47:49.80"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say that the State is more limited on the exercise of its residual powers than Congress is when it’s exercising the war power each one confronted by the same constitutional guarantee?",
       "time": "00:52:03.59"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think all your arguments would apply with equal force if the motto on a license plate was “Don’t Litter”",
       "time": "00:52:43.29"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think everyone would agree with that?",
       "time": "00:52:59.13"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Maybe some people would think the right of privacy permits any person to throw any garbage or junk anywhere he wants to?",
       "time": "00:53:06.87"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about a license that says, “Wear your seatbelts?” Does that involve liberty?",
       "time": "00:53:57.51"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well the. Thank you counsel.",
       "time": "00:55:35.18"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Johnson, do you have anything further?",
       "time": "00:55:37.29"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Usually, we don’t put stamps on letter.[Laughter]",
       "time": "00:57:30.62"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:59:00.36"
     }

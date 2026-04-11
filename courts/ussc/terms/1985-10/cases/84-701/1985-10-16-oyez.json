@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-701/19851016a_84-701.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "KATHRYN ANNE OBERLY",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "EDGAR B. WASHBURN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in United States against Riverside Bayview Homes. Ms. Oberly, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Oberly, may I inquire, in your reply brief it seemed to me that for the first time the government was saying that the land in this case is connected by open water to a navigable river of the United States. So is the position you are now taking that there is a direct surface connection between the land at issue here and the navigable waters?",
       "time": "00:04:33.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why, then, didn't the Corps just show that surface connection before the District Court and not bother with subsurface connections? It just seemed to change the whole theory in your reply brief.",
       "time": "00:05:04.85"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it does seem to me that if the theory that you now assert is correct, that there is a direct surface connection to navigable water, that the case is substantially--",
       "time": "00:05:30.35"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--What did the District--",
       "time": "00:06:21.45"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--What did the District Court... wasn't there some expert testimony on the connection between this wetland and the navigable waters?",
       "time": "00:06:23.20"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which was to the effect that there was no connection.",
       "time": "00:06:39.85"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just want to be able to try the case again.",
       "time": "00:06:51.79"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what, should we just dismiss it as improvidently granted?",
       "time": "00:06:57.24"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I might say I am glad we finally got a map. It took a long time.",
       "time": "00:07:12.45"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't regard a USGS map as kind of an open sesame to the correct resolution of a case. I dealt with a number of them in my practice. They can be as wrong as anybody else's.",
       "time": "00:08:01.12"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, did Judge Kennedy make a finding that this map was accurate?",
       "time": "00:08:21.74"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, is your--",
       "time": "00:08:32.34"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--So the position you are taking now, you feel, is completely consistent with the factual findings of the District Court and of the Court of Appeals?",
       "time": "00:08:54.41"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And so now we are supposed to hear you and kind of revise the Court of Appeals description?",
       "time": "00:09:10.06"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What you are bringing here then is essentially a factual dispute about how this land lies, and whether there is a surface connection or not.",
       "time": "00:09:27.49"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say the Court of Appeals is wrong in having described a property a particular way. Is that the case we... the kind of case we have to hear?",
       "time": "00:09:37.91"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the problem is if the facts are different than were perceived or articulated by the Courts below, how do we deal with that to get to the legal question? And we have to send it back somehow first so that the... get sorted out.",
       "time": "00:10:24.14"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you didn't... it sounds to me like there was somewhat of some omissions at the trial stage.",
       "time": "00:10:49.86"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At the appellate stage. I would think you would be satisfied if we just dismissed as improvidently granted, because that leaves the Court of Appeals opinion here--",
       "time": "00:11:00.73"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--but only for one circuit.",
       "time": "00:11:08.78"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why are you trying to win the case on another ground? Why don't you just--",
       "time": "00:11:34.25"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Why did you ever... why did you--",
       "time": "00:11:39.30"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Even without this map and this connection with the water, you claim the Court of Appeals is wrong.",
       "time": "00:11:59.84"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I would suppose you would rather win on that than this.",
       "time": "00:12:06.35"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, using your old theory, without the overlay of the new map and facts, the Corps includes adjacent wetlands as part of the waters of the United States, apparently without any requirement that the wetlands or the discharges to them affect navigable waters or interstate commerce in any way. Is that right?",
       "time": "00:12:52.91"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, must there be--",
       "time": "00:13:44.17"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Okay. Must there be some effect on navigable waters or on interstate commerce?",
       "time": "00:13:45.09"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, disregarding this case, on the pure theory, must there be a connection? Must it affect it, or not, interstate commerce?",
       "time": "00:14:05.18"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "A discharge out.",
       "time": "00:14:34.43"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the person watering his back yard a lot is not going to be brought in in your view?",
       "time": "00:15:47.70"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The lawns you are talking about, Ms. Oberly, then are situated to the north and west of the property line?",
       "time": "00:18:41.29"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Didn't the District Court have something to say about how often that land was flooded?",
       "time": "00:19:28.14"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Basically what is the constitutional authority for this statute or these regulations?",
       "time": "00:20:34.43"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just straight the commerce clause.",
       "time": "00:20:42.49"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the navigable water is just a stand-in for an effect on commerce. If you are adjacent to... or if you connect with a navigable water, you are in interstate commerce?",
       "time": "00:20:45.27"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Uh-huh.",
       "time": "00:20:57.73"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If then, what?",
       "time": "00:21:06.48"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is a connection?",
       "time": "00:21:12.21"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "One way or the other, either... running either way, or not?",
       "time": "00:21:15.89"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, an effect by some connection with waters in--",
       "time": "00:21:21.64"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--But it would be your view that an isolated wetland that provided refuge for birds would be enough for Corps of Engineers jurisdiction?",
       "time": "00:21:36.65"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If there was an aerial connection, as you say.",
       "time": "00:21:51.44"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is the movement of birds interstate commerce?",
       "time": "00:21:54.91"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What case do you rely on?",
       "time": "00:22:04.42"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was a treaty power case.",
       "time": "00:22:10.75"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it demonstrates the treaty power.",
       "time": "00:22:17.39"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That the migration of birds is interstate commerce? 0 [Generallaughter.]",
       "time": "00:22:36.97"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what... in what cases--",
       "time": "00:22:44.56"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--In what cases have we recognized that?",
       "time": "00:22:47.09"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It has an effect.",
       "time": "00:23:09.54"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can the states legislate contrary to the Migrant Birds Act? Can Minnesota, for example, go contrary to the Federal Act on movement of ducks from Canada?",
       "time": "00:23:14.22"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Haven't we treated that in some case?",
       "time": "00:23:25.86"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, there is an argument on this case that even if... whatever power Congress might have to legislate with respect to isolated potholes or wetlands, they didn't in this case. They just talked about effects on navigable waters.",
       "time": "00:23:34.93"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:23:51.27"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about an isolated?",
       "time": "00:23:54.99"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So we should be careful... we should be careful not to decide that case.",
       "time": "00:24:09.72"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Maybe some people who made the legislative history understood that, but is it reflected in the Act? That is the question.",
       "time": "00:24:33.48"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Oberly, I am still... going back to the very beginning of the argument, I have to confess some uncertainty about the whole case. I understood Judge Kennedy to find that there was no hydrologic connection between this property and any of the navigable waterways.",
       "time": "00:28:18.64"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is your map supposed to demonstrate that that basic point was just dead wrong?",
       "time": "00:28:33.38"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When you say it is an adjacent... what do you mean by saying it is an adjacent wetland? Do you mean that there is a hydrological connection?",
       "time": "00:28:47.64"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that nobody offered any evidence about surface flow?",
       "time": "00:29:11.38"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't know what... I am a little bit like Justice Rehnquist. I don't really know what the map proves, just looking at the map. It proves that there is a surface flow? Is that what you are saying?",
       "time": "00:29:15.40"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it has to drain, unless it sinks into the ground before it flows, I suppose. It doesn't sees to me you necessary have surface--",
       "time": "00:29:50.43"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Did she make any finding on this?",
       "time": "00:30:08.19"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On the point that Justice Stevens asked you about.",
       "time": "00:30:12.00"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:30:15.42"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "She said as I understood it there was no hydrological connection. You say that just refers to subsurface. It doesn't include surface.",
       "time": "00:30:18.04"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This was that expert testimony.",
       "time": "00:30:32.19"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me you are asking us to make a finding in the first instance on that point based on a map.",
       "time": "00:30:46.02"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That because there is a slope to the property, necessarily there is a surface flow all across that... it is not that clear to me. Maybe I am stupid.",
       "time": "00:30:58.86"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Ms. Oberly, before you sit down, could I try to straighten out one bit of confusion? There is a good bit of discussion in your brief about Black Creek, which is to the east.",
       "time": "00:31:13.10"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Now, this property seems to me from the map to be also adjacent to the Clinton River. Is that of any significance, or is the entire flow to the southeast?",
       "time": "00:31:23.55"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So of no significance at all.",
       "time": "00:31:52.93"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I was going to say, it just flows between the Clinton River and the lake.",
       "time": "00:32:04.66"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Washburn.",
       "time": "00:32:27.41"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you have at the tip of your fingers or tongue a citation to the record as to where she made that finding? I don't mean to interrupt your argument if you don't.",
       "time": "00:33:32.17"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you suggest that is not very much flooding?",
       "time": "00:34:36.74"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Six in eight years?",
       "time": "00:34:45.56"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I thought you said eight.",
       "time": "00:34:48.02"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It is much like the Great Salt Lake. It is about that frequency, and they are concerned about it out in Utah.",
       "time": "00:34:53.88"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is the original Act?",
       "time": "00:38:20.34"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:38:23.74"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that there is no indication that Congress would have been concerned about pollution flowing from adjacent wetlands into navigable waters of the United States, and want to regulate them?",
       "time": "00:39:52.52"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think the regulation then just exceeds the statutory authority where it says that a wetland is any area that is inundated or saturated by surface or ground water, whether it has got any connection with navigable water or not?",
       "time": "00:47:33.11"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or an underground connection.",
       "time": "00:48:05.07"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that is what is infirm about these regulations, you say.",
       "time": "00:48:17.82"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you defend that?",
       "time": "00:48:30.69"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:48:37.64"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you... as far as adjacency is concerned, would you say this is neighboring?",
       "time": "00:48:43.35"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if there was a connection--",
       "time": "00:49:01.75"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--then you would think the statute would authorize it.",
       "time": "00:49:04.09"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or a ground water connection.",
       "time": "00:49:10.01"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or a ground water connection.",
       "time": "00:49:11.37"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it may not. It may not. But if you want a connection... suppose the expert had testified that this wetland involved here was made wet constantly and regularly by an underground seepage from the river, from navigable waters. There was a hydrological connection between the navigable waters.",
       "time": "00:49:17.18"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see.",
       "time": "00:49:56.81"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose it a fortiori would be contrary to the statute in your view to attempt to regulate that kind of a wetland.",
       "time": "00:51:24.62"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:55:02.98"
     }

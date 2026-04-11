@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-838/19840423a_83-838.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "CAROLYN FRANCES CORWIN",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES SOVEL",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in United States against Lorenzetti. Ms. Corwin, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What part of 8132 are you reading from?",
       "time": "00:04:50.56"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's quite a sentence.",
       "time": "00:05:05.00"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay. It's six lines. I guess on page 2A of the brief.",
       "time": "00:05:08.08"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it says \"in satisfaction of that liability\". And, of course, that language may refer back to just to the FICA liability, which is limited in nature to lost wages and medical benefits.",
       "time": "00:05:24.65"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it's not clear, in any event.",
       "time": "00:05:59.50"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I think you have to look at something else to determine the meaning of it, don't you?",
       "time": "00:06:03.21"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess you wouldn't say that recovery from a third party of property damage is going to be payable over to the United States.",
       "time": "00:06:23.89"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, lost wages and medical expenses.",
       "time": "00:07:19.84"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "FICA doesn't include pain and suffering.",
       "time": "00:07:49.34"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But is FICA set up so that it includes not only elements for lost wages and medical expenses, but also some sort of element for what would be pain and suffering in a jury negligence trial?",
       "time": "00:08:25.94"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I realize that's the case. I was trying to find out whether the FICA statute is like I understand many state workmen's compensation statutes to be, kind of giving payment for things other than... than pain and suffering, or whether FICA is... if you took a FICA, the average actuarial value of a FICA, would it look very much like the actuarial value of a jury award in favor of a plaintiff?",
       "time": "00:09:00.89"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, nothing is recovered for pain and suffering. I mean that's clear, isn't it?",
       "time": "00:10:17.19"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question right there? As I understand the way this works out, the injured employee bears at least four-fifths of the cost of the lost wages and medical benefits, and the third party just bears the expense of the pain and suffering.",
       "time": "00:13:38.02"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. But he, in effect, has had to pay four-fifths of those benefits to the government out of the recovery he got for pain and suffering, is that right?",
       "time": "00:14:01.43"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well... well, in this case.",
       "time": "00:14:13.37"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No. But the $8,500 was for pain and suffering, wasn't it?",
       "time": "00:14:18.57"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And out of that amount he had to reimburse the government for the wages and medical expense.",
       "time": "00:14:23.55"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that he is the one who ultimately bore the cost of the wages and medical expense in this case.",
       "time": "00:14:29.89"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but--",
       "time": "00:14:49.16"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, somebody had to pay the hospital bill to start with, and I assume he did.",
       "time": "00:14:58.07"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. And then he reimbursed the government. So at the bottom line is that he paid them out of his own assets, and one of those assets was his recovery for pain and suffering, isn't that correct? I just want to be sure I understand it. I'm not trying to debate whether it's just or fair or anything. But that's what happened, isn't it?",
       "time": "00:15:06.67"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it also include loss of wages and special damages, other special damages... the third party--",
       "time": "00:15:35.36"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Well, my question was addressed to the general proposition. When the recovery is had against the third person, it is for the special damages; that is, medical expenses, loss of wages, pain and suffering. It's a whole range of things making up his total injury, is it not?",
       "time": "00:15:54.28"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, as I said, I wasn't debating the fairness of it; but the net result of it is that he pays his own hospital bill.",
       "time": "00:17:04.87"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If he had one.",
       "time": "00:17:13.36"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but it isn't shifting around, because the $8,500 I thought you stipulated none of that is attributable to either wages or... or medical expense. I mean do we accept that or don't we?",
       "time": "00:17:18.04"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if we accept it, doesn't it follow he paid his own hospital bill?",
       "time": "00:17:29.43"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, one must regard it, don't we?",
       "time": "00:17:35.42"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but only if you say the $8,500 includes medical expenses and lost wages. You're assuming there's an element of profit in recovering on pain and suffering.",
       "time": "00:17:44.76"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Ms. Corwin, what would be the case if instead of $8,500 it was $1,500?",
       "time": "00:18:23.92"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then what's his obligation to reimburse?",
       "time": "00:18:30.84"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the whole $1,500--",
       "time": "00:18:39.55"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--All right. The FICA benefits were $1,800 or $1,600, was it?",
       "time": "00:18:43.39"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then, let me change that from $1,500 to $1,600. So if it had been... if he'd got... if the $8,500 was $1,600, he'd have to pay it back. Then Justice Stevens' question would have to be answered yes, he paid his own hospital bills, wouldn't it?",
       "time": "00:18:47.26"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if he gave it back, he wouldn't have anything, would he?",
       "time": "00:19:03.78"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I see.",
       "time": "00:19:15.38"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So... so he'd get $300 odd dollars or something.",
       "time": "00:19:17.79"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He's paid the $1,600 hospital bill.",
       "time": "00:19:24.22"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes. And then he got $1,600 from the government. Now he's giving back $1,300, so he ends up with a net of $300. And he certainly pays the difference, $1,300 of the hospital bill, doesn't he?",
       "time": "00:19:29.94"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if I were the injured employee, I'd still feel I was $1,300 out of pocket.",
       "time": "00:20:28.42"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, he has the compensation payments. He doesn't have to disgorge those.",
       "time": "00:20:34.45"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Corwin, perhaps your opponent can speak with more authority than you can on this, but under the Pennsylvania statute, granted you can only sue for basically pain and suffering, but isn't there some administrative provision or some provision for your own carrier, your own insurance carrier to pay lost wages and specials?",
       "time": "00:21:07.01"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So an employee of a private employer here who couldn't claim workmen's compensation could have claimed something from the first insurer, but because he was covered, this guy was covered by FICA, this person couldn't.",
       "time": "00:21:56.15"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if it's an injury not arising out of in the course of employment and there is no workmen's compensation, no FICA, then under Pennsylvania law the first liability carrier has to pay specials?",
       "time": "00:22:30.02"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Ms. Corwin, in a... in a state without no-fault or without some system like Pennsylvania's and you sue the third party, you can recover anything you can get out of them. And if in Justice Brennan's example, if you recovered from a third party only $1,500, and you'd only been paid $1,500, you're going to have to refund the whole thing.",
       "time": "00:22:48.66"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean whether that's... whatever the recovery is. And so this case, just because it involved recovery of pain and suffering, doesn't present any unique problem.",
       "time": "00:23:14.26"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:23:30.98"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:23:39.23"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Corwin, may I just ask... I'm not clear in my own mind. Supposing the injured person here had worked for a Pennsylvania employer and received benefits under their workmen's compensation program precisely equal to this. What would have happened? And then later sued and got the same recovery.",
       "time": "00:27:21.77"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You get a federal statute and a state statute.",
       "time": "00:28:23.46"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Sovel.",
       "time": "00:28:51.00"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's what the statute seems to say.",
       "time": "00:30:53.06"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that what this usually refers to in a tort suit?",
       "time": "00:31:09.06"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you usually refer to recoveries for pain and suffering?",
       "time": "00:31:12.85"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Including damages for pain and suffering.",
       "time": "00:31:36.73"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you say the reason why it's not reasonable is a reference to injury and death necessarily limits it to the kinds of injuries or damages you associate with personal injury rather than property damage.",
       "time": "00:32:01.82"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose this had come... come in a state without a no-fault, and he sued the third party, and he sued him for lost wages, medical expenses, pain and suffering. He had a special verdict, and the jury came back and said nothing for... no specials, no wages, no nothing except pain and suffering, and $10,000 for pain and suffering. Now, would you be making the same argument here?",
       "time": "00:33:07.69"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what's the answer to my question? Would you be making the same argument here today if... if this had come up in a... in a... not... in another state without no-fault and the jury--",
       "time": "00:33:58.46"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Just happened to award--",
       "time": "00:34:08.50"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Damages only for pain and suffering.",
       "time": "00:34:10.87"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why not?",
       "time": "00:34:13.70"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why would he?",
       "time": "00:34:14.70"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:24.07"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The only thing is... the only thing is he didn't prove any.",
       "time": "00:34:25.51"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're not impeaching it at all. You're just... you're just... he just says well, look, all you ever reimbursed me for was for my loss of wages and medical expenses. Why should I have to repay you out of my damages for pain and suffering?",
       "time": "00:34:38.58"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think these... these cases ought to come out completely differently if they come out of Pennsylvania or other states with no-fault and states that don't have no-fault.",
       "time": "00:35:02.21"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, not in terms of the obligation to repay the government.",
       "time": "00:35:30.28"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, maybe... that may well be, but... but in terms of his obligation to pay, I don't know... I don't see why you wouldn't--",
       "time": "00:35:36.70"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Sovel, can I ask you a question I just don't quite understand? Supposing the... your client had been unemployed, say, and he had a $1,500 hospital bill.",
       "time": "00:36:50.32"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he... I take it he would have had that paid out by the no-fault insurance carrier.",
       "time": "00:37:02.20"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because he was not paid by any compensation program. Why can't your client now get that hospital paid in that manner because the government is not paying it?",
       "time": "00:37:07.66"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He brings the third party action and gets the $8,500 for pain and suffering.",
       "time": "00:37:22.92"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he goes to his no-fault carrier and says I had to give part of that money back to the government, so I did not have it paid by the government. They gave me the money and took it back. So why can't I get it from my no-fault carrier?",
       "time": "00:37:26.87"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There is no no-fault carrier?",
       "time": "00:37:43.35"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The no-fault insurance is paid by the driver himself.",
       "time": "00:38:08.73"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He pays his own premium.",
       "time": "00:38:12.47"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if he was from Maryland? I just... I'm--",
       "time": "00:38:13.78"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, supposing he was not... not... does... say an out-of-state person, must he carry his own no-fault insurance, or he just has no right at all, is that it?",
       "time": "00:38:20.10"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He's just out of luck.",
       "time": "00:38:34.69"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then, why can't he now say I did not get any no-fault... I'm not getting... the net result of my arrangement with the government is I get nothing for my hospital bill, so I want to sue the third party.",
       "time": "00:38:40.39"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I received them, but I couldn't keep them.",
       "time": "00:38:59.96"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I just wonder. I must say I'm puzzled.",
       "time": "00:39:02.10"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, as I understand your explanation of Pennsylvania law, it says that the third party has to pay the hospital bill when the plaintiff has to pay it himself. And the net result of your analysis is he's paying his own hospital bill.",
       "time": "00:39:17.13"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So I would think he ought to be able to get it from the third party. In other words, I think that maybe there was a mistake of state law created... well, that's out of this.",
       "time": "00:39:27.93"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Ms. Corwin?",
       "time": "00:41:18.69"
     },
@@ -1079,13 +1083,13 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:41:48.52"
     },
     {
       "turn": 174,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:41:52.14"
     }

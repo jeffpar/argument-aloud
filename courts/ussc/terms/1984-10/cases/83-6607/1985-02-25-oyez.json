@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-6607/19850225a_83-6607.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "E. THOMAS BOYLE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM S. BOYD, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Caldwell against Mississippi. Mr. Boyle, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He did a little more than that, didn't he?",
       "time": "00:02:09.54"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He said, in effect, if you render a verdict of guilty here and return that sentence, you will be the killers.",
       "time": "00:02:12.85"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Boyle, in your view, would it be error or a violation of due process for a court to instruct a jury correctly and accurately concerning the existence and scope of appellate review?",
       "time": "00:04:32.51"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't that a state law distinction in essence? I mean, would you say the distinction vanishes if the Mississippi legislature had said that juries ought to be told about this, and if your answer to that is yes, why isn't the Mississippi Supreme Court a perfectly good spokesman for state policy, just as the legislature would be?",
       "time": "00:07:35.49"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I thought your point that you were just making had nothing to do with the misleading character, but had something to do about articulated state policy.",
       "time": "00:08:24.77"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then you are saying, I guess, that a state supreme court is not to be given the same deference as a state legislature in speaking out on a matter of state policy.",
       "time": "00:09:38.05"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Boyle, do you read Young as being a constitutional decision?",
       "time": "00:11:33.08"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does the opinion cite the due process clause.",
       "time": "00:11:49.25"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I didn't think it did.",
       "time": "00:11:57.65"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think there was any indication in Ebbits against Lucy, first of all, that it extends to other experts other than the psychiatric help, and secondly, do you think that there is any indication in it that a state can't have a rule that says the defense has to specify the cost in any event and make the other showing that the state thinks would be necessary?",
       "time": "00:14:05.41"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Wasn't this a case where there was an eye witness?",
       "time": "00:16:56.73"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Boyle, is there anything in the cases from this Court that you find that say a state cannot require as prerequisite the appointment of any expert--",
       "time": "00:19:14.06"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--witnesses that there be a threshold showing of need and cost and so forth?",
       "time": "00:19:24.33"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why does it need to? Maybe it wants to offer them whether or not the Constitution requires it, and if so, why can't they have a reasonable rule requiring a threshold showing?",
       "time": "00:19:42.42"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Aren't requests by indigent for counsel to represent them matters that are made with notice to the other side?",
       "time": "00:21:21.54"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You said that the problem is that there can't be an ex parte proceeding, and requests by an indigent for counsel aren't done in an ex parte setting.",
       "time": "00:21:34.29"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even if your contention were to be upheld, wouldn't you still have an equal protection claim? A wealthy criminal defendant can get all the experts he wants without petitioning the court.",
       "time": "00:22:41.98"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But your solution suggests that perhaps to me your definition of the constitutional right is overly broad, because if the defendant is going to have a claim that I have to petition the court to get experts, and the wealthy defendant doesn't have to fool around with a court at all, then the only answer is simply for the legislature to appropriate each year about $5 million or $10 million for whatever services criminal defendants may want, and I dare say there aren't many courts that would sustain that sort of a claim.",
       "time": "00:23:08.68"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Boyle--",
       "time": "00:24:34.72"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Boyle--",
       "time": "00:24:47.93"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--I don't understand this tipping your hand. You have to tip your hand when you ask for a lawyer, don't you? Number Two, you don't think there is any requirement other than for the defendant to ask for a particular expert. That is all required.",
       "time": "00:24:50.43"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What else would you require?",
       "time": "00:25:12.79"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What more would be required?",
       "time": "00:25:35.18"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did I understand you to say that the Court really said, you aren't entitled to it, but anyhow the state keeps you from getting it? That is stretching it a little, isn't it?",
       "time": "00:25:48.64"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, would you have to get an expert on fingerprints, too?",
       "time": "00:26:03.41"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, in case his fingerprints are used, would defense counsel automatically get an expert on fingerprints?",
       "time": "00:26:09.94"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what other than automatic? How much more than automatic?",
       "time": "00:26:21.28"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Have you ever seen a case involving fingerprints where the government didn't put an expert on?",
       "time": "00:26:37.26"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Ever?",
       "time": "00:26:44.42"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The first thing the defendant would be up yelping that you can't put them on without an expert, wouldn't he?",
       "time": "00:26:47.77"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "One final question. You want the same rule as in a regular case where you have a wealthy defendant. Suppose a wealthy defendant brings an expert from London. Would you in the next case be entitled to that expert from London?",
       "time": "00:27:05.19"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, where is your... I am trying to find out what--",
       "time": "00:27:27.99"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--I assume that all constitutional claims are fundamental.",
       "time": "00:27:35.79"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would we need some help from defense counsel?",
       "time": "00:27:55.86"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is what I am asking.",
       "time": "00:28:01.04"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why don't you give it to me?",
       "time": "00:28:03.76"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In this case, did the judge ask counsel to put the money up?",
       "time": "00:29:18.59"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how is it here?",
       "time": "00:29:24.12"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How is that point here?",
       "time": "00:29:26.69"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If we take that out of the opinion, will you be satisfied?",
       "time": "00:29:52.76"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You can't do it. You don't appeal opinions. You appeal from judgments.",
       "time": "00:29:58.56"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, counsel. Mr. Boyd.",
       "time": "00:30:22.69"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Boyd, may I ask you one question that just occurred to me? The administration of the death... capital punishment is often criticized because of the great delay that elapses between the imposition of the sentence and the carrying out of the sentence. Do you think it would have been prejudicial to the prosecutor if the jury had the impression that the sentence would be carried out in a very short period of time?",
       "time": "00:33:57.82"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Apparently the response was needed, as I understand kind of the preliminary comment you made, because it might have been harmful to the prosecutor's case if the jury thought they were going to take him right out immediately and implement the sentence. Is that your view, that the jury would have a distorted view of the case and it would harm the prosecutor to think that that sentence would be carried out promptly?",
       "time": "00:34:23.37"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But all of that just suggests to me that there was really no need to respond to what the defense counsel said, that basically it was a jury decision.",
       "time": "00:36:33.22"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose he argued that if you find him innocent nobody can kill him?",
       "time": "00:37:20.65"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But that would be all right, wouldn't it?",
       "time": "00:37:33.50"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you concede that the state in any event has no right to make an argument that is misleading on the law?",
       "time": "00:38:24.74"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. So isn't the real question whether it was misleading or not? Isn't that what we really have to focus on?",
       "time": "00:38:37.81"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the question there is whether the prosecutor's remarks indicate that the jury's verdict if they impose death will be automatically reviewed in all its aspects?",
       "time": "00:38:45.74"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is your position that it does not violate the federal Constitution for a prosecutor to make a misleading argument to the jury? Is that your position?",
       "time": "00:39:47.05"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Reviewed for what, I guess is the question.",
       "time": "00:41:00.07"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Boyd, may I ask, what do you interpret the significance of the dissenting Justices' comment that even a novice attorney knows that appellate courts do not impose the death penalty, they merely review the jury sentence and that it reviews with a presumption of correctness? I read that to indicate that his view was that the prosecutor's argument did not make a full and accurate statement of the function of the reviewing court.",
       "time": "00:41:48.96"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I don't think the majority disagreed with them.",
       "time": "00:42:14.40"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But can't the defendant say that if a state has sufficient doubt about the other evidence that it is going to call a ballistics expert that the defendant is entitled to call one, too?",
       "time": "00:50:04.44"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you, gentlemen. The case is submitted. Your time has expired, counsel.",
       "time": "00:52:52.82"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The case is submitted.",
       "time": "00:52:59.84"
     }

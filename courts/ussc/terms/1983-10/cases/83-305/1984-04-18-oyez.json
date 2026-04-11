@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-305/19840418a_83-305.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES R.B. KIRK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN F. DE MEO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in California against Trombetta. Mr. Kirk, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kirk, how widespread is the use of the Intoxolizer around the country?",
       "time": "00:06:07.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Kirk, would you just help me out on one thing? I may have gotten the wrong impression. I thought from the material at the beginning of your opponent's brief that there was another breath testing device that did conserve the sample, and that was permissible to use in California. Am I wrong on that?",
       "time": "00:06:42.03"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. But it isn't widely used--",
       "time": "00:07:10.26"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--in California?",
       "time": "00:07:15.70"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Kirk, may I just ask this? Supposing you had taken a blood sample instead of the breath sample. Do you think the officer could have thrown it away without raising any questions?",
       "time": "00:13:38.98"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing that was done, and after they got through they just threw it away, they just made a record of it. Would that raise any questions for you?",
       "time": "00:13:57.88"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just a matter of credibility--",
       "time": "00:14:30.08"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--as to the weight of the evidence. Another question I wanted to ask you, since I have already interrupted you, if the two different procedures, one of which was that you could preserve the sample and the other of which, the one you actually used, were equally costly to the state, there is just no different, you just chose... you just elected to have the one that you are using rather than the other one, would that present any problem?",
       "time": "00:14:32.70"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The question I am really getting up to is, why don't you do that?",
       "time": "00:15:07.04"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They do this in Colorado, don't they?",
       "time": "00:15:14.38"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How long would blood remain in a static condition so that it could be tested and retested weeks later?",
       "time": "00:15:34.21"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, stored, but it must be refrigerated, must it not?",
       "time": "00:15:48.95"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then you have about five days of tests as to what the preservatives due to it.",
       "time": "00:16:00.92"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't you? Yes.",
       "time": "00:16:09.43"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is this your own idea, or are you quoting from something?",
       "time": "00:16:35.24"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "General, is there any procedure for keeping this air?",
       "time": "00:17:14.80"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No evidence was produced in this case?",
       "time": "00:17:24.16"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "First of all, I would like to know how you catch it. Then I would like to know how you keep it.",
       "time": "00:17:39.34"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is nothing here in the record that will help me on that?",
       "time": "00:17:47.07"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but you can capture the air with a different machine. That is what you told me, I understand.",
       "time": "00:18:30.93"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you also say it is not required by the constitution.",
       "time": "00:19:29.31"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This sounds to me like a very amorphous concept you are talking about, a fair opportunity to challenge the state's case. I mean, supposing the state has four or five eye witnesses, and the defendant doesn't have any access to them at all. Now, is cross examination of the eye witnesses what you would call a fair opportunity to challenge?",
       "time": "00:19:53.67"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I just don't see how a vague phrase like \"a fair opportunity to challenge\" moves the ball much in this rather particular situation, where we are talking about, I take it, whether Brady against Maryland should be extended.",
       "time": "00:20:22.79"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But we don't have to start all over with the adoption of the Constitution in every case we hear argued. I mean, we are focusing in the general area of Brady against Maryland, aren't we?",
       "time": "00:20:43.11"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it is your case to argue.",
       "time": "00:20:58.12"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is each report in some way coated so that the identification number of the particular machine as well as the operator is part of the permanent record?",
       "time": "00:22:21.62"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you sure that these machines are available to the public?",
       "time": "00:23:46.96"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought it cost around $2,200.",
       "time": "00:23:58.00"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right.",
       "time": "00:24:03.55"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The average person knows that?",
       "time": "00:24:19.01"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The average person knows that?",
       "time": "00:24:20.78"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Kirk, can I ask you a question--",
       "time": "00:24:33.77"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--on that procedure? The California court, as I understand it, went beyond... you just made this point... went beyond the Hitch case in this case--",
       "time": "00:24:36.81"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and made its new ruling just prospective only, and it relied in part, at least the concurring judge did, on the failure to tell the arrested person that he had a choice between this procedure and the either blood or urine sample as opposed to a breath sample. To what extent does that requirement of advice underlie this decision? And is that a federal requirement or a state requirement in your view?",
       "time": "00:24:46.36"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if that is the case, is it not possible that this judgment, at least insofar as the particular people before the court are concerned, rests on the state ground that they failed to give the advice required by state law?",
       "time": "00:25:45.47"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:26:01.98"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that is what the majority opinion says, but it is true that the officers did also violate state law in a way set forth in the concurring opinion.",
       "time": "00:26:16.07"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:26:32.35"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:26:46.44"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:26:53.43"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. DeMeo?",
       "time": "00:27:26.78"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you find it constitutionally objectionable if the officers were trained to take a blood test and... take a blood test right on the scene?",
       "time": "00:28:06.61"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do they now take blood tests right at the time of the arrest, out on the road?",
       "time": "00:28:41.60"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "May I stop you right there?",
       "time": "00:29:24.11"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does the government destroy this evidence, \"destroy\"?",
       "time": "00:29:26.63"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why don't you say it? You said that they destroy it.",
       "time": "00:29:36.15"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They don't do a thing. That is what you're complaining about, that they don't do something.",
       "time": "00:29:39.02"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You want to put an affirmative duty on them, not to stop them from doing something, but to make them do something. There is a considerable difference.",
       "time": "00:29:45.32"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, there is one way he could do that if he wanted to spend $4,000 to buy a machine and carry it in the car with him. I suppose that would do it, wouldn't it?",
       "time": "00:31:11.67"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. DeMeo--",
       "time": "00:31:27.52"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--why is it impractical for someone who has plenty of his own breath still on his body to preserve it for himself if he wants to?",
       "time": "00:31:28.73"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "People who are arrested for DWI often resort to their own requested blood samples or breath tests. You can do that independently.",
       "time": "00:31:39.41"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the fact that the government had the means to do it and it is simple certainly does not mean it is constitutionally required. I don't think any of our cases say that. I mean, you are talking about it would be nice for the government to do it. Perhaps it would. But that doesn't mean there is a constitutional requirement.",
       "time": "00:33:29.30"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you mean it is constitutional then?",
       "time": "00:33:53.08"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't see why if it is vital... it may be vital in the sense that the defendant would be a good deal better off if the government did go to this extra expense, but that still doesn't make it a constitutional requirement. Is Brady the closest case you have to support here?",
       "time": "00:33:55.25"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:34:12.16"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Agers is just talking about the duty to turn over exculpatory evidence which is in existence.",
       "time": "00:34:27.27"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It doesn't say anything about any duty to preserve, nor does Brady.",
       "time": "00:34:35.61"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then the answer is, you are not covered by Brady and you are not covered by Agers, because those cases dealt with when evidence was in existence.",
       "time": "00:34:45.30"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That doesn't answer the question of what is the holding of Agers, what is the holding of Brady. Both of them hold where the evidence is in existence, you must turn it over. You say here it wasn't in existence as if that automatically calls for some extension. That is simply a different fact situation. It wasn't confronted in Brady. It wasn't confronted in Agers.",
       "time": "00:35:01.32"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Let's test that. You blow into the machine.",
       "time": "00:35:31.54"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And it registers numbers, right? By the time it registers the final number, where is the air?",
       "time": "00:35:35.20"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is the air?",
       "time": "00:35:46.25"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, sir, it has gone out of the machine.",
       "time": "00:35:48.10"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Hasn't it?",
       "time": "00:35:52.27"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Purge what is left out. But the air goes--",
       "time": "00:36:02.55"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--If the air doesn't go through, how are they going to test it?",
       "time": "00:36:05.63"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What kind of device?",
       "time": "00:36:33.60"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am talking about California.",
       "time": "00:36:46.24"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you want them to put that on the machine.",
       "time": "00:36:49.13"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If they gave them a blood test, you wouldn't have any of these problems, would you?",
       "time": "00:37:05.39"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You would not, would you?",
       "time": "00:37:11.42"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So since he chose one, the state has to go and preserve the air that is gone or bring back the air that has gone.",
       "time": "00:37:15.01"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00 o'clock, counsel.",
       "time": "00:37:28.80"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. DeMeo, you may resume.",
       "time": "00:37:31.40"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not sure about your view on part of this constitutional question. It is the infirmity of the evidence that troubles you. Now, suppose each police car had two or three of these machines. They tested the man once, and then put that machine away, and then waited two or three minutes, and then tested him again, and if necessary tested him on a third machine, and if they all agreed, would that meet your constitutional objections?",
       "time": "00:38:56.54"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even if all of the machines agreed exactly?",
       "time": "00:39:53.55"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that even if this machine were wrong only once in a million times, the fact that it might be wrong only that seldom should nevertheless result in giving the defense the opportunity to ferret out that one in a million?",
       "time": "00:40:50.23"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because I don't see any claims by you or any evidence or any statistical presentation that would indicate how often these results might be erroneous.",
       "time": "00:41:14.63"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the machine that produces this evidence, makes this reading, will it be in the same condition when the trial occurs as it was when the test was taken?",
       "time": "00:42:00.40"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is this in the record?",
       "time": "00:43:12.86"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that what you call these witnesses, criminalists? Or criminologists? What do you call them?",
       "time": "00:43:26.60"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that in the dictionary? I guess it must be.",
       "time": "00:43:34.14"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What are they experts in?",
       "time": "00:43:36.73"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You know, my problem is, you say that you want to preserve the evidence.",
       "time": "00:43:52.74"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The evidence is in your client, his breath. Why couldn't he preserve his own breath?",
       "time": "00:44:02.62"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is he going to get the instruments later?",
       "time": "00:44:20.47"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what good is it if he doesn't have instruments?",
       "time": "00:44:24.46"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What good is it if he doesn't have instruments?",
       "time": "00:44:29.18"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is because it is cheaper for the government to do it?",
       "time": "00:44:49.74"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it there where this man was?",
       "time": "00:45:03.33"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't you need to know?",
       "time": "00:45:08.74"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean, you are now down to saying that the government can do it better than you can do it.",
       "time": "00:45:11.85"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the government did. They made the test.",
       "time": "00:45:20.38"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't have to do... then the government has to make another test. Right?",
       "time": "00:45:27.03"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And to preserve it and test it over and over again.",
       "time": "00:45:35.55"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How could they be sure it is right?",
       "time": "00:45:44.82"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What provision in the constitution says that because the government can do it better than the defendant, the government must do it?",
       "time": "00:45:52.08"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I for one... I resent talking about the constitution as saying it seems. The constitution either does or it does not. Do you agree with me on that?",
       "time": "00:46:18.65"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, let's give up the \"seems\".",
       "time": "00:46:34.68"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Once the police have stopped the car with a suspicion that the driver is intoxicated and they have taken this breathylizer test once, can they use that machine again without... can they test the next drunken driver they meet and still preserve the material of the first one?",
       "time": "00:46:38.21"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:47:05.51"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would that enable them... My question is, again, would that enable them to use that same machine on the next drunken driver, and the next one, and the next one, that same machine?",
       "time": "00:47:29.98"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, on that same evening, without discharging some of the materials?",
       "time": "00:47:43.65"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How can they preserve it if they purge it?",
       "time": "00:47:58.13"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To in effect a different machine from the one they are using now.",
       "time": "00:48:07.33"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose this breath was preserved, like you would like to have. What would you do with it?",
       "time": "00:48:14.59"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How accurate is that machine, though, otherwise?",
       "time": "00:48:53.55"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How do you know?",
       "time": "00:48:57.57"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so if it happened to test and it was inaccurate, as you say it can be, where would you be?",
       "time": "00:49:10.14"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In a battle of experts.",
       "time": "00:49:19.01"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And also of--",
       "time": "00:49:23.92"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--of the jury or whoever is trying the case weighing the evidence.",
       "time": "00:49:25.43"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, the officer examining, if he ever smells the fellow's breath, can hardly save the sample, and yet that evidence is freely admissible.",
       "time": "00:49:36.71"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did he smell? Yes, he smelled. How do you know he smelled? Well, I just smelled him.",
       "time": "00:49:48.86"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I am awfully sorry I didn't save the sample.",
       "time": "00:49:52.64"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask another question about the machine?",
       "time": "00:49:58.24"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the... I am not quite clear. Even though the sample itself was not saved, does the machine record in some way what the results of the test were?",
       "time": "00:50:01.51"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So we don't really have an issue that maybe the officer made a mistake, or contrived testimony. That problem isn't present here at all.",
       "time": "00:50:15.23"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you do not challenge the fact that there is an accurate... normally, at least, in the normal routine, there would be an accurate record made of what this device actually showed at the time the test was made?",
       "time": "00:50:33.49"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that fundamentally any different from an electrocardiogram after it comes out of the machine?",
       "time": "00:50:56.16"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can't go back and capture the heartbeat.",
       "time": "00:51:10.75"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have a paper recording of it.",
       "time": "00:51:13.52"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The question is, is this fundamentally different from the cardiogram recording?",
       "time": "00:51:16.91"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. DeMeo, you are relying primarily on the Brady case and the Agers case as the source of this right that you assert for your client?",
       "time": "00:51:38.69"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right, but they presumably are relying in turn on these federal cases as I understand it.",
       "time": "00:51:50.91"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And isn't it primarily the non-disclosure of evidence known only to the prosecutor that Brady and Agers say makes the trial unfair? Isn't that the focus really of those cases and what is behind them?",
       "time": "00:51:58.60"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is the non-disclosure of something known only to the prosecutor. Now, here you have something that is known as much to the defense, the defendant, as to the prosecutor and the officers. You don't have a problem of non-disclosure of evidence known only to the prosecutor.",
       "time": "00:52:18.73"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I suppose our cases haven't... or the cases of this Court haven't gone so far as to say the constitution is violated if in some unforeseen fashion evidence might be lost.",
       "time": "00:53:10.68"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I don't think they even well, go ahead.",
       "time": "00:53:34.64"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What case from this Court requires an earnest effort to preserve?",
       "time": "00:53:40.70"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Augenblick was a ruling for the government, and the fact that it may say in this case there was an earnest effort to preserve doesn't mean that the Constitution would have been violated had there been no earnest effort to preserve.",
       "time": "00:54:11.73"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he had that opportunity. He had that opportunity from the day he was arrested until the day he was convicted.",
       "time": "00:00:00.00"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Am I right?",
       "time": "00:55:37.16"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, who had the breath? The government or your client? Who had the breath?",
       "time": "00:55:42.14"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Who had the breath?",
       "time": "00:55:49.71"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All right.",
       "time": "00:55:53.45"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then at the bitter end who had it? Your client.",
       "time": "00:55:55.43"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He still had breath.",
       "time": "00:56:02.39"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All right.",
       "time": "00:56:03.82"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wish it would.",
       "time": "00:56:16.70"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wish it would.",
       "time": "00:56:19.48"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it wasn't the government's fault that he breathed.",
       "time": "00:56:28.75"
     },
@@ -1771,7 +1771,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Good question.",
       "time": "00:56:37.82"
     },
@@ -1783,7 +1783,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Good question. The same way you want the government to. You are asking them to preserve it. You are asking the government to preserve it.",
       "time": "00:56:38.86"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the means was available to him.",
       "time": "00:56:47.56"
     },
@@ -1807,7 +1807,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, but he could buy it.",
       "time": "00:56:54.45"
     },
@@ -1819,7 +1819,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe he ought to carry a balloon with him.",
       "time": "00:56:57.59"
     },
@@ -1831,7 +1831,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe he should carry a balloon with him. 0 [Generallaughter.]",
       "time": "00:57:01.70"
     },
@@ -1843,7 +1843,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. DeMeo, that statute raised the question in my mind as to what... if that satisfied the holding in the Trombetta case, there is no obligation to preserve the sample.",
       "time": "00:58:33.45"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is just an obligation to give notice. That is what--",
       "time": "00:58:43.34"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Right, but if the California legislature correctly understood Trombetta, all that case holds is that you've got to give notice. That is why I asked your opponent earlier whether we really had a federal issue here.",
       "time": "00:58:52.28"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they say... the California legislature apparently thought that solved the whole problem, didn't they?",
       "time": "00:59:05.60"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 309,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further, counsel?",
       "time": "00:59:21.80"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 311,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, counsel, we do not. Thank you, gentlemen. The case is submitted.",
       "time": "00:59:28.03"
     }

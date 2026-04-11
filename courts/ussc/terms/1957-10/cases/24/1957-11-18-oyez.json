@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1957/24/19571118a_24.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "HAMMOND E. CHAFFETZ",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "EARL E. POLLOCK",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 24, Federal Trade Commission, Petitioner, versus the Standard Oil Company. Mr. Chaffetz, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do I understand from your -- am I justified in inferring from what you've said that your case essentially rests in supporting the decision below on a demonstration of the record that these were responsive, defensive action, do I understand that?",
       "time": "00:03:41.53"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that require us to read the entire record?",
       "time": "00:04:14.92"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would have to be voted.",
       "time": "00:04:18.99"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question about the court?",
       "time": "00:05:15.77"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the Court of Appeals find that the -- any of these prices to be (Inaudible) were in response to definite (Inaudible) My reading of their opinion was that they said no more than that if you had offered these prices, you would have lost the business, but I didn't see if they made any affirmative finding on that subject.",
       "time": "00:05:17.70"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that mean that you moved in, in order to anticipate their moving in?",
       "time": "00:06:09.08"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does that inspire you on the first instance to establish this price fixing?",
       "time": "00:07:29.15"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you reject the government's question presented in the brief?",
       "time": "00:08:26.82"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do they continue -- do they continue --",
       "time": "00:10:04.95"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- to be retailers also?",
       "time": "00:10:06.75"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "When did you say Citrin-Kolb did this?",
       "time": "00:10:21.60"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "1929.",
       "time": "00:10:24.11"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Ned? N-E-D?",
       "time": "00:13:10.17"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As one or several locations?",
       "time": "00:13:59.26"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's 1936?",
       "time": "00:16:09.24"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Has -- has Ned's by that time acquired tank-car storage facility?",
       "time": "00:16:50.93"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were you at that time selling to anybody else who had that equipment on a lower rate?",
       "time": "00:17:03.84"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was Ned's at that time, when you made that difference succeeding at retail with other Standard buy?",
       "time": "00:18:32.47"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In this case more than Ned's service?",
       "time": "00:18:40.64"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What was the basis of granting or denying?",
       "time": "00:19:03.51"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:20:00.34"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You said tank-wagon.",
       "time": "00:20:02.76"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is any of the finding -- is any the finding that you could deliver your gas to Ned's, at a cent and a half cheaper in regards to the other --",
       "time": "00:21:13.37"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did the Court of Appeals represent that finding?",
       "time": "00:22:06.81"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That doesn't bear under good faith.",
       "time": "00:22:12.37"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if they were recovered by then is I don't -- I'm confused. I don't understand what the cost defense has to bear -- if you call that related to the good faith?",
       "time": "00:22:55.87"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that have been a violation of the Act?",
       "time": "00:25:17.13"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To them, were they violating the Act of doing that?",
       "time": "00:25:20.37"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Chaffetz --",
       "time": "00:27:03.87"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- may I ask you one -- one thing? Do these factual differences in your relationship with Ned's and -- and the other customers that you -- those other three customers make any legal difference in you relationship with them or are -- is illegal --",
       "time": "00:27:04.84"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- relationship for --",
       "time": "00:27:23.23"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- exactly the same regardless of the --",
       "time": "00:27:24.57"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- and so we just treat them as one?",
       "time": "00:27:27.57"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When was that offer?",
       "time": "00:27:58.68"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:28:18.38"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it's what the pricing system, wasn't it? That -- I don't quite understand that you're reading the issues that the government laid.",
       "time": "00:30:28.94"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What about the pricing system?",
       "time": "00:30:37.51"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, did you provide that -- did the evidence show or was there a finding that there was a system under the which you would give people that equipment like Ned's to secure the (Inaudible)",
       "time": "00:30:40.95"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand you say that --",
       "time": "00:30:54.61"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But if you do it --",
       "time": "00:30:56.18"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- through the pricing system.",
       "time": "00:30:57.25"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was not based on the difference in cost but based on the fact --",
       "time": "00:30:59.24"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- that certain equipment this man had.",
       "time": "00:31:03.04"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You deny --",
       "time": "00:31:05.77"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the record shows it.",
       "time": "00:31:06.43"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was what they found wasn't it?",
       "time": "00:31:23.74"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you dispute that?",
       "time": "00:32:10.34"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Am I wrong, Mr. Chaffetz, in recollection that in an effort to show that it's a jobber classification, was not arbitrary and represented the bona fide --",
       "time": "00:33:30.77"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- scheme to transfer these -- made the distributive functions to jobbers who are willing to handle them that Standard said described its pricing policy as a pricing system?",
       "time": "00:33:42.15"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Am I wrong?",
       "time": "00:33:56.13"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They denied --",
       "time": "00:34:11.04"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When asking to present a meeting with the Chief Justice question, but before you sit down, I wonder if it'd be fair to ask you this question, to address yourself with this. What do you regard as the vital finding of the Commission against you and what reason do you offer by the Court of Appeals shouldn't have deferred to those findings? Before you sit down, if you'll deal with that --",
       "time": "00:34:12.94"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was -- that was the system, I think that you had.",
       "time": "00:37:08.17"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, that's what I mean. I don't --",
       "time": "00:37:13.12"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's -- that's not true here that you --",
       "time": "00:37:38.42"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But do you admit you saw that by admitting, do you not, that you did sell to Ned's cheaper than you sold to other wholesaler. Though --",
       "time": "00:37:41.67"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the people agreed to it.",
       "time": "00:37:48.02"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you just --",
       "time": "00:37:50.28"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- justified --",
       "time": "00:37:50.87"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- on the ground that you had to -- to meet --",
       "time": "00:37:51.65"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- low price.",
       "time": "00:37:55.00"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that's the one that's narrowed to now.",
       "time": "00:37:56.71"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "00:37:59.02"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why -- I don't quite understand you. I understand that you defended them and you still say that you had this factor, whatever you want to call it, under which you classified as jobbers, people whom they say are not going to try these jobbers, in the general sense. And that you sold to those people at a lower price than you sold to your other customers --",
       "time": "00:39:48.34"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) I'm trying to get just what the issues between -- what they say is, as I understand it, the argument if there's some findings at all that the evidence there is that you had this system or this -- this method, whether you followed it, to their a reference to everybody or just followed to the reference of a certain one is that you had to subtract nothing and that the other people picked up your method and competed with you on the basis of your method as given to these people they call jobbers, the same kind of price lower (Voice Overlap) --",
       "time": "00:41:31.78"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any evidence of whether Ned's sold cheaper?",
       "time": "00:42:47.00"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that on account of the discounts you gave him --",
       "time": "00:42:50.21"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- as his competitors did and the retail vendors?",
       "time": "00:42:52.78"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "00:42:56.06"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that unless you have a -- is that what you claim --",
       "time": "00:42:59.18"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- you did it in good faith to meet competitor's price within whatever meaning that you had, you have no defense doesn't it?",
       "time": "00:43:02.31"
     },
@@ -899,13 +899,13 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Have you -- if -- do you feel you've answered to Justice Frankfurter's question?",
       "time": "00:45:28.67"
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let me put it to you in a sentence.",
       "time": "00:45:34.75"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What are the crucial ground on which the Commission decided against you and to which the Court of Appeals did not refer?",
       "time": "00:45:36.45"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But they did (Inaudible) against it.",
       "time": "00:46:02.38"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm going to ask Mr. --",
       "time": "00:47:19.68"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- Pollock the same question. Do I infer from what you just said that the Commission held in effect that you had a generalized system which in and of itself was violated of the Act?",
       "time": "00:47:21.27"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We couldn't sit here and make --",
       "time": "00:48:29.52"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We couldn't sit here and pursue a prophecy whether or not you have customers anyhow. I don't think that that's an issue.",
       "time": "00:48:31.40"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm try to --",
       "time": "00:48:38.08"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You have mentioned one thing that found (Inaudible) it seems rather important to me in connection with the answers. As I understand it, the Commission has found that you used the classification of a jobber --",
       "time": "00:49:03.60"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- that was not a true classification. You called him a jobber when he wasn't a jobber. He was competing with retailers who were retailing and they say that from that, you can find that it was not good faith that he's been (Inaudible) for you to reduce that price, you didn't say anything about it. You never did say anything about it. You didn't tell your other customers. You didn't tell anybody that you were doing -- classifying this man as a jobber or not to correct it is illegal. You -- you put it on that basis rather than to meet prices of competitors --",
       "time": "00:49:16.64"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and you put it right and right or wrong --",
       "time": "00:49:50.04"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and when that happens on that basis (Inaudible)",
       "time": "00:49:52.39"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But one couldn't have found that that infers if that was your reason, even though you say none. If you have a -- which seemed on its face to be plausible, you'd classify them as a jobber, you gave him a special rate for that. Would they -- would they infer from that you're -- go get your cover-up (Voice Overlap) --",
       "time": "00:50:31.32"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Who was similarly situated.",
       "time": "00:51:31.29"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Pollock?",
       "time": "00:51:49.34"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you state succinctly what you consider the question of law to be?",
       "time": "00:54:38.66"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That to him is a question of fact, isn't it? At least in fact (Voice Overlap) --",
       "time": "00:54:56.43"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What?",
       "time": "00:55:01.81"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I -- I know, but --",
       "time": "00:55:05.78"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:55:08.69"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This isn't just an abstract question of law, is it --",
       "time": "00:55:10.70"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "On this situation.",
       "time": "00:55:16.91"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your opponent on the definition that you've given, your opponent says that you agreed beyond that proposition --",
       "time": "00:55:53.09"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 192,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That isn't the question.",
       "time": "00:55:59.15"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Before you do that, do you -- in answering the question, I want -- I'm sorry to interrupt -- you said they had a discriminatory system, if he does, what was that?",
       "time": "00:56:28.44"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind deriving it from a finding by the Commission as to what that system was?",
       "time": "00:56:52.00"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you told me I've got a commission.",
       "time": "00:57:06.29"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 200,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page is that?",
       "time": "00:57:10.61"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Ned's did not sell to -- to other retailers at all and just to his own chain?",
       "time": "00:58:20.56"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I ask you to this -- there's one more point?",
       "time": "00:59:15.15"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did the Commission find that classifying between a tank-car and a tank -- is then it sells from illegal classification?",
       "time": "00:59:18.33"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the fact of the cost-justification is a -- is -- is a classification on this record and the findings of the Commission of some customers of Standard as tank-car customers and others as tank -- what's the other one? Wagon customer.",
       "time": "00:59:41.48"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that classification in and of itself as spurious and therefore, an illegal classification.",
       "time": "00:59:58.70"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But nobody (Voice Overlap) --",
       "time": "01:00:07.78"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that nobody could get a tank-car price anyhow. Is that it? That's all -- and that's what it has to mean to mean anything.",
       "time": "01:00:11.39"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then you can -- then you say the whole of Ed -- Ned's -- is it Ed or Ned's? The whole --",
       "time": "01:01:13.90"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The whole Ned's story is -- is irrelevant. It's a red herring. Is that it? The whole Ned's story because no matter how true -- it doesn't make any difference, he couldn't be -- he couldn't be classified as a tank-car seller.",
       "time": "01:01:20.71"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A tank --",
       "time": "01:01:39.80"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But he couldn't --",
       "time": "01:01:42.84"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And it can't be -- he couldn't be classified. Nobody could be classified as tank-car seller.",
       "time": "01:01:46.91"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I just want to understand what you -- what -- what you're saying. Is that right? Nobody could be classified as a tank --",
       "time": "01:01:53.90"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you say that --",
       "time": "01:02:01.61"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The whole (Inaudible) that that classification is in inherent, too.",
       "time": "01:02:03.64"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Illegal.",
       "time": "01:02:08.20"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "01:02:09.24"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Pollock, may I ask you? And the slightest notion was the answer. May I ask you whether it would be violated with Robinson-Patman, to differentiate between a jobber, doing a jobber's business with -- in all its ramifications of independent jobber's business, and five or six, a number of retailers engaging in as it were a cooperative scheme merely for wholesale value.",
       "time": "01:05:40.52"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They must have function of discount to show that their price justification is wholly -- which would not exist if the -- if the retailers got together and formed a purchasing agency?",
       "time": "01:06:24.81"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Right.",
       "time": "01:06:40.96"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They will. That's what I thought.",
       "time": "01:06:47.26"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What -- and what constitutes a bona fide jobber's sale?",
       "time": "01:06:58.80"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "From your point of -- your argument wouldn't make any difference whether it was before or after, is that right?",
       "time": "01:08:36.09"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can I ask you one more question? Mr. Chaffetz indicated that this case really centers around the axis of the case of Ned's, or whatever the phrase was. Now, suppose only Ned's were in the case, would the record show that seduction was -- the process of seduction had began against Ned's and this is a response to that attempted seduction.Would that be within or without this?",
       "time": "01:10:15.09"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Just forget the other three.",
       "time": "01:10:42.09"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What I meant is on -- on your statement, would the whole thing fall or could Ned's be -- could the Ned's discrimination so-called survive?",
       "time": "01:11:25.59"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you -- do you -- would Mr. Chaffetz's statement both accurate and well-balanced in the picture he gave us of how they held out against Ned's in a kind of a yield instead of accurate conveyance. I don't mean to say he wouldn't be otherwise if --",
       "time": "01:11:54.20"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- it purposely (Voice Overlap) --",
       "time": "01:12:11.43"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Inaccurate.",
       "time": "01:12:15.50"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if Ned's told the court --",
       "time": "01:12:38.63"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but isn't he right in saying what you and I, certainly I might (Inaudible) what was it? The Red Wing. That was the Fleet-Wing.",
       "time": "01:12:40.72"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not very -- not a very magnetic name, but that's -- I never heard of it. But if he thought he could get away with Red Wing sales to -- to you and the rest of the people who drive up to get some gas, wouldn't that be sufficient? If he thought that -- that he could --",
       "time": "01:12:49.05"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- replace Standard with Red Wing --",
       "time": "01:13:06.60"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "01:13:08.89"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's what I'm asking you.",
       "time": "01:13:14.05"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not the system, but as to Ned's.",
       "time": "01:13:24.70"
     },

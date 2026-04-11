@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/59/19561210a_59_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STANLEY REED",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "GEORGE J. ENGELMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REED",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM A. WILSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 59, Henry Ferguson, Petitioner, versus Moore-McCormack Lines, Incorporated. Mr. Engelman.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is no cause of action for unseaworthiness.",
       "time": "00:01:17.67"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Engelman, one of the things that puzzle me. In your brief, you say there was uncontradicted proof showing that the tempering chest was not in proper order and your opponent says there's no proof whatever.",
       "time": "00:11:09.52"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm wondering where the record shows which of you is right on that.",
       "time": "00:11:24.28"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:11:30.50"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, don't take time from your argument.",
       "time": "00:11:31.79"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Is -- is there a testimony in regard to the character of other implements that were there by which the ice cream haven't been gotten out?",
       "time": "00:11:57.61"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you claim that the rule in this respect under a Jones Act case is different for what it is in an ordinary negligence action? Foreseeability is not an element of that -- a cause of action under your Jones -- the Jones Act case.",
       "time": "00:19:37.77"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, your point is that a -- this ice cream pick was just as essential to the proper equipment to the ship as a life boat. That's --",
       "time": "00:21:27.65"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- that's the premise of your position.",
       "time": "00:21:37.48"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Wouldn't you reach the same result in a hotel on the shoreside?",
       "time": "00:21:40.53"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was there any other evidence that the ship's equipment, the galley equipment, it included an ice cream pick at any time in its maritime --",
       "time": "00:22:43.62"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "The negligence, would it be necessary to furnish an ice pick, is that the only implement that would've satisfied due care here?",
       "time": "00:22:59.61"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Ice picks wouldn't do?",
       "time": "00:23:24.52"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Don't they have any ice on the board?",
       "time": "00:23:29.31"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, who was his immediate supervisor, the chef?",
       "time": "00:24:31.67"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "You really go back to the ice cream being too hard to serve --",
       "time": "00:24:40.92"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "-- and being too hard to serve, he shouldn't serve it if he hadn't got the equipment.",
       "time": "00:24:45.26"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Was this with the FELA case?",
       "time": "00:26:08.14"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Wasn't it an inadequately equipped ship?",
       "time": "00:26:19.96"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "In the earlier case.",
       "time": "00:26:25.58"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Unseaworthiness?",
       "time": "00:26:36.43"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you stand and fall on that? In other words, supposing we disagree with you as to the applicable rule of law.",
       "time": "00:27:48.60"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Voice Overlap) decision all right then?",
       "time": "00:27:57.91"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What -- what is that case, Mr. --",
       "time": "00:35:31.89"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, is this a foreseeability case or is this a case of negligence for freezing the ice cream too hard?",
       "time": "00:39:56.59"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well then, do all the circumstances have to be foreseeable as to freeze the ice cream too hard, like the sharp knife where the steward would -- would pick up a sharp knife?",
       "time": "00:40:13.07"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "You don't think it was negligence to have a hard ice cream?",
       "time": "00:41:00.97"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But if they hadn't conditioned it, the negligence was not conditioning it before they went to serve it.",
       "time": "00:41:19.38"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Wilson.",
       "time": "00:49:04.19"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I ask -- may I ask how that particular citation helps your case? Would you mind stating it please?",
       "time": "00:59:16.54"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The point which -- that you've read.",
       "time": "00:59:26.49"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If you please.",
       "time": "00:59:29.32"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The District Court could leave it to the jury only on the basis of negligence.",
       "time": "01:00:40.82"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Here, in this case.",
       "time": "01:00:45.80"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Before you take that case up, what -- what do you think is the negligence that's -- that's charged against your client?",
       "time": "01:01:07.73"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:03:04.98"
     }

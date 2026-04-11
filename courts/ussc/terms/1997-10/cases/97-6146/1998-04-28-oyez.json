@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1997/97-6146/19980428a_97-6146.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "CLIFFORD GARDNER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DAVID F. GLASSMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "MATTHEW D. ROBERTS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 97-6146, Angel Monge v. California. Spectators are admonished do not talk until you get out of the Courtroom. The Court remains in session. Mr. Gardner.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could you in other States, or is that a peculiarity under California law, or is this just a rule of finality that prevails, you think, in most jurisdictions? You just... no way to reopen it?",
       "time": "00:01:33.55"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Newly discovered evidence, can't you--",
       "time": "00:01:46.39"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But any number of collateral attacks might be possible.",
       "time": "00:01:57.49"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, does California have... in your first hypothetical, assuming you lose and you find there was something wrong, there was not really a prior conviction, there's no motion to modify the sentence? After the court has affirmed the conviction, the man has served for a year, and all of a sudden we find out that the three strikes isn't right, he can't go into the superior court in the State of California and ask for... to modify the sentence?",
       "time": "00:02:21.43"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And of course the State can't collaterally attack the sentence. The State is bound by what happens on direct review.",
       "time": "00:02:47.14"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the State, there's simply no proceeding available. If, say, the jury acquits your client there's no proceeding available whereby the State could appeal and say, probably because of double jeopardy, that this was a wrong result.",
       "time": "00:02:57.58"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, of course, it's not just a judgment... you're saying that a judgment of acquittal is the same thing as a sentencing determination.",
       "time": "00:03:30.44"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I hope you will, yes.",
       "time": "00:03:55.72"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well now, historically I guess we have not thought that sentencing aspects are covered by the Double Jeopardy Clause for most crimes, have we?",
       "time": "00:04:18.35"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if there were a judge imposing a sentence in a case and imposes it and then the defendant who is sentenced appeals on the ground that the judge imposed a sentence not authorized by law and prevails, then I suppose it would be remanded for resentencing.",
       "time": "00:04:32.19"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You wouldn't be arguing double jeopardy here.",
       "time": "00:04:53.77"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:05:05.75"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you say that this is different because of the special procedures that California employs in the context of this sentencing.",
       "time": "00:05:08.15"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "California was foolish to provide those protections. You're saying California should have simply left it up to the judge to find those aggravating factors by a preponderance of the evidence, and in that case if the judge was reversed you'd be able to send it back and have it found again, right?",
       "time": "00:05:27.36"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But your argument is so counterintuitive, that the more protection the State gives to the defendant the worse shape the State is in as far as being able to resentence if it's overturned on appeal. Why do you want to punish the State for being more concerned about the prisoner's rights, and instead of letting the judge find it by a preponderance, saying, we're going to insist that it be found by a jury beyond a reasonable doubt?",
       "time": "00:05:57.32"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't think of that. [Laughter]",
       "time": "00:06:30.76"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But are you accepting... you are accepting that California, unlike the death situation where there has to be a procedure to present the mitigators and the aggravators and... that for this kind of sentencing it isn't required to have a trial-type hearing at all?",
       "time": "00:06:36.28"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're conceding that?",
       "time": "00:06:54.64"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But why is the State locked into two models? Why can't a State say, look, we want to give him some kind of hearing, but we don't want it to be... we don't want to get into the Bullington mode, so are you really saying that as a matter of constitutional law the State is frozen into that stark choice?",
       "time": "00:07:30.45"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Either give him no hearing, or give him the full-dress hearing with the double jeopardy?",
       "time": "00:07:51.89"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But this isn't exactly one or the other, is it, because although you said in a conclusory way a moment ago that this, in fact, is the choice of the trial model, there are at least two respects in which it's different from the usual trial model and different from what was involved in Bullington. Number 1, although in one respect there is a so-called binary choice here, the binary choice nonetheless operates in the sentencing proceeding in which there is the traditional judicial discretion to set the base sentence upon which the binary... the multiplier will be applied and number 2, as I understand it in this case the State has an appeal which the State does not normally have in the traditional model, so we're somewhere in between, it seems to me, here.",
       "time": "00:08:19.13"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And in fact I... perhaps I didn't speak properly on that. The discretion is even greater than that, isn't it? I mean, is it the judge or the jury that can decide for policy reasons that in fact the so-called strike scheme shouldn't apply? One of them can.",
       "time": "00:09:19.27"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... even beyond sufficiency of evidence, isn't there also a discretionary element somewhere?",
       "time": "00:09:51.02"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. That's a much broader discretion than we find in any trial.",
       "time": "00:10:16.15"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Normal trial scheme.",
       "time": "00:10:21.34"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Don't worry, I don't regard it an insult. [Laughter]",
       "time": "00:10:27.27"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean, if someone is charged with armed robbery and the case is proved and so on the judge can say, well, I think in the interest of justice this should be dismissed?",
       "time": "00:10:47.74"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Really.",
       "time": "00:11:00.37"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, so we're back to my original two. I put you off your argument. We're back to my original two, the two distinctions from the normal--",
       "time": "00:11:02.00"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Okay. Fair enough. I said there's discretion in the sentencing function in deciding, sort of the basic sentence to which the multiplier will be applied, and secondly there's a State appeal.",
       "time": "00:11:11.63"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, so in fact you're-- --In... go ahead. I was just going to... you're arguing for something a little different, I guess, from what was involved in Bullington, because I thought... I thought in Bullington the sentencing proceeding was regarded as one, in effect, unitary proceeding, and you're now saying, well, there are two subparts of the sentencing proceeding. Double jeopardy applies to one but not to the other. May I--",
       "time": "00:12:07.09"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I... excuse me. I thought you were through with your answer. May I ask you, if you can do it in just a sentence or two, because I don't want to take too much of your time, to state the argument you would have made if we hadn't decided Almendarez the other way a few days ago?",
       "time": "00:12:46.42"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it cannot be imposed unless this critical finding is made by the fact-finder.",
       "time": "00:13:19.04"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gardner, even though Almendarez-Torres has been decided, isn't it possible... all that said is that recidiv... it doesn't say that recidivism laws must be nonelements. It just says that they may be, and isn't it open to us to find that even if the State calls it a sentencing enhancement, if, in fact, it is treating it with a separate jury trial beyond the reasonable doubt finding and what-not, in fact it's not just a sentencing enhancement. In fact, the State is treating it as an element of the offense, and if it is an element of the offense, then by reason of normal double jeopardy principles and not the invention of some new double jeopardy application to things that aren't elements of the offense, your client would be entitled not to be tried again.",
       "time": "00:13:24.44"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't think you made the argument... no, you've never come out and confronted the State and said, even though they say it's an enhancement, it's not an enhancement, it's actually an element.",
       "time": "00:14:15.92"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, what's your authority for those three propositions?",
       "time": "00:14:48.71"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:14:54.97"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you're not relying on any one case, then?",
       "time": "00:15:02.20"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but what do you do with a due process case like North Carolina v. Pearce?",
       "time": "00:15:36.75"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Pearce says you can get a tougher sentence on resentencing.",
       "time": "00:15:47.62"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's not the only difference. Pearce also didn't involve a sentence that... a fact that increased the sentence to which the defendant was exposed. It was all within the range of the original crime.",
       "time": "00:16:04.74"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's crucial, that if you're going to say, even though this looks like an enhancement, it smells like an enhancement, it's not an enhancement. It seems to me you have to say not only because we gave it a jury trial, but also because the effect of the fact found is to increase the criminal liability of the individual.",
       "time": "00:16:22.98"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Wait a minute. I don't understand. Why isn't... this charming book is the Sentencing Guidelines. Let's imagine that... Federal... it has, let's say, 800 or 1,000 different factors. Why, in your view, is it the case that all of these findings that the judges make, of course, are yes or no. I mean, they did it or they didn't. There's a lot of enhancements in there and, moreover, the judge makes it, and then the person's exposed to higher punishment. In your view the Double Jeopardy Clause apply to each of those?",
       "time": "00:16:42.08"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why not?",
       "time": "00:17:10.07"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, so if, in fact, this book had been enacted by Congress rather than delegating the power to the agency, i.e., the commission, then in your view the Double Jeopardy Clause would apply?",
       "time": "00:17:20.75"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then I don't understand.",
       "time": "00:17:34.34"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't think you did. I'm trying to understand why not.",
       "time": "00:17:37.18"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It says in the statute... it says in the statute, say, zero to 20 years, and within that, these are factors, and you're saying it's the zero to 20 years that makes the difference.",
       "time": "00:17:51.82"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:18:04.72"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What else?",
       "time": "00:18:05.91"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that has never been decided, I mean, I think in this Court. In this Court it hasn't. The... all right, hall... all right. Now, in California, my understanding is that California did try to adopt a system that they intended to be like the Sentencing Guidelines, but instead of doing it through delegation to a commission, what they did is the set of statutory provisions that we have here. They give three choices, they... you know, they have low, medium, and high, they build all the things into the statute, just as... that's my correct understanding, isn't it?",
       "time": "00:18:13.79"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So why, if this is constitutional, should the effort to... without double jeopardy, why should the effort of the State legislature to do roughly the same kind of thing through a set of statutes suddenly expose a person to double jeopardy?",
       "time": "00:18:45.91"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you tell me-- --Mr. Gardner, you don't think that this Court would have permitted judges to participate in the drafting and promulgation of the guidelines if they were functionally the same as legislation, do you?",
       "time": "00:19:28.35"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You don't think that's relevant to this case, do you?",
       "time": "00:19:48.83"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "May I ask you this. Going to the discretionary law, the trial judge says, I've weighed all of the factors and I'm giving you a sentence of 5 years, 4 years later, after he has only 1 year left, under a State procedure it comes back before the trial judge, he says, I've changed my mind. I think I was wrong the first time. You really should have 8. There's no finality? There's no double jeopardy?",
       "time": "00:19:54.72"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no. It's final, but the judge just said, I'm going to retain jurisdiction in this case to think about this a little longer, and he waits 4 years.",
       "time": "00:20:35.94"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I'm assuming that you have some State procedure where this happens. I'm trying to ask whether or not there... double jeopardy doesn't have, in your view, some component of finality, so that the defendant is not subject to the anguish, the agony of having to go back before a sentencing judge and think he might get more.",
       "time": "00:20:46.04"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Gardner, it would help me to put a little flesh on these bones and to tell us exactly what was the proof deficiency here. It's a little fuzzy. I mean, it was a prior conviction based on a guilty plea, right?",
       "time": "00:21:30.96"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "To a crime called what, assault with a deadly weapon?",
       "time": "00:21:45.46"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't that charged as part of the indictment in that prior crime?",
       "time": "00:22:17.32"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:22:25.30"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What would it have taken to supply the deficiency? It was something about there only being four pages, or... I forgot exactly what it was, but I was trying to figure out where the prosecutor slipped here. It didn't--",
       "time": "00:22:33.37"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes.",
       "time": "00:22:49.85"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And where would that document, documentation have come from?",
       "time": "00:23:05.48"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's in the record of conviction, the transcript of the evidence?",
       "time": "00:23:23.42"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Which this was. This was a guilty plea, so I... there were some pieces of paper that were missing, right, that the prosecutor didn't put in, and if he had put in those pieces of paper there would have been no problem, is that right?",
       "time": "00:23:31.38"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Were they records of the very court that we were dealing with, or was there some other court?",
       "time": "00:23:49.81"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it can't be easily proven if there's a presumption of innocence that applies. You presume a man's innocent till there's evidence to the contrary, and there's no evidence to the contrary here.",
       "time": "00:24:16.15"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you're saying there was proof of a prior assault, that there was proof of that.",
       "time": "00:24:25.83"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about the fact that the lawyer didn't contest it? I mean, the lawyer didn't say, he didn't personally use it. The lawyer said, a stick isn't a deadly weapon, so no one's... no one's... there's a charge, assault with a deadly weapon. It's introduced by the State as a... the... you know, to satisfy the requirement, which is what, assault with a deadly weapon that you use personally?",
       "time": "00:24:42.87"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And then there is no objection on the ground of personal use. There's objection only on the ground that a stick isn't a deadly weapon, so why... I never understood why, given that circumstance, the California intermediate court could have held that there wasn't enough evidence.",
       "time": "00:25:04.37"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:25:19.19"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it was... it was a single defendant case. I mean, that much was established, right?",
       "time": "00:25:41.19"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But what was introduced into evidence, the issue is whether there was an assault with a deadly weapon, is that right?",
       "time": "00:25:56.07"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Personally used a weapon. Now we have the following. He was convicted of assault with a deadly weapon. That's introduced. Second, the weapon involved was a stick, and now the question is, those two things, do they permit someone to conclude that he personally assaulted a person with a deadly weapon, particularly because nobody denies it.",
       "time": "00:26:05.12"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, you have those three things--",
       "time": "00:26:25.06"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But... so what exactly was presented? It was more than a guilty plea to... there was more information that simply that the defendant had pled guilty to assault, is that not so?",
       "time": "00:27:13.94"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does it take four pages to say--",
       "time": "00:27:40.04"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And there would be no description of the crime beyond assault?",
       "time": "00:27:58.18"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And there was an objection to that evidence being insufficient at the sentencing?",
       "time": "00:28:23.80"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gardner. Your time has expired. Mr. Glassman, we'll hear from you.",
       "time": "00:29:14.21"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Would you agree, then, that it would be a limitation, based on the rule as we would understand it, if we go back to Bullington?",
       "time": "00:29:53.02"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I don't see how you can say that in the light of DiFrancesco, because DiFrancesco wasn't a capital, and if it had been the capital versus noncapital character, DiFrancesco would have been distinguished right then and there. On the other hand, that isn't what this Court did. This Court distinguished it on characteristics of the sentencing proceeding, so it seems to me that at least through DiFrancesco that's not the way we were viewing it.",
       "time": "00:30:06.60"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your position is that it was Bullington that was a departure from the line of cases like Stroud.",
       "time": "00:30:49.39"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one question, Mr. Glassman? This case happens to involve an enhancement because of a prior act of the defendant that was not actually proven. If the enhancement had been based on the use of a gun instead, would your argument be precisely the same?",
       "time": "00:31:08.96"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me you could answer the argument yes or no, and I'm not quite--",
       "time": "00:31:39.35"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I want to be sure I get what your answer is.",
       "time": "00:31:42.27"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what I thought.",
       "time": "00:31:46.55"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, you don't rely on the fact that it... this might be characterized as a recidivism case, as distinct... as... with any special weight in your argument.",
       "time": "00:31:51.10"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, but if you relied just on that, and we only decided that, then it would leave open the question whether your statute would be valid as applied to use of a firearm, for instance.",
       "time": "00:32:10.11"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, and the--",
       "time": "00:32:29.71"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And the question that's missing here is he was not proven to be guilty of precisely what needed to enhance, and in another example he might not have been proven guilty of using a firearm, if you call it an element of the offense rather than an enhancement.",
       "time": "00:32:31.60"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, before you get back into the facts... I would like to hear your view of it, but it seems to me you've overstated what we've held. We haven't held that recidivism does not raise double jeopardy concerns. We have held that if a recidivist statute is not an... is not an element of the offense, if it treats recidivism as an enhancement, that is constitutional, but we haven't said that every recidivism statute is automatically an enhancement, nor have we ever said that for purposes of the Federal Constitution, it is an enhancement simply because the State chooses to call it an enhancement. And what you have here is a situation in which the State calls it an enhancement, but both its effects and the trappings with which the court surrounds it do not look... it doesn't walk and talk like an enhancement. It's just called that.",
       "time": "00:32:59.05"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you wouldn't deny, would you, that if, in fact, the existence of the three pre-existing felonies, if the fact that they exist of a certain sort or not, if each of those were an element of the offense, then I take it you would not deny the applicability of the Double Jeopardy Clause. If the offense were the offense of the underlying ones, plus felony A, plus felony B, plus felony C, that's called superoffense. Under those circumstances, I take it the Double Jeopardy Clause would apply. That's not a hard question. I mean, the answer's yes or no.",
       "time": "00:34:45.89"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. I think it would be yes, too. Has anyone in this case at any level ever argued that these extra three elements are... the three felonies are, in fact, elements of the offense?",
       "time": "00:35:27.29"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know he's... I know what he's arguing, and I asked him if he-- --Justice Breyer asked you a question that I think could be answered yes or no.",
       "time": "00:36:00.86"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I asked you, has it ever been argued that these three things, the three extra felonies of a certain kind, their existence, that the need to have them is an element of the offense?",
       "time": "00:36:08.99"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm asking if in this case--",
       "time": "00:36:22.36"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--It was not argued. Thank you.",
       "time": "00:36:26.02"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And now you were going to tell us what this deficiency in the evidence was and how that deficiency could have been supplied.",
       "time": "00:36:27.18"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The court file that you refer to is something different than what Mr. Gardner referred to as the four-page thing?",
       "time": "00:37:39.44"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you arguing that the evidence was sufficient to sustain the trial judge's sentence?",
       "time": "00:37:56.24"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you're not asking us to review that, are you?",
       "time": "00:38:06.45"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By State courts, by... we second-guess the State court on its application of its own law to the facts in the record here?",
       "time": "00:38:13.33"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr.--",
       "time": "00:40:57.54"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I think Justice Souter wanted to ask you-- --I was just going to say yes, but there are points on the other side, too, and the points on the other side is that it's a fact that must be charged, it's a fact which is historical in nature as to which the jury has to say yes or no, it's a fact that has to be proved beyond a reasonable doubt, and these in fact are very trial-like determinations. They're very element-like determinations. So it seems to me that it's difficult on your side for that reason to say, we can draw an easy categorical distinction.",
       "time": "00:40:59.55"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, do you take the position that in California, for example, Bullington wouldn't apply because the sentencer can always say, well, for reasons of justice I'm not going to apply this?",
       "time": "00:41:57.45"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you're certainly right there. Going back to an earlier colloquy, if the argument had been made here that in fact that was an element because... for the reasons I just ticked off, it seems to have some element characteristics, would you agree that there might be a reason for... a very good reason for coming out against you, not on the Bullington reason but, in fact, on the reasoning that what is really being charged here is an element, whether it's called that or not, so we might get the Bullington result for a different reason?",
       "time": "00:42:45.08"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So there's just... then you're saying there's just... there's always a categorical distinction between offense and sentence except in the capital area.",
       "time": "00:43:30.46"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mm-hmm.",
       "time": "00:44:01.75"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We even... our terminology even suggests that. We speak of innocence of the death penalty as though that particular penalty were a substantive offense. We never speak of innocence of any other sentencing factor, just innocence of the death penalty.",
       "time": "00:44:26.25"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Teague doesn't apply to a case coming from a State court, Mr. Glassman.",
       "time": "00:45:51.48"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Although they may elevate it to being an element of the crime, in which event they would elevate it to all the other things.",
       "time": "00:46:57.97"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Although the point's been made that that argument was not presented.",
       "time": "00:47:06.09"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But why can't I answer the question that way? The question presented is, does the Double Jeopardy Clause apply to noncapital sentencing proceedings that have all the hallmarks of a trial on guilt or innocence? Why can't I answer that and say, yes, when those hallmarks in their context demonstrate that what was at issue was an element of the crime? Isn't that a fair way to answer the question presented?",
       "time": "00:47:17.11"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why is it a fair element if it's not in the case, elements of the offense? Why is it a fair reading if the issue of elements of the offense is not in this case?",
       "time": "00:48:07.61"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:48:18.68"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Glassman. Mr. Roberts, we'll hear from you.",
       "time": "00:48:24.47"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it can be. I mean, you say... what was the last part of it, that the consequences are just as severe as the consequences on guilt or innocence?",
       "time": "00:49:15.40"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Invariably. Well, okay. Not invariably, but in some cases the so-called enhancement factor can up the ante on the sentence tenfold.",
       "time": "00:49:26.66"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it did apply... I'm not certain of the answer to this. I'm having... suppose that you lost this case. Is the consequence of it... I can see the consequence of it would be that when a person appealed and lost on appeal on the ground of insufficient evidence, you couldn't... you're stuck with that. Is there any other consequence?",
       "time": "00:50:20.07"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They are anyway, aren't they, under collateral estoppel, or not? I mean, if a State tried to punish a person again, say for a somewhat different crime, but there was a factual issue that was identical, the same issue, aren't they bound by it, or not, to litigate it between the two parties?",
       "time": "00:50:52.11"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I mean... you know, I mean, what happens if, in fact, they have another trial, another punishment, another sentencing phase on a different matter, and it turns out that there's a factual issue that's identical, the very same fact?",
       "time": "00:51:24.92"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but don't all the States... do they, or not? How does it work?",
       "time": "00:51:37.25"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The State loses the first time in the sentencing proceeding, where the issue is what happened on the night of July 5, 1988, at 6:00 in the morning, did he have a gun or not, and then he commits another crime, and in sentencing it becomes relevant again, and the State isn't bound, they can bring it up again, try and get him again?",
       "time": "00:51:55.25"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do you think there's a Due Process Clause issue there?",
       "time": "00:52:27.64"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, DiFrancesco talked about an expectation of finality, and pointed out that there the defendant knew that there was a proceeding where the sentence could be appealed and that there might be more hearings, but if you have a procedure in which the sentence is final, the appellate court affirms the sentence, and then there's some proceeding, new proceeding to reopen it, it seems to me that that does maybe indicate that an expectation of finality is being disappointed. That's not this case, I don't think.",
       "time": "00:52:41.23"
     },
@@ -1591,13 +1591,13 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Roberts. The case is submitted.",
       "time": "00:54:55.49"
     },
     {
       "turn": 258,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:54:58.48"
     }

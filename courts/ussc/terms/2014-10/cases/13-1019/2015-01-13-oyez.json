@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2014/13-1019/20150113a_13-1019.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "NICOLE A. SAHARSKY",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 13-1019, Mach Mining, LLC v. the Equal Employment Opportunity Commission. Mr. Goldstein.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "At -- at first, I thought this was an Overton Park case committed by law to agency discretion. But then I couldn't find many cases in the government's brief to support that, so they have a different theory, and that's more their problem than yours. On the other hand, it seems to me that Judge Hamilton in the Seventh Circuit said it's hard to imagine more discretionary language than Congress used here, \"Shall endeavor to eliminate the unemployment practice by informal methods of conference conciliation and persuasion. \" That seems to me that those are very difficult words for your position.",
       "time": "00:00:34.90"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, it's kind of an odd conciliation, isn't it? This is -- EEOC is supposed to try to settle the matter. But there is no mutual obligation on the other side. There's no obligation at all on the part of the employer to cooperate to do anything.",
       "time": "00:03:06.41"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, but at the same time, Mr. Goldstein, and this really follows up on Justice Kennedy's question, the statute makes entirely clear that the EEOC has the prerogative to decide what kind of offer by the employer is acceptable or not. And there's nothing to suggest that the EEOC even has to be reasonable in determining what sort of offer by the employer is acceptable.",
       "time": "00:04:22.26"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let's not skip over the time provision as irrelevant so quickly. Because it's the 30 -- days 30 days -- EEOC can sue within 30 days of the charge; isn't that right?",
       "time": "00:05:15.27"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So Congress couldn't think that this was any kind of an onerous requirement if all they have is 30 within 30 -- days they can say, okay, we told them that that -- that what -- the complaint is, they didn't come up with anything and so end of conciliation.",
       "time": "00:05:29.50"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Goldstein, if I understand your argument, you're saying that there is an obligation to conciliate, but that obligation does not have to be pursued in good faith.",
       "time": "00:06:44.17"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that the -- even if the Commission enters upon a conciliation process, you think that the outcome of that is reviewable?",
       "time": "00:06:57.38"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That was my question.",
       "time": "00:07:26.11"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It can declare when the finish line is, but it can do that in bad faith.",
       "time": "00:07:27.08"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. You're saying yes, it can do that in bad faith.",
       "time": "00:07:32.33"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it can say that in bad faith.",
       "time": "00:07:38.36"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, is it correct or not correct?",
       "time": "00:07:45.60"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because I don't understand your argument.",
       "time": "00:07:46.72"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So fair application of the statute is reviewable, so that the proper -- I mean, we're just quibbling over, you know, how bad it is, that's right.",
       "time": "00:08:14.70"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it is true that you -- you do not -- I think I'm correct in this -- reach out and try to incorporate the existing law on good faith bargaining in the labor context or there are many contracts which have good faith clauses and that the courts have tremendous difficulty with that. And if you had argued that, we would have said, oh, well, this is a morass.",
       "time": "00:08:42.33"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it seems to me that that's you're safest harbor.",
       "time": "00:09:05.34"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you've already -- you recognized in in the prior exchange that there -- this is nothing like bargaining. Bargaining is reciprocal. Both sides have a duty to bargain in good faith.",
       "time": "00:09:08.82"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Here there is no duty at all on the part of the employer. It just says EEOC tried to conciliate.",
       "time": "00:09:21.69"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, it's unusual enough that there's a huge split among the circuits as to how to define what they're reviewing. I can't find any consistency among more than about two of them. And so I go back to -- I know you say you've cited cases about the imperative of judicial review, but on the administrative level, it's after a final action. This is not a final action.",
       "time": "00:09:57.89"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, well, I agree with you. But I'm trying to find something analogous and there isn't. But I don't know how you make something that's designated by Congress as informal into a formal proceeding.",
       "time": "00:10:27.18"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, can we take take this case?",
       "time": "00:11:02.99"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The EEOC did send a letter saying--",
       "time": "00:11:05.28"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--give us a call. And the charge here is the employer violated Title VII because he outright refused to hire women. And there is lots of evidence of that. There are no women working there. They build a new facility; they don't have a women's bathroom in it. They hire people that are recommended to them by the current employees and the current employees are all male and recommend all men. Now, what -- what was the EEOC to conciliate about?",
       "time": "00:11:08.94"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wouldn't the employer have to come up and say something like, okay, we'll -- we'll agree that we'll hire women?",
       "time": "00:11:42.79"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I ask something about this?",
       "time": "00:12:37.98"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Conciliation I thought would be conciliation between the complaining parties and the employer.",
       "time": "00:12:39.53"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But and that's wrong?",
       "time": "00:12:48.36"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Between the EEOC and the employer?",
       "time": "00:12:52.01"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So even if the complaining party is willing to accept $500,000 rather than a million, if the EEOC says a million, the EEOC is conciliated.",
       "time": "00:12:55.82"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, no. Under the law, you tell me it is conciliated.",
       "time": "00:13:09.41"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Goldstein, could we talk about that confidentiality provision? Because in addition to just the enormous discretion that this statute gives to the EEOC, the other thing that tends to work against you is this thing: Nothing said or done as part of these informal endeavors can be used as evidence in a subsequent proceeding.",
       "time": "00:13:47.66"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And your entire position would have all the stuff about this conciliation come in as evidence in a subsequent proceeding, which is to say, come in as evidence in the litigation of the lawsuit.",
       "time": "00:14:08.91"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I'm just saying as a matter of fact--",
       "time": "00:14:32.83"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--there is discretion in the sense that the statute clearly gives it to the EEOC to decide what's acceptable in the end.",
       "time": "00:14:34.08"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes. But you yourself are making this part of the case. You're essentially saying that the EEOC has to come in and prove that it conciliated in good faith or whatever term you want. So it's become now, by virtue of your own argument, part of the case. And how is that to be part of the case and how is all this to happen unless the informal what's said and done in the informal endeavors come in.",
       "time": "00:15:09.62"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I don't even understand that distinction. You're making it a part of the merits.",
       "time": "00:15:43.30"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I would have thought that the point of the provision is very clear. It's the same point as anything which says when you're involved in settlement negotiations those stay in settlement negotiations, and it's to protect the settle -- the integrity of the negotiations.",
       "time": "00:16:59.92"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You left out one person.",
       "time": "00:17:18.25"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The complainant. As I understand it, to break the confidentiality all the participants have to agree. And the employer might agree, but the employee hasn't been heard from.",
       "time": "00:17:19.90"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if it is confidential, that is plain in the statute.",
       "time": "00:18:12.83"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it's your position that the courts that have held that the proceedings are under seal or they're secret proceedings are just irrelevant; we don't need to be concerned with that?",
       "time": "00:18:26.71"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There are or there aren't?",
       "time": "00:18:37.41"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Because they consider it -- and I think you can't quarrel with it; this is what Congress intended -- as a highly informal proceeding. They don't want a -- a bunch of procedural regulations.",
       "time": "00:19:26.21"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what about that? That's what I -- I mean, in my mind, of course, there should be judicial review. There is of everything just about. But the issue is how much.",
       "time": "00:19:52.06"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, what's your view on that? Because as I -- we just had a case where when an IRS official wants to subpoena some material, all he has to do is say it's in good faith. Ah. But there could be an unusual case where we want to get more than that affidavit.",
       "time": "00:20:01.48"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So we wrote an opinion, and probably you've read it, and we said, well, judge, yeah, if it's unusual and you really have some thought here that the IRS is in bad faith, you can go a little further. Well, that seems to me to be the kind of thing that would apply here.",
       "time": "00:20:19.85"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And then -- okay. So you're perfect satisfied. I take it the closest to this is the Fourth, Sixth, and Tenth Circuit, a minimal showing of good faith, that's the end of it, but you're never going to say never.",
       "time": "00:20:34.32"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's what your -- well, maybe there will be agreement on this.",
       "time": "00:20:48.91"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Aha. You're going a bit further.",
       "time": "00:21:10.45"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe that's confidential. I don't know. Minimal good faith? Hey, I have an affidavit, I'm in the agency, I sign it. We called him, he came in, we discussed the matter, I tried to persuade him--",
       "time": "00:21:24.32"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and he's not persuaded. Thank you very much. In the absence of some -- in the absence of some showing that there is something like we tried to get a bribe or something, goodbye.",
       "time": "00:21:36.12"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's at the moment what I have in mind. So what -- what is it--",
       "time": "00:21:51.43"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I -- I think your response is persuade him about what?",
       "time": "00:21:56.39"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He tried to persuade him about what? If you didn't even make an offer, there was nothing -- to what, persuade him not to commit suicide?",
       "time": "00:22:00.02"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, we didn't persuade him about not to commit suicide. What we did is we tried to persuade him that our suggestion that you reinstate the individual, whatever it was, is a sensible way to go.",
       "time": "00:22:08.69"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it'll be good for him and good for the company. You understand.",
       "time": "00:22:23.55"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Goldstein, can I -- can I stop a moment?",
       "time": "00:22:29.15"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If the inquiry is about what happened--",
       "time": "00:22:31.47"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--at -- at the hearing--",
       "time": "00:22:35.11"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--At the conciliation. I misspoke.",
       "time": "00:22:39.42"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Okay. It seems to me, though, that that may be what you're arguing now, but if we look at the record below, first you didn't want to waive confidentiality. You then put in a set of interrogatories that demands to know what the EEOC -- who the EEOC contacted, how they measured their damages, and a bunch of other stuff, still not waiving confidentiality. This new thing of yours that says if you challenge it when I make a motion, then I can disclose it. I think what Justice Breyer's getting to is, you know whether someone conciliated or not. You can say exactly what the EEOC did or didn't do or failed to do. But instead, you want a whole discovery process attached to this. And that's my problem here--",
       "time": "00:22:41.25"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--which it's very simple for you to come in and say, we called, we asked to meet, they wouldn't meet with us.",
       "time": "00:23:35.22"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No, no, no, no. I don't want to know what you want. I want to know what happens because that's the only way I can judge whether there was good faith.",
       "time": "00:23:47.67"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So if you walked in and said, I'm not going to listen to you until you give me A, B, and C, I might say you weren't acting in good faith.",
       "time": "00:23:55.21"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you'd have all of the discovery and the conciliation process in 30 days.",
       "time": "00:25:03.54"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That -- that's basically what you want to -- to have.",
       "time": "00:25:09.72"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Saharsky.",
       "time": "00:25:50.30"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Ms. Saharsky, let me just ask you a simple question. You send a letter, they call you, and you say, don't want to talk to you, hang up. 30 days later, you send the letter that you send routinely that says conciliation failed. How do they get a court to review that under your theory of the case? Because you say the only thing the court can review is whether conciliation was offered and whether it ended. So here it was offered, but we're not even talking about good faith. You just say I'm not going to.",
       "time": "00:26:16.64"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "\"You\" meaning the government. So how do you review that if you're a court?",
       "time": "00:26:56.89"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And what -- I'm sorry. Continue. No, I'm sorry.",
       "time": "00:27:07.26"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But what if you have -- you sent a letter that says a representative of this office will be in contact with you to begin the conciliation process. What if the employer says, nobody contacted me; it never happened. Can you get judicial review of that claim?",
       "time": "00:27:40.80"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. Is it their obligation to say that or is it their obligation to do that?",
       "time": "00:28:04.22"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And they say here your document is signed by, you know, John Rowe. What if they say, I'm sorry, it's just not true, he's lying? We got nothing, nobody ever called us.",
       "time": "00:28:14.95"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no, no. You're making it too easy on yourself, I'm talking about the document that says, we will be in contact with you. Right?",
       "time": "00:28:31.37"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "They said nobody contacted me.",
       "time": "00:28:40.73"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is, in my case, judicial review of that question?",
       "time": "00:28:51.98"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Nobody contacted me; they've got a letter saying they'll contact me, nobody ever contacted me.",
       "time": "00:28:56.60"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's just assuming you're always right.",
       "time": "00:29:10.89"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I mean, I don't understand why you can't have a court at least say, okay, there's a direct conflict. You say you're supposed to--",
       "time": "00:29:13.22"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--consume -- and he says it never got off the ground, and you can have--",
       "time": "00:29:18.89"
     },
@@ -1015,13 +1015,13 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Mr. Rowe file an affidavit and he can file an affidavit and--",
       "time": "00:29:22.41"
     },
     {
       "turn": 164,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You know, this is a -- this is Hornbook law, I thought, use it till this point. But everything is reviewable. Now, that isn't quite true, but if you want to apply for a visa at a foreign embassy abroad, at our embassy is not reviewable. Okay, and maybe there's a military thing, but even the even the -- even the things like the Panama Canal toll, where they said it wasn't reviewable, Davis says it should have been. And the answer to your problem is it's not -- it's not reviewable, the three cases or so where we said it wasn't. The answer is the agency has broad discretion, and because they have such broad discretion, the court can review it, but unless it's very unusual, they have to decide for the agency. Now, eight circuits have roughly followed that; three, more detailed than others. And I haven't found anything in your brief that says in the last 40 years, the EEOC has, as a result, found its functioning seriously hampered. And -- and so why -- what's -- that's why I'm -- I'm wondering.",
       "time": "00:29:25.43"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--You're saying if the agency -- the agency couldn't possibly have violated the law? They wouldn't say we have attempted to we will contact you, and then not contacted you?",
       "time": "00:30:47.11"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, it's not a question of what he's arguing for, it's a question of what you are arguing for. You are arguing that there is no judicial review, full stop. And I'm trying to pose a question where it seems to me that it would be utterly unreasonable for you to say you don't get judicial review of that basic question. I am very troubled by the idea that the government can do something and we can't even look at whether they've complied with the law. I'm not terribly troubled by the idea that the scope of our judicial review is limited. And I just wanted you to tell me which it is, is it that there's no authority for a court to review government action alleged to be in violation of law, or is it that the scope of judicial review for various reasons is sharply circumscribed?",
       "time": "00:31:02.62"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What -- what -- what can you tell us about what the proper function of the court is in a case like the Chief Justice put? They said there was no attempt to conciliate and when we attempted to conciliate, they -- they wouldn't answer our calls. Now, it -- it seems to me as I read your brief that you did indicate that there was some very bare bones requirements that the agency had -- had to meet and it could be reviewed. I can't find any -- any other context where the court has essentially declined to review a statutory precondition to -- to suit at all.",
       "time": "00:32:05.00"
     },
@@ -1069,13 +1069,13 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's the difference--",
       "time": "00:33:05.23"
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What's extraordinary -- what's extraordinary is that counsel for the other side files an affidavit saying it never happened, I know you've got this letter, but we normally don't take the government's say-so when it comes to a dispute about whether -- whether something happened.",
       "time": "00:33:06.50"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So he can say -- say, okay, here's the affidavit, we never got it. We checked our mailroom--",
       "time": "00:33:20.62"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Nothing ever came in. We checked our phone logs, nobody ever called.",
       "time": "00:33:24.73"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, let's go back to the language you quoted. The commission is unable to obtain an agreement acceptable to it. To obtain an -- do you acknowledge that it is obliged to try to obtain an agreement acceptable to it--",
       "time": "00:33:38.24"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yes. Now, is it possible that you are trying to obtain an agreement acceptable to you when you do not tell the other side what that might be?",
       "time": "00:33:55.87"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You just say, you know--",
       "time": "00:34:09.79"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You have to make me an offer. That's not -- that's not difficult to find out. Did you make an offer or not.",
       "time": "00:34:30.28"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, not necessarily. I mean, you could--",
       "time": "00:34:40.82"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--draw a line somewhere, but -- but if the other side says the EEOC never made me an offer, I had no idea no notion of what I had to agree to.",
       "time": "00:34:43.21"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So that's what -- that's where we are. I'm trying to -- what I'd like you to do, I'm going to get you to focus on just what you want to say, that the framework in which I'm putting it is of course there is review, but of course at the same time, there is very broad discretion given to the EEOC. So courts do not intervene; be careful, it's an unusual case. Now, that's what you want. Now, I want to know how to say that. And the case that comes to me the closest was the case that we had with the IRS where, in fact, of course the IRS says, we're in good faith. And the court says, that's just fine, unless of course there is an unusual situation. Now, one can write those words. In that kind of opinion, I've noticed it works best if you also give an example through the use of the case. Now, that's where I am. And since I think that's what you want -- something like that is what you want to argue, I'm asking you for help how to write that.",
       "time": "00:34:56.86"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't have adopt a good -- we don't have to adopt a good-faith standard. We -- we could simply say that if you are really trying to conciliate, there are a few things that you got to do. And one of them is to make an offer. Is that difficult to figure out?",
       "time": "00:36:28.87"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--We're looking we're looking for a safety net, that we said, please, tell us what the minimum rule is. You don't you have not articulated a minimum rule. All you say is I can't think of one.",
       "time": "00:36:54.07"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that doesn't answer Justice Breyer's question, and our general question, how do you want us to write what you want to hold in this case?",
       "time": "00:37:08.03"
     },
@@ -1231,13 +1231,13 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All I hear is no review, period, goodbye.",
       "time": "00:37:16.15"
     },
     {
       "turn": 200,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Now, I don't want to hear we sent letters. I -- I'm positing the hypothetical: You sent letters, but when they called you said, we're going to trial. You didn't make -- no discussion whatsoever. You sent the letter, they called and said, let's sit down, and you -- and the government says, no. Okay? Tell me how we -- how we write a decision that avoid -- that addresses that kind of case.",
       "time": "00:37:19.51"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Fine, then what is the Court supposed to do to determine whether that obligation is met? So far, I think your answer is nothing.",
       "time": "00:38:05.18"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So trust you?",
       "time": "00:38:21.51"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Just trust you?",
       "time": "00:38:23.23"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The other side is challenging with whatever evidence it has. Maybe it's voluminous -- affidavits, records -- and you say, trust us. Here's a letter saying we did it. That's the end of the case.",
       "time": "00:38:24.64"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But there are incentives on most people to tell the truth most of the time, but that doesn't mean that's the end of it.",
       "time": "00:38:44.88"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Saharsky, I don't even agree with you about the incentives. I think, as the other side points out, there is considerable incentive on the EEOC to fail in conciliation so that it can bring a big-deal lawsuit and get a lot of press and put a lot of pressure on this employer and on other employers. There are real incentives to have conciliation fail.",
       "time": "00:38:55.45"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I know what your position is, but assume ours is just the hypothetical. It doesn't mean you've lost, but ours is that we have to give some teeth to judicial review greater than what you're suggesting. Justice Kennedy asked you once. I'm asking you -- or I asked you once before, he's asked again, and I'm asking again.",
       "time": "00:39:40.07"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Give us give us what you don't want.",
       "time": "00:40:02.21"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Give us a way to write it that gives you the least -- the less intrusion -- the least intrusion but more than what you want to do.",
       "time": "00:40:04.71"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about that analogy with that IRS case?",
       "time": "00:41:33.23"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So could we copy that, you know, just copy that, making appropriate changes, and say, look, Judge, you have to see -- you have their affidavit. As long as you think that affidavit really was the bottom line, we could conciliate it unless you have good reason to think that isn't so. That's the end of it, unless there is evidence of an abuse of process that we'll allow you to go further because conciliation, mediation is really a matter that Congress intended to leave up to the agency. And even what sounds minimal, minimal, at least the agency has to make an offer. Maybe they don't. Maybe the best way to conciliate it is you sit there and say, well, you know, that can be in some circumstance. So you -- you -- what about some? Is that not possible?",
       "time": "00:41:42.23"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What?",
       "time": "00:42:38.41"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what has been going on, in fact, in these cases now with some courts having just general good faith, others having a three factor test? You raised a problem here that the EEOC was hit with a bunch of interrogatories. Has that been going on?",
       "time": "00:43:02.24"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you disagree that they can publish it in the New York Times if they want?",
       "time": "00:43:52.87"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:44:03.53"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:44:05.57"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because that isn't credible.",
       "time": "00:44:09.14"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not publishing it in the New York Times, is it?",
       "time": "00:44:10.19"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That only cuts your own argument. I mean, you're -- you're worrying about their -- their publishing it, and then you say they have no incentive to publish it. But if they want it published, they can publish it in the New York Times. They don't have to bring a lawsuit to do it.",
       "time": "00:44:18.51"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say that, but it didn't say that it shouldn't be public. They said it shouldn't be use in court proceedings. That's quite different from saying it shouldn't be public.",
       "time": "00:44:48.23"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So why do you say the opposite?",
       "time": "00:44:57.06"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You said a moment ago that employees have no incentive to conciliate. Why is that?",
       "time": "00:45:44.22"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You're kind of assuming bad faith on their part.",
       "time": "00:45:57.49"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We're supposed to assume complete good faith on the Government's part and bad faith on this employer's part.",
       "time": "00:46:00.41"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "All this stuff is in footnotes.",
       "time": "00:46:41.96"
     },
@@ -1549,13 +1549,13 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "All this stuff is in footnotes, that's where all the important stuff is.",
       "time": "00:46:43.49"
     },
     {
       "turn": 253,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It's a rule of brief writing, right?",
       "time": "00:46:46.11"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Exactly. It does -- I mean, here are two preconditions to endeavoring to conciliate a claim, right? One is we actually told them what we were objecting to, and the second is we talked. So could we just have the EEOC come in with an affidavit saying, we told them what we were objecting to and we talked and it didn't work?",
       "time": "00:46:52.10"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. Talked or--",
       "time": "00:47:31.26"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--communicated.",
       "time": "00:47:32.85"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But you would not object to that; is that right?",
       "time": "00:47:37.99"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, no, no. But then, yes, to the extent--",
       "time": "00:47:47.19"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--that -- so this goes back to the Chief Justice's first question. To the extent that somebody comes in and says either they never told me what this case was about -- that is, they never told me what the claim was -- or they never communicated with me, that that would be a fair thing to review that doesn't get into your sort of spiraling out of control, what -- you know, how hard did you try, and what positions did you take--",
       "time": "00:47:49.64"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--But just we told them what the claim is, and we talked about the claim.",
       "time": "00:48:16.32"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's the world. There's always litigation over -- over stuff. I mean, you -- you want to be exempt from any litigation over whether a particular standard has been met or not?",
       "time": "00:50:01.47"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's extraordinary. That does not exist in this world.",
       "time": "00:50:13.47"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is fine. And if you don't like that, if you're worried number one, this Court could set forth standards one, two, three, four, five; you have to do this, this, this, and this. I would prefer not to do that. And if you leave it to the lower courts to do it, each lower court is going to have a different -- a different set of things. But the remedy for that is -- is at your hands. As the other side said, you could issue rules which say, this is an informal process, but what it consists of is, number one, we give you notice of what the -- what the offense is; we sit down with you to discuss settlement of that; number three, we make apparent to you what our offer is for settling the matter, and whatever other rudiments of conciliation the agency believes in. What's wrong with that?",
       "time": "00:50:22.76"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So if we tell you it's -- it's judicially reviewable -- suppose we just decide it's judicially reviewable and remand for the agency to issue rules?",
       "time": "00:51:29.54"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I -- I'm not a conciliator or a mediator, but those I know who are might be able to create such rules. On the other hand, they might not. It might be that conciliation is a process that in part is intuitive. So to require the agency to set forth rules of consideration is to invite judicial review of compliance with those rules.",
       "time": "00:51:53.48"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that is, I think, your point. And I don't think it's a minor point. I think it's rather important. If the conciliation process is actually to work, let it go.",
       "time": "00:52:18.11"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I thought Justice Breyer said you have to make the phone call if your letter says it's going to make the phone call. I thought Justice Breyer believed that there are some rudiments.",
       "time": "00:52:45.55"
     },
@@ -1735,13 +1735,13 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We're just talking about what the rudiments are.",
       "time": "00:52:55.89"
     },
     {
       "turn": 284,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They're called conciliation -- what are the three words?",
       "time": "00:52:58.50"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And persuasion.",
       "time": "00:53:05.39"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why does it -- in terms of additionally saying, yes, we called them, how can you conciliate this question has been asked; I don't know that we've gotten an answer without telling them what you want? I want we think there's a class; we think it's this many; we think their damages claims are, you know, 15 million. What do you think about that? You don't have to -- then that's the end of it. You don't have to say, we'll take ten, or anything else. They need to know at least what you want.",
       "time": "00:53:19.24"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You want to go -- you want to go to -- Congress wanted you to try to conciliate.",
       "time": "00:54:50.81"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So to say that it's a good thing to get to the merits it seems to me is not -- doesn't take account of what Congress said, which is, before you go to the merits, try to conciliate.",
       "time": "00:54:54.98"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, we'll just say -- I'm going to say one more time, I think there's substantial merit to your position that the courts have gone too far. But you have given us no midway, no -- no alternative.",
       "time": "00:55:31.75"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Other than to say, no judicial review. And I think that's a serious it's a serious suggestion to make.",
       "time": "00:55:43.21"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Ms. Saharsky. Mr. Goldstein, you have 4 minutes remaining.",
       "time": "00:56:16.51"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Wait, wait, wait, wait. Do you want them to put their minimum offer on the table?",
       "time": "00:57:27.02"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "That's a necessary part of conciliation?",
       "time": "00:57:31.51"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's just good faith bargaining. Then all you're doing is referring us to a body of law in both labor and contracts for good faith bargaining.",
       "time": "00:57:52.21"
     },
@@ -1873,7 +1873,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is a morass.",
       "time": "00:58:02.86"
     },
@@ -1885,7 +1885,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Now, we just started with a tremendous difference. A mutual obligation to bargain and the subjects of bargaining are well-known. You're can bargain about wages. You can bargain about hours, about working conditions. This is quite different.",
       "time": "00:58:13.37"
     },
@@ -1897,13 +1897,13 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why is it satisfactory--",
       "time": "00:59:04.51"
     },
     {
       "turn": 311,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "That is intrusive. I mean, you're doing your best job of proving Ms. Saharsky's point here, because you're saying they have to put all the reasons on the table, they have to say why it is that they're asking for what it is that they're asking for, they have to say, you know, what they would be -- the only -- the last thing that they would find acceptable.",
       "time": "00:59:05.02"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 313,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In the context, just to -- where we're not supposed to look at any of that stuff at all?",
       "time": "00:59:25.67"
     },
@@ -1927,7 +1927,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you have any other rudiments? Because you're running out of time.",
       "time": "00:59:39.58"
     },
@@ -1939,7 +1939,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Shouldn't the game be on you? They come in and say, we conciliated. Shouldn't you have to waive confidentiality and set forth circumstances? I'm going back to Justice Breyer's point about the IRS case, because there we required the party saying that something--",
       "time": "00:59:56.74"
     },
@@ -1951,7 +1951,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--was in bad faith--",
       "time": "01:00:15.06"
     },
@@ -1963,7 +1963,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--or didn't happen--",
       "time": "01:00:16.08"
     },
@@ -1975,7 +1975,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--to set forth the circumstances. All right? But you didn't do that here.",
       "time": "01:00:17.40"
     },
@@ -1987,7 +1987,7 @@
     },
     {
       "turn": 325,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:53.12"
     }

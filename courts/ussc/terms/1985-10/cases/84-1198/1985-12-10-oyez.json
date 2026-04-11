@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1198/19851210a_84-1198.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "RANDALL L. SHERROD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JEFF BLACKBURN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Sherrod, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But on these facts, don't we have to cut back on Pearce somewhat if this judgment is to be reversed?",
       "time": "00:06:19.39"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did not Pearce leave open the possibility of an increased sentence based on new information?",
       "time": "00:07:17.52"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, in Pearce, Justice Stewart spoke of events happening after.",
       "time": "00:07:55.72"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "These events, I suppose you concede, all took place before?",
       "time": "00:08:02.64"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Then, you think that North Carolinia against Pearce went too far?",
       "time": "00:09:34.15"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In its holding?",
       "time": "00:09:37.96"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt you just there for a moment, please, with a question.",
       "time": "00:09:49.95"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there were no new information brought out at the second trial, the only thing that was different was the defendant said, well, this time I'll have the judge fix the sentence, would the judge then in your view have been free to impose a higher sentence?",
       "time": "00:09:53.23"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the judge just said, \"Well, if I'd been the sentencing authority the first time. \" as I believe she did, she said, \"I would have imposed more than 20 years. \" \"Now I have a chance to do it so I'll do it. \" You would say that would be perfectly proper?",
       "time": "00:10:37.58"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it your view that reading Pearce and Wasman together, the sentencing judge may take into account intervening information which was not available at the time?",
       "time": "00:11:06.43"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you do have to disapprove or not follow certain dicta in Pearce to reach the result you want, don't you?",
       "time": "00:11:50.63"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt there? It seems to me that you have argued... it seems to me that defendant would always be exposed to the risk of increased punishment because the jury would be a different sentencing authority from the first jury, and under your view the judge is a different sentencing authority from the first jury, so neither of them would be limited by the sentence. So, if your argument is correct, really, it's open season on the new sentence?",
       "time": "00:14:06.58"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask you this question before you sit down.",
       "time": "00:17:48.56"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Does the record show why the new evidence was not discovered and used at the first trial?",
       "time": "00:17:51.45"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, if it's not in the record I suppose you'd better not--",
       "time": "00:18:04.50"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--The other ground was remorse. That was in the first trial and the second trial, I guess.",
       "time": "00:18:07.61"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am not too sure it is a ground for increasing somebody's sentence.",
       "time": "00:18:17.41"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The judge did use it for that purpose.",
       "time": "00:18:25.30"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, since she didn't have the right to do it the first time, all she had to do was grant a new trial?",
       "time": "00:18:39.18"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I wonder if this is... would it have been permissible for the trial judge to grant a new trial because she was convinced the sentence was wholly inadequate?",
       "time": "00:18:53.62"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if she really thought that they ought to try it over and impose a proper sentence?",
       "time": "00:19:02.65"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Blackburn.",
       "time": "00:19:50.09"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there a separate sentencing hearing when you have a sentence by a jury in Texas?",
       "time": "00:21:53.01"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what you are talking about now is the sort of evidence that is allowed to go before the jury in the sentencing hearing?",
       "time": "00:22:07.17"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would be your position if a different judge had tried the second case and entered the same sentence as was imposed here?",
       "time": "00:24:10.12"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Wouldn't the vindictiveness of a brand-new judge come into the picture?",
       "time": "00:24:29.96"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the court didn't... in Pearce didn't even mention in its opinion the fact that there was a different judge, did it?",
       "time": "00:24:53.21"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In the courts' opinions in those cases, was that noted?",
       "time": "00:25:09.49"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Blackburn.",
       "time": "00:25:15.98"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would your position be the same if the defendant had elected again to be tried by... again to be sentenced by a jury?",
       "time": "00:25:17.96"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--to prove that each juror had no knowledge of the prior sentence?",
       "time": "00:25:39.82"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But if the results of the first trial were reported in the press, that would be a rather difficult burden to carry, wouldn't it?",
       "time": "00:25:46.61"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Even if one juror said, \"Yes, I read the story in the press. \" and that juror were permitted to sit, you would say they had vindictiveness on the second go-round?",
       "time": "00:25:57.50"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was the name of the Eleventh Circuit case?",
       "time": "00:28:31.52"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Monaco?",
       "time": "00:28:33.84"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "M-o-n-a-c-o?",
       "time": "00:28:35.02"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:28:36.91"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's not... the position you are now espousing was not the position taken by the court of criminal appeals, was it?",
       "time": "00:31:06.55"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, let me call your attention, counsel, to Justice Countis's opinion on the motion for re-hearing, which I have as pages A-8 and A-9 in the Petition for Writ of Certiorari, and if you would take a look at the penultimate paragraph of the opinion, it seems to me you can say that in the rehearing opinion, they did treat the issue that you were just talking about.",
       "time": "00:32:34.09"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I see. So, there's a difference between the court of appeals and the court of criminal appeals?",
       "time": "00:33:09.69"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Sherrod?",
       "time": "00:33:28.47"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say \"the other thing\". What is the thing that isn't the other thing? You were saying, your petition for review to the court of criminal appeals was denied. What follows from that?",
       "time": "00:34:29.68"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Performance?",
       "time": "00:34:50.76"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, the court of criminal appeals never wrote any opinion in the case except the one about saying that the court of appeals didn't have the power to reform the sentence?",
       "time": "00:35:04.73"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:35:47.03"
     }

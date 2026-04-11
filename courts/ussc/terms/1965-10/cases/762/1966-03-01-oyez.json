@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1965/762/19660301a_762.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "STANFORD SHMUKLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "NORMAN HEINE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 762, Sylvester Johnson and Stanley Cassidy, Petitioners, versus New Jersey. Mr. Shmukler.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there a coerced confession claim in this case?",
       "time": "00:03:14.85"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Did the police know that? When they invest -- when they interrogated him?",
       "time": "00:08:46.65"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There wouldn't be very likely they know whether he was schizoid personality, couldn't they in the part of the submission here?",
       "time": "00:09:29.11"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you another type of evidence there was besides the confession?",
       "time": "00:15:10.67"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How long after they were -- after the robbery was committed in this murder, was it before they were caught and whether it was -- made the wrong turn?",
       "time": "00:16:15.01"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that --",
       "time": "00:16:26.91"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How long was that afterwards?",
       "time": "00:16:28.10"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they got the number?",
       "time": "00:16:32.39"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And then how long after that until they were arrested?",
       "time": "00:16:34.08"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were they arrested at first, or were they taken down for questioning?",
       "time": "00:16:54.38"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When they went there they were arrested. They had -- they were legally arrested?",
       "time": "00:16:59.00"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, your question here -- your question is rather, were they legally arrested, charged with a crime, then jailed, does the Fifth Amendment protect him against self-incrimination, that's one of them, isn't it?",
       "time": "00:17:11.97"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Why do you say that they were arrest at that time, what do you mean by that, was there a warrant for their arrest?",
       "time": "00:17:58.24"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm just trying to find out, is this what you had in mind in answer to Justice Black's questions, when you say they were arrested, do you mean that at that time there was conviction of guilt or do you mean that they were taken into custody and then report with the book or do you mean something else?",
       "time": "00:19:01.61"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "(Inaudible)",
       "time": "00:19:29.41"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "About five hours later, --",
       "time": "00:19:31.33"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- was it?",
       "time": "00:19:33.59"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand, I had a -- that there's no question at issue here concerning the validity of the arrest or is there?",
       "time": "00:19:52.69"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So you (Voice Overlap) --",
       "time": "00:20:26.88"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You just spread it out it seems to me at least in one aspect of your case is whether when a man has -- illegally arrested and put in jail for the purpose of detention aiming until he can be tried of the crime. Whether or not the police have thought it that during that time under the Constitution, the Fifth Amendment, one of them to interrogate him alone or where he is and ask him of the question to -- tending to prove your guilty?",
       "time": "00:20:28.65"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether that is compulsion?",
       "time": "00:21:03.95"
     },
@@ -299,13 +303,13 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, was there any interrog --",
       "time": "00:21:39.33"
     },
     {
       "turn": 46,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose he -- suppose he's been advice of his rights? Supposed he'd been told, you have a right not to answer, during the time he's legally arrested and there in the custody waiting trial to determine his guilt, would your position be any different?",
       "time": "00:21:39.84"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is the only evidence --",
       "time": "00:24:19.52"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- in the record as to what happened in the case of Johnson in these five hours? Was he interrogated --",
       "time": "00:24:20.41"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- had five hours between the so-called arrest and the time he was booked?",
       "time": "00:24:28.33"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Cassidy, I'm sorry.",
       "time": "00:24:36.64"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes.",
       "time": "00:24:46.56"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's right.",
       "time": "00:24:49.70"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the statutory procedure in the police court on cases of this kind? What is the court suppose to do?",
       "time": "00:24:56.98"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there any difference within and between you and counsel on what happen before the court in that occasion?",
       "time": "00:26:49.83"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Was this a subsequent decision of the New Jersey Courts?",
       "time": "00:33:01.93"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that cited in your brief?",
       "time": "00:33:07.08"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose your position was accepted in the record?",
       "time": "00:33:14.42"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose your position should be accepted as the right to counsel, what would be the practical result? What would States have to do?",
       "time": "00:33:18.35"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that's (Inaudible) -- I didn't ask you about that?",
       "time": "00:34:38.65"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You were emphasizing the counsel. I want to know what would be the factual effect, and how would it effect current -- in fact, the universal practice of the -- in the United States. The whole that counsel must be appointed the minute a man was detained then held for questioning?",
       "time": "00:34:41.06"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, isn't your argument, however based finally on the fact that he needs counsel to keep him incriminating himself. And if that's true, why isn't that your basic issue here?",
       "time": "00:35:20.66"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you in effect asking us to say that we got to examine the circumstances of case and see whether under those circumstances, you needed a lawyer so badly that it violated the right to counsel clause, is that it?",
       "time": "00:36:06.00"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) -- do you have any theory about what circumstances we could let the courts know so that there would be some kind of understanding on their part and make it function with a knowledge that the general rule to this effect that if he break that rule, if it's a -- case will reversed.",
       "time": "00:36:21.59"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Had you thought about it from that page without considering all the circumstances each does, all the section?",
       "time": "00:36:40.67"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That -- that just -- going on the basis that you got to tie the two together, isn't it?",
       "time": "00:37:00.84"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And I think the factors are somewhat the same. But after all, when you get back, your construing are you not Fifth Amendment provision against self-incrimination being compelled of your witness against yourself, isn't that it?",
       "time": "00:37:05.31"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And it's the question of what is compulsion?",
       "time": "00:37:20.46"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you think it's a -- if a man is arrested, held by the purpose of an arrest as to hold him for nothing in the world but a trial unless some new provision has been drafted under the Constitution. Purpose as to hold him for trial that you could find nothing of compulsion in he's being interrogated by the officer under that condition, why he is under arrest, and there alone with the officer.",
       "time": "00:37:25.01"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that the circumstance you mean or you have to have more?",
       "time": "00:37:52.81"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I judged -- I judged from what you're saying, its impossible in your judgment for us to decide this question without relying on the other provision with reference to the right to counsel.",
       "time": "00:38:24.86"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "By compulsion for being compelled?",
       "time": "00:39:29.53"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That might be wiser sometimes to consider those thing in the language of the Constitution rather than labels that were given in various opinions.",
       "time": "00:39:33.95"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would it be a startling and revolutionary, I don't say that that's a possibility. But if the Court would say, “When a man is held simply to interrogate him against his will by officers at a place where he does not want to be that that is compulsion which will invalidate the admission of a amend -- of a confession?\"",
       "time": "00:40:02.25"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you consider that to be revolutionary?",
       "time": "00:40:26.72"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would at least have the advantage of some kind of a certainty, wouldn't it?",
       "time": "00:40:37.33"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that we didn't have to pass on every cases (Inaudible) in the country?",
       "time": "00:40:40.87"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't say that it should be adopted. I don't know what should be adopted.",
       "time": "00:40:46.29"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was Justice Black's proposition?",
       "time": "00:41:10.75"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was Justice Black's proposition (Inaudible) the test of voluntariness --",
       "time": "00:41:13.79"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- the only difference as I understand in your argument, that is that the burden should be on the Government if the rule could -- involuntary rather than (Inaudible) that was involved there?",
       "time": "00:41:19.93"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you're talking about now is the knowing an intelligent waiver of a constitutional right that they have –-",
       "time": "00:41:59.39"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that says I just want to take advantage of it.",
       "time": "00:42:05.28"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap)",
       "time": "00:42:07.43"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may have five minutes --",
       "time": "00:42:18.65"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- for your rebuttal. Mr. Heine.",
       "time": "00:42:19.97"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Will you state the circumstances under which he was picked up?",
       "time": "00:43:24.63"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could they have declined to go?",
       "time": "00:43:40.65"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They didn't have to go.",
       "time": "00:43:43.44"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many police officers were there?",
       "time": "00:43:45.69"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Seven?",
       "time": "00:43:51.03"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are we to assume that they went because they wanted to?",
       "time": "00:44:05.06"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that would be a very important -- of that charge because I'm concerned.",
       "time": "00:44:15.32"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I ask, in what form he was advised of his rights? What did they say?",
       "time": "00:44:56.27"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why did they tell him that he didn't have to answer or that he could go home if he wanted to? Did they tell him that?",
       "time": "00:45:49.16"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, of course, there's been a difference in telling to a man who is under arrest or in jail or in custody of officers that you don't have to talk to us except according to your own freewill than telling a man on the street, we'd like to have come down to that place and talk to us a little if you want to.",
       "time": "00:46:07.48"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:46:38.78"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If -- to clarify my own view to what -- is it your position that you have a right if you want to take a man for (Inaudible) compel him if he answers, compel him to go to the station, talk to him and be interrogated about a crime.",
       "time": "00:46:41.05"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If -- well that -- that's really what it is?",
       "time": "00:46:58.83"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap)",
       "time": "00:47:01.27"
     },
@@ -953,13 +957,13 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That may be true. I'm not saying it's not.",
       "time": "00:47:03.70"
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where does this stem from under the law?",
       "time": "00:47:06.10"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You think anybody -- anybody happened to compel him to come to the station for interrogation?",
       "time": "00:47:13.01"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if you get -- if you have seven officers go to a man's home --",
       "time": "00:47:32.68"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- wake him up out of bed and take him down to the police station without his -- without -- to ask him if he's willing to come down or if he's willing to talk to them would seem to some compulsion, wouldn't it?",
       "time": "00:47:38.63"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But in your -- are you arguing that the police have got a right to arrest a man without probable cause and without a warrant?",
       "time": "00:47:52.69"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did it take seven officers to invite him?",
       "time": "00:48:20.31"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think --",
       "time": "00:48:43.97"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think (Voice Overlap) --",
       "time": "00:48:44.90"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- much argument in that but it doesn't -- still doesn't satisfy the question as to whether they went of their own freewill in to the court and (Inaudible).",
       "time": "00:48:46.37"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, aren't you going to argue your case (Inaudible)",
       "time": "00:49:10.78"
     },
@@ -1079,13 +1083,13 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:49:26.23"
     },
     {
       "turn": 176,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Indeed, I -- first, in what you said a few moments earlier that perhaps your saying that the probable cause cannot exist that time, these seven gentlemen invited the other gentlemen to accompany them for a chat and at the probable cause did not exist until after they had had that chat, is that your position?",
       "time": "00:49:30.00"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In other words you're saying that the first interrogation was for the purpose of using probable cause?",
       "time": "00:50:00.97"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose I had probable cause at the time that they went to that man's house, in your submission, would they still have been able to interrogate him without counsel?",
       "time": "00:50:16.27"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So, you really don't put any stress on that point?",
       "time": "00:50:30.43"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what was it then, an addition to that?",
       "time": "00:53:51.58"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap)",
       "time": "00:53:55.01"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That they claim now with (Inaudible) That if they have -- did they admit precisely the same thing at the trial to which they had confessed?",
       "time": "00:53:56.00"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:54:05.32"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Defendants can take stand.",
       "time": "00:54:10.92"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The counsel admitted that the confessions were true?",
       "time": "00:54:12.49"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 196,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page is that?",
       "time": "00:54:57.94"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was that he said?",
       "time": "00:56:20.52"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You know whether they were then represented by appointed counsel or public defense (Voice Overlap) --",
       "time": "00:58:04.18"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Has there been any charge if the counsel the first time was inadequate --",
       "time": "00:58:31.51"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What were they designed to show insanity or --",
       "time": "01:00:27.93"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And they assert --",
       "time": "01:00:56.82"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I beg your pardon sir. Do you recall under the psychiatric reports spoke of the defendant's condition as of the time that psychiatric examination was made or as of the time of the crime?",
       "time": "01:00:58.26"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, they frequently do. They frequently do that whatever one may think of it but (Inaudible) this treatment leads to that. But you say that this one purported to speak as of the time that they examined --",
       "time": "01:01:22.49"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now Mr. Heine.",
       "time": "01:06:00.72"
     }

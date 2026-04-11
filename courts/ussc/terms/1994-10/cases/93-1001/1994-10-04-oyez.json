@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/93-1001/19941004a_93-1001.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "H. BARTOW FARR, III",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALLAN R. CHASON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in Number 93-1001, Allied-Bruce Terminix Companies, Inc. v. Michael Dobson. Mr. Farr.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Farr, I suppose... now, this act was adopted in what year?",
       "time": "00:01:37.87"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right, and as of that time, I suppose we didn't have as broad a view of Commerce power as we have today?",
       "time": "00:01:47.24"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you would acknowledge, though, that we had a narrower view of the Commerce Clause power in 1925 than we have today?",
       "time": "00:02:14.91"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, of course, my view, as expressed in the Southland case, is that Congress didn't intend to do more in this Federal Arbitration Act than affect what happens in Federal courts. This Court has rejected that view. I still think that was correct, but faced with Southland, do you think that we should properly give some meaning to the words that Congress used involving Commerce, evidencing, the word evidencing... do the use of those words indicate some narrower reach of the statute than you would have us adopt? There are many laws out there among the States that try to protect consumer contracts from having arbitration clauses, and preserving the rights of people to sue, and your view would sweep all of those aside, and I'm concerned that that wasn't what Congress had in mind.",
       "time": "00:02:54.46"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Farr, can I ask... this is a very interesting point that you're making. If Alabama had a statute similar to, say, I think Georgia has one of these statutes that, there's a dollar limit and they exclude consumer contracts of this kind. Would you say, then, the Federal act would not apply here, if Alabama had a statute like that, rather than just a 100 percent policy against--",
       "time": "00:05:06.48"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Where the State law says certain contracts are not subject to arbitration, certain consumer contracts are not, how could it apply without preempting it? That's what I don't quite understand.",
       "time": "00:05:36.70"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:05:55.79"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You mean, the rules of whether the company is liable on the merits are not preempted, you mean.",
       "time": "00:06:05.47"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The rules that deal with whether or not the Arbitration Clause is enforceable would always be preempted, I would think.",
       "time": "00:06:17.26"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If the State law, as I think the Georgia law does say, said that for an arbitration clause to be enforceable that paragraph of the contract has to be initialed, even though nothing else has to, that would be unenforceable.",
       "time": "00:07:03.02"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Farr, may I ask you to be entirely clear about this? I believe that Justice Stevens was referring to his position in Southland that the State could carve out certain kinds of contracts like franchise agreements, and you have given, do I understand you correctly, to say no, that can't be done?",
       "time": "00:07:39.01"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that, Mr. Farr? I mean, it seems to me the conflict with Federal policy is just as severe in either case. Whether it's sort of a penalty against a State for singling out arbitration agreements, I mean, as far as the conflicts with Federal law is concerned, whether it's a general law or a specific law addressed to arbitration agreements, it has the same result.",
       "time": "00:08:35.04"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then the answer to the question I posed is, you cannot carve out from arbitration specific kinds of contracts. You can't carve out consumer contracts, franchise contracts, particular categories of contracts to exempt them from arbitration.",
       "time": "00:09:27.66"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Farr, given the language of section 2, though, the key language seems to be a contract evidencing a transaction involving commerce. You wouldn't say that that language would cover everything that Congress might have covered had it wished to exercise its Commerce Clause power to the limit, would you?",
       "time": "00:09:48.41"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's certainly, it can also be read to be less sweeping than \"affecting\".",
       "time": "00:10:52.77"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "\"Affecting\" has been almost a word of art in our Commerce Clause jurisdiction, whereas \"involving\" hasn't.",
       "time": "00:11:00.35"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about Bernhardt v. Polygraphic? It didn't seem to read it very, very broadly there.",
       "time": "00:12:20.69"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it didn't really say it had to do, it said it did not do any of those three things. But you would not deny, would you, that that contract could be regulated by the Federal... under the Commerce power, the contract involved in Bernhardt.",
       "time": "00:12:46.76"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's not the way Justice Douglas stated the question. Let me ask you this: are there any appellate court decisions or are there a significant number... the act's been on the books now for 70 years. Have there been consumer contracts that appellate courts have said are subject to this statute?",
       "time": "00:13:22.94"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Farr, as I understand your proposal, you would decide whether this contract involves, or whether it evidences a transaction involving commerce ex post. That is, if there's a contract for the purchase in sale of widgets, you wouldn't look at that contract to see whether it specifically contemplates the transportation of widgets interstate commerce, but rather you'd look to see what actually transpired, isn't that right?",
       "time": "00:13:45.41"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So at the time you sign the contract, you don't really know whether it's going to be arbitrable under the Federal law or not, do you?",
       "time": "00:14:19.14"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but one side can be rolling the dice and saying, you know, there is... I'm signing this standard form contract that has an arbitration provision, but inasmuch as I don't intend this contract to actually involve interstate materials, my contemplation is that this thing won't be covered. It seems like a very strange test as to whether a contract is enforceable, or as to what it imposes on the parties, to look to later events and see what happens later, but that is really what you're proposing. If it turns out that the contract involves interstate commerce, we will retroactively say that Federal law requires the arbitration agreement to be enforced despite State law. If it turns out that it doesn't involve interstate commerce, then we won't. I find that... I don't know of any other instance in the law where we sit around and wait to decide whether the provision is valid or not.",
       "time": "00:14:38.06"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they are not laws--",
       "time": "00:15:53.86"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But they are not laws involving contracting. This is a law specifically involving contracting. It validates and renders enforceable despite State law the particular contractual provision, and you usually don't validate or invalidate contracts ex post.",
       "time": "00:15:54.59"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "More precisely, it involves contracts evidencing a transaction involving commerce, which could be read to mean that the contract must show on its face that it involves interstate commerce, so if the contract says, I will buy and sell widgets now located in Ohio which will be brought to me in Pennsylvania, then it would qualify, but if it just says, I will buy and sell widgets, it doesn't qualify. That's a possible reading.",
       "time": "00:16:20.31"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not a subjective intention at all, an objective one, one that is recited in the contract. If it's not recited, it's not there. Whatever their subjective intentions were, we don't care. Does the contract evidence interstate commerce? If it does not evidence it, the FAA doesn't apply.",
       "time": "00:17:04.16"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you could know at the outset whether this provision that you're agreeing to is enforceable or not.",
       "time": "00:17:45.35"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a good reason.",
       "time": "00:17:50.14"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Farr, if it's--",
       "time": "00:18:14.71"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--If it's a question of what's recited on the face of a contract, and this is a form contract, the person, in this case Terminix, drawing the contract, would say on the face of it this is a contract involving commerce, and I guess the consumer wouldn't have much of a choice about what the contract says.",
       "time": "00:18:17.59"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why did you say earlier that it's entirely an after-the-fact determination? There certainly were elements in this case where one could say, I mean, the company being from out of State, the contract having been purportedly executed out of State--",
       "time": "00:19:10.75"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Farr, if it were in all other respects--",
       "time": "00:19:43.49"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a local agreement, would you say the fact that a parent company of a contracting party is an out-of-State concern would be sufficient to make the act applicable?",
       "time": "00:19:46.20"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Say they guarantee performance of the contract.",
       "time": "00:19:59.79"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we were to say, as we've sometimes suggested in the antitrust area, that the contract must have a substantial effect on interstate commerce, do you have any idea how this case would come out?",
       "time": "00:20:10.13"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You mentioned at the start of your argument that in many statutes Congress makes findings that the particular activity affects commerce. Actually, the result of your argument here is just as if Congress did make those findings in this case. That's the purport of your argument, is it not, i.e. that arbitration contracts affect interstate commerce? I mean, that--",
       "time": "00:20:59.82"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Suppose we replicate a situation like Wickard v. Filburn, where one farmer in Ohio agrees with his neighbor to sell him 50 bushels of wheat, and they have an arbitration agreement in it, and nobody claims that the wheat ever went anywhere except across the local road, but I suppose if you apply Wickard v. Filburn you'd say, well, if he hadn't sold that 50 bushels of wheat to his neighbor, he might have sold it to somebody else that might have baked some bread that went in interstate commerce. Now, is that contract subject to the Federal Arbitration Act?",
       "time": "00:21:52.78"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Farr, may I ask you a related question? If the clause in question is not to be regarded as an implicit finding, what does it add? In other words, why is the act any different with this clause from what it would be without it? Because if the act did not have this arguable limitation on it, and it were applied to a transaction which is claimed not to involve commerce in any way, that would be the defense to the attempt to enforce the arbitration agreement, which will be the case here. So if it simply is a jurisdictional statement, but it is not a finding by Congress that all arbitration are within the jurisdiction, I don't see what function it has.",
       "time": "00:22:48.28"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in fact unless parties attempted to apply the arbitration agreement and to enforce the Federal act in cases which clearly did, or in cases which did not in fact involve commerce, the functioning of the act would be no different.",
       "time": "00:24:01.70"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In other words, Congress... you're saying, in effect, that Congress is saying to the Federal courts, when... and parties, I suppose, when you refuse to apply this agreement to contracts that do not involve commerce, you're right. That's basically the function of the provision.",
       "time": "00:24:19.46"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In your judgment, in the absence of this limitation, would there have been a risk of facial invalidity to the statute?",
       "time": "00:24:52.75"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you think that's what they were guarding against.",
       "time": "00:25:03.03"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Farr, can I just ask you one... maybe you want to answer it on your reply. Are you sure about your answer to the Chief Justice's question? You really don't think that would be enforceable, an arbitration clause in the example he gave you?",
       "time": "00:25:21.96"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you said before-- --But you think that's correct, though? That's your position--",
       "time": "00:25:40.16"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and if so, how do you distinguish that contract from this one?",
       "time": "00:25:43.34"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the services... it isn't where the service is, but where the owner of... anyway, I won't take any more of your time.",
       "time": "00:26:07.19"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you're saying it doesn't go the full length of congressional power, because the Chief is giving you an example of something that was held to be within the Commerce power.",
       "time": "00:26:13.36"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very well, Mr. Farr. Mr. Chason, we'll hear from you.",
       "time": "00:26:29.20"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You cite the case to Our Honors, I think, you don't cite Our Honors to the case, but that's all right.",
       "time": "00:28:59.22"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why doesn't it involve commerce, why isn't it in commerce if I contract with someone to bring in some individuals from out of State to perform services in this State in spraying bugs, and to use bug spray that is manufactured by that company in another State, and will be brought across State lines for the purpose of spraying? That would be involving commerce, wouldn't it? It would be in commerce. I mean--",
       "time": "00:30:08.75"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No, but I'm not talking about residence. I'm talking about a contract that specifically says, on its face, you know, party A will send from Pennsylvania into Ohio a workman who will spray the bugs and then go back to Pennsylvania, and they will use for that purpose--",
       "time": "00:30:52.12"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, sure you do. Why isn't that a contract involving commerce? It clearly is.",
       "time": "00:31:10.54"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but that's a different point. That's a different point, and the point you were making, I thought, was that this contract did not... was not in commerce, did not involve commerce. Now, maybe it didn't if you just look at its face, but if you look at the way it played out, what was actually performed, surely that involved commerce.",
       "time": "00:31:27.84"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's not tenuous. I mean, when you spray bugs you use two things, you use people to spray and you use the spray. If the spray is coming from another State, surely that's a contract involving interstate commerce.",
       "time": "00:32:32.62"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about, wasn't the original seller of the home didn't say something about, wasn't there testimony, I want to go with a national company instead of a local company?",
       "time": "00:32:52.73"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And may I ask you what you make of this Court's statement in Perry v. Thomas that the FAA embodies Congress' intent to provide for the enforcement of arbitration agreements within the full reach of the Commerce Clause? Did we just get it wrong?",
       "time": "00:33:02.07"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was soundly rejected by the Court majority in Southland so far as the Federal Arbitration Act is concerned, any concept of federalism. It was held the Federal Arbitration Act applies in State courts as well as Federal courts. And you're not suggesting that the reach should be different in Federal and State courts, are you? You're saying that this agreement, whether this case were brought in the State court or the Federal court, that the result should be the same here.",
       "time": "00:34:22.71"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the text of the statute doesn't draw any distinction between State or Federal courts if it's applicable. Is there some different test for one where suit is brought in State court? Is that what you're arguing?",
       "time": "00:35:06.12"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, are you arguing that Southland be overruled?",
       "time": "00:35:33.09"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you would have a different result, if that's your theory, if the, say Gwins, who are also defendants, if they moved to a State outside Alabama so you would have a diversity case, so the defendants could have removed... if you make a difference between the substantive law applicable in State and Federal court, and the, then you get into the whole mess that Erie was intended to eliminate, right?",
       "time": "00:35:46.40"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It was a square holding. It would be sort of hard to overrule it without upsetting a lot of reliance, I suppose, upon it. There have to be a lot of contracts in which arbitration provisions have been inserted with the full expectation, in light of Southland, that they'd be valid.",
       "time": "00:36:40.86"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's precisely the kind of a case where it's, especially in a field involving contracting, it's very hard to go back and overrule a prior decision without upsetting a lot of reliance.",
       "time": "00:36:57.24"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is one of the implications of your position that it is within the control of the parties to determine whether the Federal act is going to apply because they simply can be explicit in their original contract as to whether they understand that commerce will be affected or implicated?",
       "time": "00:37:34.16"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, is their statement of that contemplation in the original contract going to be conclusive, on your theory? If, you know, if a restaurant owner in Iowa contracts with a fish supplier for lobsters, and they put in the contract the performance of this contract will in no way implicate interstate commerce, does that control? Are these out-of-State lobsters you're talking about? Well, I left that term unstated. I wanted to leave some sport in the question. [Laughter] Is that provision going to be conclusive as to the applicability of the Federal act?",
       "time": "00:38:07.37"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, no. I was thinking that they would like to live in a dream world in which there are Iowa lobsters-- [Laughter] --and in fact there aren't any, and it might even be suggested that no reasonable restaurant owner or fish supplier could so assume, but they put that in their contract very explicitly. Nothing, no implications on interstate commerce in the performance of this contract. Is that going to be conclusive, on your theory?",
       "time": "00:38:55.70"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if it's reasonable expectations, then I suppose the answer to my question is no, that's not going to be conclusive.",
       "time": "00:39:51.82"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So there's no way, I guess what I'm getting at is, there's no way, I gather, then, to simplify the administration that your position would sort of foist upon the courts, because no matter, no matter what the statement by the parties in their contract about what they contemplate, any one of them would be free at any time, I suppose, to say well, that just wasn't reasonable, and therefore I shouldn't be bound by it.",
       "time": "00:40:03.16"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, is it... do you agree? Do you agree? A party could always wiggle out by saying that just was not reasonable.",
       "time": "00:40:32.41"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then isn't it much too easy, in a form contract, for the party who is writing the contract just to put in anything? We contemplate interstate commerce, and then the person, the homeowner really doesn't have any choice about what the contract's going to say on its face.",
       "time": "00:40:46.53"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you're going to go by what's on the face of the contract, isn't it so that in the case of a form contract, the party who writes the contract can put anything they want on the face of it?",
       "time": "00:41:11.43"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you have an objective test, that will be the end of it. The contract says this contract contemplates interstate commerce, and if this contract says that, then what happens to the contemplation of commerce test? Is the only thing... this case can't simply be about that the form left out one sentence.",
       "time": "00:41:23.70"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it should be easy to say. The whole reason people enter into an arbitration agreement is, they don't want to litigate. You've destroyed arbitration agreements of all of their value if you're saying any time you sign one you're going to have to litigate about what the reasonable expectation of the parties was. Even if it's set forth in writing, that won't govern. We need a lawsuit about what our reasonable expectation was. You've destroyed arbitration agreements.",
       "time": "00:42:24.27"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You need a clear congressional statement for the proposition that Congress surely could not have intended that every such agreement as this would give rise to a potential lawsuit over arbitration, which was the point of Justice Scalia's question. I mean, do we need a clear statement from Congress to assume that that at least was not in Congress' contemplation?",
       "time": "00:43:15.81"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Or any transaction in which there can, there is an invitation to litigation over what is in the contemplation of the parties, or the reasonable contemplation of the parties.",
       "time": "00:43:42.05"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but that case involved the, that statute deals with transactions in commerce as opposed to the affecting commerce standard in the Sherman Act.",
       "time": "00:45:05.74"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I really don't think, are you saying this should be read as in commerce and excluding everything affecting commerce?",
       "time": "00:45:12.74"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They same point they made in the Bunte case, yes.",
       "time": "00:45:27.76"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you agree with the Bernhardt formula? Mr. Farr said the formula was right, although in his judgment the result on the facts was wrong. Do you accept that as a proper formula for involving commerce?",
       "time": "00:45:30.15"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But as far as Douglas' statement of what is involving commerce, do you accept that as a proper statement of the law?",
       "time": "00:45:55.08"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you think that the Court got it wrong on the law but right on the facts in that case, is that--",
       "time": "00:46:10.07"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--It was a declaration of what those words meant in the statute.",
       "time": "00:46:39.78"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You said that the Perry words, that that was dictum, and the Douglas formula was wrong in Bernhardt, so where did the Court have a right answer in the majority opinion?",
       "time": "00:46:48.92"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, no. He says the 50 bushels of wheat transaction would not be covered.",
       "time": "00:47:39.03"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, whether that-- --That was not recapitulated in my hypothetical. [Laughter]",
       "time": "00:47:54.13"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The case isn't famous for that, anyway. [Laughter] I don't recall that machinery. It's famous for what the Chief, how the Chief Justice described it.",
       "time": "00:48:07.64"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Farr's answer to that is, they were worried about facial invalidity.",
       "time": "00:50:21.09"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you don't dispute that the main focus of Congress was what the Federal courts were doing in rejecting arbitration agreements, the Federal courts' hostility to arbitration agreements under the era of Swift v. Tyson, when they were declaring general common law. I mean, we're way back in pre-Erie days. It was the hostility of the Federal courts to arbitration that was the principal reason for the Federal Arbitration Act.",
       "time": "00:51:36.21"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you have any second choice, other than the contemplation-of-the-parties test?",
       "time": "00:53:41.76"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So your second choice is your first choice.",
       "time": "00:54:26.08"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Chason. Mr. Farr, you have 3 minutes remaining.",
       "time": "00:55:18.63"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Farr. The case is submitted.",
       "time": "00:57:53.94"
     }

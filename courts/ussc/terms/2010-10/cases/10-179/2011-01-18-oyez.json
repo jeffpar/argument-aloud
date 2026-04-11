@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/10-179/20110118a_10-179.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "KENT L. RICHLAND",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ROY T. ENGLERT, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will now hear argument in Case 10-179, Stern v. Marshall. Mr. Richland.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you tell me why?",
       "time": "00:01:05.71"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's the authority at all for a bankruptcy court to adjudicate proof of claims, without violating Article III? I don't think we have ever had a case that's actually said that.",
       "time": "00:01:08.11"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what's--",
       "time": "00:01:25.44"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So what's the constitutional basis?",
       "time": "00:01:27.15"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure how that helps. If there's no jurisdiction for the Bankruptcy Court to adjudicate proof of claims, then how can it adjudicate counterclaims? Don't both fall if there's an Article III violation?",
       "time": "00:01:42.03"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So -- answer the question. Don't assume.",
       "time": "00:02:22.04"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The claim here was not one that was created by Congress, though, was it?",
       "time": "00:03:13.89"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Are there any limits, Mr. Richland? Suppose that Congress had authorized bankruptcy courts to decide contract disputes between two creditors in a bankruptcy proceeding. Would that be all right?",
       "time": "00:04:24.74"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can the Bankruptcy Court adjudicate permissive counterclaims?",
       "time": "00:05:42.17"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And if you posit a no, what's the limiting principle?",
       "time": "00:05:49.07"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Richland, isn't there this difference: Just to take ordinary civil procedure, compulsory counterclaim doesn't have to satisfy any jurisdictional requirements, because it comes in under the wing of the main claim, but a permissive counterclaim has to independently satisfy jurisdictional requirements. So that could be a reason, even though the Bankruptcy Code just says counterclaim, to distinguish the two. If there's an authority to deal with the claim, then there's authority to deal with the counterclaim; but if it's a permissive counterclaim, if it's not based on the same transaction or premise, then it would have to be a self-standing claim. But, as you -- as you have said, this case does present what the parties have agreed is a compulsory counterclaim.",
       "time": "00:06:27.95"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there any authority -- this began as a motion for nondischargeability?",
       "time": "00:08:33.85"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there -- is there -- are there any cases in the Federal courts which tell us that a motion for nondischargeability does or does not require the pleading of a counterclaim?",
       "time": "00:08:39.60"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the counterclaim came at what point? After the proof of claim was filed?",
       "time": "00:09:27.73"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you make of the fact that -- that (b)(2) says core proceedings include, but are not limited to, the matters that are listed after that? How would a court go about deciding whether something that is not specifically mentioned constitutes a core proceeding except by looking back to (b)(1), which is what the court of appeals did?",
       "time": "00:10:28.32"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you think is the principle that defines a core proceeding? Some of these specifically enumerated items are very -- potentially very broad. (A), \"matters concerning the administration of the estate. \"",
       "time": "00:12:03.18"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But say you waive it when -- when, in order to protect yourself for a debt that is owed to you, you make a claim in a bankruptcy proceeding. We do have a doctrine that you cannot -- you cannot condition a Federal right upon the waiver of constitutional protections, and that seems to me what you're saying here: If you want to get paid by the bankrupt estate, you have to waive your -- your right to a -- to a jury trial.",
       "time": "00:14:08.43"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would it have been normal for the bankruptcy judge to lift the stay with respect to a claim that could be presented in the bankruptcy proceeding?",
       "time": "00:15:39.00"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Stewart.",
       "time": "00:16:50.50"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "This is a little -- it's a little different when you're talking about the right to have a -- a decision before an Article III tribunal. It seems a bit more fundamental than the examples you're giving.",
       "time": "00:17:59.85"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, not -- not fundamental in the sense of is it important or not. I guess that -- \"fundamental\" is not the right word. Maybe \"structural\" or -- or something like that. It's sort of the whole basis for the decision that's going to be made.",
       "time": "00:18:17.37"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that just means that the district court is acting in concert with Congress to take action that undermines the long-term institutional and constitutional basis of the judiciary, and the districts courts have very different reasons and incentives to do that. That doesn't mean that all bets are off, and just because they're involved in the process it's not a concern.",
       "time": "00:19:10.26"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That can't be right. You -- you -- you can take all sorts of matters that belong in Article III courts, and so long as you place them in some other tribunal where somebody is coerced into coming in, supposedly voluntarily, it's all okay. I mean, that's -- that's not an adequate protection.",
       "time": "00:20:07.41"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's because there's a basic sovereign immunity. The government doesn't have to be sued at all.",
       "time": "00:20:50.94"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--so it can -- so it can make conditions, but that's not this case.",
       "time": "00:20:56.22"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's because of the limitation of sovereign immunity, and you don't -- and you don't have that analogue here.",
       "time": "00:21:09.23"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A State can do that, but can the Federal Government make it the price that you pay for -- for going into a non-Article III tribunal?",
       "time": "00:21:53.86"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a different situation, it seems.",
       "time": "00:22:04.25"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Will you include in that this 157(b)(5), because this whole thing would be a futile exercise if the tort claim comes -- comes out of the bankruptcy judge's--",
       "time": "00:24:55.76"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Stewart, do -- do you think that we should resolve the constitutional question if there's some significant possibility that it wouldn't be necessary because the claims would be found to fit into (b)(5)?",
       "time": "00:25:55.05"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Does the government have a position on what the answer would be vis a vis -- because that's an open question? But does the government have a position on whether these kinds of claims would have to be heard by an Article III judge?",
       "time": "00:26:25.86"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Englert.",
       "time": "00:27:11.62"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counselor, that sort of begs the question, because I think what I haven't unpackaged -- and I want you to unpackage it with me -- you are obviously not deprived of a State or Federal trial forum to decide your claim. What you're -- what you're deprived of -- you can get your judgment. No one's telling you, you can't go to those courts and get a declaration of your rights. What you're being told is you can't get paid on it. But that happens all of the time, either by the vagrancies of the fact that a debtor goes bankrupt and doesn't file in the Bankruptcy Court or does file and there's been a discharge. What you haven't said to me is what entitles you, outside of equity, and what stops either a State court or a Federal -- a State legislature or a congressional legislature, from saying when someone is in bankruptcy this is the res and these are the people who are entitled to it. It's a separate claim. It's not the State law claim. It may be measured by State law entitlement, but it's a separate claim. Why isn't it just a separate claim?",
       "time": "00:28:39.71"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that's what you have to become to make that claim, meaning you would need to adjudicate your State law entitlement. You get a judgment saying she defamed you. Then what do you do with that judgment?",
       "time": "00:30:11.47"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's -- that's my problem, which is if Congress could do that, why can't it do what it did here, which is to say if you -- not to make an equitable claim against the estate. It's not going to be in the amount of your judgment because they're in bankruptcy because they can't pay your judgment. If you want a piece of this, you have to consent to all claims, all compulsory claims -- let's not try to get into the compulsory/permissive category -- to be adjudicated. Otherwise, like with preferences, there is an unfairness that makes this unequitable. You're asking the estate to give you something, but you're not willing to submit in equity to deciding whether there's something you should give the estate back.",
       "time": "00:31:48.71"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Compulsorily. I mean, you know, not -- I'm trying to take the permissive issue out.",
       "time": "00:32:44.18"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Every -- every bankruptcy priority rule extinguishes someone's entitlement to money. The security rules mean the people who have secured interests get paid before unsecured people get paid, and there are insider rules. Equity, as in terms of how the bankruptcy sets up the rest, is at the vagrancies of the legislature.",
       "time": "00:33:08.90"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "They choose what they're going to permit you to take under what circumstances. So why is it inequitable to -- to force you -- not to -- to force you, we'll use that word -- to say if you want money from the res, what you trade off is letting the debtor sue you for what you owe.",
       "time": "00:33:36.73"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You don't have a constitutional right to collect your debt. You have a constitutional right to have your claim adjudicated by a court.",
       "time": "00:34:04.38"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You can go to a state -- well, once you get the stay lifted at the end of the discharge, you could sue the estate. You may not get a judgment that you can collect after that.",
       "time": "00:34:12.47"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Without a proof of claim?",
       "time": "00:35:35.66"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I wanted to ask you, Mr. Englert, about something you just said about if he had any opportunity. I thought his position was this is a nondischargeable debt; that even if it's discharged in bankruptcy, this debt would survive?",
       "time": "00:36:51.36"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it wouldn't be wiped out? I mean, it would--",
       "time": "00:37:09.15"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--He would have another forum.",
       "time": "00:37:13.76"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Just one more point about the nondischargeability. He didn't have to bring that claim, did he? I mean, if it's -- if it's a nondischargeable debt, he doesn't have to have the bankruptcy judge confirm that it's a nondischargeability debt.",
       "time": "00:38:22.31"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can you go back to that for one second? I understand the due process issue, which is Brandeis's issue in Crowell. I think I can -- you're not going to say anything that I can't read in the brief on that. But the other one is worrying me, the structural issue. So imagine there's no due process concern whatsoever. Now, when I looked at Crowell, your case would seem to fall right in it. It is an adjudication under the law as such, you know, between two people -- whatever that famous line is. You're captured by that one. So the question is: Can you get out of it with later cases? And you point to Schor to get out of it. And Schor, as I read it, is an all-factors case, that when she talks in the structural part of -- about -- when Justice O'Connor is talking about the non-due process part, the structural part, just what you said, that there isn't a hard-and-fast rule, that there are a bunch of factors that we should look at. At least that's how I read it. And you were reading it as a hard-and-fast rule, which means you win. Now -- now, who's -- should I just read this case further and make up my mind about that, or is there something you want to say about it?",
       "time": "00:40:15.65"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's what she says. And the -- and what you're interested in there, the key thing is not fairness. The key thing is maintaining the integrity of the judicial system. In Crowell, Justice Hughes says you've made that integrity as long as there were review of matters of fact, the independent decision by a court of questions of law, and reservation to the court of constitutional facts which have never been heard of since. Okay? So we have this case. And your issue is, after all, something that for many, many decades or longer has been the subject of a bankruptcy proceeding. The bankruptcy judge is an adjunct to the court. It is well-established, this kind of review. Every part of Crowell is met. So what is -- what is essential to the integrity of the judicial process that requires you to have a de novo hearing before a district court rather than the kind of review that's given here?",
       "time": "00:41:58.69"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In which case?",
       "time": "00:43:10.31"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, Marathon, you know, you had four, four and -- and who knows what it stands for. And then we have a sentence of what it stands for, and if you read that one sentence, I don't think you can say it's a slam-dunk for you.",
       "time": "00:43:12.85"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of the -- of Marathon and saying, with four and four judges, to really reject a decision like Crowell, which is a kind of foundation stone?",
       "time": "00:43:33.98"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, Crowell involved public rights in the narrow sense, didn't it? It was a public suit.",
       "time": "00:43:47.37"
     },
@@ -675,13 +675,13 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "True, but it's also a--",
       "time": "00:43:55.36"
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Perhaps there should be different standards. Even if you do not agree with my separate opinion in Granfinanciera that that should be the only category, there may well be different standards for public suits in the narrow sense that were involved in Crowell and public suits which are -- are governed by some totality of the circumstances test, which--",
       "time": "00:43:57.01"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Of course, there was no Bankruptcy Court handling it to start with. There was no claim. If you're going to go back to equity, equity lays hold of a claim that fits within the equity court, and then, as you know, there were clean-up and clear-up doctrines so they could decide the whole case. So I think that the one thing one can say about Marathon is that when the debtor has a claim against the creditor and the creditor hasn't made any claim in the bankruptcy, he can't drag that into the Bankruptcy Court. But once the Bankruptcy Court has authority over the claim, the creditor's claim against the debtor, then the court can clear up the whole matter.",
       "time": "00:45:19.04"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, by your theory, you're basically saying that Congress cannot delegate any State law-based claim to which a jury is entitled to the bankruptcy counterclaim at all. So if you have a claim by lawyers for their fees in a defense of malpractice, maybe they can adjudicate that, but they can't adjudicate the malpractice claim. It would be a counterclaim. Correct?",
       "time": "00:47:27.41"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Englert, one real difference between Marathon and this case is that Congress passed legislation in between which brought the bankruptcy judges under the control of the district courts and made them entirely Article III entities. So you can look at a case like Marathon, I mean not -- supervised by Article III entities, not by the president, not by Congress. So one can look at a case like Marathon and say the problem there was that the president appointed the bankruptcy judges in a way that the president no longer does and that the district courts did not have the supervisory control over the bankruptcy judges in the way that they do now, and that that makes a constitutional difference.",
       "time": "00:48:36.85"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Just clarify one point, Mr. Englert. As I understand it, before the code was amended, when the Federal courts were operating under the interim rule, it was standard that the bankruptcy judges, given a claim against the estate, routinely dealt with counterclaims. Isn't that what the practice was when the interim rule was in effect?",
       "time": "00:50:31.36"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But did all of those court of appeals cases involve Article III claims? Did they pass upon the Article III contention? If not, it's -- it's our clear law that the questions -- jurisdictional questions that aren't raised and discussed are not decided for precedential purposes. How -- how many of those cases grappled with the Article III question?",
       "time": "00:51:29.21"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But not most, I don't think.",
       "time": "00:52:02.26"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Excuse me, I just couldn't hear. On what grounds did he reverse himself, do you think?",
       "time": "00:54:07.31"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--If -- if we were to decide this case, and suppose we decide every other question and suppose you lost, then wouldn't we send it back for you -- if you're right on that, for the Ninth Circuit to decide about that as an independent basis for no jurisdiction?",
       "time": "00:54:17.26"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I had to make that premise in order to--",
       "time": "00:54:35.91"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is -- is?",
       "time": "00:55:00.19"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--If it's that hard why don't we just DIG the case? I guess-- [Laughter]",
       "time": "00:55:04.39"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Richland, you have 3 minutes remaining.",
       "time": "00:57:23.70"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I would take that to mean you -- you brought it in here, and, you know, the same kind of argument that you were making.",
       "time": "00:59:05.62"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--you've chosen to come into the Court, and this is the spawn of your coming in.",
       "time": "00:59:15.81"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would -- well, I would rather say 27 months is too long. That's--",
       "time": "00:59:33.03"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That's timely.",
       "time": "00:59:38.04"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, but his basic argument I think is that in Marathon--",
       "time": "01:00:30.22"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Make it totally fair. Nobody is being treated unfairly. Structurally it does injure the -- the prestige or something or the structure or the integrity of the Federal Government -- judiciary, Federal judiciary -- to allow the bankruptcy judge to adjudicate a direct claim; why is a counterclaim different?",
       "time": "01:00:35.56"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel; counsel. The case is submitted.",
       "time": "01:01:08.75"
     }

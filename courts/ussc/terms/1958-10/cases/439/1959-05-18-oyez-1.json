@@ -3,35 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/439/19590518a_439_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRY L. SHNIDERMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 439, Jackson D. Magenau, Administrator of the Deceased of Norman Ormsbee, Jr., Deceased, Petitioner, versus Aetna Freight Lines, Inc. Mr. Shniderman you may proceed.",
       "time": "00:00:00.00"
     },
@@ -43,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page is that on?",
       "time": "00:07:09.61"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you agree that under Pennsylvania law these issues were not for the jury?",
       "time": "00:08:47.40"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under Pennsylvania law?",
       "time": "00:08:59.54"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Their claim is here that notwithstanding the Pennsylvania practice (Inaudible)",
       "time": "00:09:02.60"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:09:17.41"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Shniderman, do you contend that the conclusion as to whether Ormsbee was an employee was for the jury or just the finding of facts from which that conclusion of law would follow?",
       "time": "00:09:20.05"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "I understood that here, under interrogatory number one, the Court asked the jury under the -- this follows, under the evidence in this case, do you find that an unforeseen contingency arose which made it reasonably necessary for the protection of the defendant's interests, that the driver Charles Schroyer engaged the decedent Ormsbee to accompany him for the reminder of the trip and the jury answered yes. Now is that not right?",
       "time": "00:10:19.16"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well --",
       "time": "00:10:59.93"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Now that, you maybe all correct in this, but it is -- that's a matter of argument. It is true or is it not that the jury found the facts by answering yes submitted in question, interrogatory number one.",
       "time": "00:11:21.28"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Shniderman what Workmen's Compensation Act (Inaudible) for this respondent (Inaudible)",
       "time": "00:11:40.45"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As I understand you in answer to Justice Harlan the question of whether Ormsbee was (Inaudible) Pennsylvania cases --",
       "time": "00:11:54.77"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is not purport of my inquiry?",
       "time": "00:12:45.75"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "My fault, what I was trying to get at is this, if there is an issue in the case whether Ormsbee is an employee of Fidler or of the respondent, if this case were tried in the Pennsylvania courts by whom would that issue be determined?",
       "time": "00:12:49.14"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you suggest on this record that Judge Wilson may have said that there is no issue on the employment in the case for the purposes of the Workmen's Compensation Act? So it's on the record if Ormsbee was an employee of anyone, he could only be an employee of Fidler, in which case the defense in workman's compensation would not have been available to the respondent?",
       "time": "00:14:07.34"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is drawing a distinction between defendant's interests and --",
       "time": "00:19:04.53"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- course of the defendants' --",
       "time": "00:19:09.40"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) just had (Inaudible) regular course of business (Inaudible)",
       "time": "00:26:26.64"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:26:55.43"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:26:58.53"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What do you conceive to be the decision of the -- what did that decide?",
       "time": "00:28:05.32"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's abstractly or with relation to Workmen's Compensation Act?",
       "time": "00:28:20.17"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well in the Byrd case was the workmen's compensation issue put to the jury?",
       "time": "00:28:30.17"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it asked to be put to the jury? Was the case litigated as a workmen's compensation problem?",
       "time": "00:28:40.45"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but the litigation was about the Workmen's Compensation Act.",
       "time": "00:28:51.97"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Pardon me?",
       "time": "00:28:57.81"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes and the question was the jury's relation, the jury's function in relation to a defense.",
       "time": "00:28:59.87"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that right?",
       "time": "00:29:06.70"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now in this case is this same here?",
       "time": "00:29:07.91"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was anything said about the Workmen's Compensation Act in the Byrd case to the jury?",
       "time": "00:29:17.83"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not mentioned?",
       "time": "00:29:28.28"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if you say the issue is that what is the status of employment under workmen's compensation, that claim, that must be put to the jury actually I should think the jury would be told something about it. So far as -- I have just for the first time read the charge of the jury and you couldn't tell from that the workmen's compensation has anything to do with it.",
       "time": "00:29:33.96"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And is that -- and where do you go from there in jump to the conclusion or going to the conclusion, that therefore that issue is not on under Pennsylvania law, a part of the statutory limitation or restriction or right, call it what you will, which is -- in other jury's business. The scope of a state statute, is that to be left to a jury?",
       "time": "00:30:25.27"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well I mean applying it yes, but as to whether you're within or without a state statute is that a jury question, even a federal court?",
       "time": "00:30:54.44"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's a very different thing as to the state is, that a state chooses to define for which it does or doesn't give its own state law relief, isn't it?",
       "time": "00:31:28.87"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A brake is one thing, but whether or not who comes within the category, I can see determining whether a man comes within a category.",
       "time": "00:31:40.79"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But what the category is, is not for the jury?",
       "time": "00:31:50.03"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now suppose under state law that's to be done by an administrative agency.",
       "time": "00:32:34.88"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you then bring a diversity suit, that means you can try that in litigation rather than the administrative agency before the jury, is that your contention?",
       "time": "00:32:39.45"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose under state law --",
       "time": "00:32:51.83"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- whether a man is within or without, must be determined by an administrative agency, does diversity jurisdiction, I'm asking and this is (Inaudible), does diversity jurisdiction permit or imply that in this regard, administrative determination of these questions and bring it before a jury in the federal court.",
       "time": "00:32:54.19"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I am not talking about res judicata. I'm taking about the process for determining --",
       "time": "00:33:19.17"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- whether they should come within or without a state law, the state law says you must bring it before an administrative agency, if you've got diversity can you disregard it?",
       "time": "00:33:23.87"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But my question is, whether the (Inaudible) whether it's for jury or for Court, if a state says we are going to give certain relief and that's exclusive relief in this state, and it must be fought out before an administrative tribunal, can you have diversity transfer it to a court proceeding and a jury proceeding?",
       "time": "00:33:37.69"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you one question before you sit down?",
       "time": "00:34:04.55"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) am right in thinking that in order to make this so called diversity you'd have to show that as per Pennsylvania practice under diversity law (Inaudible)",
       "time": "00:34:07.34"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:34:39.35"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:35:02.38"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:35:22.42"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose that Pennsylvania law, the word practice is also (Inaudible) tack on (Inaudible) with the game of labels, those Pennsylvania workmen's compensation laws meet all questions arising in under workmen's compensation law, those proceedings in (Inaudible) exclusively to the Court, no jury at all, not the distribution of function between the two, but deal with it entirely through court. Would you call that just Pennsylvania practice for purposes of the Byrd case?",
       "time": "00:36:12.19"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't why it is (Inaudible)",
       "time": "00:37:33.60"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't quite see you why you minimize a defense under the Workmen's Compensation Act --",
       "time": "00:37:37.89"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- under Pennsylvania law is something collateral.",
       "time": "00:37:45.61"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But when you say an ordinary tort case, what you are dealing with is a policy of the state that an ordinary tort case should not be subjected to ordinary tort law, but should be subjected to the insurance principles, workmen's compensation.",
       "time": "00:38:06.09"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you think from that one can derive a policy those issues should be determined, those rights should be determined in a certain way, rather than some other way –-",
       "time": "00:38:45.41"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- because of the conflict. There is certainly conflict of the law or of the policy in law, between letting ordinary tort law govern the jury and letting workmen's compensation go.",
       "time": "00:38:54.48"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's not collateral (Inaudible) that goes to the very root of the policy of Workmen's Compensation Act.",
       "time": "00:39:05.89"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well isn't that the real question that you supplant tort law by different concepts of law (Inaudible)",
       "time": "00:39:46.68"
     }

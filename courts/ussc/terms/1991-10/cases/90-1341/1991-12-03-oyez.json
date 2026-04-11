@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-1341/19911203a_90-1341.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JACK A. VAN KLEY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 90-1341, United States Department of Energy v. Ohio, and 90-1517, Ohio v. United States Department of Energy. Mr. Feldman.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt you, Mr. Feldman, because there is one sentence in the statute that does seem rather clear. It says... just the second half of it on page 58 of your opinion... the United States shall be liable only for those civil penalties arising under Federal law. Now, in any case, it must arise under Federal law. But can you not... can that any way possibly be interpreted to say there's no case in the world in which the United States shall be liable for a civil penalty?",
       "time": "00:02:52.96"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your position that there is simply no case to which that language applies?",
       "time": "00:03:22.68"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "1(a) of what, Mr. Feldman?",
       "time": "00:04:04.78"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's the same section from which I just read.",
       "time": "00:04:20.82"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why do you say the last sentence could not be construed as a waiver, at least as to civil penalties arising under Federal law? The last sentence of what, Justice O'Connor? Of the same section that we're looking at, let me see... it's the section 313 of the Clean Water Act, right?",
       "time": "00:04:39.42"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where does the last sentence that is being referred to begin? Is it towards the bottom of 2(a)?",
       "time": "00:05:10.72"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, it's not.",
       "time": "00:05:18.37"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On page 2(a)?",
       "time": "00:05:24.32"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I'm not sure that it does. This might extend the waiver to Federal penalties. What are the Federal penalties that are available? Is section 1319 the only section providing for Federal penalties?",
       "time": "00:05:47.38"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then what does Federal penalty refer to in this sentence we were just examining?",
       "time": "00:06:25.46"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that's already covered in the... later in the sentence.",
       "time": "00:06:50.15"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't what it says.",
       "time": "00:07:10.68"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Imposed by a State. It doesn't say imposed by a State court... State or local court.",
       "time": "00:07:15.64"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "State or local court?",
       "time": "00:07:25.27"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it does seem odd that if they meant simply pay civil contempt penalties imposed by a Federal, State, or local court, they would word the sentence this way. They talk about penalties arising under Federal law. And you're saying that should be read as if it meant penalties imposed by Federal courts for failing to obey an injunction.",
       "time": "00:07:27.50"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, unless you say that... unless you say that this... that because the State has a role in enforcing a Federal statute that... if the State has authority to regulate a Federal agency, which, I take it, it does?",
       "time": "00:07:59.40"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Under the Clean Water Act?",
       "time": "00:08:19.60"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are they... is the State enforcing a Federal law there?",
       "time": "00:08:21.02"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but it's... but it arises under the Clean Water Act doesn't it? Except for the Clean Water Act, the State wouldn't be doing what it's doing. And it certainly wouldn't have the authority to... to regulate an agency.",
       "time": "00:08:32.33"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, maybe... maybe when Congress wrote this, the first half of the sentence they just didn't... didn't advert to whether there were any civil penalties arising under Federal law. Or they thought they might enact some in the future.",
       "time": "00:09:36.77"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they were willing to have the Federal Government liable for any penalties arising under Federal law, but that doesn't mean that they were willing to have the Federal Government liable for any penalties arising under State law.",
       "time": "00:09:49.02"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And these are State statutes here that we're talking about, right?",
       "time": "00:09:59.93"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "State penalties.",
       "time": "00:10:02.24"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And there's nothing in this sentence that says that they shall be liable for penalties under State law.",
       "time": "00:10:04.03"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or that the Congress might have though there... there were some others, and didn't want to search the statute books to make sure there were, and said if there are any... if there are any, we're perfectly willing to make the Federal Government liable for it. But that doesn't mean we're willing to make the Federal Government liable to whatever the States want to do.",
       "time": "00:10:30.43"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Feldman, there are some penalties that arise under Federal law. Are there not?",
       "time": "00:10:44.87"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "1319(d) describes a set of penalties that arise under Federal law.",
       "time": "00:10:52.74"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well--",
       "time": "00:10:58.92"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, it's also defined to include the United States in another provision.",
       "time": "00:11:04.80"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In the citizens suit provision, it expressly includes the United States.",
       "time": "00:11:08.78"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the United States is a person.",
       "time": "00:11:12.99"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, it says may bring a suit against any person, paren, including (1) the United States, and (2) any other Government agent. That surely includes the United States within the concept of person in that section.",
       "time": "00:11:21.47"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And this is a citizens suit.",
       "time": "00:11:33.75"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All right.",
       "time": "00:11:36.96"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And there is another provision of the statute that describes penalties that may be awarded, arise under Federal law. Why isn't that an appropriate remedy under this case... I don't understand. I mean maybe I'm just dumb.",
       "time": "00:11:38.02"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:11:59.18"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they can be subject to appropriate penalties.",
       "time": "00:12:10.73"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And an appropriate penalty is one arising under Federal law, according to this earlier section. And we've got a Federal statute describing penalties arising under Federal law. I don't know what... which piece is missing?",
       "time": "00:12:13.77"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Against the United States unless they arise under Federal law.",
       "time": "00:12:32.82"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, not... the State of Ohio couldn't pass a statute saying the penalties should be $1 million a day. That would not be permissible.",
       "time": "00:13:12.93"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Correct.",
       "time": "00:13:21.93"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because that would not arise under Federal law. But this limits... in other words, this clearly limits it to those that are described in 1319(d).",
       "time": "00:13:23.20"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I don't know how you can say those in 1319(d) don't arise under Federal law.",
       "time": "00:13:30.17"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it says in so many words, shall be liable. It also has the word only in that. But it says, shall be liable for those penalties.",
       "time": "00:13:53.32"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where is 1319(d)? It isn't in your appendix.",
       "time": "00:14:03.97"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it somewhere around here?",
       "time": "00:14:08.76"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I think maybe I've got it here. Wait a minute. Well, never mind... I thought it was handy.",
       "time": "00:14:09.93"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And where is person defined to exclude the United States, as you say?",
       "time": "00:14:49.58"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, yes, but 1365 says it does. Any person, including the United States.",
       "time": "00:15:13.34"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the last... the last... the last couple of lines of 1365-- --Where are you reading from? In 3(a). 3(a), 1365, the last sentence or two... the last line or two says that... says that a district court could apply any appropriate civil penalties under 1319(d).",
       "time": "00:15:45.80"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that would be against the United States.",
       "time": "00:16:13.07"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Appropriate is the key word.",
       "time": "00:16:19.21"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right?",
       "time": "00:16:22.30"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But because... because person doesn't include the United States under the general definition of a person, it wouldn't be appropriate to... is that it?",
       "time": "00:16:32.42"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Feldman, let me just point this out. This talks about relief against the administrator, as defined in 1319(d). By hypothesis, the administrator could not be a defendant in 1319(d) because that's the penalties that he may obtain in litigation. In 1319 they are enforcement actions by the administrator.",
       "time": "00:16:51.49"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So if you refer to that for the general citizens suit provision, you can't just... can't say they can do it in suits against the administrator, and then say it's got to be an appropriate penalty in a suit brought by the administrator, is what you're arguing.",
       "time": "00:17:08.59"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because 1319 deals with litigation initiated by the administrator. So by hypothesis, the administrator could not be a defendant in a 1319(d) suit.",
       "time": "00:17:22.63"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, how can you then say that when they refer to the administrator in this provision, they're excluding... they're excluding cases in which... the United States? Because by hypothesis here, he's a defendant in this case.",
       "time": "00:17:33.31"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:17:57.72"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, and the appropriate remedy for that suit is found in 1319(d), according to the very suit.",
       "time": "00:17:59.22"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no case close to this. [Laughter]",
       "time": "00:19:27.32"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The what case?",
       "time": "00:19:41.97"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Ault?",
       "time": "00:19:44.26"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it true that the word sanction quite frequently is used to refer to the kind of penalties that are inscribed in 1319(d)?",
       "time": "00:20:47.25"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's wonderful to know that Congress can draft with such subtlety. That is really a very, subtle point. It's not sanctions used alone, but it's sanctions with process and sanctions. Especially when Congress... I thought Congress got a little upset about some decisions and wanted to make sure the United States got hooked to obey the law.",
       "time": "00:21:41.33"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, to do that, to do that. And yet they were so subtle about it, that they've... that the United States isn't liable at all.",
       "time": "00:22:10.08"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Feldman, before you leave 1365... if it's possible to leave it... my understanding is that these fines are paid to the United States Government under this section.",
       "time": "00:23:00.03"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that... does that present a case or controversy, for Federal courts to sit and allocate money from one Federal account to another?",
       "time": "00:23:13.39"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As to the enforcement, perhaps.",
       "time": "00:23:34.92"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But just as to the penalty part--",
       "time": "00:23:37.69"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I'm not sure if there are cases where there's a case or controversy as to part of the relief, but not as to the other part of the relief. But it seems to me that it's quite questionable here that there is a case or controversy as to the fine that's being paid from one part of the Federal Treasury to the other.",
       "time": "00:24:08.92"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm... don't we have cases captioned the United States v. Interstate Commerce Commission? I mean, we've had the Federal Government suing itself up here before.",
       "time": "00:24:40.55"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It may not be right, but we've done it.",
       "time": "00:24:53.82"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Feldman. Mr. Van Kley, we'll hear from you.",
       "time": "00:25:11.59"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Please, if you're going to read anything from the statute, please tell us where you... or where you are going to read from.",
       "time": "00:25:40.46"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "1365--",
       "time": "00:26:00.29"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--On 3(a) of the brief of the petitioner.",
       "time": "00:26:02.35"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's 6972... what number did you give--",
       "time": "00:26:44.74"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right... that's on 5(a) of the Government's brief.",
       "time": "00:26:54.44"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:27:00.90"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you... do you agree that the only penalties provided in Federal law right now are those in 1319?",
       "time": "00:28:09.50"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But 1319 contemplates that those are, are penalties that can be sought by a suit brought by EPA, by the administrator.",
       "time": "00:28:29.32"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, your contention is that this provision waives that immunity on the part of the Federal Government, although it does not on the part of the State governments?",
       "time": "00:29:21.60"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it doesn't eliminate the State government's Eleventh Amendment immunity. I mean that's what it says. It says, to the exte... any other governmental instrumentality or agency to the extent permitted by the Eleventh Amendment to the Constitution. So I gather that means that you can't... you can't get any penalty out of the State treasury.",
       "time": "00:29:32.23"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That doesn't--",
       "time": "00:29:52.44"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I don't understand what that exception means, then, any other Government instrumentality or agency to to the extent permitted... to the extent permitted by the Eleventh Amendment to the Constitution. I thought that means to leave in there State sovereign immunity.",
       "time": "00:29:57.29"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, what is the reason for putting in the reference to the Eleventh Amendment there?",
       "time": "00:30:31.82"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it still had to be decided. Let him answer the question.",
       "time": "00:30:37.87"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does this really strike you as a model of clarity? [Laughter]",
       "time": "00:30:47.28"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The whole thing... I mean, the rule is that to waive the sovereign immunity of the United States, you must have a clear statement, and it must be unambiguous. And here we are, just wrestling with very vague and often self-contradictory terms.",
       "time": "00:30:54.00"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, could you sum up, perhaps in two or three sentences, exactly how you reason your way through to the conclusion that this is--",
       "time": "00:31:40.22"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--This is perfectly clear?",
       "time": "00:31:48.64"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you're relying on the provisions of 1323, the Federal facilities pollution control statute for the waiver of sovereign immunity.",
       "time": "00:32:40.02"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And... but under the citizens suit provision, do you... do you rely on that to give authority for waiver of Federal sovereign immunity for civil sanctions imposed by State law?",
       "time": "00:33:06.97"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if we thought 1323 did not waive Federal sovereign immunity for State law sanctions, where would that leave us?",
       "time": "00:33:33.62"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the suit, nevertheless, covers Federal sanctions as well?",
       "time": "00:34:05.27"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the Sixth Circuit didn't deal with that?",
       "time": "00:34:12.16"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But not 1365.",
       "time": "00:34:19.34"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did it under that... it did not deal with that section at all?",
       "time": "00:34:21.59"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree, Mr. Van Kley, that penalties under... is it under 1365, the citizens suit, are paid to the United States?",
       "time": "00:34:50.73"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then doesn't it seem odd that the United States would be sued and its penalty would be paid to the United States?",
       "time": "00:35:00.21"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any indication that Congress realized that it was imposing sanctions on the United States which would be paid to the United States?",
       "time": "00:36:03.79"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Van Kley, you know, if the main point is the embarrassment of the Federal agency, I'm really not sure that most of the administrators I know are terribly embarrassable people. But if that is the big problem, that can be done without paying any money. I mean, just the entry... the Government concedes that they're suable, and that an order can be entered saying you have broken the law. Stop breaking the law. Now, that demonstrates the agency's been breaking the law. Why isn't that embarrassment enough?",
       "time": "00:36:22.70"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think it adds to that to say moreover, you're going to have to switch money from one account to another just to embarrass you? I don't think that's going to make any difference at all.",
       "time": "00:36:56.54"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "From the standpoint of embarrassment?",
       "time": "00:37:06.50"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Van Kley, I understood you to say a moment ago that the term civil penalties is not normally used to include contempt sanctions and so on. Isn't that, however, exactly the sense in which it's used in 1323, because the phrase that we're concerned with here, the United States shall be liable only for those civil penalties arising under Federal law or imposed by a State or Federal court to enforce an order of the process of such court, clearly, when they speak of civil penalty, they are including a contempt sanction within that term, as used here. Isn't that correct?",
       "time": "00:38:17.76"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that's the section I understood you to be relying on a moment ago.",
       "time": "00:39:01.90"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but I... maybe I misunderstood your argument. I thought your argument was, in effect, that civil penalties for which the United States would be liable would... is a term that simply would not normally be used to refer to a contempt sanction, and hence, it was more probable that it referred to something other than a contempt sanction. And my only point is here, as the term is used here, it clearly does include a contempt sanction if it's imposed by a State court. And therefore, we have to say that the term as used here does include contempt sanctions, which therefore weakens your argument that it must refer to something else when it's referring to a civil penalty paid by the U.S. Isn't that a fair response to what you said?",
       "time": "00:39:12.60"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, your entire... I apologize for interrupting you. You're entirely right about half the sentence. But the term is used in both the earlier reference and the later reference. And my only point is the term has to include, as it is used there, a contempt sanction. And that is correct, isn't it?",
       "time": "00:40:00.75"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you--",
       "time": "00:40:26.05"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Then are, are you... are you, in effect saying that the term civil penalties is not also modified... is not modified not only by... start that again. Are you saying that the term civil penalties is modified by, arising under Federal law, but is not modified by, imposed by a State or local court to enforce an order?",
       "time": "00:40:28.78"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's a very strange reading. That's a very strange reading of that sentence. Well, what is the alternative meaning?",
       "time": "00:40:55.35"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is no alternative meaning?",
       "time": "00:41:07.00"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, could you then have simply excised from the sentence the phrase, arising under Federal law, and simply say the United States shall be liable only for those... strike that. The United States shall be liable only for, imposed by a State or local court? That's the implication of what you're saying. And that would make no sense at all.",
       "time": "00:41:09.36"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's got to be... it's got to refer to, to both of those... both of those modifiers have got to refer to penalties.",
       "time": "00:41:32.57"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it doesn't say that. Now, you're... it says the United States shall be liable only for those penalties arising under Federal law.",
       "time": "00:41:51.23"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that is not what you said.",
       "time": "00:41:59.29"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Continue with your answer to Justice Souter.",
       "time": "00:42:02.79"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And those sanctions are described, are denominated civil penalties.",
       "time": "00:42:17.68"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We'll have to agree to disagree. I seem to insist on finding the need for a noun somewhere, and you don't. [Laughter]",
       "time": "00:42:28.79"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Van Kley... that just doesn't make any sense.",
       "time": "00:42:38.93"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, are you... are you saying then, that the... that the sanctions assessed under State law really should be treated as arising under Federal law?",
       "time": "00:45:31.47"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you wouldn't just be looking to one of these sections that we've just been looking at. You would look at State law?",
       "time": "00:45:51.57"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And a sanction imposed by a State law that's implementing the Federal act or implementing the program that's been approved, that would arise under Federal law?",
       "time": "00:46:06.46"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And then all of those suits to recover those State penalties can be brought in Federal court, because they arise under the laws of the United States.",
       "time": "00:46:48.90"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You mean that's thinkable?",
       "time": "00:47:03.14"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but neither of those refers to penalties arising under. This is a cause of action arising under.",
       "time": "00:47:34.29"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As I understand, your... what you're saying is the penalties, even though described in an Ohio statute, arise under Federal law because the statute was enacted pursuant to the Federal program and has been approved by the administrator.",
       "time": "00:47:42.49"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's... and if that's true, I don't know how you answered Justice Scalia. Because then it seems to me any suit under the State program arises under Federal law.",
       "time": "00:47:55.78"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the purpose here, as your opponent has rather forcefully argued, is to limit the liability of the United States as liable only for those civil penalties.",
       "time": "00:48:15.54"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And so it's rather strange to say you will limit these. But if we prove it under... well, anyway, under a State program, it still arises under Federal law. That's certainly not a natural reading of that word.",
       "time": "00:48:24.24"
     },
@@ -1631,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not even looking at any cases. I'm just... like my colleagues on the right here, I just agree... and we just looked at this language. It seems to me that when you talk about arising under Federal law, that's a rather odd way to say arising under State laws that have been enacted pursuant to a Federal program, or approved by a Federal agency, which is what you're reading as. But you're... you rely entirely on this argument, and you don't rely on the citizens suit provisions. Is that right?",
       "time": "00:48:44.90"
     },
@@ -1643,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You... just to get a different scale of penalties, is that the reason for the difference?",
       "time": "00:49:14.69"
     },
@@ -1655,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you... you think you're entitled to collect this money on several different independent grounds, like--",
       "time": "00:49:21.66"
     },
@@ -1667,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But may I just put one... there are two rather separate theories under the Clean Water Act. One is the one you've argued almost entirely now. The second is the citizens suit theory that I debated with your opponent. Is there a difference in the outcome of the litigation, depending on which theory one might buy?",
       "time": "00:49:46.51"
     },
@@ -1679,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see, so that's why you're not arguing the citizens suit provision very vigorously.",
       "time": "00:50:08.93"
     },
@@ -1691,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you don't get the money. I understand that. [Laughter]",
       "time": "00:50:19.23"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but I understand now why you've concentrated your argument on this, rather than the other.",
       "time": "00:50:33.03"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me if one looks at plain language you've got a much stronger argument on the other. I don't know whether you're right or not, but surely the waiver is much more clear in the citizens suit-- --Well, I thought maybe you wanted to enforce this law and sue under the citizens suit provision and recover those Federal penalties because then you're going to punish the agency by taking their money away and giving it to somebody else in the Federal Government.",
       "time": "00:50:37.55"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The State penalties are higher, too, aren't they, as I recollect it?",
       "time": "00:51:19.01"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Pardon?",
       "time": "00:51:22.91"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're lower.",
       "time": "00:51:23.86"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They could be higher, I suppose.",
       "time": "00:51:25.13"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:51:34.64"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Van Kley. Mr. Feldman, you have 4 minutes remaining.",
       "time": "00:54:14.11"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "For... of money liability?",
       "time": "00:55:20.64"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They make it clear.",
       "time": "00:55:49.16"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those are clear.",
       "time": "00:55:51.10"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Have they been through a conference committee yet?",
       "time": "00:55:58.08"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're not promising that you won't be back. [Laughter] We don't know what some other Solicitor General will say about that.",
       "time": "00:56:01.45"
     },
@@ -1859,13 +1863,13 @@
     },
     {
       "turn": 303,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Feldman. The case is submitted.",
       "time": "00:56:37.29"
     },
     {
       "turn": 304,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:56:41.34"
     }

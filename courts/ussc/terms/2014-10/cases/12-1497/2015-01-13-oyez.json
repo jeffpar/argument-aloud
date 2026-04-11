@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2014/12-1497/20150113a_12-1497.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN P. ELWOOD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DAVID S STONE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 12-1497, Kellogg Brown & Root Services v. United States, Ex Rel. Benjamin Carter. Mr. Elwood.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it unusual that a criminal statute of limitations would be much longer than a civil statute of limitations, which is the effect of your argument?",
       "time": "00:01:14.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Didn't some states used to have no statute for -- for murder, and yet had a statute of limitations on wrongful death claims? I think that's -- that's the case, with respect to state law, anyway.",
       "time": "00:01:53.87"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Were you adopting the argument of the New England Foundation, the amici brief?",
       "time": "00:04:19.24"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Elwood, I take the point, and that seems like a fair understanding of why that term came out. But it wasn't the only change that they made at that point. And taking that term out may have had more than one reason, of course. So two other changes they make are, they put in the word \"any\". So the old statute just says \"offense\" and now it's \"any offense\", which suggests breadth and expansiveness. And the other thing, of course, is that they do all of this in connection with this Contract Settlement Act, which presumably refers both to civil and to criminal matters. And it follows right after this Contract Settlement Act and suggests that it's following on it. So, you know, put all those three things together: The taking out of the indictment language, the putting in the word \"any\", and the passage in conjunction with the Contract Settlement Act. I think that that would be an argument on the other side.",
       "time": "00:04:54.77"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Contract settlement.",
       "time": "00:06:31.13"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Contract settlement.",
       "time": "00:06:33.40"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that goes for the government as -- I mean, suppose the government, not a relator, brings a False Claims case against a contractor. The government wouldn't get the -- the -- under your view, the government doesn't get the suspension?",
       "time": "00:07:54.85"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And we--",
       "time": "00:09:59.76"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Assuming we agree with you on the first question--",
       "time": "00:10:01.32"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--should we -- should we get to the second? And how would we if we believe if you were right on the first?",
       "time": "00:10:04.69"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The only problem -- the problem you have with this argument -- and it's -- has substantial force to it -- but you give no significance of the word \"pending\". You almost write that out of the statute.",
       "time": "00:10:57.57"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How about \"former\"?",
       "time": "00:11:21.26"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "\"Pending\" is a very strange word to pick.",
       "time": "00:11:23.71"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or \"said action\" or \"that action\".",
       "time": "00:11:30.11"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, aren't you going to -- besides the problem that you're -- you're talking about, your not giving \"pending\" any meaning, you're also destroying the force of an original source. I mean, the -- the public disclosure bar doesn't apply to an original source. And you're sort of blocking original sources from bringing suits, when a prior case involved a dismissal for a technicality, or a dismissal because this was in the public domain. But that's not true for an original source.",
       "time": "00:11:52.16"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, the reality is you don't need the qui tam unless the government doesn't want to waste resources on something, but that doesn't mean that they didn't find that there might be something there.",
       "time": "00:13:40.20"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it may not want to prosecute it.",
       "time": "00:14:10.74"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You have to assume that what the intent is, is not to force the government to prosecute but to get recovery, for -- for the government.",
       "time": "00:14:14.36"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you have any idea how collateral estoppel works in this area? I actually don't know. But let's assume that you -- that you're, that the adversary won a claim against you. Could someone else come in and you've now won for the government, essentially, could anyone else file a suit or would they be stopped because--",
       "time": "00:15:08.60"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Exactly.",
       "time": "00:15:40.85"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The relator is treated as the government for preclusion purposes.",
       "time": "00:16:00.78"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that was at least, at least sole judge after verdict.",
       "time": "00:16:07.29"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, there is -- there is good authority, at least in the court of appeals, for that position.",
       "time": "00:16:13.40"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But is it your -- your -- is it your position suit number 1 is filed, it's dismissed within weeks without prejudice, that no other relator can file?",
       "time": "00:16:45.13"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The question is whether somebody else could come in. So you have somebody who is the first filer and comes in with a sloppy complaint and it's not stated with sufficient specificity; dismissed. And that person goes way. You're saying nobody else can ever come in.",
       "time": "00:17:10.52"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What if it was a perfect a perfect complaint, but he sued in the wrong court, or there was no personal jurisdiction?",
       "time": "00:17:41.51"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Dismissed without juris -- dismissed without prejudice.",
       "time": "00:17:46.47"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No. My hypothetical is dismissed without prejudice, but it's a beautifully drawn complaint.",
       "time": "00:17:54.54"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's dismissed for failure to prosecute.",
       "time": "00:18:11.83"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For nonmerits ground, and so nobody else can come in?",
       "time": "00:18:15.67"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that first file rule was meant to protect the first filer in that -- well, one aspect of it is the first filer doesn't have to worry about a race to judgment. Somebody else files second and gets the judgment first. So I thought that that was -- one of the chief things was to protect the first filer and also to protect that filer's recovery so he doesn't have to split up whatever the qui tam plaintiff gets.",
       "time": "00:19:17.47"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The first filer is a race to the courthouse.",
       "time": "00:20:05.02"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we know in this case -- there were three suits. Thorpe, I think, was the first. Do we know why those suits dropped out?",
       "time": "00:21:11.08"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The first Carter, the first Carter suit.",
       "time": "00:21:28.60"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The first Thorpe.",
       "time": "00:21:33.03"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you say that kills it for every -- anybody else.",
       "time": "00:21:41.29"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Were any of them filed by original sources?",
       "time": "00:22:11.29"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Were any of them filed by original sources?",
       "time": "00:22:13.80"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it's -- it's not a pending action later. I mean, when that action's been dismissed or been completed, you say that a later action is prohibited even though there is no pending action, right?",
       "time": "00:22:53.44"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Since you're getting into that event, to me, it makes perfect sense to apply it just to the pending action. The action goes away. Number 2 person and that means there isn't going to be the problem that Justice Ginsburg suggested, so we don't have that problem. And now we have a new person who can bring a suit if and only if he is the original source. Well, if he's the original source, let him recover. Why not? And your answer to that is, well, he didn't tell the government all this stuff, the first guy did. Well, see, but that's not the only purpose of the qui tam action. It has other purposes. It's to reward the person who, in fact, did discover this thing and -- and made every effort to bring it to public attention.",
       "time": "00:24:24.47"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or not--",
       "time": "00:25:07.73"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I know. But he can't -- but other -- other things prevent him from bringing it unless he's the original source. Am I not right? I mean, it's all been disclosed, you know.",
       "time": "00:25:14.20"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Everything's been disclosed by number 1--",
       "time": "00:25:24.83"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--What?",
       "time": "00:25:28.06"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Let's take the mine run--",
       "time": "00:25:30.06"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I don't want to interrupt. I don't want to interrupt your reserving your time.",
       "time": "00:25:31.93"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Stone.",
       "time": "00:25:36.87"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's placed placed in the Criminal Code. It's placed -- in Title 18.",
       "time": "00:26:35.98"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is there any civil offense in Title 18?",
       "time": "00:27:23.57"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's in 18--",
       "time": "00:27:30.64"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that about fraud?",
       "time": "00:27:34.46"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And what does the word \"offense\"--",
       "time": "00:27:38.24"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What does the word \"offense\" mean in that provision?",
       "time": "00:27:40.39"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In that provision, what -- what does the word--",
       "time": "00:27:44.60"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It's a criminal offense, right?",
       "time": "00:27:49.56"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wouldn't make any sense in Title 18 unless the offense they're referring to is one one of the criminal offenses of Title 18.",
       "time": "00:27:54.17"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Read the provision again, would you?",
       "time": "00:28:01.76"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes. But 1033 is a criminal provision.",
       "time": "00:28:19.58"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I think the point--",
       "time": "00:28:31.92"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I think -- I think the point these people are trying to make, perhaps--",
       "time": "00:28:33.79"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is that that provision you've read provides for a civil action by the attorney general--",
       "time": "00:28:35.20"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--against a person who has committed an offense. What offense? An offense elsewhere defined in 18. Is that offense defined elsewhere criminal or civil? It is criminal.",
       "time": "00:28:43.88"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's the point, I think.",
       "time": "00:28:58.69"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know you disagree, but -- so let's turn to the other offense it cross-references--",
       "time": "00:29:01.56"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and why don't you read that.",
       "time": "00:29:06.67"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I've got the language of that.",
       "time": "00:29:09.93"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I -- I agree with -- the word \"offense\" appears and it provides for a civil action. What I wonder is, when you turn to the particular provisions that do that, and look at the word \"offense\", is that word \"offense\" in those civil remedy provisions referring to a civil or criminal behavior?",
       "time": "00:29:37.78"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "To civil you say. So let's read--",
       "time": "00:30:02.97"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--And the word \"offense\" refers to the civil behavior.",
       "time": "00:30:14.60"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Good. Read me the example because I must have missed it.",
       "time": "00:30:21.26"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Stone, don't take this for more than it's worth because I think there are plenty of arguments against you, but I'm actually not sure I understand this one. I mean, it seems to me if your view is it applies to both criminal and civil offenses--",
       "time": "00:30:38.90"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--well, Congress had to put the thing someplace.",
       "time": "00:30:50.60"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It could have put it in the criminal code or it could have put it with all the other civil--",
       "time": "00:30:53.17"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Either way, there'd be kind of a mismatch. And presumably, this started out as criminal and it refers largely to criminal, and so that's where it goes.",
       "time": "00:30:57.26"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What is your -- what is your--",
       "time": "00:31:55.74"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--What is your answer to the argument that this would be a big change if it previously applied only to crimes and then, according to you, it was changed so that it applied to civil claims as well. That would be a big change. What is your response to the argument that we might find a little -- a bit of evidence here or there that that's what was intended, but Mr. Elwood says there's nothing?",
       "time": "00:32:03.85"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Is that your -- that's your best evidence, that there was a reference to litigation?",
       "time": "00:33:31.09"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where -- where did that appear?",
       "time": "00:33:39.24"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. That's all I needed to know.",
       "time": "00:33:43.63"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What Congress was that?",
       "time": "00:34:50.51"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's where does that appear?",
       "time": "00:34:53.32"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Two -- two Senate committees or just one Senate committee?",
       "time": "00:34:59.16"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's the Congress.",
       "time": "00:35:04.05"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, all that's true except--",
       "time": "00:35:43.73"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--except when you're dealing with an old statute that used to be clearly criminal, and it seems to me that at that point the burden -- when that statute is expanded -- the burden is on you to show that it's been changed from the criminal to the civil--",
       "time": "00:35:45.06"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--to include the civil. And, you know, that's a different burden from what you expect.",
       "time": "00:36:01.14"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, were they--",
       "time": "00:36:33.41"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Were they district courts? Four district courts? Is that it?",
       "time": "00:36:34.60"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And did Congress know about those?",
       "time": "00:36:38.98"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ah, ah.",
       "time": "00:36:43.20"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Changed the law to do what? They changed it to--",
       "time": "00:37:04.54"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--operating prospectively, not just to crimes that had already occurred?",
       "time": "00:37:07.97"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that's one change that everybody agrees.",
       "time": "00:37:14.77"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The government can pursue it in a criminal case. The question is whether--",
       "time": "00:37:44.08"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the -- civil--",
       "time": "00:37:49.81"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who urges the word \"offense\"? That's the limitation that is urged, which is normally used to connote a crime.",
       "time": "00:38:08.88"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I don't think that changes--",
       "time": "00:38:20.28"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if you put the word \"any\" in front of it.",
       "time": "00:38:22.55"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--The problem is that--",
       "time": "00:38:56.44"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Ginsburg.",
       "time": "00:39:00.94"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Everyone agrees that from 1921 on, it was understood that this was a criminal statute and I think the point has been made before. If Congress really was going to change it, to vote it all onto the excision of two words which can be explained on other grounds, it's a bit much. Wouldn't Congress have said, now we're going to make it -- we want it to be civil, so we're going to make it clear that it's civil?",
       "time": "00:39:02.38"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, there was a reason.",
       "time": "00:39:51.00"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The statute acted retrospectively for the first part of its history, and then they took it out when it was going to operate prospectively.",
       "time": "00:39:53.16"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you can either reserve time or move on. It's up to you.",
       "time": "00:41:43.20"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Go ahead.",
       "time": "00:41:49.97"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What happens -- what happens if you have a first filer who brings a claim, it's successful, either gets a judgment or gets a settlement, and the case is over? It's no longer pending.",
       "time": "00:43:17.07"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure the government will agree with that, as you confidently predict, but I guess we'll ask the government. But I think--",
       "time": "00:44:21.22"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think you're saying that if somebody brings a suit and is -- and loses, the government is is thereby precluded from joining a later suit. Right? The government is.",
       "time": "00:44:30.34"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah.",
       "time": "00:44:51.19"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:44:54.55"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:44:57.71"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they didn't intervene.",
       "time": "00:45:00.49"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then they are bound.",
       "time": "00:45:01.84"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:45:02.91"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We'll see what the government thinks of that.",
       "time": "00:45:04.83"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Stone.",
       "time": "00:46:07.80"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry for my confusion about the time reservation. Thank you. Mr. Stewart.",
       "time": "00:46:10.02"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there -- is there a provision that uses the word \"offense\" even though it may be civil, where that word \"offense\" in that provision refers to something other than a criminal offense?",
       "time": "00:47:23.13"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Every use of the word 18 is in reference to a criminal offense.",
       "time": "00:47:36.66"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the answer to my question was yes?",
       "time": "00:47:57.30"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:48:00.82"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, whoa, whoa. You can say that it limited it or you can say that it it showed -- it showed that the word \"offense\" in that statute was being used to mean a criminal offense, right?",
       "time": "00:49:39.89"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It could. I acknowledge that sometimes you can say \"offense\" and it means civil, sometimes you can say that it means criminal, and sometimes you can say it means both. But what that language did in the original statute was to make it clear that the word \"offense\" in this statute was being used in a criminal sense. And I don't think that that implication is eliminated by simply taking out the -- taking out the \"now indictable\" language, which could have been eliminated for a very different reason; and that is, to show that it -- it operates prospectively.",
       "time": "00:49:54.45"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there would be no other reason for eliminating the word \"criminal\"; whereas, there is a very good other reason for eliminating the phrase \"now indictable\".",
       "time": "00:50:50.29"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel.",
       "time": "00:51:32.68"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is the Korean War covered by the WSLA?",
       "time": "00:51:36.21"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is that your -- is that your position now, that only declared wars are covered?",
       "time": "00:51:48.75"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Was there such an authorization in the Korean War?",
       "time": "00:52:10.02"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no. I mean at the time.",
       "time": "00:52:14.96"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I don't think there was, right?",
       "time": "00:52:18.10"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm trying to get at the question of the breadth of your position. As I -- as I understand it, you're now saying \"at war\" doesn't necessarily have to have a declared war.",
       "time": "00:52:20.08"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if -- so if the current version were effect were in effect in 1950, the Korean War would not be covered, because there wasn't a declared war? And my understanding is there wasn't a specific authorization for the use of forces.",
       "time": "00:52:42.97"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Stewart, before your time runs out, what -- what is the Government's position on the -- on the point raised by counsel for Respondent; namely, if there is a dismissal of -- on the merits of a -- a civil action, is the government barred from later bringing a different action on the same claim?",
       "time": "00:53:10.15"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the case is not the first case is not dismissed on the merits, dismissed without prejudice and then relator 2 files, your position is that that suit may be maintained?",
       "time": "00:55:21.76"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm curious to know, just because of background, would the first suit toll the statute of limitations as to the second relator?",
       "time": "00:55:42.75"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Stewart. Mr. Elwood, you have reserved 4 minutes.",
       "time": "00:56:42.09"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Relator two is treated as the Government for this purpose.",
       "time": "00:59:47.81"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:25.19"
     }

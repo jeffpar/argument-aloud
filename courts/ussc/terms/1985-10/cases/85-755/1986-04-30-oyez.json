@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-755/19860430a_85-755.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "R. STEPHEN MC NALLY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL MC COLLUM",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. McNally, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What statute is at issue?",
       "time": "00:03:39.09"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That was the statute that was in effect when Ricker died?",
       "time": "00:04:21.79"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And what does Trimble have to do with it?",
       "time": "00:04:51.06"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In Texas.",
       "time": "00:05:19.21"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was no common law suit for paternity or support recognized for illegitimate children?",
       "time": "00:05:21.41"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the question of the legal effect of her adoption ever raised below?",
       "time": "00:06:03.75"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought under Texas law adoption severed all legal relationship between the parent and child.",
       "time": "00:06:19.78"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Except the right of a legitimate child?",
       "time": "00:06:40.86"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you didn't challenge that.",
       "time": "00:06:49.80"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, could your client have, ever have brought suit under Chapter 13?",
       "time": "00:07:01.94"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "She missed out on them.",
       "time": "00:07:55.43"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So what was the decision below?",
       "time": "00:09:43.36"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So she was barred by the 1956 statute which was deemed to be in effect and valid prior to Trimble.",
       "time": "00:10:26.62"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So Ricker died before Trimble.",
       "time": "00:11:14.35"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the claim was made after Trimble.",
       "time": "00:11:18.39"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the court said this statute will still be deemed valid for this purpose.",
       "time": "00:11:24.62"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it--",
       "time": "00:11:35.68"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--It nevertheless barred--",
       "time": "00:11:37.47"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Well, they're going to apply it. They think it's valid enough to exclude this person from inheriting.",
       "time": "00:11:40.27"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. McNally, if you prevail here, you want of course inheritance rights. Do you want something more than that? Do you want support money for the period prior to death?",
       "time": "00:12:45.95"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it's only the inheritance that you want.",
       "time": "00:13:17.23"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what federal claim is there to that?",
       "time": "00:13:38.41"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, they may be, but are they federal constitutional rights?",
       "time": "00:13:56.04"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you're asking for inheritance.",
       "time": "00:15:28.95"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Right.",
       "time": "00:15:33.93"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How old is your client now?",
       "time": "00:18:02.53"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What's the size of the estate?",
       "time": "00:18:13.90"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what point in your argument is that observation directed to?",
       "time": "00:20:20.34"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And is this argument an alternative ground to Trimble v. Gordon's retroactivity?",
       "time": "00:20:38.30"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Delynda... this isn't a claim of Delynda, it's a claim of her mother, as I understand it, who apparently is alive and perfectly capable of making the claim if she wants to.",
       "time": "00:21:01.21"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why shouldn't we wait for mothers to make that claim?",
       "time": "00:21:18.69"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. McNally, can I ask in this connection, as I understand your response to Justice Rehnquist, if you should prevail on the retroactivity, as we call it, of Trimble argument, then there's no need to reach this argument, is that correct?",
       "time": "00:21:42.14"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that also true with respect to your argument seeking legitimate... legitimation? As I understood the lower court opinion, that was discussed only in connection with the basic claim of right to a share of the estate. Are you asking independently that even if you win and get your share of the estate under the Trimble retroactivity point, you still want separate consideration of the legitimation issue?",
       "time": "00:21:56.66"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And what is your... well, but doesn't that... confining it to that second question, what is your... your theory is that this cutoff date of September whatever the year was, that denied your client equal protection, is that what it is, because it allowed some illegitimate children to have the statutory remedy and others not, is that it?",
       "time": "00:22:27.08"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So the discrimination is between some illegitimates and other illegitimates.",
       "time": "00:22:44.73"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So is it a statute of limitations issue then?",
       "time": "00:22:48.55"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But may I just finish one thought on that question? I thought the answer of the lower court in part was that even under the statute, if the date had not been there, your client would not have qualified under the facts of this case. Didn't they so... that the father hadn't been... there are two or three ways a person could be legitimated, but none of them applied to this particular person? Am I wrong in that?",
       "time": "00:23:02.34"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So there are really two objections to her legitimation claim. One is the date and the other is the statutory conditions.",
       "time": "00:23:48.79"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does she have any interest in obtaining this relief other than the interest in her reputational interest? Is that the only thing at stake, really?",
       "time": "00:24:31.95"
     },
@@ -519,13 +523,13 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I see.",
       "time": "00:24:50.44"
     },
     {
       "turn": 82,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We... our cases of this... it seems to me some of them have said that attorneys fees by two selves don't indicate a sufficient real interest in the case. It's like costs, in a way, the fact that costs may be outstanding doesn't keep a case alive.",
       "time": "00:24:51.53"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, why is equal protection and due process more \"sensitive\" than other constitutional areas?",
       "time": "00:26:17.18"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "More fundamental than other constitutional rights?",
       "time": "00:26:28.32"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but the source of you claim of right is one thing. What you're actually claiming, is it enough to make it a concrete interest I think is another.",
       "time": "00:26:38.84"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think there might be a question as to either one, whether the request to be legitimate is a sufficiently concrete interest, and whether a claim for attorneys fees based on that right is the sort of claim for monetary relief that would give you standing if noting else in your case did.",
       "time": "00:27:01.72"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. McCollum?",
       "time": "00:28:21.24"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could this Appellant have ever sued under Chapter 13 at any point?",
       "time": "00:30:46.31"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "When, when could she have done that?",
       "time": "00:30:55.99"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that part of the Family Code?",
       "time": "00:33:53.11"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "13.01?",
       "time": "00:33:56.41"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the fact is that the jury... the judge submitted the issue to the jury, I take it.",
       "time": "00:36:20.71"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And why did he, if it wasn't an issue in the case, why did he?",
       "time": "00:36:26.49"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the jury found, the jury found parenthood.",
       "time": "00:36:36.71"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. McCollum--",
       "time": "00:36:58.36"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Mr. McCollum.",
       "time": "00:37:05.60"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it not true, though, that if you had prevailed on that factual issue and the jury had found otherwise, then there would be no claim whatsoever here under Trimble v. Gordon retroactivity or anything else? So it at least was an issue, a threshold issue that kept her in court to get up here.",
       "time": "00:37:06.97"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You wouldn't deny, would you, that had the jury finding been the other way you'd be a lot better off.",
       "time": "00:37:26.53"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But insofar as they make their Trimble v. Gordon argument, doesn't it make a difference on that? It's at least theoretically possible that they will convince us... I'm not saying they will... that the Trimble v. Gordon was the law as applied to any estates that hadn't been closed at that time. That's one of the things they argue.",
       "time": "00:37:46.02"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But they did that after this man died.",
       "time": "00:38:18.56"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So that if, if her rights vested at the time of his death... and I don't say they did or they didn't, but if they did, as he argues, and if Trimble v. Gordon only cuts off claims when the estates are closed, then this is a rather important finding.",
       "time": "00:38:20.43"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I don't suppose that after this jury finding that she could have started over again in another court and claimed paternity.",
       "time": "00:38:35.25"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well--",
       "time": "00:38:49.70"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--All right, here's a jury, here's a determination in a court that she was not the child of this man. Do you think she could have started over and had it tried cut again?",
       "time": "00:38:52.88"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, counsel, why... isn't it true that the 1956 law was applied in this case?",
       "time": "00:39:47.03"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, she didn't succeed in... she hasn't succeeded... she's been barred from being an heir of Ricker.",
       "time": "00:40:02.88"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was take some blood tests of a dead man, I guess.",
       "time": "00:40:44.97"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. McNally? You have two minutes remaining.",
       "time": "00:44:22.21"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, when for the first time in Texas could you... could an illegitimate inherit other than by the marriage of their parents? When was it first possible? Was that the... '75, I take it, you could prove paternity and get support, but that was not heirship.",
       "time": "00:45:55.16"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So when was the first time, '78?",
       "time": "00:46:21.80"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But if that hadn't happened, there was no way that she could establish heirship other than--",
       "time": "00:46:49.97"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Mr. Nally, was this estate in probate at the time Trimble was decided?",
       "time": "00:47:14.34"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you, you think the operative reason for the denial of heirship in this case was the '56 statute which was still in existence?",
       "time": "00:47:42.32"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:48:04.69"
     }

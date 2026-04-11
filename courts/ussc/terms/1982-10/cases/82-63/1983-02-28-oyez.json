@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/82-63/19830228a_82-63.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "IRA H. ZALEZNIK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL BROAD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will arguments next in the City of Revere against Massachusetts General Hospital. Mr. Zaleznik, I think you can proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is when the Supreme Judicial Court of Massachusetts said he was under arrest, since that bullet hit him.",
       "time": "00:01:56.42"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Later on.",
       "time": "00:02:14.79"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When they picked him up off the street to take him to the hospital, was he arrested then?",
       "time": "00:02:22.88"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does the record show why they took him to MGH rather than Boston City?",
       "time": "00:03:05.12"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Much? Not very much.",
       "time": "00:03:16.67"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does the time of day make the distance--",
       "time": "00:03:26.48"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--But at least Boston City was a municipal hospital. MGH, theoretically, is a private one.",
       "time": "00:03:33.41"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What was the reason for taking him to MGH, other than closeness in terms of traffic?",
       "time": "00:03:39.94"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The result is that you are imposing this cost on a private hospital in contrast to imposing it on a municipal hospital.",
       "time": "00:03:56.03"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Aren't you weaseling the words there? The city doesn't want any responsibility for it. Let somebody else pay for it.",
       "time": "00:04:22.94"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question. As a matter of Federal law, as soon as the person was shot, did the police or the City of Revere have any Federal obligation to him at all; could they just let him lie there?",
       "time": "00:04:43.12"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What Federal obligation, if any, did they have to the man before they picked him up and took him to the hospital?",
       "time": "00:05:02.58"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As a matter of Federal constitutional law?",
       "time": "00:05:23.03"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if when the ambulance driver picked him up and took him to the hospital, the hospital said: \"We are not going to take him unless we know who is going to pay the bill. \"",
       "time": "00:05:27.67"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if that had happened... If that had happened, would the City of Revere had any further Federal constitutional obligation at that point in time?",
       "time": "00:05:42.77"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Not even to take him to some other hospital?",
       "time": "00:05:53.00"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say that they have the obligation to pick him up and put him in an ambulance, but they don't have any obligation to make sure that the ambulance gets any place that will do him any good. Isn't that a strange Federal obligation.",
       "time": "00:05:56.97"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could one not say precisely the same thing about leaving him in an ambulance unattended in a parking lot of a hospital?",
       "time": "00:06:32.11"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. I am asking not the driver, but the city. You say that the city had the obligation to put him in an ambulance in order to avoid the risk that he would just suffer great pain on the street, I guess.",
       "time": "00:06:53.59"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if he continues to suffer pain in the ambulance and there is no doctor around to alleviate that pain, does their duty terminate, or do they have a continuing duty until they find somebody who will take care of him. That is what I was asking.",
       "time": "00:07:06.83"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is the duty?",
       "time": "00:07:29.54"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You say that it is not continuing duty, but what is it?",
       "time": "00:07:33.21"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You say that that is not continuing?",
       "time": "00:07:40.49"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then when he is carried to the hospital, and he sits out there and the hospital won't take him, and they put him out in the grounds and they leave him there; is that the end of the duty?",
       "time": "00:07:51.60"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think you have bit off a little more than you are going to be able to chew. The point is, if I understand your position, if you win the hospital will not get paid. Presumably, they will just turn these people away. So what happens as a result of the Federal constitutional duty then, don't they just sit in the parking lot in an ambulance?",
       "time": "00:08:10.29"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They had no guarantee they would be paid when this person was dumped at their door, did they?",
       "time": "00:08:47.48"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They still took him.",
       "time": "00:08:53.95"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are there any Federal or State laws that require private general hospitals open to the public to take emergency cases, counsel?",
       "time": "00:09:11.58"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is this hospital a tax-exempt organization, do you know?",
       "time": "00:09:52.09"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There is some sort of a quid pro quo in your intimation that if you have got that kind of benefit, you take on some burdens like emergency treatment.",
       "time": "00:10:00.87"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Why should Boston City accept him?",
       "time": "00:10:57.46"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But it isn't a Revere hospital. Revere is not part of the City of Boston, is it?",
       "time": "00:11:04.03"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It is fine for you to say that MGH should take care of the emergency, and then what, put him on the street? Suppose that Boston City said, \"We are full\".",
       "time": "00:11:12.20"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The emergency rooms... Why couldn't MGH say, \"We have a fine emergency facility here, even though you have to wait for 20 hours sometimes. \" Why couldn't they say, \"We'll take emergency paying patients\", period?",
       "time": "00:11:31.58"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose you had no such State law, then what?",
       "time": "00:11:47.78"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What your argument implies, I am not saying it's wrong, is that maybe MGH should close its emergency wing.",
       "time": "00:11:54.54"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't hospitals accepting Medicare or federally funded patients have a requirement to provide certain emergency services? I mean, aren't they required under Federal regulations to offer a certain range of services in order to qualify?",
       "time": "00:12:20.41"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me try another hypothetical on you addressed at testing the Massachusetts Court's theory about arrest as soon as this fellow was hit with a bullet. Suppose the policeman hadn't been such a good marksman, and instead of hitting this man, he had hit a tourist or a spectator, and that person was taken to the hospital and given all the same treatment. Now we have removed the arrest there. What about that situation?",
       "time": "00:13:03.66"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then this fanciful theory about being arrested when the bullet hit him is irrelevant in your view to the case?",
       "time": "00:14:01.45"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Zaleznik, are we in a position to impose our rules as to standing on the highest court of the State?",
       "time": "00:19:56.15"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which footnote is it that you rely on for that?",
       "time": "00:20:39.65"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:20:52.48"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, they also say in that footnote that there was no standing question raised or argued in the briefs and they deem it waived.",
       "time": "00:21:00.14"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you a question about that. Supposing we agreed with you on your standing argument, and we concluded that Mass. General has no standing to raise the Federal constitutional question. Should we then not ourselves refuse to reach the merits of the Federal constitutional question, and merely vacate the judgment and send it back to the Massachusetts Supreme Judicial Court, and let it determine whether as a matter of State law there is standing? I think you are arguing we do not have jurisdiction to review the merits of the Federal issue.",
       "time": "00:22:35.47"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but even if it is prudential, you are saying, as a matter of our own prudential rule, we should not address the matter.",
       "time": "00:23:13.57"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't that like saying that, in effect, the Massachusetts Court has given an advisory opinion on a Federal constitutional question?",
       "time": "00:23:20.44"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing the State had a procedure whereby its Supreme Court could render advisory opinions, and they were asked to render an advisory opinion on this very issue. They said, \"The bill has been paid in this case, but we want to set the law for the future. \" \"As a matter of Federal Eighth Amendment law, these bills must be paid by the city. \" This Court couldn't review such an advisory opinion, could it?",
       "time": "00:23:48.91"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. Put you are saying that we should reverse their determination of standing. It seems to me, once we do that, we should not have the power to go forward, or maybe I miss your argument, and decide the merits.",
       "time": "00:24:21.35"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At least he is right.",
       "time": "00:24:36.28"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you are telling me that they decided two issues of Federal law. One, the merits; and two, the standing question.",
       "time": "00:24:51.81"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is sort of pendant jurisdiction.",
       "time": "00:25:07.49"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Sort of a pendant jurisdiction.",
       "time": "00:25:11.82"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If it wasn't raised, it is not here.",
       "time": "00:25:18.36"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It wasn't raised, and the Massachusetts Supreme Court just went completely off, what, base, and decided a Federal question which they had no right to decide, either one of them. Is that your position, because if that is your position, you don't win.",
       "time": "00:25:27.59"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Broad.",
       "time": "00:27:03.22"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But your point contends, as I understand it, Mr. Broad, that the Massachusetts Supreme Judicial Court didn't do that. By citing Barrows against Jackson, they simply followed or intended to follow the Federal rule of standing.",
       "time": "00:28:10.82"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We have to get out the Blue Book of citations to decide whether there is an adequate and independent State--",
       "time": "00:29:45.66"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Which State law were they passing on?",
       "time": "00:30:01.20"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Which State law?",
       "time": "00:30:06.88"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said they were passing on State law, and I am asking you which State law.",
       "time": "00:30:14.76"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Common law?",
       "time": "00:30:26.50"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What makes you think that that is parting company with the Federal rule?",
       "time": "00:31:08.27"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is the City of Revere overloaded with money?",
       "time": "00:33:59.68"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it?",
       "time": "00:34:04.94"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "First we have to know if there is an obligation to shift, don't we?",
       "time": "00:34:24.72"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you talking now, Mr. Broad, about a Federal constitutional obligation?",
       "time": "00:35:09.06"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Perhaps questions from the Bench have side-tracked you from what I thought was your argument that this is basically a State law ground ultimately that the Supreme Judicial Court has taken. I had not understood you at this point to be defending the Federal constitutional basis.",
       "time": "00:35:40.69"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you are here to defend an opinion of the State Supreme Court, the highest court, that there is a Federal basis for the obligation, a. Federal constitutional basis for the obligation that you have talked about; is that not so?",
       "time": "00:36:22.94"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What is the Eighth Amendment discussion about?",
       "time": "00:36:39.84"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But wouldn't you think, if it were an implementing rule that is State-based, assuming that the Justices of the Supreme Judicial Court of Massachusetts know how to write opinions as well as everyone else, that that would have appeared in the first part of the opinion, where you are talking about various State law bases for recovery, not as your opponent has quoted, the first two sentences of the section called 5a, where they say, \"The hospital argues the prohibition against deliberate indifference compels a government agency or division responsible for supplying those medical needs to pay for them. \" Then they say, \"We agree\". There is no intimation that there is any bridge there between the constitutional obligation and the result.",
       "time": "00:37:14.14"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why couldn't the Court have simply said that when a policeman, who is not a Federal officer in Massachusetts, shoots anyone there is an obligation to take care of their own. That would be totally State law, wouldn't it?",
       "time": "00:39:24.27"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It wouldn't be any of our business by which gyrations they arrived at that conclusion, would it?",
       "time": "00:39:42.75"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about the Chief Justice's earlier question that he missed the culprit and shot an innocent bystander, the same policeman, Revere wouldn't be responsible for that bill, would it?",
       "time": "00:40:34.29"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So the thug gets protection and an ordinary citizen doesn't get it.",
       "time": "00:40:57.56"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It may be in general, but that is not normal.",
       "time": "00:41:04.46"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is not generally held.",
       "time": "00:41:09.21"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But tell me what your argument is. If I heard you correctly, you said there are a multitude of cases in Federal District Courts on that, and this is a State Court decision.",
       "time": "00:41:52.36"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Not a Federal Court decision, which is the point we have been trying to get through to you.",
       "time": "00:42:04.41"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You say that it is no different.",
       "time": "00:42:11.26"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You had better stick to this one, and not try to decide other ones.",
       "time": "00:42:30.61"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Broad, may I ask you a question about the opinion that begins the Eighth Amendment discussion and has the footnote 7 about waiver in it, and then they say, \"We agree\". The argument, \"The hospital argues that the prohibition against deliberate indifference. \" and so forth, \"includes an obligation to pay\". Your opponent, as I understood his argument, said that the reason there shouldn't be waiver, as the Court says in the footnote, is that you really didn't make the argument that the Massachusetts Court said you made. Is that correct?",
       "time": "00:42:49.26"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he says the argument was that the Eighth Amendment created a duty to take him to the hospital, but that gave rise an implied contract to pay, and that as of State law you can't have such an implied contract.",
       "time": "00:43:51.27"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That way it stands on a State Court opinion, which gives the State Court the right to decide a Federal standing point.",
       "time": "00:44:41.91"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Doesn't it?",
       "time": "00:44:52.79"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there is a possibility.",
       "time": "00:45:02.68"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Should we leave that possibility there?",
       "time": "00:45:05.82"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Frankly, it is not unclear to me, but I can only speak for one.",
       "time": "00:45:17.38"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Zaleznik?",
       "time": "00:48:41.51"
     },
@@ -1111,13 +1111,13 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:49:39.86"
     },
     {
       "turn": 180,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:49:42.85"
     }

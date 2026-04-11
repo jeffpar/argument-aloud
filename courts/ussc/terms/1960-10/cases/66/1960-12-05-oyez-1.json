@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1960/66/19601205a_66_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWARD BENNETT WILLIAMS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN F . DAVIS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Williams, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "This is the device?",
       "time": "00:01:45.12"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Williams, is that a custom made or an assembly line?",
       "time": "00:05:07.09"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was the affidavit which supporting the search warrant, does that affidavit appear in the record here?",
       "time": "00:05:27.66"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is not the search warrant itself. That's the descript --",
       "time": "00:06:05.38"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that's annexed -- that was annexed to your motion for suppression.",
       "time": "00:06:09.79"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What significance that either Judge Holtzoff or the Court of Appeals attached to the consent given by the contiguous -- the owner of the contiguous house?",
       "time": "00:10:15.07"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I thought you read it awhile ago that one of the opinions stated that \"with the consent of.\"",
       "time": "00:10:45.46"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But not sticking this thing in?",
       "time": "00:10:54.28"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Are you saying it's the same use of gadget like the suction type they stick into the wall?",
       "time": "00:10:58.01"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, weren't there other means beside that this device Mr. Williams that he used in this instance?",
       "time": "00:11:17.24"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Williams, may I revert to my question about consent?",
       "time": "00:11:54.56"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not indicating whether it does or doesn't have significance to the other questions, but if consent was given to enter and was it known that these were enforcing officers?",
       "time": "00:11:57.69"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't suppose it takes much of the slide to say that if consent was given to officers to come into the house, did that kind lenders the consent to do what they were coming in for?",
       "time": "00:12:12.12"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying if that matters.",
       "time": "00:12:25.87"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm going onto the significance but, so far as any consent is relevant in the relevant item in the equation, the total equation, I should think the consent of entry would carry with it what they entered for.",
       "time": "00:12:37.39"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not --",
       "time": "00:12:54.39"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not to his part of this war.",
       "time": "00:12:55.97"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It would've been --",
       "time": "00:12:60.00"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I'm not suggesting the consent -- there was consent for them consequently, but there was consent to the physical thing that was done on his half. I suppose a man could fiddle around so long as he doesn't undermine the -- the existence of the next house --",
       "time": "00:13:15.86"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- this part of the house --",
       "time": "00:13:32.30"
     },
@@ -299,13 +299,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- further.",
       "time": "00:13:33.31"
     },
     {
       "turn": 44,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "How thick was the wall (Inaudible)",
       "time": "00:13:34.75"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:13:42.48"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Does the record show what information, if any, of these officers had before they got permission to go into 408?",
       "time": "00:15:50.49"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I know. I meant, today, with any evidence to indicate that they had suspicion a gambling operation was being conducted next to the farm -- next to the house.",
       "time": "00:16:05.81"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Was this a hot-air heating?",
       "time": "00:16:40.26"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm always interested when counsel resort to some statement in the prior brief by counsel. What is it, is it a theory of estoppel? After all, counsel want to win the case before them.",
       "time": "00:25:52.69"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I should think you've done it again and again.",
       "time": "00:26:04.80"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think if you're going to get -- put a -- call a -- put a cradle, the Solicitor General wrote a bridge for his name so that the presence of the Solicitor General doesn't come into the --",
       "time": "00:26:25.99"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- character conditions to foresight his predecessor.",
       "time": "00:26:36.53"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "These are just little private things, but I'm constantly -- I hear this constantly from lawyers --",
       "time": "00:26:50.65"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- pull out a brief from a prior case --",
       "time": "00:26:55.28"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and a great deal of extra line, I don't know what they do with their law.",
       "time": "00:26:57.70"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was the exact length of the party wall established on the (Inaudible)",
       "time": "00:30:22.49"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Nobody said beyond 14, did they?",
       "time": "00:30:34.01"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We'll have a seven and an eighth will be more than half of those --",
       "time": "00:30:36.68"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- it would be an eighth of the --",
       "time": "00:30:41.93"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the trespass, to the extent of eighth -- one eighth of an inch, wasn't it?",
       "time": "00:30:43.60"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) on the basis of the record.",
       "time": "00:30:47.62"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:30:51.52"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, but wouldn't that be one-eighth anyhow?",
       "time": "00:30:54.01"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But any --",
       "time": "00:30:57.81"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, one-eighth exempt for your purposes, wasn't it?",
       "time": "00:31:12.15"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The purpose of trespass, I mean.",
       "time": "00:31:17.05"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or is that de minimis? Is that de minimis?",
       "time": "00:31:21.30"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did he say, Mr. Williams, it was evident -- evidence in the perforation of the heating registry?",
       "time": "00:31:35.86"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you tell a fellow who's stupid about these things how could it come in contact with the heating register unless it got beyond the eighth inch -- one-eighth of an inch?",
       "time": "00:31:47.64"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That may merely show that I'm ignorant, not that you don't understand.",
       "time": "00:32:03.26"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:32:09.65"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Doesn't the heating duct of -- of the petitioners' house go to the half of the contiguous house?",
       "time": "00:32:12.56"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then, it must have been an entirely on the -- on the petitioner's premises.",
       "time": "00:32:22.72"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There must have been -- then, the contact must have shown, in it of itself, some trespass if the --",
       "time": "00:32:27.98"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If the heating duct wasn't on the -- on the house from which they were operating, it must have been on the other house and, therefore, the other house couldn't have been the contiguous house. Isn't that true?",
       "time": "00:32:33.62"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But you don't contend, as I understand it, Mr. Williams, that the heating duct was entirely on the south half of the wall. Your theory is that the whole wall was a part of the premises left to the defendants, isn't that it?",
       "time": "00:32:55.22"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What your -- your argument -- this argument challenges the foundation of Olmsted, namely, that there is no search unless there is really a physical entry -- an unallowed physical entry into the premises from which you get information.",
       "time": "00:35:31.52"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Isn't that true?",
       "time": "00:35:49.41"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know, but that's what it amounts to, your challenge.",
       "time": "00:35:52.63"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "On that --",
       "time": "00:37:48.61"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "On that view, the sticking of this gadget into the wall becomes immaterial in that view.",
       "time": "00:37:49.62"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, -- well, carried to the full extreme, is this an overstatement of your position that the Fourth Amendment prohibits the use of any electronics device in investigatory rights? Is that an overstatement of your position?",
       "time": "00:38:08.39"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well --",
       "time": "00:38:24.25"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "An electronic device that can protrude itself by sound effect or any other method into the inside of a person's house.",
       "time": "00:38:29.70"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, one aspect of your argument is for us to overrule Olmsted.",
       "time": "00:39:17.10"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "And it is necessary in your --",
       "time": "00:39:23.40"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "In your broad approach --",
       "time": "00:39:25.18"
     },
@@ -833,13 +833,13 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "In your broad argument, that is a constant, isn't it?",
       "time": "00:39:26.90"
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's necessary to overrule Olmsted.",
       "time": "00:39:28.74"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Necessary to overrule Olmsted.",
       "time": "00:39:30.57"
     },
@@ -863,13 +863,13 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, you're talking --",
       "time": "00:39:33.69"
     },
     {
       "turn": 138,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It is the premise of --",
       "time": "00:39:33.86"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In answer to Justice Harlan, you were concerned merely with the ear. What about the eye? What about visual? If I may take your figure of speech, because you talk about invasion is a figure of speech, what about visual ascertaining?",
       "time": "00:40:06.17"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I though that -- let's speculate because I'm certainly I'm no good at it, but with a telescope you can see things that you can't see with the naked eye. What about using a telescope to look into the rule across the street?",
       "time": "00:40:23.22"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean one has to know where you go in (Voice Overlap) --",
       "time": "00:40:37.57"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, are you then suggesting that, in determining these things, we should consider to what extent you can isolate yourself against outside of contrusion?",
       "time": "00:41:36.54"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The people who've got nice traits --",
       "time": "00:41:48.84"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The people who've got nice traits are protected but the people who just have poor, cheap curtains on, is that it?",
       "time": "00:41:50.73"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What do you mean it might prove telescope that it might get visual penetration in the means that are effective for the eye as they are for the ear.",
       "time": "00:42:14.40"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But not -- but not a thing that may well be now on the market or surely will be, whereby it can penetrate the shade that you pull down.",
       "time": "00:42:31.91"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Anyhow, that's not this case.",
       "time": "00:42:52.90"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Williams, coming back to this case and to the -- to the question of whether or not there was a physical common law trespass, you told us that the owners show that the insertion of this spike was seven and an eighth inches and by -- I mean in the testimony, there was, therefore, at least a trespass of an eighth of an inch. But, now, the fact is, isn't it, that the evidence is in controversy on that issue and isn't there a finding by Judge Holtzoff that there was no trespass, was no physical trespass?",
       "time": "00:42:56.44"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why don't you read it that way?",
       "time": "00:43:28.25"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could I ask you a question.",
       "time": "00:44:06.36"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Taking your theory for a moment in its broadest application, would you draw any distinction between a case where the agents were just interested in snooping generally to see what they can pick up and a case where they directed their snooping to an activity where, independently of the snooping, they had reason to believe something crooked was going on?",
       "time": "00:44:08.57"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, I --",
       "time": "00:44:41.18"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I mean, electronic",
       "time": "00:44:43.16"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- snooping.",
       "time": "00:44:44.49"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, you --",
       "time": "00:45:29.25"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You have a --",
       "time": "00:45:32.70"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, you --",
       "time": "00:45:36.68"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Yes, but how about procedure, like you have in New York telephone wires where you go to a judge and get permission to tap it.",
       "time": "00:45:42.94"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Not in New York.",
       "time": "00:45:52.72"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, that's a different --",
       "time": "00:45:58.63"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "That's a different question.",
       "time": "00:45:59.67"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "That's a different question.",
       "time": "00:46:06.06"
     },
@@ -1169,13 +1169,13 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "That's a different question.",
       "time": "00:46:08.29"
     },
     {
       "turn": 189,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I think you have to meet Justice Harlan's question beyond the answer that you gave because, as you suggest, Congress tomorrow might provide for authorization for a search warrant. And, there, it was a problem with the constitutionality of such law (Inaudible) authorization. Just go beyond --",
       "time": "00:46:09.59"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Saying that on the present -- under the present authorization of search warrants, a search warrant wouldn't be issued.",
       "time": "00:46:32.86"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, if it isn't a violation of the Fourth Amendment, then it isn't a question of choice for this Court that Congress passes the statute to authorize it, so that you will go back upon the proper construction of the Fourth Amendment --",
       "time": "00:47:02.46"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not if this Court wants or doesn't want.",
       "time": "00:47:15.38"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You're not in the -- in the (Inaudible)",
       "time": "00:47:17.87"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it's -- but if your argument is that this falls by virtue of the Fourth Amendment, is that right? Is that your argument?",
       "time": "00:47:39.27"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you argue that it falls under the Fourth Amendment?",
       "time": "00:48:01.61"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And, one -- one consents -- on amendment is enough in order to try this.",
       "time": "00:48:05.26"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If that is true, then how do you differentiate the case put by Justice Harlan, whether have an issue of the warrant for snooping purposes or merely for confirmatory of cumulative evidence? Why do you make a distinction?",
       "time": "00:48:10.75"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, if that's your view, then the short answer to Justice Harlan's question, if I may say so, in your point of view is that if Congress couldn't authorize it, it couldn't be done without authorization.",
       "time": "00:49:42.89"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think for snooping for -- concerning snooping or whatnot.",
       "time": "00:49:55.95"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You could save same time and not to go --",
       "time": "00:50:41.61"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You have to -- you go there --",
       "time": "00:50:42.96"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you -- if you will --",
       "time": "00:50:44.86"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- take that time and deal with the question of McNabb because you've raised that. You said, a minute ago, even if you -- even if this is not a -- there's no constitutional barrier, you can invoke. The supervisory power of this Court, do you mind saying something about that in your remaining time?",
       "time": "00:50:46.17"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Davis.",
       "time": "00:52:54.42"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You call it a hearing aid?",
       "time": "00:53:55.44"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you miss another day on that.",
       "time": "00:53:59.42"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What are those things, Mr. Davis?",
       "time": "00:54:35.49"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who makes that whole device?",
       "time": "00:54:38.22"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Can I buy --",
       "time": "00:54:43.92"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Can I go into a hardware store and buy one?",
       "time": "00:54:44.72"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But is it necessarily --",
       "time": "00:54:53.81"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, is it necessarily usable only for illicit purposes or purposes which you wouldn't defend? I don't --",
       "time": "00:54:57.66"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So I mean you are legally defending it what they're used for. I thought --",
       "time": "00:55:05.86"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Who -- but --",
       "time": "00:55:14.14"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But why couldn't I use it in the large house just the way they use them in intra-telephones?",
       "time": "00:55:17.61"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There are better devices than that.",
       "time": "00:55:31.32"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you said you are defending it.",
       "time": "00:55:36.59"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, please free me up. You started out what -- what was your opening sentence?",
       "time": "00:55:39.17"
     },
@@ -1535,13 +1535,13 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I thought you --",
       "time": "00:55:51.42"
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, this was science fiction just a few years ago, was --",
       "time": "00:55:51.89"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Like my --",
       "time": "00:55:56.96"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How about Olmsted?",
       "time": "00:56:07.64"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But --",
       "time": "00:56:10.79"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "This was --",
       "time": "00:56:11.75"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Science -- science fiction in my day, wasn't it?",
       "time": "00:56:12.57"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's the difference between that system and the telephone system as this worked?",
       "time": "00:56:23.45"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Where are the earphones attached?",
       "time": "00:57:02.77"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Over here.",
       "time": "00:57:08.93"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it wouldn't because this isn't long enough to penetrate a 14-inch wall, isn't it?",
       "time": "00:59:24.03"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible) Physically, it couldn't.",
       "time": "00:59:31.50"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What did it touch in the -- according to the testimony of the Government?",
       "time": "01:00:17.41"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there something --",
       "time": "01:00:26.90"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there something that was resonant?",
       "time": "01:00:27.87"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The Government's testimonies say it did not touch the -- the heating duct.",
       "time": "01:00:38.94"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did they measure it?",
       "time": "01:01:07.28"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I ask you, what -- what did that strike in -- according to your theory?",
       "time": "01:01:50.21"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And, in order to work, as I understand it, is this so Mr. Davis, it had to strike something?",
       "time": "01:02:06.12"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did the Government --",
       "time": "01:02:16.23"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And wouldn't something have to be in the petitioner's part of the house?",
       "time": "01:02:21.46"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The wall.",
       "time": "01:02:33.13"
     },
@@ -1793,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose they drilled right into the wall and inserted at the -- the distance that you say the Government testimony showed, would -- would there be any -- any effectiveness to the instrument?",
       "time": "01:02:48.00"
     },
@@ -1805,25 +1805,25 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that --",
       "time": "01:03:21.10"
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that mean that --",
       "time": "01:03:21.13"
     },
     {
       "turn": 296,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, go ahead.",
       "time": "01:03:22.53"
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that mean that if it was just been inserted one inch in the neighboring house, the sound -- the sound would have been amplified to the --",
       "time": "01:03:23.15"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I know, but would it have been amp -- is there evidence that it would have been amplified to the degree it was heard as easily as it was?",
       "time": "01:03:33.20"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But was there any evidence of the --",
       "time": "01:03:40.66"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the degree to which it would have been amplified?",
       "time": "01:03:42.68"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, anyone who has lived in an apartment knows --",
       "time": "01:03:55.83"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- who's going to hear sounds from the --",
       "time": "01:03:57.86"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "adjoining apartment, but --",
       "time": "01:03:59.12"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You can't hear the conversation.",
       "time": "01:04:00.24"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what I'm trying to get is was there evidence that all they needed to do was to touch that point against the wall and this would have permitted amplification?",
       "time": "01:04:18.06"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You could have say that -- you could have said that to the extent to which amplification is made for the -- the sounds are more distinguished and one hears it from across house to house or, across apartment to apartment. At least, clearly you would say that's outside the scope of all the people.",
       "time": "01:04:31.16"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Have you tried it?",
       "time": "01:05:17.70"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, they're government walls though, aren't they? [Laughter]",
       "time": "01:05:26.23"
     },
@@ -1967,13 +1967,13 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You seem to have a kind of fun with this instrument. [Laughs]",
       "time": "01:05:38.47"
     },
     {
       "turn": 322,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Can you turn up the power like you would with a little radio?",
       "time": "01:05:43.80"
     },
@@ -1985,7 +1985,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how -- how far did you insert it in Mr. Spritzer's wall? [Laughter]",
       "time": "01:05:56.20"
     },
@@ -1997,7 +1997,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You probably didn't get it again in the heating ducts. [Laughter]",
       "time": "01:06:06.68"
     },
@@ -2009,7 +2009,7 @@
     },
     {
       "turn": 328,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, what's the purpose of the spike if it isn't to penetrate?",
       "time": "01:06:41.69"
     },
@@ -2021,7 +2021,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, the suggestion -- the suggestion of your admonition to the Court or your helpless suggestion to the Court is that we ought not to outlaw cruel things but merely very refined instruments.",
       "time": "01:06:54.09"
     },
@@ -2033,7 +2033,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, one wouldn't be borrowing sublet when assumed that there'll be improvements on these things that their legitimate does, does one?",
       "time": "01:07:39.98"
     },
@@ -2045,7 +2045,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Anything heard from the second floor?",
       "time": "01:08:55.05"
     },
@@ -2057,7 +2057,7 @@
     },
     {
       "turn": 336,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there anything in the test -- testimony offered by the Government to the effect that only the conversation in one room could be heard through this?",
       "time": "01:09:14.82"
     },
@@ -2069,7 +2069,7 @@
     },
     {
       "turn": 338,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You think that (Voice Overlap) --",
       "time": "01:09:25.08"
     },
@@ -2081,7 +2081,7 @@
     },
     {
       "turn": 340,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They -- they -- do they contend that it could not be heard in all the rooms of the house?",
       "time": "01:09:32.82"
     },
@@ -2093,7 +2093,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did the noises come from the room into which or toward which the spike was projected or from the room above?",
       "time": "01:09:44.36"
     },
@@ -2105,7 +2105,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What length of time did the -- did the overheard conversations take place?",
       "time": "01:10:09.04"
     },
@@ -2117,7 +2117,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was the recordings that were made of the overheard conversation voluminous?",
       "time": "01:10:50.18"
     },
@@ -2129,7 +2129,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I mean or recollection, were they voluminous?",
       "time": "01:10:56.74"
     },
@@ -2141,7 +2141,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And the agents relied solely on their memory for what they heard?",
       "time": "01:11:20.93"
     },
@@ -2153,7 +2153,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, were the notes voluminous?",
       "time": "01:11:25.31"
     },
@@ -2165,13 +2165,13 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Davis --",
       "time": "01:11:31.62"
     },
     {
       "turn": 355,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Voice Overlap) it's your room -- there were persons in the other rooms you have?",
       "time": "01:11:32.69"
     },
@@ -2183,7 +2183,7 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Did it conduct a raid after this?",
       "time": "01:11:43.16"
     },
@@ -2195,7 +2195,7 @@
     },
     {
       "turn": 359,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Did they find anybody in any other rooms there?",
       "time": "01:11:54.08"
     },
@@ -2207,7 +2207,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Davis, you referred us to page 68 with reference to testimony of conversations that were overheard before this contrivance was put in the wall?",
       "time": "01:12:05.64"
     },
@@ -2219,7 +2219,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was there any effort -- does the evidence show any effort to give before the contrivance was put in the wall?",
       "time": "01:12:28.35"
     },
@@ -2231,7 +2231,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or was it put in -- I just don't understand quite the sequence of events.",
       "time": "01:12:39.36"
     },
@@ -2243,7 +2243,7 @@
     },
     {
       "turn": 367,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Davis, I've been wondering if there's nothing in the evidence to show that this spike hit -- hit the heating apparatus or nothing in the evidence to show that they could hear through it, but many part of the building. Where did -- where did Judge Washington get his --",
       "time": "01:13:19.71"
     },
@@ -2255,7 +2255,7 @@
     },
     {
       "turn": 369,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- his information --",
       "time": "01:13:41.35"
     },
@@ -2267,7 +2267,7 @@
     },
     {
       "turn": 371,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- to the effect that this created or established a giant microphone?",
       "time": "01:13:42.53"
     },
@@ -2279,7 +2279,7 @@
     },
     {
       "turn": 373,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And you say there was no evidence on the part of the Government contrary to that?",
       "time": "01:13:58.76"
     },
@@ -2291,7 +2291,7 @@
     },
     {
       "turn": 375,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What would have it touched if he didn't touch that?",
       "time": "01:14:32.16"
     },
@@ -2303,7 +2303,7 @@
     },
     {
       "turn": 377,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The what?",
       "time": "01:14:36.94"
     },
@@ -2315,7 +2315,7 @@
     },
     {
       "turn": 379,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess.",
       "time": "01:14:47.90"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2009/08-604/20091007a_08-604.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "J. SCOTT BALLENGER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS H.  GEOGHEGAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument next in Case 08-604, Union Pacific Railroad v. The Brotherhood of Locomotive Engineers and Trainmen. Mr. Ballenger.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, the circuit court did things in an unusual order. Instead of reaching the statutory question, it reached the constitutional question, in par, because it viewed the two as intertwined. Why isn't its judgment that there's a statutory violation what's at issue before us, because that's what they said?",
       "time": "00:00:49.32"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why not?",
       "time": "00:01:30.51"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No. It's an award that is contrary to the act.",
       "time": "00:01:43.13"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the--",
       "time": "00:01:47.88"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Well, I saw it in their brief to the Ninth Circuit. The Ninth Circuit analyzed the requirements of the act and of circular one and said the board's ruling is not based on those.",
       "time": "00:01:52.11"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's the same argument -- it's the same argument, as if you had an APA case, and the words in the APA are \"arbitrary, capricious, abuse of discretion. \" so somebody who has an unfair procedure says it violates those words.",
       "time": "00:02:22.16"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I don't really see that it's any different, except we normally go to those words before we would decide a due process question. It's the similar kind of question. Why wouldn't we do the same thing here?",
       "time": "00:02:36.79"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, just to be -- do you -- do you contest the question of whether there was conferencing?",
       "time": "00:04:30.77"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You conceded that there was conferencing?",
       "time": "00:04:55.04"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure that answers my question.",
       "time": "00:05:12.06"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you didn't contest it in two. Two cases, you concede that there was in fact a conference.",
       "time": "00:05:32.90"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but the board can make rules of procedure. It can't make rules of jurisdiction. The dismissal of all these petitions was for want of jurisdiction. Now, if the board has no authority to set its jurisdiction -- and I think that's plain; Congress has that authority, not the board -- then it is required to exercise the jurisdiction that Congress gave it. So why isn't that the very first question that this Court should deal with? The board threw these cases out for want of jurisdiction. Whatever the failing was, it was not and could not be jurisdictional because the board has no authority to describe its own jurisdiction.",
       "time": "00:05:52.38"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you say this is just a mistaken use of words, rather than -- than the board saying, under our rules, we don't have power to handle this?",
       "time": "00:07:20.84"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you -- do you dispute what your opponent tells us, that some panels of the board, even when there has been no conference, let alone no proof of a conference, but some panels have stayed proceedings to allow the conference to occur, and then the board will pick up?",
       "time": "00:08:00.19"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's true generally, but if the board believes that as a matter of law it can't hear this dispute and consider normal grounds for excusing a failure to include something in the record because, in its own language, we can't do it, the law doesn't permit us to do it, we have no jurisdiction to consider matters outside the record, we don't apply normal rules of waiver or forfeiture or any of the other rules that attend themselves to a failure of a party to immediately raise a defense like you could have done and waited two and a half years to do, doesn't that suggest that the board is not reaching -- merely resting its decision on a merely procedural rule, it's resting its decision on its erroneous view that the law deprives it of jurisdiction to hear the case?",
       "time": "00:08:50.31"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No, but that -- this is not merely a question of law. This is a question of jurisdiction: Is it entitled to hear a dispute by law?",
       "time": "00:10:04.31"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I am looking at the decision and they are all identical in this respect. The board said it has no jurisdiction to consider any of the remaining procedural or substantive issues associated with this claim. \"No jurisdiction\", that sounds like they are saying: We have no authority to consider anything about this case; we must toss it out because there is no proof of the conference.",
       "time": "00:10:38.42"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Don't you think there is a big difference between the adjudicator saying: I could, but I choose not to because there is no reason for your failure, from: I won't because I can't.",
       "time": "00:11:20.51"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Those are -- those are two very different concepts.",
       "time": "00:11:34.56"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can you -- could you go back for a minute? I mean, this reads as if it's very complicated, but for me, I read the AFL-CIO brief and that's what I am thinking of and it seems this is not such a hard case. Basically, there is a statute filled with words of procedure, and it isn't too difficult to interpret that statute as meaning that the board should have fair procedure, not unfair procedure. Now, if you are willing to make that giant step, the remaining issue in the case is whether the procedure here was fair or unfair. And the Seventh Circuit is filled with pages of opinion that explains why it was unfair. And the reason basically it was unfair is because no one in his right mind previous to this case would have thought that you should fill up your brief with a lot of facts that nobody's going to contest. And after this case, the board said: By the way, you have to put in a whole lot of jurisdictional facts even if nobody is going to contest them, and since you didn't do it, you are out, and we won't even give you a chance to do it now. Okay? So I read that. I thought, is there something wrong with that? And then I thought I'd ask you, because you would know. [Laughter]",
       "time": "00:11:46.17"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are there any -- is there any rule describing how one has to get this into the record? It's just -- how -- what would have been the proper way to prove that conferencing occurred?",
       "time": "00:14:01.72"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that doesn't refer to conferencing, does it?",
       "time": "00:14:49.89"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Implicitly includes con -- not expressly includes conferencing.",
       "time": "00:14:57.20"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:15:06.27"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And it's going against another panel that says, not only you don't have to have the proof, even if you didn't have the conference we are not going to throw you out. Now, there is different panels, but it is the same board. Why shouldn't the grievants here say, we don't understand this? It's conceded there was a conference, at least in two of the cases. Our buddies didn't even have a conference and this same board, a different panel, allowed them to cure it. And I can't cure it now. That is the height of arbitrary behavior by the board, it seems to me.",
       "time": "00:15:35.17"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm not -- I'm not talking about due process. I'm talking about conformity with the act, the act's requirement. I--",
       "time": "00:16:30.06"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So does the board as a whole apparently, because I am looking at the instruction about joint exhibits and it tells the parties, when you are going to make a submission don't include unnecessary documents, and among things don't include things that aren't in dispute--",
       "time": "00:16:58.82"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--like letters requesting conferences.",
       "time": "00:17:24.06"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It must be what they think of as an interpretation of the rule and the statute that they already had promulgated. The rule and the statutes say, the rule says you have to include all known relevant argumentative facts. So if the circular says we mean it, we mean the facts that people are having an argument about. And then the statute says, a full statement of the facts bearing upon the dispute. And the circular and then this document say we mean a full statement of facts that somebody might think have something to do with an argument that people are having. And, so, only after this case did the board say, oh, no, you have to include some disputes that nobody is disputing, some facts that nobody has ever disputed or seems to. Now, what's -- what's the response to that?",
       "time": "00:17:56.83"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm right in stating what they did? Is my statement of what they did, which was meant to be as pejorative as I could possibly make it-- [Laughter] --and you are going to say, that's right, that's the correct statement of what happened?",
       "time": "00:18:55.52"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then the board is telling people, I will go back a sentence: \"Representatives may wish to omit documents that are unimportant and/or irrelevant to the disposition of the dispute. \" I mean that -- that seems to me is trapping people, if the board says, please don't dump on us unnecessary paper.",
       "time": "00:19:36.73"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then if -- then a person following this is obliged not to pay heed to this advice because if you don't put in every document, if you don't put in enough evidence of conferencing, you are going to be out and never have your grievance heard.",
       "time": "00:20:10.84"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do I understand you to say that that provision was not applicable here anyway?",
       "time": "00:20:46.61"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does the other side contest that?",
       "time": "00:20:52.23"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They are not relying on it as applicable in this case. They are relying on it as the board's indication that it's sound to tell the parties, don't dump on us unnecessary paper.",
       "time": "00:21:05.02"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Some panels of the board. Other panels think this is an eminently curable defect.",
       "time": "00:21:33.65"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's a decision on the merits. Here we are talking about a threshold barrier to even get your case heard. And that is being decided differently by different panels.",
       "time": "00:21:45.74"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question. I may have an incorrect impression about it. Is the -- the thing that's at issue is whether or not conferencing occurred. Is it also important to know what happened at the conferencing? You may not know this. Is the -- is there some sort of -- of factual description of the negotiations that took place during conferencing an important part of the submission?",
       "time": "00:22:54.47"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the only -- the only importance is to just to establish the fact that there was a conference?",
       "time": "00:23:20.66"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And in two cases you concede that that condition was met, that there was a conference?",
       "time": "00:23:37.01"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So we are not even talking about a conference requirement. We are talking about a pleading rule, how you plead. Everybody concedes that the conference occurred in two cases.",
       "time": "00:23:42.74"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's how you plead that.",
       "time": "00:23:55.72"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can -- can we -- I'm sorry. Let's assume that in a published opinion there are two procedural defaults. One, the union does; the other, the railroad does. The board says, you know, I am resolving this dispute. I'm not forgiving the union's procedural default, but I will forgive the railroad's procedural default, because they're an important lifeline business for America and we've got to make sure that they're protected at all costs, and union members are just not important enough to that scheme.",
       "time": "00:24:03.03"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In your theory, there is no due process violation in that case? They have heard the arguments, they have given you a full opportunity to make your point about the procedural default. They are announcing a new rule. It's okay. So what's wrong with that?",
       "time": "00:24:45.89"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Under what theory?",
       "time": "00:25:06.92"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why?",
       "time": "00:25:09.59"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, point me to any rule, that -- you know, anybody could point to a rule and says it commands a result. They -- there are rules here that say disputes should be submitted to the board and resolved. And they are resolving the dispute, the dispute, and they are saying, you have defaulted, you didn't.",
       "time": "00:25:20.26"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But they can do that. That's what -- that's what the circuit said.",
       "time": "00:25:49.63"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "They could have passed a rule that told people, warned them, and said this is a procedural rule we are going to apply.",
       "time": "00:25:53.19"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "At what point does the interpretation of rules that don't command a result become improper, outside the board's jurisdiction? According to you, never.",
       "time": "00:26:06.84"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Geoghegan.",
       "time": "00:26:49.18"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "\"GAE-gunn\".",
       "time": "00:26:59.12"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it didn't -- it didn't promise them that categorically. There were certain things they had to do, right? One of which was to have conferencing, and in three of these cases they didn't. So that promise didn't extend at least to those three cases. And in the other two, where there was conferencing, the act also provides, as any sensible act would have to, for the adoption of procedural rules. And the procedural rule here, according to the arbitrator, required the submission of that evidence of -- of consultation with the complaint, which didn't happen.",
       "time": "00:28:16.19"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do -- do you say that all five were -- were conferenced? Is that your position?",
       "time": "00:29:22.86"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But we have rules like that -- we have rules like that all the time. No matter how clear it is what happened below, if it wasn't included in the question presented, we say you can't raise it. This is just a rule like that. They have a rule saying this is what you have to do, you have got to put the evidence of conferencing in -- in the record at a particular time. You didn't do it, so we are not going to -- the fact that on the facts, on the real facts, it occurred is not an adequate challenge to the procedural rule.",
       "time": "00:29:27.86"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You think there is now? In other words, this is -- rulemaking by adjudication is not unheard of.",
       "time": "00:30:05.18"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So is it -- is -- where is the rule that there has to be conferencing?",
       "time": "00:30:53.16"
     },
@@ -739,13 +739,13 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you think -- you think that was where the board erred, in requiring conferencing?",
       "time": "00:31:01.30"
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's in the statute, isn't it?",
       "time": "00:31:05.03"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it's -- can the board adopt procedures about how you go about proving conferencing? You say there is no rule because there wasn't a rule adopted in 1934. There is a rule that there has to be conferencing. Does that mean that at any point in time you can just pop up and say, oh, by the way, there was conferencing? Or can the board say, this is how you go about establishing it?",
       "time": "00:31:18.88"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So they can -- the board can never have a rule that says, you have to establish conferencing, you know, before the date of the first arbitral proceeding, or within 30 days? The fact that all that has to happen under the act is that there be conferencing, you are free to establish it at any way you want, at any time you want?",
       "time": "00:31:53.46"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where -- where does it say the unions have to send in letters requesting a conference?",
       "time": "00:34:40.71"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I -- I still don't understand your answer to the Chief Justice's question about how the panels -- how these panels -- how the board, in your view, is supposed to go about making some sort of sensible procedural rules about establishing the that conferencing took place. They can't do it by rulemaking, and you seem to argue that they can't do it by adjudication, so what -- they can't do it at all? There -- this is just going to be chaos, that there is no way to establish a regular procedure to establish that there was conferencing?",
       "time": "00:36:06.01"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You said, on that point in your brief, that, normally, the carrier will raise the absence of conferencing as an impediment at the time the union files its notice of intent to file a submission. What is -- what is the basis? You didn't give any citation for that. You say, ordinarily, that's what the -- the carrier will -- would do, and then you are tipped off, and then you put in your evidence about conferencing. What -- what makes you -- what backs up this statement that, normally, carrier raises the absence of conferencing as an impediment at the time the union files its notice of intent?",
       "time": "00:37:16.45"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So could the board -- could the board adopt a rule requiring that?",
       "time": "00:38:14.44"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do they do anything else? What do they do? What does the adjustment board do?",
       "time": "00:38:40.17"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't want to get you in trouble, but I'm not sure they do anything.",
       "time": "00:38:47.41"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Just to be clear -- I will take you off the hook. [Laughter] Just to be clear, you say it's established practice that the railroads normally file their objection at a -- you know, at a particular point, and you think the board is without power to say: Look. This is the established practice. You, railroad, did not follow it, and so we're not going to consider your objections.",
       "time": "00:38:52.15"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. You mean that they -- the board can't do that?",
       "time": "00:39:17.90"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could they -- could they adopt a rule that says that, if the -- if the parties go through -- do everything that is necessary prior to the time of the adjudication, they can't pop up at the very last minute and send in a letter saying: Oh. By the way, there was no conferencing; could they adopt a rule like that because it's just a big waste of everybody's time to leave it to -- to the last minute?",
       "time": "00:39:55.27"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought, under the Steelworkers trilogy, the arbitrators has broad deference to adopt these sorts of modes of procedure.",
       "time": "00:40:45.43"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That we would review only for whatever it is.",
       "time": "00:40:54.09"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the review -- the review of government arbitrators arbitrating provisions pursuant to a collective bargaining agreement, the standard of review of that is different than private arbitrators under the Steelworkers trilogy?",
       "time": "00:42:09.91"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But you don't think that this is that. I mean, if you say: Look. Here's the rule. You have got to file these things by this date, that is not imposing your own rule of industrial justice.",
       "time": "00:42:57.82"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm saying that, if the board adopts a procedure exactly like that, you may challenge it as -- as violating due process because you didn't have notice, any number of things, but you can't say that the board is imposing its own brand of industrial justice. That sort of seems, to me, goes to the merits in the standards of arbitration, rather than procedures like this, unless it's a procedure like was hypothesized earlier, that only applies to one side and not the other.",
       "time": "00:43:09.88"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought your position was -- at least I thought I heard you say earlier, that these individual panels do not have rulemaking authority for the board. I'm looking at something that says, \"National Railway Adjustment Board, Uniform Rules of Procedure, Revised June 23rd. \" That's put out by the -- the board, the one that you said that is--",
       "time": "00:43:46.61"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And I thought that your -- because there's nothing in this statute, nothing in any regulation, that gives an individual panel the right to proscribe rules of procedure that all parties to these disputes are obliged to follow.",
       "time": "00:44:13.74"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That -- that authority is vested only in the board, not in the panels.",
       "time": "00:44:31.76"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know how that could possibly be true. I can't imagine being an arbitrator and not being able to say: All right, you know, we are going to have a conference next Tuesday. I want you to have all of the -- all of the papers relevant to this particular point that we are going to discuss in by two days before. Can't do that?",
       "time": "00:44:37.98"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would not know how to run an arbitration without -- without establishing some rules of procedure.",
       "time": "00:44:58.19"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:45:07.62"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, at least back off from your statement that an arbitrator cannot set rules of procedure.",
       "time": "00:45:10.96"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, all right. That's a little different.",
       "time": "00:45:22.94"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you're making sense. It says that, or it just doesn't address the question of whether they have to be included in the original submission? I mean, I assume there is no provision that says -- or I missed it, there is no provision that says the conferencing materials do not have to be included in the original submission?",
       "time": "00:45:34.89"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Presumably, there is none that says they don't have to be. In other words, I take it that this is an issue that is simply not addressed by the CFR rules?",
       "time": "00:46:00.24"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you are just disputing the validity or applicability of the rule. You don't want to comply with the rule. I mean, is it any different than saying: Look, okay, we've got this arbitration that is going to go forward. We are going to meet at 10:00 Monday morning. It is the first meeting. One side doesn't show up and then they say, well, there's no rule that says we have to be there at 10:00 Monday morning; that's just the arbitrator saying that to -- to move the procedure along, so you can't penalize us in any way for not showing up at 10:00 Monday morning.",
       "time": "00:46:42.84"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I take it your point is that there is a rule? It's called 29 CFR 301.7(b). If that rule happened to say, you must show up by 11, that would be a fair inference you don't have to show up by 10. And that rule says you have to submit the argumentative facts, so there is a fair inference you don't have to submit the facts that are not argumentative. I take it that that -- suppose -- suppose that you are wrong on that. I think maybe you are right, but suppose you are wrong. Suppose they have loads of authority to make rules. Again, you have a strong argument they don't, but suppose they did. In your research -- and the same question is really addressed to your fellow counsel. In your research on this, did you find any instance in which either a court or an agency does change a rule, and says: Now you have to say the date right underneath the caption, whereas previously it was stamped by the clerk. Okay? They changed the rule. And they have every good reason in the world for doing it. And then they apply it to the case in front of them, which didn't know about it, and then they won't let them change it. Now, is there any case at all which said that that was lawful? I can think of lots of cases that say you cannot apply rules retroactively where it is unfair to do it, even if you had have all the power in the world to make the rules. I have lots of cases like that. What I wondered is if anybody found a case along the lines that I just said.",
       "time": "00:47:28.96"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do you recall the situation -- do you recall the situation Justice Breyer described, and we can debate about it, whether it's rulemaking by adjudication, which does take place, you would say that in the situation you described, it violated due process, right?",
       "time": "00:49:32.94"
     },
@@ -1105,13 +1105,13 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And because -- I mean, in the normal--",
       "time": "00:49:53.99"
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought you said he did have rulemaking power, so long as it did not contradict--",
       "time": "00:49:55.74"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Let's not get -- can I ask about argumentative facts? I frankly have never heard of a phrase like argumentative facts. You seem to think it means only those facts that are in dispute.",
       "time": "00:50:09.64"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that would be a pretty incomprehensible statement of the -- of the event, if you write in your brief statement of facts and you only write down the facts that are disputed and none of the facts that are agreed to. It couldn't possibly mean that. I would think that argumentative facts simply means facts relevant to the argument, and one of the facts relevant to the argument is whether you did the necessary consultation. But I don't know how you could interpret argumentative facts to mean only those facts that are in dispute. What kind of a statement of facts would that be?",
       "time": "00:50:22.72"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:51:02.91"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What does the government party define--",
       "time": "00:51:32.55"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--How does the party filing the grievance know exactly which facts are in dispute at the time when they made the submission? Here, there's a dispute about whether there was a dispute about conferencing.",
       "time": "00:51:36.61"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you this question, if I may: Your opponent says there is sort of a common-law adjudication method of developing new rules. And that there is precedent out there for dismissing these arbitrations because the conferencing was not established in the record at the time the proceeding started. Is this a reference to the -- to precedent, correct?",
       "time": "00:52:36.48"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand that, but were there presidents that might well have put you on notice that you better get this in the record?",
       "time": "00:53:03.62"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's really not my -- but you do concede, do you, that there are half a dozen cases out there which were dismissed because there was the failure of the record to show that there was conferencing below?",
       "time": "00:53:52.04"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your -- your objection is -- is two-fold. One, that you think the requirement that the record show it affirmatively is not supported. And secondly, there -- you should have had an independent right to -- to make an offer of proof that would have cured the defect.",
       "time": "00:54:10.50"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You did -- you did make an offer of proof as to--",
       "time": "00:54:27.36"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--In fact, the panel invited it and you have made it; and then the panel said sorry, it's too late, you have to do it at the time you make your initial filing.",
       "time": "00:54:30.16"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you think you could submit that offer of proof at any time during the proceeding and the board would have to accept it?",
       "time": "00:55:13.45"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why wouldn't the other side say we don't have to raise the objection at a particular time. You can't make a rule telling us we have to do that.",
       "time": "00:55:31.24"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So your answer to my earlier question is that you can submit that offer of proof at any time, and it has to be considered?",
       "time": "00:55:53.02"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you some questions about the common law that we are talking about here.",
       "time": "00:56:37.83"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are there also cases out there in which the record doesn't tell us whether there was conferencing, but nevertheless, the merits were decided?",
       "time": "00:56:40.86"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are least six -- six or are there more than that?",
       "time": "00:56:49.88"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Geoghegan. Mr. Ballenger, you have three minutes remaining.",
       "time": "00:57:14.40"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Were any of those decisions that were boardwise or did they apply to one panel?",
       "time": "00:57:34.53"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But there is a difference between governmentally ordered arbitrations and private contracts. In private contracts the parties negotiate the rules and they set them forth, and the arbitrators then follow--",
       "time": "00:58:17.05"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Is it your position that if you go through the first phase and as everybody is walking out the two adversaries in the first investigative space say this is never going to be settled, this is the most important case in the history of this -- the railroad system. Let's go take it to the board.",
       "time": "00:58:56.02"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That they can't waive the grievance procedure, that they just can't go straight to you?",
       "time": "00:59:26.49"
     },
@@ -1387,13 +1387,13 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But we disagree with you. You say if the board was just plain wrong. If we look at the Act and circular one and say we can't find what they said anywhere in there, does that doom your argument? Have they asked -- acted outside, has the board acted outside its jurisdiction?",
       "time": "01:00:33.57"
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You may answer the question, counsel.",
       "time": "01:00:52.55"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you counsel. The case is submitted.",
       "time": "01:01:06.09"
     }

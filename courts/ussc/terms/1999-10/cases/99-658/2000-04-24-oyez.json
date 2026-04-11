@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/99-658/20000424a_99-658.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN P. HALBROOK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "JAMES K. ROBINSON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 99-658, Jaime Castillo v. The United States. Mr. Halbrook.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what are the basic elements of the offense, the 5-year thing, Mr. Halbrook?",
       "time": "00:01:59.66"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The crime of violence?",
       "time": "00:02:25.92"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you take the position that if a person is charged with a crime of violence or drug-trafficking and with using or carrying a firearm, that that is an indictable offense, and sets out elements of a crime?",
       "time": "00:03:06.46"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Because I would think your position might lead to the conclusion that that doesn't even set out the elements of a complete offense.",
       "time": "00:03:28.79"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you do agree that that states out the elements of an offense?",
       "time": "00:03:53.31"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Halbrook, are you making both a statutory argument and a constitutional argument with the--",
       "time": "00:04:41.77"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But you have an alternative argument that if the statute is interpreted as the Government urges, then it would be unconstitutional?",
       "time": "00:04:57.19"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if we don't agree with you on that, you're prepared to lose the case.",
       "time": "00:05:45.34"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but you don't make a constitutional argument. If we disagree with you that, as set forth in this statute, these matters were meant to be elements of the offense, if we think that they were meant to be sentencing factors, you're content to lose.",
       "time": "00:05:52.51"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you will not make the argument that the statute would be unconstitutional.",
       "time": "00:06:08.95"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you know there is a case pending before this Court, Apprendi--",
       "time": "00:06:30.20"
     },
@@ -195,19 +195,19 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--that does make the argument that anything that enhances a sentence beyond the maximum, that that must be given to the jury. That argument would be equally available in your case, but you say you're not making it.",
       "time": "00:06:34.58"
     },
     {
       "turn": 26,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He said it three times, I think.",
       "time": "00:06:50.66"
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:06:52.43"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I find it a strange argument you're making, that you say there's... it's constitutionally doubtful, and therefore we should interpret it this way, but if we don't interpret it that way, well, you don't have any constitutional argument.",
       "time": "00:07:06.77"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you don't have any constitutional argument, I guess it's not constitutionally doubtful. I mean, I find it extraordinary that you--",
       "time": "00:07:19.21"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--can make the statutory argument you're making without reaching the conclusion that if it's rejected there's at least a constitutional issue that we ought to consider, but you don't want it consider it, that's okay. You're right, you've said it three times.",
       "time": "00:07:24.89"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is your basis for saying there's any constitutional doubt about the validity of the statute?",
       "time": "00:07:44.49"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, if you're correct, I guess it would require setting aside the conviction and sentence, and sending it back, or what?",
       "time": "00:13:38.83"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any data that tells us how many defendants currently serving in prison as a result of an offense under this section would be affected by going along with your view?",
       "time": "00:14:08.51"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why is that?",
       "time": "00:14:29.99"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What would happen here, Mr. Halbrook... if we rule for you, you say the conviction wouldn't have to be set aside, but suppose the Government wants to show again that this was one of the kind of firearms that would justify a sentence greater than 5 years, does the Government have to prove just that? It would have to prove it to a jury, I suppose.",
       "time": "00:15:02.71"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It would be double jeopardy?",
       "time": "00:15:29.88"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if the elements of the crime were not adequately set forth in the indictment, why wouldn't the Government be entitled to a new trial? The conviction is set aside, and there's a second trial. That's not double jeopardy.",
       "time": "00:15:49.42"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You mean that if they don't, in a murder case, indict for deliberation and premeditation and he's found guilty of first degree they can't retry him for first degree?",
       "time": "00:16:18.51"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no--",
       "time": "00:16:37.97"
     },
@@ -363,13 +363,13 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No, my hypothetical's the other way.",
       "time": "00:16:39.01"
     },
     {
       "turn": 54,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "They find him guilty. They find him guilty of murder.",
       "time": "00:16:40.69"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But there's been an element omitted.",
       "time": "00:16:45.33"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, or... and there was no instruction on it, let's say.",
       "time": "00:16:51.15"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I see your point is, is that they found him guilty only of the lesser offense.",
       "time": "00:16:57.28"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're saying that if we find it's an element, the crime charge is a product of the elements charged, and if an element necessary to make it a graver as opposed to a lesser included offense was omitted, then it's only the lesser included offense--",
       "time": "00:17:09.17"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--that was charged and the subject of the conviction.",
       "time": "00:17:26.97"
     },
@@ -441,19 +441,19 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, happily if we reverse the judgment here the court of appeals can address that question.",
       "time": "00:17:37.16"
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:17:41.63"
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is this the only court of--",
       "time": "00:17:42.31"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Sorry. I didn't... were you about to say something in response? Go ahead.",
       "time": "00:17:45.05"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "With the only permissible sentence being 5 years?",
       "time": "00:18:02.72"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is this the only court of appeals that has held that it is not an element of the offense?",
       "time": "00:18:20.00"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If you're right, wouldn't the jury specifically have to be instructed that this is an element, or does it--",
       "time": "00:19:43.48"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Would--",
       "time": "00:19:48.97"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--So merely... it's... merely the fact that it's in the indictment would not suffice, unless the jury--",
       "time": "00:19:50.41"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--were instructed that it had to find everything alleged in the indictment.",
       "time": "00:19:56.11"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there some general instruction that the jury cannot convict unless it finds all of the facts set forth in the indictment to be true?",
       "time": "00:19:59.69"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's what I would have thought.",
       "time": "00:20:13.94"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it seems to me that you... if you prevail, and this becomes precedent in other cases, the jury would have to have been specifically instructed in each case that this is an element that they must find.",
       "time": "00:20:16.39"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The mere fact that it's in the indictment would be insufficient.",
       "time": "00:20:29.65"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Halbrook, at what stage of the proceeding... you said it wasn't alleged in the indictment. What stage of the proceedings was your client first notified that the Government contended he used a machinegun?",
       "time": "00:23:44.21"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was there any evidence submitted about the kind of firearms in the jury trial? They must have submitted some elements of whether machineguns were used.",
       "time": "00:24:57.40"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, the... even if it didn't go to the jury, somebody thought that it was more likely than not that they had machineguns. What was that based on?",
       "time": "00:25:57.42"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the jury had to find... under the indictment, the jury had to find that they had a firearm.",
       "time": "00:26:14.43"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm... and I'm still puzzled as to why that, under your theory of the case, isn't just an insufficient indictment that requires a new trial, because it didn't say anything about what kind of firearm. You just assume that any time an element of an indictment is insufficient, the jury convicts of the lowest offense. I'm just not... I don't understand that.",
       "time": "00:26:19.12"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the judge take additional evidence to... on the machinegun issue, or did he rely on the transcript?",
       "time": "00:26:54.01"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And the machinegun was attributed to your client under Pinkerton?",
       "time": "00:27:00.83"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What did the transcript show with respect to... I mean, ordinarily someone doesn't get up on the stand and say, I saw him with a firearm. They say, I saw him with a machinegun, or--",
       "time": "00:27:12.30"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I saw him with a shotgun or something like that.",
       "time": "00:27:21.63"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Halbrook. Mr. Robinson, we'll hear from you.",
       "time": "00:27:50.79"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Robinson--",
       "time": "00:29:04.84"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--one of the cases relied on by the majority in Almendarez-Torres was McMillan v. Pennsylvania, which sustains some sentencing factors like this, but it also said in that case that one of the limitations was that the tail couldn't wag the dog. Here you have a jury finding that would justify 5 years imprisonment, but you have judicial sentencing factor findings that can go up to 30 years.",
       "time": "00:29:05.87"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Robinson, what has the practice been in the various circuits under this statute? Have they been, as petitioner's counsel tell us, in most circuits treating the type of weapon as something alleged specifically in the indictment and proven at trial?",
       "time": "00:30:35.15"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you have data showing how many sentences will be affected by a conclusion by this Court that the petitioner is correct in his reading?",
       "time": "00:31:10.38"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think that may be the dog rather than the tail?",
       "time": "00:31:42.42"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't think it still... is even the dog. From 5 years to life.",
       "time": "00:31:47.66"
     },
@@ -789,13 +789,13 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a long tail.",
       "time": "00:31:56.00"
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:31:56.88"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's not the problem with the dog and the tail that's worrying me so much as a different problem, which is that this is a statute that you might have said that the whole statute is simply a sentencing factor.",
       "time": "00:32:08.77"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You might have.",
       "time": "00:32:20.66"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But looking at it as a whole, it seems it isn't, and so if it is creating a crime out of carrying a gun somewhere in relation to a different crime, it's pretty hard to see, given the numbers, and given the qualitative difference between handling a machinegun or a bomb and a pistol, why this suddenly becomes a sentencing factor. It's not really written that way. It's... I mean, you have three separate things. The numbers are different, and in relation to the underlying crime here, which is the carrying of the weapon, not the other crime, why wouldn't you say just what your opponent said? That's what's bothering me, that what they have here is, they have three separate things. If you have a drug crime and you have a pistol, it's 5 years. If you have a drug crime and have a rifle, it's 10. If you have a bomb or a machinegun, it's 30. I mean, they all look like, as they're lined up... I don't know how to argue it exactly. It's just, when you read this statute, how does it look?",
       "time": "00:32:22.18"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's the--",
       "time": "00:33:26.02"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--thing that's bothering me.",
       "time": "00:33:28.87"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I was one of those, and I did, but there I thought that carjacking is the basic crime, and that the... whether you hurt somebody or not in the course is rather a typical sentencing factor that has to do with the manner. But here, the underlying thing is a... is new, and unique, and special, created by the statute.",
       "time": "00:33:43.71"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And therefore it becomes somewhat harder for me to see this as a traditional, or... a traditional way of punishing somebody for the way in which he carried out the crime.",
       "time": "00:34:06.68"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Exactly. Now, if you--",
       "time": "00:34:30.62"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, it's vastly different in terms of results if the firearm is a machinegun, and according to petitioner's counsel the evidence isn't all that clear linking this particular individual with a machinegun, and we don't know if the jury would have been able to make that determination, do we?",
       "time": "00:34:58.71"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Beyond a reasonable doubt, anyway.",
       "time": "00:35:23.16"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but may I ask you this question about the procedure: supposing all of the evidence presented to the jury dramatically showed they used rifles and then, after the trial was over, in the presentence study, the parole officer or whoever made the presentence report said, well, we've now found evidence they were actually using machineguns, and they came in and brought that evidence to the judge. I assume under the statute there would be nothing to prevent the judge from saying, I think that's right, they should get the 30 years.",
       "time": "00:35:47.35"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:36:15.55"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it didn't go to the jury, and you don't find it strange that what goes to the jury is a finding that they have to make beyond a reasonable doubt, which accounts for only 5 years of the individual sentence, and then what is decided by a judge, without the protection of a jury, and just on the basis of a preponderance... it's more likely than not that they had machineguns... not on the basis of beyond a reasonable doubt, is going to account for 25 more years?",
       "time": "00:36:54.04"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That doesn't seem strange to you?",
       "time": "00:37:24.96"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Robinson, may I ask you, what was the position of the Department of Justice on this, or was it up to each U.S. Attorney to decide whether they were going to treat this as something that should be alleged in the indictment and put to the jury?",
       "time": "00:37:52.50"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And was there a variety of approaches among U.S. Attorneys?",
       "time": "00:38:19.25"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't there any coordinating mechanism in the Justice Department for deciding what... you know, we have a single Federal statute which presumably means the same thing in all the districts of the United States, and--",
       "time": "00:38:27.65"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Main Justice doesn't try to figure out what it means?",
       "time": "00:38:42.08"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Not the... can you think of... I'm... we're all obviously struggling with the way to approach these cases, but I... and thinking of looking at the underlying crime and asking, faced with ambiguous statutory structure and language, is there a tradition, a tradition of using this kind of factor as a sentencing factor in respect to the underlying crime, or is there legislative history, or does it put the defense in some kind of impossible situation, i.e., to have to prove, for example, I didn't do it, but nonetheless it was just a... you see... you have my point.",
       "time": "00:39:17.48"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Are any of those things in your favor?",
       "time": "00:40:04.76"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The underlying crime here is not the crime of violence or drugs.",
       "time": "00:40:31.88"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The underlying crime here is this new statutory invention, called possessing a gun in relation to, or during the crime of violence.",
       "time": "00:40:37.05"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that a separate trial, or are all of these taken up in the same indictment, same trial?",
       "time": "00:41:06.85"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, counsel for petitioner says yes, that's a completed offense. It's the 5-year offense.",
       "time": "00:41:48.98"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It doesn't say if the judge finds. It doesn't say that.",
       "time": "00:42:08.70"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the language of the statute doesn't even require preponderance of the evidence. What if he had... just had probable cause? Couldn't he still say, I think this is right, and--",
       "time": "00:42:24.43"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Why would it be problematic? In most sentencing factors the judge just... he can act on less than a preponderance of the evidence if he's persuaded by the parole officer or the presentence report. Isn't that enough, normally?",
       "time": "00:42:36.59"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you know, you're putting stress on the fact that the statute says, and if it is a machinegun, shall be sentenced to, and if it is a rifle, shall be sentenced to. That doesn't carry any water, because it says that with regard to the basic, what you say is the basic underlying crime as well. It nowhere says, it is criminal to use, to carry a firearm in the commission of these offenses. It says that if you do it, you will be sentenced to 5 years.",
       "time": "00:43:07.71"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And then the same language is applied to the 10-year acceleration and to the 30-year. Why aren't they all parallel?",
       "time": "00:43:37.99"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's the same as in Jones. It's really the same--",
       "time": "00:43:46.30"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is there a difference between the legislative history in respect to these add-on... the machinegun from what the legislative history was when they created the basic crime? That is, it seemed to me that in both places what they say in effect is, we're going to be sure that people who have these guns when they commit crimes will be in prison for a long time, and if the first creates a separate crime, why doesn't the second, third, and fourth? Is there a qualitative difference in the legislative history in respect to those things?",
       "time": "00:45:24.99"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you can say the same thing about, say, a case where there's been a homicide, and there was evidence that a jury could have found manslaughter or could have found second degree murder, or could have found first degree murder. You wouldn't say, well, we'll just let the judge pick and choose people, and one gets 10 years and the other gets executed.",
       "time": "00:46:48.18"
     },
@@ -1191,13 +1191,13 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but isn't it also--",
       "time": "00:47:47.95"
     },
     {
       "turn": 192,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Robinson, you recognized in your brief that if Apprendi is interpreted... if the Court there should hold that the... increasing the maximum is a matter that can't be determined by the judge but must be determined by the jury and beyond a reasonable doubt, you recognize that that would impact on this case even though Mr. Halbrook clarified three times that he didn't make that constitutional argument, but I was confused by what you said should happen. You said something about, in the event that Apprendi should determine that an increase in the maximum must go... must be a question to the jury, then what follows in this case?",
       "time": "00:47:49.11"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the consequence of that would be to invalidate the entire conviction?",
       "time": "00:49:14.89"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, could the Court make it an element if Congress has, as you said, written a statute in which it is not an element but a sentencing factor? I mean, do we have the power, by finding that a sentencing factor would be unconstitutional, to convert it from a sentencing factor to an element?",
       "time": "00:49:50.66"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That is... I think that assumes a different premise from Justice Scalia's question. I... we can do that if we think there is some leeway--",
       "time": "00:50:18.98"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--if we think there is some question about it, but if we conclude without any doubt that it was intended to be an element, then I think we're simply stuck and the statute to that extent is unconstitutional, don't you?",
       "time": "00:50:27.56"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would change your argument in that--",
       "time": "00:50:47.78"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--As a rule of statutory interpretation, what would you think of saying that where the statute leaves it open to real doubt, and where you can't find much help in tradition or history, and where a significant amount of years turns on it, you should assume that it's meant to be an element at least where it's not going to cause serious problems for trying a case for the defense.",
       "time": "00:50:56.80"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know, and so I'm hypothesizing that it's pretty tough, because the statute itself doesn't tell you, the history turns out to be somewhat ambiguous, you can't appeal to tradition, and there's no particular problem created for the defense in... you know, as there might be in the drug statutes, for example. Why not follow that approach?",
       "time": "00:51:32.05"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No.",
       "time": "00:52:05.61"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm just saying straight, and I'd say straight, other things being equal, Congress probably intends juries to consider these factual matters where a significant number of years turns on it, other things being equal. The statute doesn't tell you, the language doesn't, history doesn't, and there's no particular problem with trying the case.",
       "time": "00:52:06.14"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Robinson. Mr. Halbrook, you have 2 minutes remaining.",
       "time": "00:53:33.26"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Halbrook.",
       "time": "00:55:52.57"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:55:52.57"
     }

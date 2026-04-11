@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/89-393/19900327a_89-393.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL J. WINTERHALTER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BRIAN J. MARTIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now on No. 89-393, Harry P. Begier v. Internal Revenue Service. Mr. Winterhalter.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "All the payments you've described, Mr. Winterhalter, were within the preferential period?",
       "time": "00:02:46.89"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What particular funds was the court of appeals talking about?",
       "time": "00:03:53.95"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Simply money drawn on its general operating account?",
       "time": "00:04:09.81"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about the language of the statute?",
       "time": "00:04:37.48"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you had better start with that, hadn't you? [Laughter]",
       "time": "00:04:43.38"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what does it... doesn't the... doesn't the law say that these withheld taxes are to be held as a trust fund?",
       "time": "00:05:03.61"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:05:18.46"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:05:20.04"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it doesn't really say that, does it? It says, the amount of tax so collected or withheld shall be held to be a special fund in trust.",
       "time": "00:05:44.79"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It... it provides automatically by statute that whatever amount is withheld for these taxes is automatically in trust for the government. Isn't that what it says?",
       "time": "00:06:01.17"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So why does it have to be segregated to comply with the statute?",
       "time": "00:06:17.31"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're... you're not now saying that it has to be segregated. You're just saying that it has to exist, that when somebody pays an employee $80 and fails to withhold the $10 or put that aside for the government, there... there is no $10 to... for the trust to attach to.",
       "time": "00:06:44.58"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, that would be different for a sales tax, I suppose. If you collect a sales tax and it's provided that the sales tax shall be held in trust, you would actually get the sales tax and that could be held in trust.",
       "time": "00:07:03.96"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But with the withholding of... of wages there's--",
       "time": "00:07:17.30"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--there's nothing to identify.",
       "time": "00:07:24.17"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You just paid him... paid him 80. You were supposed to put 10 aside, but there is no 10 that we know of that's an identifiable 10. Well, obviously there was money though, because they paid him.",
       "time": "00:07:25.59"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, whatever the law says... that... that amount is going be held in trust, and the money was there to be held in trust.",
       "time": "00:07:39.62"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it was paid.",
       "time": "00:07:49.69"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Winterhalter, let's go back to that second clause of 7501 that Justice O'Connor referred to. The amount of tax so collected or withheld shall be held to be a special fund in trust for the United States. Now, certainly Congress can legislate in a way that says a... a particular fund shall be treated in a particular way even though under the classic law of trusts there might not be any res, can't it?",
       "time": "00:07:52.41"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You... don't you think that's... might be what it intended here?",
       "time": "00:08:26.30"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose what the company did in this case with respect to monies that was paid from the general account, drew one check to the general account and then immediately... pardon me... drew one check from the general check to the special account--",
       "time": "00:08:52.10"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--then a second check special account to the government. Does that create the trust?",
       "time": "00:09:07.86"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and you couldn't set it aside as a preference that putting it in the trust was a preference? I mean, how would that would be any different from the argument you're making now?",
       "time": "00:09:14.54"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it's not... it's not a preference to create a trust res?",
       "time": "00:09:36.73"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it... but it... but it is... but it is a preference to directly to pay the IRS?",
       "time": "00:09:40.96"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That... that doesn't make sense.",
       "time": "00:09:45.58"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr.... Mr. Winterhalter, it... it seems to me... I don't... I don't understand why you say... why you say that there has to be a res in order for a trust to be created. But if the statute, as the Chief Justice pointed out... if it says it shall be created, the Federal Government can make it happen. I should think that... that the problem here is not whether it's created, but how you identify it, that when the government says in this statute that it will be a special fund in trust, you don't know what the res is. You don't know whether it's the bank accounts or the corporate... the corporation's real property or any of the other assets of the corporation. And, therefore, when it comes to... to identifying something that... that is subject to this special privilege, you can't identify it. It isn't that it couldn't be created, it's that it's not identifiable later. Isn't that your... your point?",
       "time": "00:10:03.36"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It could be created in the abstract, but you can't give it effect in the abstract. Unless you can identify a res, you can't identify the trust corpus.",
       "time": "00:11:24.20"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But when must it be created? I'm not sure I understand your position on that. Supposing 30 days before bankruptcy they have $1,000 payroll and $200 withholding obligation. They have $1,200 in the bank and they pay $1,000 to the... to the employees and don't do anything to with the two hundred until after the bankruptcy. Or they pay the 200. Would that be... would that be a preference?",
       "time": "00:11:36.34"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:12:01.10"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah, a week later, but still within the preference period.",
       "time": "00:12:03.97"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Other than the fact that they did use the money to pay the government? That's not enough, of course.",
       "time": "00:12:32.56"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what do they... they have to put it... you're... they have to put in a separate account before the... in... in... before the preference period begins.",
       "time": "00:12:38.13"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if the statute... this clause we've been talking about... said any paid amount of tax so collected or withheld shall become the property of the United States?",
       "time": "00:13:28.13"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But this statute would not have... the statute I'm talking about says nothing about a trust. It simply says the money that was withheld shall become the property of the United States.",
       "time": "00:13:49.12"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:14:13.57"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I... I have the feeling that the statute Congress did enact is not far different from--",
       "time": "00:14:30.55"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm sure you do. [Laughter] Mr. Winterhalter, it's... it's my understanding of trust law that if you declare yourself to be a trustee of a res which is not in existence at the time, but later declare the res, it is effective. That is, if I tell my nephew I am putting in trust $500 for you and in fact I don't, but several weeks later I set aside the $500 and I say this is the... this is the trust corpus for my nephew, that's effective. So, you can do it later. Right?",
       "time": "00:14:43.11"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's right. But I can do it later.",
       "time": "00:15:20.82"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't have to do it at the moment that it's created.",
       "time": "00:15:23.08"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now why isn't it... and it's also Hornbook trust law, as I understand it, that you can declare in trust a portion of a fungible account. So you can say $500 of this bank account is held in trust for my nephew.",
       "time": "00:15:25.50"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Now, when you put those principles... two principles together, why is it not the case that as soon as the corporation wrote out this check to the United States it identified a portion of that bank account as being the trust corpus that was owed to the government before it was transmitted to the government.",
       "time": "00:15:39.88"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not using it as check. I'm not using it for its conveyance purposes. I'm using it for its declaration of what is the corpus of the trust. As soon as you sign that check you have effectively expressed your intention that this is indeed the portion that belongs to the United States.",
       "time": "00:16:07.78"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As opposed to my real estate. I agree with you, before that we have no idea what portion of the corporation's assets belong to the United States. We don't know that it was a real estate or whatever and I'm sure the government would use whatever... whatever was convenient at the time. But once the... once the corporation signs that check, the corporation has acknowledged a particular corpus.",
       "time": "00:16:26.08"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is no... there's no... how do you identify... look the statute applies not only to... to funds collected but also to funds withheld. There is no identifiable dollar withheld. When I pay you $80 and withhold $10 for Federal income tax, what identifiable dollar is that? It's no identifiable dollar. It is money I have not paid you.",
       "time": "00:17:21.41"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, you have to rely on my declaration of a fund later, it seems to me.",
       "time": "00:17:45.03"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's for a sales tax. Yes. When I get the tax, you say that's it, that's what the trust attached to. But not for a withholding tax. The withholding tax never exists. There... there is no dollar it... it ever attaches to. It's just money I do not pay you.",
       "time": "00:17:54.13"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or withheld.",
       "time": "00:18:20.10"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "xxx the problem?",
       "time": "00:18:22.20"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, he withholds by the act of paying the employee only the net, I would think. Withhold means deduct.",
       "time": "00:18:40.86"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, he is with... if I... if I hire you for $100 a week and your gross is $100 and your net is $80, when I pay you $80, I have by definition withheld $20, even though I don't have the $20.",
       "time": "00:18:52.24"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if you're looking for something that meets all the requirements of Bogurt on trusts, I agree that it can't. I... my view is that this statute does not require those. It cannot attach immediately, but I thought you conceded before that... that the res does not have to be in existence at the time. You can establish the res later. And why didn't that happen when the check was written, even using Bogurt?",
       "time": "00:19:12.30"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There doesn't have to be a connection.",
       "time": "00:19:42.59"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The res was created later. But you acknowledge that you can put it into a special account and that that creates a trust without a preference. And I just don't see how that follows from your argument.",
       "time": "00:19:44.63"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but why isn't the payment to the government the designation?",
       "time": "00:20:03.00"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why... why is doing something directly less of a designation than doing it indirectly?",
       "time": "00:20:07.38"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the Congress set up a scheme whereby avoidance could be had for items that were property of the debtor. These monies weren't property of the debtor. They were the property of the United States the minute they are withheld. It doesn't belong to the debtor anymore.",
       "time": "00:20:47.53"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that's the statutory scheme.",
       "time": "00:21:09.44"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there is no tracing problem here. Once the check is drawn, that solves that. They've set it aside.",
       "time": "00:21:27.50"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This is the Bankruptcy Code you're referring to?",
       "time": "00:23:31.15"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, Congress could have rejected that because it would have extended to state and local government units, too, the way you have expressed it, couldn't it?",
       "time": "00:25:50.47"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Only as to the extent of trust funds, though. It wouldn't be as to all tax obligations... corporate... income tax, for example.",
       "time": "00:26:24.44"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, on that basis it wouldn't do you any good to segregate these funds that you've withheld.",
       "time": "00:27:06.29"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I thought you said a while ago if you actually segregated these withheld funds, they would not become property of the estate.",
       "time": "00:27:17.89"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there could be no avoidance.",
       "time": "00:27:26.68"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, but the argument you've just made from that other provision of the law on the preference I would think it would... I would think that would cover the withheld funds that are segregated also.",
       "time": "00:27:29.13"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Very well, Mr. Winterhalter. Mr. Martin.",
       "time": "00:28:20.92"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I... may I interrupt you right there?",
       "time": "00:29:42.46"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Those forms proved that that's the amount that should have been--",
       "time": "00:29:44.07"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--set aside?",
       "time": "00:29:47.74"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But where were they withheld? Were they... could you... were they actually... there were actually funds there that were placed in a bank account?",
       "time": "00:29:52.14"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know, but when you have a... when you file a form that says gross wages X--",
       "time": "00:30:01.17"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and net wages X minus the tax, that isn't proof that the amount withheld was actually withheld. It's just a proof they filed a piece of paper that said they were doing it.",
       "time": "00:30:05.15"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's genuine.",
       "time": "00:30:20.05"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, withhold means simply not paid.",
       "time": "00:30:26.67"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, okay. That doesn't suggest the existence that they've put a deposit of monies--",
       "time": "00:30:28.82"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--just that they did not paid that amount.",
       "time": "00:30:34.24"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Oh, I see.",
       "time": "00:30:48.73"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "xxx.",
       "time": "00:30:52.20"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I still don't... maybe I'm stupid. Say, they have enough money to pay net wages and they file a return that says we withheld the difference between net wages and gross wages. Would that be... but they actually didn't have any money. They have... it's a no-asset business. It's a sales operation of some kind, and all the money they had in... available to them they used to pay net wages, but they filed the return suggesting that we withheld this amount and we recognize an obligation to pay it when we get the money.",
       "time": "00:30:53.63"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What has been withheld?",
       "time": "00:31:22.55"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But there is no asset representing the amount withheld?",
       "time": "00:31:54.77"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You just mean not paid.",
       "time": "00:32:09.45"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. So, the trust consists... the trust res consists of a liability? [Laughter] That's what you've said.",
       "time": "00:32:11.98"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're... you're not suggesting that in the strict sense of trust law, the filing of a withholding... a return showing tax withheld creates any sort of a res, are you?",
       "time": "00:32:34.85"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Martin, I'm... I'm willing to concede that you can create a trust by law. You can just say by law there is a trust.",
       "time": "00:33:04.57"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you... you know, you can't make black white by law. You can't pass a law that makes black white. And what you're trying to do is to enforce a trust and... and... and that is an objective reality. You are trying to move on some corpus.",
       "time": "00:33:10.70"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you can't decree the existence of a corpus by law.",
       "time": "00:33:25.87"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, we... we... we have to find some corpus to identify for the legal consequences that you want to attach.",
       "time": "00:33:29.38"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, at... until the check was written at least, that corpus could have been anything. It could have been the company's plant. It could have been any asset whatever of the company. I wouldn't know how to apply a trust law theory to that kind of a situation.",
       "time": "00:33:36.66"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you... you would apply it even before the check was written. You... you would say that somehow you would have a preference on the corporation's assets even before there was any identification.",
       "time": "00:33:51.00"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wow, boy, that-- --We don't have to decide that in this case.",
       "time": "00:34:08.04"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I... I assume that what you assert the Federal Government can do by using the device of trust law, you are willing to acknowledge that state governments can do as well.",
       "time": "00:34:32.48"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, a state government could say, henceforward, any taxes owed to the state shall be a trust and they would... they... they would acquire a preference under bankruptcy law. You think about that for a minute.",
       "time": "00:34:42.45"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What other purpose is 7501 used for? I mean, it... it seems to me it might be possible to read the first sentence of 7501(a) as... as its whole purpose is simply to... to lay the basis for the second sentence. That is, the... the only reality that this fund has in the world is to enable the assessment, collection and payment in the same manner as the taxes out of which it arose.",
       "time": "00:36:58.57"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There was no withholding in 1934. That must have been added later, wasn't it?",
       "time": "00:37:59.88"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Martin, in... in the case of the special fund that is created that is a separate earmarked bank account, if the employer coming upon hard times decides to change his mind or its mind and takes the money back, is... is there some kind of criminal liability?",
       "time": "00:39:04.39"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... but that... but that special liability, that special criminal liability doesn't apply if there is simply a failure to earmark funds that are in the general account and those funds would then disappear or what?",
       "time": "00:39:45.80"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If it's a trust in either event--",
       "time": "00:40:01.59"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But... but is the gravamen of the offense the invasion of an identified trust corpus?",
       "time": "00:40:19.14"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In other words, it's just failure to withhold?",
       "time": "00:40:28.41"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Failure to deposit.",
       "time": "00:40:32.39"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Martin. Mr. Winterhalter, do you have rebuttal?",
       "time": "00:40:42.70"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Winterhalter.",
       "time": "00:41:47.47"
     },
@@ -1303,13 +1307,13 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:41:49.24"
     },
     {
       "turn": 212,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:41:52.19"
     }

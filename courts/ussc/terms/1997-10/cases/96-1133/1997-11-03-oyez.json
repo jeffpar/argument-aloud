@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1997/96-1133/19971103a_96-1133.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KIM L. SHEFFIELD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 96-1133, United States v. Edward G. Scheffer. Mr. Dreeben.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would that have been the... was that the consequence of the Armed Forces Court of Appeals opinion here that the validity of each individual polygraph examination had to be tested in each case?",
       "time": "00:01:22.62"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How is it handled in other jurisdictions where there's no per se rule in effect? Is it treated like any other bit of scientific evidence?",
       "time": "00:02:09.83"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so from your research no State is treating it like other expert testimony, in effect.",
       "time": "00:02:36.62"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But even New Mexico doesn't follow the typical expert testimony approach.",
       "time": "00:02:55.28"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:03:02.91"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Daubert, of course, is in the civil context, but would you say that the petitioner's... pardon me, that the respondent's position here is consistent generally with what we held in Daubert?",
       "time": "00:03:09.44"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I recognize the difference. I'm talking about the thrust of the case and what it held, which was to undercut the Frye-type rule which is really being applied by the military here.",
       "time": "00:03:44.40"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I recognize one's civil, one's criminal, one's constitutional, one's evidence, but so far as the thrust of what the Court was talking about so far as sound management of trials, isn't there some inconsistency with your position in Daubert?",
       "time": "00:03:55.83"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Dreeben, when the Government itself is responsible for the polygraph, and the Government is attacking the credibility of the defendant, isn't that a different situation? This doesn't have to be all or nothing, but at least as in this case, where the Government itself chose to administer a polygraph test and in prosecuting attacked the credibility of the defendant, when you have those two things, why isn't that enough to trigger a constitutional concern?",
       "time": "00:05:14.41"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Dreeben, can I ask you this. There's a brief filed by an amicus, a group of social scientists who say that, if properly conducted, these tests are accurate about 90 percent of the time. Now, I don't know whether you would accept that, or you would say that's probably wrong, but assume that's correct, and if there are proper safeguards given and all the rest, what would your position be? Even if it was 100 percent accurate, would you still say, along the argument you're making to Justice Ginsburg, this still should be excluded?",
       "time": "00:06:35.35"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even if completely reliable?",
       "time": "00:07:14.03"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, at least as reliable as fingerprints or DNA or something like that.",
       "time": "00:07:21.03"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:07:35.93"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why doesn't--",
       "time": "00:08:02.63"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Why doesn't fingerprint do the... evidence do the same thing if the witness says... gets on the stand and says, I was never in the place where the crime took place, and somebody says, well, your fingerprints were there. Doesn't that do the same thing?",
       "time": "00:08:03.67"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, this rule cuts both ways, because there might be times when the Government would like to produce a polygraph test in court because it shows the defendant is lying.",
       "time": "00:09:15.52"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And under the military rule, the Government can't do that. So it cuts both ways here, I assume.",
       "time": "00:09:28.31"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What... under what authority did the President adopt the rule? What is the provision that says the President may adopt these evidentiary rules?",
       "time": "00:09:44.33"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Getting back to your colloquy with Justice O'Connor just a moment ago, I think perhaps the Court of Appeals for the Armed Forces might have taken a different view if the Government had sought to introduce the polygraph test, because they seem to base their constitutional decision on the defendant's right to call witnesses in his favor.",
       "time": "00:10:23.47"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the President could change that, the scope of--",
       "time": "00:11:01.10"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Dreeben, as to the truth-telling identification that the polygraph is offered for, it's been traditionally allowed to have a character witness for defendants. Defendant testifies and he has a character witness that testifies to his reputation in the community for truth-telling.",
       "time": "00:11:37.41"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, isn't the polygraph far more reliable than just any character witness the defendant wants to present?",
       "time": "00:12:03.69"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but it's reputation as to credibility that the character witness testifies to.",
       "time": "00:12:48.76"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As to credibility.",
       "time": "00:12:57.91"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. It's precisely the same issue that the polygraph evidence is directed to, credibility.",
       "time": "00:12:59.88"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but there's a difference as to the degree of reliability between the two, obviously, and... but your position as I understand it is, even if it were totally reliable, you would still take the same position it's inadmissible.",
       "time": "00:13:39.86"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:13:53.46"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then how do you... but then are you saying that the scientists who filed a brief saying it's 90-percent accurate if conducted properly, that we should disbelieve the substance of that brief? That's basically what you're saying.",
       "time": "00:14:00.91"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well--",
       "time": "00:14:30.86"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--we don't ordinarily make findings of fact on the basis of briefs, I guess.",
       "time": "00:14:34.74"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but it is true, is it not, that we can take judicial notice of the practice of the Government itself in routinely using its experts for this very purpose?",
       "time": "00:14:43.85"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr.--",
       "time": "00:14:56.66"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Dreeben, could you go back to your use of the polygraph itself? What decisions does the Government make itself on the basis of polygraph evidence? I mean, one of the... excuse me. I'm just adverting to the issue of arbitrariness in saying it can't come in but we use it for other purposes. What decisions does the Government make in reliance on polygraph evidence?",
       "time": "00:15:34.78"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Not even to hire or not hire someone?",
       "time": "00:16:15.57"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So basically you use it as a kind of a tip-off of something, as a means of putting somebody on the spot, legitimately, but that's as far as the Government goes?",
       "time": "00:17:10.79"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, I realize there may be exceptions, but in sub... substantially, that is the only kind of use that's made.",
       "time": "00:17:22.09"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In criminal investigation likewise, I assume?",
       "time": "00:17:29.71"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's the tainted morsel of the 20th Century. [Laughter]",
       "time": "00:18:23.47"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are there instances in which an employee is terminated for failure to take a polygraph, Government employment?",
       "time": "00:18:40.39"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Dreeben, why doesn't it work the other way with respect to the military courts, because my understanding is that the courts martial, the equivalent to the jurors, are of a certain high level, perhaps higher than the ordinary jury that would sit in a Federal court in a criminal case.",
       "time": "00:20:55.32"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me you're somewhat deflecting the thrust of Justice Ginsburg's question, and I notice this in your brief, too. You talk about danger of confusion of the jury. The military rules allow conclusions of experts on the very premise that military juries are somewhat more sophisticated than most juries.",
       "time": "00:22:00.79"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that may be true, but it doesn't go to the point of the differences in the trier of fact Justice Ginsburg was referring to.",
       "time": "00:22:35.02"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I suppose one could argue that if the triers of fact are indeed superior, they need less help from this sort of evidence.",
       "time": "00:22:51.96"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Dreeben. Ms. Sheffield, we'll hear from you.",
       "time": "00:23:42.77"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those... those other uses you're referring to, I mean they are very common. It seems to me are quite different. I mean, it's not a use for the purpose of deciding whether you're going to send somebody to jail.",
       "time": "00:24:37.93"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or for whether you're going to let a murderer back... back out on the streets.",
       "time": "00:24:46.93"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but, you know, I mean, I... I might exclude somebody from the sensitive secrets of his... of the Nation if his... you know, if his... if his uncle is a... a Chinese Communist. Could I use that in a criminal trial? I mean, what... you know, what the government thinks creates enough of a doubt to exclude somebody from sensitive in... information bears no relationship to what creates enough of a doubt to be admissible in a criminal trial.",
       "time": "00:25:06.20"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, then, all of these uses are really... don't... don't establish your point at all.",
       "time": "00:25:34.27"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think they deny that it might have a certain level of reliability and... and, just in case it does, they... they use it. And however doubtful it may be, they... they... they choose to exclude people from national security information on that basis. But that... that... that's a world apart from saying it's reliable enough to make the decision whether you're going to send somebody to jail or not send somebody to jail who belongs there.",
       "time": "00:25:50.12"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but I think you can't just close the door at that point.",
       "time": "00:26:23.92"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Because the President would be free to say, okay, all bets are off, and the next case, there is no rule. It's the same government examiner that has given the polygraph. And there is an inculpatory result. And the government says, fine. As Justice O'Connor suggested, this is a two-way street, and we're going to use it. He gets on the stand. We're going to say, he's a liar, and here's the polygraph to prove it.",
       "time": "00:26:29.82"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would your rule extend to a crucial defense witness as well, whose credibility is attacked?",
       "time": "00:27:29.92"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Here is... here is the state, has the burden of proof, brings in a crucial witness, who says, I saw the defendant stab the victim. And there's a polygraph test that might be favorable to the defense of this witness. Would your rule encompass that as well?",
       "time": "00:27:39.84"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what would your position be, logically?",
       "time": "00:28:03.39"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "From the position you're taking here, it's part of the defense?",
       "time": "00:28:05.94"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it's critical.",
       "time": "00:28:13.33"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "This is the eyewitness.",
       "time": "00:28:14.57"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So we'd have a big evidentiary hearing in every case where the polygraph was used?",
       "time": "00:28:28.24"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But--",
       "time": "00:29:19.16"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But how... how about a defendant, before the case is brought, who fails a polygraph test; there may be other reasons now why the... the... the Armed Forces would say, let's not bring this guy to trial. But this gives them an added sling in their bow, an added arrow in their bow, doesn't it?",
       "time": "00:29:21.14"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And don't you think that might lead to more cases being brought?",
       "time": "00:29:37.67"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How... how would you avoid the endless hearings that would... or the disputes before the jury about whether the polygraph is given in the best possible way, of whether it is in fact, in this instance, how probative, of whether or not polygraphs, in general, are reliable or even if they are, in general, often reliable, whether this is the kind of one that is really that reliable or not, all of which, before a finder of fact that's not necessarily sophisticated in scientific matters?",
       "time": "00:29:59.60"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what you mean. What do you mean, he would sort it out?",
       "time": "00:30:46.80"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The issue for the jury, it seems to me, is whether this person who administered the polygraph test is any good.",
       "time": "00:30:49.11"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can the judge decide that?",
       "time": "00:30:56.93"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but once it goes to the jury, the ju... the jury is certainly entitled to come to the conclusion that this person who administered the polygraph test is a hack.",
       "time": "00:31:05.90"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And comes to the wrong conclusion most of the... isn't the jury entitled to do that?",
       "time": "00:31:16.63"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So aren't you entitled to put in evidence to show that this person is a hack?",
       "time": "00:31:19.22"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:31:23.23"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I don't know how you avoid that. May I ask, along that line, you're objecting to a per se rule. Supposing they change the per se rule and said, no polygraph evidence shall be admitted unless the examiner met the following qualifications: 5 years training, a degree from such and such a school, and so forth and so on. Would you challenge that kind of per se rule?",
       "time": "00:31:24.18"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. But I'm... I'm asking about a... a proposed hypothetical per se rule that defined minimum qualifications for the examinations, and just categorically said, all those that don't meet this standard are, per se, inadmissible?",
       "time": "00:31:50.02"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, is there any basis in the law... suppose we adopted your reliability test. Now, make it as strict as you want. If the Supreme Court says that the Constitution requires the defendant to have a right to put those results into evidence, I guess, then, States could say, well, we will permit prosecutors to do the same. After all, if it's that reliable.",
       "time": "00:32:33.36"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And there would be no rule of law that I'm aware of that would stop it. But I'm raising it because I think... I don't see how it could be... you would prevent, in practice, what I'd call tit for tat, or whatever--",
       "time": "00:32:58.85"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--the... the prosecution... defense can do it, the prosecution can do it. And so, pretty soon, we have a contest of... of lie detector experts, one for the prosecution and one for the defense.",
       "time": "00:33:09.87"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In this case, it was the govern... government's own--",
       "time": "00:33:34.55"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--test.",
       "time": "00:33:38.08"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And we could presume that that would meet whatever standards one might set up. If your position is correct, that the defendant is entitled to use this evidence to bolster his credibility, then, in the next case, suppose the government said, we're not going to give this person a test; we think this person could probably pass one. Could that... that defendant then insist, as a matter of his Sixth Amendment right, to have the government provide a polygraph test, which he could then use in his defense?",
       "time": "00:33:39.46"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand this constitutional rule you're asserting. You're asserting that if the evidence exists out there already, because the government has given a test, he has a constitutional right to have it admitted. But he does not have a constitutional right to develop a test on his own, to hire his own... his own polygraph administrator and have that put before the jury?",
       "time": "00:34:26.29"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No; I understand. But... but isn't it... isn't it the logic of your position not only that what polygraph tests are extant, having been given by the government, must be admitted, but also that you must allow a defendant to hire a... a... and administer a polygraph test, and... and get that admitted, if it's... if it's a reliable--",
       "time": "00:34:52.86"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't think so.",
       "time": "00:35:15.29"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the--",
       "time": "00:35:20.75"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Isn't it also the logic of your position that if we agree with you to exactly that extent, we would also have to strike down a rule, a per se rule, that excluded the opinions of psychiatrists or psychologists on the specific truth telling of a witness?",
       "time": "00:35:22.69"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We would... we would... we would have to say, well, the door is not entirely shut to that.",
       "time": "00:35:42.49"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what's the answer?",
       "time": "00:35:49.88"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We'd... we'd have to... we'd have to-- [Laughter] --we'd have to open the door.",
       "time": "00:35:50.52"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but you can make the same argument, absent the... the... the mechanics on... on the part of the psychiatrist, a psy... or a psychologist, with... with long clinical experience, and the opportunity to verify the stories of the... of the people interviewed, with... with independently verified facts. And it seems to me that, on your logic, that kind of specific credibility testimony would at least have to be ad... admissible potentially. Wouldn't... wouldn't you agree?",
       "time": "00:36:31.52"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But--",
       "time": "00:37:14.91"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But... but you really... therefore, if we accept your position, we're... we're going to make a determination not only about polygraphs, but I suppose we would be making a... a kind of sea change in... in... in a... in a constitutional evidence rule. Because we would be, in effect, forcing the courts into a... a realm of evidence which, as a... as a general rule, an almost universally general rule, is inadmissible. And that is, evidence about the specific truth telling in a given instance. So we would... we would really be entering a... a new evidentiary realm here.",
       "time": "00:37:17.09"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yet... but your point in... in response to some of the questions, Ms. Sheffield, has been, you know, we don't ask that it be admitted, we just ask that it be submitted to a judge to decide. But it seems to me, following up on Justice Souter's question, you could then call into question all of the hearsay rule. In other words, don't exclude hearsay that... it doesn't come within the traditional exception, but if it has a lot of... it seems reliable, put people on the stand and let the judge decide whether it should come in.",
       "time": "00:38:17.17"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course it does.",
       "time": "00:38:57.28"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, nonetheless, there... the rules tend to be categorical. They don't have litigation of whether a particular piece of evidence or particular thing should be admitted, just to be inquired into de novo every time. Because a trial would last for months if you did that.",
       "time": "00:39:12.14"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is your argument, every rule has to have an exception? This... this... this is... this is the principle you're urging upon us? [Laughter]",
       "time": "00:39:34.49"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Rock... Rock was the defendant's own testimony.",
       "time": "00:40:01.11"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you talking about the other case or about Rock?",
       "time": "00:40:19.39"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that... you... you're entitled, certainly, to take an expansive view of Rock. But I think you should remember it was a 5 to 4 decision.",
       "time": "00:40:48.29"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Really, the... the... the key difference between... between all of these... all of these other rules of admissibility and... is what Justice Souter was inquiring into. And that is, leaping over, into... into this new field of... of accepting evidence on whether... whether the defendant is lying here, today, in this trial, on this fact. And that's... that's... if... if polygraphs are really that good, you know, 90 percent accurate, what do you think the accuracy of juries is? You think it's 90 percent?",
       "time": "00:40:55.83"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if it's lower than 90 percent, maybe we should just dispense with juries and have polygraphs. You wouldn't need juries. [Laughter]",
       "time": "00:41:34.40"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that the argument that Mr. Dreeben was making was not that it usurps the jury's function, but that it's unnecessary, since juries, from time immemorial, have been judging questions of credibility. I thought his argument was, on that branch, it's unnecessary and it's very costly.",
       "time": "00:41:58.22"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, they... they weren't purporting to be experts, reaching a conclusion as to credibility?",
       "time": "00:43:13.41"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Are there other instances in which experts, as Justice Stevens indicated, psychologists or psych... psychiatrists, are called to... to testify about credibility? Does this ever happen in... in State proceedings?",
       "time": "00:43:19.44"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask what the rule is in the military, if there is one, in cases involving very young children who might have been cla... claim to have been sexually abused or something of that kind, who recount the instance to a... a caretaker soon after the incident occurred. Is the caretaker allowed to testify as to his or her opinion as to the truthfulness of what the child was describing?",
       "time": "00:43:48.38"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm slightly curious how they know what... whether these are reliable or not. I take it the question is whether a person who says \"I'm innocent\" is really guilty. And then we have these numbers in the brief that say, well, it's 90 percent of the time. How would anyone know that? I mean, how... how... you have somebody who says \"I'm innocent\". How, in some test or something, do they know wheth... whether he... how do they know, independently, he's guilty?",
       "time": "00:44:24.87"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, but my question is, how do they get these numbers, the accuracy rate?",
       "time": "00:45:04.34"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, you'd have to have, like, a laboratory or something. I guess everybody would know it would be like a game. So I guess it's a question whether a game replicates reality. And if you go outside the laboratory, to the field, how does anybody know what the truth is to make this accuracy estimate?",
       "time": "00:45:07.10"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, but a confession wouldn't work in a case where a person is innocent. There would be very... there would be a handful of cases in which the person was really guilty and he confessed. But there might be a lot of cases where he's really guilty and he didn't confess.",
       "time": "00:45:40.73"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So how would you know in... how would you ever... how do they ever go about figuring this out?",
       "time": "00:45:56.65"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Sheffield, a moment ago, you were... you read a quotation from Taylor against Illinois. Were you quoting from the court opinion or the dissent?",
       "time": "00:46:02.81"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think you should have made that clear.",
       "time": "00:46:13.25"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Ms. Sheffield, what do you make of the... the... of the information provided in one of the government briefs... I forget which... to the effect that less than one-third of the members of the two major polygraph examiners' organizations are of the opinion that their... that their... that their opinions should be admissible in evidence?",
       "time": "00:46:15.33"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Sheffield, if... if we agree that polygraphs have to be used in the... as... that the Constitution requires polygraphs to be used in military trials, I suppose it would follow that... that they have to be used in civilian criminal trials. I mean, we... we couldn't have one rule for the milit... one constitutional rule for the military and... right? I mean, a fortiori--",
       "time": "00:47:59.79"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--in... in Federal District Courts, we have... what about civil cases, is there any reason why the constitutional requirements wouldn't apply to civil cases?",
       "time": "00:48:22.88"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that right, there... there are no... there... there are no restrictions on the processes that... that can be used in... in civil trials--",
       "time": "00:48:35.35"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--especially in those civil trials in Federal courts, where a jury is required?",
       "time": "00:48:46.62"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I... I would expect the same argument to be made. Look, I'm... I'm trying to prove my case, defend my property, my livelihood.",
       "time": "00:49:00.41"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're excluding perfectly relevant evidence that... that the Constitution requires to be allowed in criminal trials. As a matter of due process, I don't know how you could exclude it from a civil trial.",
       "time": "00:49:07.34"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, it--",
       "time": "00:49:22.23"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--it... it has to be admitted if the judge finds... finds that this is a good... a good enough expert.",
       "time": "00:49:23.39"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It would be a strange rule that said you had to admit it, even if you found the expert was a fraud.",
       "time": "00:49:30.18"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if... if... if we were the co... Court of Appeals for the Armed Forces, and... and there weren't any Rule 707 promulgated by the President, your presentation cert... certainly would make a great deal of sense. But you... you're in the position where it isn't just a common law judgment on our part. The President has said this will not come in. And so you have to say there's a constitutional principle that says it has to come in.",
       "time": "00:49:50.60"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let... let me ask you.",
       "time": "00:50:31.03"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any way of... of limiting the rule adopted by the Court of Appeals for the Armed Forces to military criminal trials, as opposed to civilian criminal trials? As I read the... the opinion, there... there is no effort to. I mean, it comes in as a constitutional matter, the right to... for a defendant to present its case.",
       "time": "00:50:32.02"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How... how would you suggest that we do it?",
       "time": "00:50:57.63"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But then what... but you would still have to derive it from the same constitutional principle, wouldn't you... the right of the defendant to call witnesses in his defense?",
       "time": "00:51:35.11"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, if those safeguards were... were eliminated, the Army could... could then no longer admit polygraph evidence?",
       "time": "00:52:07.58"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if... if we rule that it must be admitted only because there are all of these safeguards, the military could get them unadmitted again by simply eliminating all the safeguards.",
       "time": "00:52:17.07"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:52:28.32"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah. I mean, go... go under the colander, the colander theory instead, just-- [Laughter] Right.",
       "time": "00:52:30.82"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Sheffield. Your time has expired. Mr. Dreeben, you have 5 minutes remaining.",
       "time": "00:52:46.53"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Dreeben. The case is submitted.",
       "time": "00:53:53.94"
     }

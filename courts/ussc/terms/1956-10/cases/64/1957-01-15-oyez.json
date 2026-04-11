@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/64/19570115a_64.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STANLEY REED",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "HENRY C. LOWENHAUPT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REED",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN N. STULL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "OWEN T. ARMSTRONG, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Libson Shops (Inaudible) Officer Gustave F. Koehler et al., Mr. Lowenhaupt, and before you start with your argument, I want to announce that in the order list yesterday there was a -- a mistake. Application had -- petitioner had been made to file to two briefs, one in 216 and one in 64. And the order list shows that the request was granted in 216 but was denied in 64. That is a mistake. We -- we intended to grant permission also in 64 so that may be filed and counsel may respond if they desire to it. Now, you may proceed, Mr. --",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Lowenhaupt, were the 17 corporations -- they all brought into being the same as to all four of them for the initial enterprise?",
       "time": "00:04:11.88"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Does that mean they were subsidiaries?",
       "time": "00:04:33.83"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "You don't mean that, do you?",
       "time": "00:04:36.41"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "16 of that. Now, each -- each of the 16, what about the stockholders?",
       "time": "00:04:43.83"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "It's the three -- three individuals --",
       "time": "00:04:50.65"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- owned all of the stock in the 17 different corporations?",
       "time": "00:04:53.53"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "The three of it in the same proportion.",
       "time": "00:05:01.52"
     },
@@ -147,13 +151,13 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "(Voice Overlap) --",
       "time": "00:05:06.63"
     },
     {
       "turn": 18,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You said that as new units came into being, they were incorporated as it were, is that right?",
       "time": "00:05:07.73"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A corporation for each new unit, is that right?",
       "time": "00:05:17.54"
     },
@@ -177,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "From time to time.",
       "time": "00:05:20.62"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any -- was there -- were there any considerations in the corporate law that prevented the existing -- the existing corporations from -- of having the new units come under the umbrella of the old corporations?",
       "time": "00:05:29.42"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well now, at least, these new corporations came into existence for business reasons.",
       "time": "00:06:00.20"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They all sell the same product?",
       "time": "00:06:16.52"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Centralized buying?",
       "time": "00:06:21.79"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did the buying?",
       "time": "00:06:26.32"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And none of the corporations was a manufacturer?",
       "time": "00:06:29.22"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that's really the question.",
       "time": "00:09:31.49"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well I --",
       "time": "00:09:36.00"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- I thought you said it was a new corporation. It's formed to take over the 17.",
       "time": "00:09:36.41"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "There was -- there was -- created the new corporation.",
       "time": "00:09:47.73"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Then -- then I misunderstood that there was not a new corporation created after the -- or for the merger.",
       "time": "00:10:23.88"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "It was a consolidation of those that -- that had existed, four into one.",
       "time": "00:10:30.82"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I thought -- was it absorption really.",
       "time": "00:10:37.52"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) consolidate -- it wasn't consolidated.",
       "time": "00:10:44.28"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:10:48.30"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Main stream.",
       "time": "00:10:54.67"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Which was the survivor, the management corporation?",
       "time": "00:11:01.35"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Which -- which -- before we get into that, which -- which State was the surviving corporation? Missouri or --",
       "time": "00:16:46.42"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And there's -- there's no question about the validity of the merger into it?",
       "time": "00:17:01.92"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Yet, the Illinois corporations left Illinois when they were merged into the (Voice Overlap) --",
       "time": "00:17:15.10"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "What -- what became of the older corporation in the -- in the Colonial Ice case?",
       "time": "00:25:55.51"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Just as a shell?",
       "time": "00:26:03.49"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "That means it was not dissolved?",
       "time": "00:26:09.28"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you suggesting -- I just want to make sure I follow you, that if you wipeout the somewhat artificial test between the merger and other forms of reorganization and look at it in the more realistic ways to whether that is continuity, is that your suggestion as to the basic test that's --",
       "time": "00:28:00.75"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "involved.",
       "time": "00:28:25.37"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that leads me to ask this question then. I take it, as I understand the situation, before the merger of the 16 corporations, the three corporations has had not net operating losses, could not have taken any net operating loss deduction because of their -- they had no income.",
       "time": "00:28:26.60"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, yes, but as of the year prior to the merger, there wasn't any tax benefit that would accrue to them.",
       "time": "00:28:58.32"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Therefore, when you think of it in terms of continuity, is it not a fact that as a result of the merger, there was a net operating loss deduction, a tax benefit that came into being as a result of the merger which did not exist before. And my question is whether that doesn't break the chain of continuity?",
       "time": "00:29:05.36"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But wasn't the -- didn't those three units continue to suffer losses during the succeeding years?",
       "time": "00:30:27.89"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But what was bothering me was this, that if you take the continuity test and you answered that as of the time of the merger, you couldn't foresee what that operation should be in future years. In fact, in future years, the operation has altered, there's a loss of these three stores with that singly. And therefore, doesn't it remain true that the tax benefit came into -- came into being, came into existence only as a result of the merger?",
       "time": "00:30:57.20"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "What was the fiscal year? Did he -- all of these corporations --",
       "time": "00:32:37.38"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "So, this is at the end of the fiscal year when the results were known for the preceding year?",
       "time": "00:32:43.92"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "As of the end of the fiscal year for all?",
       "time": "00:32:50.72"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whatever -- whatever rules you adopt or whatever basis you put it on, as I gather from your answers, a merger of this kind would result either in a tax advantage to the merged company or to a tax disadvantage to the merged company. It would not remain the same if there was some losses, losses in some of the merged companies and gains on the others.",
       "time": "00:32:54.52"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I was -- I'm -- I'm talking about -- but could -- could -- is it possible that if you have 10 corporations or 16 or whatever it is, and you have four of them that have losses and the rest have gains. Is it possible to merge that in such a way that the tax situation wouldn't be changed over -- from what it had -- would have been had they remained unmerged?",
       "time": "00:33:26.34"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So, your argument -- your argument means if they've adapted and maybe it's right, that -- by a merger such as you had here, the -- if the -- shows to be done, there can be a tax advantage result -- has to be a tax advantage or tax disadvantage result --",
       "time": "00:33:59.49"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- whether with some gains and some losses among the companies.",
       "time": "00:34:21.11"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, absent of merger. Let's suppose, now absent the merger here, the tax would remain precisely as Congress had -- wouldn't it, could it not? The results would be the same that Congress had provided for. Forget there's a merger.",
       "time": "00:34:54.79"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You had -- had no merger and then you could administer the tax law in accordance with the provision that -- as the way they're written, but the other permits the merger to alter the tax results.",
       "time": "00:35:14.22"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Stull.",
       "time": "00:38:18.10"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Over what --",
       "time": "00:40:54.25"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- what years were these companies are --",
       "time": "00:40:54.85"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Over what years were these companies organized?",
       "time": "00:40:57.05"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is your statement applicable to both of the years?",
       "time": "00:41:04.85"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In what respect, Mr. Stull, were the business purposes of the resulting corporation changed or added to the use?",
       "time": "00:43:20.22"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you mentioned it. That's the reason I --",
       "time": "00:43:38.93"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, I understood that the original before the merger, the -- what was then the management company had in its charter powers to engage in operation.",
       "time": "00:43:49.08"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the only result of the merger was to bring those powers into being and became an operating company instead of a management company, is that right?",
       "time": "00:43:58.15"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But do you think that affects your argument in any way?",
       "time": "00:45:12.73"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "That's --",
       "time": "00:45:26.09"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- that's a purely a business accident, isn't it? Evidently, they expected to make a profit out of it or as counsel preceding have said they wouldn't have continued those locations.",
       "time": "00:45:27.50"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:45:40.69"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But they didn't -- they didn't continue the business so as to get tax deduction, I take it.",
       "time": "00:45:47.46"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And -- and you think that's objection?",
       "time": "00:46:56.62"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Even though the same people only take all the risks in all the different corporations?",
       "time": "00:47:05.57"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does it make any difference that all of the -- all of the corporations sold the same product?",
       "time": "00:47:33.07"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would your -- would yours be a stronger case do you think if each of these 16 constituent companies had been in a different business?",
       "time": "00:48:15.65"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But that's not suggested here.",
       "time": "00:48:48.97"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if it merely -- it wasn't tax avoidance they are entitled to avoid if --",
       "time": "00:49:00.34"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It merely talk about your words. If it's an avoidance then it's on the right side of the line?",
       "time": "00:49:08.00"
     },
@@ -909,25 +913,25 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:49:15.19"
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose there had been seven --",
       "time": "00:49:16.12"
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Put -- put -- putting in a --",
       "time": "00:49:16.46"
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose there had been 17 individuals who had been doing business for two years, some have been in losses and carry-over and so forth. When they organized, they decided to put all of them in one corporation, what would have been the result of that?",
       "time": "00:49:18.32"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why?",
       "time": "00:49:34.73"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) there were taxable entities in there, aren't they?",
       "time": "00:49:39.93"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought they were entirely different taxable income?",
       "time": "00:49:43.67"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the question --",
       "time": "00:49:47.31"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I had suppose -- I thought there was a -- the court ruled an opinion some years ago to the effect because as they chose to do business, this corporate entity, and get tax to corporate entities, they were taxed as corporate entities.",
       "time": "00:49:51.65"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Higgins against Smith, as I recall it, was the case that's in there, something like that. Did you cite that?",
       "time": "00:50:05.80"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, this isn't the question -- this -- our problem is fully unrelated to the legitimacy. They're doing business in 17 corporation. That's -- that's -- that isn't a -- have something to do with that?",
       "time": "00:50:16.33"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But this -- this 17 cooperation -- and you say they did business in 17 corporations and when they shrink at their own, it isn't the same thing?",
       "time": "00:50:29.10"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you say that the law doesn't allow 17 individuals to shrink their tax -- taxability into one corporation?",
       "time": "00:50:41.03"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But you can go from an individual to a partnership?",
       "time": "00:51:22.26"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But it looks through it.",
       "time": "00:51:28.19"
     },
@@ -1071,13 +1075,13 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, why -- why did you say --",
       "time": "00:51:30.90"
     },
     {
       "turn": 172,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it isn't referred -- doesn't regard it as an entity.",
       "time": "00:51:31.22"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well that --",
       "time": "00:51:36.65"
     },
@@ -1101,13 +1105,13 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Taxable.",
       "time": "00:51:38.56"
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did you say that except for charter amendments, the surviving corporation could not have been an operating company?",
       "time": "00:51:40.71"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you mean that if it could have operated --",
       "time": "00:51:53.44"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It did.",
       "time": "00:51:57.14"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "As I understand it, the operating company was chosen as the --",
       "time": "00:52:00.93"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Yes, the management company --",
       "time": "00:52:06.16"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- were all the same thing to me. Is there any difference between the operating and the management?",
       "time": "00:52:07.22"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Based on how you use the word \"operating\" I suppose?",
       "time": "00:52:12.14"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But anyway, it -- it continued.",
       "time": "00:52:15.14"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- to -- to (Voice Overlap) --",
       "time": "00:52:19.01"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And had been before.",
       "time": "00:52:22.58"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Before, and what are the --",
       "time": "00:52:27.27"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And when -- and the assets in the business and the others simply passed it to them by merger. Now, what I'm coming to, is there a provision in the tax laws in regard to the effect of mergers not -- not related to the carry-over but as allowing mergers?",
       "time": "00:52:30.63"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "By the States.",
       "time": "00:52:56.78"
     },
@@ -1263,13 +1267,13 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Your position is, isn't it that even though --",
       "time": "00:53:12.56"
     },
     {
       "turn": 204,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Unless -- unless by this provision here where -- unless if you had a continuous existence of the two or the 16 corporations here then -- then it would apply.",
       "time": "00:53:13.30"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, that's what they're trying to do here as I understand it.",
       "time": "00:53:30.99"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But when they merged, I don't just see why one continues and one not because of the names that's chosen or -- or all the assets, all the liabilities of the old corporation passed that had been used and they don't pass it by sale but by merger. Doesn't everyone of those 17 continue as a part of the new merger?",
       "time": "00:53:56.95"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And --",
       "time": "00:54:29.16"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, in affects on whether there are continues existence of the former 16, doesn't it?",
       "time": "00:54:29.59"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, I should think it's the corporation itself.",
       "time": "00:54:39.72"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Does the -- doesn't it depend on whether the pre-existing corporations continue with the liability and responsibility after the merger?",
       "time": "00:54:42.49"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "If the 16 corporations that were merged into the new one, doesn't the new one assume all the liabilities and is liable (Voice Overlap) --",
       "time": "00:54:56.20"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- to the others?",
       "time": "00:55:05.03"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But why don't the 16 continue with their liabilities and obligations continues?",
       "time": "00:55:06.59"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Yes.",
       "time": "00:55:19.13"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They don't survive under the name of A, but they do survive under the name of G or --",
       "time": "00:55:23.76"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "You can concede, can you not, that they do continue as the same corporation but still they're not the same taxpayer for the purposes of the carry-over?",
       "time": "00:55:32.34"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Can the state law continue their tax obligations or do away with their tax obligations?",
       "time": "00:55:53.34"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I could understand how the state law can fix the contract between private partners, say that if you merge, you're not going to be allowed to defeat your obligations nor must you to take on more. You continue the old just as much as you did before. You can get paid as much as you could before in existing obligations between private partners. But does that result tax-wise here?",
       "time": "00:56:02.10"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If you adopt the conceptualistic idea that these 16 corporations that have somehow been -- this used to be and now still existing in some way and the concepts are divine. But do they continue as they would as between private contract, private contracts that will had to be paid in full? But would the Government get its full tax it would have gotten at these conceptualistic corporations not changed there, somehow the invisibility or visibility?",
       "time": "00:56:27.97"
     },
@@ -1461,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's right. Then, what -- the effect of this would be that the Government will not -- that these corporations will not have to -- do not continue with the same obligations that they had before and now with the same benefit. Because when they merged, that changes the tax situation and changes the obligation, but that wouldn't happen with the reference to the -- the part of the activities of the state governments, would it, as between private partners? The obligations would neither be increased, nor -- or -- nor diminished. But here, you would change the obligation as between -- after this occurred according to the arguments made here.",
       "time": "00:57:06.89"
     },
@@ -1473,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "So, by the -- so by that merger, you destroy the opportunity of the -- those that had a loss before to ever regain anything from it.",
       "time": "00:57:49.13"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean, you do with the Government. You do what they did? They choose to give it up. I -- I don't quite understand where -- where do they have that you do it as the Government.",
       "time": "00:58:01.35"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say that the -- you say that the law gives corporation as such the rights within their own area of what they owe and what they don't owe and so forth, state certain tax deductions, and they can't change it by merging three or four into one.",
       "time": "00:58:17.24"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You would be the first one, add together surviving corporations, surviving whether the tax -- taxes (Inaudible) other 15.",
       "time": "00:58:33.29"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, tell me. I -- I had the impression as to where there were statutory mergers. I'm speaking now -- but we understand generally as merger is distinguished to other forms, consolidation and the like, and the big fish swallows the small one. After that, you have to look to the big fish to collect anything. Is that right?",
       "time": "00:58:53.33"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The small ones disappeared. Well, why shouldn't that carry with it the right of the big fish to take on whatever the small one was allowed to have in way of the taxes?",
       "time": "00:59:16.61"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "When I said this tax is the tax asset.",
       "time": "01:00:11.39"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "There's -- there's no legislative history on this merger of aspect exactly?",
       "time": "01:00:17.09"
     },
@@ -1569,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "But, since the -- since the days of Gregory White versus Helvering or Helvering versus Gregory, I forgot which, you had these merger provisions in other phases have to, so to speak.",
       "time": "01:00:50.63"
     },
@@ -1581,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What kind of expense?",
       "time": "01:02:05.63"
     },
@@ -1593,7 +1597,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did I understand you, Mr. Stull, to say that during the life of this marketable corporation, a consolidated income tax could have been filed.",
       "time": "01:04:31.84"
     },
@@ -1605,7 +1609,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Pardon me?",
       "time": "01:04:44.48"
     },
@@ -1617,7 +1621,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In which the losses and the credits -- the losses and gains could have been offset and all these things could have been then claimed.",
       "time": "01:04:45.65"
     },
@@ -1629,7 +1633,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that correct?",
       "time": "01:04:52.72"
     },
@@ -1641,7 +1645,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And they did not do that.",
       "time": "01:04:54.56"
     },
@@ -1653,7 +1657,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's a part of individual reports with their individual gains and losses.",
       "time": "01:04:56.05"
     },
@@ -1665,7 +1669,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) I mean those incitements.",
       "time": "01:05:03.96"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well if the taxpayer prevails, do you see any particular loophole, would have assessed as tax consequence?",
       "time": "01:05:06.79"
     },
@@ -1689,7 +1693,7 @@
     },
     {
       "turn": 274,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question that maybe --",
       "time": "01:06:05.09"
     },
@@ -1701,7 +1705,7 @@
     },
     {
       "turn": 276,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- a little extraneous but -- you're familiar with the Newmarket case --",
       "time": "01:06:07.67"
     },
@@ -1713,7 +1717,7 @@
     },
     {
       "turn": 278,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- in which the -- as the Chief Justice announces the brief today that was filed here in light of this. As you can -- are you familiar with the case?",
       "time": "01:06:15.35"
     },
@@ -1725,7 +1729,7 @@
     },
     {
       "turn": 280,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you can see that the result of both these cases has to -- they have to stand up altogether.",
       "time": "01:06:23.76"
     },
@@ -1737,7 +1741,7 @@
     },
     {
       "turn": 282,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I don't want to argue -- I don't want to argue the Newmarket with you but I suggest --",
       "time": "01:07:36.56"
     },
@@ -1749,7 +1753,7 @@
     },
     {
       "turn": 284,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suggest -- I say I don't want to argue Newmarket with you, but I suggest that as far as your continuity test is concerned which is your second facet, you had a quite a different problem in Newmarket than the one you have here.",
       "time": "01:07:41.71"
     },
@@ -1761,7 +1765,7 @@
     },
     {
       "turn": 286,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- because the Newmarket simply change your domicile.",
       "time": "01:07:56.89"
     },
@@ -1773,7 +1777,7 @@
     },
     {
       "turn": 288,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, you have to rest, it seems to me, there and squarely on the proposition of the difference between a -- the different corporate entities --",
       "time": "01:08:06.49"
     },
@@ -1785,7 +1789,7 @@
     },
     {
       "turn": 290,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- technical corporate entity.",
       "time": "01:08:17.42"
     },
@@ -1797,7 +1801,7 @@
     },
     {
       "turn": 292,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes and --",
       "time": "01:08:25.00"
     },
@@ -1809,7 +1813,7 @@
     },
     {
       "turn": 294,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'd like to ask you one question if I may, Mr. Stull, under your taxpayer theory, the first face to your argument. Take two corporations A and B, B has losses, net operating losses. If A merges into B under your theory, would the merged corporation be entitled to take the operating loss deduction?",
       "time": "01:13:20.68"
     },
@@ -1821,7 +1825,7 @@
     },
     {
       "turn": 296,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And there would be --",
       "time": "01:13:47.44"
     },
@@ -1833,7 +1837,7 @@
     },
     {
       "turn": 298,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Alright. Yes, I'm not thinking about that.",
       "time": "01:13:54.02"
     },
@@ -1845,7 +1849,7 @@
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, your answer would be, they could say --",
       "time": "01:13:56.35"
     },
@@ -1857,7 +1861,7 @@
     },
     {
       "turn": 302,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I'm taking back the same situation. Reverse, B has the losses and it merges into A, could it take the -- A corporation take it?",
       "time": "01:14:01.15"
     },
@@ -1869,7 +1873,7 @@
     },
     {
       "turn": 304,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is not a pretty artificial kind of a concept to attribute to Congress?",
       "time": "01:14:10.94"
     },
@@ -1881,7 +1885,7 @@
     },
     {
       "turn": 306,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there's been a change of tax -- taxpayer because the lawyer could have paid for --",
       "time": "01:14:21.19"
     },
@@ -1893,7 +1897,7 @@
     },
     {
       "turn": 308,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is simply because of the happenstance if the papers are going one way rather than the other.",
       "time": "01:14:43.98"
     },
@@ -1905,7 +1909,7 @@
     },
     {
       "turn": 310,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you don't have to stand on that as I understand it. You -- you could say no, there's another question about here and absolutely there's a continuity, the continuity test to satisfy it too. And if the continuity test would satisfy, I would suppose you'd say that result in both cases ought to be the same.",
       "time": "01:14:55.15"
     },
@@ -1917,7 +1921,7 @@
     },
     {
       "turn": 312,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I mean in formal sense?",
       "time": "01:15:20.71"
     },
@@ -1929,7 +1933,7 @@
     },
     {
       "turn": 314,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Armstrong.",
       "time": "01:15:39.88"
     },
@@ -1941,7 +1945,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I gather it never actually operated the retail outlet until after the mergers, is that it?",
       "time": "01:17:09.44"
     },
@@ -1953,7 +1957,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is it -- is it -- the statutory merger as to the constituent corporations that are swallowed up by the survivor continue in any sense?",
       "time": "01:18:47.61"
     },
@@ -1965,7 +1969,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then, you can't sue them anymore, can you?",
       "time": "01:19:01.37"
     },
@@ -1977,7 +1981,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that under the laws of Missouri and --",
       "time": "01:19:06.71"
     },
@@ -1989,7 +1993,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, are you telling us that despite this merger then that these three corporations would suffer the losses may still be sued and be sued -- pursued and be sued where they were organized for instance?",
       "time": "01:19:22.08"
     },
@@ -2001,7 +2005,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but -- yes, but whom do you sue, the surviving corporation or the original corporation?",
       "time": "01:19:46.53"
     },
@@ -2013,7 +2017,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May you sue the constituent corporations?",
       "time": "01:19:54.73"
     },
@@ -2025,7 +2029,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "01:19:59.95"
     },
@@ -2037,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I didn't say ridiculous.",
       "time": "01:25:13.85"
     },
@@ -2049,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that argument mean that if a primary corporation, privately -- privately held shares becomes a public corporation that your argument impose?",
       "time": "01:29:12.75"
     },
@@ -2061,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Generally speaking?",
       "time": "01:29:52.10"
     },
@@ -2073,7 +2077,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, this family is -- is a family with a large (Inaudible) nephews and nieces have a loss and if (Inaudible) that's admitted or was not.",
       "time": "01:29:58.26"
     },
@@ -2085,7 +2089,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, under your argument. That under your argument, it wouldn't have had to do it.",
       "time": "01:30:13.44"
     },
@@ -2097,7 +2101,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Does carry-back carry over a bargain like in corporations or as an individual (Inaudible)",
       "time": "01:30:53.19"
     },
@@ -2109,7 +2113,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Do they have any problems for the -- the individual may organize a corporation and take over his business?",
       "time": "01:31:02.72"
     },
@@ -2121,7 +2125,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Even though it took over the same grocery store to be --",
       "time": "01:31:37.04"
     },
@@ -2133,7 +2137,7 @@
     },
     {
       "turn": 348,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, thank you.",
       "time": "01:33:59.85"
     }

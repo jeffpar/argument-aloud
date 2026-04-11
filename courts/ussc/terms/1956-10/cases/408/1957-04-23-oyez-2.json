@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/408/19570423a_408_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID G. MACDONALD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES A. MURRAY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "CHARLES H. WESTON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM Q. KEENAN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Macdonald, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was this -- was this an isolated act or did the Commission do this in other similar circumstances?",
       "time": "00:00:46.45"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was -- who was -- who sat in Stone's Express besides Judge -- Judge Hartigan.",
       "time": "00:01:46.09"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "(Inaudible)",
       "time": "00:01:53.45"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:01:56.38"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When Judge Ford now, the reason I ask is because Judge Ford expresses his independent judgment as if agreeing with Judge Wyzanski.",
       "time": "00:02:12.59"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But he even dissented in the earlier case.",
       "time": "00:02:23.08"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:02:29.49"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- he had been asked to report.",
       "time": "00:02:34.02"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't understand that phrase. You have a temporary license?",
       "time": "00:07:18.38"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is the permanent license?",
       "time": "00:08:43.46"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's permanent.",
       "time": "00:08:45.17"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't -- I don't -- I understood the time that in -- that you sought to bring yourself within -- or the Commission issued an order purporting to act under 9 (b) --",
       "time": "00:09:05.51"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- at the time you had a temporary license.",
       "time": "00:09:17.65"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, wasn't that in existence when the time was extended?",
       "time": "00:09:20.76"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh.",
       "time": "00:09:39.00"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible) are you suggesting that what has the penalty that the licensee is limited to a holder of a permanent license and does not embrace as in your case the holding of a temporary license?",
       "time": "00:09:43.21"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Couldn't be that because it says a new -- renewal or a new license?",
       "time": "00:09:59.91"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Since they already have it (Inaudible)",
       "time": "00:10:16.41"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What -- didn't you hold a temporary license at that time?",
       "time": "00:10:32.64"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, at the moment when you filed?",
       "time": "00:10:37.38"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But at the time before the 180 days expired, you were the holder of a temporary license?",
       "time": "00:10:40.43"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:10:48.57"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Except this, Mr. -- Mr. Macdonald. They're going to Judge Hartigan's opinion in -- in Stone's Express. He quote from the Senate Judiciary Committee which gave the explanation of that and they referred to the Ohio statute, and then he incorporates by reference as it were the Ohio statute which says, \"The expiration of a license held by said licensee at the time said application was made.\"",
       "time": "00:10:53.59"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Isn't that what the case -- the opinion turned on Stone?",
       "time": "00:11:28.23"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Never mind whether it's adopted. We just go to the print. Did 9 (b) -- did Congress use the language of the Ohio statute?",
       "time": "00:12:42.87"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And similar doesn't mean identic?",
       "time": "00:13:01.91"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "And this is the argument here, this 9 (b) was written to relate to a identic situation and not to the strictly kind of a situation referred to licenses that were independent of -- of each other and had renewals rather than a temporary and extension, and therefore the language natural for that but natural for this?",
       "time": "00:13:04.94"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you going to deal with that argument on the merits?",
       "time": "00:14:12.04"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The fact that it's new doesn't make it irrelevant.",
       "time": "00:14:15.24"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Macdonald, may I ask you just one question. This practical question? Would the Board have been -- would the Commission have been likely to have granted you this temporary license if it had not known that you were applying for a permanent license?",
       "time": "00:14:39.76"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:15:09.29"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "(Inaudible) the agency they do affiliate that in the application for a renewable sufficiency in that the finding is sufficient automatically (Inaudible)",
       "time": "00:16:39.11"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But what's sufficient?",
       "time": "00:16:50.56"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is that governed by regulation?",
       "time": "00:17:01.81"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "(Inaudible)",
       "time": "00:17:03.71"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There's no question in this case that the application for renewal was sufficient at that time?",
       "time": "00:17:07.41"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Has the --I suppose and having looked at the brief. I suppose that the -- in consideration to face the -- the opportunity that affords to a known action to give a license, which eventually may be denied.",
       "time": "00:17:13.29"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "(Inaudible) to wipeout the 180 days (Inaudible)",
       "time": "00:18:10.89"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "On your interpretation, it does wipeout the 180-day limit.",
       "time": "00:18:15.51"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In practical effect it's -- in practical effect if you read 9 (b) with the -- with the 311 (a), it's on effects, making the Act say the Commission may grant a temporary license to take effect (Inaudible) of pending application.",
       "time": "00:20:44.57"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing the Commissioner grants a 180-day license -- Commission. Can it revoke it within that 180 days?",
       "time": "00:21:49.72"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) my point, I was -- if the -- forgetting 9 (b) for a moment. You have a temporary license for 180 days. Could the Commission decide it was going to revoke that? And then revoke it within 180 days?",
       "time": "00:22:35.58"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What would -- would it cause, it could?",
       "time": "00:22:54.30"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean -- you mean that if the Commission gives a temporary license and fixes it for 100 days (Inaudible)",
       "time": "00:23:24.54"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- say there's sufficient ground and they cannot, I suppose, they cannot even on notice say, “We've looked over these papers again and we think the chances of granting a permanent license is so slim that we don't want this temporary license to be outstanding even for 100 days.”",
       "time": "00:23:37.18"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:23:59.80"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but it could have denied it ab initio, I'm assuming.",
       "time": "00:24:10.65"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:24:15.93"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Public interest is involved, isn't it?",
       "time": "00:24:26.12"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. Well, suppose they -- they said there's public need and on reconsideration some other matter has come up and we now mean that this would be redundant. And we don't want to deal with this temporary license which got a --",
       "time": "00:24:30.45"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can they do that?",
       "time": "00:24:42.79"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I see. And deny that out right and put an end to the matter.",
       "time": "00:24:47.83"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I see.",
       "time": "00:24:51.80"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may. Mr. -- Mr. Murray.",
       "time": "00:24:56.17"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mandatory meaning if they didn't do it they could be mandamus?",
       "time": "00:25:45.37"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Automatic, otherwise?",
       "time": "00:25:48.79"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Practically, there's no --",
       "time": "00:25:50.65"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, I don't -- I don't understand mandatory to mean that.",
       "time": "00:25:58.73"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:26:03.80"
     },
@@ -775,13 +779,13 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, I do understand.",
       "time": "00:26:04.76"
     },
     {
       "turn": 122,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, on then that -- that means no more than that before the Commissioner's the sufficiency of the application or that one goes in the sufficiency and if sufficient, the order must issue?",
       "time": "00:26:05.77"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't --",
       "time": "00:26:17.37"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It makes a difference to the position.",
       "time": "00:26:18.48"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It issues a paper --",
       "time": "00:26:29.77"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It issues a paper which --",
       "time": "00:26:33.38"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, suppose it doesn't issue the paper, are you supposed to --",
       "time": "00:26:35.57"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Murray, to -- to know exactly what it is citing, in this case in fact, the Commission extended, acting as it concedes its jurisdiction under 9 (b), is that right?",
       "time": "00:26:45.53"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that there is before us an order which the Commission is defending for the extended period and in this case we would not have to decide whether that has to issue automatically or under discretionary judgment of the Commission.",
       "time": "00:26:57.06"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the question of automatic or mandatoriness would arise only if the Commission refused to extend a mandamus to apply.",
       "time": "00:27:20.85"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:27:27.93"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is 311 (a), does that date from 1940, from the transportation?",
       "time": "00:28:42.21"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And the Administrative Procedure Act (Inaudible)",
       "time": "00:28:47.19"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "1946.",
       "time": "00:28:51.89"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is the -- was the exercise of the war power to suspend 311 (a) an action taken by the executive, by the -- formerly by the President at the request of the Interstate Commerce Commission?",
       "time": "00:29:40.14"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where the request to be (Inaudible)",
       "time": "00:29:54.60"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well --",
       "time": "00:30:02.83"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that.",
       "time": "00:30:06.34"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that line of inquiry seems to be important because while, of course, those were the war years --",
       "time": "00:30:07.31"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that the Commission gave reasons why this is generally to hamper a restriction upon the administrative process and the statute comes in (Inaudible) to writing a general law when the Administrative Procedure Act came into being.",
       "time": "00:30:14.77"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have we any record that the Interstate Commerce Commission make any representation or make a submission to the judiciary committee while the Administrative Procedure Act was going through the legislative mill?",
       "time": "00:30:31.79"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At all?",
       "time": "00:30:47.88"
     },
@@ -1033,7 +1037,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did this -- did this provision 9 (b) emanate like a -- preside in the original bill which went before the Congress?",
       "time": "00:31:01.57"
     },
@@ -1045,7 +1049,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, may I ask one more question. The Administrative Procedure Act that caused flow to ground or to run back through in it's origin to the report of the accessing committee versus administrative committee.",
       "time": "00:32:12.99"
     },
@@ -1057,7 +1061,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:32:27.50"
     },
@@ -1069,7 +1073,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there -- was there any discussion of this question? Because this is a general provision. It applies it to all the --",
       "time": "00:32:29.59"
     },
@@ -1081,7 +1085,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any discussion in the particular report on the Interstate Commerce Commission, or the Federal Power Commission, or any of them?",
       "time": "00:32:36.03"
     },
@@ -1093,7 +1097,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That they should be more flexibility?",
       "time": "00:32:43.75"
     },
@@ -1105,7 +1109,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose you, and you, of course will come to the practice of the Commission or Commissions, the administrative practice.",
       "time": "00:33:28.85"
     },
@@ -1117,7 +1121,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Since -- yes, since 1946.",
       "time": "00:33:36.34"
     },
@@ -1129,7 +1133,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not only of your Commission but of the others. Have we got any light on that?",
       "time": "00:33:38.72"
     },
@@ -1141,7 +1145,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind telling us what the order of volume of -- of certificates that would come within the sweep of this provision, of 9 (b)?",
       "time": "00:34:31.49"
     },
@@ -1153,7 +1157,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "412?",
       "time": "00:34:58.88"
     },
@@ -1165,7 +1169,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you also give figures to indicate how long after the extension, after the expiration of 180 days disposition was made on the merits of the permanent -- of the application for the permanent license?",
       "time": "00:35:06.15"
     },
@@ -1177,7 +1181,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- there's one more thing that I'm not clear about that may make a difference between you and Mr. Macdonald. In this -- in this extension as I (Inaudible) these claims to be allowed under 9 (b), does the Commission fix the period of the extension?",
       "time": "00:37:02.64"
     },
@@ -1189,7 +1193,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Until? Until.",
       "time": "00:37:27.66"
     },
@@ -1201,7 +1205,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But these figures that you've just given us are -- are what the periods amounted to in fact, is that right? This railroad.",
       "time": "00:37:29.53"
     },
@@ -1213,7 +1217,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:37:37.39"
     },
@@ -1225,7 +1229,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but there is no -- the Commission doesn't say 180 days have expired. We'll let this license run for three more months.",
       "time": "00:37:38.30"
     },
@@ -1237,7 +1241,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:37:48.86"
     },
@@ -1249,7 +1253,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Mr. Murray, what is your answer to the argument that this provision in 311 is the specific provision relating to water carriers and the 180 days as compared to a general provision in -- in 9 (b) that has general effects in answer to the argument this is a specific control over the Government ?",
       "time": "00:41:23.78"
     },
@@ -1261,7 +1265,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "More specific than the 311?",
       "time": "00:41:45.20"
     },
@@ -1273,7 +1277,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "(Voice Overlap) --",
       "time": "00:41:48.43"
     },
@@ -1285,7 +1289,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You started to tell us about the reports by the Commission from year to year and its annual report to Congress of the extensions it has purported to make under 9 (b).",
       "time": "00:43:45.46"
     },
@@ -1297,7 +1301,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What inference do you draw from there?",
       "time": "00:43:58.77"
     },
@@ -1309,7 +1313,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That -- that Congress was surprised to what it was doing --",
       "time": "00:44:02.44"
     },
@@ -1321,7 +1325,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but that's all. This isn't the case --",
       "time": "00:44:06.40"
     },
@@ -1333,7 +1337,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's all?",
       "time": "00:44:08.48"
     },
@@ -1345,7 +1349,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who -- whom does the Commission consider a licensee?",
       "time": "00:47:07.39"
     },
@@ -1357,7 +1361,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well in this instance, I gather, on the 8th who was the application for the temporary license, is that it? Or rather for the permanent license. On the 18th, the --",
       "time": "00:47:18.27"
     },
@@ -1369,7 +1373,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, at the time that it applied for the temporary license, was it a licensee of any kind?",
       "time": "00:47:40.11"
     },
@@ -1381,7 +1385,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather that the Mr. Macdonald told us that that was deemed significant in this case?",
       "time": "00:47:48.63"
     },
@@ -1393,7 +1397,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what the --",
       "time": "00:47:59.69"
     },
@@ -1405,7 +1409,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what I'm trying to get at, apparently, the Commission in this instance did consider Pan-American a licensee, although actually, it held no license at the time it filed the application, is that right?",
       "time": "00:48:01.28"
     },
@@ -1417,7 +1421,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes. Well, now, at the time the application was issued, was Pan-American the holder of any license?",
       "time": "00:48:35.67"
     },
@@ -1429,7 +1433,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, yet the Commission considered that for the purposes of 9 (b) it was a licensee?",
       "time": "00:48:42.34"
     },
@@ -1441,7 +1445,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I see.",
       "time": "00:48:53.71"
     },
@@ -1453,7 +1457,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "At the time the renewal application was --",
       "time": "00:48:58.01"
     },
@@ -1465,7 +1469,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- filed. It certainly was a licensee.",
       "time": "00:48:59.97"
     },
@@ -1477,7 +1481,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, we do -- do we have to decide that issue here?",
       "time": "00:49:31.97"
     },
@@ -1489,7 +1493,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. Weston.",
       "time": "00:50:09.86"
     },
@@ -1501,7 +1505,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How -- how would it result in abuse?",
       "time": "00:55:30.26"
     },
@@ -1513,7 +1517,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "As a matter of fact, Mr. Weston, how many applications for the temporary licenses are made and of those how many are granted? Roughly, what are the figures?",
       "time": "00:56:12.96"
     },
@@ -1525,7 +1529,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the -- you don't know what the basis?",
       "time": "00:56:36.71"
     },
@@ -1537,7 +1541,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I missed what you said, where --",
       "time": "00:57:15.77"
     },
@@ -1549,7 +1553,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "These were the a renewal or what?",
       "time": "00:57:17.91"
     },
@@ -1561,7 +1565,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:57:21.87"
     },
@@ -1573,7 +1577,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the considerations of policy that you advance seem to be equally operating. If the license is given for three years, it's a matter of public interest. And you have to get permission to have it renewed. Let it run before passing on the application for renewal maybe just as much of an inroad, or a handout, or whatever you call it of a public interest which is found subsequently against the license.",
       "time": "00:57:52.76"
     },
@@ -1585,7 +1589,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You surprise me because as I read the opinion, particularly of the Court of Appeals of this district, that's -- your problem comes up again and again.",
       "time": "00:58:44.48"
     },
@@ -1597,7 +1601,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know but it's contested and people --",
       "time": "00:58:55.39"
     },
@@ -1609,7 +1613,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- particularly in the field where there's a change, inconsiderable change.",
       "time": "00:58:57.40"
     },
@@ -1621,7 +1625,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that. But I -- it seems that in a way, to allow a license that has been enjoyed for three years, run on until you -- the Commission gets around to decide it is replete with -- with potential dangers to the public interest. That a greater way you haven't got a license, you haven't got -- you really have a temporary thing before you decide why you should have anything. If you're going to argue apart from the language of and the relationship of the two statutes.",
       "time": "00:59:20.70"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- get a license for three years --",
       "time": "01:00:00.11"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and then it can go on.",
       "time": "01:00:03.81"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that.",
       "time": "01:00:08.72"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And -- and the renewal isn't automatic but as to satisfy --",
       "time": "01:00:10.37"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- certain standards. You've had three years of enjoyment, then to let it run on, when eventually it may be denied, is taking more away from the public interest as it were, than it concededly starts out with being an emergency and you haven't got anything to start with.",
       "time": "01:00:14.81"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "01:00:34.91"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's right.",
       "time": "01:00:43.90"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The very important condition was that it should terminate at the end of three years.",
       "time": "01:00:44.68"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You may get it.",
       "time": "01:00:54.09"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You may get it.",
       "time": "01:00:55.68"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I wonder -- I'm just -- just curious to know whether your -- your more informed knowledge or my guess is more correct, namely, that these licenses become almost automatically renewed. That is not my impression or I maybe all wrong as to any question.",
       "time": "01:01:22.28"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "01:01:41.22"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, Mr. Weston, the drastic changes of the Administrative Procedure Act made in the Immigration law so that Congress had to change it means to me to be a rather minimizing way to speak of it as you just have.",
       "time": "01:02:11.44"
     },
@@ -1795,7 +1799,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, what -- what are these for procedures?",
       "time": "01:02:27.39"
     },
@@ -1807,7 +1811,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "You may get a permanent certificate by summary procedure that last forever?",
       "time": "01:03:40.27"
     },
@@ -1819,7 +1823,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Only the -- to answer yes to that question presupposes that the Interstate Commerce Commission is going to be derelict of the public duty and under the guise of not having completed an application for a license just defeats the purpose of the statute by -- by letting it run on forever. That's what the answer implies.",
       "time": "01:03:49.74"
     },
@@ -1831,7 +1835,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, otherwise it can't run on forever. And this --",
       "time": "01:04:10.83"
     },
@@ -1843,7 +1847,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or for years.",
       "time": "01:04:14.62"
     },
@@ -1855,7 +1859,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's right.",
       "time": "01:04:20.04"
     },
@@ -1867,7 +1871,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "01:04:29.27"
     },
@@ -1879,7 +1883,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But this is an interim thing. I mean if -- if the Commission really, I quite agree that the mere fact that one previously, conscientious discharge of duty to an agency, isn't the answer. It doesn't tell you how to construe it. It's part of the way of considering. But you must take it into account. But I don't think you can assume that thereby they let an application run for -- on forever under an emergency application.",
       "time": "01:04:34.96"
     },
@@ -1891,7 +1895,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) is to construe --",
       "time": "01:05:03.51"
     },
@@ -1903,7 +1907,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Certainly.",
       "time": "01:05:08.76"
     },
@@ -1915,7 +1919,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's right.",
       "time": "01:05:25.49"
     },
@@ -1927,7 +1931,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, as a matter of practical consequences, what are the evils that you foresee in connection with the -- with the -- I recall that in Seatrain case that we had, which you referred, was one in which we held -- we held the Commission pretty close to its right to revoke in order to preserve the rights of licensee. I thought that was the issue there.",
       "time": "01:05:43.24"
     },
@@ -1939,7 +1943,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would happen if -- if the 180 days expired and a new application was filed by the same company or some other company for a temporary application to do the service?",
       "time": "01:06:21.07"
     },
@@ -1951,7 +1955,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would have to be implied. Is there any such provision -- is that in the Act that they cannot issue another temporary certificate?",
       "time": "01:06:58.87"
     },
@@ -1963,7 +1967,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That it can go through the former application and proof?",
       "time": "01:07:07.16"
     },
@@ -1975,7 +1979,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is an emergency.",
       "time": "01:07:51.83"
     },
@@ -1987,7 +1991,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is an emergency.",
       "time": "01:07:54.28"
     },
@@ -1999,7 +2003,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Immediate and urgent.",
       "time": "01:07:55.84"
     },
@@ -2011,13 +2015,13 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "01:08:00.53"
     },
     {
       "turn": 328,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But your argument appears to me to be based on the premise that this is pretty bad or something, and here the evil is that some wrong that you seem to foresee, that might occur to the public or to the -- some of the other carriers. But am I wrong in that? There's --",
       "time": "01:08:01.18"
     },
@@ -2029,7 +2033,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Before you have more competition?",
       "time": "01:08:39.29"
     },
@@ -2041,7 +2045,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that -- I don't quite (Inaudible) The -- the controversy is really about the gap of time between 180 days and whatever time it is that the Commission gets around disposing of the application for a permanent license.",
       "time": "01:08:53.40"
     },
@@ -2053,7 +2057,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) whatever it is. I thought the figures we had indicated quantitatively which is where one is likely is going to get access a very different story. You may just have made, the fact that you have two or three years, I should think we would call for a must -- must have a very special situation, must represent a very special situation.",
       "time": "01:09:18.00"
     },
@@ -2065,7 +2069,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the norm, is it?",
       "time": "01:09:42.09"
     },
@@ -2077,7 +2081,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That gives to me a question of, duly from your stand point of the interpretation of language doesn't --",
       "time": "01:10:23.93"
     },
@@ -2089,7 +2093,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I never -- I'm asking you the question because you've given some of the legislative history. You've not yet given anything in the legislative history that I've heard that indicates there was some reason why Congress would want to be extraordinaire -- extraordinary solicitors about repeating the bill, the bill as a whole, seems to be in the direction of protecting rights that have been granted and which might not to be carried on to the interest of the public.",
       "time": "01:10:40.34"
     },
@@ -2101,7 +2105,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, now that my interest is, they're just wrong with that. What I see is the situation where they provide for licenses which you might permit, whatever you want to call them, which might be considered of a temporary nature --",
       "time": "01:12:10.69"
     },
@@ -2113,7 +2117,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- there's pending in that time an application for a permanent permit. Now, I -- I assume that it might be impossible for the Commission always to be able to get through 180 days. And there is a -- a pretty big problem they have of -- of interrupting a carriage that might be -- it results in tremendous loss to the person who later on might be able to get a permanent license.",
       "time": "01:12:26.14"
     },
@@ -2125,7 +2129,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But there's also -- but there's also the interest of the shippers (Inaudible)",
       "time": "01:13:15.96"
     },
@@ -2137,7 +2141,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Who relied on that since.",
       "time": "01:13:23.26"
     },
@@ -2149,7 +2153,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well that -- that doesn't really permit the claims wouldn't it? If you're going to say there, that new carrier would -- haven't got a temporary authority.",
       "time": "01:13:41.69"
     },
@@ -2161,7 +2165,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But the other man has working that out. (Inaudible)",
       "time": "01:13:48.13"
     },
@@ -2173,7 +2177,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was anyone else supplied here?",
       "time": "01:14:17.37"
     },
@@ -2185,7 +2189,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is this according to you as between applicants?",
       "time": "01:14:23.53"
     },
@@ -2197,7 +2201,7 @@
     },
     {
       "turn": 358,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Weston, may I ask this question. Suppose in this case that the petitioner had -- had not or had first gotten the temporary license. And then the next day after he received the temporary license, he asked for a permanent license.",
       "time": "01:14:29.66"
     },
@@ -2209,7 +2213,7 @@
     },
     {
       "turn": 360,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you be here?",
       "time": "01:14:50.36"
     },
@@ -2221,7 +2225,7 @@
     },
     {
       "turn": 362,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You believe that's -- have been a consequence in this case?",
       "time": "01:15:15.51"
     },
@@ -2233,7 +2237,7 @@
     },
     {
       "turn": 364,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So you don't believe that?",
       "time": "01:15:23.60"
     },
@@ -2245,7 +2249,7 @@
     },
     {
       "turn": 366,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that right?",
       "time": "01:15:26.14"
     },
@@ -2257,7 +2261,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What is statutory construction except technical?",
       "time": "01:15:28.06"
     },
@@ -2269,7 +2273,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But -- but Mr. Weston, you still do works on this I gather that 9 (b) doesn't reach this kind of license at all.",
       "time": "01:15:34.39"
     },
@@ -2281,7 +2285,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That 9 (b) reaches only those types of licenses with periodically must be renewed until --",
       "time": "01:15:42.79"
     },
@@ -2293,7 +2297,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- a permanent license here is of indefinite direction --",
       "time": "01:15:50.76"
     },
@@ -2305,7 +2309,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- and is not of that kind and a temporary license pending the issuance of that kind of permanent license is not within 9 (b). Is that your argument?",
       "time": "01:15:55.09"
     },
@@ -2317,7 +2321,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or now, would you be good enough to point to any word that convey that complicated idea. Any words or called cases of words. After all we are construing something that's before us as a commanding statute.",
       "time": "01:16:03.10"
     },
@@ -2329,7 +2333,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, do we know --",
       "time": "01:16:51.85"
     },
@@ -2341,7 +2345,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do we know what the Ohio -- how the Ohio statute -- I know in my own State of New York you can't find out that the legislative history or piece of legislation is -- it's a secret you can't get access to. What about, have we got legislative journals so we know what that Ohio statute -- have we got decisions what that meant?",
       "time": "01:16:53.11"
     },
@@ -2353,7 +2357,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) legislative history of another State --",
       "time": "01:17:12.82"
     },
@@ -2365,7 +2369,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- which is referred to obliquely in a report of Congress. This is certainly our inference.",
       "time": "01:17:15.83"
     },
@@ -2377,7 +2381,7 @@
     },
     {
       "turn": 388,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But what weight do you think should be given to the fact that Commission has been going ahead, acting on the other premise? That those are not cases. This is the first time this proposition has come up. What weight is that entitled to?",
       "time": "01:17:34.25"
     },
@@ -2389,7 +2393,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Before the statute was placed.",
       "time": "01:18:07.99"
     },
@@ -2401,7 +2405,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is the statute still --",
       "time": "01:18:11.93"
     },
@@ -2413,7 +2417,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- claimed here? You have to go to the Ohio statute and I don't know. For all I know the Ohio statute might have been construed to cover the same kind of service rather than the same kind of piece of paper.",
       "time": "01:18:12.89"
     },
@@ -2425,7 +2429,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Mr. Weston, did you complete your answer to Justice Harlan about the 10 years of administrative practice?",
       "time": "01:19:33.14"
     },
@@ -2437,7 +2441,7 @@
     },
     {
       "turn": 398,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where is that?",
       "time": "01:20:05.28"
     },
@@ -2449,7 +2453,7 @@
     },
     {
       "turn": 400,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. Weston, before you sit down may I ask you just one question. What -- what is the most important public interest that you see that causes you to be here on behalf of the Government in opposition to the position and the practice for 10 years of your own Interstate Commerce Commission?",
       "time": "01:21:13.07"
     },
@@ -2461,7 +2465,7 @@
     },
     {
       "turn": 402,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you see any great danger that attaches to the practice of the Interstate Commerce Commission here, anything that means a danger that --- that you should try to prevent?",
       "time": "01:22:20.99"
     },
@@ -2473,7 +2477,7 @@
     },
     {
       "turn": 404,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It's truly an academic matter as to the construction of the statute.",
       "time": "01:22:41.31"
     },
@@ -2485,7 +2489,7 @@
     },
     {
       "turn": 406,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was the Government representing one particular interest against another?",
       "time": "01:23:15.43"
     },
@@ -2497,7 +2501,7 @@
     },
     {
       "turn": 408,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "All right, Mr. Weston. Is that Mr. Keenan?",
       "time": "01:23:27.22"
     },
@@ -2509,7 +2513,7 @@
     },
     {
       "turn": 410,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is -- is that Mr. Keenan?",
       "time": "01:23:41.21"
     },
@@ -2521,7 +2525,7 @@
     },
     {
       "turn": 412,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Keenan, you may proceed.",
       "time": "01:23:42.94"
     },
@@ -2533,7 +2537,7 @@
     },
     {
       "turn": 414,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under your opponent's construction of the Act, it would not be revocable after 180 days.",
       "time": "01:27:16.79"
     },
@@ -2545,7 +2549,7 @@
     },
     {
       "turn": 416,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But one day before?",
       "time": "01:27:27.66"
     },
@@ -2557,13 +2561,13 @@
     },
     {
       "turn": 418,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It doesn't bother me because I think it's a point in your favor. I'm not criticizing.",
       "time": "01:27:39.62"
     },
     {
       "turn": 419,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, may a 311 application be made independently of the 309 application?",
       "time": "01:27:44.22"
     },
@@ -2575,7 +2579,7 @@
     },
     {
       "turn": 421,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do you know what the practice has been? Have there been 311 applications except there's those pending or shortly thereafter filed as 309?",
       "time": "01:27:54.66"
     },
@@ -2587,7 +2591,7 @@
     },
     {
       "turn": 423,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That has been the practice usually?",
       "time": "01:28:10.05"
     },
@@ -2599,7 +2603,7 @@
     },
     {
       "turn": 425,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is any way -- would there be any way for you -- for your clients who are interested in that to force a speedier action by the Commission in connection with the permanent application?",
       "time": "01:30:00.03"
     },
@@ -2611,7 +2615,7 @@
     },
     {
       "turn": 427,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes. Suppose -- I -- I'm assuming they wouldn't do it. But suppose they decided to hold it off (Inaudible) idea. Would there be any way that you could counteract that by any kind of pursuit?",
       "time": "01:30:15.14"
     },
@@ -2623,7 +2627,7 @@
     },
     {
       "turn": 429,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Keenan, would it made any difference in your position here if the application for a permanent license had not been made until after this temporary one was granted?",
       "time": "01:30:33.81"
     },
@@ -2635,7 +2639,7 @@
     },
     {
       "turn": 431,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understood Mr. Macdonald to say that your position was that --",
       "time": "01:30:53.84"
     },
@@ -2647,7 +2651,7 @@
     },
     {
       "turn": 433,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Voice Overlap) -- yes. Yes.",
       "time": "01:30:59.92"
     },
@@ -2659,7 +2663,7 @@
     },
     {
       "turn": 435,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap)",
       "time": "01:31:12.89"
     },
@@ -2671,7 +2675,7 @@
     },
     {
       "turn": 437,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "01:31:15.34"
     },
@@ -2683,7 +2687,7 @@
     },
     {
       "turn": 439,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suggest to the opposite that all questions of statutory construction are technicalities.",
       "time": "01:31:31.99"
     },
@@ -2695,7 +2699,7 @@
     },
     {
       "turn": 441,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, I gather there is of the application for the permanent certificate was for permission to provide the identical service which was permitted by the temporary certificate (Voice Overlap) --",
       "time": "01:31:41.91"
     },
@@ -2707,7 +2711,7 @@
     },
     {
       "turn": 443,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And in fact served under the temporary certificate?",
       "time": "01:32:30.11"
     },
@@ -2719,7 +2723,7 @@
     },
     {
       "turn": 445,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, I gather when the judgment below came down that -- that the Pan-Am stopped that service, whatever it was.",
       "time": "01:32:50.13"
     },
@@ -2731,7 +2735,7 @@
     },
     {
       "turn": 447,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I wonder if I missed your argument. But nobody would dream of asking further issue again if there's in view of the Commission's view that 9 (b) takes care of that.",
       "time": "01:34:33.13"
     },
@@ -2743,7 +2747,7 @@
     },
     {
       "turn": 449,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Keenan, may I trouble you to tell me what in your view, what situation is contemplated or is referred to by the last of the third sentence, \"in any case in which the licensee had in accordance with agency rules, made timely and sufficient applications for a -- that we skip -- a new license\"?",
       "time": "01:37:26.09"
     },
@@ -2755,7 +2759,7 @@
     },
     {
       "turn": 451,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "\"No license or reference to any activity of a continuing nature shall expire\", what does that refer to? What's the relation of the new license to what is outstanding? What is outstanding?",
       "time": "01:37:51.65"
     },
@@ -2767,7 +2771,7 @@
     },
     {
       "turn": 453,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it's in evidently something different from a renewal of the existing license?",
       "time": "01:38:19.40"
     },
@@ -2779,7 +2783,7 @@
     },
     {
       "turn": 455,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It must be that. It says a renewal or a new one.",
       "time": "01:38:24.93"
     },
@@ -2791,7 +2795,7 @@
     },
     {
       "turn": 457,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what I want to know is, what the connection is between an outstanding license which is different from something that it'd ask and it denominated a new license.",
       "time": "01:38:28.62"
     },
@@ -2803,7 +2807,7 @@
     },
     {
       "turn": 459,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What -- what scope you give to it --",
       "time": "01:38:43.27"
     },
@@ -2815,7 +2819,7 @@
     },
     {
       "turn": 461,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- if it doesn't relate to an outstanding emergency or a temporary license?",
       "time": "01:38:45.59"
     },
@@ -2827,7 +2831,7 @@
     },
     {
       "turn": 463,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Am I right in recalling that the Reiss case partly involved a dislocation of practice of what was there before the practice of the Commission on the basis of the Administrative Procedure Act. Is that right?",
       "time": "01:45:28.47"
     },
@@ -2839,7 +2843,7 @@
     },
     {
       "turn": 465,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right. But it did.",
       "time": "01:45:49.15"
     },
@@ -2851,7 +2855,7 @@
     },
     {
       "turn": 467,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This very Act -- this very Act cut into what was deemed to be and argued before us has a very specific mode of going -- of doing business before the Commission and we said no. The Administrative Procedure Act applies to situations there just as we made no drastic changes in regard to the Immigration Service and in both cases -- well, I don't know whether in the case of the Interstate Commerce Commission would change. It was changed (Inaudible)",
       "time": "01:45:51.81"
     },
@@ -2863,7 +2867,7 @@
     },
     {
       "turn": 469,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Administrative Procedure Act wasn't just a codification. It was the opposite of a codification of what had been prevailing as administrative fact.",
       "time": "01:46:19.30"
     },
@@ -2875,7 +2879,7 @@
     },
     {
       "turn": 471,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you don't merely think that there is any atmosphere of undue -- of one of due process in construing 9 (b) the way that's -- by that field.",
       "time": "01:46:55.70"
     },
@@ -2887,7 +2891,7 @@
     },
     {
       "turn": 473,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's between that.",
       "time": "01:47:03.50"
     },
@@ -2899,7 +2903,7 @@
     },
     {
       "turn": 475,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) -- an overflow of a -- of a new answer, one of due process.",
       "time": "01:47:07.34"
     },
@@ -2911,7 +2915,7 @@
     },
     {
       "turn": 477,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At least, my figures.",
       "time": "01:47:12.93"
     },
@@ -2923,7 +2927,7 @@
     },
     {
       "turn": 479,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And what do you say that ought to be cut close? It ought to be sharply restricted and not liberally extended. Only if you're arguing.",
       "time": "01:47:43.30"
     },
@@ -2935,7 +2939,7 @@
     },
     {
       "turn": 481,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Has there been any connection between the pendencing -- pendecy of -- pendency of this case and the action of the Interstate Commerce Commission on the permanent application? In other words, has the latter been deferred until this thing was decided?",
       "time": "01:49:19.27"
     },
@@ -2947,7 +2951,7 @@
     },
     {
       "turn": 483,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And yet it's how long, did you say two years?",
       "time": "01:49:43.81"
     },
@@ -2959,7 +2963,7 @@
     },
     {
       "turn": 485,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is the point thought of? Is that necessary? Just to take that one and do this thing?",
       "time": "01:50:07.34"
     },
@@ -2971,7 +2975,7 @@
     },
     {
       "turn": 487,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, perhaps not. But does it take them three years, three and a half years to complete them?",
       "time": "01:50:22.67"
     },
@@ -2983,13 +2987,13 @@
     },
     {
       "turn": 489,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Something wrong about a process. It seems to me if it takes that long.",
       "time": "01:50:32.81"
     },
     {
       "turn": 490,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In the Stone case, which is rendered moot by the disposition of the permanent license. I would assume that the decision of the District Court but the case got here. It was far beyond appeal and then there was a suggestion of mootness to which we yielded and to which we accepted. Of course, in this case --",
       "time": "01:50:37.13"
     },
@@ -3001,7 +3005,7 @@
     },
     {
       "turn": 492,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the Commission tomorrow, if it rendered this moot, by granting the permanent injunction of the permanent application.",
       "time": "01:50:59.31"
     },
@@ -3013,7 +3017,7 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or on your theory, after 180 days, the temporary license came to an end, some other applicant could come in. They could grant him a temporary license for 180 days. At the end of that period that would expire. You would have had two or three successive temporary licensees. Is that right?",
       "time": "01:51:05.61"
     },
@@ -3025,7 +3029,7 @@
     },
     {
       "turn": 496,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And eventually -- and eventually the first applicant would get the permanent license. Is that right?",
       "time": "01:51:27.57"
     },
@@ -3037,7 +3041,7 @@
     },
     {
       "turn": 498,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you got any to lie down to this statistic that I -- in which I have some interest, the relation between temporary licenses granted and the total number of applications?",
       "time": "01:51:56.95"
     },
@@ -3049,7 +3053,7 @@
     },
     {
       "turn": 500,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And not just the (Inaudible) which probably supply it.",
       "time": "01:52:07.65"
     },
@@ -3061,7 +3065,7 @@
     },
     {
       "turn": 502,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Will there be approximately, the 2000, that they granted as a matter of course, would you say?",
       "time": "01:52:18.96"
     },
@@ -3073,7 +3077,7 @@
     },
     {
       "turn": 504,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, did you know as a matter of -- all right then. I thought you had (Inaudible)",
       "time": "01:52:29.88"
     },
@@ -3085,7 +3089,7 @@
     },
     {
       "turn": 506,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) as you suggest indicated because some other temporary licensee come in.",
       "time": "01:53:25.02"
     },
@@ -3097,7 +3101,7 @@
     },
     {
       "turn": 508,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "01:53:31.11"
     },
@@ -3109,7 +3113,7 @@
     },
     {
       "turn": 510,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. McDonald.",
       "time": "01:53:35.24"
     },
@@ -3121,7 +3125,7 @@
     },
     {
       "turn": 512,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There have been some suggestions that the Commission give excessive attention to the rail interest in the -- in the entire transportation needs of the country. And this case, it leaned in favor of the water carrier, is that it?",
       "time": "01:55:39.41"
     },
@@ -3133,7 +3137,7 @@
     },
     {
       "turn": 514,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) its the decision was in favor of the water carrier as an expression of the national need.",
       "time": "01:55:55.59"
     },
@@ -3145,7 +3149,7 @@
     },
     {
       "turn": 516,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that a correct statement?",
       "time": "01:56:02.10"
     },
@@ -3157,7 +3161,7 @@
     },
     {
       "turn": 518,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) -- any other reasons why this --",
       "time": "01:56:53.23"
     },
@@ -3169,7 +3173,7 @@
     },
     {
       "turn": 520,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, are you suggesting that it's the opposition of the carriers which drags these things on for so long?",
       "time": "01:57:02.55"
     },
@@ -3181,7 +3185,7 @@
     },
     {
       "turn": 522,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the -- do these proceedings go on in continuous hearings or are there --",
       "time": "01:57:29.62"
     },
@@ -3193,7 +3197,7 @@
     },
     {
       "turn": 524,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- hiatuses?",
       "time": "01:57:33.98"
     },
@@ -3205,7 +3209,7 @@
     },
     {
       "turn": 526,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, once you start the hearings, do you go through them? Do you complete (Voice Overlap) --",
       "time": "01:57:41.56"
     },
@@ -3217,19 +3221,19 @@
     },
     {
       "turn": 528,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's hard for me to understand why all that should be necessary.",
       "time": "01:58:04.88"
     },
     {
       "turn": 529,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Yes.",
       "time": "01:58:08.24"
     },
     {
       "turn": 530,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Three years time.",
       "time": "01:58:08.38"
     }

@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2003/03-339/20040330a_03-339.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL L. HOFFMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 03-339, Jose Francisco Sosa v. Humberto Alvarez-Machain, and the United States v. the same. Mr. Clement.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Clement, you... you have a number of strings to your bow. Is... is one of them more important than the others?",
       "time": "00:02:33.63"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it... it's unlikely that we're going to go through the whole list of your... your reasons for reversing here and say you're right on every one. If we... if we pick one, is there one that is... that is more important to the Government than the others?",
       "time": "00:02:43.69"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's not your... you're just arguing the Federal Tort Claims Act first. Is that... in... in this argument that we're hearing now, we're dealing with the Federal Tort Claims Act and not 1350?",
       "time": "00:03:25.07"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, getting back to Justice Scalia's question, I... I suppose the President or the Attorney General could make an order with respect to extraterritorial arrests, and that would eliminate one rationale of the court of appeals. Or am I wrong about that?",
       "time": "00:04:00.80"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I guess you would have to get to that issue first.",
       "time": "00:04:31.53"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And they said even if it had the authority, it... it has to be from a high official.",
       "time": "00:04:35.80"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Were... were the majority-- --Mr. Clement, may I ask you? Is... am I correct in thinking if we agree with you on... on that issue, that disposes of the entire case?",
       "time": "00:05:00.24"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but you certainly don't have to address that if you think they're wrong as a statutory matter, that there... there, in fact, was no arbitrary arrest here.",
       "time": "00:05:23.34"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, no.",
       "time": "00:05:39.69"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, we'd have to be pretty ambitious because some of them weren't addressed below and they're contrary... the position being taken today is contrary to the position taken by previous Solicitors General. I mean, it's kind of a new question. I'm not sure it was even raised and argued below.",
       "time": "00:05:43.89"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "As to your first, the tremendous problems, how many lawsuits are there of this 1350 nature and how many have even gone to judgment?",
       "time": "00:07:19.40"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has Congress been asked to take a look at the statute and to amend it or... or restrict it in some fashion, 1350?",
       "time": "00:08:49.14"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are there bills introduced to do that?",
       "time": "00:08:59.11"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I think so. [Laughter]",
       "time": "00:09:08.19"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's all... that's a good example of where Congress took action. I... I just wonder if it isn't wise to look at the underlying statutory grounds relied upon by the Ninth Circuit and deal with it that way and let Congress have a look at this thing. And I'm sure Congress would be interested in the views of the Attorney General and others who think it's a concern.",
       "time": "00:09:24.56"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Clement, on that... on that point, your point that there must be another Federal statute enacted creating a cause of action, because this is purely jurisdictional, I have yet to find any judge who's taken that position. Even Judge Bork doesn't take that position.",
       "time": "00:10:03.12"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand all the cases since Cort against Ash support you, but we're construing a statute enacted a long, long time ago, and there was all sorts of... of opinion to the effect that there were at least two or three causes of action that did not need to be severally created: privacy, protecting ambassadors, and so forth. You remember the three examples even Judge Bork recognized. If that's right, then your fundamental position is... is totally unsupported by judicial opinion.",
       "time": "00:10:48.28"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what about the cues that you get from the Torture Victim Protection Act? When Congress had 1350 right next to it and there's not a word in... in that legislative history, it... it seems to be a model. Yes, this is a good thing, but it's... it's... we want to make it really clear that torture is a crime against humanity and we want to include U.S. citizens as plaintiffs as well. But they didn't say anything questioning 1350.",
       "time": "00:12:50.34"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there was discussion of 1350 by the proponents of the Torture Victim Protection Act.",
       "time": "00:13:43.56"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Clement, if I... if I remember, some of the briefs have taken the position that that's already an aspect of international law, a requirement that you should first exhaust in the country where the conduct took place, which would... would narrow the scope of the statute if we... if we adopted that view.",
       "time": "00:15:07.69"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But in the... in the-- --on 1350 address the question of the authority of the DEA agents to make the address, and if you have time, the Federal Tort Claims provision that it's governed by events that occur abroad as opposed to the headquarters doctrine.",
       "time": "00:16:18.86"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Doesn't the Mansfield Amendment tug the other way? That was... when Congress looked at this, they restricted DEA agents' authority, not granted it.",
       "time": "00:18:16.82"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... isn't it possible to read... and I'm not sure it should be read this way, but isn't it possible to read the Mansfield Amendment as simply saying DEA agents should not go out in foreign police raids when the police of the foreign countries make the raids. Stay out of it. That's one way to read the... the foreign police action qualification.",
       "time": "00:19:25.78"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It doesn't... but it doesn't imply anything one way or the other.",
       "time": "00:19:54.67"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Of course, you get there by assuming that anything that the DEA does is law enforcement.",
       "time": "00:20:50.91"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Clement. Mr. Phillips, we'll hear from you.",
       "time": "00:22:08.39"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or whether we have to.",
       "time": "00:22:38.81"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there are indications early in the country's history that it was viewed differently at the time of its adoption, and the... an Attorney General early on took that view. It... it's not easily answered. I... I can understand how with the recodification where it then is put in with other jurisdictional sections that it... it looks somewhat different, but it's had a pretty long history.",
       "time": "00:24:00.81"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it's hard to ignore all that. And it's so easily changed by Congress if indeed it is a problem.",
       "time": "00:24:32.71"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You agree it's easily changed by Congress?",
       "time": "00:24:51.38"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You agree it's easily changed by--",
       "time": "00:24:53.89"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--It probably had in mind problems of piracy.",
       "time": "00:25:33.17"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And then we have the case of the attack on the early diplomat and so on. I mean, it... it's had a long history.",
       "time": "00:25:56.29"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe we didn't assault any ambassadors during that later period. [Laughter]",
       "time": "00:26:21.77"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But, of course, I... most references to international law were in admiralty cases where there's jurisdiction anyway.",
       "time": "00:26:29.22"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, but not in the ambassador cases.",
       "time": "00:26:37.66"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was pretty clearly, it seems to me, one of the things that the statute would have covered for the assault of the French ambassador.",
       "time": "00:26:40.24"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Phillips--",
       "time": "00:27:12.82"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--One of the... one of the things that I keep bumping up against... and I want to be sure you get an opportunity to comment on it... that... 1980, I guess it was, the Second Circuit got into the act and decided that case. So we've had 25 years, and we had a bunch of opinions. And I don't think a single Federal judge has taken the position that you're advocating.",
       "time": "00:27:15.46"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought... I thought you'd probably have a... a right to recover damages for piracy, wouldn't you have? I mean, wouldn't they have thought in 1789 you did?",
       "time": "00:27:57.40"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, admiralty and maritime law then I thought were viewed as a brooding omnipresence.",
       "time": "00:28:09.56"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They weren't the law of Athens. They weren't the law of Constantinople. They weren't the law of Rome. They were the law of nations.",
       "time": "00:28:16.29"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that... that... you can find lots of quotations along those lines. So if in fact that was so then and you're looking for a modern counterpart, what's wrong with what the European Commission said? I'd be interested in having your views on that brief.",
       "time": "00:28:21.61"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It would not be improbable in a world where law was a brooding omnipresence in the sky to think that we preserve it in the case of admiralty, maritime, and certain instances of international law. But Erie sends it to the states once they decide to make that separation. That's an ex post event. That doesn't cast an idea in the minds of Congress. So if you have Congress ex ante thinking, of course, this is international, as they thought maritime law was, then our task is to try to translate that into modern terms. And that brings me back to the European Commission.",
       "time": "00:29:02.79"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Not massive. Very limited.",
       "time": "00:29:46.83"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's why I keep bringing up the European Commission.",
       "time": "00:29:49.40"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. I agree with you about that.",
       "time": "00:30:26.20"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what... what is... what I got out of that brief... and I refer to one, and I want to get your views on that... is it wouldn't be difficult to have a limited cause of action, try to find the counterpart, and say, of course, if Congress preempts the field, as maybe it did with torture, that's out. Or if Congress implicitly is hostile to the cause of action, that's out. And if Congress is neutral and the State Department comes in and runs through any one of a set number of defenses, including political question, that's out. And there we have... what's left is a core of basic human rights violations that's been internationalized, that's consistent with international law as applied in a lot of places and avoids the political problem. That's what I'm looking to shape, and I want your view on that because we have a brief that tries to do it.",
       "time": "00:30:28.09"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, that's correct.",
       "time": "00:31:20.81"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's correct. That's why... that's why if I don't accept your first argument, can we achieve your practical objectives by following that approach?",
       "time": "00:31:22.40"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It may also--",
       "time": "00:31:55.79"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--It may also be correct.",
       "time": "00:31:57.53"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, you're not... you're not saying that's a wrong interpretation, are you?",
       "time": "00:32:01.68"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And presumably if there is some cause of action alleged in any of these actions that have been or might be filed, that deal with something that is covered basically by a treaty that Congress has said is non-self-executing, I assume that would displace any common law background.",
       "time": "00:32:16.53"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Mr. Phillips, let's... let's assume I accept your argument that there are good reasons not to invite the... the... today's brooding omnipresence into court without something more from Congress, that there are good reasons to be concerned about separation of powers problems. Assume also that I am convinced or the Court is convinced that at the time the statute was passed, there was an understanding that there were certain offenses to which the jurisdictional provision would... would provide access for litigation, piracy offenses and things like that. How do I distinguish today's situation from yesterday's situation and hold your way without being inconsistent with what I take it the understanding was at the time in incorporating some offenses in a common law kind of way?",
       "time": "00:33:38.28"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but that... that then just takes you to Justice Breyer. He says--",
       "time": "00:34:39.98"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Okay.",
       "time": "00:34:43.66"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're saying the only way to get where I have suggested we might go is Justice Breyer's way?",
       "time": "00:34:45.31"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me... well, I'm not... no. I'm not suggesting that it... that the cause of action was created from the language discussing jurisdiction. I am assuming that the cause of action was assumed to be out there and that the jurisdictional provision opened the door to the courthouse to get the cause of action in.",
       "time": "00:35:05.70"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, yes.",
       "time": "00:35:23.36"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it clear that there was nothing in the absence of... of action by the States? Or is it clear that there were only a... let's say, a few and rather limited causes of action, those largely arising... well, we have the ambassador case. We... we have offenses at sea.",
       "time": "00:35:39.11"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, we can deal with that issue.",
       "time": "00:38:42.70"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "They did use the word tort, which is... was... was surprising to me that they used it at that early date. That's... that's one of my problems I have with your position.",
       "time": "00:39:14.53"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Phillips. Mr. Hoffman, we'll hear from you.",
       "time": "00:40:10.31"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask-- --How do you... go ahead.",
       "time": "00:40:57.13"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask... may I ask this question as a matter of history because your right on the point now? Is there anything in the early history that gives even the slightest suggestion that Congress wanted to legislate with respect to anything that did not happen in the United States or on the high seas?",
       "time": "00:41:01.26"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the only ones they knew about had taken place in the United States.",
       "time": "00:41:30.88"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They certainly would not have been concerned about an assault on the... say, the English ambassador in Paris by a Frenchman.",
       "time": "00:41:43.84"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you wouldn't need the... the law of nations for a transitory tort. I mean, if it's a--",
       "time": "00:42:25.35"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You... you don't need the law of nations to sue on a transitory tort.",
       "time": "00:42:29.36"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it was a tort in the country where it was committed, you... you could sue on it elsewhere.",
       "time": "00:42:34.32"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If... if there was this background of... of understood common law that you say, how do you explain the 1781 action of the Continental Congress which is concerned about the fact that... that there's no redress for... for assault on ambassadors, among other things?",
       "time": "00:42:48.48"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they asked the States, do something about it.",
       "time": "00:43:07.67"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that... that was part of the understood common law, what is the problem?",
       "time": "00:43:10.80"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but that goes against the notion that there was an understood common understanding that was the background. It was understood one way in Pennsylvania. It was understood another way by... by the Continental Congress.",
       "time": "00:43:28.11"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why did they pass a resolution saying to the States, enforce the common law?",
       "time": "00:44:04.07"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Part... part of the problem I have with... with your... your proposal is that it leaves it up... it leaves it up to the courts to decide what the law of nations is. And... and the Ninth Circuit here derived a law of nations principle from, among other things, treaties that we had refused to sign, international agreements that we had reserved against. I... I find that a... a serious interference with the ability of... of the political branches to conduct our foreign affairs.",
       "time": "00:45:46.87"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those... those are pretty polar instances, piracy and... and sabotage in... in time of war. We're talking here about other matters that are not... not at all polar.",
       "time": "00:47:12.95"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I... sure, I can tell you some things that everybody would agree is against the law of nations, but there are a lot of things in between that the European Union may think is bad and we may not think is bad.",
       "time": "00:47:27.01"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's not your case.",
       "time": "00:48:05.81"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there was legal authority here. The... the... he was indicted by a grand jury.",
       "time": "00:48:24.59"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:48:34.83"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--yes, but I... I think there's a good argument that section 878 has extraterritorial application, that DEA agents are not prevented from carrying out their duties across our borders.",
       "time": "00:48:37.03"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, like in that case of--",
       "time": "00:49:14.34"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--United States v. Bowman dealing with a ship and... and exercise of criminal law enforcement outside our borders and we thought there was in that case no presumption against extraterritoriality.",
       "time": "00:49:15.61"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I think there may well not be in this DEA context as well.",
       "time": "00:49:37.14"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, but we certainly... in Bowman we said that the Coast Guard could enforce revenue laws--",
       "time": "00:50:04.98"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--outside our borders, and very likely a DEA agent can enforce our laws beyond our borders.",
       "time": "00:50:10.28"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can you read the statute to include the one and not include the other? I mean, it... it doesn't... it doesn't slice the bologna that thin. It just says they have authority to enforce the laws. Now, if... if you say that they can't arrest in Mexico, I assume they can't investigate in Mexico. I don't see how you can read the--",
       "time": "00:51:12.92"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--How can you read the statute to permit the one but not permit the other?",
       "time": "00:51:31.16"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Tell me what language could possibly allow you to draw that... that distinction in the text of the statute. There's no language that allows you to do that--",
       "time": "00:52:08.94"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--between arrest and investigation.",
       "time": "00:52:17.97"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:52:35.58"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't like that--",
       "time": "00:52:53.02"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Okay. And you said... you said you had another limitation and a further principle.",
       "time": "00:52:59.54"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What's the second principle?",
       "time": "00:53:02.74"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, look, there... that amendment refers to foreign police action. There wasn't any such here.",
       "time": "00:53:16.14"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "None. I don't see how it falls within that at all.",
       "time": "00:53:25.52"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What does the term direct mean?",
       "time": "00:53:58.45"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, in that sense every arrest is a direct arrest. There's no such thing as an indirect arrest I suppose on that theory.",
       "time": "00:54:10.25"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Doesn't direct refer to the... to the actions of the agents?",
       "time": "00:54:18.20"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that was so, why didn't he just eliminate from this as part of any foreign police action? Why is that phase in there? Yes.",
       "time": "00:54:45.02"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, no, no, no, no. But that's not-- --You... you don't think foreign police means foreign police? [Laughter]",
       "time": "00:54:58.94"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... you think it's foreign police action.",
       "time": "00:55:04.92"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay. You had-- --Oh, I think you have to look very closely at that language and... and I think it may well not fit this case.",
       "time": "00:55:20.41"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You... you had... you told me you were going to give me two more principles.",
       "time": "00:55:56.12"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "One was Mansfield. What... what's next?",
       "time": "00:55:59.56"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:56:04.09"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They did it. I mean, that's... that's the... the two things that maybe you're going to address now that are bothering me the most and they're related is what the DEA says is that this was a person who people in Mexico tortured to death. This was not that they went in there for narcotics reasons. They wanted to get the people who had tortured an American to death. And how do we decide such a thing? Should each of the courts of the United States decide that independently? It's related to the problem of Mr. Mbeki. Apartheid is a terrible thing, but according to the government, Mr. Mbeki, I take it... that's the highest authority, the President of South Africa, has told the United States that the judicial efforts to give compensation to victims are interfering with his efforts to build a democratic South Africa. Now, I have to choose between those two? I'd say democratic South Africa, protective of human rights has it all over compensating the victims even though that's terrible. And what I'm asking you is what kinds of principles do you suggest that will allow Mr. Mbeki to decide what's right there and not 40 independent Federal judges somewhere. And how will we decide such things as to whether this is the kind of effort to get a torturer or whether it is a violation of... of law? What are the principles of limitation in these areas?",
       "time": "00:56:23.59"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How can--",
       "time": "00:58:41.66"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--How is that consistent with an acknowledgement that there is an automatically self-executing brooding omnipresence of customary international law?",
       "time": "00:58:43.10"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's just inconsistent with such a notion.",
       "time": "00:58:55.44"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about the commander-in-chief of the armed forces? Would that... would that suffice?",
       "time": "00:59:29.51"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or the Secretary of State. I want to know how far down you go.",
       "time": "00:59:35.82"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Hoffman, a moment ago you cited the Charming Betsy for a principle that we defer to international law. Where is that? I don't see any reference to it in your brief.",
       "time": "01:00:43.15"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well... yours is the red brief?",
       "time": "01:00:57.48"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Oh, the other red brief.",
       "time": "01:01:11.04"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "01:01:23.68"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if the other... what if the foreign state has no objection to it? What if the foreign state agrees, we would like help from American DEA agents?",
       "time": "01:02:01.82"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Under your theory, you'd say--",
       "time": "01:02:11.58"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--this... this statute simply does not authorize foreign arrests.",
       "time": "01:02:14.30"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "01:02:22.00"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay, but there... there... I think that the conduct that was the basis for the indictment here, the kidnap and torture and murder of a U.S. DEA agent in Mexico, can be punished in the United States in accordance with international law under the effects doctrine because we can criminalize conduct occurring in another country that has an effect on our country's security or core national interests, which clearly this did.",
       "time": "01:03:27.59"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "01:04:22.48"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose he'd been guilty, convicted, 30 years. Okay? Now, does he get damages from the United States on your theory for every day he spent in prison?",
       "time": "01:04:45.49"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not talking about this case. I'm talking about an identical case... an identical case. He's convicted, sent to prison for 20 years. Does he get damages for each of those days?",
       "time": "01:04:58.77"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's the right rule in your--",
       "time": "01:05:12.42"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Okay. That's one of the problems. I want... but I... I've tried to focus the main problem by calling to mind Mr. Mbeki, and the reason is because it's such a good example. I would have thought apartheid does violate norms of international law certainly where violence attaches. I would have thought there are lots of private people who aid and abet. I would have thought it would be easy to find a victim and bring a lawsuit, and I would have also thought it's not totally beyond question that the president of a country could think they're counterproductive... those lawsuits... in terms of the democracy we're trying to build. So I've tried to create some tension there, and I want to know you, who want a rule--",
       "time": "01:05:24.44"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--that allows these suits in the court... how does it become limited in this circumstance, an analogous circumstance?",
       "time": "01:06:07.55"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's why I chose in my example aiding and abetting by a private citizen of the very bad thing of apartheid leaving... leading to deaths and... and violence, et cetera, as happened. And... and if I can't... now, the European Commission has a method here in their brief. So I'm interested is that a proper method.",
       "time": "01:06:24.46"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You want to propose some other method, but to propose no method--",
       "time": "01:06:48.37"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--it seems to me, is to concede--",
       "time": "01:06:51.69"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--the validity of the Government's point about lawsuits here.",
       "time": "01:06:53.78"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But wouldn't that doctrine require you to lose this lawsuit?",
       "time": "01:08:57.10"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wouldn't the doctrine of exhaustion of remedies require you to lose this lawsuit?",
       "time": "01:09:00.05"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why not?",
       "time": "01:09:08.76"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What tort issue... what-- --That's fine. Why... why couldn't you sue him in Mexico, service by mail?",
       "time": "01:09:26.55"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... why can't you sue in Mexico? We're talking about exhaustion of local remedies? Why couldn't you have sued him in Mexico?",
       "time": "01:09:36.62"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He committed the tort in Mexico.",
       "time": "01:09:44.89"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... you don't need it. You... you serve by mail. That's notice. You certainly do have personal jurisdiction over him where he acted.",
       "time": "01:09:52.46"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's because a lot of people don't think it's part of international law probably.",
       "time": "01:10:23.71"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about restricting these lawsuits to instances of violation of basic norms of international law where the international law itself foresees universal jurisdiction in, of course, the absence of some indication from Congress that they don't want such lawsuits?",
       "time": "01:10:31.10"
     },
@@ -1771,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about that... that will not help your case I don't think in this instance, but I'm looking in your opinion as an--",
       "time": "01:10:50.99"
     },
@@ -1783,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--It's the human rights enforcement push, is it not?",
       "time": "01:11:23.43"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about... what about the principle that you have some such violations which will work well if judges in every nation try to enforce them and others where the judges will fall over themselves with contradictory decisions creating a mess? And one good way to separate the former from the latter is to look to see if universal jurisdiction is part of or at least foreseen by or at least consistent with the international law norm. I'm looking for ways that are going to avoid the problems.",
       "time": "01:12:08.77"
     },
@@ -1807,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But in many countries, criminal jurisdiction is--",
       "time": "01:12:52.53"
     },
@@ -1819,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--accompanied by civil jurisdiction--",
       "time": "01:12:55.22"
     },
@@ -1831,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--because they're right in the criminal courtroom.",
       "time": "01:12:57.02"
     },
@@ -1843,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, they did... they did in the Tort Victim Protection Act provide a definite claim, something with a... with a statute of limitations, which is not here, something with a definition of what torture is, not tort, the world of tort, so that... that that looks like a model of specificity where 1350 is just the opposite.",
       "time": "01:14:23.79"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you... you do... in 1983, you do have reference to very specific things, to provisions of Federal statutory law or to provisions of the Constitution.",
       "time": "01:15:20.43"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about a suit based on some norm covered by a treaty where Congress... where the Senate has said it's non-self-executing?",
       "time": "01:17:04.94"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who... who decides this? I'm really am sort of in the woods as to--",
       "time": "01:18:16.87"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I see. What... what--",
       "time": "01:18:21.03"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--51 percent of the countries of the world accept them? They're... they're customary norms?",
       "time": "01:18:23.16"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just recall Sabbattino? I thought the assumption the Court made in Sabbattino was that there was a clear violation of international law, but nevertheless, the act of state doctrine applied. That's my recollection of Justice Harlan's opinion.",
       "time": "01:19:10.30"
     },
@@ -1927,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's not what prompted Justice White's dissent. He was so upset by the fact that it was a clear violation of law, but we nevertheless would give the defense act of state doctrine to Cuba. But you may be right, but that's my... it was my recollection of the opinion.",
       "time": "01:19:36.49"
     },
@@ -1939,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hoffman. Mr. Clement, you have 4 minutes remaining.",
       "time": "01:22:19.63"
     },
@@ -1951,13 +1951,13 @@
     },
     {
       "turn": 317,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Clement. The case is submitted.",
       "time": "01:26:13.58"
     },
     {
       "turn": 318,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "01:26:16.60"
     }

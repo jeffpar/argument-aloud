@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1734/19840222a_82-1734.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT J. SHAPIRO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN E. HAWTREY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen the case is submitted, we will hear arguements next in the case of Palmore against Sidoti. Mr. Shapiro, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it your contention that that's the only ground on which the judgment is based?",
       "time": "00:01:17.75"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How old is the child today?",
       "time": "00:04:49.79"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And is presently living with the natural father?",
       "time": "00:04:54.97"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Shapiro, do you think that a state could, in placing a child for adoption, consider the biological characteristics of the adoptive parents in an effort to place the child in a family with similar characteristics of the baby or child being placed?",
       "time": "00:08:08.90"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I know that.",
       "time": "00:08:37.93"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is your position?",
       "time": "00:08:39.22"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of course, if your client regains custody, Mr. Palmore may seek to adopt, might he not? Then you would have the problems that Justice O'Connor has suggested.",
       "time": "00:09:38.15"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does he have other children, incidentally?",
       "time": "00:10:17.05"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Palmore.",
       "time": "00:10:21.33"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "By a prior marriage?",
       "time": "00:10:24.32"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Hawtrey.",
       "time": "00:14:00.93"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask, Mr. Hawtrey, if the parent-new spouse relationship is secondary, as you argue, it nevertheless was what controlled the decision in this case, wasn't it?",
       "time": "00:16:10.98"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't that what the trial judge said?",
       "time": "00:16:29.52"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I must say I'm puzzled. I thought your brief had, in essence, assumed that that was what caused the change of custody, the new marriage. But you now seem to be saying that, really, there are other factors involved. And I had read the sentence that your opponent read, \"The Court feels about the strides in race relations. \" and the like, as indicating that the judge was concerned about the fact that the child would be living in a home with a mixed marriage, an interracial marriage. You don't think that influenced his decision?",
       "time": "00:18:00.66"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then, isn't it... don't we have the question whether it is a proper factor for him to have considered? Isn't that before us?",
       "time": "00:18:34.47"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What was the primary part?",
       "time": "00:18:45.53"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think he said that in his opinion?",
       "time": "00:18:59.87"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see. Would you mind telling me where... we're looking at paragraph 5 of page 26. Is that what you have reference to?",
       "time": "00:19:09.94"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:19:24.65"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, where is it... the paragraph there is the interpretation that you just suggested? Where is that?",
       "time": "00:19:25.95"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That he was concerned that the mother could not cope with the new relationship. Where does that appear?",
       "time": "00:19:35.71"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's what I'm asking. Where are you reading it in?",
       "time": "00:19:46.48"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The first simply says that his resentment of the mother's choice is not sufficient to rest custody.",
       "time": "00:20:03.49"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then he goes on to consider it on purely racial grounds.",
       "time": "00:20:19.57"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Doesn't he?",
       "time": "00:20:26.95"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then the judge goes on to consider it on purely racial grounds.",
       "time": "00:20:28.14"
     },
@@ -363,13 +367,13 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I understand your argument.",
       "time": "00:21:07.70"
     },
     {
       "turn": 56,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Mr. Hawtrey, in view of the opening... if we're going to parse this thing, in view of the opening clause of the fourth sentence, I would think your argument is rather difficult to sustain. If this is the... is it the fourth sentence that begins the fourth line from the bottom of page 26? \"This Court feels that, despite the strides that have been made in bettering relations between the races in this country, it is inevitable that Melanie will, if allowed to remain in her present situation and attain school age, and thus more vulnerable to peer pressure, suffer from the social stigmatization that is sure to come. \" Now, if the circuit judge was talking about the things mentioned in sentences one, two, and three, rather than the race business in sentence one, why would he begin the fourth sentence with about \"Despite the strides that have been made in bettering relations between the races? \"",
       "time": "00:21:09.72"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where, specifically, does he speak to the mother's incapability?",
       "time": "00:22:11.62"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but you don't need a recognized liberty interest if your claim is under the Equal Protection Clause, rather than the Due Process Clause, do you?",
       "time": "00:23:58.16"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you suggest that this judgment really didn't substantially rest on a racial consideration, you must inevitably claim that there were nonracial grounds for the action. And if that's the case, you should be able to win another custody case where it's made perfectly clear that there's no racial factor be involved.",
       "time": "00:25:48.55"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that right?",
       "time": "00:26:20.57"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I take it your colleague on the other side suggests that there could be another custody case here. And you seem to think there are ample nonracial grounds for leaving custody where it is now.",
       "time": "00:26:22.12"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what nonracial matter were you talking about when you said she couldn't cope?",
       "time": "00:26:46.99"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you admitted that she couldn't cope with the racial problem. Now, do you or do you not take that position?",
       "time": "00:27:29.77"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If we don't agree with you as to the reading of the judge's remarks, and if there is really a racial slur, as your colleague says, in the case... let's just assume that we disagree with you and say, counsel, we just disagree with that reading. Now... and just assume that we're right in reading the judge's remarks that way. What would be your suggestion to us as to what we ought to do?",
       "time": "00:27:49.24"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No. If we read what the judge said as saying the mother loses custody here because she married a black man... suppose we just read it that way. What should we do about it?",
       "time": "00:28:55.19"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Has made a racial... has used a racial reason, anyway, for determining the case.",
       "time": "00:29:30.94"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you apply the arguments you're advancing to every interracial marriage, without respect to what races were involved? Suppose, to take an extreme, you had American citizens, one of China Mainland, and one of... or Taiwan... and an American, or Korean, or Vietnam, or Thailand, whatever. Would you advance these same arguments?",
       "time": "00:30:06.70"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, isn't your argument, when it's boiled down, really almost this: that assuming, accepting the idea that this is a racially-based decision, it is... it should be approved because of the interests of the child in the present attitudes that you suggest in your brief exist about these problems?",
       "time": "00:31:34.49"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Don't you think the court in this case thought so, too?",
       "time": "00:32:20.05"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Hawtrey, I don't think I understand yet. If all that we had was a finding by the court of the interracial marriage, and that alone was the basis for changing custody, do you support that and think that any of our cases would permit that?",
       "time": "00:33:39.50"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It sounded like you were. And do you think any of our cases permit that?",
       "time": "00:34:11.62"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No. All you're going to do is take her child away.",
       "time": "00:34:55.24"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that's not as important, is it? Taking the child away from the mother? Are you suggesting that's not an important interest?",
       "time": "00:35:01.06"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Hawtrey, let's try it another way. Using a scale of 1 to 10, what number would you put on race in this case?",
       "time": "00:35:16.92"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, sir.",
       "time": "00:35:34.19"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's a substantial point, isn't it?",
       "time": "00:35:48.12"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Kramer against Kramer was a movie, wasn't it? [Laughter]",
       "time": "00:37:57.17"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Have you cited the Kramer case in your brief?",
       "time": "00:41:43.92"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's its citation again?",
       "time": "00:41:50.24"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Iowa Supreme Court?",
       "time": "00:41:58.43"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not the Court of Appeals?",
       "time": "00:42:04.50"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not the Court of Appeals, the Intermediate Court in Iowa.",
       "time": "00:42:08.55"
     },
@@ -693,13 +697,13 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "You don't know.",
       "time": "00:42:13.52"
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Shapiro?",
       "time": "00:42:13.95"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted. We'll hear arguments next in the Limbach against Hooven & Allison Company.",
       "time": "00:42:27.61"
     }

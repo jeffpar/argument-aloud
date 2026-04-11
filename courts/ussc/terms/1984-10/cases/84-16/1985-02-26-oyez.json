@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/84-16/19850226a_84-16.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "DENNIS M. EAGAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PHILIP K. VERLEGER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Cory against Western Oil and Gas. Mr. Eagan, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think the result would have been the same under the reasoning of the Court of Appeals if the measurement had not been related to traveling over California territory but simply a percentage of the volume of material taken out?",
       "time": "00:02:50.44"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask, Mr. Eagan, is the rent calculated on the basis of volume of oil, is that it, in transit?",
       "time": "00:04:18.73"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or whatever goods, generally yes.",
       "time": "00:04:32.19"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you didn't expressly mention the export/import clause, did you?",
       "time": "00:04:47.45"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the considerations would be different whether that clause was violated from the consideration of if the commerce clause is violated.",
       "time": "00:04:58.47"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Eagan, would the situation be any different if the State of California either owned or controlled every parcel of land through which the products could enter to go to the refineries?",
       "time": "00:06:04.37"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What percentage of this product annually coming into California passes through sources other than state land or does the record tell us?",
       "time": "00:06:55.20"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Eagan, can I ask kind of a basic question here which is whether we should look at this as a tax case or property private rental case? Would you agree that if it were a tax case and yet a tax formula just like this for entry into the state that it would fall or would you defend it any way?",
       "time": "00:07:36.78"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But here it pays a lot more than its own way, doesn't it?",
       "time": "00:08:21.72"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, and the Court of Appeals.",
       "time": "00:08:34.11"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the Court of Appeals.",
       "time": "00:08:36.80"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In your view, does the Constitution oppose any limit on the amount you can charge even if you regard this rent?",
       "time": "00:10:18.03"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Either form or amount?",
       "time": "00:10:40.08"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would not pose any limit as to either form or amount, method of computation or amount.",
       "time": "00:10:42.93"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you went on market participant. Why do you have to win on market participant theory so to speak? Isn't the state as a general proposition entitled to rent the same way a private landlord is unless there is some commerce clause implication or unless there is some export/import clause? And you say the commerce clause argument of your opponent is defeated by the market participant argument?",
       "time": "00:10:48.55"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, of course, what if the State of California owned all of the... owned a half-mile strip all the way around the coastline and all the way around the eastern border of state and northern border and southern border and said, you know, everybody that is bringing any goods in here, we are going to have to charge them a little rent to cross this land? Now, there would there not be perhaps some commerce clause implications in a way there wouldn't be if you were simply renting property in downtown San Francisco?",
       "time": "00:12:04.72"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What sort of scrutiny would be imposed--",
       "time": "00:13:18.45"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Mr. Eagan, supposed a state owned a lot of land and part of it is cut up by a deep canyon and they built a bridge across that canyon. What is there that would interfere with the state charging any fee they wanted for crossing that bridge?",
       "time": "00:14:21.87"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No navigable stream involved, just a dry, great big dry hole.",
       "time": "00:14:40.00"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose they charged on the basis of tonnage, weight?",
       "time": "00:15:02.85"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You might charge an automobile that weighed about two tons at most, you charge one fee, but if a great big truck is going to cross that weighs 20 tons, you charge him a good deal more. Is there any barrier to that that you know of?",
       "time": "00:15:12.97"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the Chief Justice's question was couldn't the state charge based on the amount of tonnage, in short, a charge commensurate to how the bridge was used?",
       "time": "00:15:55.80"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There wouldn't be any problem about that, would there?",
       "time": "00:16:11.49"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, that isn't in this case, is it, because it doesn't make any difference about wear and tear on the state's property, how much volume is carried.",
       "time": "00:16:13.46"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, there is, but the state's property that is used in this case isn't going to deteriorate because twice as much volume is in one year than in another.",
       "time": "00:16:24.65"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well--",
       "time": "00:16:37.88"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--So it is true of this one, right?",
       "time": "00:16:39.66"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Eagan, do you recognize any constraints on rent by reason of the import/export clause?",
       "time": "00:17:05.61"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "None at all?",
       "time": "00:17:22.07"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of course, that clause and the tonnage clause both were intended, weren't they, to prevent coastal states like California from exploiting their geographic positions at the expense of sister states, do they not?",
       "time": "00:17:29.43"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yet you say there is no concern at all in measuring a propriety of the rent with that consideration?",
       "time": "00:17:48.89"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, let me put it this way. If you are clear under the commerce clause, does that mean you are also clear under the import/export clause?",
       "time": "00:18:20.44"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you think you could just refuse to lease at all?",
       "time": "00:18:50.88"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And whether it is commerce or import/export clause considerations. You could still just say, sorry, but you can't come across our--",
       "time": "00:18:59.07"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Just like off-shore oil drilling.",
       "time": "00:19:10.54"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which wouldn't be fencible, would it?",
       "time": "00:19:16.86"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. [Laughter]",
       "time": "00:19:23.60"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How does the oil company use the state property?",
       "time": "00:20:02.83"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, does the property or leasing deteriorate from year to year because of the use that you permit the oil company to put it to?",
       "time": "00:20:40.35"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it is not like a highway, for instance?",
       "time": "00:20:54.28"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Who provides the police and fire protection?",
       "time": "00:21:05.63"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It is public at any rate?",
       "time": "00:21:15.36"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does the Commission take the position that it may charge any rent that is applicable there?",
       "time": "00:21:24.55"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What limits does it recognize?",
       "time": "00:21:33.57"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, what about... Do you think there are any federal constitutional limitations on the amount of the rent that the state may charge?",
       "time": "00:22:05.12"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Any at all. Well, on the facts of this case.",
       "time": "00:22:17.93"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You can charge anything you want to as far as the federal Constitution is concerned, isn't that your case?",
       "time": "00:22:22.58"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Eagan, you say there is no monopoly. I guess the courts below both found there was.",
       "time": "00:22:33.36"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess whether there is a monopoly depends on how you define the market and how you define the market is going to determine the answer to the question and how big a chunk of the coastline do we look at in defining the market?",
       "time": "00:23:10.96"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What do you say is the relevant market for our purposes?",
       "time": "00:24:03.41"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, from a well to a pipeline going ashore.",
       "time": "00:24:35.90"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That would be crossing state property too.",
       "time": "00:24:44.22"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not in all cases, but it certainly... Some wells located in some positions are going to have to have to cross state property.",
       "time": "00:24:48.34"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but if a well is in a certain location, it won't be in any position to do that.",
       "time": "00:25:03.54"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless you take a terrific detour.",
       "time": "00:25:13.47"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The right-of-way on which the pipeline is located is how much area, how much on either side of the pipeline?",
       "time": "00:25:25.55"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It is a substantial amount I would assume.",
       "time": "00:25:37.94"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does that have possible impact on real estate development if that land... assuming it is otherwise highly suitable for real estate development? Do people want to have their house backing up on a pipeline?",
       "time": "00:25:44.01"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would the possible diminution, if it could be demonstrated, diminution in assessed valuation of land for residential purposes and, therefore, a lower tax revenue on the part of the states or local governments be a factor to be taken into account in fixing this rent or this charge?",
       "time": "00:26:16.91"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Eagan, as I understand it, your position is that subject to only the commerce clause that there is a monopoly. The state can charge what the market will bear. And, I take it it is also your position that the courts below didn't decide whether there was a monopoly despite language in the opinion.",
       "time": "00:26:55.44"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, we would have to remand to the courts below for that determination in your view?",
       "time": "00:27:20.29"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They expressly said to the contrary in the last sentence of their opinion.",
       "time": "00:27:55.13"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They expressly said the contrary in the last sentence of their opinion. They said they didn't outlaw volumetric. Maybe they didn't mean it, I guess.",
       "time": "00:27:59.60"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They also limited their holding to tide and submerged lands. I guess you don't think that is--",
       "time": "00:28:12.99"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No, but the holding is.",
       "time": "00:28:23.53"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They said that was proportionate to the amount of use, but here you have got vacant land.",
       "time": "00:29:40.11"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't understand why you draw a difference between whether there is a monopoly or not. It seems to me that we have to make up our mind whether we are going to credit this statement of the Court of Appeals. The permanency of Plaintiff's facilities does not permit them to shop around. There is no other competitor to which they can go for the rental of the required strip of California coastline. The Commission has a complete monopoly over the sites used by the oil companies. Now, assume we credit that. What are we supposed to do then under your view?",
       "time": "00:30:28.94"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well--",
       "time": "00:31:09.67"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I agree, but it doesn't have a monopoly over these particular sites because of the permanency of these facilities, refineries, etcetera.",
       "time": "00:31:20.98"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's just assume that there was a monopoly, that we said that the state has a monopoly at least with respect to a lot of these sites, what are we supposed to do then under your view?",
       "time": "00:31:36.32"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Thank you very much.",
       "time": "00:32:26.09"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will see. Mr. Verleger?",
       "time": "00:32:33.32"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What is the percentage of private?",
       "time": "00:37:09.28"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the breakdown between the City of Los Angeles, say, and then the state in Southern California?",
       "time": "00:37:14.59"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How does it break down on the shore-line as such?",
       "time": "00:38:16.81"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That doesn't tell the whole story.",
       "time": "00:38:36.94"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have to look out in the ocean a little bit.",
       "time": "00:38:38.86"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Eagan, do you think the position that the state must grant a right-of-way.",
       "time": "00:38:52.35"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Excuse me, yes, Mr. Verleger.",
       "time": "00:39:01.54"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It is different for what reason in your view, Mr. Verleger, because of the connection with the coastline?",
       "time": "00:40:13.05"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is that a state law point that--",
       "time": "00:40:52.86"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is part of your argument based on state law? I didn't think the Ninth Circuit's opinion was based at all--",
       "time": "00:40:58.43"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--So, your reasoning that you submit to us is limited to tide and submerged lands?",
       "time": "00:41:38.32"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is all you are leasing from the state.",
       "time": "00:41:50.13"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And those leases cover lands that are used to carry oil from somewhere else?",
       "time": "00:42:00.78"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing that California had totally socialized real property, that only the state owned real property, and your clients wanted to lease a place from the state to have a service station and it was in Bakersfield, it had nothing to do with the coastline at all. Nonetheless, obviously, the cars that pulled in there if it were a service station were going to be moving in interstate commerce. Would you say that the state couldn't charge whatever it wanted to ground lease that land to an oil company for a service station?",
       "time": "00:43:48.90"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can the state, Mr. Verleger, charge a reasonable rent under your view?",
       "time": "00:44:55.78"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the state court said this was a reasonable rent.",
       "time": "00:45:07.49"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if a volumetric rent is a typical sort of a rent for pipeline use--",
       "time": "00:45:46.76"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--It is not?",
       "time": "00:45:51.98"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If it were, would it be reasonable.",
       "time": "00:45:54.52"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Counsel, what would you consider to be a reasonable rent?",
       "time": "00:46:58.84"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You consider the other more rental?",
       "time": "00:47:50.06"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And, it is unreasonable.",
       "time": "00:47:59.33"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Verleger, I guess there is no doubt that Congress couldn't allow California by statute to charge these rents.",
       "time": "00:51:41.64"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And there would be no commerce or--",
       "time": "00:51:50.58"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Oh, really?",
       "time": "00:51:57.90"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did Congress authorize that?",
       "time": "00:51:59.54"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There is nothing the Submerged Lands Act or any other statute would suggest--",
       "time": "00:52:09.79"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Incidentally, suppose California sold this whole coastline to private interest. Could those people charge you any rent they wanted?",
       "time": "00:52:38.65"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would probably find a right of immanent domain in a pipeline company.",
       "time": "00:53:00.39"
     },
@@ -1275,13 +1275,13 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly, you don't.",
       "time": "00:53:10.87"
     },
     {
       "turn": 206,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask just one question on your theory?",
       "time": "00:53:13.22"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you taking the position that no matter how reasonable the level of the rent might be, they can never use the volumetric formula?",
       "time": "00:53:19.39"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And, is it your understanding of the Ninth Circuit that that is what they held; that you cannot use this formula for the tidelands and the submerged lands on the border of the state.",
       "time": "00:54:13.86"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Regardless of amount? I mean, even if they had--",
       "time": "00:54:24.40"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I understand, but I couldn't quite tell whether one would have done it without the other.",
       "time": "00:54:31.23"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your view is that it is that on either ground independent of the other.",
       "time": "00:54:40.49"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You defend the lower court's commerce clause holding as well as the import/export?",
       "time": "00:55:11.63"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, you would prefer a decision on the latter.",
       "time": "00:55:17.53"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I know, but in the commerce clause one... That argument wouldn't necessarily... You wouldn't necessarily win on that based on any volumetric no matter how small.",
       "time": "00:55:22.75"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have two minutes remaining, Mr. Eagan.",
       "time": "00:58:18.41"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Eagan, can I ask just one question? Is it your position here the same privileges with regard to rental charges in the land in dispute in this case as you would in any land any place in the state?",
       "time": "01:00:09.60"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now.",
       "time": "01:00:57.18"
     },
@@ -1425,13 +1425,13 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:58.30"
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "01:01:01.25"
     }

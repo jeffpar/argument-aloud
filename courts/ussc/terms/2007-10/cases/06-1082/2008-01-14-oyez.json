@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2007/06-1082/20080114a_06-1082.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN B. MCCULLOUGH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first today in 06-1082, Virginia v. Moore. Mr. McCullough.",
       "time": "00:00:00.00"
     },
@@ -63,13 +63,13 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. McCullough--",
       "time": "00:01:26.37"
     },
     {
       "turn": 4,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If this officer had complied with the State law, that is he had issued a summons, then you agree that the exclusionary rule would apply if he went ahead and searched.",
       "time": "00:01:27.50"
     },
@@ -81,7 +81,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So would you explain the logic to saying that when the police violate State law, then the evidence can come in; but when they comply with State law, it can't.",
       "time": "00:01:49.77"
     },
@@ -93,13 +93,13 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Did you... excuse me, sorry, General.",
       "time": "00:02:56.93"
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you say he made a custodial arrest. Did he search the defendant at the time of the arrest?",
       "time": "00:02:59.01"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And did he search him at the place of the arrest?",
       "time": "00:03:07.85"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, how can this be incident to an arrest?",
       "time": "00:03:09.99"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the search is unrelated to the arrest, as I understand the facts.",
       "time": "00:03:19.80"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It took place later in a different place.",
       "time": "00:03:23.58"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why is it present if he's not... he searched when he wasn't arrested? I don't understand. Could they wait a week and do it?",
       "time": "00:03:50.03"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's an ongoing arrest, is it?",
       "time": "00:04:08.14"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Incident to an ongoing arrest? That's kind of a new concept.",
       "time": "00:04:12.01"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. McCullough, the proposition that you're arguing, does it apply at the Federal level as well? Suppose... suppose I think that my neighbor next door is growing marijuana and I have probable cause to believe that, all right? So I go in and search his house; and sure enough, there is marijuana. And I bring it to the police's attention, and they eventually arrest him. Is that lawful search?",
       "time": "00:04:34.17"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm a State actor, I guess. You know...-- [Laughter]",
       "time": "00:05:17.48"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, a Supreme Court Justice should not be...-- [Laughter] --should not be living next door to somebody growing marijuana. It doesn't seem right.",
       "time": "00:05:24.51"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't dance around. Is it... is it rendered an unreasonable search by the fact that I'm not a law enforcement officer at all?",
       "time": "00:05:45.64"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So any Federal employee can go crashing around conducting searches and seizures?",
       "time": "00:06:01.12"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So long as he has probable cause?",
       "time": "00:06:06.78"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's fantastic. [Laughter] Do you really think that?",
       "time": "00:06:09.92"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or that you are an administrative law judge at the, you know, Bureau of Customs? It doesn't matter?",
       "time": "00:06:20.47"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about a janitor? You're a janitor, a federally employed janitor.",
       "time": "00:06:30.06"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "His neighbor is growing marijuana, and he's just as offended as a Supreme Court Justice would be. Can he conduct a search?",
       "time": "00:06:37.45"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wow.",
       "time": "00:06:47.96"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Would you agree that there was no probable cause to arrest, given the State statute?",
       "time": "00:07:26.23"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're talking about probable cause to believe that he committed an offense.",
       "time": "00:07:33.33"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But was there probable cause to arrest?",
       "time": "00:07:36.99"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could he... could this officer have gotten a warrant to arrest Moore? Could he... is it... oh, there's an offense going on under Virginia law, I'm going to check with... call in to see if I can get a warrant. Could he have gotten a warrant?",
       "time": "00:08:10.12"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How could he... how could he have gotten a warrant to arrest when it's a nonarrestable offense?",
       "time": "00:08:37.59"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "He couldn't... would a judge have told this police officer... they have a call-in procedure, call the judge. You want to... you need to issue a warrant to arrest him for driving with a suspended license, but that's not an arrestable offense.",
       "time": "00:08:45.51"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did these officers think this... those circumstances exist?",
       "time": "00:09:12.25"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe we could say that in this, in these unique circumstances, where the officers could not let the fellow drive off without a license, it was not unreasonable to arrest him, but in some other situation where they had no arrest authority it would be.",
       "time": "00:10:07.73"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, you know, let's assume that the stop was not based on some, some deficiency in his license or some deficiency in the car... I don't know what else it could be... like, he had been going too fast, okay? And it's just a misdemeanor. He was five miles over the speed limit. Now, in that situation you couldn't say, as you've said here, gee, if they just let him go, he'd still be driving without a license; they had to arrest him; they had no choice. In that situation, he wouldn't necessarily be going above the speed limit. Would that be... why couldn't you say it was reasonable here, but it wouldn't be reasonable there?",
       "time": "00:10:28.25"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's the argument you're making, then don't bring forward the argument that they couldn't let him go because he'd be in violation of the law. If you want us to make that narrow a holding, I guess we can. Is that what you want us to do?",
       "time": "00:11:10.56"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, you're asking us to balance. You're asking us to say, after all, in this case if they hadn't arrested he would have been violating the law as soon as they let him go.",
       "time": "00:11:32.27"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say this was not unlawful under Virginia law, then, because of the factor you brought forth?",
       "time": "00:12:01.41"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't know what you're talking about a discretionary call. It wasn't a discretionary call. He couldn't arrest the person.",
       "time": "00:12:12.36"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--But suppose it works the other way. If Virginia has a law saying you can arrest anybody you want on our highways, but, you know, here's what the offenses are, the officers did not have probable cause to think a crime had been committed, but it was they had probable cause to arrest, I suppose under the Respondent's theory that would be all right.",
       "time": "00:12:40.62"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask this question: You would argue it doesn't matter whether it violated State or Federal law; it's a question of Federal law on probable cause. But does the character of the crime for which the person is being arrested have any relevance to the question whether the search is reasonable? For example, supposing he is arrested for a tax offense; could you go ahead and search him incident to that arrest?",
       "time": "00:13:11.25"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The answer is yes, they could search?",
       "time": "00:13:38.89"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though the rationale for the search incident to arrest doesn't apply?",
       "time": "00:13:50.09"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Why would the rationale not apply in that situation? Are you accepting the proposition that anybody who's arrested for a tax offense is not a danger to the arresting officer? Haven't there been some pretty dangerous people arrested over the years for tax offenses? [Laughter]",
       "time": "00:14:13.59"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but you're also arguing, as I understand it, that the... that the search, even in the case of the tax arrest, does fall within the rationale of search incident to an arrest because one of those two rationales is officer safety. Isn't that your point?",
       "time": "00:14:40.18"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. So you reject the premise of the question then? The premise of the question was that the search incident to the arrest in the tax case is outside the rationale of searches incident to an arrest; and your position is it's not outside it.",
       "time": "00:14:54.25"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:15:09.81"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Dreeben?",
       "time": "00:15:50.20"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does the person making the arrest at least have to have some arrest authority?",
       "time": "00:16:28.06"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or will a janitor do the job? A janitor at the Justice Department becomes imbued with the mission of the Department and he goes around arresting people or searching people.",
       "time": "00:16:35.19"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just as this person here didn't have positive law authority to engage in an arrest.",
       "time": "00:16:51.70"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but he was purporting to act in an official capacity. And he did, indeed, give the marijuana to the officials at the Justice Department.",
       "time": "00:17:11.18"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you're right, Mr. Dreeben, then the Court gave a false signal when it GVR'd in Lovelace, in the Lovelace case, the person who was drinking in public, it GVR'd in light of Knowles.",
       "time": "00:19:39.56"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we rule for Respondent in this case, would we have to reexamine the holding in California v. Greenwood?",
       "time": "00:21:10.63"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There could not have been a warrant... a grant... a judge could not have given a warrant for arrest on these charges.",
       "time": "00:22:00.23"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How often and under what circumstances is that Virginia... Virginia law rule? I mean, when does a general district court give permission for a custodial arrest in a certain class of cases?",
       "time": "00:22:40.98"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I should know this, but do we defer to State law in determining the lawfulness of the time before arraignment in the context of confessions, the McNabb-Mallory rule?",
       "time": "00:23:56.80"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Which is Federal.",
       "time": "00:24:14.74"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, was there any indication in that case that if the State had a shorter period, they would--",
       "time": "00:24:30.08"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben. Mr. Goldstein.",
       "time": "00:26:15.54"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you think they would accept arresting somebody for not wearing a seat belt?",
       "time": "00:26:43.81"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me we've crossed that bridge with Atwater.",
       "time": "00:26:48.95"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The particular illegal arrest here, to bring this down to earth a little bit, is I take it they arrested him because he had a suspended... he was driving without a good license?",
       "time": "00:27:19.81"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So that Virginia law says if you stop somebody, arrest him... if you stop somebody, you know he doesn't have a license to drive, you can arrest him if you think he's going to continue driving? Can't you?",
       "time": "00:27:29.45"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So the policemen here, according to you and I guess the Virginia court, made a misjudgment. He thought this guy might still drive somewhere or he might have thought it or a policeman in similar circumstances might have thought it. So Virginia says if, in fact, policemen, you stop somebody for suspended... for driving without a license, and you make a mistake, you arrest him, we don't think that's a big deal, because who knows if he's going to continue to drive. We don't even suspend. We don't even suppress the evidence. That's Virginia. So if Virginia isn't going to suppress the evidence because they think it's not a big deal to make, for the policeman to make a mistake as to whether a person who's driving without a license will keep driving once the policeman goes away, why do you think Thomas Jefferson and everybody else thought that that was such a big deal that the evidence had to be suppressed?",
       "time": "00:27:41.37"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I thought it's questioned in your footnote 13 in your brief. You seem to suggest that the exclusionary rule is not at issue in this case.",
       "time": "00:29:05.57"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So... so we should write an opinion saying we're not saying that it was correct to... we're not saying that it was correct to exclude the evidence in this case?",
       "time": "00:29:16.23"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the difference between this and Whren? That is, in Whren the arrest violated a D.C. regulation that says a plainclothes officer cannot approach a car except in immediate cases of immediate danger. And in Whren we said that isn't such a big deal and we don't think the Fourth Amendment turns on that kind of triviality. All right. If it doesn't turn on that kind of arrest procedure triviality, is how we characterized it there, how is this any any different?",
       "time": "00:29:37.62"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, why do you draw a distinction between something that's prohibited by a statute, something that's prohibited by a local ordnance or let's say it's a directive of the police department? And if it's... if the arrest is contrary to any of those things, it's unlawful under State law, is it not?",
       "time": "00:31:17.14"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I thought it was your argument that if the arrest is unlawful under State law it's an unreasonable search, an unreasonable arrest under the Fourth Amendment?",
       "time": "00:32:05.99"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. It's designed to test whether you really mean unlawful under State law. Either you don't mean it, because something that violates a municipal ordnance is unlawful under State law, and yet you would not apply your test. So you could express your test differently, unlawful under State statutory law.",
       "time": "00:32:23.66"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, it says the laws of the 50 States are pretty variable on this question as well.",
       "time": "00:32:57.78"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do we have to look at both of those varieties? Let's say the State has a rule that, yes, you can arrest people in a way that we would say you can't, but you don't have to have probable cause. You just have to... they're just arrestable.",
       "time": "00:33:07.81"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--is probable cause to arrest. The State has a law that says you can arrest in these circumstances whether or not you have probable cause to believe that a crime has been committed.",
       "time": "00:33:24.88"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought you were telling us it has to be sufficient cause to arrest, not sufficient cause to believe that a crime has been committed.",
       "time": "00:33:43.67"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So it is, as your friends on the other side put it, you are advocating a two-step process. There has to be probable cause to arrest and there has to be probable cause to believe a crime has been committed?",
       "time": "00:34:01.49"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, they're different here. They had probable cause to believe a crime has been committed, but you say they didn't have probable cause to arrest because State law makes it illegal.",
       "time": "00:34:14.35"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if the State makes a trivial offense arrestable, as in Atwater? You're suggesting in that situation the common law rule we have doesn't apply. It's a trivial offense, but it's made arrestable and therefore it doesn't violate the Fourth Amendment to search incident to that arrest.",
       "time": "00:35:34.50"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, what if the legislature... this was the hypothetical Mr. Dreeben posed. What if the legislature says yes, you can arrest for this offense but you cannot search incident to the arrest, because we think that's too much of an intrusion given the fact that it's a relatively trivial offense? In that case, would our doctrine saying under the Fourth Amendment you can search incident to a valid arrest be reversed preempted, preempted by the State law?",
       "time": "00:36:12.76"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the State can define the circumstances under which you can have an arrest, but the State can't define and limit the consequences of the arrest?",
       "time": "00:36:37.12"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... isn't the difficulty with that argument that we... we have rejected the, in effect, the trespass rationale; and what you're telling us now, it seems to me, based on in effect trespass concepts, is that so far as the Fourth Amendment is concerned an arrest may constitutionally be made, but the officer following that arrest may not take the step of determining whether the individual arrested has on his person anything that can be used to hurt the officer like a knife or a gun? And why should be we draw what seems to me... if we scrap, as we have done, the trespass analogy, why should we make what seems to me at least an irrational distinction of saying the Fourth Amendment says it's okay to arrest but it's not okay to protect yourself after you have arrested? Why should we accept such a rule?",
       "time": "00:36:57.39"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right. But we're starting with a different premise.",
       "time": "00:38:30.03"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We're starting with a constitutional premise.",
       "time": "00:38:33.03"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If that... if that logic is sound and that logic depends on Justice Powell's use of the word unlawfully, then it seems to me the... the only way to arrest an irrational system would to be conclude that, in fact, the arrest is not constitutionally lawful. Because on... on your logic, you're still left with the problem that I raised; and a constitutional arrest in which the officer does not violate the Fourth Amendment by apprehending the person, and yet the officer is disabled from protecting himself, if we're going to have a sensible rule, we've either got to say the Fourth Amendment allows him to make the search incident and protect himself, or we've got to have a rule that says the Fourth Amendment doesn't allow him to make the search... make the arrest in the first place. Otherwise we've got a crazy system.",
       "time": "00:39:36.80"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Don't you think we have to, if not overrule, at least back away from the holding in California versus Greenwood?",
       "time": "00:40:44.41"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about Cooper... Cooper v California?",
       "time": "00:41:32.67"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can we go back for a second? Because, the reason I asked my question is I was thinking about this very differently, and I just want to have an answer, and I want your best thinking on this. My thought is that the answer to the question of whether it violates the Fourth Amendment when a State... when a person is arrested in violation of State law, the answer is: it depends. Sometimes yes, sometimes no. Obviously, if there is no probable cause or if there wasn't a crime at all, as just defined, the answer is yes; but then I look at Whren and it says if all that was at stake was a kind of arrest procedure State law, herein... there embodied in a rule, the answer is no. So I look at this one. And this one it seems to me there is probable cause; it is a crime; moreover, it is a crime for which the State permits arrest where the officer subjectively thinks he's likely to keep driving. So it seems to me that's maybe much more close to what we had in Whren. Now I want you to say... I want your comments on what I... it's hypothetical, my statement, because I want to get your reaction to that point of view. I'm not saying I hold it. But I'm putting it forward so that I can get your reaction and argument.",
       "time": "00:41:51.32"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I think it is much easier to administer, to have a uniform Federal standard, rather than whether or not an officer can arrest in one county for something and not in another county whether he has to have a badge or not. Those are the kind of trivialities we talked about in Whren.",
       "time": "00:43:31.66"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But under that analysis, it seems to you we rely on the citizen's expectation of privacy as the justification. And I think Justice Kennedy makes a rather strong response to that, because it's unrealistic to assume that a citizen in certain counties in Virginia had such an expectation but did not in other counties, because most citizens don't know the sophisticated aspects of the Virginia law.",
       "time": "00:44:34.79"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, can I get back to your discussion of Cooper? In Cooper, you said that if it violates the State law for an inventory search, then you can't search incident to that. But that's because it is then not an inventory search. Here there's no doubt that this was an arrest, whether it complied with State law or not.",
       "time": "00:45:32.59"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, but just... it gets to... I mean, if you don't follow the State rules, it doesn't comply with the rules for an inventory search. But here you're saying if don't... you're not saying if you don't follow the State rules, it's not an arrest. It's not a lawful arrest. But that's a different question than whether or not it is an arrest. Our precedents say if it's an arrest, you can search incident to the arrest.",
       "time": "00:46:08.11"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Goldstein, can I bring you back to Cooper v. California?",
       "time": "00:46:38.00"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which you say is a good case for you. I don't see how you can say that. This was a case of a car impounded. The State court had said that there was no authority to search the car, simply because it was impounded, and we said the question here is not whether the search was authorized by State law; the question is rather whether the search was a reasonable one under the Fourth Amendment. Just as a search authorized by State law may be an unreasonable one under that amendment, so may a search not expressly authorized by State law be justified as a constitutional reasonable one. And you think that helps your case?",
       "time": "00:46:41.68"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though the State law did not authorize it.",
       "time": "00:47:42.70"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They were assume ing, in that passage, that the State law did not authorize it, or otherwise the passage makes no sense.",
       "time": "00:47:48.66"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, if we assume, contrary to your footnote 13, that the exclusionary rule is implicated in this case, could you explain why, under the Federal Constitution, there should be imposed on the State an exclusionary rule for a violation of State law when State law does not impose an exclusionary rule for the violation of its law?",
       "time": "00:48:11.31"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I guess the question would be: Why doesn't our jurisprudence on whether there's an arrest also look to something else, rather than whether it's permitted or violated under State law? In other words, the State doesn't... the State law does not provide for the exclusionary rule, but we say the Fourth Amendment does. Under... this is not a valid arrest under State law, but your brothers say under the Fourth Amendment it is because there's probable cause to believe a crime has been committed.",
       "time": "00:48:47.67"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if Virginia has a statute that said it's unlawful to arrest for a traffic violation, but that it is lawful under Virginia law for an officer to conduct a search incident to any arrest, whether it's lawful under Virginia law or not? Would we follow that latter Virginia law?",
       "time": "00:49:34.34"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What is the difference between that law and in effect what Virginia has in place? They say the arrest is unlawful, but they don't provide for the exclusion of evidence that's obtained as a result of that arrest under Virginia law.",
       "time": "00:50:09.39"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And both arrests are illegal, but you're saying that there's a difference. So your bright-line rule now seems to evaporate.",
       "time": "00:51:17.34"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean I'm assuming that your answer to my question about the badge or the wrong county and so forth would not result in suppression. Correct me if I have misinterpreted your argument.",
       "time": "00:51:28.04"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's right?",
       "time": "00:51:42.20"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But then if you... do you accept the proposition then, in some of these minor cases, the arrest might be valid, then you're whole argument about the Framers and the trespass and so forth is wrong.",
       "time": "00:52:19.82"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I think your friend agreed that the cases didn't establish whether our references to probable cause meant to probable cause to arrest or probable cause to believe that a crime had been committed. You don't agree with that? Do you think that the cases foreclose their position?",
       "time": "00:53:04.71"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "In Johnson, the search was illegal because they illegally entered the hotel room. Isn't that right? So it didn't matter what happened after that point.",
       "time": "00:54:23.63"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The Court simply said we're going to use our Federal supervisory power and incorporate the State law of arrest. If we don't have another body of law, we're going to do it. It didn't say it was required to by the Constitution. That's not the way I read Di Re.",
       "time": "00:54:52.18"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then you have three cases, not five.",
       "time": "00:55:14.85"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Putting cases aside for the moment--",
       "time": "00:55:17.31"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I mean if we reach this question, you must have lost on the first question. I mean you win... if you win on the first question, you win. If you... all right. If you have lost on the first question, this is not an unreasonable search... arrest, rather, under the Fourth Amendment. And, moreover, it's not enough of a big deal, so the State makes it suppressible. Otherwise, a... and so now we're talking about minor things under State law that is secondary at the least. And there, when the policeman make a mistake about that, the reason we let him search is he might be hurt, the policeman. There's danger involved. And so I don't see why at the moment that rationale wouldn't apply just as strongly with a reason for it being unlawful under State but not Federal law is a violation of one of these subsidiary rules whether he, you know, thought the guy was going to keep driving under the suspended license or, you know, might be risky or might not show up.",
       "time": "00:55:23.67"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can finish your answer.",
       "time": "00:56:34.70"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "All right. Thank you, Mr. Goldstein. Mr. McCullough, you have four minutes remaining.",
       "time": "00:56:39.00"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Any crime at all?",
       "time": "00:57:21.87"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Any crime at all; jaywalking, for example?",
       "time": "00:57:24.36"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We would never know about it if the... if the misdemeanor, or jaywalking offense, was not committed in the officer's presence.",
       "time": "00:57:29.17"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's not a problem for you here, but that is a limitation on what we have held.",
       "time": "00:57:38.24"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. McCullough, what is here, for some reason the Commonwealth did not cite Cooper v. California, which I can't understand unless you agree with your friend that it has been overruled by later cases.",
       "time": "00:57:55.00"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand. Why didn't you cite Cooper v. California?",
       "time": "00:58:14.81"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. McCullough, there is one thing that I was curious about. It is this Virginia law that allows the custodial arrest pursuant to an order of a general district court.",
       "time": "00:59:44.94"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When is that used?",
       "time": "00:59:57.64"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What would be the basis of a... can a district court enter such an order just because it thinks it's a good idea? Are there any grounds in--",
       "time": "01:00:52.24"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:19.79"
     }

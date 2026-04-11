@@ -3,35 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-853/19761101a_75-853.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "MACDONALD FLINN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH L. ANDERSON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 75-853, United States Steel Corporation against Fortner Enterprises. Mr. Flinn, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -43,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Flinn, before you do that, is it not correct that there was also at least representing opinion to an additional item approved, namely the fact that there were other times between your credit division and other purchases of Homes?",
       "time": "00:07:18.77"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there not evidence that a certain percentage and I do not remember the figure now of your credit company’s loans did have a tie-in feature with it?",
       "time": "00:08:13.45"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your point, just so I have clear mind, the customer acceptance feature of the proof is the same whether it is this customer or this customer is?",
       "time": "00:08:55.11"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Flinn, let me just interrupt. Did you said the evidence is the contrary, but did not the judge find that they are $455 more expensive and the witness so testified, so we got its evidence?",
       "time": "00:15:33.68"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not the (Inaudible) that many.",
       "time": "00:15:56.20"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I must have misunderstood your argument, because I thought you were saying that even if he paid more for the houses and knew it, it really would not make any difference as long as the total package was what the free market would dictate.",
       "time": "00:17:40.92"
     },
@@ -115,13 +115,13 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Putting your point a little differently, Fortner could afford to pay more, but he has not, as if he paid less for the credit.",
       "time": "00:19:02.41"
     },
     {
       "turn": 16,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Justice, probably you stated very distinctly that is our position.",
       "time": "00:19:10.65"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say that this evidence was ignored by both the District Court and by the Court of Appeals, was it ignored to the extent that they found otherwise?",
       "time": "00:20:29.34"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what was Judge Gordon’s finding at his…",
       "time": "00:21:02.31"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your inference is that if the plaintiff had given him such a finding to sign, he would have signed it?",
       "time": "00:21:12.51"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course Judge Gordon is sitting at the trial, in fact, he is free to disbelieve any expert he wants to.",
       "time": "00:21:45.91"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He can just believe the testimony of the plaintiff’s witnesses even and find it more – affect more favorably to the plaintiff than the plaintiff’s witnesses if there is other evidence to support it, can he not?",
       "time": "00:21:56.32"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you suggesting that in order to make a finding of facts that the District Court not only has to find the fact, but has to say I disbelieve what is stated by the contrary?",
       "time": "00:22:19.69"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the findings of the District Court are silent on this point?",
       "time": "00:23:11.74"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Anderson.",
       "time": "00:25:09.36"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What does Justice Black’s opinion, do you find to support the directed verdict on liabilities of the plaintiff?",
       "time": "00:25:58.99"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 36,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that takes under account adequately, the existence of other resources of financing and the fact that the high price, if it was high, was offset by the more favorable interest rates?",
       "time": "00:27:23.36"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You think that Court file a mandated of this court?",
       "time": "00:31:32.48"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I would like to hear you on it.",
       "time": "00:31:36.39"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Anderson, although you dislike the word, ‘Cheap’ as to the loans, we do not agree that the record indicates that these loans were on more favorable terms than were available elsewhere.",
       "time": "00:33:27.17"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But cutting through the whole thing, what is your position with respect to the net value of these loans to your client, were they more favorable or less favorable?",
       "time": "00:33:44.84"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So there is more, we could translate that that is a cheaper and we would not be found wrong.",
       "time": "00:33:52.58"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I realize that, but cutting through it all, is it not it one of the facts that we start with on this posture of the case that everybody agrees these were favorable loans for your client.",
       "time": "00:34:39.55"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Anderson, I do not mean to get interrupting, but in terms of analyzing the case under the Antitrust Laws, does it matter in your position as to whether the more favorable aspect was simply a reduction in interest rate or a combination of other factors, would we not have the same legal issue either way?",
       "time": "00:35:18.50"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then you have to help me because I do not understand your position.",
       "time": "00:35:40.53"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) some chances on the 100%.",
       "time": "00:36:29.64"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In fact the other fact puts so much emphasis on fact that others continue to give on 100% afterwards.",
       "time": "00:36:34.59"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that is enough of it?",
       "time": "00:36:52.66"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It seems to me all you are saying is that there are number of ways that a seller can cut the price of the tie-in product. He can cut the interest rate,he can eliminate personal guarantees, he can make the principal larger, he can do all sorts of things. But in terms of antitrust consequences what difference does it make which means he takes to cut the price, it is still the same element.",
       "time": "00:37:16.90"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not continue to loan below cost.",
       "time": "00:38:47.91"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And let us turn that around. United States Steel was primarily interested in selling those houses, were they not?",
       "time": "00:41:45.48"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And so if they find a customer who wants to buy, however, they came together and they are ready to buy, let us say we have it kind of financed and US Steel says alright we will finance it for you.",
       "time": "00:41:53.86"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think your position is that Fortner – our opinion and Mr. Justice Black’s opinion to the Court that Fortner did not purport to water down the necessity for proving sufficient amount of economic power in the tie-in product?",
       "time": "00:47:03.38"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you think the critical evidence is of economic power in this case?",
       "time": "00:47:54.21"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I do not know about Mr. Justice Black, but in this case what do you think that critical evidence is of economic power in the credit market over the credit market?",
       "time": "00:48:05.13"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "they are just the low credit terms, no favorable credit terms…",
       "time": "00:48:20.67"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not even cheap.",
       "time": "00:48:27.97"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The favorable guarantee.",
       "time": "00:48:34.57"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not think that would be enough by itself, do you?",
       "time": "00:48:38.02"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that is apparent from Mr. Justice Black’s opinion?",
       "time": "00:48:43.26"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I know that, but so you think he says it would be sufficient by itself?",
       "time": "00:48:57.80"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think it is?",
       "time": "00:49:11.97"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You almost must say so in this case.",
       "time": "00:49:16.47"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's the other evidence?",
       "time": "00:49:21.01"
     },
@@ -577,13 +577,13 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is that? The fact that the higher price for the tied product.",
       "time": "00:49:22.87"
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would not think that would be enough in itself?",
       "time": "00:49:30.38"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And Mr. Justice Black did not suggest it.",
       "time": "00:49:34.76"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But he said it might be evident.",
       "time": "00:49:39.17"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Alright, what else have you got?",
       "time": "00:49:46.41"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are the numbers in this case?",
       "time": "00:50:08.78"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just so I have it, are these 43 loans that you refer to companies other than Fortner and are they 43 different builders or 43?",
       "time": "00:51:01.07"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see,",
       "time": "00:51:10.58"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In what geographical areas were those 43 people are having institutions located?",
       "time": "00:51:23.71"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And Fortner is east of the Mississippi?",
       "time": "00:51:33.10"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So these are 43, are east of the Mississippi, that is much as we know about them.",
       "time": "00:51:37.83"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are the (Inaudible).",
       "time": "00:52:06.86"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You got the favorable credit terms, you got the higher price of the tied product and you have got the fact that US Steel managed to make a fair number of some other loans, 43 other loans.",
       "time": "00:52:28.22"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is it?",
       "time": "00:52:44.73"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This was a deep business, it sort of the deep pocket approach.",
       "time": "00:53:14.96"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you are rich enough, you have got economic power.",
       "time": "00:53:19.23"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If loans, if sour loans would not really break you, you have got enough economic power.",
       "time": "00:53:25.34"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further Mr. Flinn?",
       "time": "00:55:06.98"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Flinn, before you sit down, now these 43 other loans that your opponent referred to, were they contemporaneous or were they spread over, created?",
       "time": "00:55:47.52"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record show whether or not there was a tie with respect to those 43 other loans?",
       "time": "00:56:31.86"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentleman. The case is submitted.",
       "time": "00:57:24.72"
     }

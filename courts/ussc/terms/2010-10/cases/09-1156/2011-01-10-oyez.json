@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/09-1156/20110110a_09-1156.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "JONATHAN HACKER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DAVID C. FREDERICK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "PRATIK A. SHAH",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Case 09-1156, Matrixx Initiatives v. James Siracusano. Mr. Hacker.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hacker, do we know that from this record? I mean, we know that the plaintiffs were able to identify -- there's some dispute whether it's 12 or 23, but do you represent that there were no other complaints made? So that, let's say, there has been discovery; now we're just at the pleading stage. The company would have said: That's it, we didn't have any more?",
       "time": "00:00:40.98"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they might have been able through discovery to find that there were many more.",
       "time": "00:01:17.56"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But why shouldn't that determination be deferred until there's discovery, and then we can know how many reports there really were?",
       "time": "00:01:33.34"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Can there be some situations in which statistically significant evidence would not be necessary? For example, suppose some very distinguished physicians concluded based on clinical trials that there was a connection between a drug and a very serious side effect. Could that establish materiality?",
       "time": "00:02:28.39"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hacker, the complaint did not rely exclusively upon these adverse incidents but also referred to a study, a report by researchers at the American Rhinologic Society--",
       "time": "00:03:26.60"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--which -- which asserted that there was a connection. So the -- is the question before us simply whether in isolation the adverse incidents would be enough, or is not the question whether those adverse incidents placed next to this study would be enough?",
       "time": "00:03:46.23"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why didn't they say that?",
       "time": "00:04:27.85"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I thought the -- you're saying the complaint did not refer to the study?",
       "time": "00:04:38.49"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You're talking about -- you're talking about who is right or wrong about the connection between Matrixx and anosmia. But that's not the question. I'm an investor in Matrixx; I worry whether my stock price is going to go down. You can have some psychic come out and say \"Zicam is going to cause a disease. \" with no support whatsoever, but if it causes the stock to go down 20 percent, it seems to me that's material.",
       "time": "00:05:18.87"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But wait a minute. These weren't psychics. These were 3 clinical doctors in this area, one of them you knew poised to go to a society meeting to make this allegation. Doesn't it make a difference who the reports are coming from and what the substance of those reports may do to your product?",
       "time": "00:05:54.11"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose you stipulate in response to the Chief Justice's question that it is irrational, that it is probably baseless, but that the market will react adversely. Is there a duty then to address the claim?",
       "time": "00:06:33.73"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if there's a baseless report and we stipulate that, although it's baseless, it's going to affect the market, could that be the basis for an allegation, assuming the requisite scienter, that there's liability?",
       "time": "00:07:17.27"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it's not the allegation. It's the fact that the market may be affected.",
       "time": "00:07:46.11"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hacker -- Mr. Hacker, you just said, if I understood you correctly, that when the -- when the news came out on Good Morning America, accurate or not, there was an obligation to do something about it, but among the -- the charges, it's not simply that there was these reports, but it's the way the company responded to them: Two press releases that said allegations of any link of these drugs to anosmia are completely unfounded. That statement was made even after the -- what was it, Dr. Jafek?",
       "time": "00:08:11.37"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--had this presentation, and he was going to put Zicam's name on it and the company said, you don't have any permission to do that. So the company prevented Good Morning America from happening earlier, and it made these affirmative statements that there's no linkage.",
       "time": "00:08:54.88"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that the scientific report that came out later said, we can't say one way or the other, as opposed to the company saying that any suggestion of linkage is completely unfounded.",
       "time": "00:09:28.44"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They didn't say \"unfounded\". They said the evidence is not -- we can't say yes and we can't say no. That's different from completely unfounded.",
       "time": "00:09:50.12"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Hacker, you were saying that the question of whether there is support is reducible to the question of whether there are statistically significant findings. Now, as I understand it, the FDA takes action all the time as to drugs -- they force the withdrawal of a drug from the market, they force relabeling of a drug -- on the basis of findings that are not statistically significant. Now, clearly in those cases the market has a right to know the very things that are going to make the FDA take action against a product and that are going to severely affect the product's value to the company. Not statistical significance there.",
       "time": "00:10:13.46"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, it could and eventually it did.",
       "time": "00:11:00.36"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And you are suggesting a test for what -- what counts as material, which is statistically significant, a test that the FDA itself doesn't use when it thinks about what it should what it should regulate.",
       "time": "00:11:02.65"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hacker, suppose Good Morning America made the same claim, categorically saying that this drug caused this condition, but did so simply on the basis of these adverse incidents, and they didn't have Dr. Jafek's, or whatever his name is, reports, but nonetheless Good Morning America comes out on the basis of those incidents saying Zicam causes whatever the condition is. Would that have to be reported? And if not, why not?",
       "time": "00:11:51.46"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Fine.",
       "time": "00:13:19.91"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "These are unreasonable investors who are relying on some talking head on Good Morning America who says that this is true, even though it isn't true.",
       "time": "00:13:34.50"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You've neither answered yes or no. There's no basis for its being said on Good Morning America, but unreasonable investors by the thousands rely upon it.",
       "time": "00:13:48.14"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No--",
       "time": "00:14:03.79"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "A reasonable investor is going to worry about the fact that thousands of unreasonable investors are going to dump their Matrixx stock.",
       "time": "00:14:10.46"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I mean, there's nothing unreasonable about that. If it looks -- if you're looking at Good Morning America, you say, my gosh, everybody else is going to sell this; I'm going to sell, too. And if it turns out you knew about it you should have told me about it before.",
       "time": "00:14:19.31"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It may not know, but it certainly can know. If you know this is a very false report, but we know that, I don't know, the surgeon general, somebody, is going to come out and announce it and that will cause an effect--",
       "time": "00:14:38.46"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "In most cases we don't know whether the claim is false or not. So let me give you a hypothetical. There's a pharmaceutical company and it comes out with its first and only product, it's 100 percent of the sales, and it's a new contact lens solution. And it sells this product to many, many, many hundreds of thousands of people. And most of them use this product with no adverse effect whatsoever, but there are ten cases where somebody uses this product and they go blind. Three of those ten cases, the person had to borrow a contact lens from a friend, only used it in one eye, they go blind only in that one eye. This is not statistically significant. There is no way that anybody would tell that you these ten cases are statistically significant. Would you stop using that product and would a reasonable investor want to know about those ten cases?",
       "time": "00:15:22.03"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "There are a lot of contact lens solutions in the world. So if I heard that, ten people went blind, three used it in one eye, three went blind in that eye, I'd stop using the product; and if I were holding stock in that company, I would sell the stock.",
       "time": "00:16:19.20"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "This is the same kind of question, but suppose I don't really know how drug companies operate. I suspect, but I don't know, that where you have a serious drug, people are hurt all the time and they blame the drug. So probably drug companies operate in an environment where they get all kinds of complaints and some are valid, some are not; who knows? People are frightened.",
       "time": "00:16:50.20"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Now, I don't know that. But you say at the beginning your client says: Look, we get complaints all the time; you know, just put up with it if you buy our stock. Now, I don't know to what extent that's true. I don't know how that fits in. I don't know whether their complaint is unusual or not unusual or general. Who is supposed to decide that? The judge at the complaint stage? Or the judge after you get some evidence on it? Or the jury? And the same is true of scienter, after all, because the scienter -- and you have to plead that with particularity. What's your answer? What's -- I mean, Justice Kagan had an interesting view of this, and it could be that she's putting forward and others might have a different view. Who is to decide this?",
       "time": "00:17:15.19"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, we don't know. You see, what they're saying is we have one respectable doctor, studier, at, you know, in Colorado. He, by the way has an abstract, which isn't in the complaint, which says that they do allege that it's zinc that's the problem, a free zinc ion. And they say we also have 25 people who were hurt and some burning sensations in people that didn't rise to that level. You know, I don't know. I don't know if that's within the range of expectation of drug companies as part of the normal course of business which investors should know about, and I suspect a district judge doesn't know, either. So how does it work where we in fact just don't know whether this does or not arise above the background noise of a drug company?",
       "time": "00:18:08.72"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, no, it can't be. I'm sorry, I don't mean to take a position yet. But, look, Albert Einstein had the theory of relativity without any empirical evidence, okay? So we could get the greatest doctor in the world and he has dozens of theories, and the theories are very sound and all that fits in here is an allegation he now has learned that it's the free zinc ion that counts. And that could be devastating to a drug even though there isn't one person yet who has been hurt. So I can't see how we can say this statistical evidence always works or always doesn't work.",
       "time": "00:19:00.76"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They did. They said -- they said the free zinc ion was -- that word on this was told to your client by a person who knows a lot about it, is apparently reputable, and was told to a person who also knows a lot about it. I think they're saying you ought to have been very nervous at that point. That isn't just the usual background noise, okay? So I'm back to my question, which is -- you can answer the other one too if you like. But my question is: Who is supposed to decide, how?",
       "time": "00:19:44.53"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know, and we are back to my question--",
       "time": "00:20:23.78"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The question is, the facts that are pleaded is -- I think it's assumed that this is above the normal background noise; they certainly argue that at length -- that there was this free zinc ion conversation, that there are 25 people who were hurt, and there is a lot of burning sensation going on, even though it doesn't rise to the level of people being hurt, and that's supported by some of the zinc sulfate studies in the fish--",
       "time": "00:20:26.55"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--okay? Now, they're saying that's above the background noise and you say, no, it isn't. Now, who decides and how do we decide? Don't we have to go to a trial?",
       "time": "00:20:51.54"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know. I know, but over--",
       "time": "00:21:08.14"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--We're not saying -- you're saying if you are a scientist -- now we're back to Justice Scalia's questions and the--",
       "time": "00:21:09.94"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well, then what--",
       "time": "00:21:21.46"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, because the sulfate -- you see in the abstract, which they didn't put in the complaint, that the problem that they saw arising out of the zinc sulfate studies was the free zinc ion.",
       "time": "00:21:36.79"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The trouble is, you know, the truth is I don't know, and so I'm back to my question.",
       "time": "00:22:02.75"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, you got cert granted on a limited question, and the limited question was whether in a complaint that alleges only adverse reports can you prove materiality and scienter without proving statistical importance. That's the question presented. Justice Kagan started with the point that the FDA doesn't require that. It requires just reasonable evidence of a connection, not statistical. Many of the amici here have done a wonderful job of explaining why statistical importance can't be a measure because it depends on the nature of the study at issue. So given all of that -- and even in your brief, in a footnote, you answered the question by saying, no, we can't establish that rule as an absolute, because there are additional factors that could prove materiality and scienter. So you've already answered the question presented. Are we down to what Justice Scalia asked you, which is: We got a no to the question: Are the facts in this case enough? I don't know why we would have granted cert on that, but you presented a different question presented. Given the question presented, is the answer no? And if not, why not?",
       "time": "00:22:10.86"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can I just interrupt a second?",
       "time": "00:24:09.50"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This wasn't an FDA-approved drug.",
       "time": "00:24:10.87"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So there weren't any adverse reports in the legal sense of that word.",
       "time": "00:24:13.65"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In the FDA sense. So we're using a misnomer here to start with.",
       "time": "00:24:21.34"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Continue.",
       "time": "00:24:26.69"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Of course, if I may interject--",
       "time": "00:24:33.68"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--the FDA acts in the public interest, doesn't it?",
       "time": "00:24:36.15"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it doesn't make money by withdrawing a drug from the market?",
       "time": "00:24:38.75"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As opposed to somebody who sues, who makes money on the lawsuit?",
       "time": "00:24:42.97"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You have said raw adverse event reports. Am I not right that all of these reports came from medical doctors, and in response to the very first one, the company representative said, yeah, we've been getting reports since 1999?",
       "time": "00:25:45.25"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "My question is, does it make a difference if these reports come from medical experts in this particular field?",
       "time": "00:26:16.39"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, Mr. Hacker. Mr. Frederick.",
       "time": "00:26:39.74"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Suppose the allegations of materiality are based solely on adverse event reports? Suppose that it's alleged that ten million people during -- during -- during 1 year have taken a particular drug and five people shortly after taking the drug have developed certain -- have had an adverse -- have had -- experienced an adverse event. Is that sufficient to go to a jury?",
       "time": "00:27:47.26"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it was the only product, they sold that might be enough, five adverse reports out of ten million? If -- if that's the only product they make, you say, totality of the circumstances, that may be enough?",
       "time": "00:28:37.92"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In response to Justice Alito, I heard you say something about a scientifically plausible link?",
       "time": "00:29:08.79"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That seems to me to be a rather significant concession. In other words, you're saying it's not simply the fact that some psychic would say something, that that is not sufficient, even if that has an impact on the market price, that there has to be some scientifically plausible link to the report?",
       "time": "00:29:15.18"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I thought this might come up. At some point do we look at scienter and then go back from that to whether or not it's material, i.e., the argument would be the company knew that this would affect the price, and that's why they didn't disclose it and therefore that shows it's material? Or do we do this with two isolated boxes: one, materiality, two, scienter, and we don't mix the analyses.",
       "time": "00:30:02.34"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But Mr. Frederick, suppose you are the CEO of a pharmaceutical company with a new drug, you've just put it back on the market, and you get a report back, this drug has caused a death, right? This is your first adverse effect report. Do you have to disclose it?",
       "time": "00:31:56.25"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Now we're told that there are hundreds of thousands of these; for a -- for a typical drug there may be thousands of these adverse event reports in -- in a year, and you're -- basically you're saying all of those have to be disclosed?",
       "time": "00:32:49.90"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well they -- already. So then why does the company have to make additional disclosure?",
       "time": "00:33:05.68"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Analysts who follow the stock price can easily look at the FDA web site and see the adverse event reports that have been reported--",
       "time": "00:33:09.49"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--and draw whatever conclusions seem to be warranted based on that.",
       "time": "00:33:18.11"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How would you write -- look, I'm asking how do you write this, because what -- where I think where the other side has a point, is if -- with these -- this is a big class of these kinds of things, you know, vitamins, all kinds of things like that -- and if we say that they have to disclose too much, what will happen is people won't pay attention to it, you know. And if -- if you have, you know, 4,000 pages of small print saying everything that was ever reported, what really happens in -- in such instances is the public pays no attention, and they think -- and it will hide things that are actually important. So how would you write some words -- assuming that you're right, that their test is wrong -- but how would you write some words that will put a disclosure obligation such that it's not going to be overkill and it is going to get incidents that rise above the background noise, and those are the incidents that are -- that would be significant for a reasonable investor?",
       "time": "00:33:42.86"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, I'll go back and read what you've just said, and -- I will, because it will be in the transcript, and -- and the -- I -- this case, you are very good, your clients, and the lawyers at writing complaints.",
       "time": "00:35:08.13"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right? So they've alleged in this complaint everything they can show, and I -- I suspect -- and during the class period. And what it doesn't say is that very helpful chart that you put in the brief, in the pocket. It doesn't say they ever showed that to the company. All it says is there was a phone call and this individual from -- from Colorado said something, which it doesn't specify, about zinc and the -- and the number of deaths.",
       "time": "00:35:21.03"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How was your -- that long litany of factors you mentioned a few moments ago about how a company will go about determining whether an adverse event report is material or not or should be disclosed or not, are you saying that companies don't have to respond to irrational securities holders? Are you accepting your adversary's proposition that on some level -- you said credible evidence -- that they don't have to respond to things they judge are not credible?",
       "time": "00:36:21.41"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So what protection is there at the summary judgment stage in response to allegations? Because it doesn't have to be scientifically valid; it can be completely irrational. All you have to do is allege that, you know, if you had told this the price would have gone down. If you had disclosed this the price would have gone down, and the response from the company is, well, but this is just ridiculous. This is some guy in his garage who writes this out on -- on a -- you know, a piece of paper in -- in handwriting; and the response is going to be, well let's let the jury sort it out.",
       "time": "00:37:29.71"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you just told me that it would be enough if somebody says that there's a satanic, you know, impact on this, because a reasonable investor would say there are enough crazy people out there that this is going to affect the price.",
       "time": "00:38:19.64"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So it matters whether -- I don't know what kind of product has particular satanic susceptibility-- [Laughter] --but I mean, are you saying it matters if it's something that -- that Satan's not going to be interested in? I don't understand.",
       "time": "00:38:46.39"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I don't mean to be facetious, but your way of distinguishing the satanic product is that it depends on whether people who follow satanic cults are going to be interested or not. I mean--",
       "time": "00:38:59.38"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know if scienter is -- it seems to me ridiculous to -- to hold companies to -- to irrational standards; and we did -- and we did say in -- in Basic that it's viewed -- whether it would be viewed by the reasonable investor. And -- and you are saying well, the reasonable investor takes account of the irrationality. I don't think that's what we meant in -- in Basic.",
       "time": "00:39:20.75"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So that -- I'm just trying to get your response to that. You just talked again about credible scientists and all that, and you're putting those other things to one side. So even if you have your satanic problem, that is not enough. And you can sit there and allege it would cause a drop of 30 percent in the stock price, and you should have let this know. Your answer is no, they don't have to let -- they don't have to disclose this because there is no scientific credible basis for the link that's alleged?",
       "time": "00:40:02.71"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Can I give you -- because I'm having a little difficulty understanding the boundaries of the argument you're making. Let me give 2 hypotheticals, and they both involve companies that have one product, and this is their one product. The first one was what I mentioned before, and I wasn't -- I wasn't clear about your answer. All that's alleged is that a very large number of people took the drug and that three people, after taking the drug, within a week developed a certain syndrome. That's the first one. Is that enough for materiality? The second one is that a company receives a telephone call: Hello, I'm a general practitioner from wherever, and I treated a patient and the patient took your medication and shortly after that developed this syndrome, and I think there might be a connection.",
       "time": "00:40:55.46"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All right. This drug, let's say it's a drug to relieve the common cold and the effect is loss of the sense of smell. Five million people take it. Three people, after taking it, lose their sense of smell. Is that enough for materiality by itself?",
       "time": "00:42:14.77"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Frederick your time is running out, and there is one thing you emphasize in your brief, and I haven't heard you say one word about it here. And that is: You're saying this is not a case of a company that remains silent. The company, in response to this, issued press releases in which it said any suggestion of a linkage is completely unfounded. Now, that's something different from, there are X number of reports. To what extent are you relying on the affirmative statements that the company made?",
       "time": "00:42:46.66"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Frederick, I'm -- I'm not clear on why you can draw a distinction between materiality and scienter for purposes of the issue before us here. If, indeed, satanic effect is enough for materiality, you say, well, it may not be enough for scienter. Why? I mean, if the company knows that satanic effect is material, then the company has -- knowingly withholds it because it thinks satanic effect is irrational, why doesn't that company have scienter, if it's material? The scienter is withholding something that is material that is known to be material, and once you say that -- you know, that Satan is material, if the company thinks Satan is involved here, it has to put it in its report, no?",
       "time": "00:43:58.07"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So there's no difference between the materiality issue and the scienter issue.",
       "time": "00:44:54.99"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't push this problem off onto the scienter side of the equation.",
       "time": "00:44:58.41"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. I get that. Can I just ask you one question in response to -- just picking up on the last, what about the need for a, quote, \"strong inference of scienter\", end quote, and does this complaint show more than a borderline situation where it doesn't strongly infer that the person intended to mislead the defendant? What about that argument?",
       "time": "00:45:16.84"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, page 49 of their brief -- they have two pages on it -- it does not give rise to a strong inference of scienter.",
       "time": "00:45:58.75"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, I mean -- I just want to know why, if their inference on materiality is enough to survive the background noise reply, is it enough to show a strong inference that they did do this intending to mislead, a strong inference of scienter?",
       "time": "00:46:16.12"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Frederick. Mr. Shah.",
       "time": "00:46:58.72"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Shah, what do you think about Satan?",
       "time": "00:47:43.26"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They haven't said that. They haven't said that our sales are going to double. They're just walking along at normal sales.",
       "time": "00:48:48.44"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they find out that 10 percent of nutty-nuttys out there are not going to buy their stuff because of Satan. What about that?",
       "time": "00:48:55.33"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You would have -- you just said they would have a duty to disclose?",
       "time": "00:49:56.73"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought you earlier just said there's no affirmative duty to disclose; it only is based on what they say?",
       "time": "00:50:00.28"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if the company makes the kind of relatively common statements that were made here, poised for growth in the upcoming season, very strong momentum going into the season, extremely well positioned for successful season?",
       "time": "00:50:38.62"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "That -- that triggers the duty to disclose the satanic rumors?",
       "time": "00:50:54.80"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the government's position is that reports of adverse effects that have no scientific basis, so long as they would affect irrationally consumers, have to be disclosed, assuming the company has said we're doing well, right?",
       "time": "00:51:56.99"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, if Satan comes in, surely lousy science comes in as well, no?",
       "time": "00:52:24.99"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Shah, what deference do you think that the SEC's understanding of materiality it's entitled to and why?",
       "time": "00:53:39.19"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is there any way that consideration of those factors would support a -- a summary judgment in favor of the pharmaceutical manufacturer, other than the fact of having an extremely poor lawyer drafting a complaint? Anytime you have a variety of factors like that--",
       "time": "00:55:11.45"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I think it's very difficult for the judge to say anything other than that's for the jury.",
       "time": "00:55:27.64"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah.",
       "time": "00:55:35.98"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no, I'm talking about the -- I'm talking about materiality. In other words, based solely on -- in other words, you're saying if they say anything related, it's going to be enough--",
       "time": "00:55:57.41"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--whether it's a scientific basis or not.",
       "time": "00:56:06.48"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Hacker, you have three minutes remaining.",
       "time": "00:56:51.04"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Has that -- the solicitor general's argument. He wasn't actually even talking about causation. He was talking about a statement you made about the company poised to double its growth. And I think he was saying that on the basis of what you had heard up until that time, you had to have known that that statement was misleading, as was the statement that this drug, that there was absolutely no proof or connection of causation, which was your scientific panel said you couldn't make that extreme statement.",
       "time": "00:58:13.41"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted. At this moment, the court will observe a moment of silence in honor of the victims of the shooting in Tucson and join the rest of the nation in doing so and I invite the members of the bar and the spectators to join, thank you very much.",
       "time": "00:59:47.82"
     }

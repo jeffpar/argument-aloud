@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1997/97-569/19980422a_97-569.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES J. CASEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ERNEST T. ROSSIELLO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "BARBARA D. UNDERWOOD",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 97-569, Burlington Industries v. Kimberly Ellerth. Mr. Casey.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Casey.",
       "time": "00:00:43.41"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It sounds to me like you're asking question 2 of the questions presented on petition for certiorari, which is whether strict liability is the proper standard. Now, I thought the Court didn't grant certiorari on question 2. I thought we granted certiorari on question 1.",
       "time": "00:00:44.73"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Most of your brief addresses question 2. I mean, are we going to talk about question 1, on which cert was granted?",
       "time": "00:01:05.11"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it doesn't address strict liability actually. It says whether a claim of quid pro quo sexual harassment may be stated under Title VII, when the plaintiff has neither submitted to the sexual advances nor suffered any tangible effects. That's the question.",
       "time": "00:01:26.11"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It... it doesn't refer to strict liability.",
       "time": "00:01:44.62"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there... there's really no other reason to have the quid pro quo category, is there?",
       "time": "00:02:36.95"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Except to establish a different standard of liability.",
       "time": "00:02:44.24"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The statute doesn't... doesn't establish different kinds of sexual harassment... quid pro quo and... and environmental harassment.",
       "time": "00:02:47.91"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not in the statute, is it?",
       "time": "00:02:57.03"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When you say VII, you are just asserting that there is a different standard for the employer?",
       "time": "00:03:54.12"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So everybody agrees that this kind of claim is stated under Title VII?",
       "time": "00:04:15.28"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then how did we come to this distinction, then? Because the statute doesn't say a word about quid pro quo and it doesn't say a word about hostile environment. It says: same terms and conditions of employment, period.",
       "time": "00:04:22.69"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we have a race or national origin case where there's a negligence, as opposed to vicarious liability?",
       "time": "00:05:11.04"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So suppose this supervisor... let's use race as an example... suppose a supervisor says, I'm not going to promote you because you're Asian, Hispanic, whatever, and a week later does promote the person. And the person is no longer even working for that supervisor... promoted out of the department. Is there a violation there?",
       "time": "00:05:45.34"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There is?",
       "time": "00:06:10.07"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There is not.",
       "time": "00:06:12.47"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And do you analogize what happened here to the hypothetical that I... I gave you?",
       "time": "00:06:25.62"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose in the case that I... that I put the promotion... the case where I put it was... that she was promoted the next week.",
       "time": "00:06:47.58"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose in the race hypothetical the promotion isn't going to come up for a year, but the supervisor has said that. Could the employee bring a cause of action injunction? Or is there just no... it's just kind of a violation in the air, with no damage?",
       "time": "00:06:53.62"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Despite... despite the insult and the personal hurt, et cetera, et cetera?",
       "time": "00:07:15.06"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if... what if you have a situation of a supervisor for a large corporate employer who routinely orders a female employee under his supervision to go to a certain isolated place, where the supervisor can be alone with this employee and repeatedly then tries to use that opportunity for sexual gratification... repeatedly? No... no change in promotion status or discharge. Is... is there vicarious liability there for the employer or only if the employer is, as you put it, negligent?",
       "time": "00:07:28.81"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No. I... I left that out of the assumption.",
       "time": "00:08:23.51"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That the supervisor uses his supervisor... supervisory authority to place the employee in... in this situation, where he can then take advantage of her.",
       "time": "00:08:30.61"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And does so repeatedly.",
       "time": "00:08:41.40"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the employer is not negligent, the employer tells all their supervisors to be careful, don't do this.",
       "time": "00:08:53.48"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Then why not, in... in one instance alone... let... let's take Justice O'Connor's example, but change it in this respect. Let's assume the supervisor orders the... the employee into his office. And instead of being subtle about it or comparatively so, he is very explicit about it. He said: You are going nowhere with this company. You are not going to get your promotion 12 months hence unless in the meantime you grant sexual favors to me. Isn't that sufficient to create at least the hostile environment?",
       "time": "00:09:10.42"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why not?",
       "time": "00:09:42.48"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What could be more hostile than that?",
       "time": "00:09:43.68"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, quite. But... but the... the point of the single incident cases, as I understand them, is that there's a certain amount of... of necessary rough give and take in life. And the fact that there may be one or two employees in a company who occasionally make a remark... the one-incident case to be literal about it... does not suffice to modify the entire environment to the point where a discrimination can be inferred. But when one is talking about a supervisor, with the undoubted authority, in effect, to... to change the entire future of a given employee in that company, and that supervisor is explicit about it, nothing is left to chance, it seems to me that the... that the... the very power of the employer, the explicitness of what he does in... in this hypothetical should... should be enough, whereas one remark from a fellow employee wouldn't be enough.",
       "time": "00:09:57.74"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why... why not? Why, if... if in a series of cases the employer is going to be liable because the supervisor has been authorized, has been given a particular power and repeatedly abuses it, so that the abuse is clear, why shouldn't the employer, by a parity of reasoning, be liable when the abuse is equally clear when it is made very explicitly clear in... in one instance?",
       "time": "00:11:04.30"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but he has done nothing in Justice O'Connor's hypo except speak words, except that he has done so somewhat less explicitly than he does in my case. So it may take a while to make it very clear that he means what he says. But in... in my case, the... the same inference can be drawn after the first instance.",
       "time": "00:11:40.14"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But she resisted. She resisted every time. It was awful for her, but she resisted. What... where do you put that case? I assume that if she succumbs in order to get the promotion, then you would say we don't have to prove negligence; is that correct?",
       "time": "00:12:13.27"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Okay. Now she reasonably... she reasonably believes that it's going to be very hard to put up resistance, but she's going to do it. She reasonably believes that she's got to resist this. And she does. And in those two cases, as far as the employer is concerned, there's no more likelihood that the employer will know about one situation than the other, is there? But you told me that if she succumbs, then there's liability. And if she doesn't, then what?",
       "time": "00:12:29.99"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, that's... that would all be for a trial if there were a trial. But this... that's... this was decided only on summary judgment.",
       "time": "00:13:47.88"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So we don't know anything about what employees... we know that there was a policy. We don't know anything about how effective it was, how other employees reacted to it. So all we know at this stage in the game is that there was a policy.",
       "time": "00:13:55.65"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We... we know... we know two things: That there was a policy and she didn't use it. We don't know any... anything about why. It may be that she thought it would... was a totally ineffective policy. But we really can't go beyond the summary judgment record. And we don't know any of these things, other than the fact that there was a policy and the fact that she didn't use it.",
       "time": "00:14:35.68"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where is that? What are you referring to? What testimony?",
       "time": "00:15:14.22"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What... what is the relationship between your reasonably believe standard and the standard either of employer negligence or, for that matter, employer strict liability?",
       "time": "00:15:36.25"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I understood you to say a moment ago, in response to Justice Ginsburg's variant on the question, that if the employee reasonably believed that he could carry out... that the employer could carry out threats, even though those threats had not at that point been carried out, that there would be a hostile environment. And I... I was going to say, what is the relationship between that standard and the standard of employer negligence?",
       "time": "00:15:49.38"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But... but if she reasonably believed it and did not submit, even on a claim of hostile work environment, there would be no liability, period? There could be no liability; is that your position?",
       "time": "00:16:37.36"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question on that point? Supposing in the Chicago office you had conditions that clearly amounted to a hostile work environment, much... much worse facts than you have here. Everybody is being very, very rude to the female employees. And the only person outside of that office who knows about it is the vice president in charge of sales in New York... this particular individual. Would that be notice to the company of the hostile work environment?",
       "time": "00:16:52.92"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:17:19.90"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but it's open only in Chicago. And the only higher executive who knows about it is this particular individual, Mr. Slowik. Would that be sufficient notice to the company?",
       "time": "00:17:27.92"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he had exactly the duties he has in this case. He's the vice president in charge of the sales in a large part of the country. Is that--",
       "time": "00:17:37.93"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes, he's aware of it. That's my--",
       "time": "00:17:46.62"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, then why isn't it notice to the company when he does it himself?",
       "time": "00:17:53.97"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if he told the president about... about the case, the president of the company. Would she then have... have a case? He told the president everything that she's put in the record here.",
       "time": "00:18:07.20"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The question... part of the question is, A, is there a violation? And, B, if so, is the company responsible for it? And I'm trying to assume that... that what he said would be a violation. Maybe that's where we... we part company. I don't know. But if the things that happened here were not only known by Mr. Slowik, but by the board of directors of the company, would there be liability?",
       "time": "00:18:20.01"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So... so it isn't a question of whether we hold the company responsible. The question, in your view, is whether there was a violation at all?",
       "time": "00:18:46.98"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. I thought you said earlier that... that, in your view, the acts were not repeated enough to constitute a hostile work environment. Was I wrong about that?",
       "time": "00:18:55.27"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:19:03.90"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that's the reason, if there were notice to the company--",
       "time": "00:19:05.57"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Can... can I ask you something about Justice O'Connor's hypothetical?",
       "time": "00:19:08.86"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You said that where... where the company officer takes the woman aside to an isolated place where he can make his sexual advances, that that would... that would be automatic liability on the part of the employer?",
       "time": "00:19:13.06"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would be a quid pro quo case? Is that why... why... because he's using his power as an officer to take her aside to the--",
       "time": "00:19:26.45"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What would you call that? Would you call that quid pro quo?",
       "time": "00:19:36.39"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what if he tells her to come over to the water cooler? I mean, boy, you've expanded quid pro quo an enormous amount if you accept that. What if he tells her, you know, Come on over to the water cooler, I want to tell you something, and she goes over to the water cooler?",
       "time": "00:19:47.70"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I had thought the quid pro quo was just those... those company actions which, in themselves, amount to an alteration of the terms and conditions of employment, like firing, promotion and so forth.",
       "time": "00:20:03.36"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're willing to say quid pro quo is... is what, any... any action that... that an officer of the company has authority to tell somebody to do?",
       "time": "00:20:16.35"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it isn't constant isolation, as I understood her hypothetical. He just took her aside to an isolated place to make his proposition. I mean if he assigned her to a... you know, to Timbuktu or something, yes, then--",
       "time": "00:20:33.96"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--then I could see a quid pro quo.",
       "time": "00:20:45.58"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But he just pulled her aside to make his proposition.",
       "time": "00:20:47.32"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see. So she's working... you... you understood her question to mean that she's working in an isolated part of the factory?",
       "time": "00:20:55.14"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All by herself there?",
       "time": "00:21:00.22"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Casey-- --Well, that wasn't the question. [Laughter] But you're altering it to suit your needs now. Mr. Casey, would you explain this to me? In the... I take it it's common ground here with you and everybody else that in a hostile environment claim there does not have to be any change in conditions beyond those conditions which are constituted by the hostility of the environment?",
       "time": "00:21:02.66"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Now--",
       "time": "00:21:27.39"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Right. If the environmental hostility is created by threats of personnel action, threats of a quid pro quo nature in other words, which are not carried out, why isn't the hostility of the environment just as clear, even though there are no other changes in condition, as... as may be the case in a non-unfulfilled quid pro quo hostile environment case?",
       "time": "00:21:31.31"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but I'm leaving aside the... and maybe... maybe I'm isolating the question too much for... for... for your tastes... but I'm... I'm suggesting for a minute let's leave aside the standard for imputing liability to the employer. Let's just look at whether there's been a violation. And... and forget whether it's negligence or whether it's strict liability for the moment. And I take it your answer is yes, there can be a hostile environment by unfulfilled quid pro quo kinds of threats?",
       "time": "00:22:15.90"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And your... your only point of difference then, I guess, with your opponents on that isolated point is that you say there's got to be more than one threat, just as there has got to be more than one hostile remark, if you will, in order to create the environment?",
       "time": "00:22:45.47"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "One... one instance--",
       "time": "00:23:05.65"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--And you're saying that the fact that the hostile environment and the unfulfilled quid pro quo situation is created by a supervisor, with more authority than let's say just a fellow employee, that doesn't make any difference in the calculus of how many instances there have got to be before we can conclude that the environment has in fact become hostile; you're saying that really is not relevant?",
       "time": "00:23:08.29"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay. Mr. Casey, you... you formulated this question, a claim of quid pro quo sexual harassment. Now, what... what is your understanding of the term \"quid pro quo sexual harassment\"?",
       "time": "00:23:34.61"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Simply where it's proposed or where it happens?",
       "time": "00:23:57.76"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where it happens?",
       "time": "00:24:00.44"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You mean-- --Where it happens?",
       "time": "00:24:02.17"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes. But... and--",
       "time": "00:24:16.77"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yes. But it's curious, because you say that where... where the woman says, Okay, I will sleep with you, and he does promote her, so that there is a quid and there is quo for the quid, that is not quid pro quo. But where she refuses, she does not give the quid, and therefore does not get the quo, that is quid pro quo? [Laughter]",
       "time": "00:24:19.85"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's an interesting theory.",
       "time": "00:24:45.04"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And in the case where it is... in the case where it is the violation, he makes the proposition, it's refused, and she is not promoted, and the person who did it is the vice president of the company, why doesn't the company know about it? He knows about it. He's the vice president. He is the company. So why isn't the company the actor? Why does he--",
       "time": "00:25:00.40"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. So then you're just using the same arguments that were in this other case. There's nothing new here? I guess it puzzles me that-- --Is that right? --if she does acquiesce, the law gives her a remedy. If she doesn't, it doesn't give her a remedy. So the law favors submission, as I understand it.",
       "time": "00:25:31.93"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if we're talking-- --I'm assuming he's bluffing in both cases. In both cases he's bluffing.",
       "time": "00:25:52.76"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But in your view, there... in your view... this is what I was trying to get at... there is nothing in this case in respect to authority, apparent authority, agency... all the things that we discussed in previous cases that were recently argue... in that area, there is nothing different here; the only thing that is different in this case is whether or not the quid pro quo is in fact substantively irrespective, is that right?",
       "time": "00:25:57.93"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, but I know that you... I'm trying to figure out, is there anything in the question that we are being asked to decide that is different from the question in the two cases that were recently argued here?",
       "time": "00:26:30.15"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And there is one thing that seemed different. We're asked... which is what I thought the question meant... whether there is a substantive violation of the statute, nothing to do with vicarious liability.",
       "time": "00:26:41.22"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And now, other than that, is there anything different?",
       "time": "00:26:53.52"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what is that?",
       "time": "00:26:57.24"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if I believe it's strict liability, there's nothing different? If I--",
       "time": "00:27:04.12"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But that... that's what we didn't grant certiorari on. That's the second question.",
       "time": "00:27:09.19"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Casey, how did all this come up? It really is mystifying, with a statute that doesn't use any of these terms. It just says no... thou shall not discriminate in hiring, firing or terms and conditions of employment.",
       "time": "00:27:25.24"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why... why should that be? Why should there be a distinction between quid pro quo and hostile work environment? What is the law trying to achieve by adopting that category... by adopting that dichotomy?",
       "time": "00:27:51.65"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Casey. Mr. Rossiello, we'll hear from you.",
       "time": "00:28:26.97"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rossiello-- --Well, why does quid... I'm sorry, go ahead. I'd like to ask you, in... in a situation like this, where we take it that the supervisor doesn't follow through on any threat, actual or implied, of failure to promote or something, some employment action, where the employer does not follow through on that, the harm to the employee seems to be very much the same as that under hostile environment claims.",
       "time": "00:29:25.18"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, I... I don't see a lot of difference here than there would be to simply a hostile environment situation, where... where the threat is... is not carried out.",
       "time": "00:30:01.79"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I... I just don't see much difference now. And in that regard, what role does the existence of an employer policy and method for handling complaints of this type play? Does it go to the reasonableness of the employee's belief or does it go to the amount of damages if there's liability? What role does that play?",
       "time": "00:30:21.75"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let's suppose it's a fabulous policy and very effective.",
       "time": "00:31:01.24"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, what role does it play?",
       "time": "00:31:05.53"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What role should it play, if it's a perfect policy?",
       "time": "00:31:07.36"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but might it go to the reasonableness of the employee's understanding when some comment is made? I mean if she knows perfectly well, look, this company has a... a good policy, and if I say something higher up the ladder, it's going to be taken care of. Then is it reasonable to... for her to believe that there is some serious threat out there?",
       "time": "00:31:26.21"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but we've already explored the possibility that this is very much like hostile environment if the threat isn't carried out. You're... you're back to hostile environment. Well, it's sort of a hybrid. If-- --Well, Mr. Rossiello, a hybrid of what?",
       "time": "00:32:01.88"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what's wrong with that belief?",
       "time": "00:32:31.12"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could I follow up on that?",
       "time": "00:32:35.44"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... you agree that where... where either she complies and... and the job action... threatened job action isn't taken or she doesn't comply and the job action still isn't taken, it's like hostile work environment. Isn't it also true that where she doesn't comply and the job action is taken... she's not given the promotion or she's fired... is anything added to the Title VII analysis by saying it was quid pro quo? That is to say, suppose the... the officer of the company, without making a quid pro quo proposition, you know, didn't say, you know, Unless you sleep with me, you won't get the promotion, but simply asked the woman to sleep with him, she didn't, and he fired her for that reason. Without having made any quid pro quo proposal, would... would the case come out any differently if that could be established than it would if he had made the proposal? In other words, isn't the... isn't the proposal simply evidence of the fact that the reason she was fired or the reason she didn't get the promotion was sexual discrimination?",
       "time": "00:32:37.12"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:33:43.01"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't even need a threat. I mean if... if--",
       "time": "00:33:49.98"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if he just makes a sexual advancement, she doesn't comply, she is fired thereafter, and if you can show that the reason for the firing was that she was not compliant, you... you've established a case, haven't you?",
       "time": "00:33:52.85"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whether there's been the threat or not. The threat only serves as evidence of the reason for the job action.",
       "time": "00:34:05.73"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But in a... in a situation in... in which the threat is not carried out, then I take it quid pro quo... the quid pro quo distinction makes a difference in this sense... and tell me whether you think I'm right. As I understand the way we've been using the term, a quid pro quo threat is, by definition, a threat that only a supervisor can make, because only the supervisor has got the power to do whatever is threatened.",
       "time": "00:34:11.81"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I suppose that a supervisor's threat, simply because it is that of a supervisor, may have more force, may be more powerful in creating a hostile work environment, even if it's only made once, than would one off-color remark or one proposition by a fellow employee without such power. Do you agree that in the unfulfilled quid pro quo situation there might be that difference?",
       "time": "00:34:35.66"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which is essentially an evidentiary difference.",
       "time": "00:35:06.90"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:35:09.77"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "With respect to that, if you've got a supervisor who just loves to... never makes kind of a thing, \"If you don't, then I will. \" but just likes to make the atmosphere fun for the guys and dreadful for the... for the women, doesn't ask for any favors, there's just all of these remarks, light touching, just makes it... do you remember way back in the beginning of the world, there was a case called Bundy, and there were secretaries who said, We don't want a promotion, and nobody is threatening to fire us, but this is awful to live under these conditions. So, Court, don't give us money, just tell them to stop. Now, where does that kind of case fit in this picture?",
       "time": "00:35:13.47"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But nobody ever suggested in those days that there was something different between quid pro quo and a hostile environment and... and vicarious liability on the one hand versus knew or should have known on the other. It seemed to be all one... it was under Title VII and there was one standard.",
       "time": "00:36:05.94"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, let me ask you this. Suppose it were a given... suppose we would hold that in a hostile work environment case there is liability only if the employer is negligent. Suppose that were our holding. Would the quid pro quo distinction then be important to you? [Laughter]",
       "time": "00:36:41.53"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And in fact, I noticed that in answering Justice O'Connor's question you said, but in a quid pro quo case. And now, see, you attack this distinction and yet you use it.",
       "time": "00:37:05.79"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or at least you want to hold it in reserve.",
       "time": "00:37:17.75"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And we didn't start it, Mr. Rossiello, lest... lest silence indicate consent. [Laughter] When we used the... the expression in... in Meritor, we were referring to by... what was by then a well-established body of... of court of appeals law. I mean don't... don't put it on us. We were just--",
       "time": "00:37:25.02"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't see why it's a problem. Why is it a problem, but for the circumstance that you have here, where there is a proposition that is refused and no punishment? In any other situation, isn't it perfectly useful, or is it?",
       "time": "00:37:44.10"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Instructive. But I mean more, doesn't it happen, propositions, every day of the week?",
       "time": "00:37:59.53"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they're sometimes are followed by punishment. And they're also sometimes accepted and followed by the lack thereof.",
       "time": "00:38:03.77"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So there is actually... but if there is... if... to go back to our case, where... where there's a proposition turned down and no punishment, if it were true in that subset, in that subset of quid pro quo, that it is not a violation unless it is a hostile work environment, which depends upon circumstance and a lot more than just the bare facts I stated, how can you win? Because what I'm interested in your answering is, in the opinions below, I have some kind of impression that you either waive that or they said that that isn't in the case or... what... can you explain to me what I'm... what... it may be a hostile work environment, but it requires further factual exploration, and there is a Seventh Circuit opinion that suggests this whole matter was waived or something.",
       "time": "00:38:09.67"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you respond to my... what I'm worried about?",
       "time": "00:39:00.02"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What are we supposed to do if... if... or what am I supposed to do if I thought that might still be there, in light of what the Seventh Circuit did hold, not what they should have hold... held? And... and in light of the fact that your cross-petition, I take it, is not before us?",
       "time": "00:39:21.27"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So what are... what would I do in this case if I... on the assumption... I'm not saying I really think that... but on the assumptions that I gave you?",
       "time": "00:39:35.07"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He should regret that we did not accept your cross-petition, I suppose.",
       "time": "00:39:50.12"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We didn't accept it. I mean that's the fact.",
       "time": "00:39:52.14"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Rossiello, as I understood what... what happened, was that you didn't surrender a hostile environment case, but you did surrender a simple negligence. So, in other words, what you said is hostile environment, quid pro... whatever you want to call it, there's vicarious liability here. So I think what the majority of the Seventh Circuit judges said you gave up was hostile environment, simple negligence, not that you gave up hostile environment and the standard is vicarious liability. Is that correct?",
       "time": "00:39:57.36"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that in the next round of this... let's assume you win this round... in the next round, if it is determined that in fact when a supervisor is involved and the action involves a threat of using the authority that the supervisor has been given by the company, negligence is not required. A stricter standard of vicarious liability applies. Then you're home free?",
       "time": "00:40:30.41"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right. But the... the point that I was making is the only thing that you have conceded out is company liability on a negligence theory?",
       "time": "00:41:07.78"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, okay.",
       "time": "00:41:15.57"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't... I just don't understand your response about his using authority that the company has given him. The company hasn't given him authority to... to make a sexual proposition to any of the employees, has it?",
       "time": "00:41:18.76"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I assume the company also hasn't given him authority to fire a woman for her failure to comply with his sexual proposition.",
       "time": "00:41:33.07"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean--",
       "time": "00:41:46.71"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--where it occurs, you can say the employer has acted. I don't care whether this officer was involved or not, the employer has acted, where the firing has occurred. But where the firing hasn't occurred, where there's been no employer action, I... I find it... I find it much more difficult to leap to employer responsibility on a theory that the supervisor was using authority employment... the employer gave him. The employer didn't give him any authority to fire somebody for failure to comply with his sexual advances.",
       "time": "00:41:52.28"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You can finish your answer briefly to Justice Scalia's question.",
       "time": "00:42:43.23"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rossiello. Ms. Underwood, we'll hear from you.",
       "time": "00:42:54.68"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even when the employer's policy, which the woman knew about, specifically prohibits this, how... how could you possibly say that the employer was... was changing her terms and conditions of employment? The... the supervisor was violating an employer policy that she knew about.",
       "time": "00:43:38.38"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, but in... but in... but in that instance, the... the company is acting... the company has acted. So it is within the scope of employment. But if it's just a threat, there's no action within the scope of employment for agency principles.",
       "time": "00:44:00.13"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And we'll... we'll leave aside hostile environment and repeated acts and pervasive discrimination and so forth.",
       "time": "00:44:20.07"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you could say that, but it's not true. In fact, that power does not reside in that officer. It has explicitly been taken away from him by the company. What more can the company do than to... you know, than to make that the company policy?",
       "time": "00:44:46.28"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but that's... that's--",
       "time": "00:45:13.18"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But that's the difference. Suppose you have a model employer, with... with policies, with grievance procedures and so forth. Then you have a threat that is not carried out. Under agency principles, there's... the scope of employment doesn't come into play, because nothing has happened other than an environment, which we can take care of under a different analysis.",
       "time": "00:45:14.55"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But... but that's never... that's never... never carried out. And she knows that's not true. Yes.",
       "time": "00:45:47.23"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then she also learns that it's not carried out because she doesn't acquiesce and nothing happens.",
       "time": "00:45:58.05"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but there... there... my sense of the thing, if... if that is true, is that there simply isn't any liability.",
       "time": "00:46:12.23"
     },
@@ -1791,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Sure.",
       "time": "00:46:27.45"
     },
@@ -1803,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And suppose they don't discharge the person. He says, I'll discharge you; are you discharged?",
       "time": "00:46:29.99"
     },
@@ -1815,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He's wanting you to go collect unemployment insurance. I don't think they'll give it to you.",
       "time": "00:46:36.70"
     },
@@ -1827,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. And this doesn't penalize an attempt to discharge.",
       "time": "00:46:40.45"
     },
@@ -1839,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So it... it... if it's say you can't discharge, you can't hire, you can't discriminate on terms of employment. So why, if in fact you don't discharge the person but say you're going to but you don't, if that doesn't violate the statute, why would it violate it to say, I'm not going to give you a promotion, and then you do?",
       "time": "00:46:44.00"
     },
@@ -1851,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But suppose it is, I'm going to make you work in Timbuktu, or, I'm going to make you do some other thing terrible, but you don't.",
       "time": "00:47:04.73"
     },
@@ -1863,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But if it has... if it has... if it has the bad effect, if they do something bad, she's hurt.",
       "time": "00:47:23.78"
     },
@@ -1875,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you're saying the simple statement of saying it... so if you say something that never happens, because the person is a woman and it doesn't create a hostile environment, it still is actionable?",
       "time": "00:47:26.48"
     },
@@ -1887,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Underwood, supposing this supervisor had two employees, one a man and one a woman. And he says to the man, I can make your life a lot easier here if you let me... you let me use your beach place every weekend, and he says to the woman what was said here. Now, is a case of discrimination on the basis of sex made out there?",
       "time": "00:47:47.06"
     },
@@ -1899,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but he's... he's asking favors from both males and females.",
       "time": "00:48:12.62"
     },
@@ -1911,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see. So... so your answer might be different if he hadn't asked the male employee to lend him his beach place, but rather made a sexual overture to the male employee. Then he would have been making sexual overtures indiscriminately, and there would have been no sexual discrimination towards either party; is that your--",
       "time": "00:48:36.32"
     },
@@ -1923,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yes, it is. It's an impossible case, isn't it?",
       "time": "00:48:54.99"
     },
@@ -1935,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Ms. Underwood--",
       "time": "00:48:58.32"
     },
@@ -1947,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, finish... I thought you were finished. Go ahead.",
       "time": "00:49:00.26"
     },
@@ -1959,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and then the next... and the next day, a new supervisor comes in and says, We're sorry about that; that's wrong. Was there a violation? They worked for 1 hour under the... under the employee who behaved wrongfully.",
       "time": "00:49:24.22"
     },
@@ -1971,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there any case in any area of the law... I'll focus on the word \"discharge\", because it clarifies it conceptually. I want to take out of your thought the problem of the bad environment. So we're not talking about a bad environment at all. Is there any case in labor law, law of contract? You know, there... there is lots and lots of law where it's unlawful civilly to discharge someone. And is there any instance where a person could recover where he wasn't discharged? It's somebody who said, I will discharge you, but he didn't. I... I can't--",
       "time": "00:49:51.72"
     },
@@ -1983,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. Then--",
       "time": "00:50:27.20"
     },
@@ -1995,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is there any case, then, under Title VII... well, but it's... you see, it's in... it's lined up certain things: hiring, discharge and discriminating in terms of conditions of employment. So the question would be the same for each. That is, where there was no discharge, where there was no hiring, where there was no discrimination in terms or conditions of employment, but simply a threat to make... to do those things that was not carried out. Now, is there any precedent that would make the threat in any of those areas equivalent to the reality?",
       "time": "00:50:35.48"
     },
@@ -2007,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And can we tell from just the first threat... and this is the problem, Ms. Underwood, that I had understanding the government's position... there could be a threat and the company could have a very strong policy. So you really, looking at it as an observer, you can't tell whether it would be reasonable for the worker to believe that the threat is anything more than a... a slight of the kind that is... we... we all have to accept. So I can understand a series of threats as making for a hostile environment. But I don't understand just a single threat. And you seem to say that a single threat, whether carried out or not, it... it qualifies for liability.",
       "time": "00:51:20.76"
     },
@@ -2019,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But suppose all you have is this... you have this vice president, who is a pest. And you have a strong policy. And you have only those two things. How do you... how do you know, when he makes his first threat?",
       "time": "00:52:21.00"
     },
@@ -2031,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why does the threat... why does the threat make a difference? In the example you gave earlier, about racial... racial discrimination in employment, why... why is it any worse... why does it affect the working conditions any more if the... if the officer of the company says, Because you're black, I'm going to make your work... unless you work twice as hard, unless you black employees work twice as hard, you're going to be fired... why is that any worse than... than the officer who says, Because you're black employees, I'm going to give you twice as much work? Now, there... there's--",
       "time": "00:53:07.82"
     },
@@ -2043,7 +2043,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--there is no quid pro quo in the latter case.",
       "time": "00:53:43.62"
     },
@@ -2055,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're not saying, Unless you do this, I'll do that. They're saying--",
       "time": "00:53:46.36"
     },
@@ -2067,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right. But the problem-- --So the threat makes no difference?",
       "time": "00:53:55.38"
     },
@@ -2079,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What you're saying is-- --But you're saying it's a term or condition even if the person is bluffing all the way through? You're saying it's still a term or condition?",
       "time": "00:54:11.52"
     },
@@ -2091,7 +2091,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even... even... even if the... if the supervisor says, You're going to have to work twice as hard because you're a woman, and she doesn't work twice as hard and nothing happens, he was bluffing all along, that's still a violation as soon as he said it?",
       "time": "00:54:21.60"
     },
@@ -2103,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how do you judge that just on the basis of the threat alone? I mean, we... and let me ask you how you factor in the existence of a policy that this kind of thing shouldn't happen and this is how you complain when it does?",
       "time": "00:54:41.21"
     },
@@ -2115,7 +2115,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but strict liability, which is what you're arguing for, will not encourage that. Strict liability for a hostile work environment, say, or for a quid pro quo, say, if we were going to make a distinction, does... does not encourage use of grievance procedures. It encourages laying back and filing a lawsuit.",
       "time": "00:55:12.98"
     },
@@ -2127,7 +2127,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It certainly will go to damages, won't it?",
       "time": "00:55:43.45"
     },
@@ -2139,7 +2139,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Let me... let me... let me ask you this question, which... which I think is behind some of the things that are bothering us. Take an easy case in which there's a company policy, but there have been 25 threats from the... from the particular supervisor. And he had done everything that... that he could reasonably do to make it clear that he's going to follow through on the threat, but the moment for doing so has not yet occurred. The... the next job evaluation has not come up yet. The reason, if I understand your argument, that those threats... repeatedly, et cetera... changed the terms and conditions of employment is the same reason that we say other actions, perhaps even of co-employees, create hostile environments. It does create a hostile environment, and the hostility is in fact a change of condition. Is that your argument?",
       "time": "00:55:46.23"
     },
@@ -2151,7 +2151,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But leave... leave aside the question of what the standard of imputed liability is going to be. Just go the question of violation. And I take it on the question of violation, the two... the two instances are identical in your analysis? There are evidentiary differences, but conceptually they're identical; is that correct?",
       "time": "00:56:49.57"
     },
@@ -2163,7 +2163,7 @@
     },
     {
       "turn": 353,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Underwood. The case... the case is submitted.",
       "time": "00:57:11.84"
     }

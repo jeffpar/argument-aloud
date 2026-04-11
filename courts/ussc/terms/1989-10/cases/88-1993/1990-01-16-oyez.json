@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/88-1993/19900116a_88-1993.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "GEORGE L. WAAS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GREGG DARROW THOMAS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 88-1993, Robert A. Butterworth v. Michael Smith. Mr. Waas.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't... wasn't your policy overturned solely with respect to a witness disclosing his own testimony?",
       "time": "00:01:03.51"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which... which, as applied to a witness revealing his own testimony, what is the state's interest?",
       "time": "00:01:44.82"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be so, but why prevent a witness from revealing his own testimony?",
       "time": "00:02:23.94"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't see that, I don't see that it necessarily is. I wouldn't have read the Eleventh Circuit opinion to say that the Florida statute was invalid insofar as it prohibited the revelation of the questions asked to the witness.",
       "time": "00:02:42.00"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, suppose... supposing the Florida statute had been held invalid by the Eleventh Circuit only insofar as it prevented a witness from disclosing his own testimony, but it also said that the witness, in disclosing his own testimony, could not do it in question and answer form. That the only thing the witness could do would be either to repeat his answers or to give a paraphrase of his testimony.",
       "time": "00:03:25.33"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waas, suppose... suppose the witness does not preface his disclosure with this is what I testified to. He just... he just tells somebody or he prints in a newspaper story the very same thing which he knew, which he happened to testify to before the grand jury. So there is no indication on the face of it that that is what he said. Does that violate your statute?",
       "time": "00:04:30.23"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It does not.",
       "time": "00:04:55.54"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me ask you then--",
       "time": "00:05:28.75"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--can he disclose the fact he testified?",
       "time": "00:05:30.70"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could the man in this case get on a news broadcast and say I testified before the grand jury yesterday. They are investigating Mayor so and so. I think Mayor so and so is a crook because I saw him do X, Y and Z. Period. That's all he said.",
       "time": "00:05:37.07"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That would be perfectly all right?",
       "time": "00:05:52.88"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If that's the case, what is the state interest... I'm sorry, if your answer to me is correct, what is the state interest in saying that's all right, but it suddenly implicates a great state interest if he adds the words \"and I so testified yesterday\"?",
       "time": "00:06:08.09"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, this doesn't identify... just this particular case. What is the state interest in my hypothetical? How can it possibly hurt, one hurt more than the other?",
       "time": "00:06:29.58"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:06:47.73"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can you give me a hypothetical in which the witness' description of his own testimony would imperil, after the grand jury investigation is over, would imperil the... would be contrary to the policy of the statute?",
       "time": "00:07:05.52"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Justice Stevens asked you to give him a hypothetical.",
       "time": "00:07:18.42"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does he listen to all the other witnesses testify? He doesn't listen to anybody testify except himself. But some grand juror says did you see Joe Smith there, and Joe Smith is the man who might get killed if he is identified. He says yes, I saw him, he was there on the scene of the crime. So he gets on the radio the next day and he doesn't say he testified, he says you know, Joe Smith was at the scene of the crime. And maybe... won't that kill Joe Smith just as much as saying and I so testified?",
       "time": "00:07:59.74"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well-- --But the Eleventh Circuit didn't strike down that part of the statute. That isn't the witness' own testimony. That's something he learned as a result of being in the grand jury... the grand jury room.",
       "time": "00:08:33.47"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the whole law is devoted to putting parameters around things. What you're saying in effect is that although there is no evil involved in situation A, there would be involved in situation B, and therefore you are entitled to prohibit both of them. But that isn't our First Amendment law.",
       "time": "00:08:52.44"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose you can't say that you are really trying to protect the life of the... of this fellow who wants to reveal his own testimony. If he wants to protect himself he can by being quiet. But I suppose that if he is asked in the grand jury room and he testifies to a certain fact, and he is asked well, where did you... how do you know this? Then he says John Jones told me. Now, he is then identifying some other people that know maybe some critical facts that some other people wouldn't like him to testify to.",
       "time": "00:09:50.15"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I was trying to give you... I was trying to give you an example where your... that would defend your position.",
       "time": "00:10:45.23"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Waas, I suppose that that could be said of Federal investigations for violation of Federal laws in Florida.",
       "time": "00:12:20.11"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the Federal rule on disclosure of grand jury testimony is not as broad as you describe Florida's as being, is it?",
       "time": "00:12:28.38"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And indeed, application of the Federal rule in the State of Florida would not prohibit what Mr. Smith proposes to do.",
       "time": "00:12:38.86"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And yet the, the public interest is the same. So I... your argument is a little difficult for me to follow. What provision of the statute would prohibit the witness from revealing identities of grand jurors, for example, or what the witness saw there, other than testimony or evidence?",
       "time": "00:12:54.85"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm talking about Florida's statute now. What provision of your... I don't even know what the statute means. It doesn't appear to me, testually, to mean either what you say it does or what your opponent says it does.",
       "time": "00:13:27.84"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So it wouldn't prohibit disclosure of the identity of the grand jurors?",
       "time": "00:13:48.42"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if it isn't testimony it doesn't prohibit it. Right?",
       "time": "00:14:07.90"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If... if you regard those questions as testimony, I mean, that's your theory?",
       "time": "00:14:19.62"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose the state could just say Juror Number 1, Juror Number 2. I mean, the grand jurors don't usually say good afternoon, my name is so and so. They don't say that.",
       "time": "00:14:39.77"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waas, what was the rule about grand jury secrecy at the time the First Amendment was adopted?",
       "time": "00:15:29.55"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but it doesn't. But it doesn't. That oath of secrecy you are talking about referred to in the footnote--",
       "time": "00:16:45.20"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that meant you would not disclose that information to anybody, didn't it? That just didn't mean you would not go up to somebody and say not only is this the fact, but I testified to it. Didn't that oath mean you couldn't go out and tell people that same information?",
       "time": "00:16:51.27"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's how I interpret it.",
       "time": "00:17:05.86"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There was no general prohibition. I mean, that's a case-by-case determination by the grand jury, that secrecy is needful in this particular case. Was it ever the practice to have simply an across-the-board rule of secrecy, such as you do?",
       "time": "00:17:56.88"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I am asking was that the situation at common law?",
       "time": "00:18:25.38"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which would always be imposed, or which was imposed case by case?",
       "time": "00:18:37.72"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Wasn't it imposed just for the life of the grand jury? Was it imposed just for the life of the grand jury or forever and ever?",
       "time": "00:18:47.89"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes. Certainly it didn't survive trial, did it?",
       "time": "00:18:57.02"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your statute, as I understand it, is in perpetuity?",
       "time": "00:19:15.14"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It seems to me, Mr. Waas, that the position you contend for really has a potential for abuse. A district attorney could summon someone before the grand jury who is about to blow the whistle on some governmental operation and in effect seal his lips, wouldn't he?",
       "time": "00:19:18.95"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, your only quarrel then with the Eleventh Circuit's disposition of this case is that you're afraid its disposition would allow the release not only of the answers of a witness in the grand jury but the questions as well?",
       "time": "00:19:54.70"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But... let's not get into these vague abstractions. What else does the Eleventh Circuit's opinion forbid you to do that you want to do?",
       "time": "00:20:11.71"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Can you answer my question?",
       "time": "00:20:22.70"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I said what else, other than what we have just talked about, does the Eleventh Circuit's opinion forbid you to do which you want to do?",
       "time": "00:20:24.94"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, this is a very general response, Mr. Waas. I was hoping for something more specific. Where... you say that the grand... that the witness is perfectly free to give the substance of his testimony elsewhere.",
       "time": "00:20:47.98"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what you're afraid of is that the Eleventh Circuit's opinion will not only allow that, but it will allow disclosure of a transcript which would show questions as well as answers. Now, what else is there in addition to that? Now think before you answer that.",
       "time": "00:21:00.98"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you're not going to protect the innocent accused if the guy goes out and says the same thing as he has said before the grand jury. The same names will be in that disclosure as were disclosed to the grand jury.",
       "time": "00:21:32.76"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what you're saying is if the grand jury door is open only as far as the Eleventh Circuit opened it, it necessarily is going to be all the way open. And all of our cases suggest that isn't true.",
       "time": "00:22:31.93"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I--",
       "time": "00:24:19.84"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask if any... may I ask... two questions really. Has anyone... any witness ever been prosecuted under this statute?",
       "time": "00:24:22.37"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Has the statute ever been construed by the Florida Supreme Court?",
       "time": "00:24:29.46"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did it involve a witness?",
       "time": "00:24:39.11"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did it involve a... a disclosure by a witness or by an... some of the other people?",
       "time": "00:24:40.50"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because, you know, I didn't realize it before, but as I read the statute one could interpret it as not even applying to witnesses. If... it has a list of kinds of people who appear before a grand jury and any other similar--",
       "time": "00:24:48.50"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and it doesn't really... and one could read it as just not even imposing any prohibition against witnesses. I know the Eleventh Circuit didn't so construe it, and we are probably bound by that construction.",
       "time": "00:24:59.97"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Been given by the Eleventh Circuit.",
       "time": "00:25:13.26"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But no Florida judge--",
       "time": "00:25:15.37"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But no Florida judge, no state judges have ever applied it to witnesses.",
       "time": "00:25:17.18"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Waas. Mr. Thomas.",
       "time": "00:25:23.50"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, I thought we just went over that. I... I thought that he could have disclosed whatever he wanted to disclose, except the fact that he disclosed it to the grand jury.",
       "time": "00:25:46.13"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that is what this whole fight is about. Your client wants to be able to say not only is all this true, but I told it to the grand jury. That... that's what has brought you here.",
       "time": "00:25:56.66"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What he learned from the questions that people asked him?",
       "time": "00:26:35.65"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does one learn things from the questions that are asked you? By having your memory stimulated?",
       "time": "00:26:40.92"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, don't you... don't you agree that, or do you, that your client wants to reveal not only his testimony but the questions?",
       "time": "00:27:00.15"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you agree with the interpretation of the statute that was given to us by the petitioners' attorney, that you... a witness can disclose the substance of his testimony, not by reference to the fact that it's testimony, but he can tell everything that he knows independently by the transaction?",
       "time": "00:27:12.37"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just a minute. Was that a yes... excuse me. Was that a yes to that question?",
       "time": "00:27:53.35"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you agree with that interpretation or not?",
       "time": "00:27:57.84"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And has it, has the state ever argued to the contrary before a Florida state court?",
       "time": "00:28:00.05"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The state has?",
       "time": "00:28:14.94"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, they said... Mr. Waas said here this afternoon that the statute did not prohibit Mr. Smith from saying who the identities of the grand jurors were if he knew them.",
       "time": "00:28:21.79"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, didn't you hear his response this afternoon to my question?",
       "time": "00:28:50.35"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what are we arguing about here? The right of your client to disclose the questions that were asked of him before the grand jury, and that's all? No, and the answers.",
       "time": "00:29:01.58"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, to the extent... well, I thought Mr. Waas said that he could reveal, under the statute, that he had been called to testify before the grand jury?",
       "time": "00:29:18.15"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is it that you can't do under the interpretation of the Florida statute that we now have before us from your opponent, of the things you just said?",
       "time": "00:30:46.88"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We have rules of Court governing what our law clerks can generally disclose, and it's darn little. And there are, I suppose, professional sanctions that might be imposed should a law clerk violate the confidence of the Court. Now, I can't really say that every single item of information that that general policy of confidentiality covers would harm the Court if it were disclosed, but we have a general rule. Now, I'm sure that nothing very significant is withheld by that, but is it your contention that we would have to justify case by case every instance in which a law clerk is prohibited from disclosing the confidential doings of the Court?",
       "time": "00:31:13.36"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, so you would extend the same rule to here, then, I gather, that each individual restriction has to be justified. We just can't have a general rule.",
       "time": "00:32:32.06"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we better be very careful then. I... I see this case in a new light.",
       "time": "00:32:47.49"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can grand jurors be forbidden from disclosing the testimony?",
       "time": "00:32:52.69"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why?",
       "time": "00:33:01.58"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose your same hypothetical. Somebody else on the jury says we heard this testimony and they didn't indict because the foreman was a cousin of the witness.",
       "time": "00:33:18.96"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Same horrible hypothetical.",
       "time": "00:33:26.90"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, doesn't that make it all the more credible?",
       "time": "00:33:32.72"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "We restrict the most credible speech and not the least credible speech? I thought it was the opposite.",
       "time": "00:33:44.53"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, we're quibbling about the hypothetical. I still am not sure why it is that you draw the line between the grand juror and the witness.",
       "time": "00:33:58.18"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So if you had three witnesses, they could all testify, but not the grand juror?",
       "time": "00:34:14.39"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what if a reporter... your client is a reporter?",
       "time": "00:34:43.31"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He gives his testimony and he... the grand jury... the state wants to know where he got his information. He says well, I have confidential informants. And the issue is government corruption. And he has information that he believes, he has used this informant in the past and he is found to be reliable, but he won't... say who it is.",
       "time": "00:34:49.22"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I just want to know what your... do you think the state has an interest then in not having him reveal his testimony?",
       "time": "00:35:24.27"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about confidential advice to the President? Suppose Congress wants to find out what one of the President's closest advisors counseled him? I thought there was a privilege for that. Does that privilege have to be examined item of information by item of information, or can you just say it's all privileged, similar to what Florida has done with the grand jury testimony?",
       "time": "00:35:58.09"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree that the interest may be different, but it doesn't seem to me that we're constrained by our First Amendment law to apply a piece-by-piece approach as you are urging upon us. That if... if the state cannot demonstrate that this particular item of information would damage the grand jury, then that is no good. And then we move on to the next piece of information. If that wouldn't damage the grand jury then that is no good. It seems to me that it's possible to have a reasonable general rule.",
       "time": "00:36:55.70"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't make a distinction between the reporter and the... any other citizen, do you?",
       "time": "00:38:40.03"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, if your reporter finds... knows that there was a witness who testified before the grand jury and he talks to him, the witness should be able to tell the reporter that, without violating this statute you think, that yes, I testified and here is what I said.",
       "time": "00:38:50.30"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is the state's interest in preventing targets from becoming fugitives substantially satisfied because in many cases they make the arrest before the indictment, before the grand jury proceeding?",
       "time": "00:39:17.37"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I gather then that you wouldn't object to preventing your client from publishing this story while the grand jury was still in session?",
       "time": "00:40:19.28"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what is your position? Do you have a position on that?",
       "time": "00:40:37.92"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about... what's your position about your client publishing what he learned before the grand jury, if he did learn anything?",
       "time": "00:40:49.56"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he can... after... I take it that you would say that even during... when the grand jury is still in session, if he knows who a witness is or has been before the grand jury, he can talk to that witness and that witness, as you say, is free to, you think, to talk during... and so your client learns that testimony and he publishes it.",
       "time": "00:41:18.23"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Either during the grand jury or after it.",
       "time": "00:41:46.11"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the witness might be able to do that, but you wouldn't contend that the prosecutor--",
       "time": "00:42:28.81"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--or the reporter.",
       "time": "00:42:32.84"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waas, what did it mean in 1791, or do you know what the common law was? Do you agree with... I'm sorry, Mr. Thomas. Do you agree with Mr. Waas as to what the situation was at common law?",
       "time": "00:42:47.60"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is, you could... you could disclose everything unless you were put under oath?",
       "time": "00:42:59.58"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Any indication that that oath survived the term of the grand jury?",
       "time": "00:43:24.36"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you to go back to the question that your opponent was asked at the beginning of the argument about whether the statute applies to the content of testimony when the... when the former witness doesn't say \"and I so testified\", but just talks. What was the... I just looked again at the district court opinion, and he seems to have read the statute as prohibiting disclosure of the content even if there was no reference to the testimony... the fact that it was in testimony. Was that the way it was construed in the district court? Because he talks about it as a severe infringement on rights under the First Amendment, and that is why I read it that way.",
       "time": "00:43:31.97"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:44:08.67"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And did the state take that position in the district court, do you know?",
       "time": "00:44:17.58"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because even the court of appeals opinion is somewhat ambiguous on that point. That's why a number of us asked that very question.",
       "time": "00:44:34.47"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Thomas. Mr. Waas, you have four minutes remaining.",
       "time": "00:45:48.75"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose if we said that the witness can say that he appeared before the grand jury and he said thus and so, there would be very little reason for Florida to prohibit anybody else from saying that he appeared before the grand jury and said thus and so. I mean, the rest of Section 905.27 wouldn't make must sense. It says a grand juror, state attorney, nobody else can disclose the testimony. But if you let the witness himself go out and say this is what I testified, why should you prevent anybody else from--",
       "time": "00:47:58.39"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes, but there's a big state interest in protecting the witness in many cases, and lots of times a witness isn't going to tell. And if you put the prohibition on everybody else, that protects the witness. Just because the witness decides to open the door doesn't mean you ought to let everybody else open the door.",
       "time": "00:48:30.77"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, certainly it is, because if the witness fears for his life, he is not going to disclose. And the only way to protect that is to say nobody else can disclose.",
       "time": "00:48:55.56"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But nobody is questioning the validity of the statute as applied to grand jurors, court reporters, stenographers, everyone else. The only question is whether a witness can take this risk if he wants to.",
       "time": "00:49:10.17"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What will happen if grand jury, five years later, calls this man. Can he testify? Is he bound by the statute?",
       "time": "00:49:22.02"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Isn't that rather silly? [Laughter]",
       "time": "00:49:45.26"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx.",
       "time": "00:49:52.49"
     },
@@ -1451,13 +1455,13 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Waas. The case is submitted.",
       "time": "00:49:57.21"
     },
     {
       "turn": 236,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now at recess until four o'clock this day.",
       "time": "00:49:59.58"
     }

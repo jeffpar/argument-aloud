@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/17/19551108a_17.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM C. CHANLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS FLETCHER",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 17, 31, 51, and 53 on docket. United Gas Pipe Line Company versus Mobile Gas Service Corporation. Mr. Chanler.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well if it can be suspended, there is time to make that determination, if it cannot -- there isn't.",
       "time": "00:03:36.64"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And that could be (Inaudible)",
       "time": "00:04:41.73"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:05:08.20"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could you file under 5?",
       "time": "00:05:18.01"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Chanler, may I -- just to -- to be able to listen more intelligently to what you unfolds here. As for the -- (Inaudible) from what you've said (Inaudible) that 4 applies when there is no governing outstanding contract rate, 5 applies when there is contract rate, I say.",
       "time": "00:06:06.25"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:06:43.96"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well is it -- is it strict the unilateral in the -- and there's to be -- there maybe some action taken by the Commission?",
       "time": "00:07:34.25"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What if it doesn't? As I understand it on the argument where it states your position, you agree that the existing contract rate comes under the restrictions of 4 as against changes and so on.",
       "time": "00:07:50.69"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But do I not -- did not -- in what you're about to argue, that if there is such an outstanding contract, then, it must be dealt with under 4 --",
       "time": "00:08:11.68"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But in the form of agreement, then there is a contest filed in the controlling state, is that right?",
       "time": "00:08:58.60"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right, I'm (Voice Overlap) --",
       "time": "00:09:05.02"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Apparently, 4 (e) says nothing about contracts, it talks about rates --",
       "time": "00:10:48.68"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- schedules.",
       "time": "00:10:54.20"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "By agreement if it's a contract and --",
       "time": "00:11:05.60"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "By filing it --",
       "time": "00:11:08.37"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well before -- before we got to 5 (a) and back at the beginning of the proviso in 4 (e) provided that the Commission shall not have authority to suspend the rate charge classification for the sale of natural gas for resale. Now, is it your argument that -- that is true so far as any sale of natural gas for resale is concern except where there is a specific contract?",
       "time": "00:11:38.88"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well -- so you think there is no contract at all if they're merely purchases under the general rate.",
       "time": "00:12:11.05"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't (Voice Overlap) the written contract of -- (Inaudible) subsidiary comes in and says we want to buy gas at your regular rate for industrial use. Is that a contract?",
       "time": "00:12:23.92"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What -- what is your view of the first sentence of that proviso? What does it apply to? That first clause --",
       "time": "00:12:44.12"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And says that that cannot be suspended.",
       "time": "00:13:02.82"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you say it can be suspended so far as the contract is concerned?",
       "time": "00:13:05.80"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But its contract or not contract, you can't suspend.",
       "time": "00:13:14.07"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your -- your claim of -- in fact, there is, isn't it, that that would not be a contract.",
       "time": "00:15:12.36"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would not be a contract --",
       "time": "00:15:18.07"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Chanler, to clear out my difficulty, (Inaudible) difficulty I have in your argument is that Section 5 is not restricted to contract.",
       "time": "00:17:31.92"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It is equally applicable to a previously filed tariff, having known such considerations as that which is raised by a contract namely -- great reliance on its law et cetera.",
       "time": "00:17:43.39"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that, in forcing your argument seems to be (Inaudible) that fact.",
       "time": "00:17:58.40"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- deal with it but -- but that's my difficulty.",
       "time": "00:18:05.52"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But we're dealing --",
       "time": "00:19:04.53"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- we're dealing here with a contract which you will recall (Inaudible) has a congenital defect.",
       "time": "00:19:06.30"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well I suppose you can say that changing a contract doesn't authorize repudiation of contract.",
       "time": "00:34:55.62"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "A unilateral change is a repudiation and not --",
       "time": "00:35:03.97"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- a change.",
       "time": "00:35:06.72"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well Congress authorized this change by statute, didn't it?",
       "time": "00:35:27.46"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well it says that it can't change its rates, the utility can't change its rate except by filing a schedule and giving 30 days notice.",
       "time": "00:35:39.60"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That would seem to indicate that they can do it that way, don't they?",
       "time": "00:35:50.66"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If a contract that is subject to regulation maybe changed by the -- by the regulatory power.",
       "time": "00:36:14.47"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And in the manner that Congress has provided, may it not?",
       "time": "00:36:21.99"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The contract maybe -- maybe changed.",
       "time": "00:36:25.77"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It doesn't delegate it to the company to do it under the statute.",
       "time": "00:37:38.90"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It doesn't delegate it to the company to do it, to make a change under the statute. It -- it -- the change is made by filing a -- a change of schedule or rates --",
       "time": "00:37:45.65"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- in accordance with the statute.",
       "time": "00:37:56.03"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the -- the reasonableness of this rate is under investigation by the Commission, wasn't it?",
       "time": "00:38:14.86"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:38:22.49"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, sure not.",
       "time": "00:38:24.52"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the reasonableness of the new rate --",
       "time": "00:38:25.89"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And they said if it is unreasonable, why -- it's out.",
       "time": "00:38:27.65"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's right.",
       "time": "00:38:36.95"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Chanler, before you get to either with your arguments in this case for the ample time that you can have on the other case, would you be good enough (Inaudible) that Section 4, by Section 4, Congress divides what I should like to call an interlocutory scheme and Section 5 is the -- is the procedure for a final disposition.",
       "time": "00:38:44.78"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I ask you this? Section 4 doesn't expose the rates that's filed and it doesn't involve the contract, does it?It -- that doesn't concluded --",
       "time": "00:40:50.61"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, then let it go into effect (Inaudible) that -- suppose that Section 5 doesn't apply, namely, it may let it go into effect and yet (Voice Overlap) on the face of it mean not unreasonable within this area of reasonableness as you know but on further and fuller final inquiry it may add in the case of interlocutory and final injunction conclude that the originally interlocutory injunction can't stand final hearing.",
       "time": "00:41:13.22"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:42:21.49"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But when you say they may, having allowed it to stand under 4, somebody from -- alert citizens, they look at here and your counsel (Inaudible) You say they may then proceed under 5. When you say that, new rates for me is the difficulty that I have. I have difficulties with the other side and I have difficulty with your side, namely, it seems that the 2, 4, and 5 aren't just valid sections.",
       "time": "00:42:24.20"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are notwithstanding --",
       "time": "00:42:56.91"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- sections.",
       "time": "00:42:58.15"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are they --",
       "time": "00:42:59.20"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well therefore, I have to -- I have to find the meaning by bringing them together.",
       "time": "00:43:00.41"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't -- isn't that very matter before the Commission now?",
       "time": "00:44:25.79"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- as to the validity -- as to the validity of the proposed increase?",
       "time": "00:44:30.22"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's a reasonable --",
       "time": "00:44:37.45"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right --",
       "time": "00:44:40.62"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- of the new rates --",
       "time": "00:44:41.71"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right, it's the new rates.",
       "time": "00:44:45.72"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now that's -- that's before the Commission now.",
       "time": "00:44:46.94"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And this --",
       "time": "00:44:50.14"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well --",
       "time": "00:44:57.62"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I'm trying to find out precisely what's before us here.",
       "time": "00:45:03.32"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, you -- let -- let me state my difficulty. As I understand, the Court of Appeals directed that the Commission go ahead with the hearing and set aside certain orders that they had entered. And the order that's objected to here is, whether under the Natural Gas Act of the Power Commission may become the effect -- let this become effect to the schedule, increasing the rate.",
       "time": "00:45:08.66"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, isn't that all we have up here before us?",
       "time": "00:45:37.56"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not the question of the validity of your contract but a question of the statutory interpretation as to whether it goes into effect before or after the Commission completes its hearing?",
       "time": "00:45:41.04"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, at least the question presented to us for which we took certiorari is apparently limited to that.",
       "time": "00:45:59.83"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I assume that you're right.",
       "time": "00:46:24.70"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well I'm assuming, if the contract is not going to be abrogated, it's a valid contract, it will eventually be found to be a valid contract and they will refuse to allow the entry. But isn't the question that we have here pending that determination whether or not your rate continues.",
       "time": "00:47:14.78"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The rate continues.",
       "time": "00:47:40.49"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right, the filed rate remains in the books.",
       "time": "00:47:45.89"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then --",
       "time": "00:48:17.78"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- then I am faced with something that I asked you about before the very beginning of the proviso, provided that the Commission shall not have authority to suspend the rate, charge classification or service for the sale of natural gas for resale. Because as I understand that you say that applies only to those that do not have a contract.",
       "time": "00:48:18.35"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All but the contract has been found (Inaudible) number 5.",
       "time": "00:49:11.39"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:49:21.42"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It was -- it was the contract but it's found --",
       "time": "00:49:21.93"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- inadequate to return.",
       "time": "00:49:25.08"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well you filed the petition before the Commission, did you not?",
       "time": "00:49:58.52"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What -- what did you ask?",
       "time": "00:50:03.29"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the Court of Appeals held that those parts of the Commission's order, which dismissed your petition, should be eliminated.",
       "time": "00:50:17.05"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that's where you are now.",
       "time": "00:50:30.17"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well I think -- grant it now because the case has been brought up here by petition for certiorari.",
       "time": "00:50:41.64"
     },
@@ -1087,13 +1091,13 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the reason why --",
       "time": "00:51:36.59"
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Where -- where is the -- where is your petition in the record?",
       "time": "00:51:37.34"
     },
@@ -1105,13 +1109,13 @@
     },
     {
       "turn": 178,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Here's our petition. I think we made petitions in Mobile somewhere in the first pages sir, the petition is on page 7.",
       "time": "00:51:49.88"
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "These are amendments and I have difficulty in reading of it.",
       "time": "00:51:59.22"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There was an amendment made, the very first thing in the record.",
       "time": "00:52:03.21"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let's see if I understand and follow your argument Mr. Chanler. You say that the Interstate Commerce Act, the Elkins Act and the Hepburn Act for all practical purposes outlaw an existing arrangement between shippers and carriers.",
       "time": "00:52:56.69"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Unlike that which were therefore all were prior to a case where a shipment were made before the Elkins Act on a rebate, it was not arguable by the Elkins Act. But payment made subsequent even that would disallow the (Inaudible). What you say under the -- under the Natural Gas Act, the opposite is applied Congress build on existing industrial contract.",
       "time": "00:53:13.43"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, it presuppose their social value or rightness as an existing (Inaudible). It gave ample room for their chain if they should be either too high or too low. What you say that in view of the fact that that which is reasonable may play anywhere between 10 cents and 15 cents so far as profit --",
       "time": "00:53:39.62"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- is concerned. If this issue is merely the validity of (Inaudible) it submerge the system of contract by fixing the issue before a Commission nearly on whether an unrelated new schedule is in it of itself (Inaudible) and that presupposes and presumably defeat the underlying presupposition of the statute and therefore no construction should be given to the statute.",
       "time": "00:54:02.28"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you if you are? If Mobile and United had agreed to change their contract validly and make a real change instead of one trying to repudiate it.",
       "time": "00:54:32.14"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I understand it, your position is that -- that tariff could have been filed and the proviso would have apply.",
       "time": "00:54:43.70"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you can't apply it as a chain when it's a mere repudiation of a valid contract.",
       "time": "00:54:50.27"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now are you going to speak either now or later on what has been indicated to us as to construction administrative practice uniformity of pleading attached to the scheme.",
       "time": "00:55:14.58"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) in face of something part of the Commission, Mr. Chanler, what you've just said?",
       "time": "00:57:02.05"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are these proceedings before the Commission labels Section 4 and Section 5 considering the way it considers before the argument labeled Section 4 or (Inaudible)",
       "time": "00:59:18.56"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Section 4 or 5 doctrine where there is before the ICC, is it?",
       "time": "00:59:38.56"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the citation of this Six Circuit deal?",
       "time": "01:00:13.28"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's date of the decision Mr. Chanler we can get --",
       "time": "01:00:30.11"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And the title?",
       "time": "01:00:40.15"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Practically, yes.",
       "time": "01:00:56.21"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Fletcher.",
       "time": "01:00:59.70"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the power Mr. Fletcher --",
       "time": "01:05:59.05"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not in controversy.",
       "time": "01:06:00.85"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not as to power and that one in controversy but -- but isn't there a profound difference, as I --",
       "time": "01:06:03.04"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- (Voice Overlap) -- Mr. Chanler, in that, the Interstate Commerce Act cut out all contract.",
       "time": "01:06:11.05"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It gives them. It meant to give them because of mischievous situation about rebates etcetera, etcetera.",
       "time": "01:06:17.88"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let me ask you this one Mr. Fletcher.",
       "time": "01:07:35.58"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In your view with the Power Commission in considering your newly filed rate, never mind this new (Inaudible) would the Commission in its hearing regarding your new rate consider to operate the outstanding contract and say we have found that this we find that this contract during its duration, the cause of its duration and the income and the revenues and exactly, we find that unreasonable rate, we will change it, could it?",
       "time": "01:07:37.83"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then it could -- you couldn't have a comparable situation (Inaudible)",
       "time": "01:08:12.43"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "On your argument, is this contract have any validity at all?",
       "time": "01:09:19.99"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand that purpose of law. In your judgement, is this contract have any -- this kind of contract --",
       "time": "01:09:37.99"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- have any validity at all?",
       "time": "01:09:43.49"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Supposed Mobile should decide it didn't want to continue to divide its 10 cents. And it's the one that stopped. Could you sue them?",
       "time": "01:09:50.35"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- divided --",
       "time": "01:09:59.87"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- divided on them?",
       "time": "01:10:00.88"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well but suppose it decide it and didn't want to buy it at all. They said, “We don't want it anymore.”",
       "time": "01:10:05.85"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why? Obligation under the contracts?",
       "time": "01:10:12.97"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would be binding on it.",
       "time": "01:10:16.31"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But in -- but your view is, as I understand it, it's binding on it, but you can change it any moment you please, simply by filing a statement if we raise the rate.",
       "time": "01:10:18.59"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, it --",
       "time": "01:10:35.54"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Oh, whatever it is, you can do it at will, can you not, you can change the rate at will.",
       "time": "01:10:38.33"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why?",
       "time": "01:10:43.73"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But -- but under the proviso -- under the proviso --",
       "time": "01:10:55.59"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "01:11:00.40"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's the only one I'm talking about.",
       "time": "01:11:01.34"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say that you have a right to make contracts of industrial when does few rate, but you can enforce against them, but that you can file a rate, new rate with the Commission above the contract rate at any moment you see fit and the Commission is without power under the proviso to do anything about it.",
       "time": "01:11:05.41"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They can enter a hearing --",
       "time": "01:11:28.93"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- but until that's done, you get the increased rate, don't you?",
       "time": "01:11:29.99"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you'll get it -- you'll get it despite the contract?",
       "time": "01:11:40.95"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think it's a very valid, easily understood provision of the law, which will argue the contract that way. But under your statement, the contract binding on you but not binding on them, but binding on them but not binding on you.",
       "time": "01:12:36.18"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, having (Voice Overlap) --",
       "time": "01:13:13.99"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Having abrogated it, is there any part of the obligation on Mobile under that contract?",
       "time": "01:13:16.22"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's what I want to know. Having abrogated, as you say, validate by -- and filing an increase rate, is there any further obligation on Mobile under it's contract with you?",
       "time": "01:13:26.06"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, having raised the rate above that, which is provided in the contract with Mobile, is there any further obligation on Mobile to comply with that contract?",
       "time": "01:13:39.51"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Changed and modified by the Act?",
       "time": "01:13:52.25"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But as repudiated by you --",
       "time": "01:13:55.58"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought there's a new contract. To change in a contract was the same as a new one. I would always thought that a contract is a mutual obligation between two or more (Inaudible) upon a valuable consideration for local purpose.",
       "time": "01:14:00.63"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) -- to this change.",
       "time": "01:14:16.81"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I have no difficulty -- I have no difficulty insofar as you rely on the statute, if the statute does.",
       "time": "01:14:29.43"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that has nothing to do with the change of a contract. That's a statutory change you can get on.",
       "time": "01:14:38.78"
     },

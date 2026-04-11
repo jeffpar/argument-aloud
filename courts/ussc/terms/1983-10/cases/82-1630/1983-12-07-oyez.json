@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1630/19831207a_82-1630.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM G. BROADDUS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DEBORAH C. WYATT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Hudson against Palmer and the consolidated case. Mr. Broaddus, you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Broaddus, can I ask you a question about the scope of your submission?",
       "time": "00:05:19.75"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As I understood your opening statement you were suggesting that the Fourth Amendment has no application to searches in the prison. You also say that there is no protection for the prisoner against seizures in searches. I notice the complaint alleges that the officer shook down my locker and destroyed a lot of my property, that is, legal materials, letters and other personal property. It is not so much the search as the destruction of property. Is there a protection against unreasonable seizures... That is what I am asking... as opposed to searches.",
       "time": "00:05:24.23"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Broaddus, I suppose that if I am a policeman and you are a suspect I may have a probable cause that would justify my searching for and seizing a gold ring in your possession that is maybe worth $20,000, but the fact I may seize it in the Fourth Amendment sense does not justify me in keeping it.",
       "time": "00:06:23.70"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That is what you meant by the Parrat rather than Fourth Amendment being applicable to the property destruction?",
       "time": "00:06:50.25"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if in a shakedown which you say is perfectly permissible, a random shakedown, suppose it is and the officer enters his cell and is searching around and he just picks up a radio and carries it out. He doesn't destroy it, he just... You say the Fourth Amendment protection of effects just does not apply in a prison?",
       "time": "00:09:02.54"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but there was a seizure of it. There is no question that there was a seizure, and I guess as the case comes to us we assume that it was destroyed.",
       "time": "00:09:46.78"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least it was seized. You say that the prison authorities are completely free from any Fourth Amendment restraints from seizing a prisoner's effects even if they are not contraband or even if their possession is wholly consistent with prison rules.",
       "time": "00:10:02.20"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that right?",
       "time": "00:10:23.95"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it certainly is a separate question from the search.",
       "time": "00:10:36.21"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be. That is the argument going to the search, the shakedown.",
       "time": "00:11:00.78"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But even on the search supposing you had a prison system whereby they censored all the incoming mail so it was all read before the prisoner was permitted to have it and he gets his mail. Could a guard go in and say, \"I think I'll read your mail? \"",
       "time": "00:11:06.95"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There would be no prohibition at all then would there?",
       "time": "00:11:27.39"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Just what remedies are available under state law in Virginia for redressing the property deprivations, just the grievance procedure?",
       "time": "00:11:52.24"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the Court were to agree with your view is there any danger that a state might alter its grievance procedure--",
       "time": "00:12:24.90"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--So that some of the same protections would not be available?",
       "time": "00:12:35.70"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What is the remedy if he prevails in a grievance procedure?",
       "time": "00:12:54.42"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Payments out of state funds?",
       "time": "00:13:15.43"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who is it that makes the final judgment in the grievance procedure?",
       "time": "00:13:23.39"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Forgive my interrupting you again. I gather there is no judicial review?",
       "time": "00:14:05.59"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:14:11.72"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What is the grievance procedure that was referred to, the procedure on which a prisoner can call for some kind of remedy?",
       "time": "00:21:29.12"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. We will resume here at 1 o'clock. Ms. Wyatt, I think you may proceed whenever you are ready.",
       "time": "00:22:29.53"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would you say if in searching the locker or the cell of the prisoner they found a pistol or narcotics in an examination and seizure of these things without a warrant? What would you say about that?",
       "time": "00:23:29.44"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would it be admissible against him in evidence?",
       "time": "00:24:01.59"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would not be admissible? Is that your answer?",
       "time": "00:24:13.13"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How about heroin, 14 packages of heroin in small packages for delivery?",
       "time": "00:24:18.01"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you take the search to harass to mean?",
       "time": "00:25:02.43"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not looking for anything in effect?",
       "time": "00:25:12.52"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now there certainly is a middle ground between a system for searching, a prescribed set of rules, and the harassing search that you say is a search simply to no purpose whatever. I take then in that case a guard would simply figure he had nothing else to do and would just want to wander through people's cells.",
       "time": "00:25:41.30"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are harassing and no legitimate purpose equivalent in the way you are using the terms?",
       "time": "00:26:16.97"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that is apart from any requirement that there be rules or anything else? I take it your view is the Fourth Circuit could be affirmed without laying down any requirement that there be rules for Fourth Amendment searches in prisons.",
       "time": "00:26:54.51"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not sure, Ms. Wyatt, I observe that in your cross petition you stated the question only in terms of the due process violation, not a Fourth Amendment.",
       "time": "00:29:20.98"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there not a difference between the facts in Screws and the facts here, though?",
       "time": "00:31:36.27"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "A different kind of deprivation, too, was it not?",
       "time": "00:31:44.40"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was all completed before there was any possibility of a hearing.",
       "time": "00:31:48.02"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, would that make the person who suffered the deprivation of life whole? You cannot restore his life can you?",
       "time": "00:31:55.67"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am a little confused, Ms. Wyatt. You probably can clarify it very quickly. I can understand the Attorney General's Office in Virginia appearing in the case because it is one of their guards, one of their attendants that is involved, but is the state as such a party to the litigation?",
       "time": "00:33:13.45"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What is the source of authority for the court, any court, to lay down any regulations about random searches or any other kind of searches in a private law suit between a prisoner and a guard?",
       "time": "00:33:37.73"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can the Fourth Amendment be violated by private parties?",
       "time": "00:34:20.08"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I was taking you up on your statement that this was private.",
       "time": "00:34:33.08"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "A private suit.",
       "time": "00:34:37.22"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your claim has to be that the state acting through this guard deprived your client of his property without due process of law. It is not a... The Constitution does not say no prison guard shall deprive a person of property. It says no state.",
       "time": "00:35:08.47"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think the law on that is quite clear, but I think the Parrat case says the final judgment on the state's deprivation of due process is not to be pronounced solely on the basis of the action of a guard or a warden. It is what opportunity the state offers to alleviate the claimed deprivation.",
       "time": "00:35:49.63"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think Parrat would have come out different if the two assistant wardens or guards in the mail room had been sued rather than the warden?",
       "time": "00:37:09.79"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then to your mind the distinction really turns on negligence versus intent, not the superior versus the actual actor.",
       "time": "00:37:54.21"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Ms. Wyatt, on that very point is this locker in his cell?",
       "time": "00:40:02.77"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The locker involved in this case.",
       "time": "00:40:08.48"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was that in his cell?",
       "time": "00:40:12.11"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I have great problem with the search and seizure. If these things had been laying out there would that have been a search and seizure, if they had been laying on his table, on his bed?",
       "time": "00:40:30.16"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would it have been a search and seizure?",
       "time": "00:40:45.08"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If he just picked it up off the bed?",
       "time": "00:40:54.04"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That would be a search and a seizure, search and a seizure?",
       "time": "00:40:57.38"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How could it be a search? It is laying right there.",
       "time": "00:41:05.26"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understand your complaint that the guard mistreated this man, but I do not understand where the search and seizure comes in.",
       "time": "00:41:13.95"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your allegations do not help me. What does the evidence show?",
       "time": "00:41:26.62"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The guard agrees to that?",
       "time": "00:41:55.09"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The door could have been wide open.",
       "time": "00:42:19.97"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How can we decide what we do not know?",
       "time": "00:42:27.60"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose I need to know to decide whether it is a search and seizure whether it was sitting out in plain view.",
       "time": "00:42:31.86"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is nothing in this evidence of this case to show whether it was or was not in plain view.",
       "time": "00:42:41.82"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that not open? Was this not remanded for a hearing?",
       "time": "00:42:53.69"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "On the Fourth Amendment issue?",
       "time": "00:43:00.22"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The things that my brother was inquiring about, would they be open to proof at the hearing?",
       "time": "00:43:02.10"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it or is it not, not could be.",
       "time": "00:43:12.74"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did you rely on Pape and Screws in the Court of Appeals on the issue you raised in your cross appeal?",
       "time": "00:43:58.81"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I notice neither are cited nor addressed as I see it.",
       "time": "00:44:17.58"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You relied on Screws?",
       "time": "00:44:29.18"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understand Screws to say that in order to deny a federal right you have to make it explicit that you are doing it for that purpose.",
       "time": "00:44:37.92"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, Screws says you have to say so.",
       "time": "00:44:52.84"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Screws says if you are an officer and you are denying a prisoner or an individual his rights you have to make it clear that you are beating him up for the sole purpose of denying him his rights.",
       "time": "00:44:56.81"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that not what Screws said?",
       "time": "00:45:12.64"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is that fundamentally unfair if he will get paid at state court the same thing he will get paid at federal court?",
       "time": "00:45:54.08"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the injured party gets compensated in full under the hypothesis. So I am asking why is it so obviously unfair?",
       "time": "00:46:22.04"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you another question about the Screws case? Which of the opinions in the Screws case do you primarily rely on?",
       "time": "00:47:09.05"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does he refer at all to deprivations of property in that opinion do you know?",
       "time": "00:47:20.05"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he cannot do that if you are right in your Fourth Amendment position.",
       "time": "00:48:24.86"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that not right? If you are correct on your Fourth Amendment submission he would not keep doing it over an over.",
       "time": "00:48:32.11"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Wyatt.",
       "time": "00:49:29.47"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess the Court held in Ingraham v. Wright that state court remedies were an adequate process for students subjected to corporal punishment in school, and that of course is even a liberty interest, not even a property interest. How is the interest you are talking about more significant than that?",
       "time": "00:49:31.33"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, might that not be true here, too, for a deprivation of property with state remedies that could be considered adequate?",
       "time": "00:50:40.21"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You think Ingraham would have been a different result had one of the teachers who had administered the punishment were a defendant?",
       "time": "00:51:03.59"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Counsel, may I ask a question about the facts?",
       "time": "00:52:06.21"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "There was another guard or officer with Hudson at the time was there not?",
       "time": "00:52:09.36"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The affidavit from Mr. Hudson on page 14 of the appendix... Perhaps I am misreading it.",
       "time": "00:52:16.18"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The third paragraph.",
       "time": "00:52:32.51"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Why was he not sued?",
       "time": "00:52:34.06"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Did you request an affidavit from this other officer also?",
       "time": "00:53:04.64"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You were not involved?",
       "time": "00:53:11.40"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Does it suggest at all that there may be not have harassment if there were two of them there and one of them was not even sued?",
       "time": "00:53:14.33"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You only sued on the one instance.",
       "time": "00:53:43.68"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In his suit?",
       "time": "00:53:51.66"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "He referred to the 16th and the 17th only I think.",
       "time": "00:54:12.96"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask... You were appointed at the Fourth Circuit.",
       "time": "00:54:28.12"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was he represented by counsel in the District Court?",
       "time": "00:54:32.19"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, counsel?",
       "time": "00:54:40.67"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:54:47.31"
     }

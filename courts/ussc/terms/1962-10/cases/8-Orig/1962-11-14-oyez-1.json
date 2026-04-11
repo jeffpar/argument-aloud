@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/8%20ORIG/19621114r_8orig_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "MARK WILMER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ARCHIBALD COX",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "R. P. PARRY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "State of Arizona, Complainant, versus California et al.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is also true, however, that the Congress did not undertake itself to make an allocation of water.",
       "time": "00:04:10.41"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand.",
       "time": "00:05:21.59"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, what you're saying is --",
       "time": "00:05:38.80"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- is obvious that where it could rather depend on Arizona and Nevada (Inaudible) California --",
       "time": "00:05:39.86"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) -- what you say?",
       "time": "00:05:45.66"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:05:49.00"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Solicitor General.",
       "time": "00:10:29.37"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it available (Inaudible)",
       "time": "00:14:06.34"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:14:13.55"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So the California proposal is a little inaccurate. This California proposal double barreled.",
       "time": "00:14:25.43"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Out of the mainstream --",
       "time": "00:14:36.23"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "California, of course, says that we have to consider all tributaries too.",
       "time": "00:14:37.25"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "If there's no conflict, there were distributaries?",
       "time": "00:14:54.24"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Except in the computation.",
       "time": "00:15:21.53"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "General, Justice Stewart appears to mean if you have the history of problems, when you have California (Inaudible)",
       "time": "00:16:26.53"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just before you proceed, you're basing your position that this is a justiciable controversy before us, exclusively upon these facts that there is not enough water to go around. I take it that you concede that if there's not enough water to go around, we will not have a justiciable controversy.",
       "time": "00:17:03.78"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because what I understood the Arizona position was that there was enough water to go around.",
       "time": "00:17:32.33"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What? Aren't you talking about the first million of the surplus?",
       "time": "00:30:32.21"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Part of Gila was in New Mexico.",
       "time": "00:32:59.92"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that would count.",
       "time": "00:33:09.10"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What significance if any is the October of 1963 going? Were they provided for further equitable --?",
       "time": "00:34:06.10"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But when you get to the legislation, you'll find that only on the contingency that a new price state compact is executed -- California is that true?",
       "time": "00:36:08.53"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I suppose you can find on --",
       "time": "00:36:29.18"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But you don't find it -- there any -- have I missed any other thing in the laws themselves that touch specifically on the award of the waters of the Gila to Arizona?",
       "time": "00:37:08.36"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "When you follow those things down, I suppose you can find almost anything in this legislative history.I'm so confused. But when you follow this down to the Phipps' Amendment, you will find Phipps himself saying, as I recall, that those -- that 4.4 million acre-feet is out of system waters this is what he said.",
       "time": "00:40:44.40"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:41:19.51"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, in order to really preserve that fundamental condition, wouldn't it, provisions has to be made in the contract involving withdrawal of water from -- by Nevada for example, Muddy River and Meadow Valley and by Arizona from the Little Colorado River and not --",
       "time": "00:45:40.26"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's not.",
       "time": "00:46:02.59"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's not huh?",
       "time": "00:46:05.68"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Comes in to Lake Mead, I thought. It comes in to Colorado which comes in to Lake Mead. It may not -- maybe this river flows in the opposite direction.",
       "time": "00:46:11.61"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And Nevada, as I look at the map, can't get any --",
       "time": "00:46:39.87"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I can't get any water directly from the Colorado River without going to Arizona.",
       "time": "00:46:46.30"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In to Lake Mead.",
       "time": "00:46:57.14"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I'm not sure.",
       "time": "00:47:03.26"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The contracts by the Secretary where the States of Arizona and Nevada and with various metropolitan and other --",
       "time": "00:49:51.19"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- districts in California and not with the State. The Secretary's contracts with the State of Arizona --",
       "time": "00:49:58.86"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And with the State of Nevada.",
       "time": "00:50:06.61"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And not with the State of California.",
       "time": "00:50:08.34"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is putting to one side the language about present perfected use.",
       "time": "00:54:22.23"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does the record show how much more water has been made available by the governmental construction for use of beneficial purposes that could be depended on before the construction took place?",
       "time": "00:58:02.99"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why put in the word dependable water supply for beneficial use?",
       "time": "00:59:07.28"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How are those protective -- those perfected rights could be determined?",
       "time": "01:02:40.01"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you -- perfected rights.",
       "time": "01:03:10.95"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're talking about the future.",
       "time": "01:03:13.95"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Present perfected rights based on assumptions and what has been done in the past.",
       "time": "01:03:17.98"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:04:37.29"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:04:45.35"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:05:00.10"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why?",
       "time": "01:05:14.43"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any dispute here?",
       "time": "01:05:23.06"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There's an accused dispute.",
       "time": "01:05:25.45"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Your federal distillation would be what a future Secretary or the present Secretary might decide upon. How can you tell?",
       "time": "01:05:53.34"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There's no federal law of water in this field.",
       "time": "01:06:05.32"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What did the Master think that the applicable rules would be in making contracts inside a state with water uses? How was he to determine, which users would get what water?",
       "time": "01:07:05.30"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you argue -- you argue in your brief that he was wrong?",
       "time": "01:07:34.93"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that there should be a federal rule of --",
       "time": "01:07:38.88"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Entirely aside from who may have originated some appropriative rights or be in the process of perfected --",
       "time": "01:08:05.76"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, those aren't in issue here, I understand.",
       "time": "01:08:21.26"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean by appropriative right, it's been staked out --",
       "time": "01:08:47.17"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And this is prior to 1929?",
       "time": "01:09:42.59"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I think that is quite right, Mr. Solicitor General in my State of Washington. What you say is true but it is also true that once a right is perfected, the water right is marketable there and very often been sold and then applied to different land.",
       "time": "01:10:23.37"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It went so far as the -- well, we don't know. If you were an engineer and you were going to design this new Arizona project, wouldn't you have to know something about where the water rights were?",
       "time": "01:10:57.93"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Or whether or not his decision is to how the water will be used in Arizona would be consistent with the claims of Arizona landowners.",
       "time": "01:11:40.77"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But aren't you to that point? Mustn't you got to that point before you setup your irrigation system? How could you, as an engineer, design it unless you know what land was to be served?",
       "time": "01:11:54.06"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You would know what --",
       "time": "01:12:03.24"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Now let's assume it's the other answer. If the Secretary can decide it --",
       "time": "01:12:40.89"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- then of course --",
       "time": "01:12:46.82"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But if state law governs then you have a quite different considerate problem.",
       "time": "01:12:49.73"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Solicitor General, may I say that my trouble with this argument from the beginning in the subject to what law that governs has been this. If the Secretary -- if the man to his rights, in holding the allocation has been made then there are now no disputes between any persons claims under the state law, and the fact that the Secretary is hiding something and between him and the Secretary. I do not see how that is into the case or why we should lock out into such an important piece of law in a matter of this compact until we have accurate controversy. Now, after the government has built its dam, maybe, sometime there will be a dispute that those states still have the right to decide who will get it but I haven't seen it in this case.",
       "time": "01:12:54.99"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "How do you explain the incorporation of the provisions of the reclamation law?",
       "time": "01:15:47.39"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I think both of them pair on it.",
       "time": "01:16:09.03"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Section 14.",
       "time": "01:16:21.47"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Oh, we rule quite contrary in the Nebraska and Wyoming.",
       "time": "01:16:33.78"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We applied it specifically to interstate priorities in that case. We didn't say it -- we didn't say that it was an absolute rule but we say that absent to other consideration that was to govern.",
       "time": "01:17:01.59"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You're one of the members of a long distinguished line of Solicitor Generals who has argued the same position over the years, trying to get the water rights in the hands of the federal agent rather than state law.",
       "time": "01:17:21.47"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I'm not saying --",
       "time": "01:17:44.22"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I'm not saying we're --",
       "time": "01:17:45.95"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I'm not saying that you're wrong and --",
       "time": "01:17:49.27"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In a word -- in a word, your position is that all of these add up to giving the Secretary absolute and unfettered discretion as to whom he will make contracts with within the state limitations except for present perfected rights which he must respect, is that it?",
       "time": "01:19:27.73"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "All democrats and all republicans doesn't include --",
       "time": "01:19:48.17"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In some division --",
       "time": "01:19:53.61"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But furthermore, you'd say --",
       "time": "01:20:26.43"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Furthermore, you'd say that within the State, he has the same power.",
       "time": "01:20:28.36"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I don't. But that's your position.",
       "time": "01:20:33.41"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And --",
       "time": "01:20:36.39"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes but isn't there another -- you say not only that it's the Secretary who is to decide, but that the rules he follows are also his own. And he needs not to have any reference to state law or any equities that people within the State may have under their law.",
       "time": "01:20:39.37"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's all of it. That's all --",
       "time": "01:21:00.65"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That doesn't bring -- was it being done way back in 1929.",
       "time": "01:23:53.49"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Parry.",
       "time": "01:24:33.22"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These were, would you say, present perfected rights within the meaning of the Project Act?",
       "time": "01:30:03.38"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Under any definition.",
       "time": "01:30:08.83"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Muddy River and the Virgin River now flow into Lake Mead. Did they use to converge and then the converged stream flow into the Colorado.",
       "time": "01:30:14.83"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:30:28.98"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you say there is maximum appropriation so there was very little flow at all into the Colorado River.",
       "time": "01:30:34.13"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Especially to water --",
       "time": "01:32:21.40"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Do the water?",
       "time": "01:32:23.99"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Parry.",
       "time": "01:34:35.19"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:34:37.70"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:35:14.05"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:35:19.02"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:35:47.11"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:35:59.91"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:36:06.19"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, Mr. Parry, you would agree that in case of shortage, Nevada's 300,000 would have to be reduced by what 370 feet of the shortage?",
       "time": "01:36:21.78"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) That's more like it, yes.",
       "time": "01:37:09.77"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Let me ask --",
       "time": "01:37:20.21"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- one other question so I'm sure I understand you. Your position is that you're entitled to 300,000 acre-feet subject to this possibility of reduction that we've just talked about out of Lake Mead plus some 50,000 acre-feet out of the tributaries.",
       "time": "01:37:20.87"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- of all perfected right.",
       "time": "01:37:36.73"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And do I understand that the Master deducted those from your 300,000, didn't he?",
       "time": "01:37:39.86"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did not.",
       "time": "01:37:47.34"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:37:50.28"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Solicitor General suggests that they should be developed.",
       "time": "01:37:53.92"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you haven't signed no contracts for that water of course.",
       "time": "01:38:01.72"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "For the water out of the tributaries?",
       "time": "01:38:06.47"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you don't pay for water out of the tributaries.",
       "time": "01:38:11.92"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you do out of Lake Mead?",
       "time": "01:38:15.33"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:42:20.21"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the law.",
       "time": "01:42:24.28"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:42:27.43"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:42:47.59"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Parry, how much of the water are you now actually using?",
       "time": "01:43:38.99"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And how is that distributed by your river commission.",
       "time": "01:43:49.55"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "What is your estimate to the period of time that'll be the lapse until you take advantage of the whole body of water that is available to you under the contract with the Secretary?",
       "time": "01:44:55.90"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:49:03.04"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, are you suggesting that the state could require the Secretary the contract with your State Commission?",
       "time": "01:50:13.18"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know he did.",
       "time": "01:50:24.21"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I think what -- I think what has been accorded in --",
       "time": "01:50:25.61"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would this apply also to California and Arizona?",
       "time": "01:50:42.21"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about Arizona?",
       "time": "01:51:03.49"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You spell this out of the history and --",
       "time": "01:51:11.52"
     },

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1095/19831107a_82-1095.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL D. WELLINGTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ANTHONY G. AMSTERDAM",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wellington, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wellington, I would like to ask you if at some time you would explain to us in your view what is the procedure that California courts follow in the review of death cases. It isn't altogether clear to me precisely what it is that the California courts, the appellate courts at the highest level, would look to.",
       "time": "00:04:39.13"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. And, if the defendant seeks a proportionality review, then that court would make it? Is that what you are saying?",
       "time": "00:05:51.94"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Proportionality to the crime.",
       "time": "00:06:36.47"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, further on Justice O'Connor's question, does that mean they do not, in the California appellate system, compare this sentence with other similar cases throughout the state?",
       "time": "00:07:27.32"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought they said that the California courts had started to do that after this case had been appealed.",
       "time": "00:08:26.61"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They are inaccurate or my reading of the opinion is inaccurate?",
       "time": "00:08:35.23"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because the Ninth Circuit was inaccurate in thinking--",
       "time": "00:08:42.97"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But, the Ninth Circuit did think they were doing that.",
       "time": "00:08:46.44"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:08:50.58"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And is not a cross-case comparison.",
       "time": "00:11:28.38"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wellington, from the way you describe the California Court's approach to proportionality on the basis of In re Lynch, I take it one could have a proportionality review of a 50-year jail sentence under the--",
       "time": "00:12:36.00"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--if it is Sollin against Helm you are talking about.",
       "time": "00:12:52.40"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you still have the constitutional argument to make. I guess.",
       "time": "00:13:09.73"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wellington, am I right in thinking that the Ninth Circuit opinion didn't even cite our case against Jurek against Texas?",
       "time": "00:13:47.70"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:14:00.07"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But not on that point.",
       "time": "00:14:02.36"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume at 1:00, Mr. Wellington. Mr. Wellington, you may continue.",
       "time": "00:17:34.61"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wellington, may I ask a question about that? As I understand your position, it is sort of like any other appellate review of sentencing. He just has to raise the question. He has a right to have it heard.",
       "time": "00:19:38.36"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And, he did not, in fact, do so on his direct appeal in this case?",
       "time": "00:19:48.20"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did he do so on his state habeas corpus proceeding?",
       "time": "00:19:52.65"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask it this way. Did he, in the state proceeding, raise the question that the Court of Appeals for the Ninth Circuit seems to have decided?",
       "time": "00:20:30.56"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And, did he get that proportionality review in the state system?",
       "time": "00:20:47.01"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why didn't he?",
       "time": "00:20:55.31"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He wants this across-the-board review. What if you were to make that claim right now? Would it be open to him?",
       "time": "00:21:33.97"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. Or must it be made on direct review? That is the question I am--",
       "time": "00:21:40.91"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Would he have waived it by failing to request it on his direct appeal?",
       "time": "00:21:46.48"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is not my question. My question is if he were to make the claim for the first time, that is the one you say is available to him as a matter of California law, could he now make it?",
       "time": "00:21:54.82"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your kind of proportionality.",
       "time": "00:22:27.37"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not a cross case?",
       "time": "00:22:31.77"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:22:42.38"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There isn't any claim that a state needs to look at all the cases in the country.",
       "time": "00:26:44.51"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, all right.",
       "time": "00:26:54.53"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is not the nation, it is the state.",
       "time": "00:26:56.08"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Wellington, would you think that the federal Constitution might dispense with this cross-case proportionality review in a particular state and insist that it be performed in another because of the differences in the capital punishment system or would you think that if the Constitution doesn't require this cross-case proportionality in California, as you are arguing, it wouldn't anywhere?",
       "time": "00:28:54.19"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What, for example, if it didn't require it in Texas? Would that mean it wouldn't be required any place?",
       "time": "00:29:31.31"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now you are qualifying your answer.",
       "time": "00:30:00.02"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, certainly. Well, where might the proportionality, cross-case proportionality review be required? You were about to tell me, weren't you?",
       "time": "00:30:02.08"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:30:13.32"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have said before you interpret Gregg as not critically depending on proportionality review.",
       "time": "00:30:46.89"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean cross-case proportionality.",
       "time": "00:30:59.34"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would have a different view if that were a critical part of Gregg? The California system might then be in trouble.",
       "time": "00:31:01.47"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Perhaps not.",
       "time": "00:31:15.48"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is the California system like the Georgia system, more like Georgia than Florida?",
       "time": "00:31:29.65"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, just as a system of--",
       "time": "00:31:42.56"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--It certainly is more like Georgia than it is Texas.",
       "time": "00:31:47.54"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your kind of proportionality.",
       "time": "00:32:27.84"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:32:31.58"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now.",
       "time": "00:32:51.88"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Amsterdam?",
       "time": "00:32:54.39"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Eighth Amendment allows or compels? Does the Eighth Amendment allow proportionality review or compelled it?",
       "time": "00:34:23.90"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Amsterdam, is that a state constitutional provision which you refer to as the California prohibition against exclusive punishment?",
       "time": "00:36:14.38"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:36:25.60"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Amsterdam, if you are correct, I take it it is your submission that the California law has changed between the time that Harris' state court proceedings took place and now.",
       "time": "00:40:49.99"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If it isn't an actual change, why didn't the Supreme Court of California do for Harris what the Ninth Circuit did for him?",
       "time": "00:41:15.89"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, certainly the state of the law so far as Harris versus the People are concerned is probably best found in the case involving Harris versus the People, isn't it?",
       "time": "00:41:28.68"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they have had one chance and they have given no indication they want a second chance.",
       "time": "00:41:46.16"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What right would there be for a federal court in a habeas case to send it back to a state court for a matter of state law? None whatever. How could the Ninth Circuit do that anyway if you were right?",
       "time": "00:42:13.81"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, if the Ninth Circuit passed on it, why were they passing on an unexhausted claim?",
       "time": "00:42:50.85"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You can't have it both ways.",
       "time": "00:43:09.48"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't that a pretty good indication that the California courts thought that he was constitutionally punished?",
       "time": "00:43:33.98"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if you are correct, I take it even if the decision we are arguing about now were reversed, Harris could go back into the California courts and get exactly what the California courts think he ought to have.",
       "time": "00:45:38.86"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, one of our responsibilities, as well as to avoid deciding unnecessary constitutional questions ourselves, is to see that courts of appeals and district courts don't unnecessarily wallow into federal constitutional error. And, certainly, if you are right, that is what the Ninth Circuit did here.",
       "time": "00:46:29.79"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree with me or not?",
       "time": "00:46:47.29"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How we could both vacate and affirm which you have suggested in a single sentence?",
       "time": "00:47:12.65"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What constitutional basis is there for that? We just can't say we think it would be a good idea to look at this case again and stay the state's... and just derail the state system. Just because we think that the California courts made a state law mistake or something we should send it back to them and stay their... just stay any further proceedings against Harris?",
       "time": "00:47:31.45"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is exhausted you tell us. You have just said it was technically exhausted.",
       "time": "00:48:16.39"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the state court refuse to give relief because they have decided that his conviction and his sentence are in accordance with state law and the federal court is suppose to say you really don't understand state law to the state courts?",
       "time": "00:48:59.57"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, if the state courts refused to stay his execution and reject any state law claim, how can the federal court nevertheless sustain them or say that you should take another look at it?",
       "time": "00:49:35.64"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When was the Supreme Court of California's decision, what year, affirming Harris' conviction? Do you remember?",
       "time": "00:50:41.29"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When, what year?",
       "time": "00:50:50.14"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How soon do you suppose this litigation would finally become final if the courts were to follow your suggestion?",
       "time": "00:50:57.63"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question? I am still somewhat puzzled. In his collateral proceeding in the state court, did he raise the across-the-board proportionality review issue?",
       "time": "00:51:30.00"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then he lost in that case, including in the California Supreme Court, did he not?",
       "time": "00:51:44.66"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:51:53.18"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, they had an opportunity in that proceeding to do precisely what the Ninth Circuit has now said they should do.",
       "time": "00:52:04.74"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Amsterdam, is it not true that California law had so evolved by September of 1982, which is when... No, March of 1982, wasn't it, that they denied the... the California Supreme Court denied the collateral review?",
       "time": "00:52:47.73"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean for there to be a change it has to be after the denial of collateral review for it to be relevant, doesn't it?",
       "time": "00:53:07.31"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think it ought to get another crack at reading what it does or what it might read into the Ninth Circuit opinion about whether cross-case proportionality review is constitutionally required?",
       "time": "00:53:38.26"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but didn't the... Isn't there substantial indication in the Ninth Circuit opinion that there is a federal constitutional requirement?",
       "time": "00:54:03.66"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think the California courts would do in the face of that?",
       "time": "00:54:16.71"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if you are going to send it back to the California courts, in the face of this holding by the Ninth Circuit, what do you think the California courts would do? I mean they might feel compelled to give them proportionality review even if it wasn't required under state law.",
       "time": "00:54:30.05"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I think it might be helpful if you argued--",
       "time": "00:55:04.20"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Cross-case proportionality.",
       "time": "00:55:14.74"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just what do you mean by a comparable case? I think you used that term. What elements must be the same? Must the victim be the same age or approximately the same age, must the murder have been committed in the same way, the events after the murder, must they all be compared?",
       "time": "00:58:47.95"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do they do it?",
       "time": "00:59:14.00"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:59:19.32"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would it be enough for you if instead of calling up on the record all the cases, the judges just said we have a firm conviction, having seen all these cases, that the death penalty conforms to the norm here? That is all they say.",
       "time": "01:00:49.29"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it says we have... All these cases comes before us and we have the general impression now and conviction that this sentence is not out of line or would they have to go through the whole litany, this case, that case?",
       "time": "01:01:14.11"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They just do it by memory. They don't go back to the records and look at them all again, they just do it by memory. They say we have seen all these cases and this case just isn't out of line.",
       "time": "01:01:45.21"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Amsterdam, if they must do something, it is not enough to rely on their memory. You say they must look at the cases to which counsel calls to their attention. Did counsel in this case call any court's attention to other cases similar to this?",
       "time": "01:02:51.17"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that petition in the Joint Appendix?",
       "time": "01:03:40.09"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that petition in the Joint Appendix?",
       "time": "01:03:42.67"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, the federal habeas petition, does that have the same kind of showing in it?",
       "time": "01:04:00.63"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where do we find that?",
       "time": "01:04:30.23"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do we have that before us?",
       "time": "01:04:43.14"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that material here in the record?",
       "time": "01:04:45.49"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it in the record now before this Court?",
       "time": "01:04:50.23"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, Mr. Amsterdam. Your time has been used up too. Thank you, gentlemen, the case is submitted.",
       "time": "01:05:11.33"
     }

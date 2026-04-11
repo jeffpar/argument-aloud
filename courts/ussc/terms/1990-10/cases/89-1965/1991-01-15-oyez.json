@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1990/89-1965/19910115a_89-1965.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "DENNIS L. MANES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN G. ROBERTS, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in No. 89-1965, Cottage Savings Association v. Commissioner of Internal Revenue. Mr. Manes.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, the Home Loan Bank Board doesn't give tax advice, does it? Did the Home Loan Bank Board assure your clients that they'd get a tax deduction?",
       "time": "00:04:10.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, right.",
       "time": "00:04:21.78"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you could have... you could have gone to the Internal Revenue Service or to the Treasury and asked for advice on the matter, I suppose, couldn't you? Was that done?",
       "time": "00:04:23.78"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't really say the Government misled you here. The Home Loan Bank Board gave you a regulatory boon enabling you to apply for a tax loss without losing any solvency as far as the regulator was concerned, but they didn't give... guarantee anything beyond that.",
       "time": "00:04:36.45"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sure, it was. But it was not an agency of the Government who said you can have a tax benefit. So the fact that it was an agency of the Government makes no difference. It said you can do this without running afoul of regulatory restrictions, right?",
       "time": "00:05:04.85"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they made good on that promise. They didn't pursue you for doing this. I mean, you were not required to decrease your net worth for regulatory purposes, right?",
       "time": "00:05:18.11"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So they gave you everything they promised.",
       "time": "00:05:29.16"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They have no authority to pronounce on tax consequences. You could have gotten a letter from Treasury if you wanted to be sure about that. You were rolling the dice, right?",
       "time": "00:05:50.92"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That you were free to roll the dice. That's all they told you.",
       "time": "00:06:09.64"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Let me follow through on that. Two or three times you've referred to for the purpose of taking tax losses. Wasn't the purpose for... purely for regulatory purposes, for accounting purposes as far as the Home Loan Bank Board was concerned?",
       "time": "00:06:15.14"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What accounting effect was intended by R-49?",
       "time": "00:06:55.99"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you mean put the loss?",
       "time": "00:07:20.41"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Book the loss. All right. It need not book the loss--",
       "time": "00:07:23.13"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--under 49.",
       "time": "00:07:26.62"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they could claim a tax... even though you didn't book the loss, you would claim a tax loss?",
       "time": "00:07:29.15"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the accounting effect was really nil if you elected not to book the loss?",
       "time": "00:07:38.19"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr.--",
       "time": "00:07:43.52"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Manes, don't we really have to look at the Code provisions to see if there's a tax loss or not? Do you plan to talk about that?",
       "time": "00:07:46.42"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well-- --Why don't you tell us about it. The Treasury has a regulation that says there has to be a material difference if there is an exchange. Now, is this an exchange or a sale, do you suppose?",
       "time": "00:08:13.22"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So we take the case assuming it's an exchange?",
       "time": "00:08:33.11"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay.",
       "time": "00:08:36.23"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. And there may have to be a material difference, however, if we apply the Treasury regulation?",
       "time": "00:08:38.11"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but we normally defer to IRS regulations that interpret the statute, and they say there has to be a material difference. They talk about, for example, the situation of exchanging bushels of wheat if the price of wheat drops, and they argue that that would be a perversion of the statute to say that we will recognize a loss in that situation.",
       "time": "00:11:40.62"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say the regulation then is unauthorized by the statutes?",
       "time": "00:12:36.35"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If one were to imply the converse from the regulation, would you say the converse implication was not authorized by the statute?",
       "time": "00:12:59.99"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you don't say that it seems to me you lose your case.",
       "time": "00:13:12.32"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but then you're saying the regulation could be valid, but that the IRS is interpreting it incorrectly.",
       "time": "00:13:31.08"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That the regulation should be read to refer to these Supreme Court cases that established a constitutional distinction.",
       "time": "00:13:39.27"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But there's language in some of this Court's opinions that there has to be... to the effect that there has to be a material difference, and perhaps the IRS was trying to codify that language, in effect, with its regulation.",
       "time": "00:14:18.46"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I don't know what you mean by that. But do you... do you take the position that today in the exchange of bushels of wheat example that we should recognize a tax gain or loss?",
       "time": "00:14:54.37"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes or no? Under today's law do you take the view that an exchange of bushels of wheat should result in a taxable gain or loss?",
       "time": "00:15:16.28"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that consistent with Eisner v. Macomber?",
       "time": "00:15:51.54"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I thought that there was an event. There was an event of a stock dividend, was there not? If I recall.",
       "time": "00:16:08.57"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it would be if the stock dividend were disproportional.",
       "time": "00:16:27.55"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And the only reason that it, it was held to be nontaxable was the economic position of the taxpayer hadn't changed.",
       "time": "00:16:33.12"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Suppose we disagree with you and think that the deference we owe to the regulation means that we will apply it? Do you have a fallback position?",
       "time": "00:17:02.49"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it the court of appeals agreed with you on 1001?",
       "time": "00:18:13.74"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they turned you down on 165?",
       "time": "00:18:23.43"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So for you to win you have to say the court of appeals was wrong on 165?",
       "time": "00:18:35.87"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I would suppose we wouldn't decide that. We would say that the court of appeals was wrong on (a) 165 and wrong on 1001 and remand to see if in this particular transaction there was a material difference. Because I don't know that you get the same answer on every single trade of mortgages, would you?",
       "time": "00:18:54.16"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would... if... if the... if we would say the regulation is valid, you would then go to the court of appeals for the Fifth Circuit rationale?",
       "time": "00:19:21.10"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it because all mortgages are unique?",
       "time": "00:19:36.25"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that simply is inconsistent with the whole design of these transactions. They matched up the mortgages on the computer banks and they came out within a few cents of each other, and they switched. And there was absolutely no showing that... unless I'm wrong, correct me... that they investigated to see if they were going to get high rent, or high income homes or low-income homes. Nobody seemed to care. They were just switching these mortgages around. Correct me if I'm mistaken.",
       "time": "00:19:42.83"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "From a computer point of view.",
       "time": "00:20:19.41"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Did the computer matching and analysis seek to make an analysis of relative risk, so that the computer was attempting in effect to substitute one pool with a given level of risk with another at exactly the same level of risk?",
       "time": "00:20:36.61"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm not sure that I know what you mean by that.",
       "time": "00:20:56.11"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's forget R-49. If I'm just going out on the market to buy a participation in a pool of mortgages, and I am looking at the two pools in question here, does the computer purport to tell me that I am buying a participation with the same level of investment risk, no matter which of the two I buy into?",
       "time": "00:21:02.18"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Sure, but I want to know what the risk is that I'm not going to get the income. I want to know what the risk is that there's going to be a default. Am I buying... do I have a choice based, assuming the computer is properly programmed, do I have a choice of buying into two, two pools of equal risk, or am I simply buying into two pools of mortgages with roughly equal collaterals and net values of collateral, market values of collateral?",
       "time": "00:21:34.93"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And that's what I want you to tell me.",
       "time": "00:22:12.48"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, what I'm getting at is whether there is a material difference depends in part of what kinds of differences would be relevant to a mortgage lender. And one of the things that a mortgage lender would be concerned with is the degree of risk. And if what we have got are two pools which on the matter of risk are virtually homogeneous, that may suggest one answer in this case. But if we have got two pools in which the risks, relative risks, have not been assessed, then we might come up with another answer.",
       "time": "00:22:15.20"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, is... your answer to my question then is no, the computer did not purport to give you two pools of identical risk?",
       "time": "00:23:18.10"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:23:27.59"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course the only purpose of that was to enable the relationship between borrower and lender to continue, was it not?",
       "time": "00:25:18.20"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Manes. Mr. Roberts, we'll hear now from you.",
       "time": "00:25:43.57"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They don't claim the losses arose from the swap. They were realized at the time of the swap. They arose before the swap. They were in fact real losses, weren't they?",
       "time": "00:26:08.52"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the loss had arisen prior to the transaction.",
       "time": "00:26:19.66"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Roberts, if the facts had been just the reverse and the values of the properties had gone up and there was an exchange, what position would IRS take?",
       "time": "00:26:31.56"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you may have other situations where there are exchanges in the future for... where there might be a gain, and the IRS is prepared to apply exactly the same test to that one?",
       "time": "00:26:57.39"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what do you look at? Just the fact that the economic value at the time of the exchange is the same?",
       "time": "00:27:21.63"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No.",
       "time": "00:27:31.85"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What's your test, then, for material difference?",
       "time": "00:27:33.30"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is a subjective test or is it an objective test?",
       "time": "00:27:54.11"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You first said that the... whether the differences were of a nature as to affect the decision, and now you're saying here they in fact didn't affect the decision. Which is going to be crucial for your--",
       "time": "00:27:57.42"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Suppose... suppose two taxpayers who have stock in different mutual funds have a study done by an expert, and he says these two funds, their performance in the past has been just about the same, in the future they are likely to be the same, as far as I can tell it's tweedle-dum and tweedle-dee. And they swap their stock in these two different mutual funds. Is that a... is that an event that would trigger a gain or a loss, or not?",
       "time": "00:28:20.31"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is? Why?",
       "time": "00:28:49.77"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, these houses are owned by different people, whose economic success and ability to pay their mortgages are quite different.",
       "time": "00:28:59.45"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you take a mortgage on a house you want to know who the mortgagor is, too.",
       "time": "00:29:13.41"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's being subjective. You're just saying not that nobody could see a difference, but that this particular trader didn't care.",
       "time": "00:29:30.45"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. Because if I was doing the swap I would have cared. You see, I wouldn't have... I wouldn't have accepted that. I want to know who these mortgagors are. So you're really not applying an objective test. You're just saying that these particular traders didn't care who the mortgagors were.",
       "time": "00:29:42.04"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see. It's not any trader. It's a trader who's in the secondary mortgage market.",
       "time": "00:30:11.27"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does it have to be a trader in the secondary mortgage market living in New York?",
       "time": "00:30:16.03"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, how specific... when you get specific enough then it's the same thing as a subjective test.",
       "time": "00:30:21.39"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that just shows that these traders didn't care.",
       "time": "00:31:03.43"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the mutual... you could make the same argument about two mutual funds that pay the same interest rate and they are equally liquid, they are both short term funds, and one is the First National Bank and the other is the Chase Manhattan Bank, or something. And the average person in the market would think that's tweedle-dum and tweedle-dee, wouldn't he?",
       "time": "00:31:12.26"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course with a mutual fund you wouldn't care because it's not recognized under... what is it, 1031... anyway. Exchange of like kind, but it's not--",
       "time": "00:31:40.72"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Oh, it is recognized?",
       "time": "00:31:53.96"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was there any finding in the tax court or by the court of appeals that the secondary mortgage market had this characteristic which you describe?",
       "time": "00:32:08.53"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was a finding by the court of appeals or by the tax court?",
       "time": "00:32:31.19"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "By the... that came up through the Federal district court?",
       "time": "00:32:38.24"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, if I understand what you're saying, what you recite in your brief as being a simple example, you very facilely say swapping one bushel of wheat for another bushel of wheat doesn't make any difference, that that's not an event that triggers recognition, that's really not true. You really have to know who the traders are, don't you?",
       "time": "00:32:40.66"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right.",
       "time": "00:33:07.18"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there's two farmers and I say, you know, I have grown this new type of wheat, do you want to swap it for some of your old wheat and you try some of mine and I'll try some of yours. You don't consider that subjective? You say that's just identifying the market? That's... that's not being subjective?",
       "time": "00:33:15.76"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I call it being subjective.",
       "time": "00:33:33.41"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There are going to be a lot more factual inquiries in cases involving the recognition of gain if the Court accepts your theory, I think.",
       "time": "00:34:13.15"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think the regulation when it was adopted was intended to do any more than effectively codify this Court's decisions?",
       "time": "00:34:37.71"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm just... I'm not sure that I understand what you say the limiting principle is here for the Government's test. It just isn't clear to me yet.",
       "time": "00:35:02.84"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The differences actually relied upon.",
       "time": "00:35:19.95"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, they have put forth those differences here. There are different risks of repayment. They've put forth those as differences.",
       "time": "00:35:31.37"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but they are, because each borrower has a different ability to repay the loan, and perhaps the security, the collateral, is different.",
       "time": "00:35:43.91"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they-- --But your economic position doesn't change lots of times and when you nonetheless have to recognize the loss or gain. If you sell property for a certain amount of money, your economic position doesn't change, but you nonetheless may have to recognize the loss.",
       "time": "00:36:50.10"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, you say your economic position changes dramatically when you sell stock... 50 shares of stock for $10,000. The actual physical property which you possess, the share of stock as opposed to the dollars, changes, but I don't see how your economic position changes.",
       "time": "00:37:18.85"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah.",
       "time": "00:37:39.77"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're holding a different asset, yup.",
       "time": "00:37:43.69"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But for some centuries since the invention of money, I thought people would have said you economic position was the same.",
       "time": "00:37:50.28"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No it didn't, no it didn't, no it didn't. All you have established is that they didn't care very much about what differences there were in the mortgage.",
       "time": "00:38:15.52"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they were really different loans, those... and it turned out that the loans they got paid off a good deal less than the ones they swapped. Didn't they end up the losers on the thing, 100 and... I forget what the number was... $160,000 or so?",
       "time": "00:38:25.46"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that shows that in fact what they got was quite different from what they gave up. They didn't have the same assets afterwards.",
       "time": "00:38:41.53"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why isn't that true in the stock example?",
       "time": "00:39:05.92"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The market values the stock by taking the risk into consideration, and the market says in effect holding this stock gives you in effect the same economic risk as holding the $10,000.",
       "time": "00:39:08.67"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but that's true, but I think to the... maybe I misunderstood you. I thought to the extent that you were replying to Justice Scalia that you had sort of two identical risk situations, that that was decisive on material difference. And if that's going to be, then I think you've got to carry the argument beyond the exchange of mortgages into the stock example.",
       "time": "00:39:27.54"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course then the rights and obligations are exactly the same, too, but that's not like saying that 100 homes in North Carolina are identical to 100 homes in South Carolina, one in the cities and another in the country. There's surely a lot of difference between the underlying assets.",
       "time": "00:40:20.89"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're just saying there's no difference in the risk. But I don't know why that's any different than exchanging General Motors bonds for Chrysler bonds having precisely the same par value and interest as... and the reason you do it is because the tax benefit you get far exceeds whatever trivial difference there is in risk. That's the only motivation--",
       "time": "00:40:41.41"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and it's a perfectly legitimate motivation.",
       "time": "00:40:59.34"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah, but you say that doesn't matter. If they just picked it out of the air and it just happened to come out this way it would be the same thing.",
       "time": "00:41:11.33"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think you're really making a subjective test argument.",
       "time": "00:41:21.61"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of the market, you say, which--",
       "time": "00:41:28.39"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Let's go to your sinking... your sinking fund bonds again where, where they are selected randomly which ones will be paid off over the 10-year period. And let's assume I call up a friend of mine, I say you know, I'm feeling lucky this week. I have these sinking fund bonds, what do you say I swap mine for yours, because I'm really feeling lucky. Now, is that... does that trigger recognition of loss or gain?",
       "time": "00:41:30.35"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why not?",
       "time": "00:41:58.05"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, it has to rise to the level of being a market? Suppose I called it a market, a market in sinking fund bonds, you know. I'll trade you the numbers I have for the numbers you have.",
       "time": "00:42:02.72"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But this is a material difference for that market. Suppose there are 10 people that do this? I open a trading post, you know, for people who want to gamble with these bonds. You trade the numbers I have for the numbers you have, we'll see whose gets called sooner or later. That's the only, the only thing that we're trading them for. And you say that does not create a market?",
       "time": "00:42:42.29"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand why.",
       "time": "00:43:02.80"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me give you another. Supposing in this very case you had the same economic analysis, but in addition to the tax motivation one of the traders said we'd like to concentrate more of our loans in urban areas, and the other one said we want to move into rural areas, just as a matter of policy. So they selected rural versus urban, but came up with the same economic analysis you have in this case. Is that... would you realize a loss or not then?",
       "time": "00:43:06.55"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that would not be material difference?",
       "time": "00:43:48.63"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, they just want to advertise to the public we're an urban loan mortgage company or something. It has nothing to do with their judgment of which will get paid out faster, they just liked to... or they wanted to have them all in the Northeast instead of the Southeast, or something like that.",
       "time": "00:43:59.64"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why then is that different from General Motors versus AT&T? I don't understand.",
       "time": "00:44:18.60"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but these are different areas of the country, different types of property, and you've got 90 percent of twice as many loans instead of 100 percent of half as many loans... I mean, 90 percent and 10 percent. You've got an interest in a portfolio twice as large as the one you started with, too.",
       "time": "00:44:27.64"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You just say they're not material.",
       "time": "00:44:44.85"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, now wait, to the market or the bank board. Suppose the market says urban, rural, it makes no difference, we're going to value them the same. But I, as a banker, I think that urban real estate is really going to flop. I'm the only one, but, you know, that's how people get rich. I happen to think that. And therefore my motivation is to get rid of my urban holdings and acquire rural holdings. But the market is not taking account of urban versus rural. Those dumb people out there, they think they're all the same. But I, I have a special motive. What happens? Is that an event that would produce recognition or not?",
       "time": "00:44:49.89"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I haven't said... I have said the fair market value is the same, because the dumb people like... out there, who create the market, they think it's all the same. That's how people get rich, you know. They out guess the market. The market value is the same, but I personally want to get more rural real estate. And you're saying that cannot be a recognizable event because the market doesn't recognize that difference?",
       "time": "00:45:38.09"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You either have to come out with a... what seems to me a silly position on that hypothetical, or you have to acknowledge that you're applying a subjective test and not an objective test.",
       "time": "00:46:04.28"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just me. Nobody else.",
       "time": "00:46:32.95"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Roberts, what should... don't you have to do something about the court of appeals' holding?",
       "time": "00:47:16.41"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Say that again?",
       "time": "00:47:36.13"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, yes.",
       "time": "00:47:45.44"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which you think is what the court of appeals did in this case?",
       "time": "00:48:17.18"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah.",
       "time": "00:48:22.41"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you do defend the court of appeals' treatment of 165 if we reach that question?",
       "time": "00:48:26.92"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you think the arguments are essentially the same? Loss sustained and gain realized is the same concept?",
       "time": "00:48:38.48"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But on that reasoning, if the computer had matched up two baskets of common stock, you would then reach the same result in this case, wouldn't you?",
       "time": "00:50:19.11"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What about baskets of stock in the same industry? All common stock, all in oils or all in chemicals, and so on?",
       "time": "00:50:47.06"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Because the companies are different.",
       "time": "00:50:58.34"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about bonds? Do they, do they go with stock or do they go with mortgage loans?",
       "time": "00:51:15.45"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So if I have computers do this thing with bonds, it's no good, but if they do it with mortgages, it's okay?",
       "time": "00:51:35.46"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about two different issues of Texaco bonds? You know, they do them periodically. Both due in 1991, both the same interest rate.",
       "time": "00:51:55.73"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then the next question if you say well, that's the same, then what if they're slightly different in interest or maturity, but market value is precisely the same because one is discounted to 99 and the other is 101?",
       "time": "00:52:06.71"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there material difference or not between two bond issues of the same corporation?",
       "time": "00:52:19.07"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They're not identical, but they're identical in market value.",
       "time": "00:52:24.22"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, one's a slightly higher interest rate and slightly different maturity, but the, but it all washes out when you trade it at the time because you buy it at a discounted rate.",
       "time": "00:52:29.56"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be materially different.",
       "time": "00:52:41.63"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me they're a lot more alike than what you've got here.",
       "time": "00:52:46.58"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, you changed the interest rate on the coupon, but the effective interest rate, because you buy it at a discount, is precisely the same. When you buy bonds on the market, you don't buy them at par.",
       "time": "00:52:58.19"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What about exchanges of shares identically valued in two separate bond funds? The person who buys doesn't know what bonds his fund is holding.",
       "time": "00:53:12.82"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I think though, we're... again we're right back to the fact that there are differences in the homeowners who are going to pay or not pay the loans, there are differences in the banks who are not... are or are not going to collect promptly. I don't see where the distinction lies.",
       "time": "00:53:32.65"
     },
@@ -1791,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but in my example the differences in the bonds in the two funds didn't make any difference to the fair market value of the share of stock either. And yet no one would argue that the bonds were all identical and that they all carried... that they all were in fact going to perform necessarily in the same way over time.",
       "time": "00:54:33.00"
     },
@@ -1803,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Roberts. Mr. Manes, do you have rebuttal? You have 4 minutes remaining.",
       "time": "00:55:05.59"
     },
@@ -1815,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Excuse me--",
       "time": "00:57:34.47"
     },
@@ -1827,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Could I... for regular accounting purposes, you would have to revalue these mortgages even if you didn't engage in a swap, isn't that right? I mean, if you're following normal, what's the organization that you mentioned? Wouldn't their normal procedures require you to revalue your stock of mortgages--",
       "time": "00:57:36.77"
     },
@@ -1839,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--as there's a decline in the real estate market, whether or not you trade them for other mortgages?",
       "time": "00:57:57.32"
     },
@@ -1851,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does the accounting reference you made appear in any of your briefs?",
       "time": "00:58:01.93"
     },
@@ -1863,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Thank you.",
       "time": "00:58:10.87"
     },
@@ -1875,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Manes. The case is submitted.",
       "time": "00:58:38.97"
     }

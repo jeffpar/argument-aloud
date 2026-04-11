@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1998/98-85/19990120a_98-85.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "WALTER E. DELLINGER, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ROBINSON O. EVERETT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 98-85, James B. Hunt v. Martin Cromartie. Mr. Dellinger.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was there any allegation that the... the precinct numbers were used as a surrogate for race; that is to say, precinct numbers were used in order to include people of a certain race in the district? Was there any allegation of that here?",
       "time": "00:03:00.77"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dellinger, you say that there's no evidence, but I... some of the districts that... that were carved up in order to create this unusually shaped district or some of the... some of the counties were indeed overwhelmingly Democratic, and it would have been easy to put in more Democrats without putting in more black Democrats. And... and part of the allegation is that the... what was done shows that there was an intentional effort not only to get in Democrats, but to get in black Democrats. And that... and that circumstantial evidence is... is affirmed by the... the affidavits put in by your side which say that one of the purposes of the legislature was to... was to retain the election of incumbents. And here you had an incumbent who had been elected by a district that had been unconstitutionally established on a racial basis, and to simply come in and say, well, we want to make sure that he'll get reelected is, it seems to me, more circumstantial evidence. I mean--",
       "time": "00:04:23.11"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--there may not be enough evidence, but it seems to me to go too far to say that there's no evidence that... that there was any racial gerrymander here.",
       "time": "00:05:33.40"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Dellinger, may I just interrupt for a second?",
       "time": "00:08:38.66"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's assume, for the sake of argument, that there's a... there's a question whether the chain of causation is broken or not. Isn't it your position that you still win here? I mean, you're arguing summary judgment. And the question is whether there is a genuine issue, not who ultimately wins. Am I right? I mean, that's... that's really the structure of your argument.",
       "time": "00:08:41.05"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, but--",
       "time": "00:09:06.22"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--the only thing we've got from... in... in front of us is... is an appeal from a grant of summary judgment.",
       "time": "00:09:07.65"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that... that's true, but-- --Did you move for summary judgment? Did you move for summary judgment below?",
       "time": "00:09:38.31"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you cross-appeal? Did you-cross appeal?",
       "time": "00:09:44.97"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we... we--",
       "time": "00:09:46.30"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--can't give you a judgment here that is... that goes beyond what... what you've asked for.",
       "time": "00:09:48.76"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may be a fully explanatory answer if we assume there is nothing else in the world that might come in as an evidentiary matter here. Can we assume that?",
       "time": "00:10:27.62"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but it sounds to me very much like a cross-appeal. I mean, it's... it's one thing to say that they have not put in sufficient evidence, given this total record, upon which one could say there was no genuine issue and they were entitled to judgment as a matter of law. But I... it sounds to me as though what you're arguing is... is something that strikes me like... like a cross-appeal, which you didn't take.",
       "time": "00:11:40.89"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Or the State didn't take.",
       "time": "00:12:05.92"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if the summary judgment case wasn't right, you could have the injunction vacated, and then it goes back presumably for further development. And on that score, I wanted to ask, having had a preview of what's going on in the summary judgment submissions, what would the State... what additional, if anything, would the State put in were this case to go to trial?",
       "time": "00:12:21.90"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's the other side.",
       "time": "00:13:17.49"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's the other side that... the other side, if they're denied summary judgment, that I guess would have a right to put in some evidence. I mean, if we deny... if we said you're wrong to give them summary judgment, you're wrong--",
       "time": "00:13:18.18"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--wouldn't that automatically say to you, well, if the law doesn't permit them to win, if this evidence doesn't permit them as a matter to law... of law to win, it must permit somebody to win? So, I guess they'd have to... they'd have to put in some more evidence if they should have that opportunity.",
       "time": "00:13:29.44"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's their problem.",
       "time": "00:13:45.40"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What evidence... what evidence do you have? I mean, I don't think we're about to send it back and give summary judgment in the other direction when you haven't asked for it. Let's talk about the summary judgment that you're seeking to overturn.",
       "time": "00:13:48.75"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And now, it... it has to be evidence showing that there is a controverted issue of fact. Suppose the evidence showing the controversion is so weak in light of the evidence on the other side, that no rational person would believe it. Is... is that enough? Can you bring in a 10-times felon who has perjured himself in so many cases testifying to a fact that is inherently incredible, and so long as you get on the record somebody controverting that fact, is that enough to get you by summary judgment?",
       "time": "00:14:01.92"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, despite these statements by the legislatures... legislators that, oh, no--",
       "time": "00:14:32.70"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--this was just politics, it is conceivable that the district court looked at those statements, looked at the... looked at the district that had been drawn, looked at other statements, and said these things are inherently incredible. That... that's at least up for grabs, that argument.",
       "time": "00:14:38.96"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I didn't mean to imply that.",
       "time": "00:14:59.94"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It was what is known as a hypothetical felon. [Laughter]",
       "time": "00:15:02.92"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You don't contend that the Shaw line of cases and Miller apply only to majority-minority districts, do you?",
       "time": "00:15:55.93"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me that it was somewhat troubling for some of those who drew the district to say, good news, this isn't majority-minority. That seems to me that's a misunderstanding--",
       "time": "00:16:15.10"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--of Shaw v. Miller.",
       "time": "00:16:24.27"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in itself circumstantial evidence that impermissible fact--",
       "time": "00:16:25.37"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Very well, Mr. Dellinger. Mr. Feldman, we'll hear from you.",
       "time": "00:16:40.96"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does a predominant motive mean? I'm... I'm a little unclear about that.",
       "time": "00:17:08.95"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose... suppose the district would have been drawn almost this way, but... but a few curves in it were put there just for racial reasons. Does that make it not... not a predominant motive?",
       "time": "00:17:14.38"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is... why is that the test? I don't... is that the test in any... any other civil rights areas that we know of? I mean, do we say if somebody fires somebody and, you know, well, yes, race was what finally tipped the scales, but I can't say it was the predominant factor? This was a person who didn't really work very well. Race was just the last factor. That... that was the straw that broke the camel's back, but it wasn't the predominant factor. We certainly wouldn't say, well, that's okay, would we?",
       "time": "00:17:55.78"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, don't... don't you think predominant maybe just... just means ultimately determinative?",
       "time": "00:18:26.75"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It can be the ultimately determinative factor in how you drew this... this district.",
       "time": "00:18:32.82"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if it's not the predominant one, it's okay.",
       "time": "00:18:39.64"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, do you have to look at the whole district? Are you saying that it's lawful for us to say we know the basic lines of the district; now we're going to add 10 percent more just to come up with our... and we'll put all of one racial minority in that just to help them out. Is... is that lawful?",
       "time": "00:18:50.01"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The hypothetical, as I understand it, can you... can you ever use race specifically in designing part of a district?",
       "time": "00:19:12.84"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If your only motive is to use race for part of a district, can you do that?",
       "time": "00:19:22.45"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it didn't say as to the whole district.",
       "time": "00:19:34.82"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what would be the rationale which would allow you to use... to use race only as the sole factor in... in comprising part of a district? What... what conceivable rationale would allow that under the Equal Protection Clause?",
       "time": "00:19:54.50"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not talking about awareness. I'm talking about specific purpose.",
       "time": "00:20:23.54"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, the position of the Justice Department is that in drawing districts, race and race only can be taken into account for some neighborhoods. That's your position.",
       "time": "00:21:15.29"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Aren't you saying, Mr. Feldman, that the... that whatever predominant means, it at least does not include cases in which the governing motive is to avoid a section 2 or a section 5 violation? You're saying that at least, aren't you?",
       "time": "00:21:29.63"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me get the Justice Department's position correct. If... if you have some legislators who want to... want to exclude some blacks from a district that has been, for many years, represented by a white Congressman, and they're worried that too many blacks in that district might make it difficult for him to get reelected because his policies have generally not been favored by blacks, it can take those blacks and chop them out of his district and put them into this new gerrymandered district so long as that's not a big part of that district.",
       "time": "00:21:57.05"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So long as it's only a... less than half?",
       "time": "00:22:31.98"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they're not going to say we did it for dilution. They're... we're protecting incumbents, the same argument that's being made here. We're protecting incumbents. That's why we drew the district.",
       "time": "00:22:53.47"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To protect the incumbents, we took race into account for a little... for a little bit of the district.",
       "time": "00:23:01.63"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, it can be the predominant motive for just a little part of the district. That will be enough.",
       "time": "00:23:17.63"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "When you say a motive, I thought this was a case in which, in respect to all groups of minority voters, the State was saying, look, we put all of them in there because they're Democrats. So, our predominant motive is to every significant group was that they were Democrats.",
       "time": "00:23:32.39"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We may have also thought, well, fine. They're minorities too. We like that idea in this case. But I mean, that's not the only motive for even those people.",
       "time": "00:23:49.07"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Then I don't know why we're going into this.",
       "time": "00:23:58.78"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Dominantly it was never only motivated by race.",
       "time": "00:24:09.49"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What in the world does that mean?",
       "time": "00:24:34.23"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does... they took racial fairness into account. What in the world does that mean?",
       "time": "00:24:35.41"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To use race in drawing the districts.",
       "time": "00:24:46.35"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You had a statistician who said that it was... if you had to pick between the two, was more likely political.",
       "time": "00:25:14.07"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The district court didn't seem to do anything but say, well, we're talking about registered Democrats here.",
       "time": "00:25:22.91"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Feldman, don't you think it's appropriate for the district court to take into account that this is not some brand-new legislature that's walked up here creating a brand-new district, but it's a legislature that has been told to redistrict precisely this district because the last time they clearly did it on... on a racial basis, which was invalidated by the courts and upheld up here?",
       "time": "00:26:04.74"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do... do they have to pretend that this is not a legislature that has been pulled kicking and dragging into... into drawing a fair district?",
       "time": "00:26:27.27"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And then when they're given another district that looks pretty much like the... like the old one, they cannot take that into account?",
       "time": "00:26:35.13"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Feldman.",
       "time": "00:26:57.59"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Everett, we'll hear from you.",
       "time": "00:26:59.18"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, certainly they are, but I think, at least speaking for myself, my concern is that there may well have been sufficient evidence here to preclude the court from granting summary judgment on this question. So, I would be most interested in how you justify that.",
       "time": "00:27:27.30"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do we have it in front of us? It's not the one at 61a?",
       "time": "00:27:59.82"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This is 61a of the petition... or the jurisdictional statement.",
       "time": "00:28:07.28"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, is it because they're taking the wrong point in time to determine the incumbency to protect? In other words, are you saying they had to go back, say, to 1989... and I don't know what the situation was in '89... and... and they might consider trying to preserve something close to the incumbency at that time, but they can't look at it at the... at the most recent period?",
       "time": "00:29:42.12"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But they are entitled to say, we're going to have six Democratic districts, all six of which are democratically constructed.",
       "time": "00:30:22.29"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The problem that I have and I think the problem that Justice O'Connor tried to raise is... is this. I... I see the maps and I... I don't... I don't mean by my question to discount the evidentiary value of the map for you--",
       "time": "00:30:29.65"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--because I can see that it has some. But the summary judgment record upon which you rely is a record, in fact, in which the... the district is no longer majority-minority, the building blocks of it are no longer the... the tiny little census blocks. They're... I forget whether they're precincts or census tracts, but they're... they're larger units. The district, as I understand it, is at least consistent with the goal of incumbency protection, and you've got at least a couple of affidavits on the record against you to the effect that that was the motive. And the problem that I have, even giving... giving the sort of evidentiary consideration to your map, is I don't see how on that record it could be found that you were entitled to judgment as a matter of law because there was no dispute as to a genuine fact, the genuine fact being the predominant motive. That's my problem.",
       "time": "00:30:42.99"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But let's take one thing about-- --May I ask you a question please? May I just ask this? Justice Souter didn't mention the thing I find most troubling about the whole case. As I understand it, your affirmative case relied entirely on registration rather than on actual voting results. And if I... if I understand the situation in North Carolina correctly, there are many, many more registered Democrats who vote Republican. There are a lot of registered Democrats who regularly vote Republican. And how... if that is the truth... and I assume you don't deny that that's true... how can evidence about registration possibly prove that... how the elections will turn out?",
       "time": "00:31:51.79"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But... but explain why the registration of white Democrats is probative of how they'll vote.",
       "time": "00:32:47.11"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it not true that there... that maybe a third of the registered Democrats vote Republican in Federal elections?",
       "time": "00:32:58.89"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is it also true... just I want to ask you... that your case relied entirely on registration rather than voting results?",
       "time": "00:33:07.78"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was 66.49 percent and the other two were 62.8 percent and 61.5 percent.",
       "time": "00:33:48.15"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's right?",
       "time": "00:33:53.75"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But each of the three you described won by over 60 percent.",
       "time": "00:33:57.45"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But regardless of what might have been in the evidence, as I read the district court's decision, they are relying exclusively on registered voters. It comes up again and again and again. And in fact, the Peterson affidavit is written off with one sentence, and we are given a whole page with the registration. If we think that's wrong, if we think that the legislature could legitimately use actual results... I mean, that's what the affidavits of the legislators said. We didn't use registration. We thought actual results were reliable. Was that wrong to use actual results?",
       "time": "00:34:04.03"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the question of the districts that were excluded and what their composition was... for that you used, and the district court accepted, registration figures to determine how Democratic they were and whether they were excluded because they had white voters but who were Democratic. And that's what was criticized by the legislators who said, no, you can't tell that those white voters are, in fact, going to vote Democratic.",
       "time": "00:35:25.38"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, are you telling us essentially it doesn't matter, that maybe the district court was wrong to use the registration instead of the actual results, but it doesn't matter, we should win anyway?",
       "time": "00:36:29.31"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the district judge relied... the district... two of the district judges relied on... on the registration figures.",
       "time": "00:36:44.19"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but we're not going to reconstruct the record and we're not... another question was about looking at only 32 precincts when there are 120 surrounding that might have given a different picture. You're not asking us to say, well, if the district... the district court could have found that and therefore summary judgment is appropriate even though they didn't find it.",
       "time": "00:37:08.91"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Everett, can... can one say that on summary judgment, that it's a post hoc rationalization? You know, if you're... if you're sitting as a finder of fact, you could decide that about an affidavit, but on a summary judgment motion, I question whether you can characterize it that way.",
       "time": "00:38:00.93"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What do you do with the conclusion of the State statistician? I mean, I presume he was not--",
       "time": "00:39:24.12"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--What... what do you do with the evidence of the State statistician that says that the... the facts statistically analyzed are just as consistent with the incumbency protection as with the predominant racial motive?",
       "time": "00:39:29.33"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, do you think as a matter of law then... I take... is it your position that as a matter of law, his conclusion should be discounted to... to nothing for summary judgment purposes?",
       "time": "00:39:55.17"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... isn't that what we... I mean, isn't that what we do at trials, if we do it at all, is... is... I... I'm... I'm just having difficulty in seeing what the theory is on... on which you discount it to nothing as a matter of law for summary judgment purposes.",
       "time": "00:40:11.59"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but this is not conclusory. This is... this is an affidavit that says either of two conclusions is possible, and it's very relevant at the summary judgment stage because the question is, as a matter of law, is... is only one conclusion possible? So... so, sure, it's conclusory but it's a conclusion about a conclusion, and I assume that the expert is competent to offer it.",
       "time": "00:40:33.24"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but how about the statistician's conclusion? Why isn't that a good reason for saying... not the only reason, but a good reason for saying that there certainly may indeed be a genuine issue here?",
       "time": "00:41:09.46"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So... so, you're saying his conclusion is really beside the point, and the reason it's beside the point is you can... if I understand you correctly, that you cannot justify by incumbency protection the preservation of an incumbency which itself resulted from... from the scheme which has been knocked out on constitutional grounds.",
       "time": "00:41:39.63"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well-- --Mr. Everett, before you get... I had thought that the statistician was not testifying as to any facts to establish facts that are controverted. I thought that he was just drawing different conclusions from the agreed-upon facts than other people. Now, is... is that enough to establish the existence of controverted facts?",
       "time": "00:42:04.36"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no doubt that there's controversion as to what the conclusions might be here.",
       "time": "00:42:31.84"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What fact did the... did the statistician controvert that hadn't been controverted before? I don't--",
       "time": "00:42:37.61"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Is racial motivation a fact? Is racial motivation a fact?",
       "time": "00:42:49.85"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it's... isn't it the nub of what we're... we're litigating now?",
       "time": "00:42:58.57"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And doesn't the statistician's conclusion bear on that?",
       "time": "00:43:02.31"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Everett, the original plan that this Court looked at in Shaw v. Reno is reflected in your 1992 base plan map. Is that correct?",
       "time": "00:43:09.77"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the plan with which we are now concerned is represented by the '97 plan?",
       "time": "00:43:24.34"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And... and how long are the terms of legislators in North Carolina?",
       "time": "00:43:35.48"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, we are not dealing with the same legislature in--",
       "time": "00:43:43.97"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--1997 plan. It's a different legislature.",
       "time": "00:43:50.47"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But different people.",
       "time": "00:43:54.31"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Different legislature.",
       "time": "00:43:56.06"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That gets back to the... your original statement. I think you were establishing a hypothetical something like this. A plan is invalidated by the courts as being based on a racial gerrymander. Race was the predominant motive in drawing the whole district, let's say.",
       "time": "00:43:58.05"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then legislators get together and say, you know, that plan was really a pretty good plan because it had a partisan balance. We don't care about race, but we want to keep it for a partisan balance. And you said something to the effect, oh, that's ridiculous or absurd or wrong. Why is that so? If... if it is ridiculous or absurd or wrong, does that just show that the predominant motive test is... is not adequate?",
       "time": "00:44:18.76"
     },
@@ -1327,19 +1327,19 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no. This is a... we're... we're assuming that the legislators say their new motive... and they're in good faith about this... is to keep partisan balance, so they just keep the old district. Is that permissible?",
       "time": "00:44:53.01"
     },
     {
       "turn": 214,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "We think that is not permissible.",
       "time": "00:45:06.90"
     },
     {
       "turn": 215,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why?",
       "time": "00:45:08.89"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if what were driving at is... is preventing districting based on an impermissible motive, how is that furthered by your... by your conclusion here?",
       "time": "00:45:15.16"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But isn't that just a show of perhaps a flaw in... in the reasoning of our cases, that you can't use race at all is... I guess is what you're saying.",
       "time": "00:45:52.84"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What in your basic view, to go back to basics for a second, in your own mind... what is it in the Fourteenth Amendment? Why do you think it's somehow basically fair to gerrymander a district to have more Democratic faces in the legislature, but you couldn't Democrat a district... gerrymander a district because in part you were pleased if there were more elections of, say, African-Americans who haven't been overly represented in the legislature? Why, in other words, is the one somehow basically fair and the other is somehow fundamentally unfair in your opinion?",
       "time": "00:46:24.63"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose race is just a surrogate for something else, Mr. Everett. Suppose, given the facts that nationwide blacks vote... I don't know... 90... 90-some percent Democratic, suppose the legislature just says, ah, we're not going to look at all these statistics. We're... we're going to put all these blacks into this one district because we think they're going to vote Democratic. Is that okay?",
       "time": "00:47:12.66"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and I suppose it's also use of race as a proxy if you say, well, there are Democrats and there are Democrats, but black Democrats are really strong Democrats. So, since we want really strong Democrats in this district, we're going to put more black Democrats in this district. That's also a proxy, I assume.",
       "time": "00:47:38.03"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would it be a proxy if you looked at those who had regularly voted Democratic without knowing their race but just look at what happened in the ballots and use that as a proxy?",
       "time": "00:47:59.18"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then let me ask you this question. If you were in the legislature and had to start out fresh without trying to be bothered by what happened in the past, would you think it more appropriate to look at election results or registration as the best basis for deciding how people will vote?",
       "time": "00:48:17.88"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which do you think would be the... which do you think would be the more reliable?",
       "time": "00:48:35.93"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why would their registration be... be the better choice?",
       "time": "00:48:52.01"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if you're trying to avoid a choice. That's what I was trying to suggest. If you're trying to avoid a choice predicated on race, would it not be better to look at election results rather than registration?",
       "time": "00:49:09.39"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if you were trying to district on a basis of race, I guess registration... I guess voting patterns would be better then too.",
       "time": "00:49:26.17"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In some... in some instances and under some hypotheses.",
       "time": "00:49:34.15"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Everett, in terms of summary judgment, one procedural feature of this case is... is disconcerting. That is, you keep talking about they haven't remedied the wrong or... as though this were the original Shaw v. Reno case, but it's not. That case, for whatever reason, was dismissed. One of the things that was said was that the plaintiffs are no longer in the district, but now it turns up two of those very same people start a brand-new lawsuit. And in a brand-new lawsuit, usually the plaintiff carries the burden, and it is extraordinary to give summary judgment to the party who has the proof burden.",
       "time": "00:50:37.45"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, on burden... on burden of proof, after a district has been invalidated as a racial gerrymander, perhaps the burden of proof should shift to the State to show that the district was not dominated by race.",
       "time": "00:51:37.26"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was there a reason for starting over when you had two plaintiffs who qualified so that you could have carried on the old? Was there reason for bringing a... a whole new lawsuit?",
       "time": "00:52:20.90"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, there are none... none of the people who are now in the... in the plaintiffs' lineup from the 12th district were plaintiffs in Shaw v. Reno.",
       "time": "00:52:56.25"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But not in the original.",
       "time": "00:53:10.23"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is the status of the 1st district? That one didn't go up on summary judgment.",
       "time": "00:53:18.84"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, but where... what is the posture of that litigation right now?",
       "time": "00:53:36.72"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Everett. Mr. Dellinger, you have about 4 minutes.",
       "time": "00:56:23.97"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In... in the hypothetical that we were working with where they keep exactly the same districts, would the voters still have that same heavy burden after a district had been previously declared invalid?",
       "time": "00:56:53.27"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr.... Mr. Dellinger--",
       "time": "00:57:43.37"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm not sure from your... from your prior presentation what your answer to these questions are. Would... would you think it is okay to use race as a determinant of what voters are likely to vote for the incumbent representative?",
       "time": "00:57:44.48"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could you race as a determinant of who are yellow-dog Democrats, so-called?",
       "time": "00:58:03.47"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those who will vote for a yellow dog that's a Democrat.",
       "time": "00:58:08.47"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right?",
       "time": "00:58:12.22"
     },
@@ -1663,13 +1663,13 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The case is submitted. Thank you.",
       "time": "00:59:50.73"
     },
     {
       "turn": 270,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:59:53.38"
     }

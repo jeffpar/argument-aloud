@@ -3,63 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/142/19630227a_119_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS B. BURCH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LEONARD J. KERPELMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GEORGE W. BAKER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "THOMAS B. FINAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kerpelman, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:00:18.31"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, very well. Mr. Burch.",
       "time": "00:00:25.31"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Burch, the plaintiff -- the petitioner -- or two petitioners, the -- William J. Murray III who is a -- was then and now still is in the Baltimore school system, is that right?",
       "time": "00:01:24.14"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suing through his (Inaudible), his mother, and his mother, individually, is also a petitioner.",
       "time": "00:01:37.41"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And they both alleged that they're atheists, is that correct?",
       "time": "00:01:44.38"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that the ordinances or rules of the Baltimore school system interfere with the exercise of their belief or disbelief.",
       "time": "00:01:49.63"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It comes down to the Doremus case from New Jersey, is that right?",
       "time": "00:02:02.28"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:02:08.50"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But this child is still in the school.",
       "time": "00:02:16.87"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Burch, (Inaudible)",
       "time": "00:05:44.98"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:06:16.95"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "What about the (Inaudible)",
       "time": "00:06:47.34"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Teacher reads it in each classroom?",
       "time": "00:07:08.88"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is this the one where it's a broadcast through the school or is that the (Voice Overlap) --",
       "time": "00:07:23.16"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Each individual classroom.",
       "time": "00:07:39.83"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You say a student, rather than the teacher, reads the Bible?",
       "time": "00:07:42.32"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "We don't have a record here.",
       "time": "00:07:50.81"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's the difficulty in this case.",
       "time": "00:07:52.61"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Would your argument then vary, Mr. Burch, if this -- instead of the Bible, it was the Koran that was being read everyday in school?",
       "time": "00:07:56.39"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Burch --",
       "time": "00:09:08.52"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- (Inaudible) under Section 6, are arguing that?",
       "time": "00:09:10.76"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather Section 6 (Inaudible).",
       "time": "00:09:25.96"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would not -- Section 6 preclude reading from the Koran?",
       "time": "00:09:31.45"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it says, “shall be opened by the reading of a chapter in the Holy Bible and/or the use of the Lord's Prayer.”",
       "time": "00:10:00.40"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you think that might be interpreted to authorize that reading from the Koran?",
       "time": "00:10:08.54"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It cannot be used to open the exercises but there's nothing there --",
       "time": "00:10:25.95"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- that says it couldn't be used to close them or at any time during the exercises.",
       "time": "00:10:28.23"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But I don't think that has anything to do with this case.",
       "time": "00:10:31.95"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you could (Voice Overlap) --",
       "time": "00:12:13.12"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just give them tranquilizer pills if that's the only --",
       "time": "00:12:15.70"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's the purpose.",
       "time": "00:12:20.33"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let us take a state like Hawaii. Hawaii has a large percentage of people of Japanese origin, large percentage of people with Chinese origin. And in many places in the islands, there will be a vast majority of either Chinese or Japanese in their public schools. Do you -- do you say that in schools of that kind it would be proper to have a -- in the Chinese school to have a Buddhist ceremony that all children, including Christians, must conform to or have their parents disavow it or the Shinto religion, so far as your family is concerned?",
       "time": "00:12:45.38"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your answer --",
       "time": "00:14:10.91"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- would be yes then, that they could do that.",
       "time": "00:14:11.46"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:14:14.51"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:14:39.68"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Of course, you've got the record down. The Court laid great emphasis on the fact that, although the Sunday Laws had their origin in religion and, over the years, they had departed from that origin and had taken on the characteristic of simply a legislative determination that a day of rest was an appropriate thing to have in the community. And therefore, the real question there was as to whether or not it was permissible, given that transmutation in the original background to select Sunday because it happened to coincide with the --",
       "time": "00:16:03.12"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But we also pointed out in McGowan, didn't we, that the state had departed so far from religious purposes that it specifically authorized the sale of liquor and the keeping open of a dancing salon and a few other gambling and a few other questionable things, and didn't we point out in there that that was evidence of having been a real departure from the religious purposes that went back into the ages?",
       "time": "00:18:38.78"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But when you come to the saying that it had a basis in religion, couldn't we say the same thing for practically all of our basic crimes? Are they not -- do they not stem from a violation of the Ten Commandments?",
       "time": "00:19:15.68"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But McGowan went on this theory --",
       "time": "00:19:42.86"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- that there was such a departure from the original concept that they were in that category.",
       "time": "00:19:44.63"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there any departure whatsoever in your case from religious purposes?",
       "time": "00:20:13.60"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There is, I wish you'd state it.",
       "time": "00:20:20.02"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask if --",
       "time": "00:20:39.56"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This -- if it depend on the majority of the people in the school district, does it necessarily follow that the religious doctrine that would be taught would naturally follow the majority in their district? And there are so many different sects in this country that you would have different public schools teaching different religions in -- everyone and then these people who are so anxious to have this particular one taught would probably not be so anxious to have the other one taught.",
       "time": "00:20:43.92"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "00:21:35.97"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right. And I --",
       "time": "00:21:37.50"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I'll call your attention to this fact. For many years, we've had a fight on this country to have more time for working men to all get off from work. And, it so happens that this seventh day had been the one where they've gotten off from work and they have it, as been established in this country because I took note in several pieces of legislature now often, that its thought to be good that there'd be holidays and the mere fact that at one time, people thought the seventh day was the only day you could have a holiday, would it be -- wouldn't make it any different if you provided that that holiday should be on Tuesday or Wednesday. That might conflict with somebody else, but the basis of those opinions, at least my view point, was very simple, with the power to protect people from being employed two long hours in one day or two many days in one week. It's a well recognized power and it could -- there could be one written up in such way. It said we're going to have it on the seventh day and we're going to have it from -- holiday from 10:00 until 12 o'clock to let people go to a certain church, why you'd have a different question. But so far as I'm concerned, your argument here does -- my position in McGowan has nothing to do with this case.",
       "time": "00:21:43.20"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you disavowing -- are you disavowing for the State of Maryland that which I had understood is generally acknowledged from everything I've read about it and all the communication that has been transmitted about it, that this is because -- they want to do this because it impresses the Lord's Prayer. Many of us have repeated very often, and require the reading of the Bible. Are you disavowing that the purpose is to increase their interest in that particular religion?",
       "time": "00:23:27.77"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You could not, could you?",
       "time": "00:24:10.62"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So did the Koran and so do the Veda.",
       "time": "00:24:47.08"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think there's a slightest possibility that if Baltimore, if people there would ever have one of those books read as a part of a religious ceremony, one of either the Koran or the Veda or the Buddhist doctrine.",
       "time": "00:24:50.84"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's a religious principle.",
       "time": "00:25:31.22"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were they religious principles, of course.",
       "time": "00:25:33.11"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It seems to me like --",
       "time": "00:25:36.54"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You'd do better if you'd face the iss -- I don't know what's the answer to it, but how can you assert seriously or argue or ask us to consider seriously, this is not a religious ceremony based on the Bible and the Lord's Prayer. Those with the strongest thought as I doubt would not hesitate to say that.",
       "time": "00:25:38.28"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Burch, you --",
       "time": "00:26:09.86"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "00:26:37.09"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Wouldn't the -- wouldn't their full religious ceremony constitute or accomplish the same purpose?",
       "time": "00:26:57.53"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, no, just to promote the -- just to promote the welfare of the students and to put them in a proper frame of mind for their work throughout the day. Wouldn't a full religious ceremony accomplish the same purpose?",
       "time": "00:27:08.00"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And couldn't it be justified on your argument just as well?",
       "time": "00:27:21.73"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could they go at all beyond the reading of the Lord's Prayer and reading of the Bible --",
       "time": "00:27:34.17"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- as a matter of degree. I beg your pardon?",
       "time": "00:27:39.45"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Isn't that merely paraphrasing?",
       "time": "00:29:35.03"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Isn't that merely paraphrasing and enlarging upon the letter of your superintendent?",
       "time": "00:29:37.04"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Burch, Chief Justice (Inaudible) that this, there seems to be no substantial room for dispute that the reading of passages from the Bible and the recital of the Lord's Prayer are Christian religious exercises. Now, is there anything in the court opinion below which takes issue of that conclusion here, (Voice Overlap) --",
       "time": "00:30:08.17"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, (Inaudible) --",
       "time": "00:30:40.45"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It didn't have the concern --",
       "time": "00:30:41.12"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Chief Judge (Inaudible) did it. Chief Judge (Inaudible) had no difficulty concluding the religious exercises.",
       "time": "00:30:43.65"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't find anything in the Court opinion which --",
       "time": "00:30:50.79"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't find anything in the Court opinion which takes issue of that.",
       "time": "00:30:54.58"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I think it would be helpful if, starting from the premise, that this is a religious exercise. You could enlighten some of us as to whether you think this case can be distinguished in the other cases in this field that the Court has decided starting with Everson, McCollum, Zorach, Torcaso, Engel, and whether if you think that they -- it cannot be whether you're asking us to overrule those cases and to reexamine this whole problem of the -- this aspect of the First Amendment.",
       "time": "00:31:20.93"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Fourteenth Amendment, I beg your pardon.",
       "time": "00:32:04.93"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Is your basic point (Inaudible)",
       "time": "00:34:18.39"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What do you do with the --",
       "time": "00:35:09.55"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What do you do with the McCollum case?",
       "time": "00:35:11.05"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I thought you said that religious instruction in your opinion was the thing that differentiated this case from the situation that you have if this was a religious exercise in an avowal of faith.",
       "time": "00:35:54.39"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I thought you said that -- you thought your case was different and do not come under the Fourteenth Amendment because this was not a religious exercise but merely an -- but merely instruction, ethical instruction.",
       "time": "00:36:10.44"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "What do you say to the fact, according to some, they wouldn't disagree that it's more offensive to read the Bible without this version than to discuss the Bible?",
       "time": "00:37:34.95"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "That happens to be the truth, (Voice Overlap) --",
       "time": "00:37:57.08"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Burch --",
       "time": "00:38:49.02"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn't mean to interrupt you.",
       "time": "00:38:55.38"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You've devoted all your time to discussing the question of whether or not this violates the Establishment Clause of the First Amendment insofar as that provision might be incorporated in the Fourteenth Amendment. You haven't said a word about --",
       "time": "00:38:58.45"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- the Free Exercise Clause. Is somebody going to --",
       "time": "00:39:17.32"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Fine, fine.",
       "time": "00:39:22.86"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible) so if you face this problem, frankly, that what these cases really present us with is whether we're going to reexamine the premises, right or wrong, of our past cases in which these issues have been decided.",
       "time": "00:39:34.36"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that an overstatement?",
       "time": "00:39:53.12"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, isn't that -- that's the real problem in the case.",
       "time": "00:39:57.05"
     },
@@ -1145,13 +1145,13 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Yes. I think so, too.",
       "time": "00:40:02.04"
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understood you to say you didn't quarrel with Vitale that you --",
       "time": "00:40:03.47"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- believe that's perfectly alright; that our decision was alright.",
       "time": "00:40:08.77"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then why do you want us to reexamine it?",
       "time": "00:40:13.35"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's alright, but I understood you to answer Mr. Justice Harlan that you want us to reexamine these cases and --",
       "time": "00:40:31.76"
     },
@@ -1199,19 +1199,19 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Burch --",
       "time": "00:40:50.72"
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:40:50.94"
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- I thought Mr. Justice Harlan when he started out his question to you on the premise that this was a religious exercise and if you start out on that premise, (Inaudible) was whether or not they didn't require a reexamination or clarification.",
       "time": "00:40:51.41"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I understand you to say if you start with that premise, (Voice Overlap) --",
       "time": "00:41:08.35"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Baker.",
       "time": "00:41:38.26"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you concede that both of the provisions of the First Amendment having to do with religion are incorporated in full force in literal terms under the Fourteenth Amendment has restrictions on the states?",
       "time": "00:41:58.91"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This one as well?",
       "time": "00:42:17.36"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I just wanted to be sure from what point where you beginning.",
       "time": "00:42:18.26"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The difficulty here --",
       "time": "00:43:02.52"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Excuse me. If I can just state the outsets, then perhaps you can meet my difficulty. The difficulty I see here is that in the complaint, if that's what you call it in Maryland or the petition, whatever, it's alleged that the -- that this -- that the free exercise of this plaintiff's religion was interfered with and restrained by the operation of this Board of Education rule, and all you have is a demurrer to that which, by its terms, admits these allegations. Now, in the Engel against Vitale, that was not a free exercise case, neither were the other cases which my Brother Harlan has been talking about.",
       "time": "00:43:03.57"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They were establishment cases. But here, you have a clear allegation of the impairment or the interference of the free exercise of this person's belief or religion, if you will, which is admitted by the demurrer.",
       "time": "00:43:51.43"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask --",
       "time": "00:46:59.82"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- Mr. Baker. This is an interruption, I'm sorry. Did I understand you to suggest to Mr. Justice Stewart that the only question here by reason of the allegation for this petition and the demurrer is a free exercise question?",
       "time": "00:47:00.43"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:47:15.82"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the establishment question is also here.",
       "time": "00:47:17.21"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- on these allegations?",
       "time": "00:47:19.38"
     },
@@ -1379,31 +1379,31 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, as I -- I know that there is that right expressed in the Amendment, the 1960 Amendment to the rules of the School Board, but these allegations, let's say in effect, that's a phony. Actually, we don't. We're not free of compulsion and I should think that this is admitted by your demurrer and this would require a trial to see just what the facts were; what the compulsions were.",
       "time": "00:47:33.09"
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it would be a conclusion --",
       "time": "00:48:00.19"
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Upon an Atheist to conform to this thing.",
       "time": "00:48:01.22"
     },
     {
       "turn": 224,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No allegation that no one has permitted him to be excused. As a matter of fact, the petition alleges that after a complaint was made, the rule was amended whereby he was permitted to be excused. Now, a -- to say that we are compelled without any facts is really a conclusion of law particularly when you have already set forth a provision in the rule that you can be excused. Now, if there's any abusiveness, if there's any coercion that he can't be excused, then I would certainly think that that would be true, that you would have a different case entirely before this Court.",
       "time": "00:48:04.62"
     },
     {
       "turn": 225,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:48:38.17"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "You demurred it?",
       "time": "00:49:07.66"
     },
@@ -1427,19 +1427,19 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:49:55.96"
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That had to do with the establ -- excuse me, excuse me.",
       "time": "00:49:56.57"
     },
     {
       "turn": 231,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "You say assuming this is true, the fact that a pupil is excused satisfies the free religion clause, isn't that (Inaudible)",
       "time": "00:49:59.33"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you think could come after if you should win?",
       "time": "00:51:36.71"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you think would come after it in the reference to the school ceremony? If -- is there any reason why you can have 3 minutes, you couldn't have 40? Any reason if you could have 40, why you couldn't have 6 hours?",
       "time": "00:51:45.21"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And why you shouldn't have all of them taken from the sacred books of one religion rather than another?",
       "time": "00:51:58.45"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understood you were invoking the consequences as to what might happen if the decision remains one way or the other.",
       "time": "00:52:11.90"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If you could have it in the opening exercises, why can't you continue to have it during the whole day? Why can't you pick out all your religious sacred documents from one particular religion or one particular sect of one religion?",
       "time": "00:52:24.93"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I've heard that before.",
       "time": "00:52:46.38"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I've heard that a million times. That's not your argument.",
       "time": "00:52:48.17"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Attorney General Finan.",
       "time": "00:53:05.09"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do we have to decide this case on the basis of theism or nontheism? Aren't there very large religious groups who believe is fervently in a God as those who composed this procedure?",
       "time": "00:56:37.29"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Were opposed to this case?",
       "time": "00:56:54.06"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In God?",
       "time": "00:56:57.92"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's a basis of theism, is it not? Aren't there people who were opposed to this, who were just as fervently -- fervent in their belief in God as are those who prescribed this oath and who yet oppose it? Why do we have to make it an issue between Atheism and Christianity?",
       "time": "00:57:02.15"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We have briefs amicus curiae in this case.",
       "time": "00:57:25.21"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There's a brief of the Synagogue Council of America and National Community Relations Advisory Council and --",
       "time": "00:57:31.61"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- there are some millions of people of that faith in this country so --",
       "time": "00:57:38.86"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They oppose it as fervently as these people who happen to be Atheist --",
       "time": "00:57:44.51"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- so why do we have to put it in that context?",
       "time": "00:57:48.30"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "00:57:51.94"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:57:57.45"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But by reading the Lord's Prayer and reading the King James Version of the Bible, we put the Christian concept of theism onto it, do we not?",
       "time": "00:57:58.84"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why not use that one then?",
       "time": "00:58:25.12"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why not use that one then?",
       "time": "00:58:27.35"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Attorney General --",
       "time": "00:59:52.95"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Attorney General, let's assume that we agreed that everything was -- everything you said with respect to the Establishment Clause and that's all that was involved in the -- in the Engel versus Vitale, do you say you disagree with that decision, as you -- perhaps, now I did also? But, you have a different case here. You have, here, allegations in a complaint of the interference with the free exercise of this petitioner's religion. That was completely absent in the Engel case, completely. That case involved establishment and only establishment. But here, you have a free exercise allegation which is admitted by the demurrer, and it says -- that which says, in effect, that despite the amendment to the rule of 1960 there are still compulsions upon this person. In Engel against Vitale, it was held by the New York courts that the -- there had to be provision under that system for the complete freedom of compulsion, including freedom from any psychological compulsion.",
       "time": "01:00:28.52"
     },
@@ -1739,13 +1739,13 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But, its part isn't it of the -- of the complaint, actually.Perhaps not, but I know it's a part of the pleading.",
       "time": "01:02:51.81"
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did your Supreme Court based its decision on that ground?",
       "time": "01:02:58.94"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In other words, he treated the merits of the case.",
       "time": "01:03:26.30"
     },
@@ -1769,13 +1769,13 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:03:28.82"
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Attorney General, as I read the complaint, it already contains an allegation that the rule was amended so as to release him from participation of these exercises. And if that -- that allegation that he nevertheless says, that his freedom of his religion has been restrained and that is the allegation which was admitted by the demurrer, even right in the face of his own allegation that he had been released from the exercises.",
       "time": "01:03:29.39"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he makes allegations right on the -- right on this that in spite of his being released from the exercises, that --",
       "time": "01:04:16.35"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That he was subjected to some harm and these allegations were admitted.",
       "time": "01:04:24.05"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let me ask you one other thing. Do you really see a great deal of difference between the -- as far as it's being a religious exercise or not, between the prayer in Vitale and the prayer here, regardless of its source, I mean, just as it's a kind -- the kind of an occasion it was?",
       "time": "01:04:50.76"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but that's assuming that it's a pray -- that it's a religious item and you say -- I gather, you join with Baltimore in saying that it wasn't a religious exercise at all.",
       "time": "01:05:29.07"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you say it wasn't part of a religious exercise.",
       "time": "01:05:58.80"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, is it as much of a religious exercise as it was in Vitale?",
       "time": "01:06:01.70"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There's really no distinction in terms of the kind of an exercise this was between Vitale and this case.",
       "time": "01:06:08.32"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, yes, I know (Voice Overlap) --",
       "time": "01:06:18.63"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that.",
       "time": "01:06:26.10"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, --",
       "time": "01:06:28.80"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- Vitale -- the Vitale opinion said, “The state drafted or state sanctioned,” didn't it?",
       "time": "01:06:29.19"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I suppose the School Board's rule here at least sanctioned the use of the King James Version of the Bible.",
       "time": "01:06:51.18"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or sanctioned the Lord's Prayer.",
       "time": "01:07:03.65"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "01:07:07.42"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These are clearly sectarian, unlike --",
       "time": "01:07:16.37"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- unlike the prayer in Engel, which is (Inaudible)",
       "time": "01:07:19.36"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There'd be very little sense of excusing anyone from the prayer. It seems to me, if it wasn't -- if somebody didn't have a feeling that it was a sectarian situation or there would be a very little reason talking about the King James Version of the Bible or the Douay Version of the Lord's Prayer. In the rule, if there wasn't some feeling that it was giving others the permission to use the Douay Version if they wanted to. It seems to me in itself, to be a recognition of this -- that has some sectarian aspects to it.",
       "time": "01:07:27.76"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I agree with you but nevertheless, in the School Board's rule which was promulgated, people were given permission to use different versions of the Bible.",
       "time": "01:08:31.22"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you're saying -- what you're really suggesting is that the only people who should've -- who ever should've been -- felt any urge to excuse themselves from this operation would be Atheists.",
       "time": "01:09:01.10"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that the reason, you think, the provisions excused them, had the petitioners in mind to keep (Inaudible)",
       "time": "01:09:14.15"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I say, “Those who make the provision for the excuse have only Atheist in mind?”",
       "time": "01:09:29.30"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Perhaps they didn't like the Protestant version or Protestants who didn't like --",
       "time": "01:09:40.00"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- Douay version.",
       "time": "01:09:43.75"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Schools who didn't like the Holy Bible.",
       "time": "01:09:44.81"
     },
@@ -2075,7 +2075,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "01:10:04.75"
     },
@@ -2087,7 +2087,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Then the big contest would be which church could get -- control the School Board, I suppose.",
       "time": "01:11:18.27"
     },
@@ -2099,7 +2099,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible) -- are you suggesting --",
       "time": "01:11:26.34"
     },
@@ -2111,7 +2111,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're suggesting in effect, are you not, the Constitution leaves it open for the States to leave it to local options in each local community as to which particular brand of religion, which kind of religion, will be read and taught in the school. It's kind of a local option. If the majority wants one, they could get it. The others can walk out.",
       "time": "01:12:02.81"
     },
@@ -2123,7 +2123,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That sounds to me like it was your suggesting a local option.",
       "time": "01:12:35.19"
     },
@@ -2135,7 +2135,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would you think about its chance about being read in Baltimore?",
       "time": "01:13:03.27"
     },
@@ -2147,7 +2147,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would you think about the chance of having the Book of Mormon substituted for the King James Version of the Bible in Baltimore?",
       "time": "01:13:08.07"
     },
@@ -2159,7 +2159,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean that's theoretically possible?",
       "time": "01:13:34.64"
     },
@@ -2171,7 +2171,7 @@
     },
     {
       "turn": 353,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I do not understand the other gentlemen to say that they shouldn't mention anything about religion. I understood them to say that it was alright to teach religion as a subject. Their objection is to the fact that you pick out, I may say two things which I've known about from my earliest inferences, which I could agree with you easily, should have a wonderful effect on people who read them and recite them. But, other people don't feel that way. What you have picked out, these two particular things: the Bible, King James Version, and the Lord's Prayer. It's one can hardly mention without reverence, at least I believe as I did. You picked them out and say people must, into this school, either listen to them and participate in or walk out. Now, why can't you do that with reference to the Mormons if they want to where they are the majority, or any other by those people in the Government?",
       "time": "01:14:04.00"
     },
@@ -2183,7 +2183,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's a local option in determining what -- which particular religion will be taught in each particular community.",
       "time": "01:15:05.21"
     },
@@ -2195,7 +2195,7 @@
     },
     {
       "turn": 357,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But General, that -- let's take a very practical situation. Again, in Hawaii, where there are a great many Buddhists. Let us say there's a school where there are 51 Buddhist children and 49 Christian children and because of the majority, the Buddhist children is determined by the school to have a Buddhist ceremony comparable to this Christian ceremony that we have here. Would you think because they're in the majority that the 49% of them that are Christians in that school would have to walk out?",
       "time": "01:15:16.33"
     },
@@ -2207,7 +2207,7 @@
     },
     {
       "turn": 359,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And you would -- do you think they would have the right to have such a ceremony as a matter of school law?",
       "time": "01:16:02.25"
     },
@@ -2219,7 +2219,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you be willing to say if the State should go further in that instance and release all of them from paying any part of taxes that went into support of the school?",
       "time": "01:16:47.17"
     },
@@ -2231,7 +2231,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Not if they will -- but they would walk out that they didn't want that part at all.",
       "time": "01:16:59.03"
     },
@@ -2243,7 +2243,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could they be release from taxes to carry out these views if the majority wanted, which they didn't want?",
       "time": "01:17:04.73"
     },
@@ -2255,7 +2255,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they've -- they have not gone there through choice.",
       "time": "01:17:19.31"
     },
@@ -2267,7 +2267,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They have not gone there through choice. The public schools were open to your children.",
       "time": "01:17:22.94"
     },
@@ -2279,7 +2279,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they were open to your children.",
       "time": "01:17:28.35"
     },
@@ -2291,7 +2291,7 @@
     },
     {
       "turn": 373,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kerpelman.",
       "time": "01:18:36.59"
     },
@@ -2303,7 +2303,7 @@
     },
     {
       "turn": 375,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Would your argument be the same if a Quaker pattern was followed in the -- all students' request to remain silent for a minute or two minutes or three minutes?",
       "time": "01:18:45.78"
     },
@@ -2315,7 +2315,7 @@
     },
     {
       "turn": 377,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That wasn't my question.",
       "time": "01:19:11.52"
     },
@@ -2327,7 +2327,7 @@
     },
     {
       "turn": 379,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your client could stand there and think about his disbelief in God.",
       "time": "01:19:29.63"
     },
@@ -2339,7 +2339,7 @@
     },
     {
       "turn": 381,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "01:19:33.62"
     },
@@ -2351,7 +2351,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "If it were labeled the Quaker ceremony, would it be unconstitutional?",
       "time": "01:19:43.70"
     },
@@ -2363,7 +2363,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You're getting somewhat outside the Constitution.",
       "time": "01:21:54.29"
     },
@@ -2375,7 +2375,7 @@
     },
     {
       "turn": 387,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What page?",
       "time": "01:23:24.74"
     },
@@ -2387,7 +2387,7 @@
     },
     {
       "turn": 389,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "01:23:26.26"
     },
@@ -2399,7 +2399,7 @@
     },
     {
       "turn": 391,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How many -- I think I remember a figure (Inaudible) of this religious sect (Inaudible) Is that the (Inaudible) right?",
       "time": "01:25:15.74"
     },
@@ -2411,7 +2411,7 @@
     },
     {
       "turn": 393,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I think we had it at the time --",
       "time": "01:25:29.30"
     },
@@ -2423,7 +2423,7 @@
     },
     {
       "turn": 395,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "267, something to that order.",
       "time": "01:25:31.04"
     },
@@ -2435,7 +2435,7 @@
     },
     {
       "turn": 397,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Its part of this exercise (Inaudible)",
       "time": "01:26:10.48"
     },
@@ -2447,7 +2447,7 @@
     },
     {
       "turn": 399,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "01:27:00.15"
     },
@@ -2459,7 +2459,7 @@
     },
     {
       "turn": 401,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you're right about the -- about this case in the establishment --",
       "time": "01:27:37.72"
     },
@@ -2471,7 +2471,7 @@
     },
     {
       "turn": 403,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- phase of it --",
       "time": "01:27:42.17"
     },
@@ -2483,7 +2483,7 @@
     },
     {
       "turn": 405,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- then I would agree with you.",
       "time": "01:27:42.67"
     },
@@ -2495,7 +2495,7 @@
     },
     {
       "turn": 407,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But, assume you're -- assume one should disagree with your position that these rules of the School Board violate the Establishment Clause of the First Amendment as incorporated in the Fourteenth, but should agree that on the allegations of your complaint these rules do violate, in your client's case, the Free Exercise Clause. I suppose what would be in order would be a remand for a trial, wouldn't it, to see just what compulsions there are, psychological or otherwise --",
       "time": "01:27:44.16"
     },
@@ -2507,7 +2507,7 @@
     },
     {
       "turn": 409,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- to conform.",
       "time": "01:28:26.03"
     },
@@ -2519,7 +2519,7 @@
     },
     {
       "turn": 411,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's not up to us --",
       "time": "01:28:28.81"
     },
@@ -2531,7 +2531,7 @@
     },
     {
       "turn": 413,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- where the -- whether --",
       "time": "01:28:30.39"
     },
@@ -2543,7 +2543,7 @@
     },
     {
       "turn": 415,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- it should be difficult or easy for you to prove them or from the other side to disprove them.",
       "time": "01:28:31.48"
     },
@@ -2555,7 +2555,7 @@
     },
     {
       "turn": 417,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that would be the appropriate thing to do, would it not?",
       "time": "01:28:35.44"
     },
@@ -2567,7 +2567,7 @@
     },
     {
       "turn": 419,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Aren't you arguing the law as to this (Inaudible) you're indicating that de minimis rule and, if we agree, you can still contest the religious contemplation that provided free exercise or the Establishment Clause would be involved?",
       "time": "01:28:58.83"
     },
@@ -2579,7 +2579,7 @@
     },
     {
       "turn": 421,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "No, no. I understand it, but I (Inaudible) the question I put to you about the National Anthem.",
       "time": "01:29:24.46"
     },
@@ -2591,7 +2591,7 @@
     },
     {
       "turn": 423,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The song.",
       "time": "01:29:33.56"
     },
@@ -2603,7 +2603,7 @@
     },
     {
       "turn": 425,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's your detriment, speaking purely now of the Establishment Clause? What is your detriment?",
       "time": "01:29:41.48"
     },
@@ -2615,7 +2615,7 @@
     },
     {
       "turn": 427,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, now, you're getting into something else, aren't you?",
       "time": "01:29:55.11"
     },
@@ -2627,7 +2627,7 @@
     },
     {
       "turn": 429,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I'm just asking you. The Establishment Clause itself, what -- how did -- what detriment is there? In other words (Voice Overlap) --",
       "time": "01:29:59.28"
     },
@@ -2639,7 +2639,7 @@
     },
     {
       "turn": 431,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I'm not talking about standing, in other words.",
       "time": "01:30:10.05"
     },
@@ -2651,7 +2651,7 @@
     },
     {
       "turn": 433,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes. And how does that in -- in and of itself, cause a detriment to your client?",
       "time": "01:30:22.00"
     },
@@ -2663,7 +2663,7 @@
     },
     {
       "turn": 435,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that -- because it interferes with his free exercise.",
       "time": "01:30:37.58"
     },
@@ -2675,7 +2675,7 @@
     },
     {
       "turn": 437,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, then, what -- then how does it -- well, how is it a detriment, as a taxpayer?",
       "time": "01:30:41.71"
     },
@@ -2687,7 +2687,7 @@
     },
     {
       "turn": 439,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And this -- then --",
       "time": "01:31:21.09"
     },
@@ -2699,7 +2699,7 @@
     },
     {
       "turn": 441,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- you get back to the free exercise.",
       "time": "01:31:21.90"
     },
@@ -2711,7 +2711,7 @@
     },
     {
       "turn": 443,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, wouldn't you agree with this? That under the Constitution, it would -- no state could -- and no city, no county could establish a church even though 100% of the population in that political unit wanted to do it and there were no non-conformers. They all wanted to do it. Still, it would be unconstitutional, wouldn't it?",
       "time": "01:31:29.98"
     },
@@ -2723,7 +2723,7 @@
     },
     {
       "turn": 445,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's what I'm --",
       "time": "01:31:54.72"
     },
@@ -2735,7 +2735,7 @@
     },
     {
       "turn": 447,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- that's my question.",
       "time": "01:31:55.40"
     },
@@ -2747,7 +2747,7 @@
     },
     {
       "turn": 449,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Whether without -- whether without dissenters, it's absolutely constitutionally invalid for a county, assuming that county were 100% Methodist, all of them wanted an official Methodist church and established one in Smith County, Maryland or X-County, New Jersey, that would be completely invalid constitutionally, wouldn't it?",
       "time": "01:32:08.50"
     },
@@ -2759,7 +2759,7 @@
     },
     {
       "turn": 451,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How did you accept the local option argument?",
       "time": "01:32:32.16"
     },
@@ -2771,7 +2771,7 @@
     },
     {
       "turn": 453,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The Constitution establishes the definition.",
       "time": "01:32:48.44"
     },
@@ -2783,7 +2783,7 @@
     },
     {
       "turn": 455,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, now, what was -- wouldn't he have to sue as a taxpayer or --",
       "time": "01:32:52.69"
     },
@@ -2795,7 +2795,7 @@
     },
     {
       "turn": 457,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What would be his detriment if he came to that (Voice Overlap) --",
       "time": "01:32:55.88"
     },
@@ -2807,7 +2807,7 @@
     },
     {
       "turn": 459,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What right would he be asserting? Now, let's assume my imaginary case of a --",
       "time": "01:33:28.42"
     },
@@ -2819,7 +2819,7 @@
     },
     {
       "turn": 461,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- 100% Methodist and they set up an official Methodist church.",
       "time": "01:33:33.18"
     },
@@ -2831,7 +2831,7 @@
     },
     {
       "turn": 463,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In this county, this imaginary county in an imaginary state.",
       "time": "01:33:37.57"
     },
@@ -2843,7 +2843,7 @@
     },
     {
       "turn": 465,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In this nation. And then, an Atheist moves into the county and he continues his beliefs. He doesn't go to church. He doesn't go near it. What is his standing to object to that",
       "time": "01:33:40.53"
     },
@@ -2855,13 +2855,13 @@
     },
     {
       "turn": 467,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, because his freedom was being ex -- interfered with, but until or unless that happens, he has no standing except perhaps as the taxpayer, does he?",
       "time": "01:34:15.27"
     },
     {
       "turn": 468,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "But your (Voice Overlap) --",
       "time": "01:34:28.43"
     },
@@ -2873,7 +2873,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't see that we have much personal standing here but I do not quite know with you when you say the man has to be a nonbeliever in order to have standing.",
       "time": "01:34:50.73"
     },
@@ -2885,7 +2885,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The Lord's Prayer comes from the sixth chapter of Matthew.",
       "time": "01:35:06.42"
     },
@@ -2897,7 +2897,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There are many people who devoutly believe admonition in that chapter that they should not pray in public.",
       "time": "01:35:10.78"
     },
@@ -2909,7 +2909,7 @@
     },
     {
       "turn": 476,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Even though they are earnest, devout, God-fearing Christians.",
       "time": "01:35:18.51"
     },
@@ -2921,7 +2921,7 @@
     },
     {
       "turn": 478,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Because that chapter, three verses before the Lord's Prayer begins, advises not to pray as the hypocrites do in public. Go into your closet. There, pray. May God -- if God hears you in secret, will answer you in secret. Why would not a man have a right? I found that this is a very strong belief throughout the country in the last year that these people should not be made to pray in public even some of the most earnest Christians. Why should they not have a right to challenge it?",
       "time": "01:35:24.50"
     },

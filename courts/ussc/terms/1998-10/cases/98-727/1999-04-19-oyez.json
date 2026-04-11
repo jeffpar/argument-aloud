@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1998/98-727/19990419a_98-727.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN J. ARNOLD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in Number 98-727, Teresa Cunningham v. Hamilton County, Ohio. Mr. Goldstein.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there are exceptions to that rule, are there not, Mr. Goldstein?",
       "time": "00:00:50.77"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, you have recognized that, if the client had been sanctioned as well, the client would have to wait till the end of the line and presumably the lawyer, too, and the lawyer, although not a party, could then appeal, so that seems to be inconsistent with your position.",
       "time": "00:01:26.01"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we have a nonparty, the attorney, who could take an appeal then, so the Chief asked if that rule is without exception. One exception would be this very situation if the client were sanctioned along with the lawyer.",
       "time": "00:01:58.68"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you're wrong about the possibility of the attorney appealing the sanction at the end of the line, if you're wrong about that, then I take it you concede that you could not prevail here.",
       "time": "00:02:26.49"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Before we get to those, I'm sort of perplexed by the inconsistency at the other end. Why is it that an attorney would not be a party for purposes of appealing immediately--",
       "time": "00:02:49.18"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but... I mean, would be a party, treated like a party for purposes of appealing immediately, but would not be a party for purposes of appealing at the end of the case? I mean, I don't see why, conceptually, that makes any sense.",
       "time": "00:03:08.88"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so you're saying she could appeal the... on the basis of the order, in... but she couldn't appeal from the final judgment. That seems a very strange result.",
       "time": "00:03:42.99"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But she's not appealing the final judgment. The final judgment is simply what we refer to to determine when she may appeal. She's still appealing the order, whether she appeals it immediately or later.",
       "time": "00:04:04.31"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, there are all kinds of orders that are made in the course of a trial proceeding, orders that are not immediately reviewable, and you don't lose out because of the 30-day limit. I think that that applies to a final order, not to an interlocutory order.",
       "time": "00:04:52.11"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if the Court should decide that no such line was ever drawn and that it would make no sense to draw it, that is, the judgment is the occasion, as Justice Scalia said, it answers the when question. You can appeal it then. The attorney isn't seeking to reverse the judgment against the client, but is seeking to review an order that was made along the way. So you were beginning to tell us that even if it's right that this would be appealable at the end of the line, still, you said, it could be appealed earlier because--",
       "time": "00:05:54.29"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, in this case it was stayed. The order was stayed, was it not?",
       "time": "00:07:22.72"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does that mean that the order could not be stayed, in your view?",
       "time": "00:07:54.38"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, that takes some of the injury out of it.",
       "time": "00:08:03.18"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that isn't staying the order, that's not entering the order until later. It seems to me you can never stay an order. You stay the consequences of the order. You stay the effect that the order provides, so you're not talking about staying the order. It seems to me this order was stayed as completely as any order is ever stayed. Its effect was suspended until the end of the trial.",
       "time": "00:08:25.98"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there any reason... I mean, assuming that the language is open to your interpretation or the other, which I'll assume for the moment, is there any good reason why we should make this so complicated? I mean, shouldn't... isn't the simple... courts of appeals have a lot to do, and if we take the other position, we're sure they're not going to get into this business of trying to mix the, is it part of the merits, isn't it part of the merits, et cetera. It's a single rule for everybody, and is any harm done?",
       "time": "00:09:34.81"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or the clear, single would be, you'd lose, because the clear, single rule would be, everybody... if you're sanctioned, the time to appeal the sanction order, just like an attorney who is still in the case, the attorney who isn't appeals it at the end of the case, and if you don't like the order in the meantime, ask for a stay, and if he won't give you a stay, go under Rule 8, get the court of appeals to do it.",
       "time": "00:10:09.28"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, well, why wouldn't it give rise to the problem of, in many sanctions cases, when they get to the court of appeals it would be mixed up with the merits, and all of a sudden you discover that this attorney was sanctioned for bringing a frivolous this or that, and the court of appeals, the parties will think, my God, we'd better be up there arguing about this, because it has to do with the merits of the case.",
       "time": "00:10:41.46"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose on that point, in a serious case, could you get a writ of mandate?",
       "time": "00:11:24.61"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, it's a million dollar fine, and the judge refuses to stay it. Could you go to the court of... let's assume that you had to wait till the end of the... could you get a writ of mandate?",
       "time": "00:11:32.39"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm sorry, why can't... I would think this would be an odd case that it would ever happen that if a lawyer is sanctioned in the middle of the case, and the lawyer withdraws, so that he's not still representing the party, and you say, judge, I want to appeal, I can't appeal to the end, would you mind staying the payment until the end of the case, and the judge would say no. I can't believe a judge would do that, but if the judge did say no, you would go to the court of appeals and ask them for a stay. Is there any problem with that?",
       "time": "00:12:06.08"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where does it say that Rule 8, to get a stay, you have to have filed a notice of appeal? I didn't see-- --You don't have jurisdiction... the court of appeals doesn't have jurisdiction if-- --To protect itself. That's my question, because that's what I wondered.",
       "time": "00:12:51.05"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, when Justice Breyer asked you, you could read it one way, you could read it the other way, why shouldn't the tie breaker be 1292(e)? The Congress said, courts, this is the kind of thing you ought to sort out by rule making. You want to make more things final, court, you can do that through the rule making process. Given that signal from Congress, why should we do anything by adjudication to add to the list of interlocutory orders that are immediately appealable?",
       "time": "00:13:35.92"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is the... I mean, you're being very picky about, you know, Rule 4, Rule 8 and so forth. What is the textual authority for any interlocutory appeal?",
       "time": "00:14:36.55"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a judicial elaboration in Cohen upon the term, final order.",
       "time": "00:15:01.05"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Final decision, excuse me.",
       "time": "00:15:08.53"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, if it's just a matter of practicality, I mean, we're making it up under Cohen, essentially. We say, some things are final decisions, and other things aren't final decisions, and we feel free to use the Cohen factors, some of which have very little to do with finality. They have to do with practicality. So why not take those same practical considerations into account in the present instance?",
       "time": "00:15:18.25"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why didn't she try? One of the striking things about the facts of this case is that no protective appeal was taken once there was a final judgment. That was just allowed to happen.",
       "time": "00:15:56.69"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what did she have to lose, because it seems that would put her in the best position?",
       "time": "00:16:25.14"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where? What kind of trouble?",
       "time": "00:16:44.30"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You are envisioning that the court of appeals, when someone is in this bind, says the law is uncertain, so I filed a notice of appeal at the interlocutory stage, I filed one at the end of the line, a court of appeals would sanction a lawyer for doing that?",
       "time": "00:16:49.24"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "May I ask in... picking up on your last colloquy with Justice Scalia, do you acknowledge that this is a Cohen problem at all? Cohen orders usually refer to parties.",
       "time": "00:17:29.29"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, when you talk about the closest analogue, is there anything we can learn from the procedure when a lawyer is actually held in contempt, as opposed to just sanctions? When do you appeal then, and so forth?",
       "time": "00:18:05.40"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is it true that the contempt cases we've reviewed have been reviewed on the interlocutory stage, rather than after the final judgment?",
       "time": "00:18:49.58"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't an attorney given considerably more procedural rights in the case of a citation for contempt than for a sanction?",
       "time": "00:19:12.60"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that would be a pretty risky thing for an attorney. I'm not really worried about an attorney-- --Yes, that's hardly a motivation, to say that, you know, yes, you're in bad shape now-- --Right. Right. --but if you just get yourself held in contempt, you'll be okay. [Laughter] I mean, I suppose he might commit suicide, too, but I'm not really worried about it.",
       "time": "00:20:16.42"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Goldstein, can I ask you, if you say that Cohen is really not implicated here, then there really is no way to handle the case where you have an interlocutory appeal and it is intimately bound up with the merits of the case, that really whether there was a sanctionable conduct or not depends entirely upon how you view the merits of the case, which seems to me not at all an unusual situation. What do you do in that case?",
       "time": "00:20:48.94"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Since we're not applying Cohen you can't say, well, although most of these things would be interlocutory, this one won't be. We'll have... you'll have to do this at the end of the whole proceeding.",
       "time": "00:21:19.63"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but the ones I've actually seen, where we had appeals, they... the argument would be that the attorney, for example, asked too many questions or something in a deposition, way out of line, and the defense would be something like, well, if you really understood this case you'd understand that these questions aren't out of line. If you really understood this case, you'd see that my delay was reasonable. And then they'd start arguing about, what's this case really about, and at that point, if I were a client, I'd say... I'd want to be in there, you know, before the court of appeals takes a view of this. I mean, that's the kind of thing I'm concerned about, and I guess that's the kind of thing that's led the lower courts not to allow appeals in cases where the attorney's in there and hasn't been dismissed, and a lot of other instances. That's what's worrying me.",
       "time": "00:21:46.52"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are there instances, in your experience, where there are repeated multiple sanctions put on an attorney, an attorney is just really being obstreperous?",
       "time": "00:24:01.45"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "He's fined $50 on 1 January, $500 on the 1 February for something else?",
       "time": "00:24:13.91"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you obviously know where I'm going, if there are multiple appeals.",
       "time": "00:24:21.35"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But each time the court of appeals shoots them down it's another piece of appellate business that really is contrary to the policy against piecemeal appeals.",
       "time": "00:24:51.94"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So is a disqualification order, and why isn't that the closer analogy than a contempt citation?",
       "time": "00:25:17.93"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Goldstein. Mr. Arnold, we'll hear from you.",
       "time": "00:25:42.60"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, this attorney was also removed from the case, so is no longer acting as attorney, right?",
       "time": "00:26:40.67"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That might make a difference. Do... does Cohen apply? Should we assume that Cohen applies to this--",
       "time": "00:26:49.43"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--when it's a nonparty?",
       "time": "00:26:57.08"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Oh, no, once the attorney is removed, it makes the person much more of a nonparty than when the attorney is still in there representing the client.",
       "time": "00:27:28.00"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why would mooting of the case affect it?",
       "time": "00:28:07.74"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The case might moot out later, but the basis for the attorney sanction would not be eliminated by the mooting of the case on the merits, would it?",
       "time": "00:28:10.69"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You weren't saying that mooting of the case by some later event necessarily moots the attorney sanction issue that arose before it.",
       "time": "00:28:30.03"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Okay. You're saying whatever is the end of the line, if the case is settled, there's an order dismissing the case, is that what you're saying? Because Mr. Goldstein brought up the possibility, well, the case could settle, and then there would be never a time that this could be appealed.",
       "time": "00:28:37.77"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But there would be no notice given, presumably, to an attorney who had been removed in the interim. That attorney would not get notice of any final disposition, presumably.",
       "time": "00:29:06.60"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why isn't the contempt sanction the closest analogy? I mean, the magistrate who imposed the Rule 37 fine could have used this contempt sanction.",
       "time": "00:29:39.40"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there's a lot of cases where the lawyers are held in contempt. I've been in court when lawyers have been held in contempt and the case came all the way to this Court. There are a lot of those cases. But why... regardless of the number, why should they be treated differently? That's the real question.",
       "time": "00:30:05.54"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, my question is, why shouldn't it be treated like contempt, which is sometimes used as a way of getting interlocutory review of a discovery order? I mean, isn't that true of the famous Hickman v. Taylor? A lawyer was held in contempt, and that's how it got up on appeal.",
       "time": "00:30:37.01"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You say a contempt might not be appealable until the end?",
       "time": "00:31:29.72"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... I'm sorry, I haven't followed you. Why is it that you say a contempt citation is different from just a sanction?",
       "time": "00:31:34.98"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's true, but--",
       "time": "00:31:48.60"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, let's say... I'm talking about contempt citation of an attorney. Now, do you acknowledge that that's appealable immediately?",
       "time": "00:31:58.13"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not in every case?",
       "time": "00:32:06.48"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What cases would it not be?",
       "time": "00:32:08.71"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is this case, the case that you're relying on?",
       "time": "00:32:20.98"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I thought in all of the... at least all the contempt cases I know, taking Hickman v. Taylor, the lawyer's interest was... he was serving his client. He was totally serving his client, and yet we took that case, and it was the great case about the scope of discovery.",
       "time": "00:32:49.99"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Now you're arguing that we should not allow interlocutory appeals of contempt citations.",
       "time": "00:33:23.49"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I'm inclined to agree with you, that if we agree with you we shouldn't allow interlocutory appeals of contempt citations. Is that your position?",
       "time": "00:33:28.22"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, frequently, and I think this Court has admonished trial judges that if you're thinking of holding a lawyer in contempt, either tell him that you're thinking about it, but wait awhile. In other words, don't simply cite him from the bench, but hold off for a while, and maybe do what Judge Medina did in the communist case, have a hearing at the end of the trial, and of course that would remove the appealability problem there, since surely a contempt citation with a fine at the end of the trial would be appealable.",
       "time": "00:33:38.74"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what discretion does a trial judge have to defer the effectiveness of an order of sanction, or to defer... what discretion would a court of appeals have to defer holding any hearings on it until the end of the case?",
       "time": "00:34:17.82"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Uh huh.",
       "time": "00:34:55.27"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Stay the collection of it?",
       "time": "00:35:06.58"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They would stay... would have power to stay the collection of the sanction until the end.",
       "time": "00:35:07.50"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But would it be, do you think, would the notice of appeal have to be filed in 30 days of the entry of the order that you are sanctioned?",
       "time": "00:35:16.22"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is the best resolution of this to leave it to the discretion of the court--",
       "time": "00:35:40.09"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--imposing the sanction?",
       "time": "00:35:48.50"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Should the best resolution of this problem be to leave the effectiveness of it in the discretion of the trial judge?",
       "time": "00:35:50.67"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The problem is, is that these sanction orders are sometimes entered by the court when its patience has run out, the court is angry at the attorney, sometimes for a good cause, sometimes not, and there's a real danger that the district judges can overstep and require an attorney to come forward with a substantial sum of money for a sanction, and that just seems to me to be a very harsh rule, especially in this case, where the attorney is out of the case.",
       "time": "00:36:22.37"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it can go beyond financial hardship, it seems to me. Justice Ginsburg's question raises this doubt in my mind. Supposing a conscientious lawyer thinks that material is privileged, and he refuses to disclose it in response to a discovery demand, and the magistrate says, I'm going to sanction you $1,500 unless you pay it over. He says, I just think professionally I can't do it. I'm not going to turn it over. Can they continue to... and they go ahead with the trial and try the case. The... but they could continue to impose more and more sanctions for the same refusal, and there would be no way to review it until the case is over, even though the materials might be critical to the outcome of the case.",
       "time": "00:37:20.04"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In other words, have you... this is the point that I was worried about. I mean, have you ever found a... I can't imagine a trial judge, when the lawyer says, judge, I'm going to appeal this at the end of the case, will you please stay it, and he says no. I've never heard of such a thing. Have you come across such a thing? I may just be overly naive.",
       "time": "00:38:13.86"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, suppose he did. Suppose we ran against somebody who's having a temper tantrum, and he's going to be unreasonable. Then under the law, are you permitted to go to the court of appeals and say, court of appeals, we'd like a writ under the All Writs Act. All we want is for you to stay this order so we have a chance to appeal. Would you be entitled to it, if the judge is having a temper tantrum and won't be reasonable?",
       "time": "00:38:36.52"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Would be. Is there any authority for that?",
       "time": "00:39:02.87"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I think Justice Breyer was asking, or at least I was thinking, is there any case on it?",
       "time": "00:39:13.50"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I don't understand how 1292(b) would, because how is this order making it appealable, immediately appealable going to be the ultimate determination of the case, and how is it a controlling question as to which there's a substantial disagreement? 1292(b) is very limited in terms... it's a double certificate, and it requires it to be an important question about which there's a substantial disagreement, and that immediate determination of that question will speed the underlying lawsuit. I don't think you can meet the 1292(b) standards.",
       "time": "00:39:40.93"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that's why I don't think 1292(b) is in the picture. This kind of thing just doesn't fit what that statute contemplates.",
       "time": "00:40:22.92"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the distinction is, under 1292(b) it must relate to the merits, and under Cohen it may not relate to the merits, or have I got it backwards?",
       "time": "00:40:54.67"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Separable, whereas under 1292(b) it must control the merits.",
       "time": "00:41:05.57"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, Congress certainly recognized that finality is a problem, because it provided now twice, once in, what is it, 1272(c) and 1292(e) for rule making to make additional... put additional things on the list of interlocutory appeals.",
       "time": "00:41:21.06"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But why... but it seems to me that that doesn't foreclose doing it by adjudication.",
       "time": "00:41:44.66"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you concede that some... that this is a sooner or later question. That is, it's definitely reviewable ultimately.",
       "time": "00:42:43.51"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see what harm is done by adopting the petitioner's resolution here. I mean, I am affected by the fact that it's within the total control of the district court to prevent any disruption by simply saying, you know, I'm not going to impose this until the end of the trial, but you're going to get whacked pretty hard, and you do it again, I'm going to whack you harder, but I'll wait till the end of the trial, because I don't want the trial interrupted. What's the problem with, once you announce the rule, the district judge knows exactly how to prevent the interference with the trial?",
       "time": "00:42:55.22"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't a threat, it's a promise. [Laughter] At the close of the trial, I am going to impose upon you a sanction of, you know, $20,000. How can you say they found that totally ineffective? I think a lot of lawyers would listen to the judge when the judge said that. I know I would.",
       "time": "00:43:41.51"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The answer is, they wouldn't know. The district judges don't know every rule, nor do we. The lawyer's out of the case. He's going to sanction him. He's not there anymore. He says goodbye, I'm not going to see you anymore, I'm going home. And you say, fine, when you go, pay $10,000. I mean, that's what's going to happen. I don't know how we could prevent that, whatever rule we announce. And then the problem it seems to me is, well, shouldn't he have an appeal at that point. He's gone home, he is hurt, and that's the difficulty for you, I guess.",
       "time": "00:44:09.34"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's all true, but what if we were writing the opinion, something along the lines Justice Scalia said, the better practice, absent compelling circumstances, enforcement of all these orders shall be postponed until the litigation is over. Wouldn't that avoid the problem for everybody, and just... we could just follow the practice of waiting till the case is over?",
       "time": "00:45:01.45"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In trying to think of your answer to that question, I was thinking, well, it might not be sufficient, because the judge wants an immediate sanction that works to control this attorney, but then I thought the answer to that was, if the attorney's that bad, then he can hold him in contempt.",
       "time": "00:45:31.87"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it seems to me that-- --You wouldn't acknowledge that holding him in contempt would allow an immediate appeal anyway. I mean, your position now is that that also is not appealable until the end of the trial.",
       "time": "00:45:54.75"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then the Court was wrong in Hickman v. Taylor, I suppose, in allowing that to go up as an interlocutory appeal, because of the contempt.",
       "time": "00:46:08.11"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It couldn't have been closer than in Hickman. I mean, I can't imagine a closer congruence.",
       "time": "00:46:25.59"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was another sanction here. It was... and I don't... there was a $29,000 sanction that was not appealed. What was that for?",
       "time": "00:46:40.44"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that was... it was confusing, because I thought the attorney was both sanctioned and disqualified, and that was an under $2,000 sanction, and then there's this mention of another sanction. Was that before or after the larger one, the $29,000?",
       "time": "00:47:17.80"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But--",
       "time": "00:47:41.74"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--After she was disqualified.",
       "time": "00:47:48.93"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Couldn't the appellate court just wait, I mean, just say, you know, we have this appeal here, but we're going to hold it on our calendar until the conclusion of the trial below? Could the appellate court do that?",
       "time": "00:50:07.97"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So I mean, if it is a real problem like that, once again there's a solution. Huh--",
       "time": "00:50:25.43"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think Justice Breyer was about to. [Laughter]",
       "time": "00:50:32.67"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Under Rule 11, the sanctions can sometimes be paid to the injured party and, under your rule, you'd have to pay to a third party and you might not be able to get your money back. You might be judgment proof.",
       "time": "00:51:09.21"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But under Rule 11, sanctions are frequently paid to the injured party, to the moving party.",
       "time": "00:51:37.88"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All I meant by my 300 other cases on the docket with which the court of appeals is supposed to deal. Now you're going to agree with that \"huh\".",
       "time": "00:51:51.93"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Arnold.",
       "time": "00:53:00.27"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Goldstein, you have 4 minutes left. What case do you rely on from this Court that holds a sanction against an attorney, contempt is appealable?",
       "time": "00:53:02.32"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Court discuss appealability at all in Hickman?",
       "time": "00:53:16.74"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because Hickman didn't say a word about jurisdiction.",
       "time": "00:53:30.32"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It was an opinion by Justice Murphy, so-- [Laughter] Did the Third Circuit say something about jurisdiction?",
       "time": "00:53:34.74"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there are a lot of cases that have held that if a lawyer is held in contempt for failure to comply with a court order, it's immediately appealable.",
       "time": "00:54:05.81"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I... that's what I was asking you, Mr. Goldstein. Is there a case from this Court holding what Justice Stevens apparently thinks there is? The answer's yes, but I can't give it to you. [Laughter] Imagine that as an exam answer. Mr. Goldstein, could I get your position clear on one thing? What if the sanction had been imposed upon the party?",
       "time": "00:54:16.87"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you already told me in response to the earlier colloquy that that would be true of the lawyer as well if the lawyer and the client were jointly sanctioned.",
       "time": "00:54:53.94"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if everything else is the same, but the magistrate says, you and your client.",
       "time": "00:55:11.89"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if you say the contempt rule has been here for more than 100, you must know some case. [Laughter]",
       "time": "00:56:04.06"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, as a practical matter in this case we were just told that in fact there was continuing activity involving this lawyer, and that's what accounts for the subsequent $29,000 sanction.",
       "time": "00:56:37.97"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Goldstein. The case is submitted.",
       "time": "00:57:02.79"
     }

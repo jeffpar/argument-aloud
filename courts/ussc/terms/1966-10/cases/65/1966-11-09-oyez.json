@@ -3,35 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/65/19661109a_65.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM G. VANCE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MARTIN MCFARLAND",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. 65, Robert D. Watkins, appellant versus J.F. Conway. Mr. Vance?",
       "time": "00:00:00.00"
     },
@@ -43,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your question with respect to the Georgia judgment [Inaudible].",
       "time": "00:01:47.33"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:01:55.29"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In case of the foreign judgment [Inaudible]",
       "time": "00:02:32.13"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:02:36.72"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How long is the statute on the books?",
       "time": "00:02:49.27"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "This one is a procedure in Georgia on foreign judgments?",
       "time": "00:03:47.69"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What's the Georgia law with respect to the nature of the proceeding in which, as you put it, convert the foreign judgment into a Georgia judgment, what sort of issues can be raised?",
       "time": "00:04:36.60"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the fact that you have that proceeding in relation to levying a permanent judgment supply any rationale or adequate basis for the distinction in terms of time?",
       "time": "00:05:13.09"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In this statute [Inaudible]",
       "time": "00:06:12.75"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:06:24.05"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:06:30.27"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:13:50.59"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your argument really is [Inaudible]",
       "time": "00:14:24.59"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I suppose that is really the question whether there is a reason for the distinction?",
       "time": "00:16:50.80"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is there -- does Georgia have any different statute of limitations for the enforcement of domestic judgments or is that just one overall that applies to all kinds of judgments?",
       "time": "00:17:02.68"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand that but does it apply to all judgments and there's no special (voice overlap).",
       "time": "00:17:30.44"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I see. There are no special statutes differentiating among types of judgments?",
       "time": "00:17:37.69"
     },
@@ -247,13 +251,13 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Thank you.",
       "time": "00:17:44.25"
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Inaudible]",
       "time": "00:17:45.98"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:18:29.20"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:19:13.20"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You don't make any contention that a five-year period of limitations standing alone is unreasonable?",
       "time": "00:21:31.47"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:04.00"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:06.39"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:18.67"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:21.66"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:32.16"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible]",
       "time": "00:22:44.30"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May a state do you think, say you can't recover from a foreign judgment and the state shall reduce it to a foreign judgment?",
       "time": "00:23:25.75"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If they may go that far, why then they (Voice overlap) can't fix the time?",
       "time": "00:23:34.97"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does my question -- my question was, you have a Florida judgment. May Georgia say, “That will not be enforced”. May they say it in face of the Full Faith and Credit Clause, that judgment will not be enforced in Georgia until it's been reduced to a Georgia judgment.",
       "time": "00:23:49.92"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If a state may do that in the face of the Full Faith and Credit Clause, I don't understand why they can't say, and you must do it within two years or three years or five years at the time that you get a foreign judgment?",
       "time": "00:24:28.39"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do I understand your Georgia system is this -- it's not the M'Elmoyle involves this very statute, didn't it?",
       "time": "00:24:56.57"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In fact, the statute will be very old one; it was here 1839. Do I understand the way your system works, if one gets a Georgia judgment, if he levies within seven years, then the judgment survives?",
       "time": "00:25:02.73"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If he fails within seven years to levy, then he must provided by what, an original suit on the Georgia judgment within the remaining three years?",
       "time": "00:25:20.21"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then the case of a foreign judgment, he has to bring this action on that judgment within five years then he gets Georgia judgment?",
       "time": "00:25:34.74"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "To which then I guess the same things attaches. In seven years, he must do it and if he doesn't then within three years he has to start another suit, is that it?",
       "time": "00:25:42.23"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you look at the period now for domestic judgment to bring [Inaudible]",
       "time": "00:26:10.07"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:26:22.17"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:26:25.67"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. McFarland?",
       "time": "00:27:36.82"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. McFarland, do you know whether the 10-year statute was on the books in Georgia at the time M'Elmoyle was decided in 1839?",
       "time": "00:32:30.33"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Just like the five-year old?",
       "time": "00:32:53.27"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the scire facias, is that an administrative proceeding? It's not the original action, is it?",
       "time": "00:36:15.98"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is it an adverary proceeding?",
       "time": "00:36:23.03"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, is it an adversary proceeding?",
       "time": "00:36:26.42"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what kind of defense from the defendant?",
       "time": "00:36:38.43"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Vance?",
       "time": "00:40:35.42"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. M'Elmoyle I notice from your adversary brief that apparently, this 10-year statute was a section in the Act of 1823 CAB 498, is that be right?",
       "time": "00:41:14.63"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But at the time M'Elmoyle was decided then, both the statutes were --",
       "time": "00:41:32.72"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that is presumption of payment?",
       "time": "00:41:47.41"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, obviously the Equal Protection question could not have been raised because Fourteenth Amendment didn't come on the books till 30 years later?",
       "time": "00:41:57.06"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, of course, Metcalf folded extensively from M'Elmoyle and Metcalf was decided in this Court in 1893; that was after the Fourteenth Amendment. And certainly, if I read this opinion of Chief Justice Fuller accurately, he seems think well of what Justice Wayde in said M'Elmoyle --",
       "time": "00:42:24.84"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, there was the federal judgment in Georgia versus a Georgia judgment, that's really what it was?",
       "time": "00:43:00.57"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:44:04.28"
     }

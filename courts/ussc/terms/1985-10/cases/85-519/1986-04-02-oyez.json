@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-519/19860402a_85-519.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT A. BRUNIG",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN M. FRIEDMAN, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Randall against Loftsgaarden. Mr. Brunig, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it possible, Mr. Brunig, that the tax benefit features of a particular investment might be part of a bargained for exchange, or part of what caused the investors to make the investment in the first instance?",
       "time": "00:05:55.26"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can they have a market value in the mind of the investor such as would affect the damages recoverable in the event such becomes necessary?",
       "time": "00:06:36.15"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in this case I guess the... your clients brought the action under both Section 10(b) and 12(2)?",
       "time": "00:07:51.28"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And 12(2) provides just for rescission?",
       "time": "00:08:05.24"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does 10(b) provide a different measure of damages?",
       "time": "00:08:19.31"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, when the two sections are both brought into the picture, then is it up to the plaintiff to select which measure of damages, or what do you do? Are you limited only to rescission because you've combined 12(2)?",
       "time": "00:09:07.98"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Both issues in... rescission and benefit of the bargain were submitted to the jury for findings of damages?",
       "time": "00:09:44.79"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was an election then made by the plaintiffs?",
       "time": "00:10:28.10"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace.",
       "time": "00:16:15.77"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Basic error by both courts?",
       "time": "00:20:30.86"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Friedman.",
       "time": "00:22:08.57"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Friedman, before you start, could I ask whom you represent?",
       "time": "00:22:18.21"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Loftsgaarden must be out of the picture now. He is an old St. Paul lawyer, as I recall.",
       "time": "00:22:26.81"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Where is the juice in this case? Is this a test case, or where is the Juice that keeps it going?",
       "time": "00:22:33.68"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, where is the financial responsibility?",
       "time": "00:22:42.58"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is there money in these corporations?",
       "time": "00:22:49.99"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You've come out of New York, a large firm. I'm just wondering who's paying the bill. Mr. Loftsgaarden can't be paying the bill.",
       "time": "00:22:56.34"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it your position that deterrence is not one of the functions of the securities law?",
       "time": "00:23:49.14"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Deterrence, by implication, embraces the idea of a penal sanction, does it not?",
       "time": "00:24:00.44"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In terms of congressional policy in antitrust cases, for example, you have a trebling of damages, do you not?",
       "time": "00:25:47.68"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that is for deterrence, isn't it?",
       "time": "00:25:59.09"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There's nothing expressed in the Securities Act about trebling the damages, is there?",
       "time": "00:26:01.59"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, would you suggest that this large amount would not function as a deterrent with respect to other people similarly situated?",
       "time": "00:26:10.07"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Friedman, do you know to what extent, if a rescission is obtained as a result of the securities fraud litigation, that IRS could come back later on the investor, seeking a recoupment of some of the tax benefits previously taken?",
       "time": "00:28:06.44"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I know that motel.",
       "time": "00:29:53.29"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose that if the fraud hadn't taken place in the first place there wouldn't have been any tax savings?",
       "time": "00:31:13.85"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be so, but these people who invested, if they had... they probably wouldn't have invested if they had known what they should have known.",
       "time": "00:31:53.92"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or they may have acquired a tax benefit that was caused by the fraud.",
       "time": "00:32:07.21"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your clients were not entirely blameless for causing the--",
       "time": "00:32:21.77"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The government suffered from the tax benefit?",
       "time": "00:32:36.49"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least it didn't collect these taxes from these investors.",
       "time": "00:32:41.61"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it may never be able to collect then from anybody?",
       "time": "00:32:47.50"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, did the government lose anything by the fraudulent nature of the transaction that it wouldn't have lost if the transaction had not been accompanied by--",
       "time": "00:33:01.37"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Do you think the United States, then, has a financial interest in this case at all, or is it just, they think this would be a sort of deterrent way of enforcing the securities laws?",
       "time": "00:34:05.88"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, the United States would stand to collect some more taxes?",
       "time": "00:34:37.61"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I suppose the government might have an interest in appearing as amicus before any court reviewing any sort of awards to plaintiffs, urging that the awards be increased on that basis because the government would get more tax money?",
       "time": "00:34:46.19"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What may constitute income for purposes of the internal Revenue Code can be quite different from what we think of normally as income, can it not?",
       "time": "00:37:18.70"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you regard that as income too?",
       "time": "00:37:37.91"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you regard capital gains the same as income?",
       "time": "00:37:41.60"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They're taxes somewhat differently, aren't they?",
       "time": "00:37:52.26"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have five minutes remaining, Mr. Brunig.",
       "time": "00:39:56.52"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but what about the relationships between the investors and him?",
       "time": "00:41:10.62"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, are they being... are their relationships being returned to what they were before, the investors' relationship to Mr.... what's his name?",
       "time": "00:41:18.77"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Loftsgaarden.",
       "time": "00:41:34.75"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but aren't these investors being returned to their pre-deal commission?",
       "time": "00:41:40.00"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes or no.",
       "time": "00:41:49.10"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In what respect?",
       "time": "00:41:55.15"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the profit?",
       "time": "00:42:27.79"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did they get some benefit for the use of the money, for the money that was returned to them?",
       "time": "00:43:17.96"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:44:48.95"
     }

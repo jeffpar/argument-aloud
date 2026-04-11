@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/04-698/20051005a_04-698.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM H. HURD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GREGORY G. GARRE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "DAVID B. SALMONS",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We will now hear argument in Schaffer against Weast. Mr. Hurd, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, Congress was silent on this subject of the burden of proof, was it not?",
       "time": "00:01:51.76"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was there... did you find anything in the legislative history... I know some members don't care to look at that, but I would be willing-- [Laughter] --that shows any discussion at all about the burden of proof question?",
       "time": "00:01:58.78"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. Why didn't it? I... why wasn't the APA applicable?",
       "time": "00:02:35.40"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see.",
       "time": "00:02:42.98"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see.",
       "time": "00:02:44.06"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So--",
       "time": "00:02:44.96"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--what it if were... what it were a school on a Federal base? Are they covered by this Act, by the way? You know--",
       "time": "00:02:45.66"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--military schools on military--",
       "time": "00:02:52.31"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--DOD schools. What do you do with them? Are they governed by the APA?",
       "time": "00:02:55.18"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No?",
       "time": "00:02:59.84"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you'd be suing some Federal agency. I mean, it has to be some Federal agency that's running that school, and at least for that kind of a school the burden is clearly going to be on the person challenging the agency action.",
       "time": "00:03:08.64"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yeah, well, what if you had an IEP that the parents had initially agreed with, and then they decide it isn't working well, they want to challenge it. They shouldn't have a burden of proof?",
       "time": "00:03:44.89"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you mean the court has... every court faced with this problem is supposed to decide, in that particular case, who hast who has the burden?",
       "time": "00:04:05.94"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you--",
       "time": "00:04:29.76"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--do you think it's open to a State to adopt a general rule on who has the burden of proof under this statute?",
       "time": "00:04:30.42"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Have some States purported to adopt a general rule on this?",
       "time": "00:04:43.02"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you think that's invalid.",
       "time": "00:04:48.90"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hurd, do you recognize... to narrow what... the issue... that the parent objecting to the school's IEP would at least have a burden of coming forward? In other words, I... are you speaking just of the ultimate persuasion burden? Wouldn't the parents at least be required to come forward with some reason to believe that the State... the school district's plan is inadequate?",
       "time": "00:05:19.16"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What case is your closest one to support the view that the Court should adopt some particular rule here, based on the scheme?",
       "time": "00:07:02.83"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What do you rely on? I just don't know where we look for the--",
       "time": "00:07:16.00"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--guiding principle.",
       "time": "00:07:20.13"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay, but let--",
       "time": "00:07:37.15"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--let's talk--",
       "time": "00:07:38.66"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--burden of proof cases. What is your closest one where the courts are left to do this? What do we look to?",
       "time": "00:07:39.36"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand the purposes of the statute argument. The purpose of the statute is always to provide relief to someone who's been injured. And to conclude, from this, that, therefore, the burden should be on the other side, in order... in order that people who are injured can get relief, is... I mean--",
       "time": "00:08:34.46"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that will always be the case.",
       "time": "00:08:50.77"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's fine. I... that's one sort of relief. But, I mean, you have some relief at issue under every statute. They want a needy person to be given justice. And to say that, since that's their purpose, you should always put the burden on the other side, is... I just don't understand that argument.",
       "time": "00:08:58.90"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sure.",
       "time": "00:09:35.64"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the Federal Tort Claims Act, for all I know, says, in its prologue... or, if it doesn't, it should have, or it could have... the purpose of this is to assure that every person who's been injured by a... by a Government tort obtains relief.",
       "time": "00:09:37.75"
     },
@@ -407,13 +407,13 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's--",
       "time": "00:10:31.71"
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that's where I am not understanding your argument. There is an IEP in all of these cases. I would understand your argument if the State... the school district said, \"We're not going to educate this kid. \" \"Throw him into the pot with everybody else. \" \"We won't give you an IEP. \" That's not what we've got here. And, in fact, if that's what we had here, the burden of proof issue would be of no significance, because the State... the parents would walk in, and the only thing they'd have to do to satisfy \"a\" burden of proof would be to say, \"They didn't come up with an IEP. \"",
       "time": "00:10:31.71"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Instead, what we have here is a fight about whether it's a good IEP or no IEP.",
       "time": "00:11:03.50"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then--",
       "time": "00:11:15.17"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--then we're arguing about words.",
       "time": "00:11:15.91"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The State is not saying, \"We will not come up with an IEP. \" The State is saying, \"This is what we're going to give you. \" and the parents say, \"It's not good enough\".",
       "time": "00:11:18.02"
     },
@@ -473,13 +473,13 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What sense does it make for the parents to tell that to the school system? I mean--",
       "time": "00:12:12.78"
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In an... in an equal partnership argument, nobody's got the burden of proof.",
       "time": "00:12:16.34"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In all events--",
       "time": "00:12:28.12"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in all events, it seems to me that it's still cut against you. This is a statutory scheme where, you point out, the parents have access to some initial consultation. In most instances... or in many instances, people who are suing an institution don't have that initial access. Here, the parents get much more initial information than most... than most petitioners do--",
       "time": "00:12:29.90"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--than most... than most complainants, than most aggrieved persons do.",
       "time": "00:12:53.20"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then let--",
       "time": "00:13:02.90"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--let me point... let me point out something else. Let's assume a state of affairs... just assume that school districts... many of them... independently and, I think, collectively, because school districts talk to each other... have a growing body of data and expertise about IEP. And this is the basis on which you say that they should come forward. It seems to me that, too, though, cuts against you, because when a school district has expertise, I think it's entitled to a presumption of governmental deregularity. And you have to challenge it.",
       "time": "00:13:03.53"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's a well established principle of administrative law. I've never seen a case in administrative law where a party... a private party coming in and challenging a Government's action doesn't bear the burden of proof. And Alaska isn't contrary to that. Alaska, they were citing hornbook law, whether... what happens with the... if EPA normally does have a burden of proof when it challenges a State action, and that doesn't change, whether they bring it in a State proceeding or whether it's in a Federal proceeding. I didn't think it was quite on point. But maybe you know that I'm wrong on this. And so--",
       "time": "00:13:50.02"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is there a... can you think of any instance, in all of administrative law, where you didn't start out with the idea that a person challenging a... an agency action that's been taken, and so forth, doesn't have the burden of proof?",
       "time": "00:14:25.37"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's what I--",
       "time": "00:14:45.73"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I do think that, yeah.",
       "time": "00:14:46.76"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There isn't?",
       "time": "00:14:50.08"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Does this every come up? I mean, the other thing I wondered about this... it seems to me you have a hearing examiner and a district judge who have actually said what is only a law professor's dream. They say, \"Oh, the evidence is precisely and equally in balance. \" I didn't know that happened in the real world. I-- [Laughter] --I thought that their... that judges normally did their job, which is, you look at complicated evidence, and you say, \"This side is a little bit better, or that side is a little bit better. \" Has this come up in... a lot, where they say, in this area, \"Oh, it's exactly\"--",
       "time": "00:15:01.36"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--\"# in equipoise\"?",
       "time": "00:15:34.54"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask you, before you get to your three reasons, to go back to your... something that you said? I asked you, Are you dividing the burden of production and persuasion? And you said no, it's all on one side or the other. But it seems to me your description of this proceeding, you said the school district goes first. So--",
       "time": "00:15:48.48"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the school district did come forward. And is that the usual practice in these administrative hearings... if the first one to go to defend the plan is the school district, not the parents who are attacking it?",
       "time": "00:16:14.25"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you said, in this case--",
       "time": "00:16:37.97"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the school district went first.",
       "time": "00:16:39.85"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, now, as a result of the fourth circuit's decision, do the parents always go first--",
       "time": "00:16:48.53"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and not the school district? The school district has a plan that it has put forward. And it seemed to me logical, well, it has a plan, so it should defend it.",
       "time": "00:16:55.23"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, you think the ALJ... or the administrative hearing officer in this case told the State to go first... the school district to go first because he thought that maybe they had burden of proof, and would not have asked them to go first if he didn't?",
       "time": "00:17:17.30"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, but you're saying this... this is an ad hoc thing. There is no general practice about which one goes first.",
       "time": "00:17:59.93"
     },
@@ -731,13 +731,13 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And it's only play money, right?",
       "time": "00:19:33.90"
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't the question, Who's going to pay for it? Because this... doesn't the parent often go ahead and get the other... the better program, and then they ask for reimbursement for the... from the Government?",
       "time": "00:19:35.39"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it true that many of these fights occur after much of the education has already taken place--",
       "time": "00:19:53.74"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and they're fighting about who pays for it?",
       "time": "00:20:00.64"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's--",
       "time": "00:20:25.63"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--that's not true if the parents can afford to pay for it, and have, in fact, paid for it. Then the child is the neutral factor in it. Of course, in some cases, what you say would be true, but not in--",
       "time": "00:20:26.12"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--not in all cases.",
       "time": "00:20:35.71"
     },
@@ -809,19 +809,19 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hurd, here's--",
       "time": "00:21:02.76"
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is true.",
       "time": "00:21:03.47"
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--here's my problem with your assertion that we have to decide it in the way that furthers the purposes of the statute. We said, in other cases... and correctly, I think... that no statute pursues its purpose at all costs, that there are limitations upon its purpose. It, of course, wants students who need this special help to get it, but it also does not want students who don't need this special help to get it. And for you to say, \"There's no harm done\". You know, \"If he... if he's given it when he doesn't need it. \" \"What's the problem? \" \"He goes to a better school. \" The problem is that this is not play money. It's coming from somewhere; and, namely, on the citizens who have to pay for it.",
       "time": "00:21:02.76"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, that's true. That's... I understand. I sympathize with that point. I'm worried, however, about the fact that this statute doesn't just cover the initial IEP. It covers a whole range of things, including, for example, you have a hyperactive child. The hyperactive child behaves badly in class. The hyperactive child receives discipline related, say, to how it's placed. Well, the parents might... properly, perhaps... think that was very unfair and wrong, and they might challenge that disciplinary mark. There can be thousands of different kinds of issues that come up. And, in all of these issues, is it supposed to be the burden of the school board, for example, to show that the teacher who had the child sit in the back of the class or received a bad discipline mark or something? Does the... does the school board have to prove that the teacher was right?",
       "time": "00:22:16.52"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Wouldn't it, if it were related to the placement?",
       "time": "00:23:14.30"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, I say that there are a number of... what I'm thinking of is a lot of interim decisions that come up that are affecting how the child is placed... whether in class, whether in that class, whether with a special teacher, whether without a special teacher, whether with somebody during the recess periods, whether not. I mean, they're... these are very complicated matters, and there can be important overall matters, and there can be what I'd call interstitial matters.",
       "time": "00:23:20.48"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What I'm driving at is... and I think it was well expressed in one of these cases, a New Jersey case, perhaps... but is it the same burden of proof whether the matter is interstitial or whether it's an initial placement or a change of--",
       "time": "00:24:02.15"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--placement? Do we have the same burden of proof always on the school board, no matter what?",
       "time": "00:24:17.01"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Garre.",
       "time": "00:27:25.52"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "This is a case where the parents unilaterally decided to move the child to a private school, and then they sought tuition reimbursement?",
       "time": "00:27:58.26"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:28:08.01"
     },
@@ -929,13 +929,13 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "As I understand it--",
       "time": "00:28:12.19"
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't contend the rule would be different if we were... if it was all prospective, do you?",
       "time": "00:28:12.19"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Before we... you go onto the argument, your answer to Justice O'Connor, if I remember the facts correctly, wasn't quite right. This child was in private school for years, and the parents weren't asking anybody to do anything, because... and it's only when the private school said, \"We have to... we can no longer put up with your child. \" \"Your child has all these problems. \" --at that time, the parents then came to the school district and asked for an IEP.",
       "time": "00:29:03.68"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Which the parents didn't think was acceptable and, in the interim, placed the child in another private school. But it was not a case that they put the child in a private school first, and then sought reimbursement.",
       "time": "00:29:59.84"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought--",
       "time": "00:30:35.27"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Garre, you... or, Mr. Garre, you said, in your earlier statement, that sometimes the school district will be the complaining party. How does that... how does that come up?",
       "time": "00:30:46.37"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, why would the school district have to take any action? Why wouldn't it just--",
       "time": "00:31:12.59"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--just say, \"The child can't come to class. \" \"He's too disruptive. \" period?",
       "time": "00:31:19.97"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:31:30.45"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:31:42.85"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Garre, do you have any numbers, overall, how... of the incidence of the parents going to the administrative hearing first, as opposed to the school district? Isn't it overwhelming that, in these proceedings, the parents are the one... ones who initiate the hearing?",
       "time": "00:32:58.13"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When we go back to the... an answer you gave before, when we were going through what, in fact, happened, the suggestion that maybe the parents were just trying to get the private school tuition reimbursed, the... there was a finding, wasn't there, in the district court, in the... this is in the petitioner's appendix, at 46 and 47... the district court said, \"The parents in no way prevented the IEP from being formulated or otherwise failed, in good faith, to consider it. \"",
       "time": "00:34:00.06"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, if I take... if I accept your view of that, that would be a Federal rule written into the statute. And that would mean that, even if the Department of Education came to a different conclusion, or even if we have a bunch of States that come to a different conclusion, or even if it's in Minnesota, they want to have a rule that \"sometimes it's one way, sometimes the other way. \" we couldn't do that. But if I were a Member of Congress, and never thought about the issue, which I think this void in the statute suggests, I might think it would work out better if we left it up to each State to do it whatever way they wanted here, if we left it up to the Department of Education to promulgate whatever rules they wanted. Now, couldn't we hold that?",
       "time": "00:35:04.76"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, you haven't suggested leaving it up to each State, because you're suggesting a uniform rule. So, what... how would you have it?",
       "time": "00:35:53.99"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, it's just--",
       "time": "00:36:11.05"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--a default rule.",
       "time": "00:36:11.84"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. If it's just a default rule, that's a big improvement, because any State can do it any way it wants.",
       "time": "00:36:13.38"
     },
@@ -1127,13 +1127,13 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But then, why not, here, send it back and say that the ALJ tried to answer the wrong question? He tried to answer the question of what was the Federal law, but what he really should have done was ask about what's the State law. And if he has a hard time figuring it out, perhaps he should look at that evidence harder and see. Maybe--",
       "time": "00:36:18.34"
     },
     {
       "turn": 182,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is there any doubt, here, that there's no State law?",
       "time": "00:36:35.21"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, but I've never heard of a State without law. There is no--",
       "time": "00:36:44.98"
     },
@@ -1157,25 +1157,25 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--black hole in the law--",
       "time": "00:36:47.74"
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On the burden of proof in IEP cases--",
       "time": "00:36:48.87"
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well--",
       "time": "00:36:51.59"
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--I should have said.",
       "time": "00:36:51.77"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "These cases are appealed to Federal courts normally, aren't they?",
       "time": "00:37:03.53"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In Federal courts. And most of these cases are in Federal courts. And you're... you want to condemn Federal courts to figuring out what the State burden of proof is?",
       "time": "00:37:10.64"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not hypothetical. Isn't it... it isn't hypothetical. States... isn't it true that some States have said that, in these hearings, the school district will have the burden of proof?",
       "time": "00:38:00.57"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well--",
       "time": "00:38:22.03"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--to the... to the extent that we're concerned about unnecessarily increasing costs on school districts, and burdens on school districts, why shouldn't we have a uniform Federal rule? In other words, if we agree with your position that ordinary allocations puts this on the complainant, we have to conserve resources, and so forth, why should we allow States to have a different rule, when we're dealing with the administration of a Federal program?",
       "time": "00:38:22.03"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, would you--",
       "time": "00:38:53.76"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, you have a statute that... you know, it's in... it's in great detail... on administrative procedures. It obviously... you know, decision of hearing officer, administrative procedures, disclosure, evaluations, and recommendations. And you think the Federal Government goes into all this detail and doesn't care who has the burden of proof? That seems, to me, most unlikely.",
       "time": "00:38:59.41"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I--",
       "time": "00:39:46.13"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--ask this question? You've described three situations in which you have the burden of at least proceeding, and I guess persuasion, too... and, of course, there's a difference between the two. And I was just trying to think, if I were a hearing officer, and I thought, well, the issue in this case is whether the parents' objections to the IEP are valid, I think the first thing I'd want to know is, What is the IEP, and who's the best person to tell me about it? And wouldn't the county be in the best position to explain what has been done and, sort of, get the... get the hearing started, and so forth?",
       "time": "00:39:47.18"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. I--",
       "time": "00:40:43.05"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--understand.",
       "time": "00:40:43.91"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then, at the hearing, who... who introduces the first exhibit or the first witness?",
       "time": "00:40:49.17"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this? Are there any jurisdictions in which the burden of proceeding is different from the burden of persuasion?",
       "time": "00:41:25.95"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know, analytically, it's a different issue. But it would seem to me the normal rule would be whoever goes first has the burden of the persuasion.",
       "time": "00:41:38.57"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Why? Why should it be? I mean, that's very interesting to me. Why shouldn't the law be such that particularly... you have evidence on both sides and a neutral decision maker who sits there... that it encourages that decision maker to decide. It's one thing if the record's blank. But not where they have a lot of experts. Decide. Don't retreat to something like announcing, \"Oh, it's in equipoise\".",
       "time": "00:42:18.93"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Sure, but then to do that is not really to look to the interests of the child or the board. I mean, it is to allow a sort of doctrine from left field, nothing to do with the merits, to decide the case.",
       "time": "00:42:56.93"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Garre, if you... if you had a situation, say, under Title 7... and you pointed out in your brief that, in most benefit cases, most... the person... whether it's Social Security... the person who is making the claim has the burden of proof. But there is something different about this setup, because the statute does obligate the school district to come up with a plan. And so, I was thinking, if you have a Title 7 case, and the plaintiff prevails on the merits, and then there's a question of remedy, and the employer said, \"I propose this... these changes to remedy the violation. \" wouldn't the employer in that case have the burden of establishing the adequacy of the plan that it has come up with to remedy the problem?",
       "time": "00:43:46.35"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, you made--",
       "time": "00:45:05.87"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--that determination has been made--",
       "time": "00:45:07.03"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--that the... that there has been a violation. And then the question is, What remedy? And the employer proposes a remedy. Wouldn't the employer have the burden of showing the adequacy of the remedy that the employer--",
       "time": "00:45:09.89"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there's no violation here. I mean, this is a totally different--",
       "time": "00:45:30.77"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--situation. I mean--",
       "time": "00:45:33.72"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--there hasn't been finding of any violation by the school district. The school district--",
       "time": "00:45:35.03"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But I... but I'm interested in--",
       "time": "00:45:39.78"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I'm interested in Justice Ginsburg's question. Let's assume you show a violation. Is there... is there any law on who has the burden of-- showing that the remedy is sufficient?",
       "time": "00:45:40.43"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But when I ask--",
       "time": "00:45:56.78"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--You're asking about the--",
       "time": "00:45:57.24"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--about the... wait a minute. Let's say that the... we find that there's a violation.",
       "time": "00:45:58.51"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, the background--",
       "time": "00:46:25.85"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--of the Act is, Congress was very dissatisfied with most of the judgments being made by local officials--",
       "time": "00:46:26.30"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--in this whole area.",
       "time": "00:46:31.97"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But you say this is--",
       "time": "00:46:40.45"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--okay. You say all these horrible consequences are perfectly okay, so long as the States do it.",
       "time": "00:46:41.34"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if the consequences are that horrible, how can you allow the States to put the burden on the other side?",
       "time": "00:46:41.40"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I understand that.",
       "time": "00:46:57.62"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But your... your parade of harm just never--",
       "time": "00:46:59.72"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--never gets started, once you... once you acknowledge that the States can blow the whistle to start the parade.",
       "time": "00:47:02.68"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Is there any--",
       "time": "00:47:12.92"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Now we have a number of States that do put the burden on the school district. Is there any indication that the cost is higher in those States than in States that put the burden on the parents?",
       "time": "00:47:13.76"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Salmons.",
       "time": "00:47:37.01"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Absent different disposition by the States? What's the Government's position? Can the States change this burden, just the background, you know... unless you... unless you think it's okay to, you know--",
       "time": "00:48:03.48"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--have the heavens fall... we don't want the heavens to fall.",
       "time": "00:48:15.75"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In other words--",
       "time": "00:49:23.15"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--your answer is yes, the States may adopt a burden of proof... here... standard?",
       "time": "00:49:24.66"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And do you have--",
       "time": "00:49:31.82"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--do you have any information in... to the question I asked earlier... in the States that have said, \"School district, you bear the burden. \" do we know whether there's more litigation? Do we know whether there has been a notable increase in the costs in those States that have placed the burden on the school districts?",
       "time": "00:49:32.53"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This--",
       "time": "00:50:40.09"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--These other cases that you refer to, where... that involve spending legislation, where the States go beyond what is minimally required... I suspect that they are cases where it really is an imposition on the States, and they accept it. Here, the imposition is not on the States, it's on the local school districts. And very often, the interests of a local school district is quite different from the interests of the people, you know, down State, in the State capital. I'm... I am loath to think that just because a State supreme court says that every school district in the State has to bear the burden of proof, that Congress intended that to be the case. I think it's a different... a different situation, where the spending is money that's coming out of the... ultimately, out of the pocket of the school district.",
       "time": "00:50:40.09"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do we have to--",
       "time": "00:51:31.75"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--decide that here?",
       "time": "00:51:32.63"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Maryland--",
       "time": "00:51:33.96"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--doesn't have--",
       "time": "00:51:34.45"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--such a rule.",
       "time": "00:51:35.81"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And may I be sure I didn't misunderstand something you said earlier? Did you say that in most jurisdictions the... by local option, the States have elected to adopt your adversary's--",
       "time": "00:52:41.91"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--position?",
       "time": "00:52:52.17"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure you answered my question. Did you not tell us that in the States where there... the largest volume of these hearings... in most of those States the burden is on the school board?",
       "time": "00:53:22.32"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I--",
       "time": "00:53:36.59"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Not the number of States.",
       "time": "00:53:36.98"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Number of hearings.",
       "time": "00:53:38.06"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:53:39.62"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:53:40.66"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think--",
       "time": "00:53:42.39"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And this was... I wanted to point... was that mostly... in those jurisdictions, was it by court or by rule?",
       "time": "00:53:45.30"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:54:12.75"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "See, this is really a unique statute in so many ways. We've learned, over the years, that discrimination is being treated like everybody else in this... in this statute, unusual discrimination. And I'm just wondering, it's... I find it surprising and significant that those who have been free to pick the right rule have picked the rule your opponent--",
       "time": "00:54:16.90"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Right.",
       "time": "00:54:43.14"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the States that have--",
       "time": "00:54:47.40"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the States where most of the hearings have taken place and have taken the opposite view, has--",
       "time": "00:54:48.73"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--that been true for a number--",
       "time": "00:54:52.04"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--of years?",
       "time": "00:54:52.97"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see what you mean.",
       "time": "00:55:07.24"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But those States--",
       "time": "00:55:14.11"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Apparently that's... this has been... this is not really a brand new statute. We're going back to the '70s--",
       "time": "00:55:14.78"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--with this statute. And is it true that for most of that period that's been the rule, where most of litigation has taken--",
       "time": "00:55:19.28"
     },
@@ -2075,7 +2075,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Right.",
       "time": "00:55:33.36"
     },
@@ -2087,7 +2087,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hurd, you have about three minutes left.",
       "time": "00:56:29.66"
     },
@@ -2099,7 +2099,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For each hearing or... for each hearing or just--",
       "time": "00:57:18.55"
     },
@@ -2111,7 +2111,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh.",
       "time": "00:57:30.84"
     },
@@ -2123,7 +2123,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh.",
       "time": "00:57:31.83"
     },
@@ -2135,7 +2135,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think it would be more realistic to divide it by the number of hearings, rather than by the number of heads.",
       "time": "00:57:33.50"
     },
@@ -2147,7 +2147,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you know what the--",
       "time": "00:57:48.63"
     },
@@ -2159,7 +2159,7 @@
     },
     {
       "turn": 353,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--do you know what the figure is per hearing?",
       "time": "00:57:49.28"
     },
@@ -2171,7 +2171,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah.",
       "time": "00:57:52.50"
     },
@@ -2183,7 +2183,7 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, no. You divide the number of hearings by the figure you've just mentioned, and that's the result. Have you... have you done--",
       "time": "00:57:56.71"
     },
@@ -2195,7 +2195,7 @@
     },
     {
       "turn": 359,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--the arithmetic?",
       "time": "00:58:03.06"
     },
@@ -2207,7 +2207,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Three--",
       "time": "00:58:04.32"
     },

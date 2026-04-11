@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1957/71/19580109a_71_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
       },
       {
         "name": "C. K. RICHARDS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "B. R. STEWART",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Stewart, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Richards -- I beg your pardon.",
       "time": "00:00:06.21"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You mean Mr. Richards that if he paid $100 could he -- he could not have taken this liquor with him?",
       "time": "00:01:12.82"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Give $100 and leave the liquor there?",
       "time": "00:01:23.69"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "How would he get it across?",
       "time": "00:01:27.33"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "How would he get it across?",
       "time": "00:01:29.75"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And also the tax.",
       "time": "00:01:58.85"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "By an individual.",
       "time": "00:03:00.84"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you're saying is that Texas has legislation by which nobody in a private car can get liquor through the State of Texas?",
       "time": "00:03:03.53"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It had nothing to do with the lot fee or --",
       "time": "00:03:17.36"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It is prohibiting the carriage of liquor in private car.",
       "time": "00:03:21.91"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Without the payment of the tax if he gets -- if he pay his tax.",
       "time": "00:03:27.90"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But beyond that --",
       "time": "00:03:54.43"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- beyond that he -- he can pay a thousand dollars (Voice Overlap) --",
       "time": "00:03:57.11"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Richard's tell me.I don't quite follow it. Why was that the -- that Texas then in phase of his declaration of intention to take it in North Carolina insisted on the payment of the tax.",
       "time": "00:04:02.55"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well then what should have happened, I gather on your theory is that each of them could have kept one bottle or three of them, weren't they?",
       "time": "00:05:00.96"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And not (Voice Overlap) they accepted to have to pay the tax from the one bottle.",
       "time": "00:05:08.76"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But on the basis of his declaration that they're going to the North Carolina with it, it should have concede.",
       "time": "00:05:16.86"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- everything of the three bottles.",
       "time": "00:05:22.39"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where is the specific provision which translates legislatively what you said that this is a measure in keeping what the transportation through or in Texas of liquor by a private -- personal automobile? Where is that provision?",
       "time": "00:05:25.93"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But where is this -- can you reverse to the decisions of your court?",
       "time": "00:05:48.23"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Bols?",
       "time": "00:05:59.84"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "132 (Inaudible)",
       "time": "00:06:07.39"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And ultimately to Supreme Court of Criminal Appeals.",
       "time": "00:06:20.24"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, (Voice Overlap) for our purpose, it is the law of Texas declared by Court of Criminal Appeals for our purpose of the law of Texas or written to your constitution.",
       "time": "00:06:25.81"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That (Inaudible) or anybody and the Chief Justice driving from Texas (Inaudible) something that he can't have (Inaudible) anything.",
       "time": "00:06:39.56"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No matter what he pays?",
       "time": "00:06:53.42"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If -- in other words, this man had paid $1.40 a gallon on his 11 bottles, he still could --",
       "time": "00:06:56.95"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not only that but he would be -- he would --",
       "time": "00:07:06.26"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, this isn't -- it's not -- I don't know where to take this -- but this is not a fiscal tax.",
       "time": "00:07:15.99"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Licensing whom for what?",
       "time": "00:07:44.87"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The people (Voice Overlap) --",
       "time": "00:07:49.21"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:07:54.55"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is a -- excuse me. Is this a fine from possession or --",
       "time": "00:10:39.23"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not a tax at all?",
       "time": "00:10:47.02"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is an unusual way to levy a fine without a trial of any kind, just collect $100 off hand.",
       "time": "00:11:49.37"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "It was determined not taxed or failure to pay a tax but merely --",
       "time": "00:12:14.05"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Possession only?",
       "time": "00:12:20.42"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And issue was not appended to pay the tax.",
       "time": "00:12:45.21"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Contrary to law?",
       "time": "00:12:56.95"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Not because he had failed to pay in taxes.",
       "time": "00:12:59.29"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So that in effect, I gather, he could not encourage himself of the offense even if subsequently he had paid the tax.",
       "time": "00:13:04.06"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you didn't have to take him back to the bridge and give him (Voice Overlap) --",
       "time": "00:13:15.30"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Tell me. Does any of Texas position depend on the Twenty-First Amendment?",
       "time": "00:13:23.15"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is the position that you're asserting for Texas depend in anyways under the Twenty-First Amendment?",
       "time": "00:13:29.67"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have we had a case in -- did this Court have occasion to construe delivery in the Twenty-First Amendment to include physical (Inaudible) coming into a State and transfer it to another State. Do we have a case --",
       "time": "00:13:42.29"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you -- your -- this statute according to what you've told us of the rulings of your court, raises a question whether the Twenty-First Amendment giving Texas power to deal with liquor brought -- for delivery or use (Inaudible) does bring into play what the delivery covers within the scope of that Amendment.",
       "time": "00:14:16.19"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there any like many or a few opinions that had been written by this Court?",
       "time": "00:14:44.47"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:14:49.43"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In Carter in which --",
       "time": "00:14:58.48"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it must be your confession that this is not (Voice Overlap) the holding of a (Inaudible) giving Texas regular authoritative power over liquors within its physical confines, includes liquor that it is only (Inaudible)",
       "time": "00:15:42.65"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, let me put it to in other way Mr. Richards. Does that depend also on our concluding that delivery does include possession under these circumstances that delivery within the meaning of the Twenty-First Amendment?",
       "time": "00:16:07.97"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what I mean is with -- unless this regulation authorized by the Twenty-First Amendment. Does your case fall?",
       "time": "00:16:26.16"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You say that it does?",
       "time": "00:16:38.27"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And what is the limit, Mr. Richards if they sell on those package stores?",
       "time": "00:17:31.83"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There's no limit.",
       "time": "00:17:38.21"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There's no limit on how -- how it's transported?",
       "time": "00:17:39.62"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you a question?",
       "time": "00:18:10.91"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Let me see if I fully understand that (Inaudible) of your law as a regulatory measure for a judgment of Twenty-First Amendment. I understand that liquor can be transported through the state if certain authorized (Inaudible) transported.",
       "time": "00:18:12.27"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does that extend beyond recognized common carriers such as a railroad or a trucking company?",
       "time": "00:18:32.31"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I was -- what I was wondering was, has the State of Texas set up for itself a new category of carrier if they need certain qualification of Texas and transport it through the State and interstate commerce or does that merely apply for a recognized common carrier to the now existing (Inaudible) --",
       "time": "00:18:55.71"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now --",
       "time": "00:19:56.70"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do I understand the (Inaudible) of the regulation of the State seeks to interpose (Inaudible) interstate commerce insofar as attempting to limit transportation through the State to the recognized common carrier.",
       "time": "00:20:07.98"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is not on a tax basis --",
       "time": "00:20:24.93"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- regulating the carriage.",
       "time": "00:20:30.16"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The State of Texas evidently claimed as I understand the (Inaudible) its power to do that under the Court -- the Amendment.",
       "time": "00:20:59.92"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Rather than -- and admits that the related issues or something else that -- that regulation would be permitted by the (Voice Overlap) --",
       "time": "00:21:13.21"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does that apply to the extent that -- I am a little mixed up on the point so far. I understand now that they're going to take the (Inaudible) it has to be done by common carriers. Suppose a man just want to drive to Texas. Can he bring liquor -- a bottle of liquor in --",
       "time": "00:21:26.03"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He have to drink it while he's there or --",
       "time": "00:21:48.04"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He can carry it all the way through.",
       "time": "00:21:51.03"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that what you have is a prohibition against transporting liquors through the State of Texas in excess of one quart.",
       "time": "00:21:56.39"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And unless, it is transported through --",
       "time": "00:22:04.14"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why isn't this (Inaudible)",
       "time": "00:22:10.00"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But let me -- let me ask you this Mr. Richards, suppose -- suppose a man went to -- to one of your store, one of your package store and you said there was no limit on what he could buy.",
       "time": "00:22:13.96"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He could buy a whole truckload if he wants.Suppose he bought a truckload and transport it through the State as long as he didn't go into a dry territory which you speak of, he could do so.",
       "time": "00:22:27.28"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But they get through the State analysis.",
       "time": "00:22:41.53"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "One other question I'd like to ask --",
       "time": "00:22:45.94"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. One other question I'd like to ask you is that -- that permit that you spoke of that goes to common carriers --",
       "time": "00:22:50.84"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- and so forth. I -- I understood you to say that the cost of that permit is only $5.",
       "time": "00:22:57.90"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So it's purely a regular (Voice Overlap) --",
       "time": "00:23:03.54"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Richards, I'm troubled by one thing --",
       "time": "00:23:26.67"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- and maybe you can help me. You have stated that this fine imposed upon petitioner was not for failure to pay a tax but for merely having possession which was illegal under the local law.",
       "time": "00:23:29.54"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is the petitioner then, getting down to this particular case, guilty of the offense charged in the information which says that he had in -- in his possession, a rum, both now in the container to which no tax stamps showing the payment of the tax on said beverage due to State of Texas was affixed and to which so unstamped container, is this literally being read, no valid evidence was affixed showing a payment of the tax on such beverage due to the State of Texas and the tax stamp was then and there required by the laws of Texas to be affixed to such container and the tax on such beverage was then and there due to the State of Texas and the tax imposed to the laws of the State of Texas on such illicit beverage had not been paid all against the piece of dignity of the State. Now -- and the question, isolating our attention to this particular case, does this information charge a violation of the law?In this particular case, says he is guilty because he failed to pay the tax, isn't it?",
       "time": "00:23:52.65"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if -- and according to your statement, this couldn't have -- you couldn't get any tax stamp possessed because a private person bringing in liquor cannot get legalized right to bring it to (Voice Overlap) --",
       "time": "00:27:04.46"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that no tax is paid to be sure but he couldn't possibly pay it. But nevertheless, you say it contraband because he is a fellow who can't get a tax.",
       "time": "00:27:22.48"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But to sustain your -- your conviction, you have to show not only possession of this liquor but --",
       "time": "00:27:45.28"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "That the tax had not been paid and therefore he must also show that the tax could have been paid if it wasn't -- that this was a valid tax, you can charge him with -- with the -- of having unstamped liquor and -- and there's no -- no validity of the stamp.You have to show both the possession of the liquor and the --",
       "time": "00:27:53.29"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "-- valid tax.",
       "time": "00:28:18.06"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Under this information?",
       "time": "00:28:19.46"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And he couldn't have got the stamps.",
       "time": "00:28:22.29"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "For -- for one gallon.",
       "time": "00:28:25.96"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "He didn't need it for one gallon.",
       "time": "00:28:30.51"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "One quart.",
       "time": "00:28:33.53"
     },
@@ -1163,13 +1163,13 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but if your court -- if the Court of Criminal Appeals of Texas says that a fellow who has in his possession liquor without appropriate stamp, had violated the statute and it is no defense that he is a fellow who couldn't possibly get a stamp because he is forbidden from carrying it at all but the determination is not reviewable by this Court. That's the local law of Texas.",
       "time": "00:28:58.93"
     },
     {
       "turn": 188,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "But he's not -- he's not forbidden from possessing if he put a stamp.",
       "time": "00:29:26.52"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And that --",
       "time": "00:29:41.18"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And that needed no stamp.",
       "time": "00:29:44.40"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "With that one quart?",
       "time": "00:29:48.52"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well Mr. Richards, can this conviction be supported under the language of this information merely on the proof that at least one quart if he was entitle to one quart, stamped, he could have carried it through Texas but he'd need -- he did not have even one quart stamp.",
       "time": "00:29:54.70"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose you would probably argue that it's against the law of whatever liquor in Texas that's not stamped (Voice Overlap) --",
       "time": "00:30:17.65"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then you would say that it doesn't excuse a man of that violation to prove on his part that he can't establish because he's cared to do it.",
       "time": "00:30:26.68"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "An early suggestion and early words from the appellant, but is there any suggestion that this conviction offense the Due Process Clause because he was convicted procedurally for the wrong thing?",
       "time": "00:30:40.18"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And it's as if (Voice Overlap) --",
       "time": "00:31:03.85"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All the satisfaction of the -- of the information of -- of the status -- the adequacy of evidence to satisfy the information as before.",
       "time": "00:31:11.40"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You've got any doubt (Inaudible) It's not in the question raised that this liquor didn't have to be taxed (Inaudible)",
       "time": "00:31:24.51"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It was still liquor?",
       "time": "00:31:33.77"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "How could he get stamps?",
       "time": "00:31:41.17"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's the argument of that? I want to know.",
       "time": "00:32:25.74"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "People from outside the State --",
       "time": "00:32:28.61"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- more liquor than people in Texas?",
       "time": "00:32:30.53"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In order to do that, you've got the whole country sold up though.[Laughter]",
       "time": "00:32:54.00"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That was on page 21?",
       "time": "00:35:36.50"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:35:38.72"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the fact -- what is the law rather if he had paid the tax? Do you contend that he could have transported it?",
       "time": "00:37:57.61"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Stewart.",
       "time": "00:38:28.60"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Could Texas obtain liquor from coming in at all? Could Texas say make himself a prohibition state for his own people and interest of enforcement of effectiveness involved or any liquor coming in from many other states or from any foreign countries.",
       "time": "00:38:29.57"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But not in transit across.",
       "time": "00:38:51.56"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's basically your argument.",
       "time": "00:38:55.25"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you're sure that liquor in fact would not be used or delivered therein, isn't there some room for state regulation as to the method by which -- that which it is said shall be carried across the State? They may be assured will be carried across the State?",
       "time": "00:38:58.91"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, for example --",
       "time": "00:39:18.90"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- suppose the State could say that you may carry it across here. We think that reasonably to be sure it doesn't stop here and isn't delivered here and it isn't used here. It may go across only by common carrier in the bond.",
       "time": "00:39:20.25"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, but can't -- may they not -- I'm assuming the question Justice Frankfurter put to you, it's completely dry state.",
       "time": "00:39:53.66"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And may not a state that it is a completely dry state say that if you say you're going to take it across into another state just to be sure that you do, we insist that it go by common carrier in bond.",
       "time": "00:40:00.79"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what's the meaning of Twenty-First Amendment? Certainly, it must allow some leeway to a state, doesn't it, to regulate, to assure that there shall be no delivery or use of liquor that they do not want to be delivered or used in the State without regard to what the Congress has done?",
       "time": "00:40:31.90"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Stewart.",
       "time": "00:42:12.87"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "What have you to say in respect to Justice Frankfurter's question put to Mr. Richards that if this fine was -- find him guilty and was made and the fine imposed upon a wrong ground, namely, refusal to pay a tax, not mainly for possession -- no, the other way around, refusal to pay a tax when it should have been on possession that such as inadequate state ground decision and we have no jurisdiction. If -- in other words, if the State -- if the actual ground of the conviction was possession though you charged something else and the conviction was had, would we have jurisdiction?",
       "time": "00:42:14.88"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because the crime is the possession of unstamped --",
       "time": "00:44:05.70"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But actually, the statute as argued by Mr. Richards makes the crime to consist of possession alone without the payment. Let me see --",
       "time": "00:44:20.11"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's not possession of liquors, possession of unstamped liquor.",
       "time": "00:44:42.34"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was this stamped?",
       "time": "00:44:45.47"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was this stamped?",
       "time": "00:44:47.81"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, why -- why didn't your Court of Criminal Appeals has the right to fine the crime that's made up. You say because he didn't think it was -- no stamp is required. You say --",
       "time": "00:44:51.91"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose he didn't.",
       "time": "00:45:08.10"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose he didn't, he still had possession of unstamped liquor and that's a crime in that State, can he defend by saying (Inaudible) has no right. I didn't have to pay and put a stamp.",
       "time": "00:45:10.04"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you're saying -- what you're saying is that they can make it against the law on that State if they have possession of unstamped liquor.",
       "time": "00:45:24.20"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, but --",
       "time": "00:45:40.77"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- he had -- he had liquor that was not stamped. Suppose -- let's say it's a surplusage if you want, they -- they could have simply charge him with having possession of unstamped liquor which he did.",
       "time": "00:45:42.60"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And suppose that -- that's what they do, charge him with having possession of unstamped liquor.",
       "time": "00:45:56.16"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why does that not make it a crime and what difference does it make because he could have put a stamp on it?",
       "time": "00:46:03.98"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well --",
       "time": "00:46:13.80"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what does it make if he could have and he didn't have (Inaudible) and he had possession of unstamped liquor?",
       "time": "00:46:14.87"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Unless Texas is barred from -- of making that a crime and I should think if they visit the Virginia case (Inaudible)",
       "time": "00:46:24.19"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you're saying -- what you're saying in (Inaudible) it's a State contention without power even since the Twenty-First Amendment to limit the transportation of liquor through their -- through their (Inaudible) to common carriers if they --",
       "time": "00:47:10.54"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose there's no tax at all. All fiscal, all dollar and cents (Inaudible) and Texas has a separable colloquially drawn statute which says that in view of the illusive character and the slippery nature of liquor when you want to concentrate attention or enforcement by providing that liquor can be transported within the bounds of Texas whether from one place to another or coming in from Mexico and going outside the other way around from north to south. That can be only done by licensed carriers not a -- and anybody who brings the license carrier and carry this liquor shall be guilty of an offense. No taxation and no money at all.",
       "time": "00:47:47.17"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That would be all right.",
       "time": "00:48:48.34"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if it says that --",
       "time": "00:48:51.25"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What do you do with the Twenty-First Amendment?",
       "time": "00:49:07.50"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's a different story. That's (Inaudible) the power of the Government or its military. That's a very --",
       "time": "00:49:32.59"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is a different story.",
       "time": "00:49:41.82"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's -- the point of that was that it's a Government territory.",
       "time": "00:49:53.40"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That was for all practical purposes like the District of Columbia.",
       "time": "00:49:57.03"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the Export-Import Clause is out by the Twenty-First Amendment.",
       "time": "00:50:06.72"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the liquor I mean. That's to liquor.",
       "time": "00:50:12.87"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Purely restrict --",
       "time": "00:50:22.24"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:50:23.89"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if you're right then the Congress of United States having nothing else to do, (Inaudible) the purpose statute saying that Texas and all the other states may do what they please within their confines but may deal the liquor traffic so important for national security or whatnot, the enjoyment of people which enlarge their morale that liquor shall be allowed to come in every state -- in one state to another and one foreign country into other state. Could they do that?",
       "time": "00:50:35.64"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But yet -- why not?",
       "time": "00:51:06.86"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, this is within its boundary. This is liquor that came into Texas.",
       "time": "00:51:17.10"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If you're wrong (Inaudible) If you're wrong in citing that Texas is without power put on this regulation inside the case then to (Inaudible) if --",
       "time": "00:51:30.61"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But leaves Texas free to limit the shipment of liquor through Texas, the common carriers then you are out of --",
       "time": "00:51:51.80"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why not?",
       "time": "00:52:05.88"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, then -- then you will have to expose it --",
       "time": "00:52:16.36"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, do you think Congress has the power to say now to pass liquor legislation just take -- take away from the State's power given from the Twenty-First Amendment (Voice Overlap) --",
       "time": "00:52:26.41"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In -- insofar as the scope of the amendment goes (Inaudible)",
       "time": "00:52:45.99"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if -- but you say it does lead free indeed cast upon this Court the duty of determining whether a particular measure or dry state is fairly calculated to protect the dryness of that state.",
       "time": "00:52:58.85"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It couldn't do that? Didn't your argument get down that we must say that this is not related to the protection of Texas as a dry State?",
       "time": "00:53:22.28"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then why couldn't they say that's under Twenty-First Amendment?",
       "time": "00:55:34.98"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're limiting your state -- I see, you're limiting your statement and the argument you made that they can carry it through --",
       "time": "00:55:53.66"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The State can't (Inaudible)",
       "time": "00:56:00.74"
     },

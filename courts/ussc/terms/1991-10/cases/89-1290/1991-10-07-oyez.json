@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/89-1290/19911007a_89-1290.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KENNETH W. STARR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CHRISTOPHER A. HANSEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 89-1290, Robert Freedman v. Willie Eugene Pitts. Mr. Lee.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you found for a time there was a racial balance?",
       "time": "00:01:45.58"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How long was that? Did it start--",
       "time": "00:01:57.91"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But there's no question that there was racial balance--",
       "time": "00:02:03.71"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--as soon as there was neighborhood schools--",
       "time": "00:02:08.36"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Would you agree that the school district had the obligation at the outset in 1970-71 to correct that imbalance?",
       "time": "00:02:32.69"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So is what you are saying that there is really at least a two-phase aspect to the remedial period: a primary phase in which there must be racial balance regardless of the cause, plus a disengagement phase that follows it, and that you are now in the disengagement phase? Does that summarize what you are going to tell us?",
       "time": "00:02:45.51"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And yet there was total segregation for 20 years after Brown.",
       "time": "00:03:27.40"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "To 1966.",
       "time": "00:03:35.47"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lee, did the district court consider the possibility that the demographic changes in the seventies were attributable somehow to racially identifiable schools in the district?",
       "time": "00:03:38.84"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But no finding really dealt with that. So we're not sure?",
       "time": "00:04:03.69"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you agree that in the initial period when there is imbalance, even if that imbalance is caused by demographic factors, that the school district had a duty to realign the attendance zones to cause racial balance to the extent practical?",
       "time": "00:04:27.00"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you are asking that we say that with respect to some of the so-called Green factors, that it apply incrementally some how. And I'd like to ask whether you think the Green factors represent distinct constitutional violations or is there a single violation that we're dealing with? I think this is a concern.",
       "time": "00:06:40.77"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Lee, may I ask you a question here? Supposing, first of all, I assume you don't challenge, or maybe you do, the figures that the red brief contains in the early part of the brief that are not covered by the findings of fact dealing with the period between '69 and '75. And during those early years, there's a trend of increasing the number of more than 50 percent black schools: two in '69, two in '73, three in '71, and so forth. My question is in 1969 or '70, would it have been the duty, or would the district judge have had the power to prevent that increased concentration, even if it were attributable entirely to demographic changes?",
       "time": "00:07:57.48"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's the whole... that's the question.",
       "time": "00:08:37.72"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm assuming the relevant finding of fact is (a), it is attributable to people moving into the county from Atlanta, and (b), there will be as a result of that change, racially identifiable schools only a year or two after the decree was entered. And they asked for relief right there.",
       "time": "00:08:44.17"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the constitutional violation is that this causes a stigma to the entire black community. And you're telling us in answer to me and to Justice Stevens, that even if you have racially identifiable schools within 1 year after a decree is entered and there has been 1 year of balanced, that that's the end of the Court's concern. But it seems to me that the nature of the violation extends beyond that period.",
       "time": "00:09:54.68"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But isn't it plausible to say that the stigma is also controlled by the time that's elapsed so that the stigma that existed, say, in 1971 is much more clear to the community, is much more palpable, much more tangible than in 1991?",
       "time": "00:11:27.52"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Lee. General Starr, we'll hear now from you.",
       "time": "00:16:10.93"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose they had. What would have been your response to Justice Stevens' concern and mine as to whether or not there is an obligation in the immediate period after the desegregation plan is implemented to demographic changes? Is there a continuing duty to balance in this primary remedial phase... initial remedial phase?",
       "time": "00:18:24.01"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In Pasadena there had been desegregation in place for a number of years.",
       "time": "00:18:58.57"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Starr, if I understand your argument, it really wouldn't have mattered if the plaintiff had objected violently all along the line because they wouldn't have been entitled to any protection from demographic changes not caused by the dual system.",
       "time": "00:20:00.12"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So to boil it down, what you're saying is they really wouldn't have had a valid argument to advance even if they had argued from the very beginning that something should have been done to prevent the creation of a lot of racially identifiable schools shortly after the decree was entered if they were caused by demographic changes.",
       "time": "00:20:37.77"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It may well be right, but that--",
       "time": "00:20:54.35"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I don't see why it would matter for the reasonably foreseeable because the thing that was foreseeable was not, under your argument, was not the consequence of illegal conduct.",
       "time": "00:21:12.46"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why wouldn't it be in good faith? If they said well, we can anticipate a lot of people are going to move into the county because there is a lot of business developing here and so forth, but that's not our problem.",
       "time": "00:21:30.17"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So I don't see how foreseeability changes it a bit. Suppose they foresaw the whole thing.",
       "time": "00:21:40.46"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, are you going to look at those factors incrementally? Mightn't one factor need remedies in other areas of the factors to make it all come into place? If there's then initially a single violation, don't we have to see that all the Green factors are met for a period of time?",
       "time": "00:22:25.65"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even if that were necessary in order to achieve the requirements on the other two factors that haven't been met?",
       "time": "00:23:27.54"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What you want us to hold, then, that once one of the Green factors has been satisfied, that it simply should be a presumption against further orders with respect to that factor?",
       "time": "00:24:05.13"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Starr. Mr. Hansen, we will hear now from you.",
       "time": "00:26:14.62"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, what do you mean by fewer resources?",
       "time": "00:27:16.33"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm just wondering how that could be without a finding of discrimination. Is it just that... I suppose, the principal factor is faculty salaries, and there are just teachers who don't want to move to other schools, so that you get more senior teachers in some schools. Is that the principal element?",
       "time": "00:27:35.49"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask what if it was unquestioned that the faculty had been appropriately desegregated and that resources were equal, but nevertheless, there was this student imbalance that was... that had been going on for years, almost immediately after the decree was entered? What then?",
       "time": "00:29:11.50"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume that if the staff and the resources are all... have all been solved, and you think the school board, nevertheless, has a constitutional duty to reassign students to counteract the demographic changes?",
       "time": "00:29:45.26"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you think the school board would have been required to reassign students to counteract demographic changes for at least 3 years.",
       "time": "00:30:32.53"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that right?",
       "time": "00:30:45.84"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So there is a constitutional duty to counteract demographic changes.",
       "time": "00:30:47.24"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I couldn't answer my question by quoting that.",
       "time": "00:31:05.12"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, all you had to do is say yes. [Laughter]",
       "time": "00:31:08.77"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is that, strictly speaking, true? The district court found the current violations to be only with respect to per pupil expenditure and the assignment of the teachers and principals. Nevertheless, the Eleventh Circuit ordered the district court to look at all kinds of things like gerrymandering of school zones and reorganizing grades and possibly busing. And it certainly would be possible to say that those remedies are more extensive than the violations to be cured, that there's jurisdiction in the district court, of course, but that nevertheless, the remedies have to be tailored to the problem.",
       "time": "00:31:30.98"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I thought in response to my questions that we got some response that conceivably they may be interrelated and that the remedies, conceivably, could be.",
       "time": "00:32:27.70"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But we don't have a finding to that effect.",
       "time": "00:32:54.46"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the district court-- --What do you mean by interact?",
       "time": "00:33:12.64"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but the... at your first step, the school board has no responsibility and couldn't possibly have prevented these demographic changes which caused the student imbalance.",
       "time": "00:33:42.42"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that was the finding of the district court.",
       "time": "00:33:59.99"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You may not be sure of it, but--",
       "time": "00:34:04.05"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, the court of appeals didn't upset any of his findings.",
       "time": "00:34:24.67"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But whatever they managed to do really didn't cure the problem, did it? Of student imbalance.",
       "time": "00:34:48.40"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you don't... I gather that immediately upon the entry of the decree and as soon as neighborhood zones were created and the black schools were closed that there was not this racial imbalance.",
       "time": "00:35:20.85"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you disagree with your opponent that as of the date of the compliance with the decree, that there was... that there was not an imbalance.",
       "time": "00:36:00.83"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Didn't the district court make a finding on that question?",
       "time": "00:36:13.97"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Hadn't your clients also conceded at one point in the litigation that there was desegregation after the decree?",
       "time": "00:36:29.31"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was there objection by the plaintiffs, then, to this decree in '69 because they felt it was inadequate?",
       "time": "00:37:17.57"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hansen, suppose you have a school district that is found to have been violating the law only in faculty assignment and in allocation of resources. It has not been assigning students to schools on a racial basis, but in fact, it has been assigning faculty and allocating resources on a racial basis. Would it be necessary when a remedy for that violation is imposed by the Federal court, that the remedy include student allocation?",
       "time": "00:37:58.86"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. So the factors can hang separately. It depends on whether one factor affects another one.",
       "time": "00:38:44.39"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, is it presumptively or inescapably? If it's just presumptively, I would say the district court here considered it and the presumption no longer stands. He says we can remedy the two problems that still exist without affecting student assignment.",
       "time": "00:39:17.26"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It addressed the question implicitly. I mean, it certainly thought it was providing as much of a remedy as is now needed to end whatever discrimination there is. And it said it's enough to do it in just these two areas and not in the others.",
       "time": "00:39:39.20"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, wait a minute. Segregated in that sense is not against the law. I mean, you're saying it was as segregated.",
       "time": "00:41:15.04"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, if we go on that, we... this becomes almost a noncase, if you go on that finding that the school board is then causing imbalance in the school system deliberately.",
       "time": "00:41:42.70"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Only the court of appeals didn't go on that thesis that you just proposed.",
       "time": "00:42:17.09"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The court of appeals decided on different grounds, and those are the grounds we're reviewing.",
       "time": "00:42:22.99"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is it your understanding that if the Eleventh Circuit's opinion is affirmed that the district court will then be under an immediate duty to direct the school board to take all steps necessary forthwith to have racial balancing throughout DeKalb County in student assignments?",
       "time": "00:42:41.53"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well if it had been 1970, you answer to my question would have been yes, wouldn't it?",
       "time": "00:43:20.08"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's changed between now and 1970?",
       "time": "00:43:25.69"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right, so then the duty is the same. Even though they are caused by demographic changes, there has to be absolute racial equality in student assignments by all means necessary to accomplish that end. Isn't that the reasonable and plausible interpretation of the Eleventh Circuit's position?",
       "time": "00:43:32.05"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you do about Pasadena?",
       "time": "00:44:44.99"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though there are some other vestiges that are still apparent? Is that right?",
       "time": "00:45:01.62"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you say that is... that wasn't even a vestige then, that had to be cured?",
       "time": "00:45:54.22"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it wasn't cured in that case.",
       "time": "00:46:03.36"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And yet the Court said that the district court wasn't required and shouldn't have tried to keep up with demographic changes.",
       "time": "00:46:07.12"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or even right then.",
       "time": "00:46:24.00"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask another question about your theory of back in 1976. You say the earlier district court opinion indicates that the school board's actions intentionally contributed to the segregation in the schools. But supposing your view is that maybe it contributed marginally, may have affected maybe 5 percent of the assignment in some way, but 95 percent are still contributable to demographic changes. How do you bring that forward to today? What's the consequence? And if you say, you know, the basic problem still is demographic.",
       "time": "00:46:52.13"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think they were required to take that action by the terms of the actual decree that was entered or by the overriding obligation under the Constitution?",
       "time": "00:47:58.38"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Counsel, there is some discussion in the record about subdistricting as a remedy that the board might have chosen. Can you explain to me briefly what that is? Could DeKalb County... was the suggestion that DeKalb County just break itself into three and then proceed district by district?",
       "time": "00:50:51.16"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if that had been true, given the demographics, then southern DeKalb County would have been almost entirely black within the district... within the subdistrict, would it not?",
       "time": "00:51:32.41"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the finding is the demographic changes were inevitable. So as I understood that suggestion, if they had adopted geographic subdistricting, say, into three... northern, central, southern... you would have had an all black southern district based on the inevitability of the demographic changes. And I find that a very strange suggestion for the petitioners to be urging on the board.",
       "time": "00:52:08.56"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I just want to ask you one question about the change in population. Is it all... the demographic change all attributable to black people moving into the county... into southern part of the county, or is some of it also white people moving from the south to the northern part of the county?",
       "time": "00:53:05.09"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Both. Is there any difference in legal significance between those two changes?",
       "time": "00:53:24.54"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think I'm looking at the chart you're describing. The interesting thing to me is that in the period of '70 to '75 apparently there is almost as many additional whites in the county as additional blacks.",
       "time": "00:53:59.04"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hansen. Mr. Reid, do you have rebuttal? Mr. Lee.",
       "time": "00:54:39.16"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx you and your colleague on the other side, about whether at any point the students were... the student attendance problem was cured.",
       "time": "00:55:09.45"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "35a of what, the petitioner's appendix?",
       "time": "00:55:36.87"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, your opponent quotes some figures indicates that's just wrong.",
       "time": "00:55:48.93"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the court of appeals didn't disturb that.",
       "time": "00:56:03.64"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Lee, may I interrupt you right there?",
       "time": "00:56:42.93"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing we agree 100 percent with you that that proposition is wrong. Does it necessarily follow that the decree should be vacated?",
       "time": "00:56:44.51"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean only to that extent, only with respect to that?",
       "time": "00:56:55.03"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But no, I'm asking does it... the relief you ultimately seek is to vacate the decree so you don't ever have to run into court and get permission to--",
       "time": "00:56:59.27"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But you don't say that the entire decree should be vacated.",
       "time": "00:57:09.43"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You still have... you still have a problem of--",
       "time": "00:57:16.55"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You're just wanting be free from having to readjust student assignments.",
       "time": "00:57:21.12"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The review should be the judgment of the court of appeals in the decree of the district court.",
       "time": "00:57:27.11"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That still doesn't answer my question. My question, though, is still supposing that you corrected factor 6 or 5, or whatever it was, as of today, just assume. And you go back to the district court. Are you then entitled to have the decree vacated tomorrow?",
       "time": "00:57:31.74"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Lee. The case is submitted.",
       "time": "00:57:49.85"
     }

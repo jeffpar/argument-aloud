@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/33/19671017a_33.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRISON COMBS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "BERNARD H. BERTRAND",
-        "role": "advocate"
-      },
-      {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 12, United Mine Workers of America, District 12, Petitioner, versus Illinois State Bar Association. Mr. Combs.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was for the day, Workmen's Compensation Act 1913.",
       "time": "00:04:05.31"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it was before the days workmen's compensation wasn't it?",
       "time": "00:04:12.68"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Since I have already interrupted you, you tell me what is District 12, is that the statewide --?",
       "time": "00:04:40.54"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Throughout the state of Illinois and Iowa you say?",
       "time": "00:04:55.55"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is this, does the UMW have the same plans or similar plans in other states?",
       "time": "00:05:03.66"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How many other states?",
       "time": "00:05:12.84"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With a salary of employee and employer.",
       "time": "00:05:23.09"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Have run a file on the organized bar in many other states?",
       "time": "00:05:29.55"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did you settle by making any changes in your setup?",
       "time": "00:06:03.31"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does it give the services exclusively Mr. Combs to this work or does he have additional plan?",
       "time": "00:06:20.84"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well this one is -- member of the state legislature, isn't it?",
       "time": "00:06:43.64"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "of the union or he just paid his fees?",
       "time": "00:06:53.82"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:07:01.51"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is he subject to your direction?",
       "time": "00:07:11.88"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You may say you don't exercise it but is he subject to it?",
       "time": "00:07:18.63"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why do you call him an employee?",
       "time": "00:07:29.77"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Union has a lot of employees I --.",
       "time": "00:07:46.97"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you pay taxes on this man?",
       "time": "00:07:51.27"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No. Does the Illinois compensation system provide for an award a fees to an attorney representing an injured employee?",
       "time": "00:08:18.64"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well in this cases where it's made by the commission, does this attorney keep the fee in addition to the salary?",
       "time": "00:08:49.36"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What happens to the fee?",
       "time": "00:08:57.60"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you don't offer to pay any of the expenses of attorneys that some member may hire rather than this man in the legal department.",
       "time": "00:10:17.26"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does it bother you then stating (Inaudible) and then here and there something about it, does it bother you to say it briefly as possible that the, exactly what is your organization and how it functions?",
       "time": "00:10:55.34"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that all there?",
       "time": "00:12:06.67"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This plan of paying a salaried lawyer, hiring a salaried lawyer and it runs back in 1913 as you tell.",
       "time": "00:12:14.63"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How long has that actually been in existence, this particular plan?",
       "time": "00:12:24.60"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "All the time since 1913.",
       "time": "00:12:30.04"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What contract is that?",
       "time": "00:12:42.65"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that compensation only?",
       "time": "00:13:28.23"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Any disciplinary proceedings been brought against the lawyer himself?",
       "time": "00:16:13.12"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "No accusation that he did not faithfully represent his clients.",
       "time": "00:16:50.31"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "His representation of the members of District 12 is limited exclusively to workmen's compensation claim.",
       "time": "00:17:03.33"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean other words he doesn't get divorces for them or represent them in criminal charges or anything else, write their wills or --",
       "time": "00:17:11.90"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Help them in selling their houses or buying their houses.",
       "time": "00:17:17.96"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does the record show whether he has an office, his own a law office.",
       "time": "00:18:00.63"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not on the property of the District --.",
       "time": "00:18:09.23"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What precisely is your constitutional claim?",
       "time": "00:18:22.17"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What precisely is your constitutional claim?",
       "time": "00:18:27.51"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Let's see Mr. Combs's that in other words the Supreme Court of Illinois has said you had a service limited to referral to this particular lawyer of your members.",
       "time": "00:20:09.15"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That would be all right.",
       "time": "00:20:21.70"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the wise thing is as they saw it was simply that you paid him a salary.",
       "time": "00:20:23.91"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "For performing the services for the members.",
       "time": "00:20:30.46"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you mind telling me what constitutional provision you say involved at this stage from client lawyers take fees rather than salary?",
       "time": "00:23:11.97"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That are constitutional.",
       "time": "00:23:28.44"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why wouldn't?",
       "time": "00:23:45.97"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What cases are you relying?",
       "time": "00:23:48.20"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do those cases stem on?",
       "time": "00:23:54.17"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do they not stem from the Fifth Amendment?",
       "time": "00:24:02.29"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "First and Fourteenth Amendment.",
       "time": "00:24:06.53"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The right to seek freely and the right to --",
       "time": "00:24:08.77"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now which one of those, do you claim comes in?",
       "time": "00:24:17.90"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Which one of the seven divisions --?",
       "time": "00:24:22.00"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Right to assemble --",
       "time": "00:24:30.24"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did the states in determining the policy decides legal cases that he handled.",
       "time": "00:24:41.15"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the case you relied?",
       "time": "00:25:09.15"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:25:29.43"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) .",
       "time": "00:26:19.53"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well they had the right to hire somebody who wasn't a lawyer?",
       "time": "00:26:39.23"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Constitutional right, I should think it's constitutional right, the state has no power to regulate it.",
       "time": "00:26:46.46"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, as I had understood the theory of the Illinois Supreme Court and the theory of the charges against you in the Courts of Illinois it was that this unincorporated association was the unauthorized practice of law itself just as a bank can be under some --",
       "time": "00:27:04.94"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yeah, but that was the theory wasn't it?",
       "time": "00:27:29.73"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't, so then it's not your position I guess perhaps I misunderstood it, I thought that your position was that your association had a constitutional right to choose whomever you wanted to represent your members in claims against the claims of the industrial commission.",
       "time": "00:27:36.82"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What if you planned to have a lawyer.",
       "time": "00:28:03.47"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't quite understand your argument if you think that it has to be confined to their hiring a lawyer I should think that this constitutional right freedom to hire anybody they want to represent them they could, they could if they wanted they want to hire a plumber or another coal miner.",
       "time": "00:28:21.49"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This barred lawyer.",
       "time": "00:28:41.07"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What about the bar exam?",
       "time": "00:28:43.69"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No and that right derives you say from where?",
       "time": "00:28:59.17"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Combs is the, UMW, is United Corporate Association, is it right?",
       "time": "00:29:13.47"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And I suppose your theory as of the members of the UMW that the miners operating through this United Corporate Association in fact got together and hired a lawyer for this purpose.",
       "time": "00:29:19.88"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now does the UMW have welfare program.",
       "time": "00:29:36.52"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the amount collected by the individual and the worker's compensation have any bearing upon the UMW welfare program.",
       "time": "00:29:43.89"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Could you tell us very briefly how that happens?",
       "time": "00:29:54.16"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Right.",
       "time": "00:30:10.61"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that union has as, regarded as an entity has an interest and apart of from its benevolent interest in the welfare of the man and in saying that they prosecute their workmen's compensation claims.",
       "time": "00:30:16.55"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Combs does UMW also maintain hospitals in some areas?",
       "time": "00:30:35.89"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does it provide any medical services at all, any doctor services to its members?",
       "time": "00:30:47.55"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And how does they do that, does it do that by comparable arrangement or is it short list?",
       "time": "00:30:55.11"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Has there been complaint anywhere from medical societies comparable to the complaint that has been made here by the bar association of Illinois?",
       "time": "00:31:04.37"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There has been no litigation then?",
       "time": "00:31:18.30"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there other unions that have arrangements comparable to the UMW arrangement with respect to attorneys for --",
       "time": "00:31:21.09"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "For workmen compensation.",
       "time": "00:31:29.18"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that rare or is it fairly prevalent?",
       "time": "00:31:36.29"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The welfare fund I think that is separate from the union treasury fund?",
       "time": "00:31:45.03"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it is listed by separate board of welfare trustee?",
       "time": "00:31:51.22"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And with the separate and it's made up entirely of the employer contributions?",
       "time": "00:31:56.60"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the -- this gentleman, this lawyer's salary is not taken a from welfare fund?",
       "time": "00:32:06.85"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's paid out of union dues.",
       "time": "00:32:18.20"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Combs it doesn't take -- the last part of time and questions, you may have five minutes more to reply if you wish.",
       "time": "00:32:23.43"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bertrand you may have an extra five minutes also if you need it.",
       "time": "00:32:33.46"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bertrand you may proceed now.",
       "time": "00:32:38.45"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "(Inaudible)",
       "time": "00:33:41.53"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, that's not what I asked.",
       "time": "00:33:47.07"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let me ask you this.",
       "time": "00:34:00.06"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If this is unauthorized practice of the law, certainly the lawyer who is employed is guilty of unlawful practice of law. Why don't you, why haven't you proceeded against him in the last 54 years having been, this practice having been in existence since 1913.",
       "time": "00:34:03.25"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Who is the complainant here?",
       "time": "00:34:32.57"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What was his complaint?",
       "time": "00:34:42.96"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now this case is 10 years old?",
       "time": "00:35:13.02"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I thought that this man is only been there two years.",
       "time": "00:35:15.96"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But other than that the state bar has had no interest in this matter since 1913.",
       "time": "00:36:02.05"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bertrand.",
       "time": "00:36:40.87"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Has any miner complained.",
       "time": "00:36:43.98"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it in the record?",
       "time": "00:36:51.11"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I assume that if complaint has been made would put him in (Inaudible).",
       "time": "00:36:54.10"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Less than 50 years there were no complaints?",
       "time": "00:37:32.34"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the conversation commission make any complaint?",
       "time": "00:37:37.39"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did anybody make any complaint except this one lawyer?",
       "time": "00:37:42.84"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "These lawyers complained that the men weren't happily represented?",
       "time": "00:38:03.20"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How did they know that?",
       "time": "00:38:09.24"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did you know of any two lawyers that handled the same case in the same way?",
       "time": "00:38:34.59"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did you?",
       "time": "00:38:41.86"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the record all of this came out during this hearing doesn't it?",
       "time": "00:38:56.73"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So I mean you didn't have any complaints before?",
       "time": "00:39:02.91"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The record showed that there were no complaints--",
       "time": "00:39:08.79"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is one name appeared for 50 years.",
       "time": "00:39:11.77"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the only complaint then the complaint with the bars.",
       "time": "00:39:17.39"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why is this case taken 10 years to get here?",
       "time": "00:39:23.76"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How long was it --?",
       "time": "00:39:49.60"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So from ‘57 to ‘63 did Mr. Hannigan serve in this capacity?",
       "time": "00:40:21.86"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was he working?",
       "time": "00:40:28.62"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why would that change the attitude of the bar?",
       "time": "00:40:30.68"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would not that be unauthorized practice of bar too?",
       "time": "00:40:45.88"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did he die?",
       "time": "00:41:08.53"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now I wonder precisely what your point is, you wouldn't question would you, at this date that the union had the right to recommend a particular lawyer to its members, would you?",
       "time": "00:43:08.18"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You are not asking us to over rule Railroad Trainmen.",
       "time": "00:43:28.45"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright now what is your objection?",
       "time": "00:43:38.76"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Let us say the union couldn't have referred every one of these miner to Mr. Trainer or whatever his name was, correct?",
       "time": "00:43:42.10"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And that's established by a decision in Railroad Trainmen and now what is your --",
       "time": "00:43:53.08"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is it your point -- well the question is whether it's practice of law -- certain -- state regulation begins that's really the question, no question about the state power to regulate the practice of law. But does the record here show that the union attempted to or did in fact confront the legal advice or the methodology used by Mr. Trainer in giving legal advice.",
       "time": "00:44:27.98"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I am afraid you are not, I am afraid I didn't make my question clear. Does the record show that the union controlled or attempted to control the legal advice given by Mr. Trainer to the injured mine workers?",
       "time": "00:45:29.26"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the record show that the union controlled or attempted to control Mr. Trainer's methodology as procedure in handling these cases?",
       "time": "00:45:51.88"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Bertrand --",
       "time": "00:46:12.49"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- as I understand it, your great interest in this situation and the thing that prompted the action was your concern for the miners themselves, whether they were getting the right kind of legal services under this system. Is that correct?",
       "time": "00:46:15.04"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now when this man and his lawyer made this complaint 10 years ago in the preparation of the case before a committee, was any investigation made of whether there had been any malpractice on so far as any of the minors are concerned or whether the minors individually had any claim of that kind?",
       "time": "00:46:35.35"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I wonder why you wouldn't do that if that's what you are really interested in and in the preparation of your case, I wonder why you wouldn't want to show that that the fact that this man did have that number of cases actually resulted in these people having poor service?",
       "time": "00:47:06.07"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you are here representing the bar—",
       "time": "00:47:32.87"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "--and not just while you've been --",
       "time": "00:47:35.84"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Okay, did that go to the question of whether the minors themselves received the treatment.",
       "time": "00:48:49.16"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's isn't in the record.",
       "time": "00:48:59.44"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then we can't consider it can we?",
       "time": "00:49:01.96"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now when did you come into this case?",
       "time": "00:49:04.37"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Exactly.",
       "time": "00:49:07.76"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "1963?",
       "time": "00:49:10.52"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you make any, did you make any investigation to find out whether minors have been properly treated under this system before your motion for summary judgment?",
       "time": "00:49:12.59"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes. Did you find any instances?",
       "time": "00:49:25.44"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why didn't you put them in the record by affidavit or otherwise?",
       "time": "00:49:38.32"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When was the decree entered?",
       "time": "00:49:48.43"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Very well. May I ask you speaking on the constitution whether it's relevant as to what, how the particular man does this –",
       "time": "00:50:09.09"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is it not question of challenge to assist him, and are you challenging in any way the manner in which this man -- or do you think it doesn't have anything to do with its constitutionality?",
       "time": "00:50:24.12"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But doesn't have anything to do with the constitutionality?",
       "time": "00:51:04.10"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But he does a good job of it.",
       "time": "00:51:09.52"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well then why shouldn't we just approach the constitutional question here, Mr. Justice Black's suggestion wholly asides them from these matters you have been talking about it, why shouldn't we just assume that the service here is good if not better?",
       "time": "00:51:11.94"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Under this system or any other system. -",
       "time": "00:51:29.11"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you be making the same argument if it were shown in this record clearly that this is perhaps the best system for legal services that could possibly be provided?",
       "time": "00:51:37.05"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well in other words if they employed five men to handle these 400 cases and that would have been adequate under your judgment as to how many cases a lawyer should handle without the same --",
       "time": "00:51:49.29"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's all there is in the case.",
       "time": "00:52:09.36"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well in substance what you're arguing here is that these people were being represented not by the lawyer or the lawyers, but that their legal work was if anything performed by a lay agency, that's your point.",
       "time": "00:52:13.61"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And there -- and you have to show some basis for that argument because if we go to the compensation and commission records, I suppose it goes that John (Inaudible) who is represented by Mr. Trainer or whoever is a qualified lawyer. Now then you have to show us if there are in this record factors which show that this lawyer was not -- was merely a nominal representative of these people and that the real representative was the UMW and thus far what you've told us, so far as I know is only that the UMW paid him a salary and that he did not collect the fee from the individual members, is that correct?",
       "time": "00:52:31.35"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What you're saying is that that's kind of (Inaudible) since the members then pay them – they then control them since the mineworkers paid them with salary, therefore the mine workers controlled him in the sense that the mine workers were really the representatives of people who appeared to be his clients. Is there anything more on your position than that?",
       "time": "00:53:26.51"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose they did, what does that have to do with constitutionality, under the federal constitution of this law?",
       "time": "00:54:02.10"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well Mr. Bertrand, you surely -- it is true isn't it that in Button, we got there with a Virginia system, under which the -- rather NAACP system in Virginia, where the compensation to the lawyer on behalf of the litigants was not paid by the litigants but was paid by the NAACP, wasn't it? We there held that the Virginia -- I forget whether it was a statute, now I have to -- it was a statute, but that statute which -- tempted to prohibit this, did violate in that context the First and Fourteenth Amendments, isn't it?",
       "time": "00:54:15.29"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now surely on the constitutional question, you just can't say there isn't any in light of that decision.",
       "time": "00:55:02.26"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It certainly says that this was in an area of lawsuits to vindicate political rights, otherwise by the First Amendment.",
       "time": "00:55:37.58"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But surely it didn't decide the question about the dispute, didn't it?",
       "time": "00:55:49.56"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But we do have that issue before us --",
       "time": "00:55:54.13"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There wasn't any issue presented in the Brotherhood case as I recall it and that's correct, the issue presented by this case was not presented in that case.",
       "time": "00:56:16.65"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Perhaps I didn't state my question well. In that case whether or not the Brotherhood who was paying a salary to a lawyer, that the issue of the propriety of that in light of the constitution was not presented well.",
       "time": "00:56:38.51"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you be making the same argument as the union here instead of calling in an employee and paying the salary, just paying the retainer -- say the gentleman was in private practice and a general practice or with a firm and the union just paid him --",
       "time": "00:56:55.72"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I gather you would not make the same argument then if the union just told all of its employees go hire any lawyer you want and we'll pay his fee.",
       "time": "00:57:21.78"
     },
@@ -2075,7 +2075,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Bertrand can you distinguish this case from the legal assistance program or the Poverty Office, the OEO. That is to say as I understand it in some areas there are lawyers hired as -- on funds provided by the Poverty Program and they represent indigent people and they represent them not only before agencies of the government but before courts. Now on the basis of your argument, these people are not paid by the clients, they are paid by the -- out of federal funds sometimes in some states out of state funds. Now is it your representation that this is the practice of the law by the United States government and not by the people representing these indigents?",
       "time": "00:57:34.02"
     },
@@ -2087,7 +2087,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What's that got to do with any legal front?",
       "time": "00:58:46.63"
     },
@@ -2099,7 +2099,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Or the regulation of the practice of the law. You don't make a distinction between Illinois law regulating practice before courts and agencies as whether the lawyer is representing an indigent he can do it, he can be paid by somebody else and is still professionally all right and vice-versa.",
       "time": "00:58:50.44"
     },
@@ -2111,7 +2111,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Oh I'm very proud, I'm very proud of the fact that they supported it enthusiastically.",
       "time": "00:59:25.24"
     },
@@ -2123,7 +2123,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You mean that's fundamentally different even though the individual minor lost an arm or a leg they could still -- different from the OEO situation because one is an indigent and the other isn't?",
       "time": "01:00:05.57"
     },
@@ -2135,7 +2135,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What if he lost both legs.",
       "time": "01:00:25.92"
     },
@@ -2147,7 +2147,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Same thing.",
       "time": "01:00:30.51"
     },
@@ -2159,7 +2159,7 @@
     },
     {
       "turn": 353,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What makes a person indigent and subject to --?",
       "time": "01:00:31.45"
     },
@@ -2171,7 +2171,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose a man was not an indigent and he lost both legs in an automobile accident and he then became indigent and he went to the OEO for help. what is the difference between that case and the man who in an industrial accident loses both legs?",
       "time": "01:01:07.11"
     },
@@ -2183,7 +2183,7 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So did the fellow who lost his two legs in an automobile accident.",
       "time": "01:01:46.83"
     },
@@ -2195,7 +2195,7 @@
     },
     {
       "turn": 359,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Okay but those segments are not in this case but there are some things that are relevant I think that are now and how do you dispose off the legal aid bureaus in this country that are devoted to defending, taking care of people's lives in civil matters as well as criminal matters? Now, just yesterday I happily paid my contribution to a group of lawyers in this community who have joined together for the purpose of representing indigents in civil manners. Now, they don't pay any fees and they're controlled by this group of lawyers who employ lawyers to represent these people and that's done all over the United States where bar associations are really forward-looking and are trying to help indigents.",
       "time": "01:03:20.53"
     },
@@ -2207,7 +2207,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now what is the basic difference between that employment and the employment there is here?",
       "time": "01:04:38.68"
     },
@@ -2219,7 +2219,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Isn't that the general situation so far as medical care in this country is concerned with a great mass of working people, they are not indigent at one moment but when they became ill, they are indigent because they can't pay the medical expenses but in this situation they can't pay the legal expenses to get their rights.",
       "time": "01:05:15.20"
     },
@@ -2231,7 +2231,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There are many millions of people who are supposed to be in that class or in this country from all of the studies that have been made, that's what brought Medicare into existence, isn't it?",
       "time": "01:05:54.21"
     },
@@ -2243,7 +2243,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it wasn't the extreme case, it was normal case.",
       "time": "01:06:10.96"
     },
@@ -2255,7 +2255,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How about Appalachia?",
       "time": "01:07:50.18"
     },
@@ -2267,7 +2267,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Will the constitutional principle of your case be different than Appalachia?",
       "time": "01:07:55.41"
     },
@@ -2279,7 +2279,7 @@
     },
     {
       "turn": 373,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What did you want them to do?",
       "time": "01:08:25.73"
     },
@@ -2291,7 +2291,7 @@
     },
     {
       "turn": 375,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Combs.",
       "time": "01:09:10.31"
     },
@@ -2303,7 +2303,7 @@
     },
     {
       "turn": 377,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Combs on the one hand, I gather you would also argue to sustain union counsel right across the board for members -- again by the litigation of all kind.",
       "time": "01:11:15.99"
     },
@@ -2315,7 +2315,7 @@
     },
     {
       "turn": 379,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well that's all, I just wanted to figure.",
       "time": "01:11:33.23"
     },
@@ -2327,7 +2327,7 @@
     },
     {
       "turn": 381,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well let's see, this record contained a series of interventions by the union in to these cases with reference to the attorney or a reservation of the contract to get the -- employer wants some thing in the direction of the union, would you say then that the state had made out a decent case?",
       "time": "01:12:42.77"
     },
@@ -2339,7 +2339,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "A different case -- would then the state have an interest?",
       "time": "01:13:21.79"
     },
@@ -2351,7 +2351,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:13:27.90"
     },
@@ -2363,7 +2363,7 @@
     },
     {
       "turn": 387,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:13:36.24"
     },
@@ -2375,7 +2375,7 @@
     },
     {
       "turn": 389,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:14:44.03"
     },
@@ -2387,7 +2387,7 @@
     },
     {
       "turn": 391,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm going to ask you this (Inaudible)",
       "time": "01:14:55.31"
     },
@@ -2399,7 +2399,7 @@
     },
     {
       "turn": 393,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:15:15.12"
     },
@@ -2411,7 +2411,7 @@
     },
     {
       "turn": 395,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:15:33.13"
     },
@@ -2423,7 +2423,7 @@
     },
     {
       "turn": 397,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Combs may I ask you this question? In some states I know that the legislature in its concern for the welfare of the workers themselves limit very greatly the fees that can be charged in these compensation cases. In fact they discourage lawyers coming there at all and they have put the percentage of the award so low that it's impossible for -- almost impossible for a workman to go out who has to -- what the public might think was a minor injury, it would be impossible for him to go out and hire a competent lawyer because the lawyer wouldn't spend his time for that small amount. Now I don't know whether that's exists in Illinois or not, but does it?",
       "time": "01:15:51.41"
     },

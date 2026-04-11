@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1965/25/19651110a_25.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "BEATRICE ROSENBERG",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No.25, United States, petitioner versus Thomas Johnson.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Miss Rosenberg.",
       "time": "00:00:51.50"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well was there a new trial on the other phase of it?",
       "time": "00:03:00.81"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask under what statute Congress has made it a crime?",
       "time": "00:04:13.96"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible]",
       "time": "00:07:58.28"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why was it introduced?",
       "time": "00:08:19.04"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well was anything that was said in the speech relied on by the government to support the conviction?",
       "time": "00:09:36.34"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well at any time in the trial?",
       "time": "00:09:46.15"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How can you impugn a speech more by saying that it was the product of the bribe?",
       "time": "00:14:50.10"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The judges aren't surrounded with the constitutional protections?",
       "time": "00:16:59.56"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you, if the court's charge to the jury indicated that it's finding of guilt should depend in any of those ways on whether the Congressman believed what he said?",
       "time": "00:19:17.93"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then as I understood it, if we're to say that the government you say ends up any Congressman takes the money, and action was the speech he made, is guilty of the crime, even though he believed it wholeheartedly?",
       "time": "00:19:34.62"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, if he takes money to make the speech, maybe he's not -- maybe he hadn't intended to make it but he had used to make it, says I believe in it thoroughly and I will make a speech. He gives him the money, would that be a crime?",
       "time": "00:19:56.10"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Made it a crime to accept money for a speech?",
       "time": "00:20:25.74"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where is that printed?",
       "time": "00:20:30.92"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that a general statute so we can go into that influence or did it specifically say that he accepted the money for making the speech, he'd be guilty about it--",
       "time": "00:20:44.63"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That means that if he agrees for money, knowingly to accept that money for the purpose of doing what he's going to do in bad faith, doesn't it?",
       "time": "00:21:40.43"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Right.",
       "time": "00:21:59.43"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Bribed in to vote for a bill?",
       "time": "00:22:07.11"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was any charge here that he did not honestly believe what he said, that's what I'm getting here.",
       "time": "00:22:35.83"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Miss Rosenberg can you read 281 as applying to proceedings in the Congress or before a committee of Congress?",
       "time": "00:23:23.95"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's what I thought, yes.",
       "time": "00:23:56.98"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, what statute am I supposed to be looking at?",
       "time": "00:24:24.46"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's old 205.",
       "time": "00:24:34.06"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:24:46.02"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what you are saying in final analysis it gets to that, doesn't it, the fact assuming that he made it in the probability to say it. But, then he violated the law was making the speech, for which he took money but you have to have the speech in it and assume that best thing to make a speech in favor of various thoughts, doesn't it?",
       "time": "00:25:42.23"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And, then you're here.",
       "time": "00:26:04.86"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean he may go ahead and doing what would be their duty otherwise to make the speech in favor of something they're far. You say if they get some money for it, that's a crime.",
       "time": "00:26:58.82"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But, you have to draw that from very language. I should think that that's to be made a crime, honestly, to make the speech in order to be in pretty clear language.",
       "time": "00:27:09.17"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Sometimes, they are so comprehensive if they don't have the --",
       "time": "00:27:30.29"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then, I would have to vote, that's right.",
       "time": "00:27:43.40"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But, there was no -- there was no constitutional provision that permitted Judge Madden to say what he say -- said to that at that time. There is a constitutional provision which permits the Congressman to make the speech or senator and it can't be -- and nothing could be done to him for it? You can't base it on what he said in making the speech, can you?",
       "time": "00:28:00.18"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And yet it was the same [Inaudible]",
       "time": "00:28:26.68"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's essential to the conviction is that he made a speech in the Congress.",
       "time": "00:28:31.84"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where frequently people is not essential?",
       "time": "00:28:37.48"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you got to do the -- could you make your case without introducing the speech?",
       "time": "00:28:53.75"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Over that --",
       "time": "00:29:05.50"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Over that I was I referring to the fact that he had made the speech?",
       "time": "00:29:06.57"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Impugn in the contents?",
       "time": "00:29:17.01"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I'll come back to my other question it's interesting that you [Voice Overlap] speech was called was in your [Inaudible] impugn the veracity of it that they have. When you make your prior good [Inaudible] aren't necessarily drawing in question the good faith of the speech in the public –",
       "time": "00:30:13.46"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is to that to the show that money was handed to some judge to make the decision to --",
       "time": "00:30:43.90"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think all of the question and then the other [Inaudible]",
       "time": "00:31:03.23"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Miss Rosenberg, I'd like to ask you help me out. As I understand and what you have is charge of a conspiracy.",
       "time": "00:31:42.07"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And you have just dissent that in order to make it true, you have to use the fact that the Congressman made a speech. That is what your stand upon --",
       "time": "00:31:52.24"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, if you permit me to ask you my question.",
       "time": "00:32:24.63"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If you don't mind. Now, would you agree that if the Government has filed it's proof of conspiracy and used the text of the speech and had gone into the substance of the speech, would you or would you not feel that that's -- would be a violation of the constitutional [Inaudible]",
       "time": "00:32:27.40"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, he has us told us earlier, if I correctly remember, that the Government did use a substance of the speech in the cross examination of Congressman Johnson?",
       "time": "00:33:04.89"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that, is this -- does this case present essentially on your view of it a question of degree, that is to say whether the Government used the speech or went in to the speech in such a degree to such amount or for such a purposes or how do you want to phrase it, as to violate the constitutional immunity?",
       "time": "00:33:17.64"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There is sometimes -- sometimes, this Court as I understand [Inaudible] things the other way around.",
       "time": "00:34:28.56"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To of what?",
       "time": "00:36:15.09"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Called it what?",
       "time": "00:37:15.06"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now what -- to what issue was that offer of proof relevant?",
       "time": "00:39:07.50"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that it -- you've emphasized twice that they made a difference in caption. What was the significance of that on -- has bearing on the issue in the case?",
       "time": "00:39:30.66"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well then so that extends at least the Government's case rested on the speech, at least the caption of it.",
       "time": "00:39:51.63"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you drawing the distinction that if you use a copy of the speech with reference to the clerk, will bring it to the Congressional record that that might have defended the constitution of protection, is that what you're saying?",
       "time": "00:40:07.41"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was he convicted for conclusion of the fraud generally or just the conspiracy case, defraud the government, this man.",
       "time": "00:41:00.11"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So what was the charge against the other -- others, I should say.",
       "time": "00:41:15.72"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The same charge against all.",
       "time": "00:41:31.65"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:41:35.00"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was he tried for the other two?",
       "time": "00:41:42.97"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was he convicted?",
       "time": "00:41:45.45"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "On that too?",
       "time": "00:41:47.49"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Of course the other counts have noting to do with the speech?",
       "time": "00:42:13.95"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And then they would apparently were --",
       "time": "00:42:17.66"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To -- another what?",
       "time": "00:46:13.50"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask you Ms. Rosenberg, on the government's direct case I take that the defense objected though the evidence about the speech, on the government's direct case.",
       "time": "00:46:39.45"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But what about objections to this --",
       "time": "00:47:05.18"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was there a motion for acquittal at the government's case?",
       "time": "00:47:28.05"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did that rest on the Speech and Debate Clause in the part?",
       "time": "00:47:31.62"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So the government makes no point of any failure to object to those --",
       "time": "00:47:58.25"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Hadn't been any, what?",
       "time": "00:48:39.34"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would you think about [Inaudible], provided that it should be a crime people to get together and agree among themselves to urge a campaign, to do everything possible, they get Congressman to make speeches on the bill. Could that's be permissible --",
       "time": "00:48:51.78"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think that would be --",
       "time": "00:49:16.65"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, suppose they have said that they're going to try to get it done if necessary. They had paid for the speech as [Inaudible] that they're going to do extra work, what about the right to petition?",
       "time": "00:49:22.19"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand but bribe means many different things you can give a word of that conduct of bad name.",
       "time": "00:49:39.84"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "We had a case that long ago of Noah against somebody and which is -- a railroad, they tried everywhere in the world to get enough money and so forth to keep laws from being passed one way or another and [Inaudible] promulgating and we know that they can bring their turn for that.",
       "time": "00:49:47.35"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But registering is quite different from outlawing it.",
       "time": "00:50:19.32"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And hire people, hire people to go and lobby with the Congressman --",
       "time": "00:50:41.89"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose that's been get up for fund, I think I have heard of that being done, they get into the corner, they help the Congressman or a senator in connection with his campaigns and things and they want legislation passed and they go to them and asking to get it passed, would that -- that be made a crime?",
       "time": "00:51:21.84"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is it -- as I understand, suppose this man had been fighting for this bill a long time, he's [Inaudible] it's been his bill he knows and to people who also thought that the -- you make some speeches on it. He says “Well I -- I can't spend no --” and they say “We'll give you some money to make a speech.” You'd say that that could be a crime?",
       "time": "00:52:02.03"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You'd know his problem and [Inaudible] I am going to do everything I can for him, they want to stimulate him with what they called something a bonus let's say, so if he could -- he use different --",
       "time": "00:52:28.55"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well it would be quite a different statute wouldn't it, if it said that no Congressman to accept employment the minute of the service while using Congress.",
       "time": "00:52:53.03"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And now there's a difference between voting and making speeches, doesn't it?",
       "time": "00:53:34.31"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That the Constitution says something about making speeches.",
       "time": "00:53:38.07"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "A what?",
       "time": "00:53:47.74"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The statute shows action or voting?",
       "time": "00:54:07.38"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Ms. Rosenberg suppose that a Congressman get up and [Inaudible] with the Congress says, “I want all of you to know that I am a member of the communist party and I believe an overthrow of this government by force and violence.” Could he be prosecuted under the membership clause that was provided? Suppose he got a $1,000 for making that statement?",
       "time": "00:55:31.11"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, has the Congress said it would reference to a man's speech, it was raised by the different question with me, the founders have said that I don't --",
       "time": "00:57:08.79"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would they have to a particular that as I recall it they went up to a lot of people who [Inaudible] the Congress.",
       "time": "00:57:58.38"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "00:59:00.91"
     }

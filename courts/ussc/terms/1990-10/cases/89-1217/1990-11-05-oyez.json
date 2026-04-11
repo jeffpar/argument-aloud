@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1990/89-1217/19901105a_89-1217.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "RAYMOND J. LAJEUNESSE, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROBERT H. CHANIN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 89-1217, Jones Lehnert v. Ferris Faculty. Let's try to move along, Mr. Kneedler. Mr. LaJeunesse, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why do you say it had to be a political or ideological activity?",
       "time": "00:03:31.37"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so, you define any political and ideological as meaning any activity that does not accrue to the benefit of the bargaining unit?",
       "time": "00:03:44.29"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I thought this was just a study out in Arizona?",
       "time": "00:04:07.74"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I would think your argument would be, not that that was political or ideological, but since it didn't benefit the members of the bargaining unit it was no good. I would think there's a category of things--",
       "time": "00:04:18.11"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But if, if one sets out to do a neutral study that just doesn't have much to do with what the person is at, I would not think that's political or ideological. I think it's more better defined as something that is, is not perhaps germane to the bargaining process.",
       "time": "00:04:38.91"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I, may I just ask you a little more about this millage point? Supposing the lobbyists for the national union sought more money for faculty salaries in colleges. They either wanted a minimum wage or just wanted more appropriations to expand the faculties and new curricula and so forth. Would you say that was permissible or impermissible?",
       "time": "00:05:08.10"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because it's--",
       "time": "00:05:30.79"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So, so you really don't rely particularly on the fact that the millage happened to be for grammar schools and so forth rather than colleges?",
       "time": "00:05:43.21"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, your argument... let me put this way. Your argument on that point is much like your argument on anything outside the bargaining unit is impermissible. I mean, you know, conventions and for the national organization and the like.",
       "time": "00:05:54.24"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. LaJeunesse, I'm not sure that Abood drew a so-called bright-line test for public sector employees. The argument made on the other side is that multi-unit unions effectively strengthen the local bargaining unit and that it's just like buying an insurance policy and spreading the risk that those expenses outside the bargaining unit can strengthen the local unit as the need occurs locally. How do you answer that? Justice O'Connor, two answers. First, the argument that the local is strengthened by the activities elsewhere is the same argument the railway clerks' union made in the Ellis case for organizing... compelling support of organizing and compelling support of litigation concerning bargaining... other bargaining units, and the Court rejected it in Ellis. The Court established a standard which says that what is chargeable is only those activities that are part of the performance of the statutory functions of representing the employees, in dealing with the employer on labor management issues. Or germane... not part of. It doesn't have to be part of, does it?",
       "time": "00:07:46.93"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But anyway it has to be germane--",
       "time": "00:09:23.83"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--It has to be germane to the services under the particular bargaining contract.",
       "time": "00:09:27.36"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the particular unit.",
       "time": "00:09:34.17"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If there were--",
       "time": "00:10:06.58"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--would it make a difference?",
       "time": "00:10:09.22"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Going back to lobbying for a minute, I suppose in the public sector if the union is out lobbying to try to get increased health benefits, for example, for public employees including those in the bargaining unit or a tax increase to fund payment of teachers' salaries Statewide that would affect those in the bargaining unit as well. Now you say none of that is chargeable?",
       "time": "00:11:13.60"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And why not?",
       "time": "00:11:49.06"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr.... Mr. LaJeunesse, what if there were pending in the Michigan legislature a bill that would have directed the 10-percent reduction in the appropriation for all colleges like Ferris State College? Do you think the bargaining unit, the respondent here, could charge to the agency shop people the... whatever costs they spent in lobbying against that?",
       "time": "00:14:42.97"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could... could the... the union-- --Also, what about a program to register and vote?",
       "time": "00:15:38.07"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Uh-huh.",
       "time": "00:15:44.47"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You think it's what?",
       "time": "00:15:48.17"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could, could a union publish in its own publication the voting record of, say, the school board or state legislators with respect to issues that affect the bargaining unit?",
       "time": "00:15:58.03"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I mean with the fees of the dissenters?",
       "time": "00:16:15.06"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. LaJeunesse, one category of charges that you say were improper really is quite different from the others in that you concede that they're... that they're not part of the legislative process and you can see that they do narrowly affect the particular bargaining in the bargaining unit. But you nonetheless say they are not chargeable, and I'm referring to the costs of preparing for an illegal strike which never occurs.",
       "time": "00:16:32.49"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, why are they not chargeable? Is it illegal to prepare for an illegal strike?",
       "time": "00:17:06.80"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it... it has no governmental interest... I mean, it... by parity of reasoning you can say it has no governmental interest in paying higher wages to public employees.",
       "time": "00:17:35.74"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So then nothing is chargeable, because--",
       "time": "00:17:46.33"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--you don't want these bargaining units to be successful. There's no governmental interest in having these--",
       "time": "00:17:48.60"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But one of its statutory functions is conducting... conducting negotiations with all of the maneuvering and feinting and what not that negotiations entail. Certainly if they walk out of a meeting 1 day, drag on the meeting for 5 days when it could have lasted only one, but that's part of their tactics, you say that's chargeable, wouldn't you?",
       "time": "00:18:14.13"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what about this phony preparation for a strike which would never occur? Why isn't that just part of... it's part of the negotiating process.",
       "time": "00:18:34.79"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now you're making a different argument. Now you're saying it's illegal to prepare for an illegal strike.",
       "time": "00:18:58.66"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or illegal to threaten an illegal strike.",
       "time": "00:19:03.21"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I... may I... this... your asking us to look at the testimony and so forth, brings to mind this question. To what extent do you think the question of whether an activity is germane is a question of law or a question of fact? And the reason I ask that is I guess we have two courts who have wrestled with an awful lot of detail. And as I understand... now maybe... maybe my recollection is incorrect, that with respect to the local union, you... about 80 percent or something like that of their activities were held okay to be charged, but as respect to the Michigan union and the national unit, something like 95 percent of those were held to be impermissible. So you substantially won the case as to Michigan and any... is that... is my recollection right on that?",
       "time": "00:20:21.36"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But nobody is being compelled to make a speech. They're being compelled to pay money to a union representative who primarily is representing their collective bargaining... interest and may incidentally say something that you disagree with.",
       "time": "00:21:32.91"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:21:47.79"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you say it's a pure question... each of these issues is a pure question of law in your view?",
       "time": "00:22:06.00"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, again, on this strike business, I mean, a lot of the money was in a pot there that they said might... might finance a strike and might finance negotiation. It's kind of mixed the little bit, the use of that fund I think.",
       "time": "00:22:20.99"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they did have union meetings at the strike headquarters?",
       "time": "00:22:43.07"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, and their bargaining position.",
       "time": "00:22:48.64"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was there any finding one way or the other on whether they discussed informational picketing, which I take it is not unlawful, I would assume.",
       "time": "00:23:00.43"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was this part of the union hall meeting?",
       "time": "00:23:14.64"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose there's informational picketing at the headquarters of the school board, is that... in front of the building. It's obviously directed both ways, isn't it? You don't just pick up the board members by going to their house, tell the public what your concern is with board members' policy. That's not permissible in your view... with the public union?",
       "time": "00:24:16.30"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you--",
       "time": "00:24:52.35"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Could I ask you one other hypothetical? Supposing your teachers' salaries were fixed by statute, would it be impermissible under your view to lobby for a change in the statutory provisions?",
       "time": "00:24:57.72"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know it isn't--",
       "time": "00:25:09.73"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--but our salaries are fixed by statute and I can... if not--",
       "time": "00:25:11.89"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Why would it make a difference?",
       "time": "00:25:18.17"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, they do everything you object to.",
       "time": "00:25:26.48"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, that's exactly what I'm... that's my--",
       "time": "00:25:40.55"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And you--",
       "time": "00:25:46.40"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Even in... even in my hypothetical?",
       "time": "00:25:47.37"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. LaJeunesse. Mr. Chanin, we'll hear from you.",
       "time": "00:25:55.48"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They don't say as of no benefit. They say does not pertain to their bargaining process.",
       "time": "00:27:34.54"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that in the contract?",
       "time": "00:28:27.53"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that in the contract of association between--",
       "time": "00:28:29.72"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You don't assert it's a legal obligation. You assert it's a practical obligation.",
       "time": "00:29:20.26"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You certainly make the union movement sound like a very business-like operation. I've always heard it called the movement. I thought that people in one union would contribute to the international because they believed in unionism. They don't care whether they're getting back penny for penny an investment that they're making in the international. There's none of that here?",
       "time": "00:30:44.35"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is strictly a business operation?",
       "time": "00:31:04.76"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:31:08.57"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course it is.",
       "time": "00:31:16.63"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Chanin, can I interrupt for a second? Your argument it seems to me would justify the total assessment of the dues, a portion of the dues that was charged to the MEA, and I understand the district court found about 97 percent was impermissible.",
       "time": "00:31:51.24"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't that right?",
       "time": "00:32:06.27"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And we're fighting about a little squib at the tiny end of the thing.",
       "time": "00:32:07.28"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You didn't meet your burden of proof.",
       "time": "00:32:32.03"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Chanin, in the Ellis case this Court held, with most Justices joining the opinion as I recall, that objectors could not be charged for the costs of general litigation unless the local bargaining unit was directly involved. It seems to me that your argument would lead one to conclude that that case was wrongly decided.",
       "time": "00:34:29.00"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it was construed to RLA ever since Hanson very much in the light of the constitutional provisions, have we not?",
       "time": "00:35:30.43"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But I'm really in doubt whether that rationale can be squared with Ellis on the so-called statutory ground. It seems to me to go substantially beyond what the Court said there.",
       "time": "00:36:43.12"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, it... what is your answer to the, to the hypothetical questions that Mr. LaJeunesse asked? Specifically, can the union charge to nonunion members the funds necessary to mount a campaign against certain candidates for the school board? The people that--",
       "time": "00:44:01.03"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that they will be negotiating with. Surely, that's germane. I want, I want a real softy on the school board, so I mount, you know, a campaign to get that person elected. Is that germane?",
       "time": "00:44:25.57"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right, now what do you mean by electoral politics?",
       "time": "00:45:02.06"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "My next question was going to be what about a nonpublic union. It's just a... it's not a school. Nonpublic union and according to Mr. LaJeunesse, what if... can they be compelled to contribute to a campaign in support of minimum wage laws or an increased in the amount of the minimum wage?",
       "time": "00:45:04.34"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As I said, it's a private sector union, not a public sector union.",
       "time": "00:45:26.74"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not electoral politics. It's just a--",
       "time": "00:45:38.19"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, well, what are they?",
       "time": "00:46:11.52"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is that different, Mr. Chanin, from say a proposition on a ballot or a millage, a millage vote? Is that any less free expression voting for a candidate than voting for an electoral proposition?",
       "time": "00:46:28.07"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The test is it's germane. I mean, that really does not give a lot of answers.",
       "time": "00:46:47.49"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah, well, let's get to some of the precise questions we have here.",
       "time": "00:47:14.68"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the lobbying on the millage elections?",
       "time": "00:47:16.78"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, yeah, but it's apparently stipulated that millage has no direct effect on what happens to the budget of the Ferris College.",
       "time": "00:48:27.84"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they're germane to the parent union.",
       "time": "00:49:00.32"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, does the parent union do collective bargaining or does it just support local unions which do collective--",
       "time": "00:49:03.97"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--So the Michigan Education Association doesn't itself do any collective bargaining?",
       "time": "00:49:10.57"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I didn't realize that you're arguing that just as you sort of buy insurance for the expert negotiating skills needed and litigation skills, so also you buy assurance... insurance for millage elections--",
       "time": "00:49:16.10"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that since the... this millage doesn't relate to me, but it does relate to another union. They pay for mine. I pay for theirs. It all comes out even.",
       "time": "00:49:32.61"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is not the argument?",
       "time": "00:49:40.32"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right.",
       "time": "00:49:42.87"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr.... you're--",
       "time": "00:52:22.15"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The millage... the millage doesn't produce any funding for Ferris.",
       "time": "00:53:12.07"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's what you're arguing?",
       "time": "00:53:18.57"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because some-- --Because some say Ferris' turn will come. They'll... they'll have a millage election.",
       "time": "00:53:34.11"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the further away--",
       "time": "00:53:48.17"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Counsel, the further away the bargaining units gets from the employee, the less the First Amendment protection the employee has.",
       "time": "00:53:50.01"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me it should be the other way around.",
       "time": "00:53:57.88"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but Mr. Chanin--",
       "time": "00:54:13.20"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--What you're really arguing is who has the burden of proof, because you're saying that everything is presumptively support function except those things you can identify as unrelated, and the stuff in the gray area just generally is supporting affiliation.",
       "time": "00:54:17.14"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In the district court that was the... the burden was just the opposite.",
       "time": "00:54:30.50"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah, but you say you carry it when you've shown... when you've excluded A, B, and C, which are admittedly impermissible, everything else is presumptively necessary to show that the organization is available.",
       "time": "00:54:34.65"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Chanin. Mr. LaJeunesse, do you have rebuttal?",
       "time": "00:55:02.79"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, certainly he suggested that it was by custom if not by law. Would that make any difference if it were shown by custom they did all these things even though perhaps they could not have been compelled to in a court?",
       "time": "00:55:47.34"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you object to charging any part of the affiliation fee to the nonmembers?",
       "time": "00:56:11.97"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you mean so it's--",
       "time": "00:56:25.93"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--so it's piece by piece. You have to value each bit of service?",
       "time": "00:56:28.48"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you, do you think the First Amendment draws that distinction between whether you have a contractual right to get that... you can pay out the money and charge the nonunion members if you have contractual right to get the assistance for it, but by reason of the First Amendment you can't pay it out if it's only very likely that de facto you're going to get the assistance. That's a First Amendment line?",
       "time": "00:56:40.64"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in this case isn't the actual thing we're fighting about is how much of this publication that they put out is useful to the local? Isn't that what the big expense was?",
       "time": "00:57:47.73"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was that... were the... all the expenses in... for lobbying that were charged to the nonmembers was all that lobbying done by the... by the parent or by the affiliated union, Michigan or national?",
       "time": "00:58:00.03"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But most of it--",
       "time": "00:58:19.90"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But most of it was by the parent?",
       "time": "00:58:22.17"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. LaJeunesse. The case is submitted.",
       "time": "00:58:48.37"
     }

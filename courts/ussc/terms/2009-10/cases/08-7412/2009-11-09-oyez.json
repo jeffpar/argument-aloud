@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2009/08-7412/20091109a_08-7412.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
       },
       {
         "name": "BRYAN S. GOWDY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "SCOTT D MAKAR",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Case 08-7412, Graham v. Florida. Mr. Gowdy.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you urging that in all cases, including homicide cases? Or are you drawing the line at homicide?",
       "time": "00:00:31.14"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thirty-eight States allow this sentence, though, don't they?",
       "time": "00:01:04.94"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thirty-eight, 39. I know you have a little dispute, but the vast majority of States allow the imposition of this sentence.",
       "time": "00:01:08.24"
     },
@@ -91,13 +91,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You're making a--",
       "time": "00:01:31.09"
     },
     {
       "turn": 10,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I would have thought that would be strong evidence that they appreciate the gravity of the sentence in the particular circumstances of juveniles and therefore only impose it rarely.",
       "time": "00:01:31.94"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No sentence can be -- can be imposed rarely?",
       "time": "00:01:56.72"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When a sentence is imposed rarely, it becomes unconstitutional?",
       "time": "00:02:01.55"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not your position? What--",
       "time": "00:02:06.00"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It doesn't make it crueler to him. I don't see why it's any crueler to an adolescent than it is to -- what -- where do you draw the line? At 21?",
       "time": "00:02:22.84"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--And you are making a per se argument, no? You can imagine someone who is a month short of his 18th birthday, and you are saying that, no matter what this person does, commits the most horrible series of non-homicide offenses that you can imagine, a whole series of brutal rapes, assaults that render the -- the victim paraplegic but not dead, no matter what, the person is sentenced shows no remorse whatsoever, the worst case you can possibly imagine, cannot -- that person must at some point be made eligible for parole. That's your argument?",
       "time": "00:02:38.03"
     },
@@ -169,19 +169,19 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we agree with you--",
       "time": "00:03:41.19"
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And so if it's--",
       "time": "00:03:41.96"
     },
     {
       "turn": 24,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--If we agree with you, at what point must the parole consideration be given? There is a suggestion in your brief that maybe the Colorado statute, which says that a person can get parole consideration after 40 years, would be constitutional. Is that your position?",
       "time": "00:03:42.81"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What about -- what if it's the -- pursuant to the usual State parole system, and it turns out that grants parole to 1 out of 20 applicants?",
       "time": "00:04:19.65"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It seems to me that your -- your argument suggests that you are, quite rightly, focusing on the particular facts that have life without parole. But if you concede that it's all right to have a sentence of 50 years and then a consideration where 1 out of 20 people are granted parole, I think it suggests that the line you would draw is -- is pretty artificial -- or certainly suggests that the next case we will get is somebody with life with parole after 50 years.",
       "time": "00:04:53.31"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Are you saying there is something in the Eighth Amendment that draws a distinction between 40 and 50 in that case?",
       "time": "00:05:26.46"
     },
@@ -229,25 +229,25 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is it a fact that--",
       "time": "00:06:13.94"
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm interested in -- in two different things and you can address them during the course of your argument. One is the assumption of the argument seems to be that there are in place parole -- throughout all the States -- parole systems which are effective, which are operating, and that they have the capacity to make accurate judgments about rehabilitation. What can I read -- what -- what studies do you have to -- that -- that comment on that? Secondly, unrelated, at some point I think you ought to talk about the procedural bar, which is something you go over very, very, very -- let's see -- that's Sullivan.",
       "time": "00:06:15.81"
     },
     {
       "turn": 34,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--That's the other case.",
       "time": "00:06:57.87"
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Pardon me. That's Sullivan, yes.",
       "time": "00:06:58.35"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But Florida has abolished parole, has it not, going forward?",
       "time": "00:07:51.87"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So eventually, if things are allowed to take their course, the Florida parole board will go out of business.",
       "time": "00:07:57.59"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What -- what would you do if there were a crime spree and there were different jurisdictions? One jurisdiction imposes for 35 years, the next jurisdiction for another 35 years, to be served consecutively.",
       "time": "00:08:22.37"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the second jurisdiction has the obligation, but not the first? Is that the way it works?",
       "time": "00:08:56.73"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So he -- he could sentence up to 1 year before the life expectancy of the -- of the person in prison? That -- that would be okay?",
       "time": "00:09:28.06"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what's he supposed to do? How many years can he give--",
       "time": "00:09:40.26"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--consecutive?",
       "time": "00:09:43.94"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There obviously does. What do you propose? I propose, you know, 1 year before his life expectancy.",
       "time": "00:09:46.09"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, 1 year before life is also unconstitutional?",
       "time": "00:10:01.94"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Two years before life?",
       "time": "00:10:07.01"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We have -- you are arguing for a categorical rule.",
       "time": "00:10:32.72"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your friend on the other side is arguing for a categorical rule, always permissible. But we have a precedent that suggests in -- in an individual case, you assess the proportionality of the sentence to the crime. Now, we know from Roper that death is different, and we know from Roper that juveniles are different. Wouldn't it make sense to incorporate the consideration of the juvenile status into the proportionality review? So that if you do have a case where it's the 17-year-old who is 1 week shy of his 18th birthday and it is the most grievous crime spree you can imagine, you can determine that in that case life without parole may not be disproportionate. But if it's -- and I know you would argue that these are the facts here -- if it's a less grievous crime and there is, for example, a younger defendant involved, then in that case maybe it is disproportionate. Why -- why doesn't that seem more sensitive? And it avoids all of the line-drawing problems we have been discussing.",
       "time": "00:10:37.37"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Oh, I understand. But I don't think they'll say that we can't make that determination at 17 years 51 months, but we can make that determination at 18 years 1 month.",
       "time": "00:12:00.01"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that is because, as they told us, death is different. And you do -- once you decide that, you do have to draw a line somewhere. I'm just wondering why we have to go all the way in with you or all the way with your opponent when our precedent allows us to consider an issue of this sort on a caseby -- case basis.",
       "time": "00:12:29.93"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any difference in the terms of incarceration making this harsher than otherwise? I think you suggested in -- in your brief that educational and vocational training is not given to people who are in for life without parole because they will never be out on the street so they don't need to be transitioned back.",
       "time": "00:13:14.12"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "My question is, first, you say that they are not available.",
       "time": "00:13:50.55"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is that -- that's so?",
       "time": "00:13:54.61"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So what are the terms of incarceration? They just stay in their cells and--",
       "time": "00:14:27.74"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think -- the same kind of freedom that people on death row have? I--",
       "time": "00:15:10.60"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Aren't they released into the general population for exercise, for -- which I don't think death row inmates are.",
       "time": "00:15:24.09"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I doubt whether this varies. I -- I don't know of any principle where if you are in for life, you are in solitary.",
       "time": "00:15:35.90"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And why isn't the -- the most sensible way to deal with the problem that you are raising, the one that the Chief Justice suggested, to permit as-applied proportionality challenges that take into account the particular circumstances of the juvenile in question, rather than this per se rule that you are advocating, which would deprive the State of Florida from reaching the judgment that there are some -- there are some juveniles, some individuals who are short of their 18th birthday, who cannot -- who deserve imprisonment in -- life imprisonment without parole? Some of the actual cases that -- in which this sentence has been imposed in Florida involve factual situations that are so horrible that I couldn't have imagined them if I hadn't actually seen them. Raping an 8-year-old girl and burying her alive. Are you familiar with that case?",
       "time": "00:15:59.93"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Raping a woman in front of her 12-year-old son and then forcing the son to engage in sexual conduct with the mother. Are you familiar with that case?",
       "time": "00:16:58.57"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You assume -- doesn't your argument assume that the only purpose of punishment is deterrence in the sense of protecting society from this person in the future, so that, you know, once that's no longer a problem, we should let this person out. But that isn't the only purpose of punishment that we've acknowledged. One of the purposes is retribution, punishment for just perfectly horrible actions. And I don't know why that value of retribution diminishes to the point of zero when it's a person who's, you know, 17 years 9 months old.",
       "time": "00:17:59.42"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Most States didn't -- don't think so, or many States don't think so.",
       "time": "00:18:56.32"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gowdy, can I ask this question?",
       "time": "00:19:37.80"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If your client in this case had been processed in the juvenile system instead of the adult system, what would the maximum penalty he could have received been?",
       "time": "00:19:39.34"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the choice is between that short a term and an indefinite term?",
       "time": "00:19:51.99"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The logic in Roper was very straightforward. It says, \"Death is reserved for the worst of the worst. \" I think that was the quote. We know that juveniles are not the worst of the worst, for the reasons you have articulated, that they are not fully developed, don't have moral sense to the same extent as an adult. But life without parole is not reserved for the worst of the worst, and so it seems to me that the logic of our precedent suggests that you can't necessarily rely on the juvenile status to exempt them from a penalty that is not reserved for the worst of the worst, but perhaps it makes sense to consider in a particular instance whether the penalty is disproportionate, given the juvenile's characteristics that you suggest.",
       "time": "00:20:25.31"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Is there -- is there disproportionality review generally in Florida and particularly for juvenile offenders?",
       "time": "00:21:28.02"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, there wasn't prior to our death penalty jurisprudence, either. And I thought we reviewed proportionality as a matter of Federal law in the Solem case.",
       "time": "00:21:48.86"
     },
@@ -631,13 +631,13 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:22:04.81"
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Right.",
       "time": "00:22:05.39"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, so did I, but we are talking about constitutionality under the Eighth Amendment--",
       "time": "00:22:06.54"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--which is Federal law.",
       "time": "00:22:10.31"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, that's what I meant, whether you'd have to create a -- a procedure that does not exist in Florida for proportionality review.",
       "time": "00:22:24.36"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, sure, but you can make that claim in Florida courts, can't you?",
       "time": "00:22:42.73"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can't you argue in Florida courts that this sentence is disproportionate and violates the Eighth Amendment, whereupon the Florida courts would have to decide? Wouldn't they have to decide that question?",
       "time": "00:22:47.03"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there is a problem with that argument in this case, because the sentencing judge made it quite plain that he was treating Graham as a recidivist, not as a first-time offender. He said -- Graham got a very light sentence, just 12 months in detention and then 3 years' probation, and the judge said: Now, you better toe the line or else you could be put away for a long time. And then he committed -- it really was -- the sentence was for the later activities, even though they weren't proved beyond a reasonable doubt. I think that Graham admitted to a couple of -- to more armed robberies. Isn't that so?",
       "time": "00:23:19.02"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you haven't answered Justice Alito's point, which is: What's the difference a month before he's 18 and a month after? What makes us more capable at the 18th birthday to--",
       "time": "00:24:54.38"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--to affirm a judgment that someone can't be -- can't be -- can't be rehabilitated?",
       "time": "00:25:06.89"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well--",
       "time": "00:25:26.48"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A line has to be drawn somewhere only if we accept your approach that there has to be a categorical exemption. A line does not have to be drawn somewhere if you adopt the approach of, case by case, decide whether this is proportional, given how old the individual was, given the nature of the crimes, and all of the other factors. You don't have to draw a line then, and that's the attraction of that approach.",
       "time": "00:25:27.85"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Gowdy. Mr. Makar.",
       "time": "00:26:10.01"
     },
@@ -781,13 +781,13 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did that--",
       "time": "00:26:40.57"
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I didn't -- I didn't hear the second.",
       "time": "00:26:41.08"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but you are arguing for a categorical rule of your own. You are saying that under a -- under -- juveniles under the age of 18, what, it's never -- it can be never determinative that they are juvenile in setting the sentence as a matter of Federal law?",
       "time": "00:27:38.74"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this: Is there a minimum age when a juvenile can be transferred to -- to adult procedures?",
       "time": "00:28:22.19"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm just interested in one. Is there a minimum?",
       "time": "00:28:33.23"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that an arbitrary line, or how do you -- how do we know it shouldn't be higher or lower than the line?",
       "time": "00:28:36.92"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But then the -- what is your objection to an approach that when you are dealing with life without parole, for the reasons that your brother has articulated, you must as a matter of Federal law consider the juvenile status of the defendant before that sentence is imposed?",
       "time": "00:29:01.77"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In other words, not a -- not a categorical rule that it automatically makes a difference, but not a categorical rule that it can never make a difference?",
       "time": "00:29:22.87"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but could I interrupt with one question? Isn't it correct that the age is relevant on whether or not to transfer the person to the adult system, but once he's in the adult system, age is entirely immaterial?",
       "time": "00:30:06.89"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I still don't understand. Just to make sure I get the point correct: After the decision has been made to have them prosecuted in the adult system, at that -- after that decision has been made, is the age of the defendant a relevant factor in sentencing?",
       "time": "00:31:08.83"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand, but statutorily? As a matter--",
       "time": "00:31:29.11"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--The answer is no. It's -- under the statutes, it's totally irrelevant after he has been transferred to the adult stage. Is that correct?",
       "time": "00:31:34.53"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You mean the trial judge under Florida law does not have discretion to choose a lower sentence because of the -- of tender years of the defendant?",
       "time": "00:31:59.09"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the statute doesn't draw any distinctions once he is in -- in the adult--",
       "time": "00:32:12.50"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And -- and there's -- well, I guess that answers my question. He is not required to as a matter of Federal law. He can say: I am not considering the fact that this is a juvenile because I think his crime should be treated as an adult crime.",
       "time": "00:32:22.76"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's what we are arguing about.",
       "time": "00:32:42.27"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--That's -- that's one of the problems, is the individual sentencing judge might think that Graham is a very bad individual, but the prosecutor had a different judgment of it. And Florida doesn't have any kind of proportionality review, doesn't have any review -- appellate review of the sentences.",
       "time": "00:33:01.23"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This judge, I think, surprised everyone in the courtroom with the -- with the sentence. Certainly it was far beyond what the prosecutor recommended.",
       "time": "00:33:29.48"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel--",
       "time": "00:34:17.96"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Do you think that it categorically violates the Eighth Amendment for a 10-year-old to be sentenced to life without parole?",
       "time": "00:34:19.33"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So once it matters, the question for me is -- help me draw the line -- if 10 is in my judgment too early, why isn't 14, 16, or 18? Meaning why should a -- someone below the age of 14 be sentenced to life without parole? That's the -- that's the Sullivan case--",
       "time": "00:34:36.68"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--but it begs the question, which is age is -- matters a lot. And so, take on your adversary's argument that it matters a lot because this is a less culpable person.",
       "time": "00:35:02.41"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about historical perspective? I mean, you might appeal to the fact that at common law, which was in effect when the Cruel and Unusual Punishments Clause was adopted, 12 years was -- was viewed as the year when a -- when a person reaches the age of reason. And -- and the death penalty could not be inflicted on anyone--",
       "time": "00:35:20.12"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and all felonies were the death penalty.",
       "time": "00:35:43.30"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You have no one? What was your answer?",
       "time": "00:36:06.83"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is that because judges haven't chosen to impose it or because your legal system doesn't permit it?",
       "time": "00:36:14.09"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How young could the youngest person in Florida be to be prosecuted as an adult and be eligible for life--",
       "time": "00:36:22.36"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--without parole?",
       "time": "00:36:29.38"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So a 5-year-old could be put away for life?",
       "time": "00:36:34.60"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In -- in your earlier response to Justice Sotomayor's question, you said age certainly matters. As -- as a -- as a matter of what law? In other words, I understood your submission to be that there was nothing in Federal law that requires different consideration of age. So when you say age matters, why?",
       "time": "00:36:42.14"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Under the authority of what law? Age matters in a particular case because of--",
       "time": "00:37:10.43"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Because of the Eighth Amendment?",
       "time": "00:37:20.36"
     },
@@ -1159,13 +1159,13 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. Why is that? If you go down on a case-by-case basis, there are no line-drawing problems. You just simply say age has to be considered as a matter of the Eighth Amendment.",
       "time": "00:37:49.25"
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And then we apply a totality of the circumstances test--",
       "time": "00:38:01.79"
     },
@@ -1177,13 +1177,13 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--which means whatever seems -- seems like a good idea.",
       "time": "00:38:07.73"
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, we apply the proportionality review that we articulated in Harmelin, and Solem and Ewing.",
       "time": "00:38:09.81"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's already there.",
       "time": "00:38:18.03"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You are not seriously suggesting that the crimes at issue here are comparable to a rape or a permanent infliction of serious disability or any of those other very violent crimes that are close to homicide that Justice Alito spoke about? There is a quantitative and qualitative difference between those, isn't there?",
       "time": "00:38:34.06"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, if we -- if we have already said that you can't impose death on an adult who hasn't committed a homicide, an intentional death, and so for an adult the most serious sentence that we can give them is life without parole, why should that same sentence be given to a juvenile who we have recognized as being less capable than an adult? And why should we permit it for a crime that's not comparable to a homicide and/or something akin in seriousness to that?",
       "time": "00:38:58.33"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But isn't it true -- and I think one of my colleagues already questioned you -- that the prosecutor didn't think that this merited life without parole. Didn't the parole supervisor say that this young man, Mr. Graham, was compliant with other conditions of his probation? He went to school. He did other things. It does suggest some hope for him.",
       "time": "00:39:47.66"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we know why the co-perpetrators got so -- their sentences were dramatically lower. Do we know why that was so?",
       "time": "00:40:35.57"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:40:49.47"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:40:53.28"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Because he assisted the prosecutor.",
       "time": "00:41:02.22"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I didn't think he--",
       "time": "00:41:16.73"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--For this very offense, this home invasion, I didn't think that anyone other than Graham had gotten life without parole.",
       "time": "00:41:18.07"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did he -- how do you answer the argument that unlike an adult, because of the immaturity, you can't really judge a person -- judge a teenager at the point of sentencing? That it's only after a period of time has gone by, and you see, has this person overcome those youthful disabilities? That's why a proportionality review on the spot doesn't accommodate the -- what is the driving force of the -- your -- the Petitioner's argument is that you can't make a judgment until years later to see how that person has -- has done.",
       "time": "00:41:59.08"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose you could say the same thing of -- of adults, of somebody over 18. You really can't tell how redeemable this individual is until he is in prison for some time; and, therefore, you should not give anybody life without parole. They -- they may all be savable. So we should defer -- defer. We shouldn't have any non-parole sentences. Everybody should be evaluated, which was indeed the approach that -- that many jurisdictions used to take. Wasn't that so--",
       "time": "00:43:14.84"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--when there was parole for everybody?",
       "time": "00:43:48.91"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Florida does -- and every State -- recognize the difference between an adult and a minor. And you have to make the line. We have it at 18. But think of the teenager can't drink, can't drive, can't marry. There are so many limitations on children just because they are children.",
       "time": "00:43:55.41"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they don't make it on a case-by-case basis. They say no juvenile can drink -- no juvenile.",
       "time": "00:44:40.28"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we look just at deterrence, my initial instinct is that the difference in life and life without -- life with parole and life without parole is just not a factor in deterrence. I -- I don't know how I'd confirm that one way or the other, but let's -- let's assume that there is some basis for that intuition. Then, insofar as the deterrence prong is concerned, since it's not a deterrent, and if you assume that there is rehabilitation, what is the State's interest in keeping the accused, the -- the defendant in custody for the rest of his life if he has been rehabilitated and is no longer a real danger? What's the State's interest?",
       "time": "00:46:11.45"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you could say retribution, but then you have judges on a case-by-case basis deciding when there should be retribution.",
       "time": "00:47:02.74"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it seems to me the deterrence interest is quite minimal if you assume rehabilitation or strong evidence of rehabilitation.",
       "time": "00:47:31.49"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought the question is: Will the difference between life with parole and life without parole deter anybody? I mean any -- that -- that's what we are talking about. And I don't think you really were urging that that difference will deter the teenager so he might think, oh, if I commit this violent crime, then I will have life without parole.",
       "time": "00:47:46.83"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I guess there's also no empiricism on whether the committed juvenile feels a lot better knowing that he will get out when he is 75 years old than he would feel knowing that he was there for life.",
       "time": "00:48:26.64"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we have empirical studies about how much that improves the spirits of the committed juvenile?",
       "time": "00:48:41.05"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask this question? There are an awful lot of amicus briefs in this case, and I haven't been able to read them all by any means. Do any of the briefs or any of the materials with which you are familiar discuss the rate of -- the difference between the danger of recidivism of a young offender and one who is, say, 40 or 50 years old?",
       "time": "00:49:02.48"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me sort of -- as a matter of intuition, Justice Kennedy made the same sort of point. It seems to me that the older people are less likely to be recidivists than the younger ones, but is -- is there any empirical evidence that says that's an incorrect or correct judgment?",
       "time": "00:49:26.09"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, along those lines -- and, again, maybe this was in the amicus briefs. Do you have a study about what age cohort is responsible for most violent crime?",
       "time": "00:50:06.40"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we are not sure that those 70-year sentences are any good, either, because your -- your friend on the other side, you know, is not willing to -- to pick a number at which the sentence amounts to life without parole. Maybe a 70-year sentence does.",
       "time": "00:51:22.39"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that there was a parole system still functioning, so -- although it will be phased out over time, but for people who were incarcerated under the old regime -- and I think the suggestion was that that system would take care of the handful of people, not more than that, that this decision would involve.",
       "time": "00:51:59.23"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you tell us just a little bit about the Florida correctional systems, the policies with respect to rehabilitation programs? If they don't have parole, then you might say, well, they don't need rehabilitation programs or that they might need them more. Had the rehabilitation programs been increased or decreased since the phasing out of parole? Or is it about the same? Or are they -- are they non-existent?",
       "time": "00:52:35.98"
     },
@@ -1519,13 +1519,13 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Makar. Mr. Gowdy, you have 4 minutes remaining.",
       "time": "00:53:49.80"
     },
     {
       "turn": 248,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why does a juvenile have a constitutional right to hope, but an adult does not?",
       "time": "00:53:55.43"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But do you know anybody who is willing to say that, as a categorical matter, that -- you know, the 18th birthday is the magical date for every single person?",
       "time": "00:54:23.87"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Because the Court, up to this point, has said that death is different, and the rules -- the Eighth Amendment rules in capital cases are entirely different from the Eighth Amendment rules in -- in all other cases.",
       "time": "00:54:38.09"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we -- you know, if we abandon that, then one of two things has to happen, either the rules for noncapital cases have to change dramatically, or the rules for capital cases have to change dramatically, unless death is different, in fact.",
       "time": "00:54:50.52"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I know you are not asking for that, but that -- isn't that where this, logically, is going? If death is not different, then there should be uniform rules across the board.",
       "time": "00:55:14.55"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Why does it say that? Why doesn't it just say that, in this particular case, what this individual has done is so bad that, even if this person can be rehabilitated and would not present a danger to -- to society at age 60 or 70, that this person is -- should be sentenced to life without parole? That's -- that's what it means for an adult offender.",
       "time": "00:55:59.42"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "One reason States--",
       "time": "00:56:52.88"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--One reason States and the Federal government moved to abolish parole in -- in recent decades was, with depressing regularity, prisoners released on parole committed crimes again. And I'm just -- is there any empirical evidence that tells us how often people, say, from 17 -- 17-year-olds, when released, commit crimes again, as opposed to 18 to 20-year-olds?",
       "time": "00:56:55.50"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But isn't that -- I remember some of those studies that -- I mean, the cutoff, there's sort of a magic age at some point, where people over the age of 35, or whatever, typically don't engage in violent activity.",
       "time": "00:57:34.38"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:03.81"
     }

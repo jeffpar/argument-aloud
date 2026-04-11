@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-196/19840227a_83-196.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "A. RAYMOND RANDOLPH, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace, you may proceed when you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, don't you think the district court meant that Congress had exceeded its powers unless it wanted to pay compensation?",
       "time": "00:04:37.78"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wallace, before 1978 the law was clear, was it not, that none of the information supplied by a registrant would be released to anyone else?",
       "time": "00:06:36.19"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:06:56.85"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It would just be used by EPA.",
       "time": "00:06:58.90"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, right. Now, why should information of that kind, which was disclosed before 1978, not continue to be protected?",
       "time": "00:07:02.67"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you take the position that it isn't even property?",
       "time": "00:07:27.95"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, certainly the district court thought that the law, the state law in Missouri created a property interest.",
       "time": "00:08:34.50"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if the district court is right about what the Missouri state law is, why wouldn't we accept that and say, yes, it is property?",
       "time": "00:09:09.52"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wallace, would a copyright be property, or patents?",
       "time": "00:09:38.17"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You address a distinction between them?",
       "time": "00:09:48.40"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, you speak of the law of trade secrets as though perhaps there was one fount for that kind of law. Isn't the law of trade secrets derived from the law of the 50 states on the subject?",
       "time": "00:12:31.67"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I mean, I think there's perhaps a little more implied in this question. You say that the question of whether something is property for the takings clause purpose is a matter of federal law and not state law. But can you recall any case involving the takings clause where this Court has said, even though something was deemed property under the state law, we deem it not to be property?",
       "time": "00:12:55.95"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Just a minute. If you start out as an initial matter by saying that before you can market corn products under the laws of this state you must disclose what is in it, that's quite a different question from saying after 15 years that, although you disclosed it, we won't let anybody know, to say that as of now we're going to start letting everybody know what we earlier said we wouldn't let anybody know.",
       "time": "00:14:13.30"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think it has a market value, that someone can sell a trade secret and that it has economic value?",
       "time": "00:15:12.16"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me suggest a possible analogy, hypothetical, but it's been in the Courts of Appeals. There's a federal statute that provides that if a record is copyrighted and goes on the market you or I or anyone else may make copies of that and sell them simply by writing a letter to the copyright owner saying, I am copying your record, and then you pay a statutory royalty. Now, that's been upheld at least at the Court of Appeals level. How do you distinguish the trade secrets in this context from that compulsory copyrighting system?",
       "time": "00:16:05.96"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but it puts a price on it.",
       "time": "00:17:21.52"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, a price for using, a price for using the original work.",
       "time": "00:17:29.28"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, you're talking again as if there were some uniform body of law on trade secrets. Am I wrong in thinking that you answered my earlier question that the law of trade secrets depends on the law of the 50 states?",
       "time": "00:18:18.96"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do we ordinarily review that sort of a claim?",
       "time": "00:18:44.86"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Wallace, let's just suppose that the Court were to disagree on whether we are bound by the determination of state law and were to find that the trade secrets in this instance constituted property under the taking clause. Then is there a difference in the pre-1978 data because at that point there was no expectation at all that it would be released to the public?",
       "time": "00:19:22.22"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but those standards provided before 1978 that they would be maintained secret.",
       "time": "00:20:31.46"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You know, it's just hard to understand why the company wouldn't have had a legitimate expectation of privacy or maintenance of secret information before 1978.",
       "time": "00:21:06.12"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you... I'm sorry. Did you finish your answer?",
       "time": "00:21:23.15"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wallace, I don't exactly understand how the compensation provision would operate. If information revealed to the public is then conveyed by the public generally, through say a trade journal survey, you end up with ten competing companies--",
       "time": "00:23:38.69"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Not because the Constitution requires it, because the statute does.",
       "time": "00:24:35.36"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there a parallel here with the mandatory licensing that I spoke of?",
       "time": "00:25:16.10"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you could equally well argue that the claims in cases like Kaiser-Aetna should have been equal protection claims. The person who owned the property resented having to share his property with nine other people who hadn't paid for it.",
       "time": "00:26:38.30"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, let me ask you one question. As I read the statute, its primary provisions really are a rule of nondisclosure of trade secrets, but then there are a couple of exceptions, one of which is where public health demands it, and so forth and so on. As I also understand, there are relatively few applications. There are not thousands and thousands of these things. How often has the issue actually arisen where you have disclosed something publicly that Monsanto has objected to?",
       "time": "00:27:20.66"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that.",
       "time": "00:27:54.82"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But has there been any specific litigation over specific disclosures--",
       "time": "00:27:56.59"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--or proposed disclosures?",
       "time": "00:28:01.17"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Randolph.",
       "time": "00:28:52.42"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Randolph, given all the complexities, it would be helpful to me if you'd tell me, give me a specific example of something that's been taken, or when the taking occurs in your understanding.",
       "time": "00:30:06.89"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, assume there were no injunction. When would the first taking have occurred? Was it on the enactment of the statute, the disclosure? What is your view?",
       "time": "00:30:23.00"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, taking specifically the example that Mr. Wallace gave us just a minute age. Was that a taking in your view when they disclosed the inert ingredient in the vinyl chloride?",
       "time": "00:30:46.60"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If they had objected, would it have been a taking? That would be Section 10(b) of the Act.",
       "time": "00:30:58.77"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Assuming it was a trade secret.",
       "time": "00:31:07.80"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "For the reasons that he gave, yes.",
       "time": "00:31:12.60"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That would have been a taking?",
       "time": "00:31:14.63"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And would there have been a Tucker Act remedy if that were the case?",
       "time": "00:31:18.04"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, no, no. I'm talking under the statute that the district court has enjoined, the disclosure provision in Section 10(d).",
       "time": "00:31:29.38"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "My question--",
       "time": "00:31:59.54"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Back to three. When does the taking occur?",
       "time": "00:32:04.01"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask just one other question. In your view does the taking occur when there's no disclosure but another competitor is permitted to cite some of your test data?",
       "time": "00:32:29.83"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you've got two takings: one, when someone else uses without disclosure; and two, when there's a disclosure.",
       "time": "00:32:43.07"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Tell me, Mr. Randolph, are you arguing that the pre-1978 submissions are taken under the 1978 amendments and also the post data submissions?",
       "time": "00:33:57.04"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does that bear on the taking issue?",
       "time": "00:37:56.81"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you one more question if I may. You said earlier that you didn't distinguish at all between the pre-1978 information files and the post... 1978. I would think that the Corn Products case which the Solicitor General relies on would give you some trouble if you don't make any such distinction.",
       "time": "00:38:34.85"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I wonder if you would address the question I asked you a moment ago, and that is... perhaps I should rephrase it. How do you distinguish the Corn Products case as to the post-1978 situation, when you're on notice that anything that you file in order to assist the EPA to evaluate anything is subject to disclosure?",
       "time": "00:39:15.49"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Justice Pitney's opinion states the contention of the parties that the requirement that they publish the ingredients on the labels amounted to a taking of their property.",
       "time": "00:40:18.55"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but the Principle is a lot closer than that, I think. What if the Federal Government just passed a simple statute, a labeling statute: You can't sell economic poisons, as they used to call them, without disclosing their ingredients. And if one of the ingredients is an inert thing that would previously be a trade secret, you'd say that would be unconstitutional?",
       "time": "00:41:27.76"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without having a label on it that discloses all its ingredients, even though some of them may be trade secrets as a matter of Missouri law.",
       "time": "00:41:52.16"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but Mr. Randolph, the last sentence says the reason is to protect against an unreasonable risk of injury to health or the environment. It's the same sort of public interest.",
       "time": "00:42:21.07"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, and that's the only disclosure.",
       "time": "00:42:31.12"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, but this is the only kind of material that may be disclosed.",
       "time": "00:42:41.16"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Randolph, do you think the Government or the Congress could condition registration on the applicant's waiver of confidentiality?",
       "time": "00:42:45.29"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why?",
       "time": "00:42:54.57"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the EPA provided that for every application to use a pesticide there shall be a filing fee of $25,000?",
       "time": "00:43:43.40"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, why can't it require the sacrifice of other kinds of property as a condition for filing the thing, so long as it isn't just way out of sight?",
       "time": "00:43:54.54"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Monsanto is getting federal registration for a product. Now, I suppose it could just decide that it isn't worth it, I'd rather not register it and sell it in the United States, I'll stick to the foreign market or something. Having made the decision that you want federal registration, why can't the Federal Government, prospectively at least, say to get the registration you have to disclose this information?",
       "time": "00:44:17.97"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but you give up property if you pay a fee. It's just no different.",
       "time": "00:44:59.55"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you think in a zoning case that a city can say, sure, we'll let you build a new high rise apartment provided you dedicate a street?",
       "time": "00:45:31.51"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of course, this Court held that some entity in New York could take away a valuable right worth millions and millions of dollars from the Penn Central Railroad because it alone among a very few buildings could not build a high rise building over the site of the old depot. Is that a taking that was any less offensive than the present one?",
       "time": "00:47:05.86"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, I know.",
       "time": "00:47:37.16"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you any better off than Penn Central? That's my question.",
       "time": "00:47:38.95"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you a hypothetical. What if you have an inventor who has spent 20 years trying to develop an invention and he's on the verge of being in a position to seek a patent and the Government decides to change the patent law and not grant patents for that kind of thing any more? Does he have a claim for a taking?",
       "time": "00:49:46.74"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why aren't you in substantially the same position after 1978?",
       "time": "00:50:14.63"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess it's in a position of either giving a registration or not.",
       "time": "00:50:42.31"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the Government does make an argument here that this is not property. And I think you would agree, would you not, that it's a good deal more ephemeral kind of property than the real property in your example of the town parking lot?",
       "time": "00:52:08.17"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your colleague has it for you, Mr. Randolph.",
       "time": "00:54:20.59"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What page were you--",
       "time": "00:54:47.92"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace.",
       "time": "00:56:37.86"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Like singling out Penn Central for special treatment?",
       "time": "00:57:03.18"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I have a question. Suppose this material that was filed by Monsanto contained the formula, the development of something which they discovered by accident, which very often is the case, and they point out that its only utility is that it will, if it's sprayed on grapes, grape vines, it will destroy them. And contingency planners in the Pentagon say, well, we better have a contingency plan in case we get into a war with France, which isn't very likely, but let's have contingency plan where we can destroy their economy by spraying the stuff, and so we want this formula. Do they have to pay for it?",
       "time": "00:59:34.47"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you think this was a trade secret, this hypothetical I mentioned?",
       "time": "01:00:50.54"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you, gentlemen. The case is submitted.",
       "time": "01:01:09.44"
     }

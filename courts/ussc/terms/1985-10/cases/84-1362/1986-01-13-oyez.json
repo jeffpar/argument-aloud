@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1362/19860113a_84-1362.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "KIRK J. EMGE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "D. MICHAEL STROUD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JACK D. SMITH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Emge, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Emge, with respect to the case that was just argued before your case, will your case be a live case in the event that the Court of Appeals' judgment were, in the earlier case, was reversed and in the case that it was affirmed?",
       "time": "00:02:06.42"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that would make some sense if... perhaps more sense if it were an argument advanced by the FCC. But here the FCC is supporting your opponents, are they not?",
       "time": "00:12:57.90"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, insofar as the proceeding is against the commission itself... and I gather the individual commissioners are sued as well... do you make any Eleventh Amendment argument?",
       "time": "00:14:40.74"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Stroud.",
       "time": "00:18:33.89"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Were they sued in their individual capacities?",
       "time": "00:21:22.70"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But were they? Weren't they sued in their official capacities as members of the commission?",
       "time": "00:21:26.46"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I'm not asking that. I'm asking, if they're not sued in their individual capacity, but merely in their official capacities, legally that's the same thing as suing the commission, isn't it?",
       "time": "00:21:38.24"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, for Eleventh Amendment purposes I agree it's different.",
       "time": "00:21:53.30"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "For statutory construction purposes, wouldn't you normally... you couldn't get damages against these people individually, could you?",
       "time": "00:21:55.65"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, my questions really are not intended to raise the Eleventh Amendment problem, but the statutory definition that you referred to of \"person\" does not include official commissions as an example of a commission, and there is a separate... I mean of a person. And there is a separate statutory definition of the term \"state commission\", isn't there?",
       "time": "00:22:26.32"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about your opponents' contention that if the argument requires a great deal of tailoring, or the order requires a great deal of tailoring or work by the federal court, perhaps it ought not be enforced by private parties?",
       "time": "00:34:56.12"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, in this case we have kind of a frontal assault on the FCC's order to the Maryland commission. Supposing that the utility just complained about the application of the order to one set of accounts, say they didn't like the way they depreciated... the commission required depreciation of the telephone poles in Anne Arundel County, but everything else was all right. Could you bring a federal lawsuit to review the validity of that kind of a rule?",
       "time": "00:36:01.33"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I mean it actually would me a Maryland commission would enter an order on some kind of a depreciation schedule, and then the utility would say, well, that really doesn't comply with in all respects with the preemption order, the depreciation order of the commission, the FCC. Could you get federal review of every one of those claimed violations, claimed departures from the federal rule?",
       "time": "00:36:33.14"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I mean in a federal court, under 401. Or do you have to have a wholesale assault on the order, as you have in this case?",
       "time": "00:37:00.04"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As opposed to just one application. To what extent are we opening up the federal courts to review of particular applications of depreciation rulings by state commissions, is what I'm asking.",
       "time": "00:37:09.32"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, no, I'm assuming a case in which the commission says, we're trying to obey it, but we think it means something else than you. You can have fights over--",
       "time": "00:37:43.24"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--It's in good faith, it's just wrong, under your view.",
       "time": "00:38:09.75"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think you could go to district court? That's my question.",
       "time": "00:38:16.95"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do.",
       "time": "00:38:26.19"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:38:30.00"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the district court have the jurisdiction to entertain a claim that it's just plain wrong?",
       "time": "00:38:34.19"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think it does?",
       "time": "00:38:40.48"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Smith.",
       "time": "00:39:25.90"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, then, Mr. Smith, if the order had had the label \"rule\" on it instead of being called an order, and then the preemption order had been called an interpretation or something, the same argument would apply?",
       "time": "00:44:31.83"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The fact that it's called an order doesn't really make any difference?",
       "time": "00:44:44.91"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would you say, Mr. Smith, to the question I asked Mr. Stroud? Supposing there was a fight about the meaning of the order in a particular application. Would there be district court jurisdiction?",
       "time": "00:47:53.48"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not interested in what you'd hope. What do you think, would there be jurisdiction or not?",
       "time": "00:48:10.53"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you found what... well, supposing that the private party goes directly to the federal court without asking you.",
       "time": "00:48:20.31"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The jurisdiction doesn't depend on what you find, does it?",
       "time": "00:48:27.14"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or there's a dispute between one side and the commission.",
       "time": "00:48:34.54"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your answer is there would be federal jurisdiction?",
       "time": "00:48:46.33"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And does the FCC have declaratory... does it issue declaratory orders? Could there be a filing with the FCC and you could issue a declaratory order as to what your prior order meant?",
       "time": "00:48:49.36"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Emge?",
       "time": "00:49:17.41"
     },
@@ -447,13 +451,13 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:54:07.16"
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at 10 o'clock.",
       "time": "00:54:10.05"
     }

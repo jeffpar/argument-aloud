@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1990/90-906/19910416a_90-906.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID L. SHAPIRO",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM T. COLEMAN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PATTI A. GOLDMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in No. 90-906, Metropolitan Washington Airports Authority v. Citizens for the Abatement of Aircraft Noise. Mr. Shapiro.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Shapiro, by the same logic I suppose you would be... you're defending an effort by Congress to structure some kind of board of review with effective veto power, as this board has, over, for instance, the Federal funding of aid to the States for transportation or health services or welfare benefits, or anything else that the Federal Government provides money for. I mean, that would be your theory, and it would be a means by which the Congress could in effect have a veto exercised by members of its appropriate committees.",
       "time": "00:03:49.44"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Congress certainly had a gun pointed at the heads of Virginia and the District of Columbia, which wanted to establish an airport authority, and Congress said fine, you can do it but you're going to give us the veto in effect.",
       "time": "00:04:48.30"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why does it just pose it, Mr. Shapiro? If you say that there is no Federal power being exercised here, isn't that an end of the separation of powers problem?",
       "time": "00:05:35.09"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but there... which is to say that there is Federal power being exercised. But you are contending that there is no Federal power being exercised. And if there is no Federal power being exercised, that's the end of the thing, isn't it?",
       "time": "00:06:11.98"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you say there is Federal power being exercised in the form of a condition.",
       "time": "00:06:38.06"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh. Well, I thought you were saying there was no Federal power being exercised.",
       "time": "00:06:42.13"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, nobody contests that the statute that Congress passed is an exercise of Federal power. Is that all you're saying? That's the only Federal power, the statute?",
       "time": "00:07:06.23"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, Congress certainly had the power to pass the statute.",
       "time": "00:07:16.58"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then that's the end of the case. The Federal power involved... the only Federal power involved, you tell us, was the statute. Congress certainly had authority to pass that. There is no Federal power involved in the exercise by the board. What is left?",
       "time": "00:07:20.10"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it's not... that would be a valid argument if they were using the condition in order, unconstitutionally, to exercise Federal power. But you're telling me that at the end of the rainbow there is no unconstitutional exercise of Federal power. So therefore it can't be an unconstitutional condition because there is nothing unconstitutional about it. Congress passed a statute, which it can do, and this board is not exercising Federal power. Where is the unconstitutionality?",
       "time": "00:07:50.31"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just to finish up your response to Justice O'Connor, do I understand that the Government's only problem, the executive branch's only problem with this statute is a federalism problem, not a separation of powers problem? It's just the unconstitutional condition because it impinges on the States. Is that the only problem the executive branch has with this?",
       "time": "00:09:24.46"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Shapiro-- --Does the Government take a position as to whether the Members of Congress who are appointed to this... these State, or State boards, or this board set up by the States, whether their term on the board survives their term on the committee in question?",
       "time": "00:10:21.97"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose if you interpreted the Constitution that way, a senator who has to be a citizen to be elected, should he abandon his American citizenship during his 6-year term, could continue to serve, because it's only a qualification for taking the office and not for continuing in it?",
       "time": "00:11:33.50"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Mr. Shapiro, even on that assumption, does that really answer the issue that Justice O'Connor raised? And that is, let's assume there may be incidents in which individuals may continue to serve though they don't remain Members of Congress or of the committees. There's still a problem to be answered, and that is that, as you put it, there is a, appears to be a de facto exercise of Federal power over... in this case over the actions of a non-Federal board of directors. Congress is still de facto being allowed to exercise power, isn't it?",
       "time": "00:12:00.61"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but with respect to the authority that they exercise in their approval or disapproval power over the actions of the board.",
       "time": "00:12:44.80"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And I took it that was one of the concerns in her question--",
       "time": "00:13:14.18"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--as to whether a similar structure could be erected--",
       "time": "00:13:16.49"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--in relation to welfare money to the States, highway money to the States, and so on. What is your answer to that?",
       "time": "00:13:18.61"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Shapiro, are they representatives of all users or of users who have free parking spaces? [Laughter]",
       "time": "00:13:53.82"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think they are typical users?",
       "time": "00:14:03.41"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not to other users.",
       "time": "00:14:13.43"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Shapiro. Mr. Coleman, we'll hear now from you.",
       "time": "00:14:35.12"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Coleman, isn't the reality, though, that the members of the board are required to be Members of Congress, or at least a certain number of them, and they have to be members of a certain committee of Congress? And it's arguable that when they cease to be they must be removed. Now, if that is the case, is there not an exercise of Federal power on a continuing basis?",
       "time": "00:16:12.84"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Um-hum.",
       "time": "00:16:51.23"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Coleman, as I understand your position, the phrase that these people shall act in their personal capacity cleanses it all. I think you would maintain that even if it were provided that this board would consist of both Houses of Congress, the Members of both Houses of Congress acting in their personal capacity, it would still be okay, wouldn't it?",
       "time": "00:17:36.36"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would make it a different case. It wouldn't be harder for you, because they would still be acting in their personal capacity.",
       "time": "00:18:06.07"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No-- [Laughter]",
       "time": "00:18:11.97"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Coleman, in your research of, among the doings of the founders, that it is clear that people could hold both Federal and State office, but is there anyone who said that you could hold State office or be nominated to State office by virtue of your Federal office? That is ex officio that a State can provide the Speaker of the House shall be our Governor, or the Speaker of the House shall be our--",
       "time": "00:20:05.41"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I know it isn't, but this is a case where it is not just Federal officials who happen to run for State office or get appointed separately for, independently of their being Federal officials. They acquire this State office only ex officio, only because they are Federal officials. Now, is there anything in the sayings of the founders about that?",
       "time": "00:20:36.58"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you're not blaming me for that, Mr. Coleman. [Laughter]",
       "time": "00:21:25.32"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But of course there was no question in that case that they were exercising Federal power. We didn't have to reach that question. Here the question is whether or not the congressmen, because they are appointed as congressmen, are not exercising Federal power. Suppose on this board five, six of the board were Members of Congress. No difference to your case?",
       "time": "00:21:33.89"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but as a practical matter a Congressman's powers during the time he is in office as a Congressman, his committee assignments, his perks, are all controlled by the Speaker. And it seems to me very, very clear that a Congressman who serves on the board can have his actions de facto reviewed by Federal authorities, particularly legislative officials.",
       "time": "00:22:18.72"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But, Mr. Coleman, all of our separation of powers jurisprudence looks to the practical effect of the constraints and the compulsions and the authority that a Federal agency has over its own officials, and in this case the Federal entity is the Congress.",
       "time": "00:22:58.17"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But this Courts sits to protect the executive against its own improvidence from time to time. [Laughter]",
       "time": "00:23:53.09"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but in the legislative veto cases the executive from time to time has taken the position that veto was all right, I think, had he not?",
       "time": "00:24:16.94"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In the one that was argued here.",
       "time": "00:24:23.60"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:24:27.44"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:24:28.41"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It just shows the executive's views on these issues can change in different administrations.",
       "time": "00:24:30.88"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Coleman. Ms. Goldman, we'll hear now from you.",
       "time": "00:24:56.82"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Goldman, what if instead of the transaction we have here Congress had simply said we're going to give a year-to-year lease to the Metropolitan Airports Authority, no Members of Congress on the review board at all, but the review board totally independent decides to abolish parking places for Members of Congress and Justices of the Supreme Court. And the chairman of the House Commerce Committee calls the members of the review board over about a month before the first year of the lease is due to expire and he says I really don't think Congress is going to renew this lease if you do that, and they accordingly change their mind. Now, there would be nothing wrong under separation of powers with that, would there?",
       "time": "00:26:50.69"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course if Congress wanted to renew the lease, if Congress was content with the parking spaces it got but the executive was not content because the executive had not gotten parking spaces, the President could veto the lease renewal in that situation, couldn't he? I mean, it would be the normal process of legislation by which Congress would have to act, rather than--",
       "time": "00:27:59.18"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It's quite a different process than just having some individual Members of Congress or a committee of Congress decide to do it or not.",
       "time": "00:28:20.54"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say assigned it to nine of their Members, but it does provide that the Members are to act in their individual capacity.",
       "time": "00:29:07.65"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you do about the Chief Justice being on the board of the Smithsonian, being chairman of the board of the Smithsonian, which goes back quite a ways?",
       "time": "00:29:22.26"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're artistic powers, is that-- [Laughter]",
       "time": "00:29:44.10"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you a question, Ms. Goldman. There are six congressional regions of the Smithsonian, and I presume they act in their individual capacity, don't they? They're not acting as a Member of Congress or as a member of a congressional committee.",
       "time": "00:30:26.30"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what distinction are we talking about here then, between acting in one's individual capacity and one's presumably official capacity? Is that the alternative?",
       "time": "00:30:49.86"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you would have no issue to raise by the mere fact that some Members of Congress happen to end up on this board if it were not for the fact that membership on the board... that membership in Congress is a qualification for membership on the board? I mean, that's really the essence of your point. You're saying if that were not so, then it, it would in fact make sense in the normal course to say that they were acting in their individual capacities.",
       "time": "00:31:20.81"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And their congressional membership is merely incidental. And you're saying the fact of the qualification is what removes it from the category of what is merely incidental.",
       "time": "00:31:55.40"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And why isn't the same... why doesn't the same problem exist for the congressional members of the Smithsonian?",
       "time": "00:32:20.38"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if the power is the power of a board?",
       "time": "00:32:34.88"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you take the position that a member of the Board of Review loses the membership if the member ceases to be a member of the appropriate congressional committee?",
       "time": "00:32:54.55"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is the removal point essential to your argument?",
       "time": "00:33:27.73"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Ms. Goldman, are you familiar with the national historical publications in the Records Commission?",
       "time": "00:33:40.39"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, this is set up by statute, and it provides that on this, which I assume is an arm of the executive, there shall be one judicial member appointed by the Chief Justice, one Member of the House of Representatives, and one Member of the Senate. Invalid in your analysis?",
       "time": "00:33:46.97"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Which you don't know.",
       "time": "00:34:26.09"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, the Chief Justice has served on it and so have I and--",
       "time": "00:34:27.81"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But they'd have to do it by statute, and they would have to get the President to sign it or override his veto, wouldn't they?",
       "time": "00:35:14.16"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you would say if the President willingly signed it and thought it was a good arrangement, it would still be invalid in your view?",
       "time": "00:35:28.37"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And tell me how that is implicated in this case.",
       "time": "00:35:45.31"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, protecting the executive here isn't about to cure your problem.",
       "time": "00:36:03.90"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All it will do is delay.",
       "time": "00:36:10.91"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if Congress had retained power over the airport, it could expand the airport with the... and the executive could go along?",
       "time": "00:36:28.93"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As you quoted in your brief, the problem with that is that Congress would have to pay for it, as you had an excerpt from some of the debate in which a Congressman said the beauty of it is that we control it but we don't have to pay for it.",
       "time": "00:36:44.51"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So is the federalism problem as you see it that Congress has had a hand in creating the very position to which they are directing the congressional appointment?",
       "time": "00:38:10.26"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So do you say that this board is really created by Federal law?",
       "time": "00:38:29.97"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think if there were a 1983 suit against members of the board that it would be an appropriate defense that they are Federal officers?",
       "time": "00:39:01.02"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose you can concede without sacrificing your position that they're both, both State and Federal.",
       "time": "00:39:32.07"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Goldman, do you think this statute offends more against separation of powers within the Federal Government or more against federalism, Federal-State relationships?",
       "time": "00:40:08.17"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We're not talking about federalism then in the sense of South Dakota against Dole?",
       "time": "00:40:27.05"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you see there would be no problem if Congress said that every State university which obtained Federal funds should have a board of regents, five, six of whom are appointed by the President of the United States?",
       "time": "00:41:18.29"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What would be the problem?",
       "time": "00:41:40.67"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, why isn't that same problem present here?",
       "time": "00:41:45.67"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I assume the President would say the, and the Congress the same thing with expenditure of Federal funds at State universities.",
       "time": "00:42:01.04"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't the justification in each case the fact that there is Federal property in the form of Federal money going, and that these are conditions placed upon the Federal money. Don't they ultimately all stand on the same footing?",
       "time": "00:42:33.64"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't the difference that the... we're not talking about a condition set once and for all by Congress which is binding because it is... it has statutory significance. It's setting up a condition which imposes a continuing review by Federal officials.",
       "time": "00:42:56.27"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Don't we have that in both the State university example and the highway funds example?",
       "time": "00:43:15.89"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. And all you're saying is you don't really have to think of that as a federalism problem. It's a straight separation problem. Is that what you're saying?",
       "time": "00:43:35.71"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. And you don't have to put a federalism overlay on it. That's really what you're saying?",
       "time": "00:43:47.43"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:43:53.43"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:44:02.17"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Goldman. Mr. Coleman, do you have rebuttal? You have 4 minutes remaining.",
       "time": "00:44:07.53"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Coleman. The case is submitted.",
       "time": "00:46:53.44"
     }

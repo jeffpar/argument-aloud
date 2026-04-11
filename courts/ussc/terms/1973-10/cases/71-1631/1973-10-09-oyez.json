@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/71-1631/19731009a_71-1631.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ALDUS S. MITCHELL, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RAY JEFFREY COHEN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Number 71-1631, Kusper against Pontikes. Mr. Mitchell, you may proceed whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Mitchell, Judge Marovitz who was with you on the merits will disagreed with you on your procedural point here, did he, and agreed with the majority of the District Court?",
       "time": "00:06:27.82"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll resume there after lunch Mr. Mitchell.",
       "time": "00:09:22.55"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The complaint seems to mention only the alleged right to be free from the invasion of privacy allegedly protected by the First and Fourteenth Amendment, is that right?",
       "time": "00:11:26.59"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That’s all. The right to be free from an invasion of privacy protected, allegedly protected by the First and Fourteenth Amendment. That is all that there is the complainant, isn’t it, so far as the federal Constitution goes?",
       "time": "00:11:48.81"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you only raised one question on the question presented.",
       "time": "00:12:03.62"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You only raised one question on your question presented and I don’t see there is any point in there. This point you are now making.",
       "time": "00:12:08.60"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about your question presented on page 3 of the jurisdictional statement.",
       "time": "00:12:28.96"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You keep saying questions but one.",
       "time": "00:12:43.57"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I submit that in the future, if you have those it would be better if you raised them.",
       "time": "00:13:08.49"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You did set the matter on page 4 of your brief as I recall.",
       "time": "00:13:19.08"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Mitchell you’re -- as I understand it, the Illinois Courts have held that this statute is applicable to somebody who has voted in a one party primary and a state primary and now wants to go in a different party primary in a municipal election that it is applicable but you used to tell us I think that the Illinois Courts have not decided the opposite side of the coin which is presented here.",
       "time": "00:20:19.61"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that at least arguably the Illinois Courts might decide that this statute is not applicable to this kind of a -- the situation that this plaintiff found or something. Is that right?",
       "time": "00:20:43.99"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, your Courts have already decided there is a cross effect when you go from state to municipal has it not? Or did I misunderstand?",
       "time": "00:21:07.15"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But they haven’t decided whether there is a cross effect when you go from municipal to state.",
       "time": "00:21:15.15"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What would be your position on the merits, in the State Courts or in this Court as to whether it is a denial of equal protection?",
       "time": "00:22:23.35"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of the states position.",
       "time": "00:23:09.96"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a statewide application?",
       "time": "00:23:19.58"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now there was unlimited application in the sections of the state, is that a position stated? The statute is of limited application at particular sections of the state?",
       "time": "00:23:28.49"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And your argument then is that not being a statewide application. It’s not a case for a three-judge court?",
       "time": "00:23:40.56"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was served. If in some manner, we reached the merits here or if it were referred to a State Court and you had to take the position on the merits. Would you find it difficult, would the state find it difficult to defend the statute as a it is written or not?",
       "time": "00:23:54.68"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But would you try to defend it if in fact it’s to be read as having limited application, only the certain sections of the state. This 23-months prior, would you try to defend that against an equal protection challenge?",
       "time": "00:24:35.30"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you care to say whether you think the interest of the state of Illinois could be served by let us say, a 12-month period and if 12 months isn’t enough, why not?",
       "time": "00:28:23.70"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I’m not suggesting if we were and I was just probing to see whether – what your reaction was to that time factor.",
       "time": "00:28:58.39"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Mitchell, does the fact that the statute could be more narrowly drawn, meaning that it is necessarily unconstitutional?",
       "time": "00:30:07.81"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if in order to change parties it was essential. The period was so long, the waiting period was so long that you would have to miss the primary?",
       "time": "00:30:44.43"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, it is, it is that it applies -- that this applies to municipal elections.",
       "time": "00:30:59.33"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it reached that way on spaces.",
       "time": "00:31:08.34"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the three-judges didn’t -- didn’t this come from the three judge court?",
       "time": "00:31:15.94"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then the three-judge court assume or hold that it applied this municipal election?",
       "time": "00:31:20.94"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But if it does, you concede you have a problem with equal protection?",
       "time": "00:31:28.21"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why?",
       "time": "00:31:46.92"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Municipal Primaries are every?",
       "time": "00:31:59.20"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Every four years and the statewide primaries are every two years?",
       "time": "00:32:01.79"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But they don’t concur in the same year that is the problem?",
       "time": "00:32:05.55"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But how is it going to be changed? Right now, the municipal elections are off year, that is after even numbered years for the statewide primaries. It’s odd number years when you have a municipal primary.",
       "time": "00:32:13.44"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And how is the new election code going to change that?",
       "time": "00:32:27.83"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So in other words, they will all be in the same primaries whether municipal or statewide all be in the same year?",
       "time": "00:32:37.58"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Will the new code change the 23 months requirement?",
       "time": "00:32:51.52"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No does the new code change it?",
       "time": "00:32:55.73"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Cohen.",
       "time": "00:33:04.28"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is that to say that municipal primaries are all on the same date throughout the state, wherever a municipality has a primary?",
       "time": "00:33:28.64"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Those were general elections?",
       "time": "00:35:02.03"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh I know but it wasn’t a primary.",
       "time": "00:35:08.31"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the municipal primary.",
       "time": "00:35:47.93"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "She had voted in the statewide.",
       "time": "00:35:50.54"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a Republican or whatever it was in the municipal and the Court said in Farherty, “No, you can’t because of the statute.”",
       "time": "00:35:54.78"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What do you have to say about the statewide aspect of this particular case, well as it is applied here?",
       "time": "00:36:17.25"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, let’s see, are you suggesting that no matter what differences there maybe in the dates on which municipal primaries are held, this statute would disqualify any one who voted in the statewide primary from voting in any municipal primary for 23 months.",
       "time": "00:37:40.80"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the opposite primary.",
       "time": "00:37:58.58"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well is it a common thing of -- I will alter that, I was going to ask you whether it was common in Illinois but as matter of general understanding. Isn’t it common that many people will vote in one party in their local elections and prefer the other party in statewide elections just because of the experience they have with the results.",
       "time": "00:38:45.43"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What state was this?",
       "time": "00:42:58.06"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Three-judge court also?",
       "time": "00:43:01.28"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that entirely consistent with Rosario? Do you think that statement uses that?",
       "time": "00:43:28.47"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But of course, after the time for his registration at past, it was the statute and not the time left that prevented him from voting in Rosario.",
       "time": "00:43:56.22"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Only during the very limited part of the time involved during Rosario, was that his own failure that was responsible for his --",
       "time": "00:44:05.62"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I can see that but I was pressured whether that statement when you were from the Charleston case is really inconsistent with the Rosario.",
       "time": "00:44:43.49"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us see, you mean in South Carolina, are you suggesting it’s exactly like the Illinois statute except that the time stated is very short?",
       "time": "00:45:03.86"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What’s the difference between locking yourself in by registration and locking yourself in by voting?",
       "time": "00:45:16.85"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Cohen, you are not here before us challenging the validity in any part of Section 7 43 (d).",
       "time": "00:46:06.71"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, the Lipitt case is a decision of this Court on the merits? And how do you distinguish that?",
       "time": "00:47:06.24"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The four-year, that was a four-year interval.",
       "time": "00:47:13.74"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, he wished.",
       "time": "00:47:22.79"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, so how constitutionally is that different?",
       "time": "00:47:26.04"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well this man just wanted to change once.",
       "time": "00:47:52.64"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But he didn’t want to change back and forth and back and forth of course as far as we know is he -- had been a Republican now he wants to change to the American Independent party. He voted there as a Republican in the 1970 Ohio Primary Election and now in 1972,he wants to run as a candidate of the American Independent party and there is an Ohio statutes that says he can’t do that for four years.",
       "time": "00:47:56.14"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And where do you find that?",
       "time": "00:48:43.29"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:48:46.16"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But how about in the constitution?",
       "time": "00:48:50.86"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Obviously it’s a difference but what is the -- why does one have a superior constitutional position than the other?",
       "time": "00:49:03.42"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why does either have a constitution position at all.",
       "time": "00:49:10.51"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where do you get that?",
       "time": "00:49:20.55"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:49:23.18"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It will protect that activity as any activity against the valid claim of denial of the equal protection of the law but that is something else again that will protect your right to cross the street against that kind of a valid claim. That does not mean the right to cross the street is necessarily unconstitutional against the red light is constitutional?",
       "time": "00:49:32.84"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Are you familiar with the case called Minor against Happersett and that’s in this Court in which you can find the statement that there is no constitutional right to vote. That’s the case in which women tried to save -- the Constitution gave her a right to vote she would accept her bid – fact of being a woman, she was equally well qualified in the state and to vote. And in this court said there is no constitutional right to vote and that is of course but what led to the amendment of the Constitution that gave the women the right to vote. So, now there is an equal right of women to vote with men but that decision still stands. I suppose that there is not a constitution right to vote, that’s the case of Minor against Happersett.",
       "time": "00:50:06.61"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well of course the Constitution predated even that.",
       "time": "00:51:04.69"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the suffrage amendment doesn’t say women shall have the right to vote. It says they chancefully denied the right to vote by reason of their sex. It doesn’t confirm or affirm that the right to vote.",
       "time": "00:51:07.64"
     },
@@ -959,13 +963,13 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It confirms just a specific equal protection right.",
       "time": "00:51:20.41"
     },
     {
       "turn": 156,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr Cohen, it seems to me that one could make the argument -- with which for some reason exactly contrary to what was you are saying but if party raiding is a legitimate state interest that there is more to worry about in terms of party raiding, in terms of voter cross over than there is in terms of candidate cross over that you could have candidates crossing over without running any real risk of party raiding whereas if you have voters crossing over, you do have a risk of raiding.",
       "time": "00:51:27.43"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No judgment that cites an article in The Tribune or The Daily news urging the Republicans to cross over and vote in the Democratic primary but he thought it was real.",
       "time": "00:52:06.79"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But actual candidates had been concerned about this. Is this not so, in your area of the country?",
       "time": "00:52:28.46"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I recall Senator Humphrey making this statement every two years in primary as in states I am familiar with, Wisconsin and Minnesota.",
       "time": "00:52:37.82"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that is what they were complaining about.",
       "time": "00:52:58.43"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Those are the so-called open states not as Justice Blackmun said some political theorists and some practitioners think that open state opens the candidate and the party to very dangerous attack on the party system.",
       "time": "00:53:12.22"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How long was the problem affected Illinois?",
       "time": "00:53:50.88"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I suppose there are those who say you have disaster area there for all that period but there might be others who would disagree.",
       "time": "00:53:56.64"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, you’re talking about two states that have very notoriously weak party structures, Wisconsin and Minnesota where there have been the third party elements. That may be permissible as a matter of political judgment on the part of the legislature but I would think that if the Illinois legislature decide it wants to strengthen the two-party system, it isn’t required to apply the practice that Wisconsin and Minnesota have applied perhaps to get different results.",
       "time": "00:54:30.29"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am still not clear how you distinguished this Courts decision on Chipalone and that's the way it is pronounced.",
       "time": "00:55:29.32"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes. 1972.",
       "time": "00:55:37.63"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How do you get this hierarchy of these two supposed rights?",
       "time": "00:55:46.53"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, that the right to vote is somehow the right as you call it to vote. One would argue about whether or not there is a right to vote but in any event, that voting is superior somehow or another--",
       "time": "00:56:05.51"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--to being a candidate.",
       "time": "00:56:17.26"
     },
@@ -1133,13 +1137,13 @@
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Do you say it is a constitutional argument?",
       "time": "00:56:19.16"
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Once you derive that.",
       "time": "00:56:21.04"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I am sorry, excuse me, I did not know I was interrupting Justice.",
       "time": "00:56:26.23"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it says more than that, doesn’t it? Doesn’t it say the state shall set the qualifications for those who vote?",
       "time": "00:56:47.98"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:57:06.51"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is case such as Williams against Rhodes and Jenness against Fortson and so on dealt expressly with the so-called right to be a candidate and as I remember, it did not denigrate that right below that voting, didn’t it?",
       "time": "00:57:35.33"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For four years?",
       "time": "00:58:19.40"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And but he can’t run on a different party if he has voted on another party -- voted in another’s party primary within the last four-year period.",
       "time": "00:58:21.29"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that was affirmed by this Court but that is two years ago.",
       "time": "00:58:30.29"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you some question.",
       "time": "00:58:37.20"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In your case would you find any different between the validity of the statute as it applies to state election and as it applies to federal?",
       "time": "00:58:41.63"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you say that the state may no more qualify the person’s right to be in a state primary than in the federal primary?",
       "time": "00:59:02.29"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The right to vote in state election, you wouldn’t argue it here to federal constitution?",
       "time": "00:59:15.23"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then in clearly going, are you saying that the federal of the state elections in this case, stand on the same footing as equal protection?",
       "time": "00:59:40.52"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--unaffected by the constitutionally guaranteed.",
       "time": "00:59:53.73"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:22.56"
     }

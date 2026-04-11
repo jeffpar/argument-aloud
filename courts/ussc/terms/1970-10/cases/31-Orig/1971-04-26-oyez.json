@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1970/31%20ORIG/19710426a_31orig.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "PETER L. STRAUSS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DALLIN W. JENSEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in number 31 original, the State of Utah against the United States. Mr. Strauss, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does this mean Mr. Strauss, that if Utah should prevail here that the proposed decree of the Special Master would not be proper?",
       "time": "00:04:09.54"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did he find what the ordinary and natural condition was, Mr. Strauss, for finding on that?",
       "time": "00:08:11.47"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What I was really getting at it is what is meant by body of water in its natural state or condition as applied to this lake?",
       "time": "00:09:09.53"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "A lot of the or to say a lot pf -- there are there few methods of I gather of traveling in very shallow waters and I remember down the everglades with these aired propel boats?",
       "time": "00:10:37.78"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's pretty well settled, isn't it?",
       "time": "00:11:12.73"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course here, the master very clearly found that as of the date of statehood in January 1896 the lake was physically capable of being used in its ordinary condition as a highway for floating and affording passage to watercraft in the manner over which trade and travel was or might be conducted in the customary modes of travel on water at that time.",
       "time": "00:11:50.73"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And he went on to say, that the areas of the lake didn't have a depths sufficient for that purpose, was -- were not narrow or short channels but were several miles wide extending substantially through the length and width of the lake and covered an area of more than a thousand square miles.",
       "time": "00:12:18.53"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That a vessel could travel from the one tip of the lake to the whole length of it, virtually on a straight line.",
       "time": "00:12:36.45"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does it have to be very useful in commerce in order to be navigable?",
       "time": "00:16:06.59"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's little different from being very useful for commerce, isn't it?",
       "time": "00:16:17.15"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Very well, very well.",
       "time": "00:16:25.80"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It's been heavily polluted?",
       "time": "00:18:50.06"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It is being heavily polluted, isn't it?",
       "time": "00:18:52.01"
     },
@@ -207,13 +207,13 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Strauss, this is on the premise, I suppose of what findings 45 which deal with harvesting of brine shrimp and 67 would still deal with the chemical compounds on the commercial that goes on in that connection. Those do not show any commercial uses? Those show commercial use in the -- those show commercial use in the same sense as one commercially uses a mine or a forest. I don't think they show a commercial use in the transportation sense. No.",
       "time": "00:18:58.42"
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it have to be transportation?",
       "time": "00:19:39.14"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where do we find that?",
       "time": "00:19:42.63"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It's a decision for others, for hire, that's really what you are arguing isn't it?",
       "time": "00:19:49.62"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 36,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "As a common carrier?",
       "time": "00:19:55.96"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I get this very clear? Assume an island in the lake that had a very valuable mineral deposit on it --",
       "time": "00:20:47.66"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- and the only way to get to the island was by boat.",
       "time": "00:20:55.12"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The only way to get the minerals out was by boat --",
       "time": "00:20:57.64"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- and the lake was perfectly adequate to sustain that kind of transportation. The minerals came from the island, onto the barge, straight to an interstate railroad car on the beach. Is that navigability?",
       "time": "00:21:00.17"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why not?",
       "time": "00:21:20.77"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They bring their products out and back.",
       "time": "00:22:03.73"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that a -- that certainly is a commercial use of the water and it's being used for transportation of goods being taken to market?",
       "time": "00:22:08.18"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the -- what about a river that's used as a highway for getting logs to market? Does that make it navigable?",
       "time": "00:22:59.70"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If there is a valuable stand that timber on this island in the lake and they floated the logs over, it would be alright?",
       "time": "00:23:22.83"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You said Mr. Strauss, I think earlier. There has to be a proof from a broader use, in what sense were you using the word “broader”?",
       "time": "00:24:43.58"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is this a matter of degree or a matter of what, general variety of uses or what?",
       "time": "00:24:57.75"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of degree?",
       "time": "00:25:06.99"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Strauss, the Great Lakes are lakes, they're considered rather good for navigation?",
       "time": "00:26:05.34"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But wouldn't the great lakes be navigable even if they were not in fact a boat being used on them?",
       "time": "00:26:30.77"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Because it's susceptible, capable of bearing navigation, isn't that the test?",
       "time": "00:26:37.07"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Strauss, do you question the accuracy of the master's findings 48 and 49 on pages 42 and 43 of his report.",
       "time": "00:27:23.68"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Showing a --",
       "time": "00:27:34.42"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Showing more than a dozen or so modes or uses of water transportation on the lake?",
       "time": "00:27:36.29"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it was much higher than it is now, in 1896 when it became a State and that's a critical time, isn't it?",
       "time": "00:28:03.41"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Significantly higher in 1896 than it is now.",
       "time": "00:28:11.74"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You have a testimony of that woman, Zela somebody, who was born before the statehood, and grew up on Antelope Island until she was 12 years old.",
       "time": "00:28:26.10"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And of course, I suppose people couldn't have lived and worked on that Antelope Island unless the lake were navigable, could they?",
       "time": "00:28:35.67"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With their products.",
       "time": "00:28:49.37"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With their livestock.",
       "time": "00:28:52.72"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Jensen.",
       "time": "00:29:42.85"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Any at the time of statehood?",
       "time": "00:38:28.76"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Prior to statehood.",
       "time": "00:38:30.87"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is Saltair where they use to have the amusement park right in the --",
       "time": "00:38:53.93"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is anybody -- can anybody swim in the lake anymore?",
       "time": "00:39:21.18"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean that by reason of the procedural aspect now, we are bound to hold that the lake is fully navigable or is -- and is not partially navigable?",
       "time": "00:41:50.92"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I suppose the Atlantic Ocean is not navigable in certain spots when you get near the shore?",
       "time": "00:42:27.61"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's the draft of the ship like the Queen Mary, do you know, 30 feet?",
       "time": "00:42:59.71"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Twelve-and-a-half.",
       "time": "00:43:26.54"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The depth at the time of the statehood it was 30 feet, wasn't it?",
       "time": "00:43:29.87"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "From one end of the lake to the other of great width of channel that was (Voice Overlap)",
       "time": "00:43:33.39"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right. What I mean wide channels as well?",
       "time": "00:43:40.63"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there a different -- do you suggest there is a different rule with respect to navigability where the issue is state ownership of the river bottom and the lake bottom and where the issue is navigability for the purposes of congressional power?",
       "time": "00:43:58.40"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is a different rule?",
       "time": "00:44:19.08"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what?",
       "time": "00:44:21.03"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the case that's closest to this for title purpose?",
       "time": "00:45:08.73"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the former Utah cases --",
       "time": "00:45:30.37"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it was the river, you rather like the law expressed in that case, don't you?",
       "time": "00:45:34.27"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, as well as the question of navigability in fact in that case even though was the river or parts of the rivers?",
       "time": "00:45:48.39"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that there were many impediments to that case?",
       "time": "00:46:10.59"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Jensen. Mr. Strauss, you have one minute left.",
       "time": "00:48:58.74"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if you, kindly lodge with the clerk. We'll see that it's returned to you in due course if you wish.",
       "time": "00:50:33.97"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Strauss. Thank you, Mr. Jensen. The case is submitted.",
       "time": "00:50:38.95"
     }

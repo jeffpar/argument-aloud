@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/98-1101/19991108a_98-1101.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL M. TRAYLOR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "KENT L. JONES",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 98-1101, Rohn F. Drye v. United States. Mr. Traylor. You're the only lawyer to come by himself we've seen in a long time. [Laughter]",
       "time": "00:00:00.00"
     },
@@ -63,13 +63,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, the IRS was not in Paradise.",
       "time": "00:02:41.66"
     },
     {
       "turn": 4,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:02:43.80"
     },
@@ -81,7 +81,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Traylor, the Government is not relying on the Good Book, but it is relying on title 26 of the Internal Revenue Code and there the matter of disclaimer is dealt with in the estate and gift tax context, but it isn't...  the permission for a disclaimer appears expressly in the estate and gift tax. There is no such provision for the Tax Lien Act, so the Government is saying, Congress did not choose to provide for disclaimer in that context, so there is none.",
       "time": "00:03:28.84"
     },
@@ -93,7 +93,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But as I understood it, Mr. Traylor, at least the Eighth Circuit felt that way, that under Arkansas law your client acquired a property interest upon death, because he didn't remit it for a number of months afterwards.",
       "time": "00:04:43.80"
     },
@@ -105,7 +105,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, well, who owned the real estate during the 9 months before the decision was made? Who owned it, do you suppose?",
       "time": "00:05:05.43"
     },
@@ -117,7 +117,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think, in the case of real property, that the title went to the beneficiary...",
       "time": "00:05:14.76"
     },
@@ -129,7 +129,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "under Arkansas law?",
       "time": "00:05:21.62"
     },
@@ -141,7 +141,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you this. Did Mr. Drye have a right to transfer whatever right he had to his mother's estate before he acquired it...",
       "time": "00:05:23.48"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "under Arkansas law?",
       "time": "00:05:39.70"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think there's any way, under Arkansas law, that before all of this happened, even before his mother died, could he transfer whatever right he had to someone?",
       "time": "00:05:46.27"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Traylor, the district judge who, I'm sure, must have been an Arkansas practicing lawyer before he was appointed to the bench, found against you on this point, and the court of appeals, which certainly knows more about Arkansas law than we do, found against you, saying that there was a property interest under Arkansas law, so you have kind of a heavy burden to persuade us otherwise.",
       "time": "00:06:31.80"
     },
@@ -189,13 +189,13 @@
     },
     {
       "turn": 24,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They don't realize it, though.",
       "time": "00:07:01.89"
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:07:05.52"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But they didn't do it on the grounds that you had no property interest. They did it on the grounds that the disclaimer relates back, isn't that right?",
       "time": "00:07:28.27"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you this. If the administrator had announced that he was going to liquidate the estate and take the money and go to Las Vegas and have a good time, would you have had the right to do anything about that, your client have the right to do anything about it?",
       "time": "00:08:02.37"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Would he have sat back and said, too bad, I have no property interest, or rights to property, so I guess the administrator can look forward to a good time?",
       "time": "00:08:26.51"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's not my question. He hadn't taken any action one way or the other. The administrator is on the way to Las Vegas. Can he do anything about it?",
       "time": "00:08:37.54"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What?",
       "time": "00:08:47.69"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And he would say, when he got to court, would he not, I have a right to inherit that property if I want to, and therefore he can't go to Las Vegas with it?",
       "time": "00:08:57.31"
     },
@@ -279,13 +279,13 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's assume you are representing him, and he says, I'm not biting the apple, I am simply asserting a right to bite the apple, haven't bitten yet.",
       "time": "00:09:09.90"
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can he stop?",
       "time": "00:09:18.16"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And he had a right to do that, I take it?",
       "time": "00:09:28.93"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And he has a right to go into court and do that, doesn't he?",
       "time": "00:09:31.91"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But not before?",
       "time": "00:09:38.47"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "He creates it himself?",
       "time": "00:09:42.19"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "He creates the right himself?",
       "time": "00:09:45.36"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The law of the State has nothing to do with it?",
       "time": "00:09:49.90"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but may I suggest the difference in your hypothetical. It seems to me that if the offeree said to the offeror, I'm not sure what I want to do. I'll let you know in 30 days. During that 30 days, the offeror could have taken the apple back. But in Arkansas the court would not have allowed the offeror to take it back for 30 days, because he has a 9-month period in which to make a decision.",
       "time": "00:09:52.59"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where did Congress say that?",
       "time": "00:10:34.28"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where they say, for purposes of this subchapter, being the estate and gift tax, so it's clear that they didn't say it with respect to tax liens.",
       "time": "00:10:43.65"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not in the same subchapter.",
       "time": "00:10:58.23"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Traylor, what about stock options? Are they taxable as property? I mean, I have an option to buy stock in a company that I've worked for for a number of years. I don't have to exercise the option. I can just let it lapse.",
       "time": "00:11:21.71"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought so. Now, how does that...  but how does that square with your case? I have free will.",
       "time": "00:11:52.48"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't have to bite the apple.",
       "time": "00:12:00.89"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can let the stock option just lapse.",
       "time": "00:12:02.83"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I don't have a vested interest. I have an ability...",
       "time": "00:12:06.17"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "to assert an interest by agreeing to exercise the option, but I don't have to agree to exercise it.",
       "time": "00:12:12.20"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Transferable?",
       "time": "00:12:33.63"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. This is a nonassignable option.",
       "time": "00:12:37.43"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It has pecuniary value only...  so does your client's, only if exercised. I have a nontransferable option to buy this stock. The employee can only exercise it personally. He can't assign it to anybody else.",
       "time": "00:12:47.66"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm sure it can.",
       "time": "00:13:04.67"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I don't understand why it can't come and seize your client's interest in the estate.",
       "time": "00:13:06.41"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How does that differ from the stock...  does my stock option have any pecuniary value, if I cannot assign it to anybody? I couldn't sell it to anyone. I can't get a bank loan on it.",
       "time": "00:13:26.80"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course.",
       "time": "00:13:37.12"
     },
@@ -573,13 +573,13 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why?",
       "time": "00:13:40.63"
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it's property. So why can't the Government step into your client's shoes...",
       "time": "00:13:42.12"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "and exercise it because it's property?",
       "time": "00:13:49.30"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I don't understand this very basic thing. It seems to me that if I have a right to receive the entire estate, a right to receive it if I want it, then I have something of large value, and it's up to me whether I want to realize on it. But to say that it's valueless until he takes a bite of it, I mean, he's...  he can realize on it if he wants to. He's solely in control.",
       "time": "00:14:55.69"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's, you say is the Arkansas law. There are States, are there not, where a person in the position of Mr. Drye would be deemed to have had the property and then given it up.",
       "time": "00:15:39.61"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then...  so if we took your view of it, it would depend which State you come from whether the tax lien would attach.",
       "time": "00:15:54.64"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Suppose... Has the supreme court of Arkansas ever held that the sort of expectancy that your client had before he disclaimed was transferable, or saleable, or that it was not transferable or saleable?",
       "time": "00:16:13.22"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, I'm asking you a specific question about the holdings of the supreme court of Arkansas. Has the supreme court of Arkansas ever held that the sort of interest your client had before he disclaimed was or was not transferable or saleable?",
       "time": "00:16:44.51"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, I mean before you disclaimed. During the period before you disclaimed, has the supreme court of Arkansas ever said whether or not that interest was transferable or saleable?",
       "time": "00:17:12.51"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm not...  don't tell me about the bite of the apple any more. Just tell me what the supreme court of Arkansas has done, or if it hasn't done anything...  I mean, this seems the key to your whole case, and if there's a case out there that is...  shows the Eighth Circuit and the district court were wrong, you should surely have it. What is that case?",
       "time": "00:17:38.38"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What about the Rutherford case of the State of Arkansas, which as I understand it says that one can agree to convey an expectancy in an estate?",
       "time": "00:18:01.99"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right, so why doesn't that indicate that a transfer of an expectancy is transferable, it's property, it has value? That's what I get from the Rutherford case, and it seems to me that's the case we ought to talk about. Now, maybe you have ways to distinguish it.",
       "time": "00:18:14.79"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "An expectancy is not vested.",
       "time": "00:18:47.36"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I guess after you accept the devise, and while the estate is still in administration, what you have might be called an expectancy. I'm not sure I'm that interested in what the supreme court of Arkansas has to say. To come back to my stock option example, suppose the State of Delaware, in order to make itself even more attractive to corporations, passes a law that says, henceforward stock options in the stock of Delaware corporations are not property...",
       "time": "00:18:59.45"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "would the Federal Government still be able to tax those stock options?",
       "time": "00:19:42.92"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For purposes of the Federal tax law.",
       "time": "00:20:04.55"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So... You say States can't define what is or is not property for purposes of Federal tax law?",
       "time": "00:20:06.45"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought our cases held just the opposite, that the statute says if you have property the Government can get it, but whether or not you have property is up to State law.",
       "time": "00:20:14.54"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The State law defines your rights, but whether that bundle of rights, whatever it is, rises to the level of being property under the Internal Revenue Code is a matter of Federal law.",
       "time": "00:20:47.61"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then it's irrelevant for our purposes that as a matter of Arkansas law the decision to disclaim relates back to the date of death, and that therefore the...  as a matter of Arkansas law he never had any property. That's irrelevant, is that right?",
       "time": "00:21:07.96"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Traylor, I'm just curious about why the taxpayer, Mr. Drye being in this situation, he didn't have his mother write a will leaving the estate to the daughter.",
       "time": "00:22:02.29"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If he had done that, what if you...  if it's not an intestate disposition, but there is a will, and you are one of the beneficiaries of the will, all right, and what if you say, I don't want this property. You simply decline the bequest.",
       "time": "00:22:55.25"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can do it?",
       "time": "00:23:18.98"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can do it?",
       "time": "00:23:21.67"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And are you...  is that considered...  your interest in that bequest considered property for purposes of the Federal tax law?",
       "time": "00:23:22.99"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm talking...  yes. I'm not talking about intestate disposition. I'm talking about a bequest, and...",
       "time": "00:23:39.62"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think the two should be the same?",
       "time": "00:23:55.52"
     },
@@ -891,13 +891,13 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Government doesn't really need the tax. They had a surplus, I think.",
       "time": "00:25:54.08"
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:25:56.84"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, you may.",
       "time": "00:26:47.54"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Jones, we'll hear from you.",
       "time": "00:26:49.39"
     },
@@ -933,13 +933,13 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Jones, you don't have a stick that you're going to turn into a snake or anything like that, do you?",
       "time": "00:26:58.56"
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:27:02.28"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would you treat testate and intestate the same?",
       "time": "00:28:19.57"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you treat testate the same, then what about the Government's attaching a tax lien to a gift that I've offered? I haven't died yet, but I've offered my son a particular gift.",
       "time": "00:28:35.15"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if State law is that, like an offer, the offer of a gift remains open until it's accepted?",
       "time": "00:29:04.71"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It means, all he has to say is, I accept, and the property...",
       "time": "00:29:21.22"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To accept the gift?",
       "time": "00:29:27.25"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supposing that you have some State court cases on the subject that don't speak directly to the issue in question. What is the test? What do you look for in State law to see whether the person has a legally protected interest?",
       "time": "00:29:40.46"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Transferability is sufficient, then?",
       "time": "00:30:04.61"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you don't think it's necessary?",
       "time": "00:30:09.98"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's true that this is a little unusual in that here you have the Arkansas statute, which says for all purposes, once it's disclaimed, it disappears. It's not like a stock option in that sense, which I guess for a lot of purposes of State law, even after the expiration date, State law might have had some bite. I mean, there are all kinds of State laws. So I looked up the bankruptcy law to see how Federal law treats it. It seems to me that under the bankruptcy provisions this would not count as an interest in property for purposes of a fraudulent transfer. I can check it again, but I don't know if you've looked into that.",
       "time": "00:30:21.20"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, if it turns out that for bankruptcy purposes this isn't treated as an interest, I mean, I...  why...  you haven't thought about it, so I...  you're not...",
       "time": "00:31:01.33"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well... On the precedent, I couldn't find any. That is to say, the reason is, statutorily this doesn't count as a property right for tax purposes, because they have all these statutes, you know, that let you disclaim. Then I couldn't find something other than that. Now, tell me, what is...  what do you...",
       "time": "00:31:23.95"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You have a gift tax, you have an estate tax...",
       "time": "00:31:44.30"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:31:50.79"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You were going to tell me some Federal precedent.",
       "time": "00:32:28.02"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Every specie of right or interest, so in fact you would say this reaches even a similar situation under a will where the testator isn't dead yet?",
       "time": "00:32:50.36"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Exactly, so...",
       "time": "00:33:05.22"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the devisee has no action against the testator to...",
       "time": "00:33:24.25"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "if the testator revokes.",
       "time": "00:33:29.70"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is the legal error of the Fifth Circuit right?",
       "time": "00:33:54.59"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you look to State law to find the nature of the interest, and you look to the Federal law to see if it's property?",
       "time": "00:34:31.83"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's a little bit more intricate, more intricate than one needs, perhaps.",
       "time": "00:34:40.45"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was the interest under Texas law? Was it Texas the Fifth Circuit was deciding?",
       "time": "00:34:49.58"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Excuse me, a right of rescission or decision?",
       "time": "00:35:26.07"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He has a property right, but does he have a property right in the assets of the estate? Let's...",
       "time": "00:35:44.56"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I...",
       "time": "00:35:51.70"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose I make you a contractual offer that is open for 90 days, and under most States' laws nowadays, if I say it's open for 90 days, you can count on that. That is worth something. It's a beneficial contract to you.",
       "time": "00:35:54.59"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's an irrevocable offer for 90 days.",
       "time": "00:36:14.74"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have a right to accept it.",
       "time": "00:36:18.92"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, now what would you slam your lien on, my...  the property that I have...  that's the subject of the contract?",
       "time": "00:36:20.12"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The 90 days have gone by.",
       "time": "00:36:35.03"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The 90 days have now gone by, the guy never exercised the...",
       "time": "00:36:36.68"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wasn't accepted.",
       "time": "00:36:40.31"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's expired.",
       "time": "00:36:41.96"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he had a power to accept it. He just didn't. Just as in this case he had a power to accept it, but he didn't.",
       "time": "00:36:45.22"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, I'll call it a right in the other case, too, then.",
       "time": "00:36:56.37"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're both the same.",
       "time": "00:36:59.05"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you mean, transfer it? Can he give it to somebody else to accept it?",
       "time": "00:37:16.14"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:37:22.29"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I suppose the same in the contract case. I could say, you know, if I accept this contract, I assign to you my rights under it.",
       "time": "00:37:38.15"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't accept it for me, but if I do accept it, you'll have my rights under it. I see no difference in the two cases, and I don't...  in other words, I acknowledge that it's property, but is the property the assets of the estate, or is it, rather, this right to accept it, which is intangible, and which I don't know how you can...",
       "time": "00:37:49.66"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well...",
       "time": "00:38:30.09"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it seems to me that's too fast to say the lien attaches to the property. I agree, but what is the property? It is not the assets of the estate. It is his right to obtain those assets.",
       "time": "00:38:31.83"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:38:44.62"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I do, actually. I might...  I have one, and you're probably not going to have an answer, because we haven't looked it up, and I haven't, either, but as I was looking at the bankruptcy law, the reason that I was concerned is the following. Imagine the taxpayer in this case had done just what he did, but he did it 30 days before going bankrupt. What...  if I'm right about the bankruptcy law, the interpretation would mean, if we got yours, is that his creditors, who were private, couldn't get at the money, and the reason is, it would not be a, quote, interest in property, but the Government, as taxpayer, would be able to get at the money, and the reason would be because it is, quote, a right to property.",
       "time": "00:40:38.77"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, that seemed, you know, a little odd.",
       "time": "00:41:26.70"
     },
@@ -1491,13 +1491,13 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... Mr. Jones, can I pursue...  you said that the lien attaches to his right to get the property. If he exercises that right, it attaches to the property which is the product. But if he doesn't exercise the option, and somebody else gets the property, that...  I don't see it as being the product of his option any more.",
       "time": "00:42:01.00"
     },
     {
       "turn": 242,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How can you...",
       "time": "00:42:28.45"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, indeed, this was real property, I take it...",
       "time": "00:42:49.22"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "and I thought the title went to Mr. Drye immediately, subject to this State law right to disclaim later, but I thought he held the title immediately. Is that right, or wrong?",
       "time": "00:42:52.85"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But again, that's not necessary to your position, as I understand your position.",
       "time": "00:43:12.87"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be different, though, would it not, if State law provided that a beneficiary, an intestate...  an heir has to file a piece of paper in court identifying himself or herself and saying affirmatively, I want the money?",
       "time": "00:43:16.84"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He would have no right to the money unless he filed that piece of paper?",
       "time": "00:43:34.79"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he had to take an affirmative step to do it?",
       "time": "00:43:42.76"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As a matter of State law, though, the nature of the interest...  the nature of the interest is, he has nothing, unless he files that piece of paper.",
       "time": "00:43:53.95"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's different.",
       "time": "00:44:01.84"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You say the...",
       "time": "00:44:10.38"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand.",
       "time": "00:44:14.63"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that. But the Commerce case was a bank account. I mean, he clearly owned the money. It's just a question of how much, between the joint account, isn't that right, because he had...  you relied there on the fact he had a right to withdraw the money.",
       "time": "00:44:15.83"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Jones. Mr. Traylor, you have 5 minutes remaining.",
       "time": "00:44:47.04"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it's...  the Government's changed his position a little bit. I...  and says that if the offer is framed in such a way that the property is yours unless you affirmatively reject, you have property on which the lien...",
       "time": "00:46:59.67"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The act of doing nothing is an affirmative act?",
       "time": "00:47:25.84"
     },
@@ -1677,13 +1677,13 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me contemplate that for a minute.",
       "time": "00:47:28.53"
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:47:30.59"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The statute doesn't say interest, it says right. It says you have a right to property, and if you do nothing, and you get the property, and legally you're entitled to it, how don't you have a right to property? It didn't say interest.",
       "time": "00:47:35.05"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I just distinguished it away, because I said it uses interest and not right.",
       "time": "00:47:58.82"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You go ahead and defend it.",
       "time": "00:48:03.91"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Traylor, do I take it from what you've just said, cannot be a transfer, that the estate gift tax provision for disclaimer, that was unnecessary, that the provision for it, for purposes of that subchapter, Congress didn't need to do that?",
       "time": "00:48:48.28"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Traylor.",
       "time": "00:49:33.61"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:49:35.55"
     }

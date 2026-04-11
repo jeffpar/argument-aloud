@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/93-489/19940321a_93-489.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL BENDER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 93-489, O'Melveny & Myers v. Federal Deposit Insurance Corporation. Mr. Lee.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Lee, you don't challenge, I take it, the Ninth Circuit's view that a law firm in this situation is under a duty of inquiry when it prepares a private prospectus like this?",
       "time": "00:01:56.45"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you're not asking us to--",
       "time": "00:02:16.81"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--And you are satisfied that California law is what governs in this case?",
       "time": "00:02:21.53"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if any State law governs--",
       "time": "00:02:28.58"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--it's California.",
       "time": "00:02:32.17"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is the law of California, and do we know what the law of California is on the imputation defense?",
       "time": "00:02:33.30"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about the Ninth Circuit-- --Mr. Lee--",
       "time": "00:02:42.96"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--There are very few cases on this imputation defense, and it doesn't seem all that clear to me what the California law might be in any event.",
       "time": "00:02:44.80"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Lee--",
       "time": "00:03:00.70"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--would you tell us preliminarily whether the Ninth Circuit made any determination of the content of California law, because if it did not, perhaps it might on remand and a conflict would be unnecessary. There would be no conflict. You presented a question, is it State or Federal law, but if the content of both is the same, then what difference does it make?",
       "time": "00:03:02.03"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Lee, why should... assuming that they did rely on Federal law, why shouldn't we give them the job of... I mean, we have enough trouble figuring out what Federal law is. They're closer to California law. Why don't we... if you're correct... just send it back there and let them figure out what California law is?",
       "time": "00:04:41.75"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's what we normally would do, isn't it?",
       "time": "00:05:02.53"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Lee, can you give us instances in which this Court functions as a court of first view, which is essentially what you're asking us to do? The Ninth Circuit... instead of asking the Ninth Circuit to determine the content of California law, you're asking this Court to decide a question not on review but as a mater of first view.",
       "time": "00:06:01.91"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "California have a certification proceeding?",
       "time": "00:06:50.87"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Lee, may I--",
       "time": "00:08:08.24"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I'm sorry.",
       "time": "00:08:09.01"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I ask just one question? It seems to me that the defense that is at issue here is essentially an equitable defense, and as such is essentially a personal defense, and therefore the cause of action may pass but the defense doesn't necessarily pass with it. Is that a fair objection to the argument from California law?",
       "time": "00:08:09.94"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm flattered.",
       "time": "00:08:40.14"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Lee, while you're still on the statute... and I'm anxious for you also to get to the second point... I take it the wording of the statute in its structure would prevent us from saying that the initial liability, the initial duty, is also controlled by Federal law?",
       "time": "00:09:35.46"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lee--",
       "time": "00:11:36.67"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--do you think that under your theory of FIRREA that the D'Oench, Duhme case could survive?",
       "time": "00:11:37.75"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what's the purpose of the imputation defense? Is it to make sure that the wrongdoers don't benefit? Is that why there is--",
       "time": "00:13:00.10"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--an imputation defense?",
       "time": "00:13:14.58"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you agree, then, that the purpose of the defense would be so that Sahni and Day wouldn't benefit from any recovery?",
       "time": "00:13:39.02"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, who would benefit from a recovery here? Would it be the taxpayers of the United States, or who?",
       "time": "00:13:45.54"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand your point, Mr. Lee... that Government doesn't care about losing money unless it's under the tax laws. I mean, it seems to me if preserving the fisc is an important value, it's an important value, in whatever context.",
       "time": "00:16:15.36"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Lee. Mr. Bender, we'll hear from you.",
       "time": "00:19:41.29"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The FDIC isn't claiming the benefit of the bargain on the land. It's just claiming its broker's fees and that sort of thing.",
       "time": "00:21:35.88"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To whom would they have brought this information? To whose attention would they have brought this information?",
       "time": "00:21:55.91"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who already knew about it.",
       "time": "00:22:03.91"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that might be a... you know, a dishonorable thing to do, but I don't see how there's any causality here. I mean, to tell the officer what he already knows--",
       "time": "00:22:16.44"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--If the investors were suing, it would be a different matter, but they've already been made whole.",
       "time": "00:22:43.67"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Mr. Bender, before you get to the FDIC's position, isn't it true that so far as California law is concerned... leaving aside the California law that determines what defenses will be recognized, isn't it true that under California law, so far as the injury that the FDIC is trying to recover for, there's but-for causation in the law firm's failure, but there's not proximate causation, isn't that correct?",
       "time": "00:22:55.59"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you a further question anyway. If, under California law, the California view of proximate causation would be that under these circumstances no proximate cause, would you take the position that that rule should yield to a uniform Federal rule, too?",
       "time": "00:23:23.25"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you do say that there has to be an underlying Federal rule determining the scope of duties of the counsel to its insured institution.",
       "time": "00:24:19.79"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I'm not sure what the source of law is for you to prevail if, as Justice Souter said, there's no proximate causation under the law of California.",
       "time": "00:24:41.22"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you're just really picking whatever favors the Government out of California law, then. You're saying, we like the California standard of negligence, so we accept that, but we don't like what might be the California standard of causation, so we reject that. Is there anything more principled than just whatever favors the Government in your--",
       "time": "00:25:11.24"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Yes, but the Government is always presumably acting on behalf of citizens, and it seems to me that by substituting whatever furthers the interest disclosed by the statute for whatever favors the Federal Government really isn't a substitution at all. You're saying, whatever gets us... it seems to me you're saying whatever gets us the greatest recovery, or the greatest measure of success, however it's going to be measured, is going to be the criterion for picking it.",
       "time": "00:25:59.38"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you never want to recover more than 100 percent, so once again, I don't see the distinction that you're making.",
       "time": "00:26:34.74"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But then it seems to me that you should be proceeding under something other than 12 U.S.C. 1821.",
       "time": "00:27:13.36"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because your whole hypothesis is that you are succeeding to a cause of action that exists under the State law, and under Justice Souter's hypothetical question, that isn't true, and you say you prevail anyway--",
       "time": "00:27:20.18"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--and it seems to me that what you're doing is basing a substantive right of recovery, one which formulates the duty of the professional, as a matter of Federal law. I suppose it's a plausible enough position, but it's certainly not under 1821.",
       "time": "00:27:32.60"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bender, would you clarify, because Justice Kennedy's question raised a point that I didn't think you were contesting, that the claim initially... the claim for negligence against the law firm arises under State law, is that not so?",
       "time": "00:27:57.47"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do you allow the State to insist on negligence? I mean, if you really want to protect the Federal fisc, why don't you impose an absolute liability on these lawyers to make sure that everything's okay?",
       "time": "00:28:33.56"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why make that presumption? I can understand the answer, the presumption is that State law applies.",
       "time": "00:28:52.61"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The presumption is that the normal responsibilities which existed before the FDIC took over continue afterwards, and that nothing changes simply because the Government steps in. As the statute says, it steps into the rights of the bank.",
       "time": "00:28:56.69"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you borrow... even the initial claim, it's just the Federal law picking up the State law, even though this is successor liability. This is a receiver succeeding to a claim that allegedly the bank had.",
       "time": "00:29:22.57"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the bank had a claim, it was under California law--",
       "time": "00:29:39.73"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--not under Federal law, but you say that claim that the bank had then gets transformed into a Federal claim and if the State law continues to apply it's only by grace of the Federal law.",
       "time": "00:29:43.23"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what is the State law with regard to the imputation defense in these circumstances?",
       "time": "00:30:43.46"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well then, why do we need a Federal rule?",
       "time": "00:31:09.94"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, wouldn't you think normally the court would determine what the State law is before deciding such a question?",
       "time": "00:31:16.49"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe we should just send it back.",
       "time": "00:31:53.48"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bender, this goes back to a question that was raised in the course of Mr. Lee's argument, is this conflict really necessary? If the State and Federal law are the same on the point, then why should we, at least in this case, resolve this question of what if the State law were different, then would it be displaced by Federal law?",
       "time": "00:32:30.89"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course. I mean, any defense does. I'd stipulate that. Of course you do. You say... you get less money.",
       "time": "00:33:38.89"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that unique to the Federal Government situation? Isn't it the same in California?",
       "time": "00:34:22.66"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why isn't it State law, then, rather than Federal law?",
       "time": "00:34:29.61"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I know, but that's just grabbing whatever is best for the Government.",
       "time": "00:34:35.84"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it seems to me your arguments, as Justice Scalia suggest, don't show why the Federal Government here is in any different position than anyone else who might have been hurt by this sort of transaction.",
       "time": "00:34:46.12"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why should there be a special rule for the Federal Government?",
       "time": "00:35:01.84"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But your argument seems to me simply to boil down to the fact that there ought to be a Federal common law rule whenever the State common law rule isn't good enough.",
       "time": "00:35:16.76"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what is there intrinsic in your argument that addresses the need for a common law rule as distinct from the need to amend the statute?",
       "time": "00:35:47.52"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How do we know that?",
       "time": "00:36:05.15"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, it seems to me the rabbit is coming out of the hat, but I mean, you put the rabbit in the hat. How do we know that?",
       "time": "00:36:07.32"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:36:17.58"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But nobody could identify that common law, nobody could identify that debt until we first apply the statute and find some deficiency in the statute, and then we say, aha, there must have been the bed of common law that was assumed to prevent this unfortunate result.",
       "time": "00:36:38.91"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You've got to be able to discover it some way other than in order to chink up whatever's wrong in your case.",
       "time": "00:36:52.23"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I don't know why that isn't a good argument simply for concluding that the Feds take the common law as it was, including the common law defenses, and you take the bitter with the sweet.",
       "time": "00:37:32.19"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's talk about D'Oench, Duhme. The Federal statute, you're there. I think you could make the argument which you're trying to make about FIRREA... the FIRREA statute, that it was legislated against a background of Federal common law. D'Oench, Duhme was decided 3 years after Erie.",
       "time": "00:37:55.35"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the legislation at issue in that case was undoubtedly enacted on the assumption that Federal courts applied Federal law, period. You wouldn't have to dance around Erie and Claxton and all of that stuff. But we're in a different age now. You can't--",
       "time": "00:38:13.28"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and I don't think Congress when it passes a statute like this assumes that there's some brooding Federal law that governs all of this stuff.",
       "time": "00:38:27.58"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I think they assume there's a body of State common law, State by State, and that the rights of parties on financial transactions are going to be determined by State law.",
       "time": "00:38:39.90"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is why they have exceptions in there. They have some specific rules eliminating certain defenses because they think those are important enough that they're willing to override State law.",
       "time": "00:38:52.06"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why shouldn't we assume that?",
       "time": "00:39:12.54"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But not at all costs. I mean, this is the old argument that since an act has some purpose, anything that impedes that purpose has to be overridden. Nobody enacts legislation that way.",
       "time": "00:39:48.10"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was there any attempt, Mr. Bender, in the district court to determine whether that was indeed the content of California law, so you don't need to... you don't need to displace California law? We can't tell from the summary judgment that's included in the appendix what the district court went on.",
       "time": "00:40:17.81"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Bender, you said a second ago that the point here is to prevent the defense from being used against someone against whom under State law it couldn't have been used. Mr. Lee's argument was that you succeeded to rights and not to claims, and so that in fact the right is determined by reference to those against whom the defense would in fact have been assertable under State law. What is your answer to that?",
       "time": "00:41:12.93"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're saying the claim is... the relevant claim is the depositors' claim, not the bank.",
       "time": "00:42:20.52"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--things that they already know. Isn't that a new duty?",
       "time": "00:43:09.85"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whatever. Doesn't that constitute a new duty, a duty that they didn't have before?",
       "time": "00:43:21.37"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The duty is the same, it's just that people who didn't used to be able to sue for the violation of that duty can now sue for the violation of that duty. That's a pretty big change.",
       "time": "00:43:52.68"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The bank?",
       "time": "00:44:07.13"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about the creditors. I'm talking about the bank or the FDIC, which is now standing in the shoes of the--",
       "time": "00:44:09.46"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Bender, was it in FIRREA that they specifically provided for directors' liability in certain cases where the liability might have been doubtful under State law?",
       "time": "00:46:09.29"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't that a pretty good reason to assume that Congress did it's picking and choosing when it decided the extent to which State common law might need to be modified to protect the Federal interest?",
       "time": "00:46:18.89"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, didn't it do it... I may be wrong on this, but didn't it do it at least on an arguably more... on a standard of liability that was arguably more onerous to the directors than any standard of liability at common law that would have sufficed for recovery?",
       "time": "00:46:36.18"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:46:52.88"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bender. Mr. Lee, you have 9 minutes remaining.",
       "time": "00:47:29.46"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, Mr. Lee, on 1821, do your California cases address the question whether this defense would be available if the suit had been brought by a depositor as opposed to the bank?",
       "time": "00:47:53.13"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then is it not fair to say that the State law is unclear on the precise issue that we have before us?",
       "time": "00:48:10.62"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We wouldn't have this suit, I suppose, if the provision read that FDIC shall acquire all rights of the depositors, as opposed to saying, all rights of the bank.",
       "time": "00:48:23.11"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Doesn't the statute say precisely that, it succeeds to all rights, titles, powers, and so forth, of the institution, and of any stockholder, member, account-holder, depositor, and so forth?",
       "time": "00:48:40.36"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Lee--",
       "time": "00:52:21.88"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I mean, there's always to some extent mixing and matching. I don't know any Federal common law scheme that... individual property rights, for example, are still always determined by State law.",
       "time": "00:52:22.78"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's always some mixing and matching.",
       "time": "00:52:33.79"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With regard to the second, we have heard nothing in response to what this Court said in Kimbell Foods that there are two other purposes that underlie these Federal insurance statutes, and these Federal insurance statutes do have other purposes. And with regard to that, Justice O'Connor, as to how the taxpayers and the citizens will ultimately be served, let me just turn Mr. Bender's point around and ask us to put ourselves in the position of the O'Melveny partners when the next case comes up in which they're asked to represent a savings and loan and the Ninth Circuit law still remains in place. Probably the reaction is going to be, we don't know what law is going to apply, we don't know what has happened, we have no... absolutely no indication at this time of any wrongdoing, and we certainly didn't in this instance, let's just stay out of it altogether. Or at the very least, if we get into it, the price is going to have to go up. Either way, ultimately, it's the public that will pay. Now, finally, the one thing that is clear from the briefs and from this argument is that the judgment of the Ninth Circuit must be reversed. They erred. They erred in holding that it was Federal rather than State law that applied. The only question is, should it be remanded, or should this Court just make final disposition of the case? I submit that there is no doubt as to what California law is, and if the Court will permit, I will simply... well, I won't read it. I will simply refer you to West American Financial, which states very clearly there is an exception governing the circumstance where the agent is acting on his own behalf, but there is also an exception to the exception, and that exception to the exception applies where the agent is in fact acting for his principal, and that's on page 969 of that opinion. Mr. Lee, what's your best example of this Court reaching out to decide a question of State law contrary to what the alleged Federal common law rule would be, contrary to what is the law in many other States?",
       "time": "00:52:49.69"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In some other States.",
       "time": "00:55:00.26"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Lee. The case is submitted.",
       "time": "00:55:11.34"
     }

@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/319/19600229a_319.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
       },
       {
         "name": "HENRY I. FILLMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT KRAMER",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 319, Walter Schilling, Petitioner, versus William P. Rogers, Attorney General. Mr. Fillman, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it discretionary, as you read the statute with the Attorney General, to decide whether he is or isn't within the class?",
       "time": "00:01:49.14"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page is that, sir?",
       "time": "00:02:30.14"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that mean that courts -- this Court ultimately must de novo determine whether a particular person is a member of a political, racial or religious group?",
       "time": "00:05:17.84"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or does that mean that we must merely review whether there's a ground for it, that the Attorney General has so concluding.",
       "time": "00:05:30.12"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, I gather that the Court of Appeals thought it was a none -- not -- not a justiciable controversy.",
       "time": "00:05:40.37"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that is what you think is on your premise that it is reviewable.",
       "time": "00:05:47.19"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) much of our review that this Court must decide whether a particular person was a member of a political group or that it merely reviews whether there was basis for the Attorney General's so finding, which is it? They are very different.",
       "time": "00:05:52.30"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:06:08.88"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. All of them --",
       "time": "00:06:12.60"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Standards laid down are political, racial or religious. And my question is whether when the Attorney General who's the ultimate person who decides and says take this case, if he's not a member of political group -- that -- that whatever that may mean, he doesn't come within that definition. He's not included in that circle. Is the District Court, to hear new evidence, review it as he would a -- a litigation that begins with him without any prior administrative finding or is he merely to say, “Yes, this is a disputed question and I think the Attorney General was justified in making such a conclusion.” Which is it? They are very different.",
       "time": "00:06:32.70"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But, specifically in this case, you say everybody wasn't a member of the Nazi party, belonged to a political group, is that right?",
       "time": "00:07:43.14"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then every member who wasn't allowed to practice law or wasn't allowed to do this, or wasn't allowed to do that belongs to a political, racial, or a religious group. Is that right?",
       "time": "00:07:53.74"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's -- that's what the statute says.",
       "time": "00:08:04.25"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At least, you must stand as a citizen discriminating against political, racial, or religious groups. He must be a member of one those three groups, isn't that right?",
       "time": "00:08:07.36"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And therefore, the statute does say that, doesn't it?",
       "time": "00:08:17.23"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He wasn't allowed to practice law to -- to carry out what he would've been carried out that (Inaudible) eventually become a judge. The way they do in Germany, a man -- a lawyer says, “I decide to practice my profession as a judge.” And he was denied that right as a -- because he didn't join the Nazi party. Now, what I'm asking you, is that a political, racial, or religious group, so that there's a question about it and if the Attorney General decided against it, that's reviewable by the District Court and eventually, by us, is that right?",
       "time": "00:08:28.92"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think that's an allegation of fact, do you?",
       "time": "00:09:43.34"
     },
@@ -251,19 +255,19 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Whether --",
       "time": "00:09:47.25"
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Fillman, may I ask you --",
       "time": "00:09:49.29"
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If there are a lot of those and in Germany at that time, weren't there?",
       "time": "00:09:52.10"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I can take judicial notice, but there were millions whom you've described by that allegation, because there millions who were not members of the Nazi party.",
       "time": "00:09:57.44"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right, then you make a separate rule. And it's the denial of the practice of law of all those who were denied the practice of law and that's your professorship, did they constitute a political, racial, or religious group.",
       "time": "00:10:11.70"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where they --",
       "time": "00:10:52.73"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- (Voice Overlap) you think that's a political group.",
       "time": "00:10:54.41"
     },
@@ -323,13 +327,13 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I can take judicial notice of that. The --",
       "time": "00:11:07.87"
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I thought so -- am I wrong, I thought the only question before us was whether or not that Section 7 (c) of the Act precludes any judicial remedy in a case of this sort or that or -- with Section 32 proceeding.",
       "time": "00:11:10.77"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't that --",
       "time": "00:11:28.98"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- isn't that --",
       "time": "00:11:29.67"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I take it --",
       "time": "00:11:35.73"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm taking your position is that if -- we hold in your favor on that score, what happens? It goes back to the District Court or goes back to the Court of Appeals for consideration of these questions as to --",
       "time": "00:11:38.94"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- scope or review or what?",
       "time": "00:11:56.05"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then the action is --",
       "time": "00:12:30.16"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, aren't you ahead of the game, we don't face here what the scope or review is. All you're asking is to say there is some kind of review.",
       "time": "00:12:50.60"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We aren't saying much.",
       "time": "00:12:59.46"
     },
@@ -437,13 +441,13 @@
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Yes.",
       "time": "00:13:02.45"
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But in order to maintain that position as I understand you, you argue that there are two questions, not one .Namely, one, is -- that is that -- or the eligibility is not one of discretion, that's the first question, you say. Then you say next after eligibility has been determined whether or not the relief shall be granted is the discretionary matter, is that right?",
       "time": "00:13:03.34"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is it not --",
       "time": "00:14:30.15"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is it not true though that regardless of the allegation, it must be taken with the statute. And if the statute gives a discretion to the Attorney General and it ended at that place, there would be no court jurisdiction. And is that not why you argue that that's only the foot in the door or -- or the use -- do you argue that there is no discretion in that respect?",
       "time": "00:14:31.21"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But isn't that all we've got before us, the question of what 7(c) means?",
       "time": "00:15:47.84"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there anything more than that?",
       "time": "00:15:52.64"
     },
@@ -503,25 +507,25 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well --",
       "time": "00:15:55.27"
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "We can't have any averment here that the District abused its discretion. You don't allege that.",
       "time": "00:15:55.94"
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No.But the Director of Alien Property had abused his -- his --",
       "time": "00:16:00.88"
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But it's only an abuse of discretion by the District Court that would be reviewable here if 7 (c) is to be given affect according to its terms, which says, “There shall be no review except as provided in the Act”. Isn't that right?",
       "time": "00:16:03.74"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:16:23.82"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well --",
       "time": "00:16:26.52"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "By the terms of this Act.",
       "time": "00:16:35.79"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:16:38.49"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I ask two or three questions (Voice Overlap) --",
       "time": "00:23:18.79"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why we have held the immediate question is 32 (d). After all, (d) is a part of a single statute and I cannot, for myself, dissociate consideration of your -- of your immediate questions, with paragraph or whatever it is, paragraphs (5), “That such return is in the interest of the United States.” I, myself, must decide whether if this case goes back and the District Court holds for you and then it would have to go back to the Attorney General and he would have to decide whether the return is in the interest of the United States, if by a singe word, “no,” William P. Rogers, Attorney General, that concludes the litigation because that -- if the answer to that is, yes that his, no, is final and not reviewable, that has a good deal of bearing in my mind regarding the judicial reviewability of (d), because I wouldn't suppose that Congress meant to say that you could go in and have litigation. To have a contest, way up to the Supreme Court and back and decide, “Yes, he comes within (d),” but the Attorney General by his (Inaudible) can say, “You can't have it, because it's not in the interest of the United States.” So I don't think one can say, “We're not qualified to decide that now.” As a matter of construction, I feel I do have to consider whether his word is final and definitive, because if it is, it bears on what (d) does as far as I'm concerned.",
       "time": "00:23:23.60"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Certainly, but --",
       "time": "00:25:08.97"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- I know that's entirely within his say-so.",
       "time": "00:25:09.92"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are they bound by what they tell him? He either has power or he hasn't any power. The burden of the United States, I assume, can overrule him and he -- he certainly can't sit in judgment on his discretionary power. If the Attorney General can definitively determine after consulting or not consulting that it's the interest of the United States not to return, then for me, it has a great deal of bearing whether they have judicial review of these.",
       "time": "00:25:29.47"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He doesn't have to say a thing, if he has a final say. So, I'm assuming the Attorney General is a conscientious officer. He is the official leader of the American Bar. He is the -- he is the President's advisor, but if as a matter of law, his decision is not reviewable by the courts, then it's not reviewable.",
       "time": "00:26:07.36"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I noticed you don't seem to rely at all on Section 32 (e), which seems to me to have some significance, neither you nor the Government discussed it. The effect of which section as I understand it is that in the case of a person who receives property under 32, the Act specifically recognizes that there may be a suit by somebody against him but only one who is qualified, would have been qualified to receive the property under 32 is one coming within that provision. It seems to me to have a flavor of justiciability on it.",
       "time": "00:26:57.45"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but in order for the -- such a person to bring such a suit, he must show himself to have been one who had -- he applied in the first instance to the Attorney General, would have been qualified under 32 (d).",
       "time": "00:27:47.08"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that right?",
       "time": "00:28:03.77"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You say he's entitled to an answer, if I may go back to my question, he has got an answer. And the Director said that as he construed (d), he was not as he'd benefited in discriminating against political, racial, or religious groups that the -- that the -- that Walter Schilling or has not -- did not come within the designation of characterization or call it what you will, of a political, racial, or religious group. Now, it -- it certainly seems to me almost incredible to say that that is not a justifiable -- that that is so irrational, that it came from a mind that was animated by sheer hostility against Schilling. And you don't say that he was arbitrary or abused his power by having some private score against Schilling or that he had a lawsuit against him before the war broke out.",
       "time": "00:28:07.55"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or that he -- that he married his sister and -- who gave him a hard time and he divorced her. You don't say -- you don't appeal that kind of abuse (Voice Overlap) --",
       "time": "00:29:07.95"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But he doesn't have -- you don't have to -- we constantly decide legal questions without evidence --",
       "time": "00:29:21.71"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We assert is as a matter of construction of language.",
       "time": "00:29:27.66"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it was not within it because there's a special provision as you, yourself, appealed to. Trading with the -- the -- Trading with the Enemy Act had its own regime.",
       "time": "00:29:32.95"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:29:45.25"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you -- you draw it out of it. You say that -- you say by general principles of law, you've just told us a little while ago.",
       "time": "00:29:53.72"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Subject to the exceptions of the Administrative Procedure Act that it makes several exceptions that from my point of view, bar you.",
       "time": "00:30:15.24"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not by -- not by your general proposition, but by your appeal to that Act.",
       "time": "00:30:22.63"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Lawyers would seem always to get more comfort out of my dissenting opinion than I do myself. [Laughter]",
       "time": "00:31:09.57"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the court didn't take that line of argument. What good is it -- except you may have great intellectual satisfaction that you and I see alike.",
       "time": "00:31:26.31"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:31:38.46"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You don't mention that in your briefs the cases under the deportation statutes where questions of eligibility for -- eligibility for the discretion for relief -- discretionary relief of the Attorney General, maybe justiciable one, although his decision not to exercise that discretion was not --",
       "time": "00:31:47.16"
     },
@@ -845,13 +849,13 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well -- Not --",
       "time": "00:32:42.31"
     },
     {
       "turn": 137,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- what I'm getting at is that the --",
       "time": "00:32:42.77"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Even though -- even though (D) (5) might -- as Justice Frankfurter suggests that the -- in the -- here in the political realm unreviewable, you might well have a -- I'm not saying that this is your -- it's you're right, but you might well have a justiciable question as to whether or not, the person qualifies for this discretionary relief.",
       "time": "00:32:46.75"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, you have to be very brief, because you're five minutes overtime now, Mr. --",
       "time": "00:36:32.24"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kramer.",
       "time": "00:37:27.13"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, may I ask what particular language in the statute you refer to, to substantiate that position?",
       "time": "00:39:35.57"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, let's take 32, what does that say?",
       "time": "00:39:54.79"
     },
@@ -923,13 +927,13 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Voice Overlap) -- that's included.",
       "time": "00:40:13.79"
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Voice Overlap)",
       "time": "00:40:13.85"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, let's have the other -- the rest of the statute that you rely on.",
       "time": "00:40:25.43"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But now, what language? I just want -- I want --",
       "time": "00:40:40.85"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:40:43.90"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When it comes to the determination of what your opponent calls status, the statute says, “shall return” and not, “may return”.",
       "time": "00:41:32.70"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but that's what we're talking about here.",
       "time": "00:41:44.18"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You could mandamus anything you say. You could mandamus and I suppose.",
       "time": "00:42:39.42"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You don't seem to treat it in your briefs the kind of problem that we had in the -- in the Accardi case -- the -- versus Shaughnessy, the justiciable questions to whether or not A or B or C was in the category of people who are eligible through the exercise by the Attorney General of his discretion for suspension. Well, and the Court --",
       "time": "00:42:46.10"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- the Court made quite clear that while the -- it's up to the Attorney General and not to the courts to determine who -- whether the discretion to suspend should be exercised. Nevertheless, whether a man qualified to get into the group to apply it for suspension was justiciable.",
       "time": "00:43:13.06"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But that -- that -- that seems though on the surface to be fairly close to this situation.",
       "time": "00:43:34.34"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. -- Mr. Kramer, granting that this -- that the discretion of -- of the President is as broad as you -- as you've interpreted it here, isn't the question as to whether the man falls into one of these groups, a -- a legal question, a justiciable question, or is that also a matter of discretion on the part of the Director?",
       "time": "00:45:24.97"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You -- you mean that -- that Congress intended that the Director should determine there's a legal question whether the group this man is in was within the statute or not. And that from --",
       "time": "00:46:12.37"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- from his decision, there is no review.",
       "time": "00:46:30.28"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:46:41.58"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Not the question as to whether the man belong to the group, but as to the question as to whether the group itself came within the statute.",
       "time": "00:46:46.62"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "All right. We'll recess now.",
       "time": "00:47:56.96"
     }

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1963/328/19640420a_328_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "BEATRICE ROSENBERG",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT KASANOF",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "United States, Appellant, versus Rocco Tateo. Miss Rosenberg.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Who was the sentencing judge?",
       "time": "00:03:55.41"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:06:12.68"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean by that (Inaudible) but otherwise there is direct appeal (Inaudible)",
       "time": "00:07:12.62"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought this is third count.",
       "time": "00:08:38.61"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, what about that?",
       "time": "00:08:41.86"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why not?",
       "time": "00:08:44.93"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's the significance --",
       "time": "00:08:48.79"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is this part of an understanding?",
       "time": "00:09:26.27"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is the plea on some counts that the government would dismiss.",
       "time": "00:09:35.27"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, on a technical distinction this 2255 proceeding was directed only at the guilty plea on the other accounts.",
       "time": "00:09:44.76"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, no, the distinction between count three and the other, the only judgment that was formerly entered was a judgment on the guilty plea.",
       "time": "00:10:03.64"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And there was no judgment of any kind entered on.",
       "time": "00:10:13.62"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the judgment of dismissal of the indictment is not something which is -- can be attacked under 2255, is it?",
       "time": "00:10:18.09"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, apart from that from that Miss. Rosenberg, if I understood what you said, it was that the relief he would seek against the judgment entered on the guilty plea was relief which he himself had sought and therefore you are suggesting that the same retrial principles that apply on direct appeal would also apply here, is that right?",
       "time": "00:10:42.37"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now on the kidnapping obviously you can't make that argument as dismissal of the kidnapping.",
       "time": "00:11:06.31"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And is that the reason you make the distinction?",
       "time": "00:11:12.68"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:11:18.09"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:14:24.01"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't quite understand that point Ms. Rosenberg and I realize it's not your point, it's your opponent's but why are we concerned with the slim chance, the chance however slim, at the time the error is committed? The appellate courts are faced with a conviction if there is an acquittal that's the end of it.",
       "time": "00:15:39.80"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You're speaking of the harmless error rule that the English courts applied?",
       "time": "00:18:45.82"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:21:11.47"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:22:10.83"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "All these five charges go out one bank robbery.",
       "time": "00:25:28.60"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your basic point is that all these things are unimportant to this.",
       "time": "00:27:03.35"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:27:35.75"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:27:42.23"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kasanof.",
       "time": "00:27:51.84"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kasanof I am wondering if -- in the original trial if the Judge have made this statement this coercive statement before the jury instead of how the presence of the jury and the counsel had declined to plead his client guilty and he had been convicted to all of these offences and then on 2255, he was -- he received relief because of the coercive -- or we'll say, we say that -- suppose on appeal the case was reversed because of this coercive statement of the judge, would that be once, twice jeopardy if he's tried again?",
       "time": "00:31:51.94"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:32:46.08"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, Mr. Kasanof in the Chief Justice's hypothetical case your client would have been denied the right to a fair trial by his jury as you say because of the prejudicial remark by the trial judge before the jury, and yet you can see that if he had appealed a jury conviction, he would have -- the government would have entitled to a try him again.",
       "time": "00:34:04.77"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:36:28.95"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But he can't always control the defendant in his council either can he and to -- and pleading guilty is your mandate?",
       "time": "00:37:40.24"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well I think that the Court in reversing a statement that the trial Judge made in open Court would be doing exactly the same thing, wouldn't he?",
       "time": "00:37:58.47"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:39:47.23"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:40:14.23"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:40:39.07"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:40:47.18"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We will recess.",
       "time": "00:41:31.90"
     }

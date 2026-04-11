@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/03-725/20041109a_03-725.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "LAURA W. BRILL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We'll hear argument in the case of Pasquantino against the United States. Ms. Brill?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can you look at the interest of the government as one of not allowing U.S. territory to be used to carry out a smuggling scheme? I mean, why does it have to be viewed as one of trying to enforce some other nation's tax laws?",
       "time": "00:01:23.30"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's a wire fraud statute dealing with the use of communications capacity in this country to carry out a scheme designed to enable smuggling of goods.",
       "time": "00:01:59.36"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Brill, I thought your brief said that we have an anti-smuggling statute, which is directed precisely against smugglers, but it only applies to those countries that have similar protection for us.",
       "time": "00:02:35.35"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And Canada does not.",
       "time": "00:02:50.96"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now--",
       "time": "00:02:52.98"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--the existence of that statute would seem to suggest... and a statute which is limited to countries that will do the same for us... would seem to suggest that we don't want to do this for Canada.",
       "time": "00:02:53.81"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's also limited to vessels. It's smuggling by water, not smuggling by--",
       "time": "00:03:07.95"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--vehicles, as is done here, so that we don't have any statute that covers smuggling on land.",
       "time": "00:03:15.92"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there something better about reciprocity for vessels and not reciprocity for land smuggling?",
       "time": "00:03:24.75"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if we don't do view this case as involving some attempt to indirectly enforce Canada's tax laws... suppose we don't view it with that lens... then does that put it outside the so-called revenue--",
       "time": "00:04:43.97"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is the rationale for the rule that enforcement of taxes is so unpopular that we want to minimize the exposure to... of our judges so that they... the only thing they have to do is enforce taxes that... paid to our own government? I'm serious about that? Is that the rationale?",
       "time": "00:06:17.51"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if we did... if we did enforce even a tax judgement of another country, there would be no U.S. law that would be violated. You're talking about a common law, no country enforces the taxes of another. But, at least in the Restatement of Foreign Relations now, that's put in terms of... there's no requirement that any country enforce the tax claims or judgements of another; but neither is there any prohibition.",
       "time": "00:08:05.17"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't... you don't assert that this... that it... that this couldn't be done, do you? You just--",
       "time": "00:10:01.00"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--assert that we shouldn't assert that we shouldn't interpret this statute to have done it.",
       "time": "00:10:07.84"
     },
@@ -227,13 +227,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I--",
       "time": "00:10:36.19"
     },
     {
       "turn": 32,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you would come to that conclusion even if we had a reciprocal enforcement agreement. If this were Country X, where we did have a reciprocal enforcement agreement, you'd come to the same conclusion, no prosecution under this statute.",
       "time": "00:10:36.56"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, in a sense, the revenue position is irrelevant to your... to your secondary or your... or your independent argument on statutory construction. The revenue rule is irrelevant to it.",
       "time": "00:10:56.25"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:11:11.46"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--So tax revenues are not property, in your view.",
       "time": "00:11:41.64"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--May I ask you, Ms. Brill, something that puzzled me about this case? It is a rather peculiar use of our wire fraud statute. Are there any proceedings going on in Canada? Has there been any attempt to extradite these people?",
       "time": "00:12:33.28"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Presumably, if we punish this person this way, Canada wouldn't... there's no double jeopardy, right?",
       "time": "00:13:36.40"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So we'd be punishing this person for violating Canadian law, and then Canada would punish this person for violating Canadian law.",
       "time": "00:13:44.49"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think the government has an interest in saying, \"Look, if you're going to smuggle, have your scheme up there in Canada; don't use our wire systems for fraudulent purposes. \" \"We don't like that here. \"",
       "time": "00:14:13.10"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, they... of course, they say that this covers it, and it seems to me that really the... that turns on the definition of \"property\"--",
       "time": "00:14:30.81"
     },
@@ -341,13 +341,13 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--which is an arguable point.",
       "time": "00:14:37.33"
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the... instead of a wire fraud case, it was assault and battery? Supposing the Canadian revenue agent got inside of New York and one of your clients beat him up, would we have... solely because he was mad at him for trying to interfere with his attempt to smuggle into Canada... would we have to say that you can't do that, we have no jurisdiction over the assault and battery?",
       "time": "00:14:38.90"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The only purpose would be just what the purpose is here, they're trying to, you know, facilitate the smuggling operation.",
       "time": "00:15:04.51"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Interfere with Canadian's collection of their taxes. That's the only reason for it.",
       "time": "00:15:27.30"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is that any more attenuated than a conspiracy carried out down here in Maryland using American assets to do the evil deed in Canada?",
       "time": "00:15:38.61"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, why isn't the motive irrelevant here? We don't want our facilities to be used for criminal activities--",
       "time": "00:16:00.34"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--any more than in the... in the hypothetical we don't want citizens beaten up on our soil.",
       "time": "00:16:07.69"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but it used broad language, \"Any scheme to defraud by means of wire communications in interstate or foreign commerce. \"",
       "time": "00:16:28.00"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is this statute applied against people who defraud the United States Government in taxes?",
       "time": "00:16:54.02"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you don't... you don't know of any prosecutions under this fraud statute for depriving the Federal Government of property.",
       "time": "00:17:42.92"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Brill, is this the same thing if it were a building fraud? Suppose there were contractors building a Canadian building for the Canadian Government and they had a big fraud scheme down here, and it was to deprive the Canadian Government of money? I think the statute would clearly apply.",
       "time": "00:18:33.65"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Brill, in the Court of Appeals, they treated the argument that this was not property as entirely separate from the revenue rule question. And I thought your petition for cert was confined to the first question.",
       "time": "00:20:52.23"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the question, itself, doesn't refer to the property issue.",
       "time": "00:21:08.95"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was it... was it phrased the same way it is in your brief, in the petition?",
       "time": "00:21:12.92"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then the last part of it--",
       "time": "00:21:28.07"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--obviously covers it.",
       "time": "00:21:29.61"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I see. I'm sorry, you're right. Yeah.",
       "time": "00:21:31.43"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask you, when... now that we're getting into money, one of the things that the sentencing board had to do was to find out how much of a loss there was, and that involved determining what taxes would be due under Canadian law. And did that increase the sentence? Did the... did the sentence vary with the amount of taxes that they... we found due?",
       "time": "00:23:17.19"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "A judge making that assessment.",
       "time": "00:24:34.30"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Dreeben?",
       "time": "00:25:20.45"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where? Using a gun where?",
       "time": "00:25:59.63"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why didn't you prosecute him for that?",
       "time": "00:26:03.65"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But that really doesn't get you anywhere, does it? I mean, if the United States says, \"We don't want this gun offense to be prosecuted unless there's a wire fraud prosecution. \" that doesn't tell you anything as to whether there ought to be a wire fraud prosecution.",
       "time": "00:26:13.58"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's... but that's a reason for extending the statute to everything. To everything.",
       "time": "00:26:36.99"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "\"Property\" can mean anything at all. I mean, what you're saying is, the broader you read this statute, the more bad guys we're going to catch. I'll stipulate that. Of course it's true.",
       "time": "00:26:42.27"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about evading a Cuban tax law that we think... that many people would think is an unjust tax law? I mean, one of the things I'm worried about is that this gets us into foreign policy. Are you sure that we always want to enforce the tax laws of foreign countries through this fraud statute, no matter what those tax laws happen to be?",
       "time": "00:27:35.87"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It may well, but when it comes here, this Court is going to have to decide... we'll just approve whatever you want to prosecute and let you not prosecute whatever you want?",
       "time": "00:28:02.60"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, not just foreign policy. The White Russians come here because they don't want to pay Lenin's taxes designed to equalize all individuals, in terms of property. Country A has a tax law that makes everybody a criminal because nobody really ever pays all the taxes. Country C has a set of laws that tax bibles. Country D has a... I mean, you know, we can spin out the examples endlessly, and they're not farfetched. So take all the arguments from last week, called \"any court arguments\", cross... or two days ago... just let's cross-reference them. The problem is complexity of tax law. The problem is many, many, many would be contrary to American policy. And the problem is, nobody really knows what they are; indeed, they don't even know what American tax law is, no single individual, I suspect. Let's put in Italy, France, Byelorussia, Belarus, Ukraine, Saudi Arabia, and 35,000 others. Everybody becomes a criminal. And then we say, \"Don't worry, we'll only prosecute the real bad ones. \" That's the argument, I think, on the other side, and I'd like to hear your perspective.",
       "time": "00:28:18.37"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, only people who come over here because they don't want to pay taxes in those countries. Sometimes we would agree with them--",
       "time": "00:29:36.90"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes, they don't tell Lenin that they're coming--",
       "time": "00:29:54.08"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and they write to each other. They have a cousin, in Brooklyn, who forwards them the money to get out.",
       "time": "00:30:00.73"
     },
@@ -707,13 +707,13 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So the question comes down to--",
       "time": "00:30:20.70"
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The question comes down to whether this statute, which doesn't have to be read that way, ought to be read that way, whether it makes sense to read it that way. What about... does Canada have an income tax?",
       "time": "00:30:21.90"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, let's assume--",
       "time": "00:30:33.96"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Canada has an income tax. Would you... would you prosecute a Canadian who files a deceptive Canadian income tax return?",
       "time": "00:30:37.20"
     },
@@ -749,19 +749,19 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, no, from this country. He's... you know, he's a snow goose and is in Florida when he files his return.",
       "time": "00:30:52.91"
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "He files it electronically.",
       "time": "00:30:58.56"
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah.",
       "time": "00:31:00.13"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--reason for it. I just... you don't seem to know completely about Canadian law. How much do you know about the tax law of Vietnam? Because Los Angeles is filled with Vietnamese refugees, many of communities of such people in the United States. Do we know how many of them perhaps might owe taxes under the law of Vietnam, and maybe are talking to each other about whether they really want to pay it?",
       "time": "00:31:12.27"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what about the wealth tax in France?",
       "time": "00:31:42.90"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Dreeben, at the beginning of your argument, you said there were four federal interests you were going to identify. You've been able to identify one... you know, on running around with guns. What are the other three?",
       "time": "00:31:56.07"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Second--",
       "time": "00:32:05.56"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you were asked a brief question.",
       "time": "00:32:10.83"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if we're concerned about offending the foreign country, then isn't the way to go, in fact, the way Congress has gone in this area, we negotiate treaties? I mean, one of the reasons why we go the treaty route are the kind of problems that Justice Breyer brought up, we want to have reciprocal treaties. We want two things. We want to make sure that it's a basically fair system that we're dealing with. On the other hand, we want to say, \"If we do anything with respect to your taxes, we want to make sure that we get the same benefit from you with respect to ours. \" So never mind the revenue rule, isn't it pervasive that... when it comes to enforcing tax claims, that the route that Congress has chosen to go, and the Executive, as well, has been the treaty route?",
       "time": "00:32:49.94"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "One of--",
       "time": "00:34:03.70"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--one of... one of the last interests that you mentioned, about offending foreign governments, well, on the face of this, it would seem, the one that... the country that's been done out of taxes is Canada, not the United States. So, we should help Canada, if it's interested in collecting revenue from these people or trying them for a criminal offense, to do that. It... I asked Ms. Brill, Have they been indicted in Canada? She said yes, but she said it's... they had not... there has not been a request for extradition. Is that... is that--",
       "time": "00:34:04.59"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--How long has this statute been on the books, this wire fraud statute? Pretty old statute.",
       "time": "00:35:03.83"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How many prosecutions like this have there been? When was the first one?",
       "time": "00:35:15.06"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For, you know, using the mails or interstate commerce to defraud a foreign government of taxes?",
       "time": "00:35:20.92"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "More common, or didn't exist at all before the 19... do you know of any case before--",
       "time": "00:35:37.81"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--before the 1980s.",
       "time": "00:35:43.05"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't that suggest to you that the statute isn't naturally read to cover stuff like that?",
       "time": "00:35:44.33"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We didn't have smugglers before then?",
       "time": "00:35:50.36"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's the second reason?",
       "time": "00:36:22.95"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Well, and you have arguments against both of those two? Which are arguments are at least... at least... arguable? What about the third rule, the rule of lenity?",
       "time": "00:36:32.88"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If we... if we are unsure, if it's a close question whether it's property, if it's a close question whether we're enforcing the tax laws of Canada by prosecuting somebody for violating the tax laws of Canada, if that's a closed question, why doesn't the rule of lenity apply?",
       "time": "00:36:46.15"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But may I ask this question? I think you have conceded, in a footnote... and maybe you're... almost conceded... that if this were a RICO case, a civil RICO case, that the Congress enacted the RICO statute against this background rule and that perhaps the RICO case could not go forward. What if it were a federal RICO case and... the same facts... would the RICO statute be qualified by the revenue rule?",
       "time": "00:37:14.36"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about the other reasons underlying it, which is what I was trying to get at before? I see, literally, that the common law... you know, the enforcement... this is not literally enforcement. So what I was driving at with my questions is, even though literally it's not, the problems of complexity, the problems of knowability, and the problems of there being so many, many foreign tax laws that we might think are basically unfair, that those considerations apply here, just as they do with the enforcement rule, and then add the fact that turning people into criminals under threat of prosecution by the Federal Government is really very much equivalent to enforcing the foreign rule in a court. I mean, that's the whole thing spelled out. And I meant it seriously, though I used foreign examples to, sort of, drive the point home. What is your response to that?",
       "time": "00:38:07.13"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--To go to one more aspect of the statute which I don't think you've addressed, Congress said that... with respect to the wire fraud and mail fraud and, I think, other things... that restitution to the victim is mandatory, that it's not left up to the government to decide restitution or not. Except here restitution sounds very much like enforcing Canada's taxes, so you have conceded no restitution. But it seems to me that Congress thought of the wire/mail fraud statutes as cases in which there would be restitution, and that suggests that they didn't envision foreign taxes to be the object of the scheme to defraud.",
       "time": "00:40:13.91"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Now, how could that be, because restitution is to the victim? The victim is Canada. You collect Congress... or Canada's tax, and you give it to Canada. Is there any other kind of restitution?",
       "time": "00:41:53.28"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The restitution statute is not ambiguous at all; whereas, this statute has a number of ambiguities in it. And if I had to find my way out of the restitution problem, I would pick the ambiguous statute to get out, rather than simply saying, \"Well, though this restitution statute says this categorically, we will ignore it, because if we didn't ignore it, we would be enforcing the revenue laws of another country. \" There's nothing against enforcing the revenue laws of another country, if we want to; this is just a question of statutory interpretation. Should this ambiguous statute be interpreted that way? If Congress said, \"We're going to enforce Canada's tax laws. \" there's nothing wrong with that. But--",
       "time": "00:42:54.77"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So you have two statutes. One of them seems to be quite ambiguous. The other one is categorical, you get restitution in all cases. Now, how do I wiggle out of it?",
       "time": "00:43:43.07"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Obviously, I wiggle out of it with the ambiguous statute.",
       "time": "00:43:52.34"
     },
@@ -1073,13 +1073,13 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about... what about a scheme--",
       "time": "00:44:27.16"
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you haven't told me... you haven't told me how you get out of the restitution statute. There's no ambiguity there, and it is not a rule of law that you can't... it's unconstitutional to enforce the tax laws of Canada. Since it's entirely feasible, and since the text is categorical, how do you get out of the restitution statute?",
       "time": "00:44:28.27"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, that view is in... somewhat in tension with your view that the common law revenue rule doesn't stand in the way of this prosecution. Because you have to interpret the statute in light of the general rule that one country doesn't mess with another country's taxes, absent a treaty.",
       "time": "00:45:23.69"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Have countries also... just... here, I don't know, in respect to the principle... would it have been viewed as contrary to the principle if a country were to pass a law... say, England were to pass a law saying it is a crime in England not to pay French taxes? I'm not saying they couldn't do it; I'm just saying, Would a law like that, saying it is a crime in England not to pay French taxes... would it have been viewed as contrary to an abrogation of... or a... you know, whatever you call it... a derogation from the common law revenue rule?",
       "time": "00:46:52.47"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But do you see why I want to characterize it? I mean, would you characterize... my criminal statute's absolutely clear... the clear is, it is a crime in England not to pay French taxes. Now, would you, or would scholars, or whoever, view about the common law revenue rule, would they have said, \"There is a derogation from the common law revenue rule. \" or would they have said, \"It has nothing to do with it? \"",
       "time": "00:47:31.39"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, what would you have said?",
       "time": "00:47:55.81"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:47:57.51"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We haven't told... no, no, no, no, no, no, we're not telling Congress, \"You can't do what you have done. \" We're saying, \"Congress hasn't done this\".",
       "time": "00:48:34.20"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Nobody says they can't do it. That's why I asked you my question. My question is simply whether you would consider an absolutely clear law... \"We will... we... it is a crime not to pay your French taxes. \" I'm asking whether you would consider that... I'm not saying they can't do it; I just want to know... would it be in derogation of the common law principle?",
       "time": "00:49:01.37"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's where--",
       "time": "00:49:24.30"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Oh.",
       "time": "00:49:25.68"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Not the--",
       "time": "00:49:27.44"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That would be another one, too.",
       "time": "00:49:34.79"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because the... I... that's why I want to know--",
       "time": "00:49:36.52"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but why is it ethical, to the extent that there seems to be a mandatory obligation to order restitution? And it seems to me that the restitution that would be ordered would be just as much in derogation of the common law principle as the out-and-out collection in Justice Breyer's example.",
       "time": "00:49:44.98"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but I... a moment ago, you said, \"Okay, we'll assume that there would be some derogation. \" in Justice Breyer's example. I don't see why you don't come to the same conclusion with respect to the restitution aspect here.",
       "time": "00:50:15.99"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but the revenue... the revenue rule does not rest simply on the rationale of non-extraterritorial enforcement. It has... it has other rationales: difficulty of understanding what the revenue rule is; the... you know, the problems of policy; there are lots of revenue rules in foreign countries that we certainly wouldn't want to enforce, and so on. It's not just extraterritoriality. In those... those policies would be just as much implicated by the... by the restitution as by the out-and-out enforcement in Justice Breyer's example.",
       "time": "00:50:38.82"
     },
@@ -1271,43 +1271,43 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, perhaps--",
       "time": "00:51:36.02"
     },
     {
       "turn": 206,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well--",
       "time": "00:51:36.48"
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm sorry.",
       "time": "00:51:37.02"
     },
     {
       "turn": 208,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Go ahead.",
       "time": "00:51:37.47"
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no problem.",
       "time": "00:51:37.72"
     },
     {
       "turn": 210,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I was going to say, perhaps there were no specific holdings, because it would have been regarded as, kind of, a bizarre derogation of the rule in the first place. Nobody had dreamed up this scheme earlier.",
       "time": "00:51:38.34"
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I was about to say the same... the same thing. You keep saying there are no cases that do this. Are there... are there... are there cases, before 1980, which do what you want to do... that is, to use our fraud law, or something, to effectively enforce Canada's... or some foreign country's tax law?",
       "time": "00:51:51.92"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No.",
       "time": "00:52:12.09"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I got your point. I think it is the... in my answer... in my clear example, you would say no, that's not in derogation for the reason that there's an independent local reason for doing it. It's not being done to... whether it has that effect or not, it's not being done in order to collect the foreign tax.",
       "time": "00:53:23.77"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's been your response throughout.",
       "time": "00:53:40.57"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, I--",
       "time": "00:53:42.97"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Dreeben, can I ask you... this is such a curious case. You were very candid in telling us that when Canada put these astronomical taxes on tobacco and alcohol, that was almost an invitation to smugglers. Did we have any discussions with Canada... I mean, they do have that border, which is rather easy to cross... about what we were going to do when they put the taxes on liquor sky-high?",
       "time": "00:54:18.14"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Dreeben. Ms. Brill, you have four-and-a-half minutes left.",
       "time": "00:55:06.69"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I just ask you to tell us what your strongest case is? Because they did raise that question.",
       "time": "00:55:32.61"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "See, he's saying it isn't, for the reason that, he says, that if England did it for independent reasons, it wasn't doing it because it wanted to help France get it's money, that then it wouldn't have been in derogation. Of course, it would have been legal, either way, but he says it wouldn't have been in derogation, for that reason.",
       "time": "00:57:26.58"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're saying, in effect, that derogation is an effects test, not an intent test.",
       "time": "00:58:00.19"
     },
@@ -1427,13 +1427,13 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you. The case is submitted.",
       "time": "00:59:48.01"
     },
     {
       "turn": 232,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:59:49.87"
     }

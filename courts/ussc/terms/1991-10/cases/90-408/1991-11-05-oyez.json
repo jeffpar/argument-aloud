@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-408/19911105a_90-408.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY C. SULLIVAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT WAYNE BJUR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 90-408, County of Yakima v. Confederate Tribes and Bands of the Yakima Nation, and 90-577, vice versa. Mr. Sullivan, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Sullivan, on land within a reservation, where a fee title is held by an Indian member of the tribe, but it was patented and the title was issued; and if that land is later transferred, does State law govern what it takes to make a transfer and pass title?",
       "time": "00:02:50.72"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what about if the owner were to die without leaving a will, what law would govern the passage of that land?",
       "time": "00:03:21.66"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the owner is a tribal member.",
       "time": "00:03:37.02"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Have there been cases involving that, to your knowledge?",
       "time": "00:03:50.24"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Thank you.",
       "time": "00:03:59.70"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Sullivan, excuse me for interrupting you again. But the statute in question, section 349, refers to at the expiration of the trust period. Now, when did the trust period expire here? Do we know that?",
       "time": "00:05:53.54"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, were the patents issued during the trust period or after the trust period? And does the record tell us that?",
       "time": "00:06:24.95"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it might make a difference if the statute only applies to lands patented during the trust period, or to lands patented at the expiration of the trust period. At least there's language in that section that may make it relevant.",
       "time": "00:06:39.38"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:07:02.05"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When are you going to get to Moe?",
       "time": "00:10:32.20"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah, yeah. [Laughter]",
       "time": "00:10:35.58"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it at the very minimum, you want to limit Moe to its facts, I suppose.",
       "time": "00:10:46.25"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There's a difference between the clause that was relied on in Moe and the clause that you rely on here, is there?",
       "time": "00:10:55.79"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how do you... in terms of the rationale and the reasoning of... in Moe, why is there a difference between personal and real property owned by Indians within a reservation?",
       "time": "00:12:10.04"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say that the State may tax Indian-held fee land on a reservation?",
       "time": "00:12:47.80"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if that same Indian had personal property on that same piece of real estate, you accept Moe's decision that the State may not tax?",
       "time": "00:12:57.92"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You accept it, but you don't really agree with it. [Laughter]",
       "time": "00:13:20.44"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But your argument, as I understood... I was surprised to hear what you said earlier. I thought you were just arguing that because of the proviso, the real estate can be taxed. But you also say that for other purposes, the real estate comes within the jurisdiction of the State.",
       "time": "00:14:38.36"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So for purposes of inheritance, and so forth?",
       "time": "00:14:52.84"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about taxes. I'm talking about what happens to the property when the decedent of the allotted land dies. As I understood your answer to an earlier question, that the land would pass according to State law. Is that right?",
       "time": "00:15:02.38"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now how do you get that in the proviso? The proviso doesn't say anything about that. It says sale, encumbrance, and taxation.",
       "time": "00:15:20.34"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we have to decide that? I thought... I... frankly, I didn't realize this until you said it. I thought we were just talking about the very narrow question about whether the State can tax the land. But--",
       "time": "00:15:40.43"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And can I agree that the State can tax the land without agreeing that the land passes according to State law, that the State can do all sorts of other things with respect to the land?",
       "time": "00:15:51.63"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As long as I get four of the votes. [Laughter]",
       "time": "00:16:03.18"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but don't we have to follow the Washington Supreme Court's interpretation of this, of its own law in that regard? I mean, didn't State... didn't they just rely on what the State supreme... how the State supreme court described the excise tax?",
       "time": "00:16:25.42"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but the Washington Supreme Court says that tax upon the sales of property is not a tax upon the subject matter in that sale. So how can you say it's a real estate tax? I mean, if it's a matter of State law, I don't understand your--",
       "time": "00:16:57.30"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--What about a sales tax on the sale of personal property that, itself, can't be taxed?",
       "time": "00:17:41.17"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What, that no... the State could not--",
       "time": "00:17:49.44"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--What about a timber severance tax on fee land?",
       "time": "00:17:55.09"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's not quite that... so you don't have to do that to have the advantage of Moe.",
       "time": "00:18:46.78"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Sullivan, what does the last proviso of this statute mean, where it says: and provided further, that the provisions of this act shall not extend to any Indians in the former Indian territory. What's that?",
       "time": "00:19:27.50"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Sullivan, as I understand your response to Justice Stevens' question, do I understand it correctly that you say it doesn't matter whether it's a tax on the land or not, that any tax that is what... that is related to the land? I suppose you would say that the State could impose a sales tax on the land, too; impose a tax upon real estate sales with respect to this land?",
       "time": "00:20:05.14"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're trying to distinguish this situation from Moe. And the device you're using is the proviso, as I understand it. Without the proviso there's no basis for distinguishing this from Moe. The proviso, however, doesn't say taxes relating to such land, but it says taxation of said land. It says taxation of said land. So you have to be taxing the land to come within the proviso, don't you?",
       "time": "00:21:23.71"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, you can distinguish it on that ground. But there's no basis in the law for distinguishing it on that ground, that the basis in the law that you give us, that you entice is with, is the proviso. And the proviso says, taxation of said land. But you rely on both provisos I take it.",
       "time": "00:22:23.56"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Including the one that was at issue in Moe.",
       "time": "00:22:43.11"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you think you should win even if the last proviso... if the tax proviso wasn't even there?",
       "time": "00:22:48.84"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When did... you said the Congress has made the distinction between personalty and realty? When did it do that?",
       "time": "00:23:12.64"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So there you are... there you really are relying on your tax proviso?",
       "time": "00:23:34.68"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Otherwise, you wouldn't win under just the other proviso, on that basis.",
       "time": "00:23:43.42"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you must get to the other proviso.",
       "time": "00:23:52.11"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you one question on another subject before you sit down? Your first question in your cert petition referred to Brendale and the problem with deciding whether something's in the closed area or the open area. I didn't understand that issue to be raised by the court of appeals' opinion. Could you help me out? To what extent is there a Brendale issue in this case?",
       "time": "00:24:10.99"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think the court of appeals did inject the Brendale issue?",
       "time": "00:24:33.73"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand your position, but I didn't... couldn't... you... I'm just not sure I understood the disposition of the court of appeals, which was, in your view, they in effect said if it's in the closed area, it cannot be taxed, but if it's in the open area it can be, or what--",
       "time": "00:24:51.71"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--xxx wants that. I didn't really understand them to have xxx that. But that's what... I see.",
       "time": "00:25:23.55"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sullivan. Mr. Bjur, we'll hear from you.",
       "time": "00:25:28.25"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think he said that we really don't have to decide that in order to decide this case.",
       "time": "00:26:35.66"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And relieved at but. [Laughter] What about the sale or to transfer title? Whose law would apply?",
       "time": "00:26:44.77"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has the tribe restricted the transferability of lands owned in fee by tribal members?",
       "time": "00:27:24.31"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In Washington, are stamps required on a deed when it's recorded?",
       "time": "00:27:54.71"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are the deeds routinely recorded in the office of the Yakima County Recorder?",
       "time": "00:28:05.77"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I take it that the State recording statutes apply? There's not a parallel set of tribal rules on recording, are there?",
       "time": "00:28:15.04"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's one thing to say no conflict. It's another thing to say that Washington would have the right to regulate the terms of sale of fee lands in certain respects... to the exclusion of the tribe, with respect to documentation, the signatures that's required on a deed, recording requirements, et cetera.",
       "time": "00:28:29.01"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if... if the... if the act of Congress... if we were to find an act of Congress that authorized the imposition of these real property taxes, and it was after the treaty, then if your... your construction of the treaty would be abrogated to that effect, would it not?",
       "time": "00:30:49.04"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A treaty doesn't govern over a later statute.",
       "time": "00:31:04.96"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree that if it did provide unambiguously for State taxation, the treaty would be abrogated? It doesn't have to mention the treaty, sir.",
       "time": "00:31:30.41"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how much clearer can you be than to say that... that under certain circumstances the... any restrictions on the taxation of land shall expire?",
       "time": "00:31:52.61"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how would you make it clearer?",
       "time": "00:32:13.19"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I would just say it again, and I really mean it? [Laughter]",
       "time": "00:32:17.39"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, shall be removed. It says, all restrictions to sale encumbrance or taxation of said land shall be removed.",
       "time": "00:32:26.16"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but now you're getting into something else. What would you say if Moe had never been decided? How clear would that be in--",
       "time": "00:32:45.54"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, you think the... you think the... the later statutes really repeal the General Allotment Act, and for all intents and purposes... or this part of... at least this part of section 349?",
       "time": "00:33:19.05"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did it or didn't it?",
       "time": "00:33:34.56"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you can't have two statutes existing... regulating the same subject in a contradictory way. Isn't one of them going to cover it, and the other one, if it doesn't cover it, it's been repealed.",
       "time": "00:33:42.13"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But ordinarily... ordinarily, simply a change of direction on the part of Congress, so that Congress is doing things differently in the are of Indian relations now than it did earlier doesn't repeal an express statute.",
       "time": "00:34:10.63"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what about the rule against implied repeals? Can you point to something in the Indian Reorganization Act that... that is squarely inconsistent with the proviso?",
       "time": "00:34:42.40"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, doesn't the rule against implied repeals govern?",
       "time": "00:34:59.96"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why not?",
       "time": "00:35:05.35"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it necessarily inconsistent to say that both the Indian tribe could tax the land as well as the State and county? I mean, we often have parallel systems of taxation out there. Is there anything necessarily consistent with that?",
       "time": "00:35:46.22"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, and even if the tribe did choose to tax, it wouldn't be... it wouldn't mean that there couldn't be another taxing jurisdiction that also had that power.",
       "time": "00:36:25.71"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess this Court in that early Goudy case thought it was clear enough.",
       "time": "00:36:55.07"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Section 349.",
       "time": "00:37:04.84"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It said that by virtue of the language to that effect in section 349.",
       "time": "00:37:25.67"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Moe never explicitly distinguished between fee lands and other lands, did it?",
       "time": "00:37:51.00"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, correct me if I'm wrong. It does make that explicit distinction?",
       "time": "00:38:03.49"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The issue was... in Moe was the general policy... general powers to tax.",
       "time": "00:38:07.81"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, as to personal property tax. But it never addressed a tax that was specifically directed to fee lands only, on those lands.",
       "time": "00:38:24.42"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But in Moe, if we had found the personal property... a personal property tax could... should... could be imposed, we would have had to find that the entirety of the State... of the State's law would also apply. There was no basis for distinguishing personal property taxes from the remainder of State jurisdiction. And in that situation, the checkerboard problem we were concerned about in Moe is a serious problem, as the Federal Assimilative Crime Act demonstrates. The Federal Government, which owns real estate all around, doesn't try to, you know, have separate laws, in a checkerboard fashion within the various States. So that was a real concern in Moe. But gee, running a checkerboard system of real estate is not very difficult. Don't we have that same situation with respect to Federal lands owned within the States? The States can tax other lands, but they can't tax the Federal lands. So what's the big deal about checkerboarding as far as real estate taxation is concerned?",
       "time": "00:39:56.11"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, cause the statute says so. But I mean, there's no serious implementation problem, as there is when you have... when you have people in one relatively small area all subject to different criminal and civil laws on the basis of which parcel of land they happen to be on. And that would be very strange. But I don't see anything so strange about allowing a State to tax some parcels and not to tax others.",
       "time": "00:41:19.04"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I don't think so. I mean, they didn't have the proviso. I mean, if you said personal property taxes could be imposed on as a checkerboard-pattern basis, I think you'd have to say all laws, quote, \"both civil and criminal\" would be applicable on the same checkerboard basis. And that would have been a real... a real problem, I think.",
       "time": "00:41:47.85"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you one question before you sit down?",
       "time": "00:43:25.06"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At the beginning you said you were relying on the provisions of the treaty with the Yakima Nation. Are the provisions you've relied on set forth in your brief? I didn't find them.",
       "time": "00:43:27.05"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Quotes from the--",
       "time": "00:43:39.80"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That's what I thought you said. But that would mean they couldn't have even conveyed them to non-Indians. And they did. And there's a big question about that.",
       "time": "00:44:08.99"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bjur. Mr. Kneedler, we'll hear from you.",
       "time": "00:44:39.50"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But not real property.",
       "time": "00:45:49.10"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, when did the Solicitor General or the Justice Department adopt that view of Moe?",
       "time": "00:45:58.94"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the Government is... the Government has maintained the same position since it first addressed--",
       "time": "00:46:18.82"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Do you think Moe really just overruled Goudy?",
       "time": "00:49:14.88"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it doesn't say that. It doesn't say... it doesn't say and thereafter, all restrictions imposed hereunder as to sale, encumbrance, or taxation shall be removed. It says all restrictions.",
       "time": "00:51:05.31"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it... it seems very strange to say that the section 349 said all these restrictions would be removed and the States may tax land, but you say they can't because there's another restriction that hasn't been removed... preemption.",
       "time": "00:51:24.46"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I certainly... I wrote Moe, and I certainly don't agree with-- [Laughter] --with that interpretation of it.",
       "time": "00:51:49.42"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they certainly did-- --That's a very strange reading of Moe. --they certainly wasted a lot of effort writing that statute. It's just a meaningless statute.",
       "time": "00:52:17.77"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you're really saying there later arose a preemption policy--",
       "time": "00:52:47.59"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--which intervened.",
       "time": "00:52:51.49"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's just assume there was a time between the General Allotment Act and preemption, where there wasn't any preemption.",
       "time": "00:53:16.52"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, and... in that period of time, States were permitted to tax by virtue of the General Allotment Act.",
       "time": "00:53:31.28"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, yes, yes.",
       "time": "00:53:43.09"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So what you're saying is that this preemption policy, wherever it came from, in effect overturned the State's authority to tax pursuant to section 6.",
       "time": "00:53:46.20"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well that... so you don't say that repealed it.",
       "time": "00:54:03.97"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Kneedler.",
       "time": "00:54:30.20"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Sullivan, do you have rebuttal? You have 4 minutes remaining.",
       "time": "00:54:32.60"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When was Public Law 280 passed?",
       "time": "00:56:06.03"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you agree with the Government when it says... when they say that you do agree with the preemption submission in the sense that you can't tax unless Congress says so, specifically?",
       "time": "00:57:26.59"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When did that... has that always been the rule, forever and ever?",
       "time": "00:57:41.76"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Government says that after the General Allotment Act, some preemption principle suddenly arose. Did it?",
       "time": "00:57:49.45"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When was that the... when was that... when did this Court first say that?",
       "time": "00:58:28.33"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sullivan. The case is submitted.",
       "time": "00:58:47.24"
     }

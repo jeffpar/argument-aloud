@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/88-385/19890327a_88-385.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "DENIS A. DOWNEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THEODORE A. KREBSBACH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in No. 83-385, Ofelia Rodriguez de Quijas, et al., versus Shearson/American Express.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly we would have to reconsider some of our recent cases to adopt that view, wouldn't we, Mr. Downey?",
       "time": "00:03:01.82"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Downey, is there any evidence that Congress meant to treat claims under Section 12(2) differently than claims under Section 10(b)? Do we have anything in the legislative history to indicate that Congress intended them to be treated differently, even though they were not enacted at the same time?",
       "time": "00:03:36.21"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Perhaps there is, but is it an explanation that has anything to do with the difference between the two sections for present purposes?",
       "time": "00:05:17.94"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you say that the jurisdictional provisions are different. Well, that may be true. They may use different words as well. But why does that have anything to do whether... with the question whether for purposes of the question before us today you should treat 10(b) and 12(2) any differently?",
       "time": "00:05:33.45"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, no, you have to say less inclined to protect sellers and purchasers than to protect purchasers alone. Is that your point?",
       "time": "00:06:04.67"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Downey, did you raise the adhesion argument below?",
       "time": "00:07:56.59"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was that ever addressed below?",
       "time": "00:08:12.19"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You make another argument, don't you, that regardless of what this Court does, if we were to disagree with you about the validity today of Wilko and were to reject that now, I take it you argue that in any event it shouldn't be applied to your clients?",
       "time": "00:08:15.67"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You think it would not be retroactive under a Chevron analysis?",
       "time": "00:08:37.52"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "These agreements were signed before McMahon was decided?",
       "time": "00:08:54.95"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Downey, could I come back to the adhesion contract point for a moment. What did the lower courts say about that?",
       "time": "00:09:11.41"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, they had to address it, didn't they? I mean, even it you lose on the arbitrability point, surely it would be trumped by the fact that it's not a valid contract anyway, wouldn't it? How could they not have addressed it?",
       "time": "00:09:22.75"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but that's applying a doctrine of adhesion. What they're saying is it is not an adhesion contract unless there's--",
       "time": "00:10:04.61"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--How can they possibly do that? I mean, you can say there's no contract. They've really been doing that? You say there's no contract and the court below says, well, maybe there was and maybe there wasn't, but we're only going to look at the meaning of this particular contractual term? And you jumped up and said, but there's no contract at all, and the court says, well, maybe there was and maybe there wasn't?",
       "time": "00:10:27.59"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can't believe they did that.",
       "time": "00:10:48.63"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see. You're saying that they defer that question and leave the question of adhesion to the arbitrator.",
       "time": "00:11:10.10"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what's the matter with that?",
       "time": "00:11:17.29"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But by hypothesis there was no overreaching or at least no fraud in the agreement to arbitrate.",
       "time": "00:11:45.11"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but didn't the lower courts here at least find that the agreement to arbitrate was an agreement, a valid agreement?",
       "time": "00:12:04.00"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Fifth Circuit, Mr. Downey, in its opinion says that you didn't contest the arbitrability of your Exchange Act claims following McMahon. Now, you didn't make an adhesion argument with respect to the Exchange Act claims?",
       "time": "00:14:18.05"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it sounds at least from the Fifth Circuit's opinion as if you didn't make any claim that there simply wasn't any contract under the Exchange Act claim.",
       "time": "00:14:54.23"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Downey. Mr. Krebsbach.",
       "time": "00:21:46.04"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or not vindicated, as the case may be. Your point is that it's no better and no worse.",
       "time": "00:22:18.18"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Has the SEC formally suggested that Wilko be overruled?",
       "time": "00:23:22.89"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In McManon.",
       "time": "00:23:32.31"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They thought that Wilko should be overruled?",
       "time": "00:23:33.68"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The Petitioner takes the view, Mr. Krebsbach, that even if it is overruled that it shouldn't apply retroactively to these Petitioners.",
       "time": "00:23:44.29"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But this was signed, these agreements were signed, before McMahon was decided, were they not?",
       "time": "00:23:56.70"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that's a little hard to justify under Chevron, isn't it?",
       "time": "00:24:19.29"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you this. Under the predispute arbitration agreements in this case, would the arbitration have to take place in New York or Texas?",
       "time": "00:24:31.47"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You would concede that it could occur under these agreements in Texas, notwithstanding the provisions of the agreement?",
       "time": "00:24:44.61"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does the arbitration clause at issue meet all the requirements of the new rule?",
       "time": "00:30:29.30"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:30:36.14"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it does not conform with the requirements that the SEC is about to adopt in the rules you were just indicating?",
       "time": "00:30:46.66"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So its rules will be prospective?",
       "time": "00:31:07.34"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Krebsbach, what does SRO> [\"] stand for? Securities regulatory organization?",
       "time": "00:32:37.00"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why should we overrule a statutory construction case? Why shouldn't we leave it to Congress? You think just because it's wrong? Because if we go back to overrule all the cases that we now think are wrong, that would be quite an undertaking.",
       "time": "00:33:20.24"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we must have thought that Wilko was different. In McMahon we must have thought that 12(2) is different, because we didn't overrule Wilko.",
       "time": "00:34:01.15"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we didn't overrule Wilko, did we?",
       "time": "00:34:16.48"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but if they were the same issues we would have overruled Wilko.",
       "time": "00:34:20.97"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say there is no difference.",
       "time": "00:34:27.42"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if we didn't treat the two the same? Would one govern, govern the practice? In other words, would the effect of not overruling Wilko be to simply deprive McMahon of all practical effect?",
       "time": "00:34:52.19"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But it stood alone a long time.",
       "time": "00:35:40.34"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And Congress didn't act.",
       "time": "00:35:44.95"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Why do you think Congress hasn't acted, in view of what you just said?",
       "time": "00:36:18.46"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Going back to the baseball cases, Congress didn't act and we chose not to. Why should we do any different here?",
       "time": "00:36:51.26"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Really, your argument is that the arbitration process is now a process of integrity, and that we should recognize that fact and incidentally take a burden off the federal courts, isn't it?",
       "time": "00:37:17.16"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Maybe that's the real reason.",
       "time": "00:37:39.50"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You can't be too proud of some of the things that have happened in the Street in the past decade, can you?",
       "time": "00:37:47.27"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that depends on what other kinds of arbitration there can be. Are there any other kinds of arbitration that could possibly be written into an agreement that would come under the Acts?",
       "time": "00:41:06.18"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what do we do with those? With respect to those, all these nice arguments you've been making to us about how good the SRO arbitration is would be irrelevant, wouldn't they?",
       "time": "00:41:22.89"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So how predictable would that case be?",
       "time": "00:41:31.33"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You want us to interpret the statute so that only good arbitration is exempted from it, bad arbitration is not exempted from it?",
       "time": "00:41:45.90"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I think any arbitration that would pass muster in judicial review as being rudimentarily fair and not being set aside by judicial review is good enough arbitration, I would presume. I mean, I can't see reading the statute... you read the statute to say arbitration is part of the rights that you can't waive or it isn't. We can't possibly pick and choose among various types of arbitration, can we?",
       "time": "00:42:00.04"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Krebsbach. Mr. Downey, do you have rebuttal?",
       "time": "00:43:51.47"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Downey. The case is submitted.",
       "time": "00:46:52.35"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2006/05-1541/20070226a_05-1541.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS S. AINSA, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DEANNE E. MAYNARD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in case 05-1541, EC Term of Years Trust vs. United States. Mr. Ainsa.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And why did the court point out twice in Williams that section 7426 was not available?",
       "time": "00:00:52.95"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Because there was no levy. It was only a lien.",
       "time": "00:01:13.26"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But when Congress provides a special remedy for a particular class of persons, that special remedy usually excludes a more general provision.",
       "time": "00:01:58.08"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The Government does cite the principle that when there's a specific statutory scheme that controls over a more general one. It doesn't cite a tax case for that, at least as I recall. Has that principle ever been applied in the tax code, do you know?",
       "time": "00:03:03.70"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In the law, we don't... we certainly don't want to deprive any statutory provision of its whole purpose and effect. And as I understand the purpose of this especially short statute of limitations, it is to enable the Government to dispose of the property that it has seized, and to be able to give clear title to it without somebody coming back, you know, many years later and saying this property should not have been taken. How is that purpose served if indeed you can proceed under the provision that has a longer statute?",
       "time": "00:04:03.81"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't there this difference between the two. One of them... you're not challenging the amount of the tax in this case, are you?",
       "time": "00:05:40.06"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're not challenging the amount of the assessed tax, are you? You're just... whether they can collect it from this particular person?",
       "time": "00:05:49.59"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And isn't that the basic difference between the two statutes, that one of them deals with a fight about how much money the taxpayer owes, and the other one deals with the method of collection.",
       "time": "00:06:00.99"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it does seem to me if you think of the two statutes as performing rather separate functions, one primarily focused at the method of collection, the other the amount of tax, makes quite good sense to have different statute of limitations for the two, because there is an interest in the prompt resolution of the former issue that doesn't apply to the latter.",
       "time": "00:06:31.15"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose... tell me if I'm wrong, or the Government can tell me if I'm wrong... but there is this difference also that in a refund suit, you have to pay the money. The Government has the money before you can bring the refund suit. Am I right about that?",
       "time": "00:07:31.98"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Incidentally, I'm just curious, if the underlying assessment... if you wished to have challenged the underlying assessment, it's for a million dollars, can you pay $100,000 and then bring the refund suit in order to test the validity of the tax, or do you have to pay the whole amount?",
       "time": "00:07:44.54"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What about the underlying principle that waivers of sovereign immunity are strictly construed. And when you have a waiver on the broader statute, but shouldn't you read them together with the specific to suggest that they weren't waiving sovereign immunity when a more specific statute governed, except to the extent of the provisions in that more specific statute.",
       "time": "00:08:03.18"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The court took care to point out why those were not realistic remedies. But here there is a prompt and efficient remedy.",
       "time": "00:08:58.38"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, your argument is probably based on the statute. I just question one phrase you mentioned, which was that Williams was not driven by the equities. It seems to me it was wholly driven by the equities.",
       "time": "00:09:45.63"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was a determination that the word taxpayer encompassed someone who had, in fact, paid the tax. Here you don't even have that, because the tax wasn't paid directly by the EC Trust. The trust deposited the money in the bank, and then the Government levied on it, as distinguished from Williams, where Mrs. Williams, in fact, wrote a check to the Internal Revenue Service covering her husband's tax liability.",
       "time": "00:10:30.41"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, the whole case was about whether she indeed qualified as a taxpayer, having voluntarily paid the tax.",
       "time": "00:11:26.18"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes. It was an involuntary act, whereas in Williams, she stepped forward and paid the tax and claimed on that basis that she was the taxpayer.",
       "time": "00:11:45.39"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why isn't the obvious difference... I may have missed this... but you say, in the case, a taxpayer owed some money and the Government via a lien took property from a different person who then had to pay the tax who then had to get rid of the lien and wanted it back. And in this case they did exactly the same thing but they did it via a levy. So you say if the first could sue so could the second. But the difference, the obvious difference, which maybe you have explained and I missed, is that in the second case, namely this case, there is a specific statute that says you have to do it with a levy in nine months, and in the other case there wasn't such a statute. Why isn't that the obvious difference?",
       "time": "00:12:19.21"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Encompasses a lien for a refund action in the case where you took the property via a lien. And you'd say... they say, I guess, but it doesn't encompass it when you take it via a levy. Why not? Because of the specific, the same thing I just said. Now I want to be sure I have your whole answer to that.",
       "time": "00:13:23.65"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If your interpretation is correct then are there many such cases where the Government takes property via a levy and the person who wants to sue would get worried about nine months, because obviously he would think I can sue under a... kind of thing. It's two years. So are there still some where he would have to worry about nine months?",
       "time": "00:14:38.62"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In other words, are... in your interpretation, does the nine-month statute become meaningless?",
       "time": "00:15:05.19"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you just... you just pointed to situations where one to expect action to be taken promptly. You don't want to wait to, to get an injunction against a levy because the Government might be there and levy on the property and then you're out of luck. Where the incompatibility exists is post deprivation, when the nine-month, the interest in having these claims resolved properly is totally defeated if you can get the longer statute of limitations under the general refund statute.",
       "time": "00:15:38.24"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's why the code has that nine-month period instead of the two-year or in fact four-years because you have to go to the administrative process first. The whole purpose of the nine-months is to get people to act quickly.",
       "time": "00:16:39.05"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It doesn't seem to me that the fact that there is a waiver of sovereign immunity with regard to levies answers the statute of limitations question. Sure, there is a waive of sovereign immunity, but the question is how long does the... how promptly do you have to act?",
       "time": "00:17:40.37"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Getting back to my earlier question, if there is a million-dollar tax liability, and there is a levy on the bank account for $100,000, do you have to pay the extra 900,000 before can you bring-- the refund suit?",
       "time": "00:18:42.61"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So that's, that's also a difference.",
       "time": "00:18:55.20"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if the amount wasn't paid and what if your client just sat back and the, the assets, or let's say some real estate were, were seized by the Government. Would the 1346 action still lie? Or is it only for return of money that, that's been paid to satisfy the tax?",
       "time": "00:19:04.16"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's the, it seems to me the principal problem that the Government was facing and justified the short statute, wasn't it? That is the need to get, to be able to convey clear title to this property that it has seized. But once... once the money is put up, and what the Government has taken is in effect payment of the tax, maybe there is no harm in proceeding under 1346.",
       "time": "00:19:49.52"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm helping you.",
       "time": "00:20:19.97"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but there may be situations where the Government, having levied, doesn't feel the need to pursued other remedies available to it. And if you then allow a challenge to the levy to come in later the person they would have proceeded against if they didn't have the levy may have left the country, may have dissipated the funds that they would otherwise go after. They need to know early on that they are barking up the wrong tree if they have levied on the wrong property, and that's why you have a short statute to clear that up as soon as possible.",
       "time": "00:20:36.15"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The... the, the statute that you point to talks about taking a civil action against the United States. When there has been a wrongful levy, is that right?",
       "time": "00:21:45.94"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It doesn't say an injunctive action. So I would reading it think it encompasses both actions for injunctions, which are rare, probably, and what I think is not rare at all, an action for damages or money back. Now your reading of the statute takes that whole ordinary case, where people are just suing to get back some money, and it says our nine-month statute of limitations here is meaningless. All it applies to are injunctive actions which I bet are far and few between. You can tell me I'm wrong on that.",
       "time": "00:22:00.73"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I won't say you've made it meaningless but you have eviscerated it. Is that fair?",
       "time": "00:22:36.44"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, is my characterization fair? [Laughter] You want to say no to that.",
       "time": "00:22:49.53"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why would it have? Because there I think we are talking about liens and it doesn't cover liens, the specifics statute.",
       "time": "00:23:20.05"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the Government... and the opinion points out that if she had gone the quiet title route she would have lost the advantageous... she would have had to make. She could never complete a quiet title suit within the time that she needed to execute this sale.",
       "time": "00:23:38.63"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the, and the opinion suggests... not merely suggests, determines... that those other remedies, unlike 7426 in cases where it applies, were ineffective. The Government raised other remedies and the Court said they were ineffective.",
       "time": "00:24:23.97"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. Ms. Maynard.",
       "time": "00:25:22.66"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you have a citation for that as would apply to the Internal Revenue code?",
       "time": "00:25:45.20"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was, was the more specific statute there enacted after the more general statute?",
       "time": "00:26:14.96"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The reason I ask is we... we do have a principle which I think is a sound one, that repeals by implication are not fatal. And what you're saying is that the enactment of the more narrow statute impliedly repeals the cause of action that existed under 1346. Do you know if any of your cases that you cite, even those outside of the Internal Revenue field, involve more specific statutes enacted after the general statute that they supposedly limit?",
       "time": "00:26:26.61"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I guess--",
       "time": "00:27:11.05"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, that's certainly true when the two are enacted at the same time, obviously. Or even when the, when the general is enacted after the more specific one and does not thereby limit the more specific one. But, well--",
       "time": "00:27:22.97"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If 7426 had not been enacted, wouldn't this case have fallen within 1346 as interpreted by Williams.",
       "time": "00:27:56.11"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What could you point to in the language of 1346 that would take this case outside of 1346 as interpreted in Williams?",
       "time": "00:28:35.07"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But if this case would have fallen within 1346 as interpreted by Williams until... then you must be arguing that 1346 was in part impliedly repealed when 7426 was enacted.",
       "time": "00:29:01.87"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't, I don't see how you can say there's frustration. Perhaps I'm missing something. It seems to me that for years the Revenue Code has had two basic schemes. One is you can contest the liability before you pay the money. The other is you pay the money and sue for refund. And one requires you go to the Tax Court and the other district court and so forth. So these are two different schemes and here you have to... we are advised that even if there was a levy for $100,000 you, couldn't contest it unless you paid the extra 900. So those are two very different schemes. Am I wrong about that?",
       "time": "00:29:37.21"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of course, because the Government doesn't have the money. But in the refund suit the Government has the money.",
       "time": "00:30:27.14"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Often does, but not necessarily, and doesn't have to have all the amount.",
       "time": "00:30:34.66"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Pre-Williams you're talking about?",
       "time": "00:33:13.28"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Why does that make your argument stronger? If Congress didn't think that 1346 applied, then surely it didn't intend to repeal it.",
       "time": "00:33:34.28"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you make that argument, did the Government make that argument, in Williams?",
       "time": "00:34:19.39"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, that... that Congress had enacted another statute which presumes that there is no cause of action under 1346?",
       "time": "00:34:25.65"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but even if it wasn't available to her, the fact that there was another statute the whole premise for which is the unavailability of a remedy under 1346, it seems to me that would have, that would have strengthened the Government's case in Williams.",
       "time": "00:34:51.59"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It looks like it's the same in the Kreider case. I can't tell, I don't know. But this case was a specific statute of limitations acted after the general refund statute, right?",
       "time": "00:35:44.99"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And in the prior case it seems to be a specific statute that was enacted in 1926. I just got it out of the library. They give it to us, you know, if you ask them.",
       "time": "00:36:00.24"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it was the 1926 code and it concerned 1926 income, so it must have been brought, the suit, fairly close to when that was enacted. And the general provision was a general judicial code provision having to do with general statute of limitations and, no, it doesn't say. It looks... I mean, it sounds as if that had been long in existence.",
       "time": "00:36:12.75"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So why was it so hard for them to say that this is an exclusive remedy, as they have done in other situations?",
       "time": "00:37:08.73"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's even all the more reason for them to say. I mean. If there's confusion about what remedies are available and they want it to be exclusive, it's easy enough to say that.",
       "time": "00:37:21.99"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, again that suggests that they know how to spell out exclusivity when they have it in mind, and they didn't do it with respect to the availability of an action under 1346.",
       "time": "00:37:51.95"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the Williams decision came like a bolt out of the blue, then?",
       "time": "00:38:20.45"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Hungar has a further question.",
       "time": "00:39:48.49"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Hungar has a further question. [Laughter]",
       "time": "00:39:50.64"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I forgot about that footnote. [Laughter]",
       "time": "00:40:23.23"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Ainsa, you have 5 minutes remaining.",
       "time": "00:40:34.37"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And both statutes in Kreider I take it applied to the refund suit?",
       "time": "00:41:24.13"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So there were two statutes bearing on the same remedy.",
       "time": "00:41:28.97"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Ainsa. The case is submitted.",
       "time": "00:44:10.09"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/87-1043/19881031a_87-1043.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "I. WILLIAM COHEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in No. 87-1043, United States v. Ron Pair Enterprises. Mr. Wallace, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, to what kinds of property does the government's tax lien extend?",
       "time": "00:05:22.60"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, can I interrupt for just a second? It is true that the words \"such claim\"... you are saying there are two kinds of such claims, and you use the same words, \"such claim\", to describe both of them.",
       "time": "00:07:52.40"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The words \"such claim\" are used repeatedly in the sentence.",
       "time": "00:08:03.04"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Correct.",
       "time": "00:08:13.57"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wallace, you do concede that the majority rule before the new Code was to the contrary, that interest would not be allowable?",
       "time": "00:08:43.37"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Isn't... is it a little odd that there is nothing in the legislative history and nothing more explicit than the placement of commas to change a rule like that?",
       "time": "00:08:56.11"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I suppose most of the government's claims would fit in this oversecured category.",
       "time": "00:09:52.33"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Certainly if taxes are due, the government asserts a lien on everything the taxpayer owns.",
       "time": "00:09:59.89"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but there is a difference in mechanics' liens because they do just attach to a limited number of assets, I presume.",
       "time": "00:10:17.55"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whereas the tax lien will... covers the whole estate.",
       "time": "00:10:23.72"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:10:28.95"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, isn't it true that customarily in a mechanic's lien foreclosure that under most state statutes, doesn't the lienor get attorneys' fees and costs?",
       "time": "00:10:39.01"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if so, I wonder why there is a distinction in this statute between interest on the one hand and fees. Does it make any difference to anybody except in a tax case? I don't... it's kind of a strange--",
       "time": "00:10:51.57"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Right.",
       "time": "00:11:18.17"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:11:24.63"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand, but I was thinking in a mechanic's lien case there probably is no agreement for fees, but the practice, apart from bankruptcy, might well be to recover fees, and I just wonder why they should get interest but no fees. Sort of a strange distinction in the statute, because I gather they would get... under your view they would get interest but not fees or other reasonable costs.",
       "time": "00:11:31.43"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, can I interrupt you with another question, because I've been puzzling with this language as I've been listening to you.",
       "time": "00:19:13.69"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Am I correct in understanding your argument to advise us that in the pre-Code law, the liens that were consensual and evidenced by a written agreement really could have been of two kinds... one, they didn't have to mention interest in order to have interest be allowable on such claims, but they did have to mention fees or costs for fees or costs to be allowable.",
       "time": "00:19:20.14"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me that that distinction that you identify perhaps provides an explanation for the two kinds of such claims, both of which would be written claims, but one of which would say nothing, and therefore you could get interest on it, and the second of which might refer to fees and costs, and therefore require the language at the end to fit. And that might explain the commas.",
       "time": "00:20:04.41"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it would fit this language if one read the words \"such claim\" to refer only to consensual claims.",
       "time": "00:20:34.68"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but the language at the very end refers to the agreement, the agreement under which such claims are proposed--",
       "time": "00:20:54.62"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--which seems to think that there is an agreement in all of the claims referred to in the sentence.",
       "time": "00:21:00.92"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's the--",
       "time": "00:21:04.34"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Mr. Wallace, you say that the government hadn't acquiesced in the prior decisions that had not allowed interest on involuntary liens. Were there any decisions that agreed with the government? Or was it--",
       "time": "00:24:14.59"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Could I ask you, this was a reorganization?",
       "time": "00:25:22.44"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you think the secured creditor can just stay out of the reorganization proceeding and foreclose his property?",
       "time": "00:25:31.26"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He can preserve his claim without filing, but does that... does it follow that he may then foreclose on property that may absolutely frustrate the reorganization?",
       "time": "00:25:48.27"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know what you say but I don't... but that's different than saying he may stay outside and foreclose his... foreclose on his security.",
       "time": "00:26:02.44"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if he may not be able to do it outside and he has to... he can preserve his claim, and the reorganization... the reorganization court is bound to recognize his secured claim, but then the question still remains about post-judgment interest. Do you have... do you have some instruction--",
       "time": "00:26:14.38"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you, Mr. Wallace. We'll hear now from you, Mr. Cohen.",
       "time": "00:27:03.72"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that true, Mr. Cohen, in a case where you have the Bankruptcy Code of 1978 that really was out to change a whole lot of things? I mean, that isn't simply like a single law changing an earlier decision.",
       "time": "00:28:01.28"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's not how it reads. What do you do with Mr. Wallace's point that there is no way to read this to codify pre-Code law if you consider these cases standard pre-Code law? This language, no matter how you read it, requires that interest be provided for in the text of the agreement, and the pre-Code law didn't divide between whether it was provided for in the text or whether it was not, but rather, it divided between voluntary and involuntary liens, whether interest was explicitly provided for in the voluntary lien or not.",
       "time": "00:28:27.75"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you saying the pre-Code law did require that the agreement contain a provision for interest?",
       "time": "00:29:23.14"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which of those cases say that?",
       "time": "00:29:28.51"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They certainly have a basis to--",
       "time": "00:29:50.94"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask you, because you seem to disagree with Mr. Wallace on what the pre-Code law was, are the cases that you just called our attention to cases in which the government was making a claim for interest, or are those cases in which a private secured creditor was asking for it?",
       "time": "00:30:40.01"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you have any cases involving private creditors who were claiming interest, and they said... and the court said no, you can't have it because it's not in your agreement. That's what Mr. Wallace says their cases so hold.",
       "time": "00:31:01.86"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is the rationale? I don't understand.",
       "time": "00:31:32.51"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Gee, but that doesn't seem to me in accord with what the law usually does. If I make a contract with you and under that contract money is due on a certain date, and I don't provide in the contract that if you don't pay it on that date you'll have to pay me interest, the law would still give me interest, wouldn't it?",
       "time": "00:32:15.43"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what you're telling me.",
       "time": "00:32:40.70"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I'm saying that seems to me contrary, the fact that it has to be spelled out in the agreement and that it's not enough that the agreement is simply consensual, so that it would be an implied term. Wouldn't it be an implied term of any agreement because the law always gives interest?",
       "time": "00:32:42.46"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No?",
       "time": "00:32:57.13"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--wouldn't say that if they were claiming interest before the bankruptcy petition was filed.",
       "time": "00:32:58.06"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, even if it, even if it isn't stated in the agreement, you're going to get interest under the law up til the time of the petition in bankruptcy. It may be the general rule that after that you don't get interest, but you do before.",
       "time": "00:33:07.33"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wait a minute, wait a minute. Up til the time of the petition. You mean, you're not going to get interest in bankruptcy unless it's specified in the agreement?",
       "time": "00:33:23.45"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be, that may be so, but how... in an ordinary contract case?",
       "time": "00:33:39.67"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about a, what about a seller of goods who delivers the goods and the payment is due, and it is not paid, and there's no provision in the contract for interest, and then the buyer goes into bankruptcy, and interest... if you had gone to court, the... no doubt that you would have gotten prejudgment interest.",
       "time": "00:33:54.51"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it doesn't? Isn't it... as Justice Scalia asked you, isn't it normally that courts give you interest up to the date of judgment?",
       "time": "00:34:20.27"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume in a state, in a state where the law is by judicial decision that in the contract case I gave to you--",
       "time": "00:34:41.15"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--interest accrues up to the date of judgment.",
       "time": "00:34:47.82"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, surely in a bankruptcy case, wouldn't you... if there hasn't been any judgment, nevertheless, here comes bankruptcy, a claim is filed, wouldn't the claim be allowed if it claimed interest up to the date of bankruptcy?",
       "time": "00:34:50.53"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thanks. Well, isn't the reason for cutting off interest with bankruptcy a statutory provision rather than judicial decision?",
       "time": "00:35:09.79"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't it now... didn't the '78 Code provide by statute--",
       "time": "00:35:21.49"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--They never asked them.",
       "time": "00:37:13.57"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Congress, asked Congress?",
       "time": "00:37:16.30"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Consensual creditor or creditor where it's provided for in the agreement.",
       "time": "00:38:12.44"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes what?",
       "time": "00:38:17.98"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I have no doubt it arises out of the agreement. Is it provided for in the agreement? This case that you're quoting, did this case say that the provision for interest has to be in the agreement, which is how the statute reads?",
       "time": "00:38:23.50"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cohen, let me just be sure... you've cited us the Nicholas case and the Black Ranch case.",
       "time": "00:38:37.80"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are these cited in your brief?",
       "time": "00:38:45.21"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not in yours.",
       "time": "00:38:55.95"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does this case involve post-petition interest?",
       "time": "00:38:59.42"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the government entitled to interest on its claim up until that time?",
       "time": "00:39:08.12"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is entitled to that.",
       "time": "00:39:16.43"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the oversecured, the oversecured creditor is one whose security is greater than the principal plus interest up to the date of the petition.",
       "time": "00:39:24.57"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how about the placement of the commas?",
       "time": "00:40:40.04"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly that gives at least a presumption, doesn't it, that--",
       "time": "00:40:43.27"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, what's confusing about this punctuation?",
       "time": "00:40:57.78"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that certainly isn't at all apparent to me just by reason of the placement of the commas.",
       "time": "00:41:20.04"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but our decisions are not based on subjective understandings. There is supposed to be some general rule as to how one reads an English sentence.",
       "time": "00:41:39.07"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But we now have it before us and can determine for ourselves whether it's ambiguous or not.",
       "time": "00:42:00.14"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Counsel, the government points out that Sections (a) and (c) apply to nonconsensual liens. I suppose Section (d) does also? I am not--",
       "time": "00:43:18.58"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I'm sorry, subsection (a) of 506--",
       "time": "00:43:31.66"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And (c) apply to nonconsensual liens?",
       "time": "00:43:37.84"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How about (d)? I'm not--",
       "time": "00:43:41.56"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I believe it... so under your view, only Section (b) applies to consensual liens only.",
       "time": "00:43:47.05"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, how is that different from saying that only Section (b) applies to consensual liens only?",
       "time": "00:44:12.00"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I understand that, but I simply want to see if it's correct... maybe it isn't... that under your view, the only section, the only subsection in 506 that applies exclusively to consensual liens is subsection (b).",
       "time": "00:44:37.74"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under your view, subsection (b) applies only to consensual liens, correct? Tell me if it's incorrect.",
       "time": "00:45:04.12"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. And that's... and all of the other subsections apply to consensual and nonconsensual Iiens, correct?",
       "time": "00:45:19.52"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Now, that is somewhat of an anomalous statutory scheme, is it not?",
       "time": "00:45:32.56"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but at the outset we look at the words of the statute, and you're telling us that it's ambiguous. Certainly in the context of the entire section it seems that the government's reading of the statute is eminently plausible.",
       "time": "00:45:51.25"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do you need legislative history to show that a change is made? Congress can surely make a change in a statute without even having a committee meeting, can't it?",
       "time": "00:46:34.50"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sometimes, not always. Maybe the explanation is simply that the Justice Department didn't like the prior rule, they hadn't acquiesced in the cases, and they, they got to the--",
       "time": "00:46:51.31"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--they got to the right Senators or Members of the House and got it changed.",
       "time": "00:47:02.63"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Cohen, can I get back to the text and ask... my problem with the text is not just the comma, although I do tend to read commas since they are written there. It's also, it's also the text itself. What is the... it seems to me there's no utility in repeating the phrase \"such claim\" unless you mean to separate the meanings the way the government has contended. That is to say, if the passage meant what you say, why wouldn't it have read, leaving out the comma, there shall be allowed to the holder of such claim interest and any reasonable fees, costs or charges provided for under the agreement? But it doesn't say that. It says interest on such claim and any reasonable fees, costs or charges provided for under the agreement under which such claim arose. I don't see any reason for the first \"on such claim\". You know, what else would it be interest on?",
       "time": "00:47:41.05"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's, that's a good explanation. Not just... that's not just the reason for the comma; it's the reason for saying \"on such claim\".",
       "time": "00:49:18.31"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Cohen, just so I know what you're urging upon us as the principle we should adopt, you want, you want us to adopt, and you say this is what the pre-Code law was, the principle that if you have a voluntary lien, you can get interest, post-petition interest if, but only if your agreement specifically says I am entitled to interest, and if it doesn't specifically say that, although in a normal lawsuit, outside of bankruptcy, you'd be allowed interest, you can't get it.",
       "time": "00:51:47.30"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. I said a voluntary lien, I believe, and if you want to say consensual, that's fine. It's a consensual lien, right?",
       "time": "00:52:31.99"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Pursuant to an agreement in which you lend me... I lend you money or whatever.",
       "time": "00:52:39.36"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you would allow... you want us to interpret this language so that post-petition interest would be allowed only if the agreement by which I lend you the money specifically says I'm entitled to interest if you don't pay me the money.",
       "time": "00:52:42.89"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it doesn't specifically say that, then there would be no post-petition interest.",
       "time": "00:52:57.20"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stein, there's a little bit of a problem with the language under your reading because the interest on such claim, it seems to me, is not necessarily just interest on the principal, but it also could be interest on the principal plus interest that accrued to the date of the petition.",
       "time": "00:53:17.22"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is allowable? Is it interest on the principal or interest on the amount of the claim at the time it's allowed?",
       "time": "00:53:36.45"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it has to be supported by a provision in the agreement that says you get interest on the principal.",
       "time": "00:53:44.61"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without saying what it's on? That would be an unusual agreement.",
       "time": "00:53:52.39"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does Collier say that the agreement itself must provide for interest, or does he make simply the distinction between consensual and nonconsensual liens?",
       "time": "00:54:16.07"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is the person who writes Collier's still named Collier? [Laughter]",
       "time": "00:54:36.78"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--J. W. Moore.",
       "time": "00:54:45.06"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Cohen, your time has expired. Thank you.",
       "time": "00:56:27.45"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, you have two minutes remaining.",
       "time": "00:56:31.03"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, am I correct that you no more can point for us to a pre-Code case which denied interest on a consensual secured claim because interest was not specified in the agreement than can the other side point to a case which granted it?",
       "time": "00:58:04.62"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So that's sort of a standoff.",
       "time": "00:58:33.61"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wallace.",
       "time": "00:58:58.32"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:59:00.49"
     }

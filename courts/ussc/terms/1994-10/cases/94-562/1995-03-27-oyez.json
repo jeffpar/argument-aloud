@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/94-562/19950327a_94-562.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL A. ORLANDO",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WERNER A. POWERS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 94 562, Leslie Wilton v. Seven Falls Company. Mr. Orlando.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May we just go back to that. We're dealing with a request for a declaratory judgment. It was my understanding, as I think it was Borchard's, who wrote the act, that a declaratory judgment, that that is a matter within the discretion of the trial court, that there is jurisdiction, but it need not be exercised. That's the way the author of the act described it. That's what the notion of a declaratory remedy is. Well, if it's too iffy, the court says we won't handle it, for any of a variety of reasons. Isn't that what a declaratory action is?",
       "time": "00:02:48.51"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... doesn't it make sense to infer that there is a derivative or implicit discretion to determine whether to go ahead and have a trial on the issue, because let's assume we apply Colorado River, Moses Cone, or any other set of criteria. If the court right at the threshold says it's perfectly clear that this is a case in which it's quite unlikely that we would, in fact, grant relief, that is a very good reason for the court at that stage to say, we therefore are going to abstain. Why doesn't... why isn't that a sensible way to give practical effect to the discretion that you concede?",
       "time": "00:04:31.04"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well-- --But--",
       "time": "00:05:26.31"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--May I just ask one other? Your reference to unfettered discretion I think sort of takes its significance from the fact that you continue to reiterate throughout your argument that you have here this morning that there is this unflagging obligation to exercise discretion, which I took you to mean was something inconsistent with abstention, absent an overwhelming case for abstention, and that really is not so. If, in fact, there is the derivative discretion that I was talking about, then we are not in a situation in which there is this unflagging obligation as we are in the circumstances which Moses Cone and Colorado specifically addressed.",
       "time": "00:05:27.24"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was that a declaratory judgment case?",
       "time": "00:06:43.00"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "With no other relief sought?",
       "time": "00:06:47.99"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Has this Court ever said what you're contending, that you must exercise the jurisdiction but when you go through the whole trial you stop because you have discretion with respect to the remedy? That just doesn't make any sense.",
       "time": "00:06:52.89"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well-- --Well-- --but did the district court, or the circuit court in this case, ever purport to be abstaining?",
       "time": "00:07:24.90"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me that in your argument so far you have talked about the discretion not to grant declaratory relief as if it were abstention, and it seems to me those are very different things. Now, it may well be that many of the factors you look to with the abstention determination parallel the factors that you look to with reference to declaratory relief, but I suggest that perhaps the one factor that is not present in declaratory relief is a virtual unflagging obligation, and it seems to me that you are conflating in all of your discussions so far abstention and failure to grant declaratory relief in the sound discretion of the court, and that those are analytically two quite separate foundational principles for the court to consider.",
       "time": "00:07:41.66"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "To follow up on Justice Kennedy's question, does your answer suggest that the court should treat a dismissal as exactly the same way as staying?",
       "time": "00:09:15.02"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suggest to you again that the court did not say, and I don't think you can interpret its opinion as saying, that it was abstaining.",
       "time": "00:09:50.53"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you want us to say there is an unflagging obligation to grant declaratory relief?",
       "time": "00:10:48.92"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think we're back where we started. You're saying there's an unflagging obligation to assert jurisdiction, although once it asserts jurisdiction you can then say, however, we don't think this is an appropriate case for a declaratory judgment, get out of here, right?",
       "time": "00:11:13.53"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what do you gain by that?",
       "time": "00:11:32.82"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You gain simply the statement we... instead of saying, we don't think this is an appropriate case, get out of here, the court must say, we think this is an appropriate case for us to take jurisdiction, but not to grant relief, get out of here. Have you really won a lot for your clients on--",
       "time": "00:11:35.02"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I thought that answer just contradicts what were you telling Justice Souter. I thought you were telling Justice Souter that you were not going to make them go through that extra step of saying we have jurisdiction but we're not going to give you a judgment. I thought you said that that doesn't make any sense.",
       "time": "00:12:08.97"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But maybe a summary judgment process. In other words, time has got to be spent evaluating perhaps uncontested facts, but time has got to be spent doing something more than would be done if you simply say at the threshold point, get out of here.",
       "time": "00:12:32.36"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "To what extent is what you're saying inconsistent with the statement, there is nothing automatic or obligatory about the assumption of jurisdiction by Federal court in a declaratory judgment action even if the parties are proper and the jurisdictional amount is present. The distinction between jurisdiction over the case and the propriety of exercising that jurisdiction must be borne in mind. Those are Borchard's words about the statute that he largely composed. I take it you don't agree with that.",
       "time": "00:13:21.19"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why must you go through a checklist, instead of saying, here's a case where the insurer is suing first, and then you have another case where the insured is coming into court, there's no Federal question, there are more parties in the State court action, and the one thing that you shouldn't have is wasting judicial resources by having two courts deal with the same matter at the same time, so one court should defer to the other, right? It's just simply a question of which one should wait.",
       "time": "00:14:31.48"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you agree that a fundamental point is, you should not have two lawsuits over the same matter going on at the same time, unless there's extraordinary reason for that?",
       "time": "00:15:26.85"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All right, and then the decision has to be made which of the two lawsuits, and what are the... we have two lawsuits going on now. What are the standards that you say should control whether the Federal court suit stops and lets the State go forward, or whether the State should stop and let the Federal suit go forward?",
       "time": "00:15:42.38"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you say that the district judge can say what you've just said, we should go forward, but then can immediately say, having gone forward we find that all things considered it's better for the State court to proceed than it is for us to proceed, and therefore on the merits we decline the declaratory judgment.",
       "time": "00:16:36.15"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. The merits decision is also a Moses Cone decision.",
       "time": "00:16:57.87"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. Now, on the merits of whether to issue a declaratory judgment or not, what is the standard for that?",
       "time": "00:17:05.86"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but--",
       "time": "00:17:17.45"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But... yes, I assume not, but let's... is it the same standard as Moses Cone?",
       "time": "00:17:19.19"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a lot more restrictive of the Federal court than Moses Cone, isn't it?",
       "time": "00:17:27.21"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And even-- --On these facts, supposing the district judge had said, I have jurisdiction here, and I have an unflagging obligation to exercise it, but on these facts, there's a lawsuit pending in the State court and I'm not going to grant a declaratory judgment. Is that a permissible disposition of the case in the district court?",
       "time": "00:17:59.64"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you're saying the district court has to go through the whole Moses Cone list, even though it's a declaratory judgment?",
       "time": "00:18:31.45"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does the fact that it's a declaratory judgment affect the Moses Cone calculus?",
       "time": "00:18:43.90"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "My question was, how does the presence of a declaratory judgment request affect the Moses Cone analysis? Are you in the process of answering it, or have you gotten onto something else?",
       "time": "00:19:24.50"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In spite of the discretion granted by the statute itself?",
       "time": "00:19:46.21"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Orlando, now Moses Cone, that was not a declaratory judgment action, was it?",
       "time": "00:20:42.91"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I thought after Colorado River, wasn't there that case of Will v.... what was it?",
       "time": "00:20:50.70"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Calvert-- --Calvert, and didn't the plurality there refer back to Brillhart and say Brillhart set the standard?",
       "time": "00:20:59.71"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so why shouldn't we adhere to that? That was a post Colorado River case. Moses Cone wasn't a declaratory judgment case. Why shouldn't we stick with Brillhart?",
       "time": "00:21:09.27"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe it's time to declare that Brillhart sets the standard.",
       "time": "00:22:01.96"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Exactly, and I would like to know why that doesn't present the better point of view.",
       "time": "00:22:09.90"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Congress gave the judicial branch some discretion in the Declaratory Judgment Act. That's clear on the face of it.",
       "time": "00:22:29.13"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You know, one of the ironies of the issue is, we talk about Colorado River as unflagging obligation, and of course they didn't retain jurisdiction in that case itself, and one of the factors that Justice Brennan mentioned in the... in his opinion under all these unflagging factors is desirability of avoiding piecemeal litigation, citing Brillhart. And he also says that the factors don't have any necessary... you don't know which one is the heaviest and how to weigh them, but I don't know why, even within the Colorado River formulation, one couldn't say that a district judge has some discretion to decide whether, given the case going forward in two different court systems, which one is a better forum for adjudicating the merits.",
       "time": "00:23:27.69"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, supposing he looks at the docket and says, if I take... keep this case, I'll be able to try it in about 30 months, it will probably go to trial next week in the State court, and that's the only factor I look at. Is that a sufficient factor?",
       "time": "00:24:38.14"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Orlando, you answered Justice O'Connor that that is indeed the issue here, whether we should use as a jurisdictional issue what we have said to be the basis for a merits determination under declaratory judgment actions, but is that really the issue? Do we know that the dismissal in the district court here was a jurisdictional dismissal?",
       "time": "00:25:04.29"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where did you get it, it's on B 2, B 1 of the cert petition?",
       "time": "00:25:43.77"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think I'm a fair reader, and I can't... it says, B 2, \"the district court in its discretion may provide declaratory relief. \" It didn't say, may exercise jurisdiction. \"To determine if declaratory relief is appropriate. \" not if entertaining jurisdiction is appropriate, \"the court may consider whether the declaratory judgment action was filed in anticipation of a trial on the same issues. \" blah, blah, blah, blah, blah, and then it goes down and says, \"Thus, the court finds that exercising jurisdiction to grant declaratory relief would result in the piecemeal adjudication. \"",
       "time": "00:25:48.78"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is the merits? I mean, the merits is, if there is another State action pending and declaratory judgment was filed in anticipation of trial on that same issue, why isn't that exactly the merits?",
       "time": "00:26:34.24"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But all that could be done in the State court, and I think you agreed with me that one... the fundamental thing that we start with in these days of overcrowded courts, even without that, you should not have two courts proceeding in the same matter at the same time. That's so basic. And then the question is, which one, and it seems that this court, this district court just explained why, that everything could be... everything that was brought to the Federal court and more was pending before the State court, plus that suit came up in the ordinary course, the insured suing the insurer, not the insurer anticipating the suit. So what reasons, other than the ones that were given, need to be given?",
       "time": "00:27:01.02"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What factors, other than 1) there should be one lawsuit; 2) the State court is not going to relinquish this case. It's got all the parties, or more of the parties before it than in the Federal court. What else, beyond that, should a sensible district judge consider?",
       "time": "00:28:03.70"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, counsel, suppose that the State of New York, I don't know if this is true or not, has a statute which is exactly parallel to the Federal declaratory judgment suit, and this action were brought in the State of New York to enjoin the parties... to declare the rights of the parties. Would you tell the State court of New York, in determining whether to exercise its discretion to grant a declaratory judgment, that it has to consider Moses Cone factors?",
       "time": "00:28:21.46"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me that this case is no different than that. Now, many of the factors that the court considers sound very much like Moses Cone factors, and they are, but you don't cite Moses Cone for the proposition that the declaratory judgment relief is either properly or improperly denied in the matter of the Court's discretion.",
       "time": "00:28:49.77"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Orlando. Mr. Powers, we'll hear from you.",
       "time": "00:29:20.93"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did he say that? Was it put that way, not to exercise jurisdiction over the case?",
       "time": "00:30:40.03"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, maybe, but he might have said, as the Court here said, jurisdiction to grant the... this is very subtle, but that's what we're talking about, isn't it?",
       "time": "00:30:48.15"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe.",
       "time": "00:31:04.27"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:31:13.54"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, although he ended up... I'm afraid I misled counsel, saying he dismissed. He didn't dismiss. He stayed, and stayed, I guess, is really much more consistent with declining to exercise jurisdiction over the case for the moment. Isn't that right? Or maybe it isn't. Maybe it means I exercise jurisdiction, but I'm just not going to make up my mind about the declaratory judgment. Maybe it's in between the two.",
       "time": "00:31:19.94"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Down the road apiece.",
       "time": "00:31:53.62"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask... it's just a stay, not a dismissal. Was this an interlocutory appeal, or was that... is a stay a final judgment? How did the court of appeals have jurisdiction to review this?",
       "time": "00:31:59.45"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the case was still pending in the district court.",
       "time": "00:32:15.83"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose any time the district court decided to, he could have just said I think I'll... I find out that the proceedings have been delayed interminably over in the States, and I think we ought to go ahead with this trial. Nothing would have prevented the judge from doing that, would it?",
       "time": "00:32:18.42"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe that's why they didn't want to publish their opinion. [Laughter]",
       "time": "00:32:41.91"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but they affirmed. They didn't dismiss the appeal.",
       "time": "00:32:58.62"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What did Moses Cone do, do you remember? Did they dismiss or stay? We call all of these things abstention cases. I went through them once and I forgot what conclusions I came up with, but some we dismiss and some we simply say, we're going to wait to see what the State court does. What was Moses Cone?",
       "time": "00:33:01.67"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're quite different things, really, aren't they?",
       "time": "00:33:21.55"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In Colorado River, as I read the opinion we affirmed the order dismissing the complaint. We usually should talk about dismissing actions.",
       "time": "00:34:04.10"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Isn't it just the difference between 12b(1), which would be subject matter jurisdiction, and 12b(6) doesn't state a claim for relief?",
       "time": "00:35:29.62"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Maybe the stay result in the district court is like if you grant a motion, a forum non conveniens motion when the forum is broad and the district court wants to make sure that that other litigation really goes forward before dropping the case. If it's reinstituted there may be a statute of limitations question. Maybe that was the logic behind the stay.",
       "time": "00:36:21.07"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How did the... Justice Stevens and I were just speculating, how does a stay get to be appealable as a final order? I mean, suppose he hadn't announced a stay, just put it at the bottom of his stack of cases, just didn't get to it for several years?",
       "time": "00:37:02.15"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It sounds right to me.",
       "time": "00:37:33.87"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you ask for an injunction?",
       "time": "00:37:38.77"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well then, 1292, or did the... pardon me. Did the plaintiff ask for an injunction?",
       "time": "00:37:43.56"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then 1292(a) doesn't work.",
       "time": "00:37:48.98"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Gee, maybe the case doesn't belong here. [Laughter]",
       "time": "00:37:51.80"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let's go ahead on the assumption it does, yes.",
       "time": "00:38:04.37"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where is Winkler County?",
       "time": "00:40:12.57"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In... how large is the county seat?",
       "time": "00:40:16.15"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any reason why all this litigation was brought there rather than somewhere else?",
       "time": "00:40:25.92"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The statements you were just making about this being premature as a declaratory judgment action, assume... and about race to the courthouse assumes that the Declaratory Judgment Act was not meant precisely to permit what occurred here, to permit an out of State defendant who does not want to have to be subjected to State courts to file first in order to avoid that.",
       "time": "00:40:47.48"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm not... I'm saying... I'm just saying what you assumed. I don't know whether it's right or wrong, but why do you assume it?",
       "time": "00:41:16.67"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that was their mistake, then. They really shouldn't have made that decision. They could have just not shown up and say, we really aren't really sure. Should the whole thing turn on that, do you think?",
       "time": "00:42:53.36"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's easy enough for an insurance company never to make up its mind categorically until the action is filed.",
       "time": "00:43:03.85"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why-- --Is this... I'm sorry. Go on. Of course, isn't there another factor we at least ought to think about for a minute, that one of the whole purposes of diversity jurisdiction is to avoid the danger of a forum that's somewhat prejudiced in favor of the local citizenry, and if the law would say, well, we will let the local court go forward, we kind of forget why the authors of the Constitution even granted diversity jurisdiction in the first place.",
       "time": "00:43:23.40"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not our thinking. It's the Founding Fathers.",
       "time": "00:44:01.41"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, blame it on them. It's not a frivolous suggestion. They did establish diversity jurisdiction.",
       "time": "00:44:03.95"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'd say you've nicely avoided that by including another party in the State action, which is a party, a Texas party, so that removal in this case will not be possible, and as I recall they say that occurred after they filed the declaratory judgment.",
       "time": "00:44:36.76"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seemed like a nice argument to me.",
       "time": "00:45:22.03"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how can they remove, because as I understand it, the State court suit doesn't have complete... there isn't complete diversity, and there's no basis that you could... one defendant could get out and get into Federal court.",
       "time": "00:45:47.34"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You would not say it would be an abuse of discretion for a Federal district judge to say, well, that's a pretty complex proceeding over there in the State court. It's going to take a long time to decide. They've got all those parties in, and these parties just want me to decide one narrow issue. I will exercise my discretion to go ahead and decide that. You wouldn't say he'd be off base doing something like that, would you?",
       "time": "00:47:53.98"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's surely true when the State action is filed first, but here it was filed second. Suppose an insurance company wants to get this thing... there's some reason why it thinks it's necessary. There are elderly witnesses involved. They don't want to take a chance about witnesses dying, so they want to get it resolved quickly, and they don't know how long it is going to take the plaintiff to file, so they file a declaratory judgment action at once, and then what? I don't know. Contract statute of limitations in Texas, what is it? It's 5 years later in the... after a lot of evidence has been taken in the declaratory judgment action the State action commences. You wouldn't--",
       "time": "00:48:56.68"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But that's very far afield from your case where the Federal action was reinstituted after you gave notice that you were bringing a suit in State court.",
       "time": "00:49:50.32"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In fairness, though, they agreed to dismiss it because they thought it was moot. Didn't they think that there was not going to be any claim made against them?",
       "time": "00:50:58.05"
     },
@@ -1139,13 +1139,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:51:34.01"
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjurned until tomorrow at ten o'clock.",
       "time": "00:51:41.67"
     }

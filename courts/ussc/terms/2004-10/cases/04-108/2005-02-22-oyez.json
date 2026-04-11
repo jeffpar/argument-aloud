@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/04-108/20050222a_04-108.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "SCOTT G. BULLOCK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WESLEY W. HORTON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We will now hear argument in the case of Kelo vs. City of New London. Mr. Bullock.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bullock, you are leaving out that New London was in a depressed economic condition, so this is distinguished from the case where the state has no particular reason for wanting this, but the critical fact on the city side, at least, is that this was a depressed community and they wanted to build it up, get more jobs.",
       "time": "00:00:48.94"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you concede that on the facts, more than tax revenue was at stake. That is, the community had gone down and down and the town wanted to build it up.",
       "time": "00:01:48.36"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't concede, or do you, that elevating a city from a depressed to prosperous is a better justification than elevating a city from prosperous to more prosperous?",
       "time": "00:02:19.65"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The line you draw is between blight, which Berman says was a legitmate public use, blighted conditions okay, but depressed conditions, not so that's the line we would draw--",
       "time": "00:02:47.23"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Oh, but Berman spoke, in the opinion, said that the determination of the legislature about these things is virtually conclusive, that there is only the narrowest, narrowest role for the judiciary. What kind of standard are you proposing we should get into here to second guess the public use aspect?",
       "time": "00:03:17.57"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, have we ever in any case from this Court said that the limit has been exceeded?",
       "time": "00:03:50.76"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Justice Douglas says there that as long as it's an objective within Congress and legislature's legitimate grant of power, they can do it, I mean, as long as there's a... so why does there have to be a limit within that broad limit?",
       "time": "00:04:19.32"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of course, there can't, purely. But there is no taking for private use that you could imagine in reality that wouldn't also have a public benefit of some kind, whether it's increasing jobs or increasing taxes, et cetera. That's a fact of the world. And so given that fact of the world, that is law, why shouldn't the law say, okay, virtually every taking is all right, as long as there is some public benefit which there always is and it's up to the legislature.",
       "time": "00:04:39.59"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:05:13.32"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. It could only be taken if there is a public use and there almost always is. Now, do you agree with that, or do you not agree with my last empirical statement?",
       "time": "00:05:20.25"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, that's, of course, my question. The question is, if you agree with the empirical statement that there almost always is some public benefit attached, then my question is, why must there be a limit within that broad framework?",
       "time": "00:05:36.72"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But do you think those were correctly decided or do you take issue with the decision in those two cases?",
       "time": "00:06:13.01"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you take the position that a city that is suffering from enormous lack of jobs and depression, economic depression, that there is no public use purpose for taking land to enable the creation of jobs?",
       "time": "00:06:27.75"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's assume that the city instead of taking the property by eminent domain simply used its, its own... some of its own regular tax income to buy up the property, and assembled parcels of land with the purpose of selling them to an industrial developer to raise the tax base and hence ultimately to raise taxes. Would you say just within the meaning of general understanding of proper governmental purposes that the city was acting in a way that had no legitimate public purpose?",
       "time": "00:06:49.60"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I'm not interested in the label. I'm just saying if the government says we need to increase the tax base because we have a depressed city, so we are going to take some of our tax money now, and we are just going to buy up property that people are willing to sell to us, and we are going to assemble parcels. And when we get a big enough one, we are going to sell them to a developer for industrial purposes. And that will, that will raise the tax base. Is there anything illegitimate as a purpose for governmental spending in doing that?",
       "time": "00:07:33.98"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why isn't there a public purpose here?",
       "time": "00:08:12.70"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but we are talking about... I mean, I realize that, but I mean, I thought your point was that it was use of eminent domain power for an improper purpose. And you characterize that purpose as conveying property to private owners. Well, in my example, the same thing is going on except that it's not using the eminent domain power. If the purpose in my example is a proper public purpose, why isn't it a proper public purpose when the government does it by eminent domain? What changes about the purpose?",
       "time": "00:08:20.84"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Bullock, do you equate purpose with use? Are the two terms the same? Does the public use requirement mean nothing more than that it have a public purpose?",
       "time": "00:09:00.47"
     },
@@ -267,13 +267,13 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's your answer to Justice Souter.",
       "time": "00:09:15.90"
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if that is your answer then the slum clearance cases have got to go the other way.",
       "time": "00:09:18.13"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If that is your answer, then I suppose the slum clearance cases were wrongly decided.",
       "time": "00:09:26.39"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you are saying we don't have to reexamine it, but I think your adoption of Justice Scalia's approach puts you in a difficult... I think you're moving in the direction of saying we really have got to overrule the prior cases.",
       "time": "00:09:53.59"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Just for the moment, what about my question? And you can get into history, if you want to, and I tend to be interested in that, but my immediate concern is, if you give the answer that you have just given, doesn't it jeopardize the precedent of the slum clearance cases?",
       "time": "00:10:16.05"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's what they were being used for in Berman and... everybody knows that private developers were the beneficiaries in Berman.",
       "time": "00:10:49.67"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As I understand, you're testing... you want me to make a distinction between blight which is a permissible governmental use, governmental objective and economic revival, which isn't?",
       "time": "00:11:12.61"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that the line you want me to draw.",
       "time": "00:11:29.32"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose an economist or even the judge might say, well, it's very clear that if this economic depression continues for another five years we are going to have blight. Blight is in the eye of the beholder, I know that.",
       "time": "00:11:32.31"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why isn't it an objective criteria to say that we are going to have economic revival, avoid economic downturns?",
       "time": "00:12:06.76"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's the same thing that is true in the railroads in the west.",
       "time": "00:12:47.18"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Precisely the description you gave applied to the railroads in the west.",
       "time": "00:12:52.00"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And this seems to be really essential for the purpose of developing industrial property to increase the tax base. The argument is, and I don't know of any reason to doubt it, that doing it seriatim by voluntary acquisition and sale doesn't work. So the rationale for this is essentially the rationale for the railroads, for the public utility line condemnations and so on. There isn't another practical way to do it. And there is a public benefit at the end, and that ought to qualify it as a public use.",
       "time": "00:13:06.32"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Even though in Berman, there was a department store that was not blighted, and it was permissible because the whole area was to be improved to raze that department store, even though it wasn't contributing in any way to blight.",
       "time": "00:14:04.74"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bullock, would you articulate the test that you would propose the Court adopt. Some amici and others have argued that we should use the substantially advances test, so called test from regulatory takings. What tests do you articulate?",
       "time": "00:14:50.79"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:15:12.73"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that's not what's asserted here, of course. Here the city says, we are doing this for purposes of enhancing economic development of a very poor city.",
       "time": "00:15:25.66"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So what do we do with that alleged purpose? What is your test?",
       "time": "00:15:40.70"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it no economic development purpose?",
       "time": "00:15:47.12"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The latter. I mean, I understand the former. That's a big retreat and it comes to me now you're getting to what I think is a possible realm of reason here. But the second part now you said and minimum standards. What minimum standards?",
       "time": "00:16:25.47"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I mean, are you advocating particular ones?",
       "time": "00:17:05.51"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't that in effect changing the test from public use to efficient public use? I mean, what's... you know, if I condemn land for a public utility and the public utility turns out to be very inefficient, has the condemnation been invalid?",
       "time": "00:17:14.53"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you want us to sit here and evaluate the prospects of each condemnation one by one?",
       "time": "00:17:38.00"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I take it there isn't, but maybe there is, there isn't any question in this case that the city was acting in good faith and did... and I presume still does... intend to convey it to developers who will, will actually proceed to develop a project. Is there a question about that?",
       "time": "00:18:16.27"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, in other words, I can understand perfectly well, why we would want to draw a distinction between the use of the eminent domain power that takes a parcel of property from private person A and simply then reconveys it to private person B without any particular object in mind except that the city likes B, you know, the mayor is a Democrat and B is a Democrat. That kind of thing. So I can understand the need for some distinction between that case and what we've got here. The question is when you say there have to be minimum standards, I guess, is do we have a problem historically or in this case about the good faith of the taking so that we need the minimum standards to make sure that we are not getting into the first example?",
       "time": "00:18:38.27"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is there a reason in this case? Is there some doubt here?",
       "time": "00:19:40.48"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But do you really want courts to be in the business of trying to weigh the evidence to see if the utility will be successful or the hospital will be successful or the road will be well constructed? I mean, what kind of a test are you proposing?",
       "time": "00:19:58.06"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the record tell us anything about how often takings by eminent domain for economic development occur in this country? Is it frequent? What are we dealing with?",
       "time": "00:20:31.97"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In all of those cases, I think the economic feasibility or economic success test would have been easily met. I mean, what you're doing is trying to protect some economic value/But I think it's pretty clear that most economists would say this development wouldn't happen unless there is a foreseeable chance of success. Let me ask you this, and it's a little opposite of the particular question presented. Are there any writings or scholarship that indicates that when you have property being taken from one private person ultimately to go to another private person, that what we ought to do is to adjust the measure of compensation, so that the owner... the condemnee... can receive some sort of a premium for the development?",
       "time": "00:21:15.88"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you have to prescind the project when you fix the value.",
       "time": "00:22:17.09"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You have to prescind the project... you have to... you have to ignore the project when you determine the value. The value is a willing buyer and a willing seller, without reference to the project.",
       "time": "00:22:21.92"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But what I am asking is if there has been any scholarship to indicate that maybe that compensation measure ought to be adjusted when A is losing property for the economic benefit of B.",
       "time": "00:22:36.29"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you about the standard. Go back for a second.",
       "time": "00:22:56.02"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I gather that the Iowa courts have a standard that includes whether there is a reasonable likelihood that the intended public use will take place. Now, is that the standard you're advocating?",
       "time": "00:22:58.87"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there a lot of disagreement about this?",
       "time": "00:23:32.24"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, it seems to me you might... whether there is a reasonable assurance that there will in fact be the public use which the state uses as the justification for taking the property. Is that going to help you that much?",
       "time": "00:23:34.92"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I mean, I don't see how this Court could get into the business of saying you have to have this by a particular day or you have to have 14 witnesses. I mean, we couldn't impose that sort of thing, could we?",
       "time": "00:23:54.78"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There needs to be a reasonable assurance.",
       "time": "00:24:09.72"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, they might well need it here.",
       "time": "00:24:24.67"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But do you do that area by area? I mean, one of the points you made, this is divided into what, seven areas?",
       "time": "00:24:29.33"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And there's some scheduled to be developed first, you say that your clients lived in parcels that are not likely to be developed soon, if at all. So when making this determination, is development reasonably likely, do you have to do it parcel by parcel or can it be with the whole--",
       "time": "00:24:37.42"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it's not the area development but this house, will there be... is it reasonably likely that there will be development in that particular plot.",
       "time": "00:25:11.23"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you, I'm sorry, I'll make this a quick question. Why do you think it is necessary, given your position, why do you think it's necessary to adopt the test you've just articulated as distinct simply from a good faith requirement. So that if somebody objected and offered to prove bad faith, that would be in effect a defense for the taking?",
       "time": "00:25:28.98"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Very well. Mr. Horton.",
       "time": "00:26:26.45"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but it has to be for a valid public use.",
       "time": "00:26:53.32"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay.",
       "time": "00:26:56.75"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But he doesn't... he doesn't, his second test does not adopt that. The second test which he was arguing at the end is just that there has to be a reasonable assurance that the public use, and it could include all those things, will in fact take place.",
       "time": "00:27:34.44"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That may be, but what do you think of that test?",
       "time": "00:27:55.53"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Horton, what, what difference does it make that, that New London was in an economic depression? Would it not be fully as much, under your theory of a public use, for a city to say, yes, we are not doing badly, but we could do better. Let's attract some high tech industry here. You can't possibly draw a line between depressed cities and undepressed cities, can you?",
       "time": "00:28:38.71"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't. And you wouldn't ask us to do it either.",
       "time": "00:29:08.10"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any city can do it. And in the hypothetical that Justice Souter gave earlier where, you know, you couldn't take it from A and give it to B, because B is a good Democrat, you could take it from A and give it to B if B is richer, and would pay higher municipal taxes, couldn't you?",
       "time": "00:29:22.84"
     },
@@ -873,13 +873,13 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. I just want to take property from people who are paying less taxes and give it to people who are paying more taxes. That would be a public use, wouldn't it?",
       "time": "00:29:57.88"
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "For example, Motel 6 and the city thinks, well, if we had a Ritz-Carlton, we would have higher taxes. Now, is that okay?",
       "time": "00:30:05.68"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if that, if that's so then the occasional statements that we see in the writing that you can't take from A to give to B is just wrong?",
       "time": "00:30:21.99"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You think you can't take from A to give to B, that there is some substance and force to that proposition?",
       "time": "00:30:34.37"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me qualify it. You can take from A to give to B if B pays more taxes?",
       "time": "00:30:43.10"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'll accept that. You can take from A and give to B if B pays significantly more taxes.",
       "time": "00:30:51.85"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You accept that as a proposition?",
       "time": "00:30:59.43"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But without the addition, I'd please like an answer to your question.",
       "time": "00:31:01.25"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There are statements in our cases that say you cannot take from A just to give to B.",
       "time": "00:31:06.54"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you agree that there is substance to that proposition and that that proposition is correct?",
       "time": "00:31:13.32"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But isn't that exactly what happened in Berman?",
       "time": "00:31:21.60"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Isn't that exactly what always happens unless it's for a firehouse or a school?",
       "time": "00:31:29.03"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is that what the Connecticut Supreme Court that we are reviewing said, you... you are arguing, it seems to me, for something that goes beyond what was adjudicated in this case. I mean--",
       "time": "00:32:54.19"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--It was a finding, a finding before to be a fact in the trial court that this development was going to be primarily for the benefit of the citizens of New London, and not for the benefit of Pfizer or the private developer.",
       "time": "00:33:07.28"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that a factual finding? You consider that a factual finding?",
       "time": "00:33:35.52"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that this is primarily for the benefit of the city of New London, not for the benefit of a--",
       "time": "00:33:40.80"
     },
@@ -1059,13 +1059,13 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--In the eye of the beholder, to whom do you think this does greater benefit to, not a factual finding.",
       "time": "00:33:47.03"
     },
     {
       "turn": 172,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "When, when there is no condemnation to acquire property for the direct use of the public, as for a public right of way, or a utility path or something, where it's purely economic development, is there any reason why we shouldn't draw a clear line and say that isn't a public purpose. Let them go out and deal with... buy it on the market, on the open market. What's the matter with that?",
       "time": "00:33:52.23"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let's look at the specifics here. Pfizer is already in place. That's happened.",
       "time": "00:34:35.60"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So what are these parcels of the people now before us going to be used for?",
       "time": "00:34:41.81"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let's talk about the litigants.",
       "time": "00:35:29.45"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Before us today.",
       "time": "00:35:30.94"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What's planned for 3 and 4-A?",
       "time": "00:35:45.59"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, can't the courts at least... can't the courts, could the courts... do you object to this, and I'm not advocating it, I want your reaction.",
       "time": "00:36:59.24"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could the courts, under this clause, at least review what you've just said for reasonableness? I mean, look at the reasonableness of a claim that this is for... basically for a public use. Look at the reasonableness of the claim that we should do it this way, rather than excusing the people who don't want to sell their houses no matter what and doing it a little bit differently. Reasonableness is a concept that's already in the Constitution in terms of what the legislature can do, but I'm thinking of the stronger kind of reasonableness review that you might have in an administrative action. Now, is, Overton Park, if you want a case. Is that a possible kind of review that you might find appropriate here?",
       "time": "00:37:06.01"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the reason that you would apply a somewhat higher standard is because the rational basis, with tremendous deference, applies to the power of Congress to act in an economic area in the absence of a particular constitutional provision designed to protect a minority from the actions of the majority. And if you read that public purpose doctrine, a section here as having that in mind, you might want a somewhat higher level of review. Now, that's the whole thing spelled out. I'm not advocating it. But I am putting it forward to get... to get your reaction.",
       "time": "00:38:10.86"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, and indeed with equal protection, we very often do have a somewhat higher standard of review.",
       "time": "00:38:59.62"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Horton, you're paying for it, but you're also taking property from somebody who doesn't want to sell it. Does that count for nothing? Yes, you're paying for it, but you're giving the money to somebody who doesn't want the money, who wants to live in the house that she's lived in her whole life. That counts for nothing?",
       "time": "00:39:23.38"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then, let me ask... would, would the reasonableness standard, if the project is indeed reasonable, and there is genuine prospect that all of these good things that you're talking about will happen, why wouldn't private money come in to further the project? Why is it necessary to condemn it if it's so reasonable. Why couldn't you, you... now, you say there is a holdout for one part, parcel. Couldn't the city fund a private purchase of that parcel? Say, you know, we'll make funds available out of our general tax revenue to somebody who wants to come in and put together this system? Of course, that person has to buy out property owners, but we'll, we'll give you money to buy them out at high prices.",
       "time": "00:39:42.04"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How much, how much of this was voluntarily sold, is that correct?",
       "time": "00:41:07.95"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That may be. Now, that's why I'm back to reasonableness. You see, we are told in the briefs that the people who often might hold out, might be doing so to get more money, but it might also be because they are poor, they are not well connected politically, and their only hope is to go to a court and stop this thing. So you'd give them two weapons. Weapon one is you have to pay them. That's correct. Compensation. And weapon two is they can put you to a test of being reasonable. That might be quite a deferential test, so you might have every leg up. But they at least could catch the instances where this is really not reasonable to do to them what you're doing to them that they don't want.",
       "time": "00:41:34.49"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Common carriers are subject to state regulation to a degree that private companies are not. They must, they must treat all comers alike. I mean, I don't think the public utility cases are at all comparable to condemning land in order to get a new company to move in and pay more taxes. I just don't think it's similar.",
       "time": "00:43:22.57"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree with you on that.",
       "time": "00:43:57.57"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm accepting that you can't make that kind of a distinction. That's where I'm focusing on a test that would possibly apply only where you transfer property from one private person to another, but still wouldn't make those distinctions of blight or not blight.",
       "time": "00:44:53.85"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It does seem ironic that 100 percent of the premium for the new development goes to the, goes to the developer and to the taxpayers and not to the property owner.",
       "time": "00:45:37.49"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The compensation measures.",
       "time": "00:45:59.03"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "On that point, just in Connecticut, if the property owner goes to the jury and receives more than the state offered, does the state also have to pay those attorneys' fees?",
       "time": "00:46:33.69"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under Connecticut law, if the property owner is offered $100 but goes to the jury and gets $200, does the property owner have to pay the attorneys' fees or does the state pay the attorneys' fees?",
       "time": "00:46:47.91"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Horton, what do you think is the reason that there are not a lot of examples of the sort that I think one of Justice O'Connor's hypotheticals raised, in which the, I don't know, the Econoline Motel gets condemned so that the Ritz can be built, thereby increasing tax revenue and so on, kind of parcel by parcel augmentations to the tax base and so on. Why aren't there a lot of examples like that?",
       "time": "00:47:13.92"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In which case we have a different--",
       "time": "00:48:11.30"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. So we have transaction costs.",
       "time": "00:48:15.75"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's true. But now, put yourself in the position of the homeowner. I take it, if it's a forced sale, it's at the market value, the individual, let's say it's someone who has lived in his house his whole life. He bought the house for $50,000. It's worth half a million. He has 450,000 profit. He pays 30 percent to the government and the state in taxes, and then he has to live somewhere. Well, I mean, what's he supposed to do? He now has probably 350,000 to pay for a house. He gets half a house because that's all he is going to do, all he is going to get for that money after he paid the taxes, or whatever. And I mean, there are a lot of... and he has to move and so forth. So going back to Justice Kennedy's point, is there some way of assuring that the just compensation actually puts the person in the position he would be in if he didn't have to sell his house? Or is he inevitably worse off?",
       "time": "00:48:55.30"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But the loans don't make him whole. Isn't--",
       "time": "00:50:22.53"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I mean, what bothered Justice Breyer I guess bothers a lot of us. And that is, is there a problem of making the homeowner or the property owner whole? But I suppose the answer to that is that goes to the measure of compensation which is not the issue here.",
       "time": "00:50:25.87"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that would really overrule a bunch of prior cases and really throw condemnation law into chaos.",
       "time": "00:50:51.22"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the remedy? Let's repose the problem to which I want to remedy then. And maybe this isn't the right remedy. But the remedy that they are saying, and I'm really repeating it, is an individual has a house and they want to be really not made a lot worse off, at least not made a lot worse off just so some other people can get a lot more money. Now what, what is the right... is there no constitutional protection? If this isn't the right case, what is?",
       "time": "00:51:20.48"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Really? I thought that that was a fundamental of condemnation law that you can not value the property being taken based on what it's going to be worth after the project. That's just--",
       "time": "00:52:11.13"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Unless Connecticut law is much different from any other state.",
       "time": "00:52:26.17"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you know, in any case--",
       "time": "00:52:32.64"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What this lady wants is not more money. No amount of money is going to satisfy her. She is living in this house, you know, her whole life and she does not want to move. She said I'll move if it's being taken for a public use, but by God, you're just giving it to some other private individual because that individual is going to pay more taxes. I... it seems to me that's, that's an objection in principle, and an objection in principle that the public use requirement of the Constitution seems to be addressed to.",
       "time": "00:52:35.90"
     },
@@ -1461,13 +1461,13 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wouldn't the first of Holmes' decisions to be overruled.",
       "time": "00:53:16.85"
     },
     {
       "turn": 239,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I think you'd have to take some substantial chunks of language out of Berman as well, because Justice Douglas spoke very expansively in that case.",
       "time": "00:53:20.03"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, the tax code does have special provisions for involuntary sales and reinvestments.",
       "time": "00:54:29.31"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The tax hypothetical is not quite accurate.",
       "time": "00:54:34.54"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Horton, I'm not proposing that the state has to use the property itself. I'm simply proposing that its use not be a private use which has incidental benefits to the state. That is not enough to justify use of the condemnation power.",
       "time": "00:54:36.74"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can give it to a private entity, you can give it to a railroad, to some public utility. But the use that it's put to by that railroad and public utility is a public use. That's why it's a public utility. It's quite different to say you can give it to a private individual simply because that private individual is going to hire more people and pay more taxes. That, it seems to me, just washes out entirely the distinction between private use and public use.",
       "time": "00:54:56.42"
     },
@@ -1527,13 +1527,13 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bullock, you have three and a half minutes.",
       "time": "00:56:36.64"
     },
     {
       "turn": 250,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Bullock, do you know those four words?",
       "time": "00:56:43.87"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The case is submitted.",
       "time": "00:59:37.06"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/80%20ORIG/19840109a_80orig.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD A. SIMMS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT F. WELBORN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in State of Colorado against the State of New Mexico. Mr. Simms, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Simms, on the first point and the way in which water can be augmented, how can New Mexico legitimately claim that nonuse over a thirty-year period never becomes in effect an abandonment of the use of a certain portion of the water? Is it your position that New Mexico can never by nonuse lose the right to use the water?",
       "time": "00:03:46.76"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Simms, let me interrupt if I may for a moment. The Master in dealing with the finding of drought says New Mexico claims that the nonuse on the part of the District is caused by the drought in the early seventies. However, the drought in the 1970's cannot be responsible for the nonuse which has existed in the District since its formation in the fifties, nonuse through a time period when all of the other users in evidence from flow tables found sufficient water available. So he is finding for a substantial period before what you say was the drought.",
       "time": "00:06:45.74"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Simms, can I ask a question about one of the Master's findings. He refers to a man named Porter on page 7, who is an individual user, as I understand, downstream of the District. He got substantially all his water as I understand what the Master found and did not complain that the... He got 85 percent I think. The difference he did not get was attributable to the shortage. If he could get anything at all, does it not follow inexorably that the District itself must have gotten all it needed?",
       "time": "00:11:20.46"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, he is downstream.",
       "time": "00:12:02.72"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He is junior to them, is he not? His rights are junior to theirs.",
       "time": "00:12:04.18"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me cut through because I do not have the facts nearly as well in mind as you do. Is it correct that he got all the water he needed?",
       "time": "00:12:53.98"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it correct that his rights are junior to the District's rights?",
       "time": "00:13:05.81"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If he got all the water he needed could someone who had senior rights to his have preempted his water?",
       "time": "00:13:18.36"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Including the District could have done so.",
       "time": "00:13:24.77"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Simms, how valid are these points now? I can see arguing to the Master that this testimony supports such and such a finding, but the Master has rejected a lot of testimony by his findings. We do not review that de novo to decide. He is free to disbelieve any witness he wants to as I understand.",
       "time": "00:14:07.20"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Going back to the supply side question again, Mr. Simms, for a minute, what did the Master do about the peak flows and the floods in his calculations of water availability in the Vermejo? How did he resolve that question?",
       "time": "00:16:59.66"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did his use of the average availability figures in effect get used twice, once in the supply figures and once in the excused nonuse calculations?",
       "time": "00:17:46.89"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the Master has found that New Mexico's administration of its water decrease was much looser than Colorado's. Certainly the intimation from those findings is that New Mexico could do a much better job of conserving and make better use of the water that it gets.",
       "time": "00:19:05.80"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the fact that it is part of Colorado's case does not mean it is wrong. Everybody starts with a case they try to get the finder of fact to adopt, and he is going to go presumably for one or the other. So the fact that he has, as you say, bought some of your opponent's ideas does not make them wrong for that reason.",
       "time": "00:19:48.93"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say that since the Master's finding does not meaning anything he should not only find that the New Mexico decree is loosely administered but be able to point out how tighter administration would somehow save water.",
       "time": "00:20:52.01"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do you suggest we do?",
       "time": "00:22:51.22"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Welborn.",
       "time": "00:23:40.57"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Welborn, let's assume that the Master was justified in finding that Colorado was entitled to some allocation out of the Vermejo. Now as I understand the decree it basically gives Colorado 4,000 acre-feet.",
       "time": "00:29:07.79"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How is that going to work, say, if another year like 1974 comes along which Table 2 to the Master's Report shows that the annual flow at the Dawson checkpoint was 3,040?",
       "time": "00:29:26.77"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't the Dawson checkpoint made up largely of water that you would call the Colorado production?",
       "time": "00:30:13.49"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about a year where the Dawson gauge says 3,040?",
       "time": "00:30:50.68"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying then that you think the records supports the finding that New Mexico's demand could be satisfied with 3,000 acre-feet?",
       "time": "00:31:49.55"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that because they are not lined with concrete or something?",
       "time": "00:34:21.97"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That might be quite uneconomical.",
       "time": "00:34:39.68"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Welborn, what about Mr. Simms' point that their underutilization in the sixties or from '55 for ten years was excusable because it was a period of development?",
       "time": "00:36:26.78"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, let's assume that there was a good deal more water available than was being used for the first ten years after the District was rejuvenated or whatever word is proper, would there have been an excuse for the District not using it because of the fact that it was just being developed? That is Mr. Simms' point as I understand.",
       "time": "00:37:01.37"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that. Assume that from '55 to '65 there was plenty of water to meet the District's supposed demand, but they did not use it. That is what you are saying is the case. Mr. Simms' response is, as I understand it, that the District was in a period of development so that is excusable. Is that his point do you think?",
       "time": "00:37:36.87"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Say from the time this grace period ended up until the drought period they were not irrigating any more than they did before.",
       "time": "00:38:26.77"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Welborn, another point. Suppose that there is really a severe drought period, and I take it if Colorado wins this case if there are 4,000 acre-feet of water in the river in Colorado above... at the point of your hoped-for diversion you would get that 4,000 feet no matter what the consequence was on lower river users. In short, you would never have to share the drought effect. Is that right?",
       "time": "00:40:07.14"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is because there would be that much water for you to take.",
       "time": "00:40:51.86"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I do not quite understand that. How much average water is in the Vermejo at your diversion point?",
       "time": "00:41:14.28"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you would want to take 4,000 acre-feet of that?",
       "time": "00:41:37.64"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Leaving on the average 700 acre-feet in the river?",
       "time": "00:41:43.57"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand. In any event, as long as there is more than 4,000... Well, whatever water is in the Vermejo at your diversion point you can take 4,000 feet of it.",
       "time": "00:41:53.15"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You can take it all if there is only 3,000.",
       "time": "00:42:04.70"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Welborn, you say you are only taking one-fourth of the flow in the Colorado River. That is fine... in the Vermejo. That is fine in a year when they get 16,000. But '74 was a year when they did not even get 4,000.",
       "time": "00:42:34.06"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Welborn, why did the Master refuse to admit into evidence recent USGS stream flow measurements so that there could be a clearer picture of the available water?",
       "time": "00:43:53.35"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I take it that is the reason you objected to it, or did you object?",
       "time": "00:46:04.65"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Welborn, what about Mr. Simms' argument that the Secial Master's analysis, he just looked at the supply side and really did not follow the water down the river to the District, did not deal with the demand?",
       "time": "00:46:55.83"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are not suggesting that New Mexico water laws require to disallow water rights to part-time farmers are you?",
       "time": "00:48:26.39"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Welborn, was that not all argued before when this case was here?",
       "time": "00:49:55.03"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was that not all argued before when the case was here?",
       "time": "00:49:59.89"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it not decided?",
       "time": "00:50:09.02"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why are you presenting it now?",
       "time": "00:50:11.07"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask one question, Mr. Welborn? At the end of your brief you suggested maybe the decree should be rewritten in a couple of minor respects, or maybe they are not so minor. Did you take any exceptions to the Master's report yourself?",
       "time": "00:53:37.68"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why won't that ten-year progressive average you suggest increase the divertable quantity to Colorado beyond the Master's recommendation? It looks to me like it would.",
       "time": "00:54:42.17"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Simms, do you have anything further?",
       "time": "00:55:24.28"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What did the Special Master find?",
       "time": "00:57:22.00"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did he ever find how much had been diverted to the stock water system or how much might be saved by a closed system?",
       "time": "00:57:27.49"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How much water upstream would 790--",
       "time": "00:58:07.05"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--So you agree with his formula.",
       "time": "00:58:12.54"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, you say that the 2,000 figure should really be 790.",
       "time": "00:58:40.77"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is your view of the correct ratio if you do not accept their two-for-one figure?",
       "time": "00:58:46.06"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it somewhat larger than 790 though?",
       "time": "00:58:58.40"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you take the position that 790 feet saved down in the reservoir is the equivalent of 790 feet diverted up in Colorado?",
       "time": "00:59:08.79"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you do then agree with their two-for-one ratio if I understand. Maybe I misunderstand it.",
       "time": "00:59:21.35"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:59:33.24"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you do not suggest, I am sure, that a conservation measure would increase your water allocation.",
       "time": "01:00:28.38"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is part of your argument that the uses of Vermejo water in the Canadian river should prevent an allocation to Colorado?",
       "time": "01:01:23.71"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I understand that. That does not answer my question.",
       "time": "01:01:47.59"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They may have a historic reliance, but that is only because there is water running past the District. Yet the Vermejo is completely adjudicated.",
       "time": "01:02:13.29"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That includes the flood periods.",
       "time": "01:02:52.62"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:03:25.76"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1965/104/19660119a_104.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "MYRON G. EHRLICH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD ARENS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "THEODORE GEORGE GILINSKY",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Morris A. Kent, Jr. versus United States. Mr. Ehrlich.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did he -- did he make a confession?",
       "time": "00:02:19.25"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Without warrant.",
       "time": "00:02:24.47"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Ehrlich, may I interrupt to ask, where were these motions made, were they made in the Juvenile Court?",
       "time": "00:05:22.26"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, they were.",
       "time": "00:05:29.06"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:05:31.57"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What's --",
       "time": "00:09:45.82"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "that case?",
       "time": "00:09:46.35"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that in your brief?",
       "time": "00:09:49.32"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Ehrlich, may I interrupt you to ask when were the dates of the alleged rapes --",
       "time": "00:13:32.37"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- with reference to the dates of the burglaries and robberies that he has committed, were they in the middle of them or around that part?",
       "time": "00:13:42.18"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Altogether?",
       "time": "00:14:11.84"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are the initial facts, I thought that the Court of Appeals considered that there was evidence to show that the robberies committed were (Inaudible).",
       "time": "00:14:15.99"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Go on then.",
       "time": "00:14:30.34"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the record show how long the jury was out?",
       "time": "00:18:30.27"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the record show how long the jury was out?",
       "time": "00:18:33.42"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Ehrlich, I gather as to all of these on this issue, could you suggest that there's no imperfection in the record in the sense that these claims were not timely raised?",
       "time": "00:20:20.65"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They were?",
       "time": "00:20:34.56"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "When you said earlier that we have to search the record for plain error, you're speaking only the criminal trial itself or (Voice Overlap) --",
       "time": "00:20:35.72"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- because I gather that if you prevailed on the point you're now arguing, you're asking not merely a reversal of the conviction, but that the conviction that he'd not be possibly retried?",
       "time": "00:20:43.53"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that right?",
       "time": "00:20:59.24"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's only if you fail on this that you're asking for a retrial on the points that you say were not raised at trial, --",
       "time": "00:21:00.36"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- is that it?",
       "time": "00:21:07.60"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now, I'm not -- rather that motion to dismiss, you mean the motion to dismiss the indictment?",
       "time": "00:21:33.85"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That was made on these grounds in the trial court?",
       "time": "00:21:40.01"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that -- by that I mean in the trial of this criminal charge in the District Court?",
       "time": "00:21:43.73"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, were they preserved --",
       "time": "00:21:50.80"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- appeal in the Court of Appeals?",
       "time": "00:21:53.22"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, in that regard at least -- or are you saying that proper objection was made to those issues at least as to this trial?",
       "time": "00:21:55.45"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are those properly before us?",
       "time": "00:22:02.98"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's only the issues related to what? The psychiatric testimony?",
       "time": "00:22:05.13"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Neither of those was raised?",
       "time": "00:22:13.71"
     },
@@ -431,13 +435,13 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I see.",
       "time": "00:22:16.29"
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if you -- let's assume prevail here, but only on the -- on your theory, your right to a hearing matter prior to waiver and this would only mean that you would have to have that -- there would be a hearing as to whether there would be a waiver and that you were granted a hearing and you didn't prevail in the hearing there would still might be a waiver in a retrial.",
       "time": "00:22:17.30"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's right, there might or there might not be but at least at that much.",
       "time": "00:22:44.80"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right.",
       "time": "00:22:57.55"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the -- do you think the Juvenile Court mistakenly waives and before the error can be corrected, that he becomes 21, he's not subject to the jurisdiction of either court?",
       "time": "00:23:06.76"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Ehrlich --",
       "time": "00:23:52.36"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- when you move to dismiss and also move the Court, the District Court to sit as a Juvenile Court, you said there was a hearing but what was the content and the issues in that hearing, were you permitted to -- were you permitted to present evidence at all?",
       "time": "00:23:53.92"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you asked to?",
       "time": "00:24:08.61"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, a while ago you said there was a hearing on the motion to dismiss the indictment and the motion to dismiss the Juvenile Court.",
       "time": "00:24:13.68"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright.",
       "time": "00:24:20.74"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Were you permitted to argue at all?",
       "time": "00:24:24.91"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As the motion before is a different judge from the trial judge, was it?",
       "time": "00:24:37.69"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who tried this case?",
       "time": "00:24:42.48"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What kind of motion did you file?",
       "time": "00:24:46.52"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or was it just a pro forma motion, I mean, did you -- what's the practice do you -- do you submit materials with your motion (Voice Overlap) --",
       "time": "00:24:51.54"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- affidavits?",
       "time": "00:25:00.62"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You presented the evidence?",
       "time": "00:25:02.44"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That the judge examined?",
       "time": "00:25:06.76"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does he have the material before him?",
       "time": "00:25:18.12"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Didn't he --",
       "time": "00:25:23.71"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see.",
       "time": "00:26:06.41"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I got it, yes.",
       "time": "00:26:17.71"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I have the number.",
       "time": "00:26:40.56"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see, what was the case?",
       "time": "00:26:44.21"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who were the judges in this panel?",
       "time": "00:27:53.69"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, do you think this -- that those panels currently have their conclusions on statutory interpretations on constitutional grounds or what?",
       "time": "00:28:07.51"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Where are you reading counsel?",
       "time": "00:28:21.98"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is it in one of the briefs?",
       "time": "00:28:30.12"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes, it's not printed here?",
       "time": "00:28:34.41"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Thank you.",
       "time": "00:28:43.84"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That sounds that this is placed in the interpretation of (Inaudible) implicit or not implicit --",
       "time": "00:29:32.98"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- in the scheme?",
       "time": "00:29:40.07"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would you read that as --",
       "time": "00:29:41.52"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- statutory?",
       "time": "00:29:43.57"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the other title is a condition viewed as statutory?",
       "time": "00:29:46.21"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They give us a conflict some time, is that it?",
       "time": "00:29:49.73"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This isn't anything in a way of supervisory powers (Voice Overlap) --",
       "time": "00:29:55.54"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, those are constitutional?",
       "time": "00:30:24.62"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He got that criminal of two life sentences as the result of the trial in District Court at which he had counsel from first to last, isn't that correct?",
       "time": "00:31:46.38"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's what we're talking about. And it was the result of that trial, and only as a result of that trial, that he received the sentence to which you refer.",
       "time": "00:31:59.20"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not, what if they were no --",
       "time": "00:32:09.04"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What if they're no were -- were no criminal court -- Juvenile Court?",
       "time": "00:32:10.48"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that's what happened to him?",
       "time": "00:32:21.66"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean in the statutory or constitutional violation?",
       "time": "00:32:36.62"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The statute which gives him that right also gives the Court the right to waive its jurisdiction.",
       "time": "00:32:41.58"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right.",
       "time": "00:32:48.95"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gilinsky -- or Mr. Arens, do you propose to argue now or in rebuttal?",
       "time": "00:33:02.18"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In rebuttal. Mr. Gilinsky.",
       "time": "00:33:09.24"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does the statute tell what not to investigate?",
       "time": "00:34:06.65"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) problem is here of what investigation means?",
       "time": "00:34:11.10"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, whether --",
       "time": "00:34:17.49"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- as I understand it to -- always correctly and apparently those panels in the Court of Appeals seem to put a different content into the requirement for investigation, don't they?",
       "time": "00:34:19.22"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Alright.",
       "time": "00:34:32.18"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But what does the lawyer doing -- that have anything to do with it?",
       "time": "00:35:12.42"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I suppose we can give you more time --",
       "time": "00:35:52.63"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:35:54.54"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) of this citation?",
       "time": "00:35:57.11"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:36:00.32"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:36:04.34"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What investigation did the Juvenile Court make before denying these orders?",
       "time": "00:36:12.63"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Criminal Court, I mean.",
       "time": "00:36:23.43"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why do you keep saying that?",
       "time": "00:36:49.79"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What was done?",
       "time": "00:36:53.14"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He was 13 or 14 years old?",
       "time": "00:38:10.48"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does the record show whether the lawyer he had at that time saw all this (Voice Overlap) --",
       "time": "00:38:16.27"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you know what the practice is in the Juvenile Court? Does -- is the lawyer allowed to see that?",
       "time": "00:38:26.61"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What are the reasons?",
       "time": "00:38:42.23"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So the judge acts on hearsay but doesn't give any chance to rebut the hearsay.",
       "time": "00:38:55.87"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "From whom does the judge get advice on the -- these waiver matters?",
       "time": "00:40:05.37"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who were they?",
       "time": "00:40:14.38"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that a probation officer or lawyer or not?",
       "time": "00:40:26.50"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any lawyers on the staff or juvenile judge?",
       "time": "00:40:31.83"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Social Workers?",
       "time": "00:40:39.24"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you know who gives them advice on waiver matters, anyone of them or all of them?",
       "time": "00:40:42.08"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On waiver matters?",
       "time": "00:40:48.32"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which one?",
       "time": "00:40:52.28"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then what do you -- why is that do you say that the lawyer for a juvenile offender isn't entitled to see the social file -- the social files?",
       "time": "00:41:16.44"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But given to the lawyer? I don't --",
       "time": "00:41:59.96"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How does it get to the public if it was given to the --",
       "time": "00:42:03.67"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- juvenile's lawyer?",
       "time": "00:42:06.53"
     },
@@ -1385,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or any more than a social (Voice Overlap) --",
       "time": "00:42:13.20"
     },
@@ -1397,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the social workers have it.",
       "time": "00:42:15.49"
     },
@@ -1409,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean in this case?",
       "time": "00:42:37.18"
     },
@@ -1421,13 +1425,13 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean --",
       "time": "00:42:40.27"
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In the District Court?",
       "time": "00:42:40.59"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- not the Juvenile Court --",
       "time": "00:42:42.98"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's interesting, why is it that the district judge will do that and the Juvenile Court judge feels he can't?",
       "time": "00:42:52.19"
     },
@@ -1463,13 +1467,13 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, this practice is not --",
       "time": "00:43:02.28"
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What does he feel?",
       "time": "00:43:03.38"
     },
@@ -1481,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, this practice is not (Voice Overlap) --",
       "time": "00:43:06.19"
     },
@@ -1493,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, why? Why if the district judge couldn't do it, why wouldn't he do?",
       "time": "00:43:08.08"
     },
@@ -1505,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you mean they make it in the sense that states affirmatively that the lawyer may have the court record but silent as to what shall be the case (Voice Overlap) --",
       "time": "00:43:44.26"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did this request for the social worker has ever actually reached the judge?",
       "time": "00:44:41.74"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any (Inaudible)?",
       "time": "00:44:53.12"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:45:04.60"
     },
@@ -1553,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Always?",
       "time": "00:46:01.81"
     },
@@ -1565,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, he we're suppose to take judicial notice now?",
       "time": "00:46:08.00"
     },
@@ -1577,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What are we --",
       "time": "00:46:13.95"
     },
@@ -1589,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where we left that?",
       "time": "00:46:15.11"
     },
@@ -1601,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the District Court?",
       "time": "00:46:38.95"
     },
@@ -1613,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "At the trial?",
       "time": "00:46:40.92"
     },
@@ -1625,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But after the waiver?",
       "time": "00:46:44.39"
     },
@@ -1637,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But this was all after the waiver, Mr. Gilinsky?",
       "time": "00:46:50.05"
     },
@@ -1649,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Gilinsky, is there removable -- is there removal of order or waiver by the Juvenile Court to review them in the sense that is it possible as a matter of law that the District Court or the Appellate Court to which set aside the waiver of jurisdiction under the District of Columbia law?",
       "time": "00:47:59.76"
     },
@@ -1661,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that's involved here because --",
       "time": "00:48:33.11"
     },
@@ -1673,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, what -- excuse me, what is the Government's position?",
       "time": "00:48:35.55"
     },
@@ -1685,13 +1689,13 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In this case?",
       "time": "00:48:40.21"
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there any procedure authorized for doing that?",
       "time": "00:48:42.08"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But what happens in the thrust of the matter? That sounds to me like a -- although there may not be a direct review of the suit in a way they found in the district -- by the Juvenile Court, (Inaudible).",
       "time": "00:49:14.66"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well what did the District Court do with these cases, in fact that everything was out in the Juvenile Court?",
       "time": "00:49:35.11"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) send the case back to Juvenile Court.",
       "time": "00:49:46.15"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Let me see if I can relate to your points, excuse me. Let me see if I can make my point and get your view on it. Is there any right whatever the procedure might be as you understand the law, whatever form the attack might be made, is there any right on behalf of a defendant, the juvenile whereas a juvenile -- to insist that he be tried as a juvenile and not be tried as an adult or is the determination of the Juvenile Court to waive jurisdiction followed by the refusal of the District Court to constitute itself a Juvenile Court for purposes of that trial, is that final and beyond attack? I want to state it again because I have appreciated very much your views. Is there any right on behalf of a juvenile to insist that he'd be tried as a juvenile rather than an adult offender?",
       "time": "00:50:01.26"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As a juvenile?",
       "time": "00:52:41.01"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And do whatever in the way of (Voice Overlap) --",
       "time": "00:52:44.99"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, but when --",
       "time": "00:53:29.74"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was Judge Tehan?",
       "time": "00:54:46.82"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's only one copy (Voice Overlap) --",
       "time": "00:55:03.93"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There's only one copy of transcript here?",
       "time": "00:55:09.46"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:55:42.50"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I haven't seen anything that's (Voice Overlap) --",
       "time": "00:55:53.31"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) this high or what --",
       "time": "00:55:56.06"
     },
@@ -1859,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's --",
       "time": "00:56:05.68"
     },
@@ -1871,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which one it said?",
       "time": "00:56:13.54"
     },
@@ -1883,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I will have -- has each side used a different transcript now, do we have to read them both?",
       "time": "00:56:36.81"
     },
@@ -1895,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "We still haven't got a blue one.",
       "time": "00:56:45.43"
     },
@@ -1907,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where do we find this hearing, this one, what was the page and period?",
       "time": "00:57:04.62"
     },
@@ -1919,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) of the hearing?",
       "time": "00:57:28.35"
     },
@@ -1931,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But now whose investigation is the district judge talking about when he says, “That's not going to prove there hasn't been a full investigation?”",
       "time": "00:58:20.60"
     },
@@ -1943,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Whose investigation?",
       "time": "00:58:28.63"
     },
@@ -1955,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, but I would suppose the statute would require that he make an investigation.",
       "time": "00:58:31.00"
     },
@@ -1967,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the Court said specifically here, he wasn't about go behind the Juvenile Courts judge.",
       "time": "00:58:39.98"
     },
@@ -1979,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The full investigation at the end of the file --",
       "time": "00:58:46.25"
     },
@@ -1991,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it's just the same and said that once the Juvenile Court makes that decision, I'm not going to second guess then.",
       "time": "00:58:50.07"
     },
@@ -2003,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well --",
       "time": "00:58:59.18"
     },
@@ -2015,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'm not going behind that --",
       "time": "00:59:03.01"
     },
@@ -2027,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- with references to testimony.",
       "time": "00:59:05.20"
     },
@@ -2039,7 +2043,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let me ask you something? I think Mr. Justice Fortas really asked you this, does District Court have the power or the contrary of the statute if the District Court says, “Yes, there was a full investigation. But here are the facts that were out the same facts the Juvenile Court judge did and I just disagree with them.”",
       "time": "00:59:15.93"
     },
@@ -2051,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Under the statute?",
       "time": "00:59:40.75"
     },
@@ -2063,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The District Court has that power to second guess the Juvenile Court.",
       "time": "00:59:42.91"
     },
@@ -2075,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, can the District Court exercise any such power here?",
       "time": "00:59:47.26"
     },
@@ -2087,13 +2091,13 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right.",
       "time": "00:59:53.08"
     },
     {
       "turn": 342,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, Mr. Gilinsky, I'd like to ask you the following question on that. The concurring opinion of Judge Washington states that it is a fair inference from the record before us, and one of the reasons why the Juvenile Court waive jurisdiction was because appellant was seriously disturbed and the Juvenile Court lack facilities adequately to treat him, do you remember that?",
       "time": "00:59:53.84"
     },
@@ -2105,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, I beg your pardon. My question is whether the Government's opinion that would be illegally proper consideration.",
       "time": "01:00:26.80"
     },
@@ -2117,7 +2121,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand that Mr. Gilinsky but will you please come in on this. As I gather from your previous statements, the statute provides a right and the right being that a juvenile is entitled to be tried before the Juvenile Court. Now, that right can be overcome if after full investigation and subject to the review by the district judge or in the statute, the Juvenile Court waives jurisdiction, am I right this far?",
       "time": "01:01:55.53"
     },
@@ -2129,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, now, if the Juvenile Court waives jurisdiction, let us suppose it waives jurisdiction solely because there are no adequate facilities to treat a mentally disturbed juvenile and your opinion is that a lawful waiver or lawful basis of labor, is there anything in the statute or in the laws that specifies that as an appropriate basis for waiver of jurisdiction?",
       "time": "01:02:35.60"
     },
@@ -2141,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, I don't -- I agree to that, I'm asking you whether Government's position that this particular criterion is a legally proper criterion upon which the Juvenile Court can act and that's involved in this case as I read it.",
       "time": "01:03:21.06"
     },
@@ -2153,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The counsel stated that (Inaudible) promulgated by the (Inaudible).",
       "time": "01:03:53.40"
     },
@@ -2165,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But not, not exclusive.",
       "time": "01:04:15.03"
     },
@@ -2177,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could it be the exclusive factor?",
       "time": "01:04:20.67"
     },
@@ -2189,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I thought it was, that's why I asked you.",
       "time": "01:04:28.47"
     },
@@ -2201,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Gilinsky, are you familiar with this opinion of the New Jersey Supreme Court decided December 20th, State versus Loray, L-O-R-A-Y?",
       "time": "01:05:55.84"
     },
@@ -2213,7 +2217,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know it's not in your brief.",
       "time": "01:06:08.45"
     },
@@ -2225,7 +2229,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The reason I ask is that I wanted to -- if there's any other opinion where anything like -- this appears which identical case with this one --",
       "time": "01:06:10.76"
     },
@@ -2237,7 +2241,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- in which it was held that the failure to provide a hearing and counsel, so the lower court held at least, was constitutional effect that's required the setting aside of the subsequent judgment of conviction, has anyone else to your knowledge taken the view or expressed --",
       "time": "01:06:22.69"
     },
@@ -2249,7 +2253,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that this is a constitutional matter?",
       "time": "01:06:45.93"
     },
@@ -2261,7 +2265,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, the Supreme Court in this instance found that it didn't have to decide that because they agreed that there had to be counsel and a hearing for reasons of fundamental --",
       "time": "01:06:49.01"
     },
@@ -2273,7 +2277,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- fairness --",
       "time": "01:07:01.23"
     },
@@ -2285,7 +2289,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- which didn't reached apparently and then they said that they did not allow the -- as I read this, the conviction to be set aside but require a new referral hearing and follow the Jackson-Denno technique, retaining the conviction and so the awaiting of the outcome of the new referral -- of the referral hearing that was ordered. But is there at much in the way of you express this is a constitutional --",
       "time": "01:07:01.79"
     },
@@ -2297,7 +2301,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- problem?",
       "time": "01:07:29.79"
     },
@@ -2309,7 +2313,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "We call it referral here --",
       "time": "01:07:53.73"
     },
@@ -2321,7 +2325,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- and I'm away 10 years from that but they never thought it have a constitutional basis on that.",
       "time": "01:07:55.78"
     },
@@ -2333,7 +2337,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I would suppose if the full investigation contemplates provision for lawyer and a hearing that that can be -- that -- I was frankly what I've never heard of Black in full that you just mentioned or that Mr. Ehrlich mentioned it that that certainly strikes me as a reading of full investigation as embodying a right of counsel and the right of hearing. You don't think so.",
       "time": "01:08:15.52"
     },
@@ -2345,7 +2349,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it doesn't say it constitutionally but as a matter of the interpretation of full investigation, you don't think so?",
       "time": "01:08:50.90"
     },
@@ -2357,7 +2361,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do you start to say that New Jersey is the only one where they couldn't have?",
       "time": "01:09:15.86"
     },
@@ -2369,7 +2373,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This late case involved a murder -- involved a murder conviction.",
       "time": "01:11:05.11"
     },
@@ -2381,7 +2385,7 @@
     },
     {
       "turn": 390,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What did they say about his competency at time of the commission of the offense?",
       "time": "01:14:57.23"
     },
@@ -2393,7 +2397,7 @@
     },
     {
       "turn": 392,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They say may have or did?",
       "time": "01:16:36.25"
     },
@@ -2405,7 +2409,7 @@
     },
     {
       "turn": 394,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "01:16:40.19"
     },
@@ -2417,7 +2421,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what does this mean, if those stand, Mr. Gilinsky, he -- by reason of the findings on the rape counts will be at St. Elizabeths, how long?",
       "time": "01:17:13.65"
     },
@@ -2429,7 +2433,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Which might mean for life?",
       "time": "01:17:27.74"
     },
@@ -2441,7 +2445,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And meanwhile, he's getting credit on the sentences --",
       "time": "01:17:30.63"
     },
@@ -2453,7 +2457,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- for the time he's there.",
       "time": "01:17:34.12"
     },
@@ -2465,7 +2469,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is he under treatment there?",
       "time": "01:17:35.68"
     },
@@ -2477,7 +2481,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And if they discharge him as what -- cured to whatever it may be, is that what it would be?",
       "time": "01:17:40.06"
     },
@@ -2489,7 +2493,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If he were discharged.",
       "time": "01:17:46.91"
     },
@@ -2501,7 +2505,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Changing it, so that is -- he can --",
       "time": "01:19:14.50"
     },
@@ -2513,7 +2517,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- resentence? I see.",
       "time": "01:19:17.51"
     },
@@ -2525,7 +2529,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or discharge him in a parole or probation or something?",
       "time": "01:19:20.24"
     },
@@ -2537,7 +2541,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What required the sentencing -- what was it? 30 to 90 years?",
       "time": "01:19:31.97"
     },
@@ -2549,7 +2553,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "On each fix count.",
       "time": "01:19:37.49"
     },
@@ -2561,7 +2565,7 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "To run consecutively.",
       "time": "01:19:39.43"
     },
@@ -2573,7 +2577,7 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Gilinsky, if there had been no waiver and the Juvenile Court had determined what the jury of the District Court did eventually determine, i.e. that this -- that this man is insane. What could the Juvenile Court have done about it?",
       "time": "01:21:34.06"
     },
@@ -2585,7 +2589,7 @@
     },
     {
       "turn": 424,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Civilly committed?",
       "time": "01:22:28.16"
     },
@@ -2597,7 +2601,7 @@
     },
     {
       "turn": 426,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Couldn't the Juvenile Court have continued his probation after a commitment to the St. Elizabeths, let's say to the general hospital and held him and under the jurisdiction of the Court during his entire juvenile status?",
       "time": "01:23:06.41"
     },
@@ -2609,7 +2613,7 @@
     },
     {
       "turn": 428,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, why wouldn't that be satisfactory here? Did they want -- do they insist on this young man going there for life for wanting to be able to take care of him and keep in some kind of an institution for life?",
       "time": "01:23:33.57"
     },
@@ -2621,7 +2625,7 @@
     },
     {
       "turn": 430,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's not what I'm talking about. I thought there was a mental problem, why couldn't he have continued him on probation as long as he was in the mental hospital. If he wasn't in the mental hospital, then he could find some other disposition of the case, but if he was mentally ill as all these doctors indicated, why couldn't the judge have taken care of it in that manner?",
       "time": "01:24:11.84"
     },
@@ -2633,7 +2637,7 @@
     },
     {
       "turn": 432,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I'm asking --",
       "time": "01:24:42.99"
     },
@@ -2645,7 +2649,7 @@
     },
     {
       "turn": 434,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- I'm asking just precisely what I said, could not the judge in the Juvenile Court have kept him on probation provided he was restrained during his mental illness in one of the hospitals?",
       "time": "01:24:45.64"
     },
@@ -2657,7 +2661,7 @@
     },
     {
       "turn": 436,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then that's what I ask you, was everybody in this case determined that this young man should be sent away for the rest of his natural life, is that why he got 90 years?",
       "time": "01:25:14.23"
     },
@@ -2669,7 +2673,7 @@
     },
     {
       "turn": 438,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The equivalent of two life terms?",
       "time": "01:25:30.98"
     },
@@ -2681,7 +2685,7 @@
     },
     {
       "turn": 440,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you tried to explain it very -- very meticulously why the judge probably did this, why do you say now you can't?",
       "time": "01:25:39.26"
     },
@@ -2693,7 +2697,7 @@
     },
     {
       "turn": 442,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Minimum?",
       "time": "01:25:58.51"
     },
@@ -2705,7 +2709,7 @@
     },
     {
       "turn": 444,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, let's don't talk about the defense counsel. What was the sentence in this case?",
       "time": "01:26:05.06"
     },
@@ -2717,7 +2721,7 @@
     },
     {
       "turn": 446,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:26:12.40"
     },
@@ -2729,7 +2733,7 @@
     },
     {
       "turn": 448,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No of course.",
       "time": "01:26:17.06"
     },
@@ -2741,7 +2745,7 @@
     },
     {
       "turn": 450,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Right. The minimum is 30 and the maximum of 90?",
       "time": "01:26:27.35"
     },
@@ -2753,7 +2757,7 @@
     },
     {
       "turn": 452,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the minimum and maximum for a life term?",
       "time": "01:26:31.99"
     },
@@ -2765,7 +2769,7 @@
     },
     {
       "turn": 454,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In the federal system, that's what we're dealing with.",
       "time": "01:26:36.90"
     },
@@ -2777,7 +2781,7 @@
     },
     {
       "turn": 456,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I didn't ask you that. I asked you what is the minimum and maximum on a life sentence?",
       "time": "01:26:53.30"
     },
@@ -2789,7 +2793,7 @@
     },
     {
       "turn": 458,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I know. But isn't there some time a minimum at which they can ask for parole, can they ask for parole the next day after they agree on a life imprisonment?",
       "time": "01:27:05.68"
     },
@@ -2801,7 +2805,7 @@
     },
     {
       "turn": 460,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's the earliest?",
       "time": "01:27:21.59"
     },
@@ -2813,7 +2817,7 @@
     },
     {
       "turn": 462,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That I didn't know. May I ask you this Mr. Gilinsky? Is the juvenile, before the Juvenile Court in the District of Columbia entitled to a lawyer?",
       "time": "01:27:24.32"
     },
@@ -2825,7 +2829,7 @@
     },
     {
       "turn": 464,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Alright, if he is, what is his lawyer entitled to do for him?",
       "time": "01:27:44.63"
     },
@@ -2837,7 +2841,7 @@
     },
     {
       "turn": 466,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, as I understood Mr. Ehrlich, Mr. Arens made two motions that were very vital to this defendant in the Juvenile Court and that neither of them were ever passed upon by the Juvenile Court.",
       "time": "01:28:14.97"
     },
@@ -2849,7 +2853,7 @@
     },
     {
       "turn": 468,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, is that giving a man the right to counsel?",
       "time": "01:28:35.61"
     },
@@ -2861,7 +2865,7 @@
     },
     {
       "turn": 470,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, he made affidavits.",
       "time": "01:28:59.33"
     },
@@ -2873,7 +2877,7 @@
     },
     {
       "turn": 472,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The affidavits were attached to it.",
       "time": "01:29:00.78"
     },
@@ -2885,7 +2889,7 @@
     },
     {
       "turn": 474,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, no, no (Voice Overlap) --",
       "time": "01:29:11.74"
     },
@@ -2897,7 +2901,7 @@
     },
     {
       "turn": 476,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I know and both of them didn't apply to that though. He asked for certain -- he asked for certain documents, as I understand it --",
       "time": "01:29:15.29"
     },
@@ -2909,7 +2913,7 @@
     },
     {
       "turn": 478,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- somewhat -- alright (Voice Overlap) --",
       "time": "01:29:24.50"
     },
@@ -2921,7 +2925,7 @@
     },
     {
       "turn": 480,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As I understand Mr. Ehrlich, the judge never responded to those two motions.",
       "time": "01:29:27.39"
     },
@@ -2933,7 +2937,7 @@
     },
     {
       "turn": 482,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There was nothing -- there were no response made to it and no action taken. But now, I asked you, is that giving a man a right to counsel if you say he can make motions but the judge doesn't have to decide them?",
       "time": "01:29:35.12"
     },
@@ -2945,7 +2949,7 @@
     },
     {
       "turn": 484,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That means that in those circumstances, the lawyer has no right to appear before the Juvenile Court, has no right to make any motions in favor of his client and has no right to have them decided?",
       "time": "01:31:19.52"
     },
@@ -2957,7 +2961,7 @@
     },
     {
       "turn": 486,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I didn't ask you that. But isn't he entitled to --",
       "time": "01:31:40.62"
     },
@@ -2969,7 +2973,7 @@
     },
     {
       "turn": 488,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- to some response?",
       "time": "01:31:44.53"
     },
@@ -2981,7 +2985,7 @@
     },
     {
       "turn": 490,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I didn't asked you that, isn't he entitled --",
       "time": "01:31:48.90"
     },
@@ -2993,7 +2997,7 @@
     },
     {
       "turn": 492,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Isn't he entitled to a denial of it then?",
       "time": "01:31:51.79"
     },
@@ -3005,7 +3009,7 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Gilinsky, may I briefly ask you -- can I ask you a very brief question about another face of this matter. As I understand the fingerprints taken from this man when he was 14-year-old boy in 1961. He was apprehended for some offense, his fingerprints were taken and at the trial in the District Court here as I understand it, expert witnesses testified that those fingerprints matched the fingerprints found in the victim's apartments. So that what you have here, as I understand, is the use of fingerprints taken from a juvenile, that's number one at a subsequent trial in the District Court. Number two, I get the impression that the question and answer for such as to convey the information to a jury that the -- this man had been convicted in effect have been found by the Juvenile Court to have committed the offense, and my question to you is this, assuming that that objection have been made and that this testimony had been admitted over objection at the trial in the District Court, do you concede that that would've been reversible error or is it your position that it would not have been?",
       "time": "01:33:42.48"
     },
@@ -3017,7 +3021,7 @@
     },
     {
       "turn": 496,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes.",
       "time": "01:35:33.32"
     },
@@ -3029,7 +3033,7 @@
     },
     {
       "turn": 498,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, that's not what I'm talking about. I'm talking about page 42 of your brief, the top.",
       "time": "01:35:50.21"
     },
@@ -3041,7 +3045,7 @@
     },
     {
       "turn": 500,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, you wrote it, I didn't.",
       "time": "01:36:22.29"
     },
@@ -3053,7 +3057,7 @@
     },
     {
       "turn": 502,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, we'll take the transcript but that is not what is stated in your brief that page 42 says, you say that expert witnesses testified that the impressions found at the victim's apartments matched those taken after petitioner's 1961 arrest.",
       "time": "01:37:56.96"
     },
@@ -3065,7 +3069,7 @@
     },
     {
       "turn": 504,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gilinsky, it's quite apparent from some of the colloquy that we're going to have some difficulty with the transcript in this case and you speak of some documents, counsel speaks of others, and you say that there are discrepancies between them. I wonder if you and counsel for the petitioner cannot get together and do something about this to simplify the manner for us, can you not stipulate this what we should consider and so forth and in what connection?",
       "time": "01:38:24.96"
     },
@@ -3077,7 +3081,7 @@
     },
     {
       "turn": 506,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You could do that Mr. --",
       "time": "01:39:04.72"
     },
@@ -3089,7 +3093,7 @@
     },
     {
       "turn": 508,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Will you do that Mr. Gilinsky?",
       "time": "01:39:07.30"
     },
@@ -3101,7 +3105,7 @@
     },
     {
       "turn": 510,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well, if you will -- if you will do that, then supply us with it at your earliest convenience -- very well. Mr. Arens.",
       "time": "01:39:09.77"
     },
@@ -3113,7 +3117,7 @@
     },
     {
       "turn": 512,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Arens, if you gather -- it's two -- about three minutes to two, if you'd rather start at after lunch, you may do so.",
       "time": "01:39:43.10"
     },
@@ -3125,7 +3129,7 @@
     },
     {
       "turn": 514,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you want to do that?",
       "time": "01:39:49.92"
     },
@@ -3137,7 +3141,7 @@
     },
     {
       "turn": 516,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well, we'll return. Mr. Arens, you may proceed with your argument.",
       "time": "01:39:51.41"
     },
@@ -3149,7 +3153,7 @@
     },
     {
       "turn": 518,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Arens, I beg your pardon.",
       "time": "01:40:17.31"
     },
@@ -3161,7 +3165,7 @@
     },
     {
       "turn": 520,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is before he gets to reach 21?",
       "time": "01:41:24.15"
     },
@@ -3173,7 +3177,7 @@
     },
     {
       "turn": 522,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Excuse me, Mr. Arens, was there -- I've forgotten. Was there a hearing or argument before the transfer order was entered?",
       "time": "01:43:56.40"
     },
@@ -3185,7 +3189,7 @@
     },
     {
       "turn": 524,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What is it that you've given to the defense counsel in the District Court which Mr. Gilinsky referred to?",
       "time": "01:45:35.71"
     },
@@ -3197,7 +3201,7 @@
     },
     {
       "turn": 526,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what opportunity did the defense counsel have in the District Court to do anything with file that was (Inaudible)?",
       "time": "01:46:05.07"
     },
@@ -3209,7 +3213,7 @@
     },
     {
       "turn": 528,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did he make any --",
       "time": "01:46:20.86"
     },
@@ -3221,7 +3225,7 @@
     },
     {
       "turn": 530,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- application directed expressly to the file?",
       "time": "01:46:21.37"
     },
@@ -3233,7 +3237,7 @@
     },
     {
       "turn": 532,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Arens, what kind of a hearing would you suggest that they had in the District Court, in the Juvenile Court before the waiver?",
       "time": "01:48:04.52"
     },
@@ -3245,7 +3249,7 @@
     },
     {
       "turn": 534,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the -- I'm not talking about the issue, what kind of a hearing?",
       "time": "01:48:20.87"
     },
@@ -3257,7 +3261,7 @@
     },
     {
       "turn": 536,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was this the face -- the face to face meeting with the judge and an opportunity to say what you wanted to say if that satisfy what --",
       "time": "01:48:32.20"
     },
@@ -3269,7 +3273,7 @@
     },
     {
       "turn": 538,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What kind did you want in this case?",
       "time": "01:48:43.13"
     },
@@ -3281,7 +3285,7 @@
     },
     {
       "turn": 540,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think there should be an evidentiary hearing?",
       "time": "01:49:09.57"
     },
@@ -3293,7 +3297,7 @@
     },
     {
       "turn": 542,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who would the -- if this would be a full adversary hearing, then and who was on the other side?",
       "time": "01:49:23.91"
     },
@@ -3305,7 +3309,7 @@
     },
     {
       "turn": 544,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what -- in the District Court, when you make the motion to dismiss or a motion for the District Court to act as a Juvenile Court, what rules should the District Court follow? Let's assume that there is a hearing, all the hearing you won, what should' it be directed to?",
       "time": "01:49:51.18"
     },
@@ -3317,7 +3321,7 @@
     },
     {
       "turn": 546,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Voice Overlap) to be determined whether the -- just whether the Juvenile Court went to the right procedures or whether or not the Juvenile Court was right on the merits --",
       "time": "01:50:17.91"
     },
@@ -3329,7 +3333,7 @@
     },
     {
       "turn": 548,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- or both?",
       "time": "01:50:29.93"
     },
@@ -3341,7 +3345,7 @@
     },
     {
       "turn": 550,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Arens, why since the district judge might constitute itself under the statute, a Juvenile Court judge, why would not the reason for the hearing be that the end that they're be determined whether in fact he should be tried as a juvenile or as an adult? Why wouldn't that be the purpose of that hearing?",
       "time": "01:50:44.03"
     },
@@ -3353,7 +3357,7 @@
     },
     {
       "turn": 552,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know that. Let's see. What I'm trying to get to is the same -- the same answer with Mr. Justice White before and that is what would be the purpose, this is the new idea to me, I must say. The referral court being able to constitute itself with the same kind of court as the referring court but that's what our statutory scheme is. Now, if the hearing in the Juvenile Court, for the first instance, was the only to the end that they're be determined whether he could be tried as a juvenile or tried as an adult, why would not that be also the end of a hearing in the District Court?",
       "time": "01:51:08.87"
     },
@@ -3365,7 +3369,7 @@
     },
     {
       "turn": 554,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I must say you leave me cold with that argument since -- since -- if I understand the statute, the district judge can constitute itself as a Juvenile Court --",
       "time": "01:52:03.30"
     },
@@ -3377,7 +3381,7 @@
     },
     {
       "turn": 556,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- I don't see that -- then you're right back in the Juvenile Court for a practical purposes and you now get a hearing on the question whether or not this --",
       "time": "01:52:17.15"
     },
@@ -3389,13 +3393,13 @@
     },
     {
       "turn": 558,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- (Voice Overlap) the charge.",
       "time": "01:52:27.90"
     },
     {
       "turn": 559,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would never -- the District Court would never sit as a Juvenile Court if what you say is true because it reviewed -- if it reviews the wavier and found it invalid or improper, there would've been a valid waiver and automatically, no jurisdiction in the District Court on your argument.",
       "time": "01:52:28.83"
     },
@@ -3407,7 +3411,7 @@
     },
     {
       "turn": 561,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Voice Overlap) read that provision under the statute.",
       "time": "01:52:48.37"
     },
@@ -3419,7 +3423,7 @@
     },
     {
       "turn": 563,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but if there wasn't -- if there wasn't a proper waiver, that if the Juvenile Court judge made the wrong decision on the waiver, there wasn't a proper waiver and the District Court never acquired jurisdiction?",
       "time": "01:53:03.06"
     },
@@ -3431,7 +3435,7 @@
     },
     {
       "turn": 565,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, suppose in fact on your motion to dismiss the District Court had constituted itself a Juvenile Court had conducted a hearing and reached the conclusion that this Kent was to be tried as a juvenile, would you be here? And they tried him as a juvenile.",
       "time": "01:53:26.25"
     },
@@ -3443,7 +3447,7 @@
     },
     {
       "turn": 567,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You'd still be here.",
       "time": "01:53:49.63"
     },
@@ -3455,7 +3459,7 @@
     },
     {
       "turn": 569,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I must say I don't think you have to go that far.",
       "time": "01:54:05.57"
     },
@@ -3467,7 +3471,7 @@
     },
     {
       "turn": 571,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the statute certainly doesn't prevent the district -- the juvenile judge from letting the lawyer see it.",
       "time": "01:54:40.06"
     },
@@ -3479,7 +3483,7 @@
     },
     {
       "turn": 573,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or is it -- did the District Court ever get to juvenile judge view of --?",
       "time": "01:54:58.80"
     },
@@ -3491,7 +3495,7 @@
     },
     {
       "turn": 575,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did any one ever said he was precluded to see it?",
       "time": "01:55:11.80"
     },
@@ -3503,7 +3507,7 @@
     },
     {
       "turn": 577,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of who?",
       "time": "01:55:17.12"
     },
@@ -3515,7 +3519,7 @@
     },
     {
       "turn": 579,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "(Inaudible)",
       "time": "01:55:51.28"
     },
@@ -3527,7 +3531,7 @@
     },
     {
       "turn": 581,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:56:47.62"
     },
@@ -3539,7 +3543,7 @@
     },
     {
       "turn": 583,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're going to leave -- I hope you leave a copy of that recent decision.",
       "time": "01:57:16.69"
     },
@@ -3551,7 +3555,7 @@
     },
     {
       "turn": 585,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Thank you.",
       "time": "01:57:29.49"
     },
@@ -3563,7 +3567,7 @@
     },
     {
       "turn": 587,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Court -- the Court of Appeals said that and I'm quoting, “The counsel apparently did not press the matter of a personal interview with the Juvenile Court judge,” is that an accurate characterization of defense?",
       "time": "01:57:36.48"
     },
@@ -3575,7 +3579,7 @@
     },
     {
       "turn": 589,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was that in Black, Mr. Arens?",
       "time": "01:59:54.13"
     },
@@ -3587,13 +3591,13 @@
     },
     {
       "turn": 591,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Watkins?",
       "time": "02:00:01.59"
     },
     {
       "turn": 592,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "02:00:02.19"
     },
@@ -3605,7 +3609,7 @@
     },
     {
       "turn": 594,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you read that as a constitutional ground or?",
       "time": "02:00:11.95"
     },
@@ -3617,7 +3621,7 @@
     },
     {
       "turn": 596,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Arens, excuse me. On page 5 of your brief, you refer to the protracted incommunicado interrogation by police, I -- that was before the waiver order was entered.",
       "time": "02:01:20.23"
     },
@@ -3629,7 +3633,7 @@
     },
     {
       "turn": 598,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is there anything in the record that shows that?",
       "time": "02:01:39.02"
     },
@@ -3641,7 +3645,7 @@
     },
     {
       "turn": 600,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There's nothing in the record on this?",
       "time": "02:01:55.30"
     },
@@ -3653,7 +3657,7 @@
     },
     {
       "turn": 602,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes you mean -- is there -- did you endeavor to prove up this point in the District Court trial?",
       "time": "02:02:16.94"
     },
@@ -3665,7 +3669,7 @@
     },
     {
       "turn": 604,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If this (Voice Overlap) --",
       "time": "02:02:39.91"
     },
@@ -3677,7 +3681,7 @@
     },
     {
       "turn": 606,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Were you the trial counsel in the District Court?",
       "time": "02:02:48.64"
     },
@@ -3689,7 +3693,7 @@
     },
     {
       "turn": 608,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But there's nothing in the printed or type -- there's nothing in the typewritten record before us that would substantiate the statement?",
       "time": "02:02:53.35"
     },
@@ -3701,7 +3705,7 @@
     },
     {
       "turn": 610,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Probably, this may not be important but I'm interested why was the motion for rehearing en banc withdrawn?",
       "time": "02:03:11.08"
     },
@@ -3713,7 +3717,7 @@
     },
     {
       "turn": 612,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Arens, may I ask you, have you seen this a way of (Inaudible)?",
       "time": "02:03:41.75"
     },
@@ -3725,7 +3729,7 @@
     },
     {
       "turn": 614,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I wonder if I could ask you this, suppose we will agree with you that there should've been -- I'll use old statement on this waiver language, a referral hearing, what do you think the New Jersey Supreme Court solution which is, not to set aside this criminal conviction but rather direct a new referral hearing and if the result of that hearing is the finding that waiver was proper after a full inquiry and then the conviction stands. This is unrelated of course to the errors that are urged in the trial itself.",
       "time": "02:03:47.68"
     },

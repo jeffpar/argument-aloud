@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/320/19560328a_320_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "EVERETT L. LOONEY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GRAY THORON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ABE FORTAS",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 320, George B. Parr versus United States of America.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Looney.",
       "time": "00:00:15.91"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "21.",
       "time": "00:10:53.42"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If and when what? If --",
       "time": "00:11:30.27"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The motion of transfer by Judge Allred to Judge Kennerly is taking on his own motion, is that it?",
       "time": "00:13:50.99"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The transfer by Judge Allred of this motion to dismiss was taken by him without -- without any adversary discussion.",
       "time": "00:13:57.95"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you have no quarrel about that?",
       "time": "00:14:10.58"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was that in the record?",
       "time": "00:15:00.38"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where is it?",
       "time": "00:15:02.54"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's in the 48 (a).",
       "time": "00:16:37.20"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "48 (a).",
       "time": "00:16:39.50"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I believe that he dismissed the -- the matter of course before there was a Rule 48 (a).",
       "time": "00:17:01.23"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that's not a reason for innovation?",
       "time": "00:17:12.48"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What do you say about that, it was being practiced, as far as I know it, before there was a Rule 48 (a).",
       "time": "00:17:15.06"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Looney, was there any suggestions that the Western District had no jurisdiction in fact to make any claim?",
       "time": "00:19:14.16"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In fact --",
       "time": "00:19:23.36"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- no indictment could, in good conscience, be brought in that District?",
       "time": "00:19:24.75"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In fact, I withdraw that. By good conscience, I mean that there wasn't jurisdiction so that the district attorney could make a choice when he would remember.",
       "time": "00:19:30.21"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That isn't in the case.",
       "time": "00:19:47.67"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's a theory of the jurisdiction in the Western District. I understand --",
       "time": "00:19:49.26"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- your objection, but --",
       "time": "00:19:53.05"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand.",
       "time": "00:20:01.86"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if there had been no prior proceedings, this indictment in the Western District couldn't be attacked as without jurisdiction in that District.",
       "time": "00:20:06.36"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:20:16.52"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The Government's -- the Government made no misrepresentation to Judge Kennerly at all as to their desire, whatever their reasons were, to try this case in the Western District, is it? It was fully disclosed.",
       "time": "00:22:38.36"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It was fully disclosed. In other words, Judge Kennerly was within his discretion that he thought the Government is trying to evade his order into a (Inaudible) that he could have denied the motion as a matter of discretion, wouldn't he?",
       "time": "00:22:51.45"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Do you think he thought he did -- he would have done that if he thought he'd had the power (Voice Overlap) --",
       "time": "00:23:04.98"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you -- I beg your pardon. Are you contending that in fact Judge Kennerly has discretion, where the District Judge had a discretion under 48 (a) to grant or deny a motion to dismiss?",
       "time": "00:23:16.08"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That -- that having such a discretion, in fact, Judge Kennerly did not exercise it, is --",
       "time": "00:23:34.48"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that your position?",
       "time": "00:23:41.24"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And therefore, the case should be sent back to him --",
       "time": "00:23:43.48"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- and be told by us that he should exercise his discretion, is that your position?",
       "time": "00:23:46.98"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that.",
       "time": "00:23:58.44"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand this case to be -- he didn't have a discretion.",
       "time": "00:24:16.89"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you're saying is that under the circumstances of this case, a discretion ordinarily vested or vested by Rule 48 (a) to grant or deny a motion to dismiss by the -- made by the Government. That in this case, he had no discretion, except to deny that motion and that's your position.",
       "time": "00:24:37.71"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It was not that he didn't exercise the discretion, but he had to exercise it the other way.",
       "time": "00:25:00.67"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I -- I want to repeat my question but in a different form because it makes no -- a good even difference. Which is which here? I can understand the position taken by you that on the -- that from what Judge Kennerly said, you heard that in fact he didn't exercise his discretion. And for all unknowingly, becomes free to pass on this motion according to his own wisdom and sense of right, he might have denied the motion. If that's your position then the remedy that you have is to have the case sent back to him to exercise his discretion, but it's a very different thing if you maintain that under 48 (a), which does give a Circuit -- a District Judge of a District Court discretion. In this case, he had only one -- the discretion that only was a one-way street. If it only refuse the motion or deny the motion out of two provisions that be taken at the same time. I mean, your position in your term, but they are very different positions falling for different remedies.",
       "time": "00:25:29.30"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And they're forcing to be sent back to impress the charges?",
       "time": "00:26:54.35"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the Government did state there were reasons for the transfer.",
       "time": "00:27:20.84"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Have you never replied to those reasons?",
       "time": "00:27:27.10"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well -- well, where is your -- where is your paper of opposition? I'm looking on page 22 where the statement of reasons for the dismissal here. Where -- where is your statement?",
       "time": "00:27:48.80"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, what is the basis of your opposition?",
       "time": "00:28:14.16"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your -- your real objection was -- I see on page 32 but the United States Attorney did not say the statement of reasons. He said he is or has been, since the moment it was pronounced, just pleaded to the ruling of this Court, moving this case from the Corpus Christi to the Laredo Division.",
       "time": "00:29:12.88"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, that -- did -- did you have any other reason than that?",
       "time": "00:29:32.35"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:29:38.70"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think if you put the Attorney General's telegram or is that available to you before Judge Kennerly on this argument?",
       "time": "00:31:39.82"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That was before then.",
       "time": "00:31:47.84"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you've asked -- that's what you had in mind, I take it in answering Justice Harlan's question that the cards were all on the table.",
       "time": "00:31:57.78"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Are you entitled --",
       "time": "00:34:25.23"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "-- to be tried in any one place --",
       "time": "00:34:25.89"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "-- except on -- are you entitled to be tried in any one place except on the reasons of venue and prejudice? If you're -- if you're given a place where you can't raise any question as to whether or not the prejudice exists against you and venue exists there, you have any right to -- to be tried in any one place than that.",
       "time": "00:34:27.92"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Thoron.",
       "time": "00:35:35.60"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you then saying that the reason the Government dismissed this case was in order to get a change of venue?",
       "time": "00:43:11.25"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Because the Government felt it should not get a fair trial?",
       "time": "00:43:44.58"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Thoron, can you please tell us qualitatively or with fair confidence what the law is, whether the district judgment by the rules of statutes cannot transfer outside of Judge Kennerly's side?",
       "time": "00:45:17.63"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What is the -- what is the law if you --",
       "time": "00:45:34.93"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- would clear on that case?",
       "time": "00:45:37.12"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose from the point of view of the petitioner, it doesn't make any difference that Judge Kennerly may have misconceived the quote or his power under Rule 21, does it?",
       "time": "00:48:21.47"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:49:22.74"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But maybe if Judge Kennerly misconceived the scope of Rule (a) or 21 (a), and the meaning of which I understand the petition of -- the interpretation given to it by petitioner is that -- that the way it was is so-called that that could be demonstrated is -- waived a little bit to the choice of another venue if we could (Inaudible) he wants to, no more. Assuming he was wrong in that, and assuming whether he was wrong, the district would be with that and under Rule 48 (a) and it might go back and the result might turn out to be exactly what we have now. It wouldn't -- that wouldn't be an answer to the fact that the judge should act suppose to the rule which he imposed upon him and not otherwise.",
       "time": "00:49:42.33"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean, you might get exactly the same result, and yet, because that might and it might not be if you -- to have enact according to law. Assuming he didn't and we won't need it.",
       "time": "00:50:32.27"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It makes a difference that he would get the same results the right way to turn --",
       "time": "00:51:08.48"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It might be the right --",
       "time": "00:51:13.81"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The right way is important.",
       "time": "00:51:14.54"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you point it out in the term on the following brief on the legal points as to the appellant to transfer it outside the Southern District?",
       "time": "00:51:38.38"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, if the Government tried to make that issue with the judge and the judge says, I don't have the power, so I have to transfer it to Houston and (Inaudible), I suppose it is.",
       "time": "00:51:49.52"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, why don't you turn the -- I know hindsight is better of course but, why don't you turn in that before you met that issue or what the issue wasn't in the -- on the change of venue?",
       "time": "00:52:51.54"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, after he generally said again, “You -- how you have decided to the best interest as to turning back another indictments and claim.”",
       "time": "00:53:08.44"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why didn't you do that when you first learned that he was going to try a part and then try to change the venue to Laredo?",
       "time": "00:53:21.84"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Neither of you gentlemen has said a word yet about the appealability of this order.",
       "time": "00:55:37.74"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What's the citation of this?",
       "time": "00:57:00.80"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:59:28.63"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was in the question that (Inaudible)",
       "time": "00:59:31.86"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It wasn't a question of (Inaudible)",
       "time": "00:59:42.77"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't follow what the technique means. It means that there are easy question on the merit itself that you don't go to the question of appealability, is that it?",
       "time": "01:01:39.01"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That technique is a good word for that (Voice Overlap), but it means it doesn't shoulder off the problem.",
       "time": "01:01:47.28"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, you argued it.",
       "time": "01:02:24.37"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You argued it --",
       "time": "01:02:25.43"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- in your brief. You argue it in your brief that he reports --",
       "time": "01:02:26.15"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Voice Overlap).",
       "time": "01:02:34.94"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If I having read the page, in which if it isn't appealable now, it's never appealable.",
       "time": "01:03:07.78"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The more practical preference.",
       "time": "01:03:15.40"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Thoron, before you get to another subject, let me get back to the merits of this dismissal. As I understood you, the basis of your proceeding to dismiss was that you couldn't get a fair trial in Laredo.",
       "time": "01:04:59.96"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, where --",
       "time": "01:05:16.70"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, you didn't say that a little while ago.",
       "time": "01:05:19.73"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You said the basis of it as I understood it --",
       "time": "01:05:22.25"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I -- may I ask --",
       "time": "01:05:25.92"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, where -- where in your -- where was your representation to the Court on your dismissal proceedings?",
       "time": "01:05:35.14"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, will you point out the language to me, please?",
       "time": "01:06:00.40"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let me put -- let me put it this way. Did you -- did you state in your statement of reasons for dismissal that the reason you wanted to dismiss was because you could not get a fair trial in Laredo?",
       "time": "01:06:11.39"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, why shouldn't -- why shouldn't it be implicit? Why shouldn't it had been said in your -- in your motion that you filed on May 4th, 1955, if -- if that contained the statement of your reasons for dismissal as it says it does?",
       "time": "01:06:35.10"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I thought you said you laid all the cards --",
       "time": "01:07:11.29"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- on the table, so I'm wondering why --",
       "time": "01:07:13.23"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you didn't lay it on the table in your statement.",
       "time": "01:07:15.14"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is that document?",
       "time": "01:07:19.27"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:08:04.96"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where are you reading from, Mr. Thoron?",
       "time": "01:08:08.44"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where are you reading from?",
       "time": "01:08:10.74"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What page and where?",
       "time": "01:08:15.30"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It might have been -- it might have been that they had -- that they taken it away from the -- from the Mexican-American border in the first instance, but they -- they initiated the proceeding on the border, didn't they?",
       "time": "01:09:45.40"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:10:01.89"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Fairly speaking, that's -- that's 40 --",
       "time": "01:10:03.73"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you didn't say exactly on the border. You said the farther removed they are from the American-Mexican border district --",
       "time": "01:10:09.87"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- district.",
       "time": "01:10:18.90"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You said border, American-Mexican border district.",
       "time": "01:10:42.30"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You weren't considering the -- the Judicial District there?",
       "time": "01:10:50.44"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But my -- my question was, did you state it at all in the written document which you've filed as a statement for your reasons for dismissal? Did you cite the thing that you say is the basic reason for the -- for the Government? The reason I asked you that is because I noticed in -- in your written statements that you say this, “The decision of the Attorney General to initiate proceedings in the Western District of Texas, in no way, is to be construed as an evasion of the ruling of the Court transferring venue from Corpus Christi to Laredo.”",
       "time": "01:11:40.06"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, how is --",
       "time": "01:12:21.12"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How can --",
       "time": "01:12:22.51"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you justify that with your other position?",
       "time": "01:12:23.03"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But as a matter of fact, the motion to dismiss and the reindictment in Austin, Texas was for the purpose of evading the ruling of the Court, transferring the venue from Corpus Christi to Laredo, was it not?",
       "time": "01:13:25.39"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was this -- was this document written by tax people, whether they reflect to the tax? You look for the term “evasion” as against the --",
       "time": "01:14:13.01"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't mean the brief, I mean this document when we talk about evasion.",
       "time": "01:14:24.69"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, how would we naturally think of evasion that's something the law forbid? What he wanted to say, he was not doing this thing in order to violate the law.",
       "time": "01:14:32.66"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, he wouldn't be entitled to understand it unless you got it from -- from your representations in the statement, would he?",
       "time": "01:15:04.26"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The -- the statement that was made doesn't prove that in Texas, they used (Inaudible)",
       "time": "01:15:23.69"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Could you distinguish the Heike case for me for this situation?",
       "time": "01:16:56.30"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is the case --",
       "time": "01:17:05.33"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that was the case where there was a judgment on the plea involved.",
       "time": "01:17:06.29"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The plea went against the defendant.",
       "time": "01:17:10.27"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He then was told the plea to the merit, he refused, he came here. One of the justices of this Court granted a writ of error. The Government then moved to dismiss the writ of error and he's probably been granted that was fully argued before this Court and the writ was dismissed. The case then went to trial, a long trial of six weeks, and then they have to come back here and raise that question back to the conviction.",
       "time": "01:17:13.25"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can you distinguish that case from this?",
       "time": "01:17:37.83"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What appeal -- the immunity granted by the immunity statute that the Act of 1893 certainly was vested to any excerpt of that in the meeting --",
       "time": "01:17:48.89"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) new term was taken out of --",
       "time": "01:17:57.44"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that certainly was vested if it applied --",
       "time": "01:18:00.67"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If not?",
       "time": "01:18:05.58"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I don't understand why you emphasize the fact that it was a vested right. That -- that doesn't determine appealability.",
       "time": "01:18:11.50"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That was true on the Heike case.",
       "time": "01:18:38.51"
     },
@@ -1583,13 +1587,13 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, was that possible --",
       "time": "01:19:13.05"
     },
     {
       "turn": 258,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What he's -- what he's bringing here is an appeal from an order of which it did dismiss an indictment that that's just the opposite of (Inaudible)",
       "time": "01:19:13.07"
     },
@@ -1601,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that terminated that proceeding.",
       "time": "01:19:30.05"
     },
@@ -1613,13 +1617,13 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And there --",
       "time": "01:19:41.49"
     },
     {
       "turn": 263,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "And terminate the possibility of prosecution when it -- it terminated that prosecution.",
       "time": "01:19:41.56"
     },
@@ -1631,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because I have taken certain steps --",
       "time": "01:19:53.74"
     },
@@ -1643,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- here that I brought it through and this is -- is an illegal order that you're entering and dismissing my indictment --",
       "time": "01:19:57.14"
     },
@@ -1655,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you say there's no grievance?",
       "time": "01:20:05.27"
     },
@@ -1667,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This claim of the right to trial --",
       "time": "01:20:17.36"
     },
@@ -1679,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- was a right to a trial --",
       "time": "01:20:19.51"
     },
@@ -1691,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- in that district, that division.",
       "time": "01:20:20.68"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That claim to a right to be tried under that indictment.",
       "time": "01:20:28.98"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It may be wrong. It may be right or wrong.",
       "time": "01:20:34.97"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In this division.",
       "time": "01:20:44.44"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's not what is in here.",
       "time": "01:21:05.77"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I didn't know we had the Western District indictment here.",
       "time": "01:21:09.89"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If that has been tried, there has been no steps taken in.",
       "time": "01:21:19.73"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I -- may I break in on your argument to that opinion -- connection to which the consideration drawn into that opinion vary on appealability. Suppose the Government hadn't rule to dismiss the Southern District indictment, suppose it allowed that to remain, write an indictment that the grand jury's indictment to file in the Western District, two indictments outstanding. Nothing would have prevented the Government to leave the Southern District's indictment by going in and move the trial of the -- due to the indictment on the Western District.",
       "time": "01:26:16.09"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That isn't your position.",
       "time": "01:26:53.94"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That isn't a fact. It isn't what the Government did. The Government didn't need to lie dormant. The Government moved further that it -- that it was. The Government did acted to put to the Southern District indictment out of permission to (Inaudible) it and leave outstanding, only a single indictment for trial, leaving no question on argument that -- that there's another indictment, et cetera, et cetera.",
       "time": "01:26:58.72"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'm not --",
       "time": "01:27:29.81"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not now concerned with the -- that aspect of it. If that is so, and assume the -- how can you say, and therefore, there is only the Western indictment notwithstanding. It is the Government's position that if he's tried on the Western indictment, convicted, a fatal effect of the judgment of conviction of the sentence if sentence there be, would be that if that and it shouldn't have been moved here by the dismissal to be avoided that the Government avoided his opportunity to be tried before the Southern -- in the Southern District, the -- the conviction under the Western District is therefore faithfully defective. In that, we would, in any event, let it tried under the Southern District, is that -- what do you say to that?",
       "time": "01:27:32.94"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In order to -- in order to urge that the dismissal of the Southern District indictment, it was not appealed, you must couple that with the recognition or the assertion that the -- the improper dismissal of that indictment is at some stage or rather in case of conviction, an appeal for grounds not necessary? It must be appealable --",
       "time": "01:28:43.61"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the question of the merit.",
       "time": "01:29:23.75"
     },
@@ -1859,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A question of the merit. I'm saying that's the question of the merit. I'm saying that this dismissal claimed to have been erroneous in law must be derived from reviewability at some state if it had been in the conviction. And therefore, if the Government is urging that the appeal is not permitted, it must admit -- not admit, but it must have served that if there is a conviction on the Western indictment, the dismissal allegedly improper, either subject matter or potential reversal by this Court or the Court of Appeals of the conviction under the Western indictment.",
       "time": "01:29:26.18"
     },
@@ -1871,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, what --",
       "time": "01:30:09.13"
     },
@@ -1883,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Certainly, there's merit. If there's no merit, then they can't reverse. I'm --",
       "time": "01:30:11.25"
     },
@@ -1895,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- saying that the -- there must be an appealable error urging. If there's no error, there -- there's no merit, then there's no merit, there's no error. What I want to know is how do you work out that if there is a conviction on the Western indictment, the Southern indictment having been dismissed, what is the basis on which the Court of Appeals or this Court eventually can say, “The improper exercise of discretion by the District Judge in dismissing the Southern indictment vitiates the conviction under the Western?”",
       "time": "01:30:15.36"
     },
@@ -1907,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because --",
       "time": "01:31:07.24"
     },
@@ -1919,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- because, because the Southern indictment --",
       "time": "01:31:08.91"
     },
@@ -1931,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- is not properly dismissed.",
       "time": "01:31:12.17"
     },
@@ -1943,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But then, you are saying that this action by Judge Kennerly in dismissing the Southern indictment claimed to have been legally improper is never reviewed. And if you say that, then --",
       "time": "01:31:24.34"
     },
@@ -1955,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know what that means.",
       "time": "01:31:42.79"
     },
@@ -1967,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why it was viewable -- I mean, that he took action, which on the assumption -- I must make the assumption that it was an erroneous act, because otherwise, you haven't got any -- any effect.",
       "time": "01:31:49.99"
     },
@@ -1979,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "On the assumption, if that was erroneous, at some stage or another, there must be opportunity to review it.",
       "time": "01:32:04.68"
     },
@@ -1991,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't care whether you are a champion or I'm a -- a great supporter of it. We're guided by some -- so many rules. We're not guided by references about rules.",
       "time": "01:32:21.67"
     },
@@ -2003,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because that also is irrelevant in a -- an argument that the Government ought not to be making it, it's making it (Inaudible) That isn't that question. The Government is on the duty and we are on the duty to observe the rule of finality and your (Inaudible) decision on the merits is immaterial and sometimes a very foolish position for the Government's case.",
       "time": "01:32:57.24"
     },
@@ -2015,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) -- that has a --",
       "time": "01:33:32.01"
     },
@@ -2027,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'm sure the petitioner would welcome if you would dismiss the Western District indictment and he wouldn't be here.",
       "time": "01:34:06.76"
     },
@@ -2039,7 +2043,7 @@
     },
     {
       "turn": 333,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Fortas.",
       "time": "01:35:49.47"
     },
@@ -2051,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Unilateral plus the action of the District Court.",
       "time": "01:37:28.25"
     },
@@ -2063,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) But in the case, the actual statement by a judge --",
       "time": "01:37:43.62"
     },
@@ -2075,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- not by the Attorney General, the judge could have said no to his motion.",
       "time": "01:37:48.24"
     },
@@ -2087,7 +2091,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand your position. I merely suggest the term \"unilateral\" is not descriptive of the circumstances of this case.",
       "time": "01:38:44.65"
     },
@@ -2099,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think there is a distinction between the power of the Attorney General to dismiss, to set up the Court before a transfer and the power after a transfer?",
       "time": "01:38:52.14"
     },
@@ -2111,7 +2115,7 @@
     },
     {
       "turn": 345,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, they have the choice as to where they go, do they?",
       "time": "01:39:59.81"
     },
@@ -2123,7 +2127,7 @@
     },
     {
       "turn": 347,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And they could dismiss -- they could have dismissed Corpus Christi.",
       "time": "01:40:14.88"
     },
@@ -2135,7 +2139,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:41:00.95"
     }

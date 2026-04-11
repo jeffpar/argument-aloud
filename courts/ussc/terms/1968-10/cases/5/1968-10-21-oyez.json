@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/5/19681021a_5.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID T. GOLDSTICK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "HARRY BRODBAR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Sydney Street Appellant versus New York. Mr. Goldstick.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Before you start, I should have said that the orders of the Court have been certified by the Chief Justice and filed with the Court below will not be announced thoroughly. You may proceed now Mr. Goldstick.",
       "time": "00:00:15.64"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Goldstick, Judge Fuld and his recital of the facts and his opinions for the Court of Appeals. It does have a little minor error in his factual recital does he not? When he says that your client told the small crowd which collected that quote “if they let that happen to Meredith, We don't need an American Flag”.",
       "time": "00:03:00.75"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I went to the record pretty carefully yesterday and I didn't see that there was anything to support the statement that you're client as he was burning the flag --",
       "time": "00:03:59.75"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It put it off, so he came told the small crowd that he collected --",
       "time": "00:04:09.08"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You know really, do you really argue that State of New York could not constitutionally outlaw the defacing of the flag by physical acts?",
       "time": "00:08:42.42"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You don't take that position?",
       "time": "00:08:58.18"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So, it's a speech element here that or the speech or so called “symbolic speech” about issue you here.",
       "time": "00:09:00.65"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, Mr. Goldstick, I didn't quite understand, what position do you not take?",
       "time": "00:09:30.42"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn't understand your brief to take that position.",
       "time": "00:09:52.51"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just for this branch of your argument or your whole case?",
       "time": "00:10:26.49"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it though you would say that power ends as just the moment that the conduct is communicative.",
       "time": "00:10:40.01"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though and it ends as soon as there is a claim that is communicative?",
       "time": "00:10:48.91"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Let me see if I follow you because your concession doesn't dispose in a matter for this Court, but I want to get your position clear. Suppose you had here a statute that said that, that should be statute of New York that said it should be unlawful for any person in public deliberately to set fire to and burn an American flag. That's all the statute said, I understand that's what Mr. Street did, and he was indicted for that, no speech element whatever. You do not take the position that that would be a violation of the United States Constitution.",
       "time": "00:12:10.32"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I'd like an addition to that. He uses some language, do you claim with that purged him?",
       "time": "00:12:55.79"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But if an addition to burning the flag, he uses some language such as he does here? Do you think that purges him of burning the flag?",
       "time": "00:13:03.32"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon.",
       "time": "00:13:13.17"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Don't you think there'd be any First Amendment problem and the case put to you by Mr. Justice Fortas?",
       "time": "00:13:40.84"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What if he has not saying anything?",
       "time": "00:13:56.00"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Don't you think there's First Amendment problem?",
       "time": "00:13:59.38"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Don't you think that's a communication ended up itself?",
       "time": "00:14:05.30"
     },
@@ -295,13 +295,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is. It doesn't say word --",
       "time": "00:14:11.80"
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right.",
       "time": "00:14:15.90"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean that we have instead of word here that same word with -- it is like you --",
       "time": "00:14:21.81"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes, I might question which you've answered, I assumed that I postulated that the statute did not contain, did not contain any reference to verbal statements but the New York statute does since you pointed out?",
       "time": "00:15:26.66"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm not indicating in the attitude of the --",
       "time": "00:15:44.84"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- or in the language of the New York statute in this respect does and does not make a difference but you answer to my question was very carefully restrictive.",
       "time": "00:15:48.34"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you a connection with the precise argument you are now making. What do you say about this statement Giboney v. Empire Storage Company, but It has never been deem that abridgement of freedom of speech or prayers, to make a course of conduct illegal merely because its a conduct was in part initiated evidence, or carried out by means of language, either written, spoken or printed.",
       "time": "00:16:00.10"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In other words, we'd have to overrule this.",
       "time": "00:16:44.25"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why don't you have to reach it, if you say that the conduct itself did not violate the Constitution, but it does violate it because of the language use at the time?",
       "time": "00:16:57.27"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I just ask you about it?",
       "time": "00:18:31.64"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I noticed that Judge Fuld's opinion doesn't deal with your argument which I gather as an argument of overbreadth that because the statute deals both with conduct and words this appellant has standing to attack constitutionally of the statute on its face. That's your argument isn't it?",
       "time": "00:18:33.84"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, why is it that Judge Fuld's opinion didn't deal with that?",
       "time": "00:18:53.06"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which footnote? I raise this because I gather the states going to content does at least in its brief that was not considered because you did not raise it.",
       "time": "00:19:00.51"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But how bout the trial court?",
       "time": "00:19:29.74"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So?",
       "time": "00:20:03.19"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what would you say if we have -- we taught we had to read Judge Fuld's opinion as not twiddling of a question because as a matter of State Law your failure to raise a trial included any right to have it consider in the appellate courts. If we have to read it that way, then where do you stand?",
       "time": "00:20:23.70"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the Court disagree with you on that and since said that you have to raise a little more precisely --",
       "time": "00:21:05.66"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is First Amendment raises all issues under the First Amendment?",
       "time": "00:21:19.80"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you have to – is that – do you have to rely on that?",
       "time": "00:21:24.70"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As far as overbreadth is you have to rely on that position?",
       "time": "00:21:36.86"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you think them as this is the rule of New York that – is it the general rule at to that the appellate court doesn't consider things is not – that their not believe in that one?",
       "time": "00:21:41.11"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, except there's something else that the fact is bothered me Mr. Goldstick and that reason I ask you about your answer to Justice Fortas question. Judge Fuld in Footnote 1, appearing on 4a of the appendix of this case, it seems to say before the highest Court in New York that this statute simply prohibits public mutilation of the flag and that's why the way he construes the statute. And of course, we have to take that construction as though the statute were written that way under we've excepted conventional doctrines in this Court.",
       "time": "00:22:19.67"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What do you think for that first footnote means the last phrase in it, “That the provision was meant to apply to public mutilation of the American flag.”",
       "time": "00:23:18.13"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it means obviously its means something you and I would have to agree.",
       "time": "00:23:36.76"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, I suppose you could -- the whole of your function that page the --",
       "time": "00:23:53.54"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, this is it, before we plead to this case I'd like to make a motion of dismiss, is that it?",
       "time": "00:24:03.08"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what is it in that motion that you say, raises the overbreadth question?",
       "time": "00:24:09.54"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Under the First Amendment -- am I correct so this is the only reference is in it the First Amendment? Under the First Amendment of the Constitution United States and of the New York State Constitution famous speech, “they provide for protest in many forms whether it be by burning a flag, demonstration or picketing. This is a form of demonstration of protest, is that what raises your overbreadth?",
       "time": "00:24:27.01"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I must say in the face of it Mr. Goldstick that reached to me something like an argument base on symbolic speech. There is conduct but the conduct as protection of the First Amendment as symbolic speech.",
       "time": "00:24:56.24"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I thought Chief Judge Fuld's opinion had to be read some what differently that is to say that, assuming that this is within the embed of the First Amendment the statute and prosecution here are within the embed of the First Amendment the conviction was never the less justified on the trial acclaimed present danger principle. That is to say that there was in the circumstances of the case a clear and present danger of public disorder and therefore according to Chief Judge Fuld, a -- it was not – the conduct was not protected by the First Amendment.",
       "time": "00:26:50.76"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm not unless I don't argue of that as my reading in your judgment is my reading of what Judge Fuld was saying incorrect. You've now advance to different theory which is Judge Fuld displaces on this read this as of disorderly conduct statute or breach of peace statute, and that reading at that way you arrive at this conclusion. My only question reading his opinion was that he was recognizing that there was a First Amendment problem engaged in this analysis for the purpose of demonstrating dissatisfaction in a way that the First Amendment did not protect this particular conduct.",
       "time": "00:27:49.74"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are we to lead everything that Chief Judge Fuld said against the background of its opening sentence in the opinion? We are called upon to decide whether the deliberate act of burning an American flag in public as a protest maybe punished as a crime.",
       "time": "00:29:34.51"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "We often it to so our opinion with a statement of the question hoping the opinion will then be read as bearing on as answering the question that so with which the opinion open. And that certainly reads as so he regarded the case, doesn't it as presenting simply a question of so-called symbolic speech?",
       "time": "00:30:00.74"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Goldstick.",
       "time": "00:30:40.30"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You haven't' --I think I'm right to saying that you haven't mentioned in your brief or in your oral argument that the possibility of mootness in this case, do you think that's a problem?",
       "time": "00:30:41.30"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In your appeal --",
       "time": "00:30:58.40"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- but not in your brief on the matter.",
       "time": "00:30:59.09"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Although, he was given a suspended sentence and the period is now past --",
       "time": "00:31:16.64"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- I understand it during which he any other sentence could have privacy impose.",
       "time": "00:31:21.04"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Brodbar.",
       "time": "00:31:37.43"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Brodbar, how many people are there?",
       "time": "00:34:37.84"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it in the record?",
       "time": "00:34:42.41"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose it burned it at night and nobody there?",
       "time": "00:34:45.77"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many people?",
       "time": "00:34:55.08"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I taught the definition of riot was three or more.",
       "time": "00:35:04.46"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, we really don't know. We really don't know what the statute means by public late, do we?",
       "time": "00:35:14.47"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I could see a little difference myself between burning a flag on my front lawn and burning it in Yankee stadium, could you?",
       "time": "00:35:41.56"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You couldn't?",
       "time": "00:35:52.69"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose they're all friends?",
       "time": "00:36:02.95"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose they all agree with me.",
       "time": "00:36:07.05"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose they all agree with me, that the flag should be burned?",
       "time": "00:36:09.85"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is that in the statute?",
       "time": "00:36:19.94"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you don't really --",
       "time": "00:36:34.43"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it the guy doing that --",
       "time": "00:36:41.46"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Am still on word public --",
       "time": "00:36:45.31"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the language is in the charge specifically.",
       "time": "00:39:51.92"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why was it put in the charge?",
       "time": "00:39:56.28"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, they only put part in it and put it all in?",
       "time": "00:40:06.01"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you have it in quotes.",
       "time": "00:40:17.12"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It looks like it speech?",
       "time": "00:40:20.53"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Excuse me.",
       "time": "00:40:33.88"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose this statute had said it should be a crime to burn the American flag in public or to mention the American flag in public from giving a ridiculous case to illustrate, to explore a point. Suppose that the information read and the officer testified that we found the defendant burning the flag and the defendant said, “This is an American flag.” And suppose he -- that the defendant where then convicted. Now, remember, I am talking here about the statute which prohibited mentioning the American flag in public.",
       "time": "00:40:34.91"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that a statute be constitutional?",
       "time": "00:41:24.23"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, how do you --",
       "time": "00:41:34.49"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, you think that it has to be some contemptuous words upon the burning of the flag?",
       "time": "00:41:49.52"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But if you will burn, burn the flag publicly and don't say a word and you smile while you're doing it there. It can't be punished under the laws from New York but if you look angry why you can be?",
       "time": "00:42:04.11"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, I'm not talking about that, I'm talking about this kind of a situation. I'm talking about a statute of the State of New York.",
       "time": "00:42:24.00"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, the point of to which I'm directing your attention. Let's forget about the contempt part even if you will assume that one way or the other whichever way you think necessary. But suppose I have the statute said that, “it shall be a crime, to burn an American flag or to mention it in public.” And here's appellant whose arrested for a burning an American flag and saying, \"This is an American flag.” Now, with such a statute or on its face or as applied in a particular case in your judgment, they run a file of the First Amendment of the United States Constitution.",
       "time": "00:42:41.57"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In the state of New York then may prohibit mentioning or discussing the American flag in public.",
       "time": "00:43:36.23"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, for my point of view, I hope I should not just my point of view and I hope I'm not indulging myself only. And I can agree with that statement of this case. This is not a case of a simple burning of an American Flag. This is a case where the information included words and that included the words which maybe an objectionable discussion of the American Flag or objectionable reference. But it's not simply a case of burning of the American Flag, do you agree with that or not?",
       "time": "00:44:56.94"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And that's what under the statute and you agreed to that the statute is not confined.",
       "time": "00:45:42.76"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Words or Act.",
       "time": "00:45:50.96"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But, we have to face here the situation which is not confined to the burning or desecration of the American flag but it is a situation which includes the very troublesome aspect of words speech.",
       "time": "00:45:52.51"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the intent?",
       "time": "00:46:36.35"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, what is the significance of the act if you --",
       "time": "00:46:42.48"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is intact with the --",
       "time": "00:46:55.40"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:46:58.81"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Maybe that's right but the statute certainly doesn't seem to be phrased in those terms the statute does not confine itself to the act of burning or desecrating the United States together with such words or rather conduct that's would indicate that this act is being done a contemptuous lay of the flag. Would you agree with that? The statute would talks about makes it a crime the use the words. Not merely fall as evidence of intent of the intent with which the action was done.",
       "time": "00:47:18.27"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You do not.",
       "time": "00:48:07.27"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Who prepared the complaint?",
       "time": "00:50:23.18"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The policeman said that this was in violation of 1425, subsection16 (d), he put that language in there, the policeman?",
       "time": "00:50:29.84"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that's why it's strange to me. The only thing I'm talking about, you say, the only reason these words in quote in this charge which is a legal charge on behalf of the State of New York was because the policeman insisted that it be in there. I want to find out whether it was the policeman, or the prosecutor, or the lawyer, or the Judge, or the magistrate, or who?",
       "time": "00:51:14.52"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, who?",
       "time": "00:51:43.84"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't know?",
       "time": "00:51:46.60"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, when did the prosecutor get involved?",
       "time": "00:51:56.90"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, he had taken that language out?",
       "time": "00:52:05.76"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could he have taken the language out of that charge?",
       "time": "00:52:10.23"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But he didn't?",
       "time": "00:52:15.29"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, the State of New York insisted that this charge include both the act and the language that was the decision of the State of New York, am I right?",
       "time": "00:52:17.43"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I suppose the manner in which the Court of Appeals decided that would have somebody to do with the state law concerning the complaint, would it not?",
       "time": "00:52:59.55"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And the Chief Judge Fuld did say as it was pointed out by one of the other Justice, “We are called upon to decide whether the deliberate act, the burning in American flag in public as a protest may be punished to the crime.” And I suppose that if that -- if arrest of the text conforms to that I suppose that we can consider that's all there is in the case for us, is it not?",
       "time": "00:53:13.11"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I like then to hear Mr. Brodbar your submission upon the hypothesis that you are entirely right that we can disregard the reference in the statute to the word words and we can equally disregard the reference in the complaint to the quotation of what the defendant allegedly said. And that we're dealing here, therefore, simplicity with the question I suppose by Chief Judge Fuld in the very first paragraph of his opinion for the Court of Appeals simply with a state's statute that makes it a criminal offense to publicly burn an American flag.",
       "time": "00:54:11.47"
     },
@@ -1399,13 +1399,13 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that because the claim is that with which Chief Judge Fuld had to deal for his Court that a state could not constitutionally make that a criminal offense.",
       "time": "00:54:55.89"
     },
     {
       "turn": 228,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But while you're considering that -- did you suggest that or do you agree that the only way that you would know it is a protest in the words that were used.",
       "time": "00:55:07.22"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Okay.",
       "time": "00:55:22.82"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, then since I -- perhaps you hadn't finish answering my Brother White's question.",
       "time": "00:55:58.82"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I meant to add to my question, the very publicly burn an American Flag in public as a protest, that question that Chief Judge Fuld puts may that constitutionally be punished was a crime but it --",
       "time": "00:56:06.91"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, then why? Why? That's my question.",
       "time": "00:56:19.57"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What is the equivalent of interest here or the or the common law interest here?",
       "time": "00:56:37.79"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's not comfortable. I don't believe Americans love their draft cards, isn't it.",
       "time": "00:56:45.80"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I take it you've read the Court's opinion in O'Brien against the United States?",
       "time": "00:57:32.00"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And I take it down that you seem that the many pages of that opinion were devoted to the showing of the public interest, the national interest in the possession by young man with their draft card.",
       "time": "00:57:35.89"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What is the equivalent or --",
       "time": "00:57:51.08"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "First of all, you of course have to argue what the state interest is?",
       "time": "00:57:54.92"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's the case of course was decided long before it had been held at the Fourteenth Amendment incorporates the First Amendment.",
       "time": "00:58:17.04"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Brodbar, let us suppose that you had a case involved only words, words expressing the at most contempt in hatred for the American flag. Now, with those words standing alone fall within the condemnation of this statute.",
       "time": "00:58:27.80"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, that's the nub of the trouble here. I agree with you that electro reading of this statute would catch words standing alone because subsection d of the statute makes up the crime public relate to defile or defy or -- let me take this. Let me withdraw that. Public relate to cast contempt upon the American flag by words.",
       "time": "00:58:52.56"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, if that's what the statute says, doesn't it?",
       "time": "00:59:26.97"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And our question as whether we can -- whether we are at liberty to ignore that in effect for purposes of this particular case.",
       "time": "00:59:30.47"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "All right, now, do you attempt to in the defense, suppose it's not divisible.",
       "time": "00:59:56.20"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If you attempt to defend the constitutionality of a New York statute that said only that, “it shall be a crime to cast contempt upon the flag by words.”",
       "time": "01:00:02.51"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I see.",
       "time": "01:00:23.06"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, then why do you --",
       "time": "01:00:33.44"
     },
@@ -1645,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Right. Why do you say then -- why do you argue then that the statute is divisible?",
       "time": "01:00:36.82"
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do we have to read Judge Fuld's opinion as being broad enough to include what you say?",
       "time": "01:00:53.47"
     },
@@ -1669,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you think it does go that far?",
       "time": "01:01:00.94"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where is that?",
       "time": "01:01:18.23"
     },
@@ -1693,7 +1693,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "This treatment necessarily include words?",
       "time": "01:01:47.28"
     },
@@ -1705,7 +1705,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Can I say something, suppose there was no burning at all and I just say something contemptuous of the flag, is that treatment of the flag?",
       "time": "01:01:58.28"
     },
@@ -1717,7 +1717,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In common parlance?",
       "time": "01:02:11.45"
     },
@@ -1729,7 +1729,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then why do you say that it includes words, if it wasn't considering anything but acts?",
       "time": "01:02:34.07"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You told me a moment ago that you thought it was broad enough his opinion was broad enough so that we would be obliged to include words as well as action.",
       "time": "01:02:45.94"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Conduct?",
       "time": "01:02:56.07"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's what I was trying to get at, but I understood you departed from that.",
       "time": "01:03:14.80"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In answering me and said that his opinion was broad enough to include language if there was no burning, and you say that the word treatment to show that.",
       "time": "01:03:19.66"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you say that's your opinion that the decision would be the same?",
       "time": "01:04:02.93"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's your opinion that that judge and those judges would sustain statute which did nothing in the world would make it unlawful from a man to speak of views about the flag, is that right?",
       "time": "01:04:10.62"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What are the -- there are language, the speech you have hear, speech mix with conduct? Why do you have to defend the idea that New York has power to make it a crime for man to speak and say something bad about the flag?",
       "time": "01:04:28.10"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But why, do you have to go that far in this case?",
       "time": "01:04:53.96"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why do you get into it such factual --",
       "time": "01:05:00.10"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your view are judge is that if a man says something, make his speech about his views, he has committed a crime and that the First Amendment doesn't excuse him?",
       "time": "01:05:26.99"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, is it not obscenity?",
       "time": "01:05:44.43"
     },
@@ -1873,7 +1873,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Maybe it is, I've never know exactly?",
       "time": "01:05:46.74"
     },
@@ -1885,7 +1885,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose he did say the Government was bad, that's the object to the First Amendment is to permit who is criticizing Government and its institution.",
       "time": "01:06:33.63"
     },
@@ -1897,7 +1897,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's criticism.",
       "time": "01:06:52.92"
     },
@@ -1909,19 +1909,19 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I have an equal statute it prohibits two things, one is the conduct of burning a flag, that's what I understand with Judge Fuld. The other is it attempts to condemn a man from making a speech that is critical or as you say contemptuous of the Government.",
       "time": "01:06:56.39"
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or the flag, of the flag.",
       "time": "01:07:16.69"
     },
     {
       "turn": 314,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean as a Government's institution.",
       "time": "01:07:19.10"
     },
@@ -1933,7 +1933,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, as I understand your statute, it would cover this kind of a statement, “I'm a very loyal American, as a matter of fact I think there's nothing wrong with our nation, I think it's just perfect.” But frankly, I think our flag is one of the homiest ugliest flags” --",
       "time": "01:07:26.10"
     },
@@ -1945,7 +1945,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Oh no, now wouldn't your statute cover my hypothetical case?",
       "time": "01:07:49.58"
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why not?",
       "time": "01:07:52.89"
     },
@@ -1969,7 +1969,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Oh, it talks about contempt upon the flag, not upon the country.",
       "time": "01:08:02.68"
     },
@@ -1981,7 +1981,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Very contemptuous of its color scheme.",
       "time": "01:08:22.20"
     },
@@ -1993,7 +1993,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I think you have to test the statute out by what it might cover don't you, when you have a constitutional question?",
       "time": "01:08:31.62"
     },
@@ -2005,7 +2005,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You insist on arguing in that length, and so that is your whole case.",
       "time": "01:08:49.49"
     },
@@ -2017,7 +2017,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In other words, contempt.",
       "time": "01:08:54.86"
     },
@@ -2029,7 +2029,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does it contain a Separability Clause?",
       "time": "01:09:22.66"
     },
@@ -2041,7 +2041,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm not talking about the federal statute, I'm meant about yours.",
       "time": "01:09:32.39"
     },
@@ -2053,7 +2053,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do they have in general rule as to what's construing thing as separable if there are two separable crimes in New York?",
       "time": "01:09:36.91"
     },
@@ -2065,7 +2065,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why would you say that's a presumption --",
       "time": "01:09:53.96"
     },
@@ -2077,7 +2077,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the law of New York?",
       "time": "01:10:07.46"
     },
@@ -2089,7 +2089,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm talking about New York.",
       "time": "01:10:10.81"
     },
@@ -2101,7 +2101,7 @@
     },
     {
       "turn": 344,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:10:29.08"
     },
@@ -2119,7 +2119,7 @@
     },
     {
       "turn": 347,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I think you've finished your argument. You've take a few time.",
       "time": "01:10:35.70"
     }

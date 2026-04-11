@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/03-1164/20041208a_03-1164.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GREGORY G. GARRE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LAURENCE H. TRIBE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We will now hear argument in Veneman against the Livestock Marketing Association. Mr. Kneedler.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kneedler, will you tell us how this case differs, if it does, from what was before the Court in United Foods? What meaningful distinctions do you find?",
       "time": "00:00:48.36"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We've never addressed that in--",
       "time": "00:01:16.81"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--in these cases--",
       "time": "00:01:20.33"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--have we?",
       "time": "00:01:21.30"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does it remain government speech even if you don't say, \"This is your government speaking\"?",
       "time": "00:01:40.47"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you say, you know, \"America's cattlemen are speaking\", is it government speech?",
       "time": "00:01:46.17"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that? I mean--",
       "time": "00:01:56.45"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but Rust did not... Rust was not a case in which the doctor was saying, \"This is my personal opinion, not the government's. \" And here, as Justice Scalia pointed out, there is an affirmative effort to say, \"This is... this is paid for by. \" whatever it's called, the cattlemen's group or the beef group, which affirmatively indicates that it's not government speech.",
       "time": "00:02:00.72"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it's accurate--",
       "time": "00:02:32.31"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--but it also contains the implication that who... he who pays is the person whose speech is being broadcasted.",
       "time": "00:02:33.32"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yeah, but some people--",
       "time": "00:03:24.78"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--may be more resistant to an... to an ad that says, \"Your government wants to eat... wants you to eat more meat. \" than they are to an ad which say, \"The meat producers would like you to eat more meat. \"",
       "time": "00:03:26.10"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but if you... if you say the Act can be... say, because this is just an as-applied challenge, you're asking us to assume that we can put on a label that's not true, \"This message is brought to you by your friendly Department of Agriculture. \" That isn't accurate.",
       "time": "00:03:56.04"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you're having us save the statute by just putting a label on it that isn't accurate.",
       "time": "00:04:12.13"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But, Mr. Kneedler--",
       "time": "00:04:39.92"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But there is... there's another tape put out by the government, on meat, and that... what is the government speech? Usually, the government has a position, and is presenting it. Here, we have America beef producers has a label on... \"Eat meat\". But if you went to the Surgeon General, probably that message would be \"Eat meat moderately\". So what is the government speech? I don't know another case involving a claim of government speech where the message that you are saying is the government's is not the message that the government is putting out when it's dealing with its concern for public health.",
       "time": "00:04:44.42"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Kneedler, is meat fungible? Or... I think there are some steak houses that might disagree with that.",
       "time": "00:06:20.75"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, even quality of meat within the... some is tougher than others.",
       "time": "00:06:30.88"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's not like milk or wheat.",
       "time": "00:06:34.20"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "At some level, it certainly is, I suppose. But, just as in wheat or corn, there are different brands and different qualities. But I suppose it's still fungible, in a broad sense.",
       "time": "00:06:50.52"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I ask you whether, in deciding the government's speech doctrine, is it the Secretary's formal right to control, as set out in the statute, that we look to, or do we look to the Secretary's actual record of oversight--",
       "time": "00:07:01.62"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it at all possible to do here what has been done in the union cases, where... I mean, it's pretty hard for me to believe that there aren't... that meat... that cattle growers don't, by and large, like beef. I mean, maybe they have a ideological objection to people eating beef, but I doubt it. They probably object to some content. So can you segregate that? I mean, in the union cases, the bar cases, they try to segregate where there really is an ideological objection from the cases where really all that the objector wants is not to pay the money. And so they work out a system. You know, you pay so much for your dues anyway, you just don't pay that pro rata amount, where you really have an ideological objection.",
       "time": "00:08:01.61"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it possible to work that out?",
       "time": "00:08:47.91"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, but, I mean, if you make it--",
       "time": "00:08:55.77"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--totally voluntary, what you're going to discover is, all of a sudden, the beef people, rather than write a check, will say, \"Oh, you know, I make... I raise cattle, but I don't think people should eat beef. \"",
       "time": "00:08:56.79"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That saves them the money.",
       "time": "00:09:06.92"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I tend to doubt that that's their view.",
       "time": "00:09:09.01"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Some may view... object to certain content. So I'm asking if it's feasible to work out--",
       "time": "00:09:12.02"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It would be... in the union cases, it's hard enough. It's a... the good-of-the-order exception is the way it works in the union. And in the bar thing, I think it would be hard to--",
       "time": "00:09:22.58"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Kneedler--",
       "time": "00:10:01.05"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--can I come back to Rust versus Sullivan? You say that that was a government speech case? I had not recollected it as a government speech case.",
       "time": "00:10:02.18"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is government subsidizing speech by private organizations, and it chose to subsidize one type of speech, but not another.",
       "time": "00:10:15.37"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did we say, in the opinion, that this was--",
       "time": "00:10:28.30"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, for the precise purpose at issue here, I think it makes a lot of difference. You can fund private people for some things, and not fund them for others, and it doesn't make whatever they say government speech. I think that's a--",
       "time": "00:10:49.61"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think that's a really--",
       "time": "00:11:03.59"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--strong proposition, that whenever you're subsidizing any private enterprise, the speech of that private enterprise becomes public speech.",
       "time": "00:11:04.94"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's fine. But what you were using Rust for was to establish the proposition that in order to be government speech, it... you don't have to... you don't have to say, \"This is the government speaking\".",
       "time": "00:11:28.57"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And Rust doesn't stand for that.",
       "time": "00:11:45.64"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--This is a question perhaps more for the Respondent than for you, but I would like your comment on it. Suppose the statute were changed and there was a dollar-a-head assessment on beef, and it just went into the general funds of the United States Treasury, and then they used part of that money... they had more money for beef advertising, and the government did the advertising. What would the Respondents say about that?",
       "time": "00:12:07.14"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But why can't--",
       "time": "00:12:43.24"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--why can't you just do that? Or is your answer to me, \"Well, then, it's just formalism, and you might as well rule for me now? \"",
       "time": "00:12:44.01"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why can't the government--",
       "time": "00:12:52.51"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--why can't the government adopt my solution?",
       "time": "00:12:53.84"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's put into the general fund of the... of the Treasury.",
       "time": "00:13:02.71"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But then you'd come within the protections of Frothingham versus Mellon, and Massachusetts versus Mellon, if you did it that way.",
       "time": "00:13:25.73"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But then you could--",
       "time": "00:13:56.82"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--probably restructure this Act to get to the result you want.",
       "time": "00:13:57.82"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Kneedler, this theory is one that wasn't brought up at all in Wileman, if I remember correctly. And in United Foods, it was brought up too late, so the government... so the Court didn't entertain it. The argument that you're making today, I take it, would necessarily displace United Foods has having any kind of a continuing--",
       "time": "00:14:44.60"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't want to treat beef and mushrooms inconsistently. [Laughter]",
       "time": "00:15:32.85"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But there is--",
       "time": "00:15:37.38"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the public perception of these ads... it says, \"Eat meat\"... it's quite different from saying, \"Your government wants you to buy meat. \" And the United States isn't saying that. So--",
       "time": "00:15:39.38"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But then--",
       "time": "00:16:12.80"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--isn't it more realistic to describe this as the government facilitating the private speech of the many people in this industry who don't have a big budget to advertise on--",
       "time": "00:16:13.26"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--on their own?",
       "time": "00:16:28.68"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you want to save your time?",
       "time": "00:16:42.51"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Garre.",
       "time": "00:16:43.56"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we can just continue on government speech, because that's where--",
       "time": "00:17:06.69"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--where we left off. It seems to me there is something offensive about making a particular portion of the public pay for something that the government says.",
       "time": "00:17:09.75"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It ought to be out of the general fund.",
       "time": "00:17:20.08"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What I'm saying, it seems to me that the government speech doesn't seem to me to advance your argument very much, because it has problems of its own.",
       "time": "00:17:58.09"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but, I mean, that... the part that's good can't save the whole thing, any more than in the... in the union case, the fact that some... the union dues could be used for some permissible purposes, saved the dues that were being used for impermissible purposes. You--",
       "time": "00:19:32.68"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You don't want to just save half of this program, do you?",
       "time": "00:19:51.25"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, all right.",
       "time": "00:19:56.53"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what's the objection to, whenever you have an ad, you put a little thing in the corner, and it says, \"This advertisement is paid for by the beef industry under a regulation, X-23, of the Department of Agriculture? \"",
       "time": "00:20:13.96"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it wouldn't--",
       "time": "00:20:32.39"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--tough, would it?",
       "time": "00:20:33.08"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All you'd have to do is have a little thing... and it would just say, \"USDA requires this, under the program. \" and then the whole problem goes away.",
       "time": "00:20:34.41"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:20:42.20"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I... we realize that. I mean, we're getting into it because there's at least a potential constitutional problem here.",
       "time": "00:20:50.57"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "As you respond to Justice Breyer's question, would you go the step further and say, Why isn't one possible solution to this difficulty we're having about government speech a requirement that if you want to justify it as government speech, you put in the advertisement, \"This is the government's position, paid for by the beef producers? \"",
       "time": "00:20:57.83"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No--",
       "time": "00:21:21.86"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--In fact, there was an indication in the brief that the government had taken the position that if the government came out front and said, \"Hey, we're urging you to eat more meat. \" that, in fact, it would be very unsuccessful in doing it. It seems to want to hide the ball here.",
       "time": "00:21:29.77"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Did he--",
       "time": "00:22:04.36"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--And who paid for that? Did beef people pay for that?",
       "time": "00:22:05.42"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, let's be honest about it. Let's be totally accurate. It's not going to say, \"The government believes this\". The government may not believe it. What it says is, \"This message is brought to you by the Beef Association under the... under a program requiring contributions to advertising of the Department of Agriculture. \"",
       "time": "00:22:23.06"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Nobody will even know what that means, but it has the-- [Laughter] --it has--",
       "time": "00:22:44.09"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--it has the virtue of being totally accurate.",
       "time": "00:22:47.93"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The important thing is, you have no objection to doing that.",
       "time": "00:23:08.64"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But what it... what it would... what it would be a basis for, at least within the confines of this argument, would be a basis for your government speech claim in the sense that you wouldn't be basing a government speech claim on what is really a misrepresentation.",
       "time": "00:23:21.93"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, including those who don't want to fund it and who don't agree with the message. I mean, the problem here is that by making that representation, you indicate that this is the message of the people who are paying for it. And some of the people who are paying for it do not wish to convey that message.",
       "time": "00:23:48.32"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's the misrepresentation.",
       "time": "00:24:05.28"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But what they would--",
       "time": "00:24:20.23"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--what they would, I think, assume is that, in the name, the beef producers do, in fact, agree with this, and this is their message. What they would not assume from it is that it is what you and Mr. Kneedler are claiming, the speech of the Government of the United States. They certainly wouldn't infer that.",
       "time": "00:24:21.58"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, maybe--",
       "time": "00:25:11.27"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--maybe it's not because they didn't know you were going to be defending on the basis of government speech. That's what's getting us into this.",
       "time": "00:25:11.90"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which wasn't a government speech case.",
       "time": "00:25:26.96"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This case, not United Foods. Because United Foods, the Court said it... it was not legitimately before us.",
       "time": "00:25:35.29"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you. Mr. Tribe?",
       "time": "00:26:53.37"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that was--",
       "time": "00:27:31.12"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that was an individual attribution. You, yourself, had--",
       "time": "00:27:31.87"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--had to carry this message. Now, here you want us to think of some cowboy--",
       "time": "00:27:36.47"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--going into the bar, and he gets jeered by all his friends because he likes beef.",
       "time": "00:27:40.45"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's first address the question you said... you said you were going to address, whether in order to be government speech, within the meaning of our cases, it has to be identified as such. Is that really true? I mean, you know, in World War II, Bob Hope would appear in movie theaters and say, you know, \"Buy war bonds\"?",
       "time": "00:28:19.44"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "\"This is Bob Hope. \" \"You people ought to go out now-- \"",
       "time": "00:28:39.83"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Okay, so it is--",
       "time": "00:28:51.78"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--it is not essential--",
       "time": "00:28:53.86"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that government might... in order to be government speech, the government does not have to identify itself as the speaker.",
       "time": "00:28:55.13"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes or no?",
       "time": "00:29:01.83"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it doesn't--",
       "time": "00:29:07.87"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--we understand that you have a First Amendment claim, which you're going to have even if we say, \"This is not government speech\". I think the whole point here is to decide whether this is even--",
       "time": "00:29:09.14"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--an issue that should be disposed of on any grounds other than candor.",
       "time": "00:29:20.65"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, just indulge us. I mean, some of us think it makes--",
       "time": "00:29:34.61"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--a difference--",
       "time": "00:29:36.62"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and I would--",
       "time": "00:29:37.37"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I would like to know whether it is essential to its character as government speech that the government's say, \"This your government speaking\".",
       "time": "00:29:39.79"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It does it all the time in general taxes. Every--",
       "time": "00:30:30.74"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--time we pay general taxes, we're supporting government speech--",
       "time": "00:30:33.90"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--we may not agree with.",
       "time": "00:30:36.75"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yeah, but there it--",
       "time": "00:31:04.54"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--there it is your car, your property. That's not this. This is a generic ad on behalf of beef.",
       "time": "00:31:05.87"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I think there is--",
       "time": "00:31:14.87"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--there's a world of difference between this and having something put on your license plate or in your--",
       "time": "00:31:16.27"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, I don't even understand your argument. Would you still be here if the--",
       "time": "00:31:45.42"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, you're trying. [Laughter] Would you still be here if there were distinctions made on behalf of free-range beef or, you know, \"Our cattle\"--",
       "time": "00:31:50.97"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--\"never had a\"--",
       "time": "00:32:02.83"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--\"medicine\" or something like that? Would you still be here if those distinctions--",
       "time": "00:32:05.90"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--had been made?",
       "time": "00:32:11.04"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I'm just--",
       "time": "00:32:23.20"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--asking you if, theoretically, some attention had been paid to the different kinds of producers--",
       "time": "00:32:23.82"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--would you still be objecting?",
       "time": "00:32:32.59"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But would it--",
       "time": "00:34:42.02"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--seems to--",
       "time": "00:34:45.61"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I understand that a person could have an ideological objection to the content of the ad. But the ad, itself, is an effort by government, in this area, to regulate a commercial matter, not a license plate that says, \"Free Speech, or Die\", or \"Freedom\"--",
       "time": "00:34:47.75"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yeah, I know. Right now I'm asking--",
       "time": "00:35:07.19"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well, my question is, Does it make a difference for the point of distinguishing, or not distinguishing, 99 percent of the way it's carried out, has to do with simple advertising, commercial advertising, the regulation of a commercial matter, commerce--",
       "time": "00:35:08.52"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--does that make a difference?",
       "time": "00:35:38.39"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But no legal difference.",
       "time": "00:35:40.76"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So, in other words--",
       "time": "00:35:46.05"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--in other words, a program that is a regulatory program regulating commerce, we should no longer think of that, though we tend to think of it as quite different in the way we approach the First Amendment... we no longer, in your view, should?",
       "time": "00:35:47.91"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We regulate advertising. We regulate commercial advertising.",
       "time": "00:36:15.48"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The Federal Trade Commission--",
       "time": "00:36:20.43"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yeah.",
       "time": "00:36:21.84"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't say--",
       "time": "00:36:47.21"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I didn't say they had a--",
       "time": "00:36:48.05"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--commercial objection.",
       "time": "00:36:50.06"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I am asking. In analyzing the program, there are some things for it, and there are some things against it. And in trying to make that weighing, I do think it's different, because the basis of the program is commercial regulation. And so I want to be certain, in your view, that's either correct or incorrect.",
       "time": "00:36:56.29"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it's incorrect, I want to know why.",
       "time": "00:37:16.92"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But does it make a difference? If it makes a difference, then the lens that I look at this through is called our... whatever the second-tier commercial speech lends.",
       "time": "00:37:49.10"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Have you looked at--",
       "time": "00:37:59.15"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Tribe, would--",
       "time": "00:38:48.78"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--would you comment on the argument that... what will this do to compelling cigarette manufacturers to finance the advertisements against smoking?",
       "time": "00:38:50.85"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They have to give warning. But why is the... why is the cigarette analogy different from this case? What is your answer to that?",
       "time": "00:39:22.87"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's odd that you can be compelled to--",
       "time": "00:39:41.39"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--engage in speech that you don't agree with. Now you're saying that the more--",
       "time": "00:39:45.88"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--disagreeable it is to you--",
       "time": "00:39:49.93"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--the more legitimate it is. That's--",
       "time": "00:39:50.99"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--a very strange argument.",
       "time": "00:39:53.14"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you--",
       "time": "00:40:10.86"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--do you accept the fact that the government can charge taxes on the sale of cigarettes and compel... and use that money to tell people that they're dangerous?",
       "time": "00:40:13.04"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We do, however.",
       "time": "00:40:31.16"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that part of what's going on?",
       "time": "00:40:33.73"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So what you're arguing here--",
       "time": "00:40:35.59"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--is going to have rather a drastic effect on--",
       "time": "00:40:37.30"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--what's going on.",
       "time": "00:40:40.29"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait, I don't... I had not understood you to be arguing, Professor Tribe, that this would be unlawful, even if the money were raised in the fashion that it is, just from the... just from the cattlemen. And the government's own program used that money to say, \"Your government thinks it's... wants you to know that beef is thoroughly safe. \" \"We've done studies. \" \"Beef is good for you. \" \"You should eat more beef. \" I thought you--",
       "time": "00:41:15.18"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That would be permissible?",
       "time": "00:41:50.26"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, not that. The same program, but you just have a little tag on the ad.",
       "time": "00:42:29.31"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What's the--",
       "time": "00:42:55.51"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--what's the difference between the checkoff and the excise tax?",
       "time": "00:42:58.29"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So the answer is--",
       "time": "00:43:14.11"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--where--",
       "time": "00:43:15.97"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--where the money goes and who pays out the money for the ad, that's the difference.",
       "time": "00:43:16.54"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, isn't that the... isn't that the essential difference between the structure in this case and the structure in the case in which the government comes out, saying, \"This is your government, saying, \"Don't smoke\". \"",
       "time": "00:43:22.94"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right.",
       "time": "00:43:36.73"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I know, but take all that out of it... take all that out of it, and what is your answer to Justice Stevens and Justice Souter? That is, look, like this, you have an organization, the Federal Trade Commission, say, or that the FDA says, on the one hand, (a) broccoli industry, \"Fruits and vegetables are good for you; crib death device. \" Buy anti-crib-death devices; \"Buy car seats for your children. \" or, \"Don't smoke\"; or--",
       "time": "00:43:39.19"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "\"# Don't buy a crib without a crib-death device-- \"",
       "time": "00:44:09.83"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "\"# or a car without a car seat. \"",
       "time": "00:44:13.08"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "See? One's negative and one's positive. And everything else is the same. Then how do you--",
       "time": "00:44:14.22"
     },
@@ -2075,7 +2075,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--what's the difference?",
       "time": "00:44:20.05"
     },
@@ -2087,7 +2087,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:44:20.50"
     },
@@ -2099,7 +2099,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, maybe it doesn't matter.",
       "time": "00:44:22.11"
     },
@@ -2111,7 +2111,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I'm not interested... I got that point.",
       "time": "00:44:39.03"
     },
@@ -2123,7 +2123,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not dismissing it. I understand.",
       "time": "00:44:41.30"
     },
@@ -2135,7 +2135,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I'm not sure--",
       "time": "00:44:43.53"
     },
@@ -2147,7 +2147,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well, my question is, Is it implied in what you're argued that it would be equally unconstitutional, in the same way, to tell the cigarette industry to advertise, \"Don't smoke\", or to tell the automobile industry to advertise, \"Buy car seats for your children. \" or to tell the crib industry to advertise, \"Be sure you have an anti-crib-death device? \"",
       "time": "00:44:45.63"
     },
@@ -2159,7 +2159,7 @@
     },
     {
       "turn": 353,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And all that, assuming the financing is the same as here, everything else the same, is it implicit in your argument that they're all equally unlawful?",
       "time": "00:45:12.08"
     },
@@ -2171,7 +2171,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Tribe--",
       "time": "00:45:45.91"
     },
@@ -2183,7 +2183,7 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought--",
       "time": "00:45:47.35"
     },
@@ -2195,19 +2195,19 @@
     },
     {
       "turn": 359,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you're saying--",
       "time": "00:45:50.31"
     },
     {
       "turn": 360,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought--",
       "time": "00:45:50.91"
     },
     {
       "turn": 361,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I want to be sure I... that I understood your answer. You can compel them to make warnings. Can you compel them to pay for warnings that are just industry-specific, in saying, \"This is dangerous\"--",
       "time": "00:45:51.35"
     },
@@ -2219,7 +2219,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But it seems--",
       "time": "00:46:14.67"
     },
@@ -2231,7 +2231,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--almost ironic, to me, to say that you have a greater power to tell the whole industry to publish something they don't want to publish than you do to let them--",
       "time": "00:46:15.95"
     },
@@ -2243,7 +2243,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--pay for what--",
       "time": "00:46:26.41"
     },
@@ -2255,7 +2255,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--90 percent of them want to say.",
       "time": "00:46:27.38"
     },
@@ -2267,7 +2267,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you limiting your point to putting information on the package, or are you saying they could... could California compel a cigarette... companies to contribute to a large fund which is just used to by newspaper advertising describing the dangers of smoking? Could they do that?",
       "time": "00:46:57.96"
     },
@@ -2279,7 +2279,7 @@
     },
     {
       "turn": 373,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But supposing there are disagreements. We were... you were talking about cigarettes. But supposing there's a legitimate disagreement between the industry position and the government position--",
       "time": "00:47:26.41"
     },
@@ -2291,7 +2291,7 @@
     },
     {
       "turn": 375,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--could the government, nevertheless, insist on the industry financing advertising advocating the government's position?",
       "time": "00:47:36.43"
     },
@@ -2303,7 +2303,7 @@
     },
     {
       "turn": 377,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, in this case--",
       "time": "00:48:02.96"
     },
@@ -2315,7 +2315,7 @@
     },
     {
       "turn": 379,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I take it, it would be okay if the beef producers had to use a dollar a head to put, \"Eating too much beef is dangerous to your health. \"",
       "time": "00:48:05.00"
     },
@@ -2327,7 +2327,7 @@
     },
     {
       "turn": 381,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right, cattle, then--",
       "time": "00:48:17.38"
     },
@@ -2339,7 +2339,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But what's the answer to my question?",
       "time": "00:48:26.65"
     },
@@ -2351,7 +2351,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In other words--",
       "time": "00:48:47.64"
     },
@@ -2363,7 +2363,7 @@
     },
     {
       "turn": 387,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I think the question, or at least the version I have of it--",
       "time": "00:48:49.41"
     },
@@ -2375,7 +2375,7 @@
     },
     {
       "turn": 389,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is, we have this case, exactly, and the only difference is, instead of getting these people to eat... say, \"Eat beef\", what they say do is, they get people together and say, \"Don't eat too much beef\". I put--",
       "time": "00:48:52.17"
     },
@@ -2387,7 +2387,7 @@
     },
     {
       "turn": 391,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--\"too much\", because that--",
       "time": "00:49:05.46"
     },
@@ -2399,7 +2399,7 @@
     },
     {
       "turn": 393,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--makes it more realistic. All right, now, does it suddenly become constitutional?",
       "time": "00:49:06.45"
     },
@@ -2411,7 +2411,7 @@
     },
     {
       "turn": 395,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Consider this theory. The Congress passes an excise tax. It happens to be a dollar head, on the cattle, just like this so-called \"checkoff\". And the government uses the excise tax revenue to finance advertising, saying... maybe saying, \"Eat more beef\", maybe advertising, saying, \"Don't eat quite so much\".",
       "time": "00:49:39.80"
     },
@@ -2423,7 +2423,7 @@
     },
     {
       "turn": 397,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "First Amendment problem--",
       "time": "00:50:05.60"
     },
@@ -2435,7 +2435,7 @@
     },
     {
       "turn": 399,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Including excise.",
       "time": "00:50:15.28"
     },
@@ -2447,7 +2447,7 @@
     },
     {
       "turn": 401,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, I just want to know what--",
       "time": "00:50:22.21"
     },
@@ -2459,7 +2459,7 @@
     },
     {
       "turn": 403,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--your position is. I just want to know what your position is.",
       "time": "00:50:23.29"
     },
@@ -2471,7 +2471,7 @@
     },
     {
       "turn": 405,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, then--",
       "time": "00:50:39.32"
     },
@@ -2483,7 +2483,7 @@
     },
     {
       "turn": 407,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--He's just going back to--",
       "time": "00:50:40.13"
     },
@@ -2495,7 +2495,7 @@
     },
     {
       "turn": 409,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Okay, then it does not have--",
       "time": "00:50:41.00"
     },
@@ -2507,7 +2507,7 @@
     },
     {
       "turn": 411,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--it's not a First Amendment problem. It does not have the objection that you're raising.",
       "time": "00:50:41.91"
     },
@@ -2519,13 +2519,13 @@
     },
     {
       "turn": 413,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:50:44.67"
     },
     {
       "turn": 414,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Is that... is that an answer to the question that Justice Kennedy urged in the opening argument? That is, It's the same dollar a head, except you call it an excise tax instead of a... whatever this is called. The same thing, but to say it's a tax. And you're not... this is not general revenues that you collect from everybody and spend--",
       "time": "00:50:45.40"
     },
@@ -2537,7 +2537,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But suppose--",
       "time": "00:52:02.86"
     },
@@ -2549,7 +2549,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--we don't have that? I mean, could then... could the government fix this problem this way, saying, \"We're going to get the same bucks, but we are going... and we're going to have the same kinds of ads, but they're going to be labeled, U.S. Department of Agriculture> [\"]. \"",
       "time": "00:52:04.26"
     },
@@ -2561,7 +2561,7 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:52:21.76"
     },
@@ -2573,7 +2573,7 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we are... but where this money is coming from to pay this is--",
       "time": "00:52:22.78"
     },
@@ -2585,7 +2585,7 @@
     },
     {
       "turn": 424,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I go back to one of your reasons, which was that they are being singled out to pay for this? They're being singled out to pay for it in the excise tax situation. Do you come to different answers, depending whether it's excise tax or singled out without excise tax, based, essentially, on the ground that there is a point beyond which we simply cannot look behind the expenditure of tax revenue? Is that it?",
       "time": "00:53:23.78"
     },
@@ -2597,7 +2597,7 @@
     },
     {
       "turn": 426,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but on the other hand--",
       "time": "00:55:13.04"
     },
@@ -2609,7 +2609,7 @@
     },
     {
       "turn": 428,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--you're running into the problem that the taxpayer can be compelled to pay taxes to support activities that he doesn't support at all. That's the other--",
       "time": "00:55:14.55"
     },
@@ -2621,7 +2621,7 @@
     },
     {
       "turn": 430,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the other extreme. I know we--",
       "time": "00:55:23.47"
     },
@@ -2633,7 +2633,7 @@
     },
     {
       "turn": 432,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--do it all the time.",
       "time": "00:55:24.91"
     },
@@ -2645,7 +2645,7 @@
     },
     {
       "turn": 434,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And when are we crossing--",
       "time": "00:55:25.68"
     },
@@ -2657,7 +2657,7 @@
     },
     {
       "turn": 436,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the line?",
       "time": "00:55:26.84"
     },
@@ -2669,7 +2669,7 @@
     },
     {
       "turn": 438,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Pardon me?",
       "time": "00:55:28.15"
     },
@@ -2681,7 +2681,7 @@
     },
     {
       "turn": 440,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it is--",
       "time": "00:55:41.04"
     },
@@ -2693,7 +2693,7 @@
     },
     {
       "turn": 442,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--inconsistent with the basic principle on which you rely, that the individual should not be compelled to support speech--",
       "time": "00:55:42.20"
     },
@@ -2705,7 +2705,7 @@
     },
     {
       "turn": 444,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--with which he disagrees.",
       "time": "00:55:48.05"
     },
@@ -2717,7 +2717,7 @@
     },
     {
       "turn": 446,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't--",
       "time": "00:55:57.26"
     },
@@ -2729,7 +2729,7 @@
     },
     {
       "turn": 448,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--isn't that--",
       "time": "00:55:59.43"
     },
@@ -2741,7 +2741,7 @@
     },
     {
       "turn": 450,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Don't you go back to the answer you gave me? Sure, when taxes are involved, there may be an under-inclusive enforcement of certain individual rights, but they have to be under-enforced, because, otherwise, you simply cannot administer a tax structure.",
       "time": "00:56:00.72"
     },
@@ -2753,7 +2753,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Tribe.",
       "time": "00:56:55.82"
     },
@@ -2765,7 +2765,7 @@
     },
     {
       "turn": 454,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think we understand your position. Thank you. Mr. Kneedler, you have about three... three or four minutes.",
       "time": "00:56:57.69"
     },
@@ -2777,7 +2777,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that goes back to Frothingham and Mellon, and Massachusetts versus Mellon, and United States versus Butler, where we could trace the amount.",
       "time": "00:57:36.76"
     },
@@ -2789,7 +2789,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's old stuff.",
       "time": "00:57:44.49"
     },
@@ -2801,7 +2801,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Kneedler. The case is submitted.",
       "time": "01:00:30.58"
     }

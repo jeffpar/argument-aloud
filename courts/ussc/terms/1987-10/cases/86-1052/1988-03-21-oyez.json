@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-1052/19880321a_86-1052.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "HERBERT RUBIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JACK SAMUEL RING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JEFFREY P. MINEAR",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Rubin, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Counsel, suppose that the CEO of Volkswagen Germany were in Illinois for a business meeting for a day and he were served, what result? Would you have to comply with the treaty?",
       "time": "00:01:48.02"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the language in the treaty that you rely on in order to support your conclusion that the documents would necessarily have to be transmitted abroad as a practical matter? Because they don't have to be transmitted as a legal matter.",
       "time": "00:03:20.63"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that's not what the treaty says. The treaty says where there is occasion to transmit a judicial or extrajudicial documents for service abroad.",
       "time": "00:04:23.31"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if the company does it voluntarily, not as a legal requirement?",
       "time": "00:04:43.55"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then are you saying that it's irrelevant that the document has to be transmitted abroad?",
       "time": "00:05:02.26"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then we have to focus on the language of the treaty in that clause, don't we?",
       "time": "00:05:09.15"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. Then, in the example I give, why is there any necessity to transmit the document abroad?",
       "time": "00:05:15.34"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It knows. The president, in the hypothetical case receives the document in Illinois.",
       "time": "00:05:33.73"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Rubin, what if Volkswagen Germany had an office... that's the next question... in the state?",
       "time": "00:05:56.31"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, this is a state that doesn't have such a thing.",
       "time": "00:06:13.78"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just has an office in the state. That's all. It hasn't designated anybody as an agent, but it has an office there.",
       "time": "00:06:21.21"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, this is a big office. This is an office that engages in the full line of the business that the parent company does in Germany.",
       "time": "00:06:37.64"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not moved there. There still is a German corporation. They do a lot of business in Germany, most of their business in Germany, but they have a full-fledged office in the state.",
       "time": "00:07:17.55"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where it's incorporated, is that it? It has to be at its head office?",
       "time": "00:07:35.68"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you find that in the language of the treaty where there is an occasion to make service abroad?",
       "time": "00:07:42.08"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's a dramatic departure then from the way process is ordinarily served on corporations outside of the treaty where, you know, you have to serve some human individual every time when you are serving a corporation. And, certainly, and you say then that the treaty just has dramatically changed that.",
       "time": "00:08:22.91"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I just don't understand the principle that you're urging on us as the determinant for when the treaty applies and when it doesn't. You say: well, if the corporation is in Illinois. But we know that corporations are physically present only through their agents. You seem to assume there has to be a large manufacturing plant there and that that would do it. This is just an unprincipled rationale that you're urging upon us.",
       "time": "00:09:00.95"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless it's an agent appointed for the service of process?",
       "time": "00:10:28.58"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But in that situation, the papers still go abroad.",
       "time": "00:10:33.44"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume that there's an office in the state, that the foreign corporation voluntarily set it up. They haven't qualified to do business but they should have.",
       "time": "00:10:55.99"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you suggest that if a foreign corporation sets up an office in a state or in such a way that it should have qualified but did not, that that office could be served? It did it voluntarily. It set it up. And here's an office. They're doing business. They should have qualified and appointed an agent. They did not.",
       "time": "00:11:24.76"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it you agree on my example that the foreign corporation could be served through its office in the United States.",
       "time": "00:12:20.85"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that right or not?",
       "time": "00:12:30.64"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Rubin, that brings up an issue. You've quoted from the Senate debate on the treaty. What is the situation if we think the treaty is clear, that the language is clear, and let's even say all the other parties have interpreted it that way. So, we think what the treaty really means is X. But we find in the Senate ratification debates, that the executive has simply misrepresented the treaty, and the Senate thinks the treaty means Y, what are we bound by?",
       "time": "00:13:08.50"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you going to answer my question? Do we give the treaty what we think was its meaning despite what we know Congress thought it meant, or the opposite?",
       "time": "00:14:32.73"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And your rule is that this applies to any foreign corporation that has not appointed an agent for service of process within the state.",
       "time": "00:17:09.32"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let me ask you one more question. Suppose Volkswagen is physically present in, say, the state of New York, with a major corporate office and a manufacturing plant, too. And then the state of Illinois, through service of process, serves Volkswagen in New York. What result?",
       "time": "00:17:35.15"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're wrong about that, too.",
       "time": "00:19:19.45"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that isn't the necessary reading of that language at all, it seems to me. Where there is occasion to transmit a judicial or extrajudicial document for service abroad. Now, you can argue that simply doesn't deal with the situation or it is possible under standard rules to serve the person by an agent in this country.",
       "time": "00:21:06.14"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But we look for the shared expectations and the contemplation of the parties at the instrument that they adopted.",
       "time": "00:21:36.15"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And I just quoted you language from the instrument that doesn't at all bear out what you say about it.",
       "time": "00:21:43.08"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, just a minute, Mr. Rubin. I'm about to ask you a question, if you'll slow down long enough for me to ask it. Will you?",
       "time": "00:21:59.60"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is your authority for the proposition that liberal construction is impelled in this particular case?",
       "time": "00:22:06.96"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, a case authority.",
       "time": "00:22:16.71"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is a remedial situation?",
       "time": "00:22:30.64"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are you suggesting there is some situations where treaties are made, or laws are passed, that not, quote, remedial, close quote?",
       "time": "00:22:52.82"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, Congress doesn't act unless they think there's something that needs a remedy, does it?",
       "time": "00:23:02.34"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So why is one situation different from another so that you would say one situation is a remedial situation whereby inference, perhaps, another situation is not a remedial situation?",
       "time": "00:23:07.60"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question, Mr. Rubin? One of the concerns was that it sometimes hard to identify an involuntary agent. I think you have problems whether a subsidiary should be treated as an agent or not. But even if you apply the treaty procedure for service of process purposes, aren't you still going to have that kind of issue? For example, in this case maybe the service would have been perfectly all right if you followed the treaty procedure, but nevertheless the Defendant might have contended that it has no representation within the United States and therefore is not subject to jurisdiction in Illinois.",
       "time": "00:23:54.14"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, isn't it very similar in terms of what you have to litigate?",
       "time": "00:24:24.68"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand that.",
       "time": "00:24:44.58"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand that but why is it so? I know you don't challenge jurisdiction over your client, but why is it so clear that your client is doing business in Illinois and subject to the jurisdiction of Illinois courts?",
       "time": "00:24:50.55"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you don't challenge that?",
       "time": "00:25:04.81"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if that issue had been raised, wouldn't it largely depend on whether the subsidiary was really to be regarded as an agent?",
       "time": "00:25:28.86"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It wouldn't?",
       "time": "00:25:36.03"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me just ask one thing to be sure I have it right. You do concede, do you not, that if proper service had been affected on the German company, it would be subject to suit in Illinois?",
       "time": "00:25:59.81"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Rubin. We'll hear now from you, Mr. Ring.",
       "time": "00:26:17.45"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt you there?",
       "time": "00:28:10.78"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What language was this treaty... what's the treaty language in?",
       "time": "00:28:13.28"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the official language for interpretation?",
       "time": "00:28:19.63"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the word, occasion. There could be an occasion for a service of a document abroad, couldn't there? What if you read the word to sort of mean opportunity, an occasion on which it might be done, or something like that?",
       "time": "00:28:23.42"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you read occasion to mean opportunity, then there sure was an opportunity here and the treaty covers everything.",
       "time": "00:28:39.23"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you don't rely on plain language. You think we have to look at history, too. Occasion means necessity. That's how you read it. That's nice.",
       "time": "00:28:48.25"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's the French text?",
       "time": "00:29:03.03"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is the French text? What is the French word? How does it read?",
       "time": "00:29:09.43"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I do. Does anybody have it there?",
       "time": "00:29:14.09"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it says necessite, you're in good shape, aren't you?",
       "time": "00:29:21.40"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if it says opportune... where we can find it. Is the French text in the papers before us?",
       "time": "00:29:27.76"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Says where? Where are you reading?",
       "time": "00:29:39.20"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What page?",
       "time": "00:29:54.96"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't want the French text interpreted. I assume the English text interprets the French text.",
       "time": "00:29:58.06"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Transmit... it means must be transmitted, doesn't it?",
       "time": "00:30:15.69"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it to simplify? To the rules? Was that the purpose?",
       "time": "00:31:24.25"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean after forty minutes I've been worried about how--",
       "time": "00:31:36.26"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--After forty minutes of argument, I don't understand that it was simplified.",
       "time": "00:31:42.83"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Ring, do you agree with the SG's position that this treaty did eliminate, however, two things: one, the... what's it called... French practice, notification au parquet, which is sort of you just serve some functionary in France and can sue anybody by doing that. Do you agree that it eliminates that?",
       "time": "00:33:05.57"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just answer. Does it eliminate that?",
       "time": "00:33:37.72"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does it eliminate that?",
       "time": "00:33:38.51"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It does eliminate that.",
       "time": "00:33:39.20"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, how come it eliminates that?",
       "time": "00:33:39.79"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's a good reason why it ought to be eliminated. But why does the text of it eliminate that but not eliminate this?",
       "time": "00:33:57.45"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, it says somewhere in the treaty that it can affect internal French requirements as to what's needed to get proper service but not internal United States requirements?",
       "time": "00:34:11.36"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand and I assume that we were fearful of that, too. But I can't, for the life of me, figure out how it reaches the one but doesn't reach the other?",
       "time": "00:34:37.84"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would reach that, too?",
       "time": "00:34:48.30"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why?",
       "time": "00:34:50.02"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That distinction hinges upon the assumption that the French practice requires, for its effectiveness, that the French functionary transmit the document. And that's being contested by Mr. Rubin. Are you certain that the French practice--",
       "time": "00:35:26.74"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, Mr. Ring, if your interpretation is correct, though, there would be no reason why France couldn't return to its system of notification au parquet.",
       "time": "00:36:11.22"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "None whatsoever. They're not bound by our due process requirement and there is no due process requirement written into the Hague Convention.",
       "time": "00:36:22.13"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. And that was exactly one of the things that we had an interest in eliminating and motivated us to participate in the Hague Convention. We didn't like that method of service of American companies in France. Isn't that right?",
       "time": "00:36:36.00"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, all right, except if your interpretation of this treaty is correct, the French can go back to their old system. Nothing would prevent that.",
       "time": "00:36:58.45"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you agree that one of our goals and purposes in entering into this treaty was to eliminate that notification au parquet.",
       "time": "00:37:13.63"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you agree that we were also concerned about inadequate methods of service and notification on American companies abroad?",
       "time": "00:37:44.32"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What can you cite to indicate that other members, signing parties to the treaty, agree with your interpretation of it? The briefs filed with us in this case indicate they don't agree with you.",
       "time": "00:38:21.36"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you can't take the failure to file a brief here as agreement with you. I wondered if you had anything you could cite?",
       "time": "00:38:50.27"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Ring, can I ask you kind of a common sense, practical question, and get away from the language. What is the burden on an American Plaintiff if we should hold that the treaty... occasion means, you know... means what your opponents say and this is the way to serve foreign corporations and you have to go through this mailing procedure, is that such a big deal?",
       "time": "00:39:57.60"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So what's involved is the cost of translating the complaint, basically?",
       "time": "00:40:56.44"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I can see that theoretically, but I should think there would be competent translaters available.",
       "time": "00:42:09.14"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Like Chicago, you mean?",
       "time": "00:42:29.88"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they contested agency. One of the issues before the Illinois court was whether they were an involuntary agent.",
       "time": "00:43:47.13"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there were two issues in the Illinois Appellate Court. One was the treaty issue and the other was whether they were an agent.",
       "time": "00:43:53.54"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So they contested that.",
       "time": "00:44:00.12"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any agent? I'm a little uncomfortable just talking about agency in the abstract. Can't you be an agent for some purposes and not an agent for others? Don't you have to be an agent for the purpose--",
       "time": "00:44:31.74"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, Germany takes the position, I gather, that if you don't follow the Haque service convention in your service, that even if a judgement is obtained it won't be enforceable in Germany?",
       "time": "00:45:57.52"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Ring. We'll hear now from you, Mr. Minear.",
       "time": "00:46:46.25"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that isn't the French language exactly, is it?",
       "time": "00:47:20.22"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It says: doit, which is from devoir. Meaning should or ought, not must.",
       "time": "00:47:34.14"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When the French do that... how can you strike down the French practice? That is what troubles me.",
       "time": "00:48:22.54"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:48:31.81"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's nice. What do you mean based on the debates. Is it in the--",
       "time": "00:48:53.91"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So your position is that it covers any situation in which under the domestic law the document must be transmitted abroad.",
       "time": "00:49:49.90"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you assert that there is no necessity under the domestic law of Illinois here for the agent to transmit the complaint to his principal?",
       "time": "00:50:00.80"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Illinois simply says: you can serve this... when you want to serve Volkswagen Germany, you can serve the Secretary of State right here in Springfield?",
       "time": "00:50:13.09"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Illinois says, hypothetically, you may serve the Secretary of State here in Springfield and he'll post a notice on the door.",
       "time": "00:50:40.91"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's a matter of due process and not of service?",
       "time": "00:50:58.39"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Due process isn't going to protect American companies abroad from other state's, member state's, rules.",
       "time": "00:51:11.47"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Where are you reading?",
       "time": "00:53:04.80"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could you... I don't know whether you have it handy now, but I'd be curious to whether the phrase: had to be transmitted abroad, there is in the French, using the verb devoir.",
       "time": "00:53:32.69"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For what purpose are they an agent? Suppose I appoint someone an agent and I say: you're an agent for everything except receipt of service of process. I do not want you to be an agent for that and I forbid you to transmit to me any process you receive on my behalf? Would this Illinois provision--",
       "time": "00:54:52.93"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Minear. Mr. Rubin, you have four minutes remaining.",
       "time": "00:56:27.97"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't the long arm issue one of service of process?",
       "time": "00:58:54.46"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't the long arm issue one of service of process? It's a long arm statute--",
       "time": "00:58:56.24"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--The question there was whether the service of process was valid as a matter of Illinois law, under the Illinois long arm statute.",
       "time": "00:59:03.06"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rubin. Your time is expired. The case is submitted.",
       "time": "00:59:58.82"
     }

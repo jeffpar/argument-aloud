@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2015/14-7505/14-7505_20151013-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "SETH P. WAXMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALLEN WINSOR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case No. 14-7505, Hurst v. Florida. Mr. Waxman.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there ever a case in which the jury found aggravators and recommended the death sentence, and the judge reversed that finding?",
       "time": "00:01:35.15"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, either -- either way, is -- is there -- is there --",
       "time": "00:01:54.21"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "-- is there ever a case in which the jury did not find an aggravating circumstance, but the judge did.",
       "time": "00:01:56.79"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. But they can't recommend death, unless they find the aggravator, right?",
       "time": "00:02:15.67"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right.",
       "time": "00:02:29.81"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's a common feature, though, of jury deliberations. Let's say an aggravator is whether the murder is -- is particularly heinous. And it can be for -- for a number of factors: One, the victim is a -- a -- a juvenile, so maybe three jurors find that. Or an officer was also killed, or it was in the commission in the course of another felony. In a typical case, a finding that the murder was heinous, you have no idea whether the juror -- jury as a whole made that determination, or if there were 12 different reasons.",
       "time": "00:02:48.96"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but isn't that true -- I mean, taking it even out of the death penalty context, that's true with every jury determination. You could have the jury determining that the -- the -- the -- you know, the -- the person didn't commit the offense because his alibi was good, or because, you know, somebody else did it, or, you know, any number of 12 different reasons that they think he was not guilty. It doesn't --",
       "time": "00:03:49.29"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "-- have to be agreement by the jury on a -- on the particular basis for their verdict.",
       "time": "00:04:14.96"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure. You -- you --",
       "time": "00:05:07.96"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you sure that -- that if you have a crime that can be satisfied by various elements, the jury has to agree upon the specific element that satisfies it?",
       "time": "00:05:10.81"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I -- I -- I would think that the -- I would think just the opposite, that --that the necessity of finding the elements of the crime goes all the way back into the mists of history. And this necessity of finding an aggravating factor, we made it up, right? I mean, that's just recent Supreme Court law.",
       "time": "00:06:56.04"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And so if -- if even one of them should be satisfiable by simply finding the generic conclusion rather than agreeing upon the -- the particular species at issue, I would think it's -- it's -- it's the latter, rather than the former.",
       "time": "00:07:16.48"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Mr. Waxman --",
       "time": "00:08:34.14"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I ask you this about Ring? I wasn't on the Court at the time of Ring, so could you tell me if Ring is entitled to greater weight as a precedent than, let's say, Gregg v. Georgia and the other cases upholding the constitutionality of the death penalty?",
       "time": "00:08:37.62"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you think this scheme, assuming we agree with Justice Scalia, that you don't really need unanimity, would this still be good law under Apodaca -- Apodaca --",
       "time": "00:09:20.48"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- the case that said that we -- we needed a unanimous jury, but, you know, nine out of twelve is okay? Do you -- do you think seven out of five is okay?",
       "time": "00:09:40.99"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's not.",
       "time": "00:09:55.41"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We're not required to do anything. We could just say it's not the functional equivalent. But is --",
       "time": "00:10:00.74"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- but is it still good law.",
       "time": "00:10:05.55"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Shouldn't we overrule it?",
       "time": "00:10:07.64"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, wait a minute. They -- they -- they require unanimity for the -- for a conviction, right?",
       "time": "00:10:44.43"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just -- just -- just they don't require unanimity on the sentence. That's quite different from --",
       "time": "00:10:50.89"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "-- from whether the person committed the crime or not.",
       "time": "00:10:56.03"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Waxman, do we -- do we just treat as irrelevant what was involved in this case, that is, the two aggravators that were alleged, the brutality of the murder and that it occurred during a robbery? Those were obvious that they existed, is that not so?",
       "time": "00:13:01.96"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Waxman, am -- am I understanding the case properly? The informant, who had all of the physical evidence, was the main identifier of the defendant, correct?",
       "time": "00:15:34.26"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And --",
       "time": "00:15:52.37"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Now, did --",
       "time": "00:16:03.23"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So the defendant claimed, however, that this informant was the one who did the crime. Could the jury, under the evidence that existed, conclude that they both did it?",
       "time": "00:16:11.77"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And that's why it's debatable whether it's harmless?",
       "time": "00:16:25.67"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because what makes it an aggravator is if he's the one who actually did the killing.",
       "time": "00:16:30.45"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That he wasn't --",
       "time": "00:16:36.54"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Uh-huh.",
       "time": "00:16:39.34"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Personally?",
       "time": "00:16:49.01"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. That's --",
       "time": "00:16:50.83"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Waxman, can I give you a hypothetical State system? And this is a two-part question. You tell me if it is consistent with the Sixth Amendment. And if it is, what makes this case different. Okay? So my system is that a jury, whether in the penalty phase or in the guilt phase, has to make a determination of an aggravating factor. Okay. But once that's done, once the jury decides on an aggravating factor, the judge can do whatever she wants. The judge can add aggravating factors. The judge can reweigh the aggravating factors as compared with the mitigating evidence. The judge can do any of that stuff. But the judge has to leave alone the aggravating factor that the jury finds. So, in other words, the judge can't give death when the jury finds life, and the judge can't throw out the jury's factor. But as long as that jury makes that aggravating factor, the judge can do anything that is consistent with the Sixth Amendment.",
       "time": "00:16:58.46"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes.",
       "time": "00:18:15.87"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, is that -- is that what makes a difference, then, in the end, that -- that you're saying that the jury has to be specifically told that that's what it's doing? That -- and you're saying --",
       "time": "00:20:09.56"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- the necessary part of a constitutional system for the jury to be instructed that it has the responsibility to find the aggravating factor that serves as a precondition to death.",
       "time": "00:20:20.53"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if it's told that it has to decide on life or death. But if you decide on death, the judge is going to review it, and the judge has the power to sentence to life.",
       "time": "00:20:48.30"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I'm trying to understand the limits of your argument that what is done under the Florida statute diminishes the jury's sense of responsibility. The jury's sense of responsibility will be diminished to some degree if they know that their verdict is not necessarily the final word.",
       "time": "00:21:32.66"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Would that be the case -- isn't that case whether they -- whether they're told, you -- you make a recommendation and the judge decides, or you impose a sentence, but the judge can impose a different sentence, a lesser sentence? There's still -- they still don't have to bear the responsibility of making the absolutely final decision.",
       "time": "00:21:49.98"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You may.",
       "time": "00:24:34.06"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Winsor.",
       "time": "00:24:38.18"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. How -- how is that, when Florida law says that the judge has to find an aggravator to make someone eligibility for the death penalty?",
       "time": "00:25:25.53"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you tell me how this is different than Arizona? I mean, in terms of the system, just like in the Arizona case, there had been precedent by this Court that Arizona law had been constitutional. Unlike Arizona, every Florida -- every court that has looked -- every judge who's looked at it, not one of them has said that they believe personally it's constitutional. Even the courts affirming -- affirm on the basis of the prior precedent, and you have a little less than half the Court directly saying it violates Ring. So what's the jury finding when it says seven to five?",
       "time": "00:25:48.89"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Even when it says a murder has been committed, felony murder wasn't. Felony murder was charged, but we don't know if they found the robbery, right?",
       "time": "00:26:36.35"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So how do we know --",
       "time": "00:26:55.49"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How do we know which one they picked? Which makes them eligible for the death penalty?",
       "time": "00:26:57.84"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you do agree that that -- it doesn't require unanimous jury?",
       "time": "00:27:16.26"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And a simple majority is all you need?",
       "time": "00:27:22.01"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So we don't have --",
       "time": "00:27:26.52"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- an unanimous jury, even a functionally equivalent unanimous jury, finding those aggravators.",
       "time": "00:27:28.85"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We don't have a unanimous or functionally unanimous jury finding those aggravators.",
       "time": "00:27:36.27"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. The jury is not asked to find an aggravator.",
       "time": "00:28:15.92"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's not asked to find an aggravator.",
       "time": "00:28:19.24"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I know. But that's not found at the jury verdict.",
       "time": "00:28:24.53"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's not found at the trial --",
       "time": "00:28:27.22"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're -- only at the sentencing phase.",
       "time": "00:28:30.72"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose that the jury comes back at the sentencing phase and says, we recommend life.",
       "time": "00:28:33.66"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And the reason, though I guess no one would know it, is because they -- no -- nobody found an aggravating. Can the judge nonetheless give death?",
       "time": "00:28:38.57"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No.",
       "time": "00:28:47.74"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, we -- we have -- they have a page in their opinion, in their brief, you know, Page 20, where it cites about six Florida cases, which suggested to me that they thought the answer to that question as a matter of Florida law was, Yes, the judge can sentence to death.",
       "time": "00:28:48.85"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that so or not so?",
       "time": "00:29:02.81"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's -- I missed the last part.",
       "time": "00:29:18.20"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The jury comes back. They say life.",
       "time": "00:29:20.77"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And we know, through mental telepathy --",
       "time": "00:29:24.71"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- though I guess the judge doesn't, that the reason that they did that is no one found an aggravator. My simple question is: As a matter of Florida law, can the judge impose the death sentence? Yes or no.",
       "time": "00:29:27.47"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That isn't -- I mean, it is. It's Federal law. So -- I mean, Ring is over. So -- so you say the answer is now no --",
       "time": "00:29:46.01"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- because of Ring. Because you agree that this case is like Ring, and therefore Ring would apply, and therefore -- not this case, but any case in which they recommend life.",
       "time": "00:29:55.30"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "God, I'd like to know your caveat. What is the caveat? I'm -- I'm on pins and needles here.",
       "time": "00:30:04.62"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I am, too. Sorry.",
       "time": "00:30:10.44"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose the jury came in hung.",
       "time": "00:31:17.00"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "On -- on the sentence.",
       "time": "00:31:20.91"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The jury -- jury, instead of being seven to five, it was hung.",
       "time": "00:31:23.85"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could the judge then impose the death penalty?",
       "time": "00:31:29.20"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just so I -- I understand it: So you're saying that it -- it is possible, but under Florida law the jury would not find the existence of an aggravated -- aggravating factor but -- and would -- and then there are different ways that this would come out -- the hypothetical was a hung jury -- but the judge could then proceed to find an aggravating factor and impose the death penalty. Now, you say, now, this hasn't happened. He'd probably be reversed. But theoretically this could happen.",
       "time": "00:32:12.57"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, you're saying it couldn't happen consistent with Ring, meaning that there are certain applications of the Florida law that would be unconstitutional even in your view.",
       "time": "00:32:50.71"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But -- but we don't -- we -- we don't sit in judgment of -- of theoretical scheme that Florida has set up, do we?",
       "time": "00:33:09.31"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And don't we have to adjudge that there has been unconstitutionality in this case?",
       "time": "00:33:16.80"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Could I give you another hypothetical scheme, notwithstanding that we don't sit in judgment of hypothetical schemes?",
       "time": "00:33:27.82"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Suppose that the -- the jury finds an aggravating fact, but then, you know, the judge has this whole separate hearing -- right? -- in which other things are presented to him. And the judge says, You know, I don't actually agree with the aggravating fact that the jury found, but I have my own aggravating facts, and now I'm -- I'm doing all the weighing and I come out in favor of death. I -- I assume that you would say that that also would be an unconstitutional application.",
       "time": "00:33:33.79"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes. Quite -- quite right. But I'm -- I'm hypothesizing a case in which the jury finds that death-eligibility marker.",
       "time": "00:34:14.97"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Right? If -- but the judge throws that one out and substitutes his own. That -- you think that would be constitutional?",
       "time": "00:34:22.97"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, he does throw it out. He just says, I don't agree with that. I'm -- but I'm substituting my own. Would that be all right?",
       "time": "00:34:32.53"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But I have to say that answer surprises me because the death sentence there is not at all a function of the jury's eligibility finding. The judge has tossed out that eligibility finding and substituted his own, which then leads to the death sentence. So how can we say that that's possibly constitutional under Ring?",
       "time": "00:35:04.07"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "The judge has said that that jury finding is utterly irrelevant to his decision about whether to impose death. That he's imposing death based on something that the jury has not found.",
       "time": "00:35:39.75"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That didn't happen here, did it?",
       "time": "00:36:01.87"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But the thing is you can't really tell whether that happens in a wide variety of cases. And this is actually -- this goes to this question of because the jury doesn't actually have to find specific things, only the judge has to find specific things, you often are not going to be able to tell whether the judge's sentence is based on the same aggravating facts that the jury has found.",
       "time": "00:36:04.05"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Even though the jury is told, now, whatever you say, it's advisory. It's not binding. So you have made a finding of an aggravator, but it's not a binding finder of an aggravator. The jury is told that whatever they say is advisory. Doesn't that make a difference?",
       "time": "00:36:38.97"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was -- that was before Ring.",
       "time": "00:37:21.01"
     },
@@ -1139,13 +1139,13 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. I just want -- I'm -- I'm sorry. Justice Scalia.",
       "time": "00:37:43.80"
     },
     {
       "turn": 184,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it clear to the jury that they are the last word on whether an aggravator exists or not?",
       "time": "00:37:46.52"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then they're also told that the judge is ultimately going to decide whether your recommendation stands or not.",
       "time": "00:38:02.25"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But shouldn't it be clear to the jury that their determination of whether an aggravator exists or not is final? Shouldn't that be clear?",
       "time": "00:38:14.75"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm talking about what responsibility the jury feels. If the jury knows that if -- if we don't -- if -- if we don't find it an aggravator, it can't be found; or if we do find an aggravator, it must be accepted. That's a lot more responsibility than just, you know, well, you know, if you find an aggravator and you -- you weigh it and provide for the death penalty, the judge is going to review it anyway.",
       "time": "00:38:35.36"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose in your earlier hypothetical, the judge -- the jury finds an aggravator occurred in the course of the robbery, and, therefore, there is death eligibility. Then it goes to the judge. And the judge says, there is simply no evidence to support that aggravating factor, but I find another aggravating factor. Under your view, the judge could go right ahead and impose the death penalty?",
       "time": "00:39:26.13"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But this is my hypothetical.",
       "time": "00:39:58.60"
     },
@@ -1217,13 +1217,13 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, a death case is not funny.",
       "time": "00:40:03.18"
     },
     {
       "turn": 197,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Which honestly sounds the same.",
       "time": "00:40:03.97"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And what would happen?",
       "time": "00:40:17.64"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:40:28.64"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Go for a second to an analogy.",
       "time": "00:40:52.44"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There are two good other analogies in other areas of the law. The one that supports you is robbery, force or threat of force. No one ever asks or needn't ask whether six members of the jury thought there was a threat but no actual, or seven members thought there was actual but no threat. Threat or threat of force. I don't think we have to say. I don't think so. So that supports you. On the other hand, imagine a normal sentencing case. The statute says, you get aggravated punishment if you had 50 grams of cocaine. The jury finds he had 50 grams of cocaine -- no. Sorry. The statute says aggravated sentence if 50 grams of cocaine or meth. The jury finds he had 50 grams of cocaine. I don't think under Apprendi, which I didn't agree with -- but I don't think the judge could say, I'm going to give you the aggravated sentence because I don't believe there was any cocaine, but I do believe there was meth.",
       "time": "00:40:55.36"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But we do know that the judge here -- now still you're having conceded Ring, where the jury says no aggravating factor. We know that the jury can if the jury finds aggravating factor X, have death on a completely different aggravating factor, but the jury never thought of, namely why. Now, we know that. And now compare that to the hypothetical of cocaine and meth. And then we have Apprendi, which I disagree with still, but...",
       "time": "00:42:00.43"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I want to clarify. You think a seven to five recommendation is finding an element of the crime that makes you eligible for the death penalty by a unanimous or functionally equivalent unanimous jury?",
       "time": "00:42:57.74"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Then what do you do with the statement in our case law that says a simple majority is not a unanimous jury?",
       "time": "00:43:17.72"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And they don't agree with which one?",
       "time": "00:43:42.78"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So we don't know whether it was premeditation or robbery. It could be four to three or two to five. It could be anything.",
       "time": "00:43:46.55"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We don't know. What does the seven to five tell us the jury found?",
       "time": "00:44:02.22"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Not the same one?",
       "time": "00:44:16.02"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you believe that a simple majority is a jury unanimously or functionally unanimously finding that element beyond a reasonable doubt?",
       "time": "00:45:22.24"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was ten to two.",
       "time": "00:45:36.06"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does ten to two automatically mean that seven to five is okay?",
       "time": "00:45:38.05"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Can I go back to the kinds of hypotheticals that Justice Kennedy and I were -- were proposing. So let's say that there is a jury, and it's been presented with evidence that the murder was for pecuniary gain, which is one of the aggravating factors. And the -- the jury comes out with a recommendation of death. So you -- and that was the only thing that was presented to it. So you know that the jury has made a death eligibility determination on pecuniary gain. Then it goes to the judge. The judge says, you know what, I don't really think that there's enough evidence of pecuniary gain, but I've had this whole hearing, and I find that the thing was -- that the crime was heinous and whatnot, and now I'm going to sentence the person to death. Now, you say that that's fine; is that right?",
       "time": "00:47:10.09"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, no -- no -- he's -- he's heard more evidence because, you know, there's a whole new hearing that he has. And now he's considered it more thoroughly, and he thinks, no, I don't agree with that anymore, but I think it was heinous. So that would be fine.",
       "time": "00:48:15.74"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes, yes, yes, it's not this case.",
       "time": "00:48:37.09"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I'm throwing out --",
       "time": "00:48:45.83"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- the jury's aggravating factor, but I'm substituting my own. I thought that that was what you told me, that that was constitutional under Ring.",
       "time": "00:48:46.75"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "This wasn't at the guilt phase; this was just as a matter of sentencing. Let me get on with my questioning --",
       "time": "00:49:05.88"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- because I think you answered this one already. Then the appeal that's taken, right -- the appeal is focusing now only on what the judge has found, isn't that right, under Florida law? The appeal -- if the person came in and said that there was insufficient evidence, the appeal would only be as to the judge's finding and not at all to the jury's.",
       "time": "00:49:10.02"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And -- and he says there was just not enough evidence of all these aggravating factors, so -- but that was -- would only be as to the judge's aggravating factors. It couldn't possibly be that he would challenge the jury's.",
       "time": "00:49:38.95"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, I'm just suggesting that the whole appeal process suggests that the crucial death eligibility determination is being made by the judge because that's the only death eligibility determination that the appeals court is ever going to review.",
       "time": "00:49:57.89"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes, look, they have something to review. The problem is it's the judge's thing to -- that they're reviewing, not the jury's, and that's a Sixth Amendment problem.",
       "time": "00:50:22.08"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What about --",
       "time": "00:50:49.37"
     },
@@ -1535,13 +1535,13 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How about if a jury --",
       "time": "00:50:51.02"
     },
     {
       "turn": 250,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So to what degree is there a -- a real dispute here about the presence of the two aggravating factors?",
       "time": "00:50:52.07"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can I ask you two separate questions on this?",
       "time": "00:51:37.21"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Number one, whenever have we said that a jury waiver on an issue is based on the lack of a challenge by a defense attorney? Don't we require waivers of jury trials to be explicit and by the defendant him or herself?",
       "time": "00:51:40.17"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So where have we ever said that not challenging something is an admission of that something?",
       "time": "00:52:13.55"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We take plenty of appeals where people are saying, assuming the state of facts, I'm entitled to X, and then when they go back down, they argue that that goes -- that assumption is wrong. Why isn't this the same?",
       "time": "00:52:19.91"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Has there ever been an appeal in Florida where an advisory jury was given -- not given a proper instruction and a resentence was -- was ordered for that reason?",
       "time": "00:53:07.58"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "An improper instruction to the advisory jury.",
       "time": "00:53:25.76"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Waxman, six minutes.",
       "time": "00:53:49.40"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that a -- post Ring? What's the date of that?",
       "time": "00:56:26.31"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:45.70"
     }

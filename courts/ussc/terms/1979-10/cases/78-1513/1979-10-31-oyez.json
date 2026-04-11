@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1979/78-1513/19791031a_78-1513.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRIET S. SHAPIRO",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "EDWARD L. MERRIGAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll hear arguments first this morning in United States against Clark. Mrs. Shapiro, you may proceed whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mrs. Shapiro?",
       "time": "00:02:29.14"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You say that though, haven’t they proposed the elimination of the “lived with” requirement?",
       "time": "00:02:29.87"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But doesn’t that come from the Commission?",
       "time": "00:02:42.81"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mrs. Shapiro, when you say that the Act is consistently been construed to require that the “lived with” requirement be met at the time of the death of the wage earner. How many examples would there be in the reported materials that we could look at in some way or another of cases in which there was a lived with at some prior time, but not at the day the death, would there be other cases like this?",
       "time": "00:03:09.74"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I just don’t have any feel for how often this problem arises?",
       "time": "00:03:39.49"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does that mean twice or a hundred times, would we know?",
       "time": "00:03:47.85"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or once maybe just this case, wasn’t it?",
       "time": "00:03:54.26"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know normally they do things as of the date to death, but I’m just wondering how often it really a significant that the target --",
       "time": "00:04:00.45"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I think what bothers me is your use of the word “consistent” because if the Commission in now behind this proposed legislation, they’re receding from what may have been a consistent position, aren’t they?",
       "time": "00:04:15.53"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Commission interpret the Act as passed by Congress or just make recommendations for changing?",
       "time": "00:04:43.56"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do I understand Mrs. Shapiro that the Clark children are now for the reasons you gave us, receiving benefits?",
       "time": "00:07:26.11"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Somewhere along the line, have you discussed the appellee’s suggestion that “lived with” may be applied to some period other than at the time of death?",
       "time": "00:08:28.96"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if they never lived with the father, but he arranged for them to be somewhere else and paid for all their living?",
       "time": "00:09:20.99"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So that the support factor vanishes under that language?",
       "time": "00:09:36.85"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, on the contrary, if the man can show canceled checks over the period of 10 years, tax deduction every year for support, then that would be pretty good evidence, wouldn’t it?",
       "time": "00:10:02.21"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The support factor?",
       "time": "00:10:16.75"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "As distinguished from the “lived with” factor?",
       "time": "00:10:18.33"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Theoretically, they could live with the father without receiving any support from whom with a grandmother paying the father for all their care?",
       "time": "00:10:44.41"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about legitimate children?",
       "time": "00:11:19.25"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or whether or not they are in fact supported?",
       "time": "00:11:28.32"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you suggest the Congress is attempting to do to avoid that the problems of the proof in individual cases?",
       "time": "00:11:38.88"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "00:11:50.68"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In the generality, but, so the only advantage was to avoid individualizing cases?",
       "time": "00:11:56.67"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, there’s the 4%.",
       "time": "00:12:14.44"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you just don’t think that it is necessary in legitimacy cases to individualize?",
       "time": "00:12:16.90"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But it isn’t finely-tuned with respect to this one category of children, is it?",
       "time": "00:12:48.78"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That 4% figure, I think is somewhat misleading, isn’t it? Does that include the children who’ve been acknowledged by the illegitimate father?",
       "time": "00:12:59.59"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, it isn’t limited to that is what I mean. That’s all illegitimate children, isn’t it?",
       "time": "00:13:08.42"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And where the statute already excludes illegitimate children who have not been acknowledged by their father, and the only relevance statistic and the additional requirement of “lived with” would be those who have not only lived with their parent, but also had been acknowledged, and your figure doesn’t take that into account at all. There’s 4% of all illegitimate children is what you’re lived with or never married mothers.",
       "time": "00:13:14.20"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn’t the universe cut down to those who’ve been acknowledged by their father, by the statute?",
       "time": "00:13:41.48"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I just don’t see how that’s relevant to the “lived with” requirement. Now, if you struck the “lived with” requirement out entirely, you still have the 4% figure?",
       "time": "00:14:01.18"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And probably didn’t -- well, may I ask you this on the “lived with” requirement. Is the congressional judgment that -- is it your theory that the congressional judgment, if you have a child, an illegitimate child who was acknowledged by his father and lived with the father for a particular of time and then stopped living with him, that it’s reasonable to assume that the father then discontinued support because he did in this case? Is there any example that we know of anywhere where a father both acknowledged the child, lived with him for a substantial period of time and left and then stop supporting them? It seems to me the law would not permit him to stop supporting.",
       "time": "00:14:15.65"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Under that said affair and how could Congress have reasonably assumed that he would then just walk away from the child and no further obligation?",
       "time": "00:14:52.63"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But which is the more probable? That you have both a formal acknowledgment and a family relationship, and then the father abandons the child. Wouldn’t there normally be -- and he continues to earn money, he’s got a job and is paying, the Government job in this case, and then you would think then, the Congress reasonably thought that in the normal run of cases he would stop providing any support for the child. The only case we know about is this one which it didn’t happen.",
       "time": "00:15:10.62"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that Congress actually made that judgment? See, they make a contrary judgment, if you construe the statute to mean “lived with” at anytime, but that’s critical to your case, for your construction of the statute, if Congress really thought that?",
       "time": "00:15:39.53"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It does exist and it followed in at least one case. And didn’t the Court of Claims also construe the statute that way, the Gentry case in holding it unconstitutional?",
       "time": "00:15:59.63"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Ever, ever?",
       "time": "00:16:15.46"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But by implication, I suppose they did it here, didn’t they?",
       "time": "00:16:18.39"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean, they wouldn’t have held it unconstitutional if they construed the statute as in the ways suggested by my brother Stevens' question?",
       "time": "00:16:24.59"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Correct?",
       "time": "00:16:32.05"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It’s a constitutional.",
       "time": "00:16:37.10"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right and they wouldn’t certainly logic wouldn’t have held it unconstitutional had they construed the statute?",
       "time": "00:16:38.85"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The other way?",
       "time": "00:16:45.66"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would be the situation of an illegitimate child whose father having acknowledged as here was a military officer or foreign service officer moving from one place to another all over the world, and so he arrange to have the children and when they were in there teens for example to be in private schools in the school year and summer camps in the summer?",
       "time": "00:16:48.79"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It would be?",
       "time": "00:17:26.14"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That’s not consistent.",
       "time": "00:17:30.37"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That’s not consistent with the answer you gave me earlier. You said in the hypothetical case of the man who paid their support, but had to move somewhere, there would be out?",
       "time": "00:17:32.62"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you know whether there are any administrative decisions that would be consistent with your answer in these cases?",
       "time": "00:17:59.92"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I got the impression from your earlier discussion that “lived with” meant precise to that lived with in the normal, I thought you said normal and ordinary parent-child relationship?",
       "time": "00:18:15.61"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And all we’re dealing with is children under 18 years of age here, are we not?",
       "time": "00:18:44.74"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It is not the question about 30-year-old child --",
       "time": "00:18:52.05"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "-- who might have lived with for 18 years and then simply became emancipated?",
       "time": "00:18:55.13"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If the people in these hypothetical situations where treated that way, then they are making an individualized judgment and not a rigid categorical judgment? If they’re going behind the “lived with” requirement and considering the evidence that the father is really paying for their support, but doesn’t want to maintain or can’t maintain a home?",
       "time": "00:19:36.85"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "A familial home.",
       "time": "00:20:05.17"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let’s say, living with his grandmother and that the father is paying abundantly for support.",
       "time": "00:20:22.02"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just exactly what I have told you?",
       "time": "00:20:33.50"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you say that -- say that there is an acknowledged illegitimate child living with the father at the time of his death, but he has been supporting the child, does that -- is that -- would that be construed to be a regular parent-child relationship?",
       "time": "00:21:02.01"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he is not supporting him.",
       "time": "00:21:24.22"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He is just living with him. As a matter of fact, he is not supporting himself?",
       "time": "00:21:26.33"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It says regular parent-child relationship.",
       "time": "00:21:35.39"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you mean by that?",
       "time": "00:21:38.99"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It must assume -- so it is not open to the Government to deny benefits on the ground that the father isn’t actually supporting the child?",
       "time": "00:21:44.89"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would that mean Mrs. Shapiro? There just don’t be anymore child’s benefits?",
       "time": "00:23:53.36"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that’s the alternative that you recommend. Pay no more child’s benefits until the statute is made constitutional?",
       "time": "00:23:58.86"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It had no jurisdiction?",
       "time": "00:24:15.57"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because jurisdiction is for claims for money based upon the constitutionary statute?",
       "time": "00:24:20.30"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your position is that the plaintiff should then go to another forum and get an injunction against paying any child benefits to anybody, that’s what would have to be done if the statute --",
       "time": "00:24:26.45"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think that is what Congress would have wanted in this situation?",
       "time": "00:24:37.89"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That upholds child’s benefits.",
       "time": "00:24:43.07"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you argued there, do you -- does the Government argue there that all child’s benefits should cease until Congress remedies the situation?",
       "time": "00:24:54.76"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without statutory authority occurring [Voice Overlap]",
       "time": "00:25:15.24"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your argument there, I take it then, is that no benefits should be paid?",
       "time": "00:25:18.62"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why even currently? What’s the statutory authority for current benefits?",
       "time": "00:25:27.91"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, take, assume these plaintiffs were not in the Court of Claims, but were in the Federal District Court and assume they win on the merits, what remedy would be appropriate in the Government’s view?",
       "time": "00:26:19.11"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:26:32.94"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the Court would have the alternative of say, of enjoining any payments to any children at all?",
       "time": "00:26:56.54"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That alternative was illustrated on the case last term in which Justice Powell disagreed with the holding of the Court?",
       "time": "00:27:02.83"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mrs. Shapiro, we have had a number of cases you can almost learn who has been Secretary of HEW from the case as Weinberger, Matthews, Califano, etcetera and many of them have involved challenges to congressional limitations on payments to illegitimate children. Have any of them up to now ever been brought in the Court of Claims?",
       "time": "00:27:11.62"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Assume a three-judge Courts perhaps all of them, I am not sure?",
       "time": "00:27:56.77"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In answering Mr. Justice Stevens, in what remedy would be available in District Court, you said, the Court would have a choice and it could order the payment of benefits, how about back benefits?",
       "time": "00:28:04.72"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand, but you say that even if the District Court decided that you’ve been incorrectly construing the Act --",
       "time": "00:28:29.26"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- and that you should have been paying these benefits the entire time. The District Court could not enter a judgment for past benefits.",
       "time": "00:28:39.09"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because as you construed the Act, Congress has not waived sovereign immunity to that extent?",
       "time": "00:28:48.18"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there some authority for that? Is that --",
       "time": "00:29:05.41"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In fact that the Court of Claims disagrees with you.",
       "time": "00:29:10.69"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On your hypothesis responding to Mr. Justice White, the only remedy then to enforce the judgment of the Court of Claims would be to get a private bill in the Congress?",
       "time": "00:29:23.01"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "At times, the Court of Claims in -- not in these situations, but in some where back payments were involved, having their opinions recommended that the Congress make up an active private bill, have they not?",
       "time": "00:29:58.70"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It was established as an arm of Congress, of course, originally?",
       "time": "00:30:18.48"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Merrigan.",
       "time": "00:30:27.80"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So, would you say that he was doing what was suggested in some of the hypothetical questions that is he was providing support for them without providing a familial home for them?",
       "time": "00:32:33.05"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the difference in opinion between you is that the “lived with” has to be at the time of the death?",
       "time": "00:33:30.25"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did the Government said, or did it say not?",
       "time": "00:33:37.48"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, isn’t that --",
       "time": "00:33:40.50"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Have I directly identified the difference of opinion?",
       "time": "00:33:42.31"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, then by the Court of Claims?",
       "time": "00:34:20.92"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How could they have held it unconstitutional, had they not construed it the way the Government does?",
       "time": "00:34:24.24"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know there is no long discussion on it, but as a matter of logic, how could they have it?",
       "time": "00:34:35.12"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, but you’re not arguing that your clients can meet the “lived with” requirement?",
       "time": "00:35:09.01"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You’re seeking the support of judgment on a different ground than the Court of Claims gave you judgment?",
       "time": "00:35:47.42"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the father had lived with the child for the first three months of its life and then not lived with it for the subsequent 17 years, nine months of its life and the child was 18 at the time of the father’s death?",
       "time": "00:36:03.06"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, isn't that just why Congress has to draw a line?",
       "time": "00:36:26.18"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what were the -- no one has any claim under an amendment that is proposed in Congress today, did it?",
       "time": "00:36:39.61"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the agency construction is of the present language is “living with?”",
       "time": "00:36:58.05"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But wasn't your -- wasn't -- did the Court of Claims reject your construction of the statute in Gentry?",
       "time": "00:37:30.95"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know you weren’t in Gentry but was that issue before you were on it?",
       "time": "00:37:38.72"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the Court of Claims, in affect then in this case, rejected your statutory claim?",
       "time": "00:37:47.87"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What makes you think it didn’t enter a judgment?",
       "time": "00:37:57.37"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you suggesting that any federal court has the authority to reach a constitutional issue without first passing on a necessarily included statutory question?",
       "time": "00:38:13.90"
     },
@@ -1355,13 +1355,13 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Any way here?",
       "time": "00:38:47.21"
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But doesn’t that mean they were adopting the Gentry approach?",
       "time": "00:38:48.14"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "She has to prove the father acknowledge the child?",
       "time": "00:43:46.31"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, she does have to prove that the child or children were the father -- the issue of the father.",
       "time": "00:43:51.42"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you say that can be proved by her perjury?",
       "time": "00:44:00.51"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about the word “recognized stepchild” or “recognized natural child,” doesn’t that mean recognized by the natural father?",
       "time": "00:44:10.60"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I could assume that it did, yes. So, that in your hypothetical case, the women would not recover it?",
       "time": "00:44:17.70"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But she would have to perjure herself both as to the question whether the father was the actual father and as to whether he recognized the child.",
       "time": "00:44:58.44"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, presumably, there are an of a lot of lawsuits you can imagine that could go of on an unjust result as a result of perjury which wasn't detected by the finder of fact.",
       "time": "00:45:10.36"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You don’t need a broad holding here to support your position. All you need is that a child who has been legally recognized by a Court here finding --",
       "time": "00:45:32.38"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "How does the commission construe the word “recognized?” Does it require some formal act of recognition by the father or by Court? How does it construe it?",
       "time": "00:46:04.40"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But in all of these hypotheticals you give, the recognition is rather important, isn’t it?",
       "time": "00:46:18.00"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You have an easy case, but you have been arguing with a rather broad brush, I suggest?",
       "time": "00:46:25.69"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It’s clear cut here, yes.",
       "time": "00:46:38.95"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes. But this example you gave of moving in and dying, and the wife coming along and saying what you say he said?",
       "time": "00:46:42.21"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But all you are saying today is that there must be a court order, so far as you are concerned?",
       "time": "00:47:00.46"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you need a track on it. That’s not the Act of Congress legislated?",
       "time": "00:49:37.73"
     },
@@ -1553,19 +1553,19 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, because nothing in the Constitution that --",
       "time": "00:49:49.36"
     },
     {
       "turn": 253,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It was founded on the Constitution --",
       "time": "00:49:50.78"
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Nothing on the Constitution that entitles your plans to prepayment of any kind, for anything?",
       "time": "00:49:51.80"
     },
@@ -1577,13 +1577,13 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But not as enactment?",
       "time": "00:50:06.00"
     },
     {
       "turn": 257,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think the Constitution would require the Treasury to draw a check to your clients without any Act of Congress in establishing a Social Security System?",
       "time": "00:50:07.18"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How can you say, this is a claim founded on the Constitution?",
       "time": "00:50:26.33"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you say they had declared that it was unconstitutional in order to get to it?",
       "time": "00:51:07.63"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If, well but apart -- this is a large statute. They had to declare one section of the statute unconstitutional?",
       "time": "00:51:14.50"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, a section of the statute --",
       "time": "00:51:24.92"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "-- of which there was bore on your client’s rights.",
       "time": "00:51:27.76"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Merrigan, is it correct to say that your argument comes down to whether the statute is severable, whether that section is severable and if it is, then you say, jurisdictional question is resolved?",
       "time": "00:52:03.06"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That was the Court of Claims’ argument in Gentry?",
       "time": "00:52:17.63"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Without being able to say in any prior authority to that effect?",
       "time": "00:52:23.62"
     },
@@ -1691,13 +1691,13 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, I may have.",
       "time": "00:52:34.52"
     },
     {
       "turn": 276,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Court of Claims certainly has had a propensity throughout its life to try to expand its jurisdiction, hasn’t it?",
       "time": "00:52:37.15"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I ask you, do you recall Judge Skelton’s concurring position?",
       "time": "00:52:48.32"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you present that position in your case or not?",
       "time": "00:52:54.90"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you said, not only should the statute be construed to award benefits when the “living with” had occurred any time, but you have also argued that the statute should be construed to permit proof of support in any case?",
       "time": "00:53:03.29"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And because the Court of Claims apparently rejected that position in Gentry, but you represented it -- you presented it in your case anyway?",
       "time": "00:53:30.02"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Merrigan, you have not addressed orally, unless I missed it to the question of sovereign immunity with respect to the back payments.",
       "time": "00:53:56.13"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that’s what sovereign immunity means. You have no where to go if the only person who would otherwise be liable to you is the sovereign and he inserts his immunity, that is exactly what sovereign immunity means?",
       "time": "00:54:56.75"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And otherwise, the Government will come in and say, “Of course, you are within the class that was intended to be benefited by the statute and we owe you the money, but you just cannot sue for it.”",
       "time": "00:55:19.54"
     },
@@ -1793,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean that would be the position.",
       "time": "00:55:33.83"
     },
@@ -1805,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This lawsuit wasn't brought as a class action?",
       "time": "00:56:30.46"
     },
@@ -1817,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Always an individual action.",
       "time": "00:56:33.69"
     },
@@ -1829,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you counsel. The case is submitted.",
       "time": "00:56:37.08"
     }

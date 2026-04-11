@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/95-865/19960424a_95-865.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL BENDER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOE G. HOLLINGSWORTH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CHARLES J. COOPER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in Number 95-865, The United States v. Winstar Corporation. Mr. Bender.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I gather before FIRREA was even passed, the executive branch was concerned about this problem and induced some solvent banks to take on their backs some insolvent banks in order to prevent them from failing. Isn't that what this is all about?",
       "time": "00:02:16.27"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, I see. I thought they did it in order to save the Congress from having to appropriate more money to pay the depositors who would have lost money.",
       "time": "00:02:36.42"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In any case, whoever induced whom by doing what these banks did, the claims on the insurance fund were drastically reduced. They were eliminated with respect to every one of these failing banks, I take it.",
       "time": "00:03:18.24"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:03:32.55"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They were reduced until... the problem in effect was deferred until FIRREA was passed.",
       "time": "00:03:36.69"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But one of--",
       "time": "00:04:05.35"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--One of those risks was the object of the contracts in these three cases.",
       "time": "00:04:13.14"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that was the policy that the Government regulators permitted--",
       "time": "00:05:42.99"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to occur. I mean, this... they were following Government policy in having that kind of capital--",
       "time": "00:05:47.08"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, Mr. Bender-- --And this was-- --No, go ahead. And... I was going to say, and this event, I take it it is fair to say, was exactly the event that the parties assumed might happen when they made their contracts.",
       "time": "00:06:35.76"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Doesn't that fact defeat the Government's attempt to bring this case essentially under the impossibility doctrine, because the impossibility doctrine, if I understand it, assumes that the parties assume that the event that did happen was not something that was going to happen. They both had made an assumption that was false, whereas in this case, it seems to me, each party had made the very assumption that turned out to be true.",
       "time": "00:06:55.18"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I think sovereign acts is an element of it, yes--",
       "time": "00:07:25.55"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--but the one... I mean, I think sovereign acts makes sense within the concept of an impossibility defense, and I think the impossibility defense, I understand it, rests upon the assumption that the act or event that makes it impossible to perform, and hence excuses performance, is an act or event which each party assumed would not happen, whereas in this case, each party assumed that it might very well--",
       "time": "00:07:29.15"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Bender, are you relying on impossibility or unmistakability?",
       "time": "00:07:54.72"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The unmistakability doctrine?",
       "time": "00:08:02.86"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, may I... just before you leave the... my question is... I take it your answer is yes, we... each side was assuming that this might very well happen, and this was part of the object of contracting.",
       "time": "00:08:19.64"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, no, it wasn't necessarily a promise that that wouldn't change. It was a promise about what would happen to these banks if it did change.",
       "time": "00:08:41.61"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you want to convince us that these bankers and lawyers who signed this agreement put themselves in a visibly insolvent state at a time when there was clearly a crisis in the S&L industry and Congress was clearly going to take some action, visibly put themselves in an insolvent condition without any commitment on the part of the Government to not count that against them for purpose of shutting them down.",
       "time": "00:09:02.49"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it is so utterly implausible--",
       "time": "00:09:29.86"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--At a time when not only they but-- --When you say assets, I... when you say assets, I assume you mean deposits which are really, in effect, a liability, as everyone knows.",
       "time": "00:10:12.79"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I find it very difficult to believe that if these documents had contained a clause that said that the Government, or FSLIC, reserves the right to change capital requirements and not to count this goodwill, that these parties would have executed the agreement. I just don't believe that would have happened.",
       "time": "00:10:26.73"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the contract had had a clause specifically allowing the Government to do what it's done in this case, it is impossible for me to believe that the parties would have entered into the transaction.",
       "time": "00:10:49.88"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't that where the unmistakability doctrine comes in, that people are not entitled to deal with the Government on assumptions of their own, or what reasonable people might say, it has to be unmistakable, not just what a reasonable person would--",
       "time": "00:11:21.22"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Tell me why this is not unmistakable, Mr. Bender.",
       "time": "00:11:36.21"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The provision in the Winstar agreement... I think it's the Winstar one. The Statesman agreement. It says... it's on page 23 of the... set forth in full on page 23 of the Winstar brief. It says, in the case of any ambiguity in the interpretation or construction of any provision of this agreement, such ambiguity shall be resolved in a manner consistent with such regulations, that is, including future regulations, and the bank board's resolution or action relating to the acquisition, the mergers, or of this agreement. If there is a conflict, it says, between such regulations, which would mean future regulations, and the bank board's resolution or action relating to the acquisitions, the mergers, or this agreement, the bank board's resolution or actions shall govern. In other words, the bank board's resolution that approved counting this as capital--",
       "time": "00:11:39.19"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--shall govern.",
       "time": "00:12:37.90"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That sentence doesn't--",
       "time": "00:12:40.13"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh, I see. The bank board's resolution only applies to counting it today.",
       "time": "00:12:47.59"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And could you tell me, is this a different document than the document set forth in Winstar's briefs at page 23, or... are you just reading other parts of the same document, or are you referring us to a different document?",
       "time": "00:13:19.92"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. I was reading from Statesman.",
       "time": "00:13:34.73"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know that State... I was talking about Statesman.",
       "time": "00:13:41.12"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand.",
       "time": "00:13:46.17"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's start with Statesman.",
       "time": "00:13:47.81"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's wrong with Statesman? You say that there is no conflict if a future regulation contradicts... a future regulation contradicts the regulation that the board adopted in order to approve this transaction--",
       "time": "00:13:49.67"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--rendering that sentence almost utterly... entirely meaningless.",
       "time": "00:14:07.26"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you a question about--",
       "time": "00:14:49.79"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--the unmistakability doctrine? I mean, my thought is that there are two courts that have said they did make a promise, at least one that gets them damages, below us--",
       "time": "00:14:50.45"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and the issue is, is that unmistakable, and my question on the unmistakability doctrine is where... what's the line as to where it applies and where it doesn't? That is, would you say it applies if the Government promises to sell somebody 2 tons of oil, and then what happens is an environmental reg prevents them from releasing the oil, and they come in and say, we're not paying damages? Suppose the Government promises to buy a piece of property, and the law... change a contract--",
       "time": "00:14:59.92"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--to buy a house, and the Government says, oh, I'm sorry, I'm not going to pay you damages, because after all, it doesn't say unmistakably, and I will pay damages if later on a regulation on property law makes it impossible for me to convey the house. Where does the unmistakable... where does it apply, where doesn't it apply?",
       "time": "00:15:26.96"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, wait, if the Government says-- --Has anybody ever made such a promise? Do you have any case in which a member of the executive branch has promised that Congress will not do something?",
       "time": "00:16:05.62"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that is the situation in which you contend this doctrine--",
       "time": "00:16:15.47"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--is inapplicable.",
       "time": "00:16:19.79"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Only in that situation.",
       "time": "00:16:20.91"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, but-- --Isn't there a third possibility, Mr. Bender, that even if they are not exempted in the sense of being able to enforce their agreement specifically to allow them to act contrary to the regulation, isn't there a third possibility, and that is that the risk of loss if that happens falls on the Government, not on them, and that's why it seems to me important that we're dealing with a damages action here rather than an action for specific performance.",
       "time": "00:16:33.51"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but in each case, the question, I suppose, is, is it unmistakable that they either: a) promised that Congress wouldn't do it? Of course not. b) That if Congress did it, they would be specifically exempt from the application of the regulation? Probably not. Or c), that if Congress did do it, the risk of whatever the added cost would be would have to be borne by the Government and not by them?",
       "time": "00:17:13.62"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And what may be unmist... I mean, what might be necessary to show unmistakability in case one, which is virtually impossible, or two, unlikely, may, in fact, be quite enough in case three, if we're talking about a contract which is reasonably read simply to shift a risk.",
       "time": "00:17:39.39"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bender, are you--",
       "time": "00:17:58.73"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Are you arguing to any extent that there was no authority in the executive branch to make such an agreement, or are you saying, yes, they could make it, but it had to be unmistakable?",
       "time": "00:18:00.33"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In other words--",
       "time": "00:18:20.88"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--are you making the argument that they couldn't do this unless Congress had said specifically, and you can guarantee to these people with whom you're contracting that they will not lose the benefit of their bargain?",
       "time": "00:18:23.19"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Would Congress have had to have said that?",
       "time": "00:18:34.13"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Are you saying that even a riskshifting contract was ultra vires? Not a contract that you will be specifically exempted if the regulation changes, or if the law changes, but a contract that says, if it does, the risk is on the Government, not on you? You're saying that that last case is... would be, or was, or would have been ultra vires?",
       "time": "00:18:37.80"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, it's not committing a future Congress. It's committing the Government to bear the risk if a future Congress makes a change. Why is that ultra vires?",
       "time": "00:19:03.43"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why isn't it given in the capacity of the Government working through its insurance arm, in effect, to make agreements that preclude the Government from having to cough up on its insurance obligations?",
       "time": "00:19:24.31"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why is that not within the capacity of the Government as an insurer?",
       "time": "00:19:37.06"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you're... are you saying that the... that when the insolvency of the S&L's came along, that the only course that the Government in fact could follow with... that the only course that the insurance... that the... I'm trying to think of the insurance acronym and I can't do it... you know it.",
       "time": "00:19:49.09"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That the only course it could follow was simply to pay up?",
       "time": "00:20:07.72"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Prior... at the moment these contracts were made, are you saying that in fact the Government had only one option, and that was to declare the banks insolvent and pay up the--",
       "time": "00:20:15.24"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But the contract as you are reading it has the Government promising virtually nothing. The Government basically, with respect to capital requirements, the Government is simply saying, on your reading, whatever we agree to, we agree to, but if there's a change, too bad. Well, of course-- --You're saying that-- --I suppose it promised that FSLIC would continue to--",
       "time": "00:20:36.29"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--respect--",
       "time": "00:21:00.65"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Yes, but you're saying in the same breadth that FSLIC had no authority in any effective way to continue to do that, because FSLIC would be overruled by any change in legislation, and if it was so overruled, the risk of that overruling never shifted from the three banks here to the Government.",
       "time": "00:21:02.74"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's not much of an agreement.",
       "time": "00:21:23.85"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the extent of the Government's authority to make that contract would have been, as it were... as you view it would have been made explicit if those provisions had been followed by a further sentence saying, the Government may nonetheless, through an act of Congress, place you in insolvency at any moment after the signing of this agreement, and in effect you're saying that's the extent of their contracting authority in these circumstances.",
       "time": "00:22:21.90"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:22:52.93"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why just Congress? Why not the agency? I thought you say there's no agreement here at all. Do you--",
       "time": "00:22:56.00"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--say that there's an agreement not to change our regs unless we're forced to change it by law? Is there that much of an agreement?",
       "time": "00:23:02.09"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's not even that agreement?",
       "time": "00:23:08.48"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just for today--",
       "time": "00:23:09.61"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--we'll say you can do it for 40 years--",
       "time": "00:23:11.37"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but tomorrow we may change our mind.",
       "time": "00:23:13.42"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So no promise at all even with respect to their own changing of their own regulations the next day?",
       "time": "00:23:22.49"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Certainly not, because there's no relationship between the safety requirements and the risk of insolvency which the hospitals have acquired by taking these hospitals that are being sued upon their back. Mr. Bender-- --Here, there is such a relationship.",
       "time": "00:24:23.92"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are you saying, Mr. Bender, that FSLIC was powerless to include the terms that the respondents now claim is a necessary part of their contract?",
       "time": "00:24:46.80"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There was no way... there was no form of language, there was no provision that FSLIC was authorized to include which would reach the result that these respondents seek here?",
       "time": "00:25:01.08"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "To treat the capital the same--",
       "time": "00:25:18.49"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I'm asking about FSLIC's authority to make the contract that the respondents here assert was made. Are you saying that FSLIC could... if all of this had been on the table in the bargaining session, if we had known about this problem, that FSLIC would have been powerless to include a provision that gives them the relief they now want?",
       "time": "00:25:25.04"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Mr. Bender, isn't your answer predicated on the fact not that they would be able to get their investment back by suing on their contract, they would be able to get their investment back on the theory that the contract was a nullity, and if that's the answer... I don't think that's the answer... I don't think that's the point of Justice Kennedy's question, because you're still... you're not saying that they would have authority to make a contract. You're saying that the law would give them restitution if the contract turned out to be a nullity.",
       "time": "00:26:31.93"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're still in the position of saying... I think the answer to Justice Kennedy's question on your position is, it would have been ultra vires for them to do that.",
       "time": "00:26:58.38"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Bender, isn't any contract, not only by the Government but by a private person, subject to the condition which you say this must have been subject to, namely, if what I have promised becomes unlawful, of course I won't do it? I mean, to say that this agency, if it was a promise, would have been conditioned upon that, is to say what every contract is conditioned upon.",
       "time": "00:27:48.23"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bender. Mr. Hollingsworth, we'll hear from you.",
       "time": "00:28:21.58"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, doesn't the unmistakability doctrine, Mr. Hollingsworth, require a little bit different focus on that? I mean, as I understand the doctrine, it would mean that even though, if you take the reasonable man theory of contracts, this is what reasonably... that's not enough in this case to hold the Government liable for damages. You have to show something more.",
       "time": "00:29:00.63"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then what does the unmistakability doctrine add to the ordinary law of contracts, then?",
       "time": "00:29:41.66"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does that rule any promise by implication?",
       "time": "00:29:58.24"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:30:15.15"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What's the clearest language you have?",
       "time": "00:30:35.83"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Can you tell us where it's found in the brief, or in the--",
       "time": "00:30:43.75"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Walk me through that, would you? You begin at page 599?",
       "time": "00:31:23.57"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:31:28.63"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:31:30.19"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Where's that... how does that read?",
       "time": "00:31:33.05"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excepting only--",
       "time": "00:31:45.52"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Okay, and then we go to 607, and what do we see there?",
       "time": "00:32:01.96"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the letter from... a letter from Glendale's accountant doesn't really sound like what would be a binding, explicit promise on the Government.",
       "time": "00:32:51.50"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:33:07.67"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--that's a very strange provision in agreement, that it's not contained in the agreement itself, but it's... one of the parties' accountants furnishes a memorial of it.",
       "time": "00:33:08.68"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But an architect is generally a neutral party as between the parties. Here, it's one of the parties' accounts.",
       "time": "00:33:32.64"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Hollingsworth, may-- --Is the goodwill that you seek to amortize here the goodwill that's referred to in subparagraph 4 at page 607, or is that something else?",
       "time": "00:34:01.98"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question similar to the Chief Justice's? This paragraph describes an obligation of Glendale. It says that the approval is conditioned on Glendale doing these things. How do you translate that into a commitment by the Government that if you do these things you're protected for 40 years?",
       "time": "00:34:31.26"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, what... the promise, though, that you referred to describes an obligation of Glendale, paragraphs 3 and 4 on page 607.",
       "time": "00:34:52.81"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How does that happen?",
       "time": "00:35:05.85"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As describing what Glendale must do?",
       "time": "00:35:12.67"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Glendale must do.",
       "time": "00:35:16.65"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where is the provision on which you rely describing what the obligation of the Government is when Glendale does that?",
       "time": "00:35:23.85"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where? I want you to point me to the language on which you rely for that obligation.",
       "time": "00:35:33.63"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a commitment of the accountant. That's not-- --That's a commitment of the accountant. Right. Would you look at page 610? What does the Resolved, the second Resolved further, on page 610 of the appendix, mean? That is to say that the Secretary, Assistant Secretary is authorized and directed to send to Glendale a letter concerning scheduled items attributed to Broward and the forbearance of the FSLIC and the bank board with respect to certain regulatory requirements, a copy of which letter is in the minute exhibit file. What does that letter cover?",
       "time": "00:35:54.35"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Other than the goodwill.",
       "time": "00:36:26.95"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Getting back to paragraph 4 on page 607... because I'm still, as the Chief Justice and Justice Stevens were inquiring, interested as to the Government's obligation... Glendale shall submit a stipulation. Is that some sort of a document that's signed by the Government and Glendale?",
       "time": "00:36:29.29"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is a stipulation?",
       "time": "00:36:47.29"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was a stipulation submitted that required the Government's signature?",
       "time": "00:36:57.52"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Answer Justice Kennedy's question. He asked you whether there was a signed stipulation.",
       "time": "00:37:06.33"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And stipulation is not some term of art in savings and loans, it's just the Black's Law Dictionary definition--",
       "time": "00:37:25.64"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I--",
       "time": "00:37:36.03"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It doesn't always mean an agreement. I mean, I can say right now I'll stipulate that I--",
       "time": "00:37:38.29"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You often say, he stipulated that. I mean, it's a concession, certainly, by one party.",
       "time": "00:37:44.00"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, how can Glendale submit a bilateral document? I mean--",
       "time": "00:37:54.53"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I mean, if it said Glendale shall submit and the board shall accept, and the board shall sign, then you would have something.",
       "time": "00:38:01.18"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would you have been in violation of the then-applicable regs of the board if that stipulation did not also constitute a commitment by the board?",
       "time": "00:38:40.76"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that clearly obligated Glendale to comply with those regulations, but I find... I'm trying to find... I'm sure there's... it's in here somewhere, but I'm trying to find what it is that obligated the Government not to change the regulations.",
       "time": "00:39:10.22"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And where is that?",
       "time": "00:39:33.90"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But there is no stipulation. I mean, you can't cite here in the record a written document--",
       "time": "00:39:43.57"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to which this refers?",
       "time": "00:39:52.24"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't under-- --I'm not talking about the memorandum. I'm talking about the stipulation. Where is the stipulation that was submitted? Where is that? Is that here in the appendix somewhere?",
       "time": "00:40:05.36"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm... maybe you don't understand my question. It says, Glendale shall submit a stipulation. I assume a stipulation was submitted. Where is that?",
       "time": "00:40:22.56"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where is it? I'd like to read it.",
       "time": "00:40:34.83"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it in here?",
       "time": "00:40:36.91"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "623--",
       "time": "00:40:42.20"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Hollingsworth, with respect to 31b, which you point out is set out starting on 571, is that otherwise expressly incorporated into the contract, or is it refer... or is its only reference through the stipulation paragraph that we've been talking about?",
       "time": "00:41:10.73"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it has... in any case, its incorporation has to come through paragraph 4 here.",
       "time": "00:41:35.17"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:41:39.87"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it is unmistakable, if it isn't unmistakable, what is that to do with us? I thought that the... I may be wrong. I thought that the lower courts held the historical understanding of the unmistakable doctrine is not applicable to this issue, and therefore, if we think it is applicable, we have to send it back--",
       "time": "00:41:49.66"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and if we think it isn't applicable, then I guess you'd win. I thought that was the issue, whether it is applicable or whether it isn't applicable.",
       "time": "00:42:09.30"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Hollingsworth, your time has expired. You probably can't see it because your thing is over the red light.",
       "time": "00:42:45.82"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Cooper, we'll hear from you.",
       "time": "00:42:51.96"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you now reading from page 23 of your brief?",
       "time": "00:43:28.05"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Cooper, there's one thing that I'd like you to distinguish for me. There have been, I think, cases involving consent decrees both in the environmental area and the civil rights area, consent decrees signed by the Government and the complaining party, and then when the administration changed, the argument was made, well, yes, the Government, the then-administrators of X agency, signed that document, but that's not the policy of the current administration, and one administration can't bind another to a policy even in a written agreement filed in the court and made a part of a consent judgment. Now, I take it you must regard this situation as entirely discrete from that.",
       "time": "00:44:30.77"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In other words, in those consent decrees, at least as the Government's argument went, there would be no responsibility on the Government's part. It could walk away from the agreement as if it had never been made. But that's not what you're saying here. You are, of course, recognizing Congress' authority to legislate. However, you're saying my client must get the benefit of the bargain that was made.",
       "time": "00:45:53.28"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, that's what... where you're saying there's a difference between at least the argument that was made that the Government could walk away from a consent decree without any cost.",
       "time": "00:46:24.63"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about your other client? Just to be sure that I have... what about the agreement for Winstar?",
       "time": "00:47:23.71"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This was the Statesman contract, right?",
       "time": "00:47:34.48"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about Winstar?",
       "time": "00:47:36.77"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And what about the bank board's resolution to which this refers? Where does that appear, and how does that close the loop?",
       "time": "00:47:50.50"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "From time to time, presumably.",
       "time": "00:49:00.47"
     },
@@ -1771,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What does the except clause modify, in your view?",
       "time": "00:49:15.99"
     },
@@ -1783,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but there's several pieces of phrasing that go before it. Is that except clause, does that modify the entire paragraph, or just the thing that's already excepted?",
       "time": "00:49:23.82"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, these provisions are different from those in the contract and agreement of Glendale, I take it?",
       "time": "00:49:53.33"
     },
@@ -1807,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I also ask you, do you... have you sought any other relief under the Takings Clause, or have you sought relief by way of rescission of the agreement or anything?",
       "time": "00:50:11.47"
     },
@@ -1819,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You concede that it has to be unmistakable.",
       "time": "00:50:45.92"
     },
@@ -1831,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You concede that to win you have to show the promise is unmistakable.",
       "time": "00:50:50.36"
     },
@@ -1843,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So the only issue before us is whether or not-- --No, that's-- --Is that any different-- --That's no different from ordinary contract-- --than any contract.",
       "time": "00:51:12.26"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, are you--",
       "time": "00:51:29.40"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Are you saying, Mr. Cooper, then, that the unmistakability doctrine really does... is not... have any substantive content, that entirely apart from that doctrine you simply interpret the contract and decide who prevails?",
       "time": "00:51:31.72"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then it should be applied to everybody. Why limit it just to Government, if it aids in determining the true intent of the parties?",
       "time": "00:51:53.86"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say Congress is committed.",
       "time": "00:53:00.07"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, who is the party to the contract? Who is the party to the contract that you're suing?",
       "time": "00:53:01.78"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the sovereign make the contract? I thought an agency--",
       "time": "00:53:09.71"
     },
@@ -1927,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Which is no longer in existence, I guess.",
       "time": "00:53:15.22"
     },
@@ -1939,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask just one other-- --It does by eliminating sovereign immunity, by reinstituting sovereign immunity.",
       "time": "00:53:35.02"
     },
@@ -1951,7 +1951,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, just to save me time looking for it, you say there's... you relied heavily in the Statesman contract, the stuff on page 23.",
       "time": "00:53:45.69"
     },
@@ -1963,7 +1963,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where do I find the corresponding language in the Winstar contract, just so I don't--",
       "time": "00:53:53.76"
     },
@@ -1975,7 +1975,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Because it's probably a little different.",
       "time": "00:54:01.18"
     },
@@ -1987,7 +1987,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what are you relying on?",
       "time": "00:54:04.48"
     },
@@ -1999,7 +1999,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just so I know where to find the corresponding--",
       "time": "00:54:06.39"
     },
@@ -2011,7 +2011,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Okay, thank you.",
       "time": "00:54:18.78"
     },
@@ -2023,7 +2023,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't want to use your time up. I just wanted to know where it was.",
       "time": "00:54:26.50"
     },
@@ -2035,7 +2035,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thanks.",
       "time": "00:54:29.25"
     },
@@ -2047,7 +2047,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Precisely what did the Government promise? Precisely, the Government promised to let you continue to do... what it boils down to is, they promised to let you continue doing business as a bank so long as you maintained that minimum level of capital that these accounting principles would produce. Is that the essence of the promise?",
       "time": "00:55:06.37"
     },
@@ -2059,7 +2059,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, I don't care how they calculate it. You care that they let you continue to do business as a bank, so you're saying they gave you a sort of a charter, a promise that your bank charter wouldn't be yanked so long as you kept your capital the way these accounting principles--",
       "time": "00:55:29.58"
     },
@@ -2071,7 +2071,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--would require.",
       "time": "00:55:43.47"
     },
@@ -2083,7 +2083,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Cooper, if you seek damages for frustration, restitution, you still have to show a contract, don't you? That is to say, the measure of damages doesn't particularly help us here, does it? In either case there has to be a contract that was A, breached, or B, frustrated?",
       "time": "00:55:45.24"
     },
@@ -2095,7 +2095,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So is the contractual inquiry and the unmistakability inquiry the same in either case, case A, breach, damages for breach, case B, restitution?",
       "time": "00:56:07.55"
     },
@@ -2107,7 +2107,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, under what theory? You still have to have a contract, don't you?",
       "time": "00:57:00.93"
     },
@@ -2119,7 +2119,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you sue the Government for unjust enrichment and restitution under the--",
       "time": "00:57:07.20"
     },
@@ -2131,7 +2131,7 @@
     },
     {
       "turn": 347,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think you've answered the question, Mr. Cooper.",
       "time": "00:57:33.00"
     },
@@ -2143,7 +2143,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:57:36.06"
     }

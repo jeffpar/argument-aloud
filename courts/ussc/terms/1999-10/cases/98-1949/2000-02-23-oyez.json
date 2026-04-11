@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/98-1949/20000223a_98-1949.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JAMES P. GINZKEY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 98-1949, Lori Pegram v. Cynthia Herdrich. Mr. Phillips.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well now, I gather that the Ms. Herdrich did recover in a malpractice action in this very case.",
       "time": "00:01:05.39"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The question isn't whether there's some reason. The question is whether it's been added, right?",
       "time": "00:01:51.87"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it's really not a policy question that's up to us. It's either there or it's not there.",
       "time": "00:01:56.71"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, would you clarify one thing? You said all HMO's would fall because this is a plain vanilla scheme, and yet your opponents say that it's only a particular kind of HMO, one where the physicians have this incentive because of their bonuses, and that not all HMO's work that way.",
       "time": "00:02:42.55"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Phillips, could you just clarify one simple point for me? Perhaps I should ask your opponent, but given the fact that she's already recovered for the malpractice, what do you understand the nature of her recovery would be? Assume she's right and you're wrong.",
       "time": "00:03:48.29"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't contend there isn't really a live case here, though?",
       "time": "00:04:47.39"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr.-- --Well, you agree there's not a live case if she's not seeking any remedy?",
       "time": "00:05:03.73"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is a judgment, but not a remedy.",
       "time": "00:05:08.75"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A judgment is not a remedy.",
       "time": "00:05:11.07"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Phillips, are there any circumstances under which an HMO can be found to be a fiduciary, for instance, in administering claims or benefits to which a covered employee is entitled?",
       "time": "00:05:39.24"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that? Do we know that there are no such coverage determinations being made by this HMO?",
       "time": "00:06:52.38"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where are you reading from, Mr.--",
       "time": "00:07:19.43"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Whereabouts on page 9?",
       "time": "00:07:23.84"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:07:35.25"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To people who are covered?",
       "time": "00:07:54.87"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To people who are covered, not excluding people from coverage?",
       "time": "00:07:56.16"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose you-- --But Mr. Phillips, maybe... maybe your opponent thought it unnecessary to say anything to that effect because in your very own memorandum in opposition to the plaintiff's motion to remand to the State court you allege that... and this is on page 24a of the brief in opposition... you allege that Health Alliance was the administrator and fiduciary of the plan within the meaning of ERISA, so if you yourself alleged that Health Alliance was the administrator, then certainly you lull the other side into security on that point. You had conceded it.",
       "time": "00:07:59.92"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose that you go to your doctor and you give him or his staff your health care policy, your HMO policy and you say, I can't understand this stuff. Is my operation covered or not? And the doctor says, no it isn't, because he doesn't want to do it, it's too expensive, et cetera. Then you elect not to have it and something happens. Is there some gray areas where the doctor may be wearing two hats and really be determining eligibility for you, because you do... I'm sure patients do rely on doctors to tell them this type of thing.",
       "time": "00:10:44.26"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do we talk about the employee or the patient's legitimate expectation as to what that employee is receiving from the doctors? They go to the doctor either for medical care or for advice about what the plan means. Is that the beginning point, the legitimate expectations of the covered employee?",
       "time": "00:12:18.53"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Reasonable legitimate expectations.",
       "time": "00:12:53.32"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But how do we get out of... I mean, the statute says that a fiduciary is a person under ERISA. An ERISA fiduciary is a person who exercises discretionary authority or control respecting management of a plan who has any discretionary authority or responsibility in the plan's administration. That's what the statute says.",
       "time": "00:13:21.61"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then what they've alleged... whether it's true or not, they've alleged it. They say that these people here, the HMO, have been given by contract the authority to administer disputed claims. I take it that they've been given by contract the authority to decide, am I covered by the policy that my employer bought, or am I not, and in particular they say that's true of emergency treatment, that's true as to whether something is... is it routine, is it experimental, which plans are covered, which claims are covered, which are not. Now, that's their allegation, so how in your view is that not administering the discretionary administration of the employer purchase plan itself?",
       "time": "00:13:43.54"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, I just read, was reading from the--",
       "time": "00:14:55.00"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--So you say forget Roman numeral ii, small ii, just focus on i.",
       "time": "00:15:34.97"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But then you're making of this a pleading case. You're saying she didn't allege it, not that she couldn't allege it.",
       "time": "00:15:49.88"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if we accept your position it goes back, and they amend the complaint to say no, we're talking about the role of this HMO in making eligibility and coverage determinations.",
       "time": "00:15:55.75"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In a sense this has to be a pleading case, because the district court granted a motion to dismiss.",
       "time": "00:16:24.97"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Phillips, is it clear that making a determination as to coverage is the exercise of discretion in the administration of a plan?",
       "time": "00:16:41.48"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I hate to depart from that as a premise, because I'm not sure that premise is correct.",
       "time": "00:16:55.60"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you a... it may be a too-simple question, but I understand your answer to Justice Breyer, but I think, like him and maybe some others here, I can't help but think of what the next case is going to be, depending on how narrowly or broadly we might decide this, if we decide it in your favor. Is there a kind of a simple-minded administrative answer to some of our problems, and what I'm thinking of is this. Let's assume that there can be some decisions about coverage which, if made in bad faith, would, in fact, be decisions about the management of the plan and that would, in fact, if made in bad faith, involve a breach of fiduciary duty. The assumption that I have made is that characteristically those decisions are not made by physicians, that someone walks into a clinic or an office and gets some treatment. In an HMO, when they go in the person at the front desk says, the plan doesn't cover appendixes. Doctors don't make decisions like that, by and large. When there's a true reimbursement scheme the procedure is done, the claim is submitted to the insurance company, and somebody in an office somewhere says, oh, this plan doesn't cover appendixes, so most of the decisions which might be called management decisions, which, if made in bad faith could arguably be breaches of fiduciary responsibility, are probably not going to be physician decisions. Am I being too simple-minded in looking at it--",
       "time": "00:17:08.95"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--If I am, you're going to be in trouble later. [Laughter]",
       "time": "00:18:52.84"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right.",
       "time": "00:19:06.86"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In his hypothetical the person at the front desk may be an employee of the physician's. I mean, that's... that's the gravamen of this complaint.",
       "time": "00:19:16.06"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The whole HMO is owned by physicians, so you know, if some secretary at the front desk... it's the physician's, because they own the HMO and employ the secretary.",
       "time": "00:19:24.49"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, wasn't it emphasized by the other side that if only there were somebody else making the coverage and eligibility decisions, if only that, they would have no complaint? I thought that that was very clear from the respondent's presentation, that they weren't complaining about treatment, that the only thing they were complaining about was having the coverage eligibility determination made by the physician.",
       "time": "00:19:43.81"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Phillips. Mr. Feldman, we'll hear from you.",
       "time": "00:20:26.06"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's also your position, I take it, that not every claim of an error in the claim processing function without more would state a breach of... a claim for breach of fiduciary duty?",
       "time": "00:21:32.16"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In other words, if they just get it wrong, if a fiduciary just gets it wrong, that's not a breach of fiduciary duty without something more.",
       "time": "00:21:46.33"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How do you... you see, I never thought that a judge has discretion in deciding whether the law means this or that. There's a right answer and a wrong answer. The judge tries to find the right answer, and isn't it the same thing when somebody determines plan coverage? It seems to me strange to talk about discretion in determining plan coverage. Why is that a discretionary administration of the plan?",
       "time": "00:22:16.84"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question? The definition of what fiduciary duty is, that they must always discharge the duties solely in the interests of the participants and the beneficiaries, so that if you take this literally, and if you say that's a fiduciary responsibility, every debatable case would have to be ruled in favor of the beneficiaries.",
       "time": "00:24:16.71"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It doesn't mean you always have to rule in favor of the--",
       "time": "00:24:44.57"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--If you have an ambiguous plan document, if its duty is to act solely in the interests of the participant or the beneficiaries, it's a pretty tough standard.",
       "time": "00:25:00.35"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Mr. Feld... that makes perfect sense except when you bear in mind what you said a moment ago to Justice Scalia. We have language in these plans in which there's a range in which reasonable judgments can be made and still be faithful to the language, and in that situation I think Justice Stevens, the answer to Justice Stevens' question has got to be, it's always got to be made in the patient's favor.",
       "time": "00:25:37.06"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You've always got to choose the point in the reasonable spectrum that gives the plaintiff what the... the patient what the patient wants. Either that or it's not a discretionary judgment. Yeah. I don't see... I don't see any--",
       "time": "00:26:02.30"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Or it's not a fiduciary--",
       "time": "00:26:12.44"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Feldman, I had thought--",
       "time": "00:26:27.57"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--You seem not to be taking the position that I thought would be the one that you would take, which is that the word beneficiaries is plural, and sometimes what may be in the best interests of a particular plaintiff could be against the interests of the class of beneficiaries. That came up in the former pay-for-services--",
       "time": "00:26:40.15"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Feldman, couldn't the administrator say, if I resolve every single debatable point in favor of each beneficiary, other beneficiaries are going to suffer?",
       "time": "00:27:44.63"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, that's--",
       "time": "00:28:20.77"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--You yourself had said the terms can be very vague.",
       "time": "00:28:27.92"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what we're talking about here is not a particular decision in relation to a particular beneficiary, I thought. I thought we were talking... what they allege is that a plan that sets up a certain structure with economic incentives is wrong, and when you decide what kind of a plan, can't you take the interests of all the beneficiaries into account?",
       "time": "00:28:40.12"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that, isn't that the issue before us?",
       "time": "00:28:59.63"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Except--",
       "time": "00:29:02.45"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--When you apply it you have to look at this beneficiary, but when you're deciding specifically whether to have a rule that gives an incentive to doctors to do X, Y, or Z, that's a matter for all the beneficiaries, isn't it?",
       "time": "00:29:04.17"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, you... yes.",
       "time": "00:29:22.10"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, but that's on your question as to assume--",
       "time": "00:29:28.61"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Assume they are a fiduciary for the sake of argument.",
       "time": "00:29:30.44"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, so your argument is that what gets them out of this is, they're not fiduciaries in respect to making up the incentive rules under the plan.",
       "time": "00:29:38.55"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. That's my question.",
       "time": "00:30:13.64"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, fine. If in some circumstances it can, a particular incentive structure, created by some administrators who maybe are a part of the organization they're suing, could, in fact, violate ERISA, and in other times it wouldn't violate ERISA, what's the principle as to when it does and when it doesn't?",
       "time": "00:30:15.83"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Feldman. Mr. Ginzkey, we'll hear from you.",
       "time": "00:30:52.26"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But what has that to do with it, because if they had it separate, then your clients or some future clients would simply sue the right group. I mean, I take it the underlying substantive question is, whoever is making this decision, you're saying it's a breach of a fiduciary relationship to have a set of economic incentives that makes them look at costs as well as health. Now, the separation issue is one, that even assuming you're right on that, it's very hard for me to believe in respect to cost incentives that the same Congress that in 1973 wrote an HMO act, and the same Congress that has provided for incentives that encourage HMO's throughout, in ERISA, without saying anything, wanted to gut its own HMO legislation. Now, that's where I start on this, and I put that up front, because I want to know how your theory doesn't achieve a result that I just find it very hard to believe Congress wanted.",
       "time": "00:32:31.51"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What they're saying is that we think, for example, if you have a group of people who look after a child from the time it's born to the time it dies, they'll get interested, through our incentives, in what's called preventive care, and will end up with a lot less disease. Now, to do that, you have to have doctors who pay attention to patients all across the board, and you also have to tell those doctors, don't use the most expensive treatment before you look at what will actually benefit the patient throughout the cost of his life.",
       "time": "00:34:20.03"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The whole course of his life. Now, that, I take it, is the theory that underlies these kinds of cost incentives that are built into the plan. Now, if Congress... doesn't Congress make that judgment with HMO's, or similar kinds of judgments?",
       "time": "00:34:48.48"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is your... but I'm asking not my theory, I'm asking your theory on this.",
       "time": "00:35:03.39"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How many HMO's fall in this pattern of physician-owned... you said that you thought most were not that way. Do you have any idea how many are?",
       "time": "00:36:15.81"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if you don't have many doctors, they presumably can't afford to hire an independent administrator. I mean, if you're going to have a small organization.",
       "time": "00:36:45.05"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Ginzkey, I didn't get your response to Justice Breyer's question about what difference does it make whether there's separation or not. Let's assume that doctors don't make the decisions, so you have some other organization that makes the decisions. So long as that organization has the same incentive of keeping costs down, wouldn't that organization fall prey to the same complaint that you make here?",
       "time": "00:37:06.04"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't... nothing distinct about doctors making it. Your complaint is that whoever is making the decision about what treatment ought to be given has a financial incentive that is not necessarily coincident with the best interests of the patient. That's going to be the case whether it's the doctor doing it or somebody further up the line, so long as you have this kind of an HMO.",
       "time": "00:37:31.64"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say that they have to bring in not only somebody other than the doctors, but somebody other than the doctors who has no financial interest in the whole enterprise.",
       "time": "00:38:39.05"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Hire some firm to make medical decisions of whether you get this operation or not--",
       "time": "00:38:50.98"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--some firm that is not the owning doctors of the HMO and that also has no financial interest in the whole enterprise.",
       "time": "00:38:59.09"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well then, I don't know--",
       "time": "00:39:07.04"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But that's-- --Well, supposing you hire-- --That's what I said. Supposing a small group of doctors hires an administrator and the administrator administers claims, and then the doctors tell him, you know, you're just allowing a lot of stuff we don't think you should allow, and as a result our income is going down. What's the result there?",
       "time": "00:39:18.77"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you're giving your own hypothesis, but I put a hypothesis to you that I wish you would respond to.",
       "time": "00:40:14.43"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you respond a little more directly?",
       "time": "00:40:21.15"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, there's a difference perhaps in degree. There is a difference in the degree of finesse, but isn't... at the end of the day, isn't the operative fact that in any HMO the interest of the HMO and the interest of every employee, whether... of the HMO, whether it be a doctor or a nondoctor administrator, is to hold down health cost, because unless they do so the HMO is going to go out of business? And it seems to me that that interest is there, whether it is in the stark shape that it takes here, or whether it's in a more subtle shape which it takes on your hypothesis of what is right, but the same interest is there, and it seems to me that it is equally... if the interest in this case is at odds with fiduciary duty, I don't see why the interest in the more subtle case isn't equally at odds with fiduciary duty.",
       "time": "00:40:44.63"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why... I know it is, but why does the mechanism make a difference, because what you say is wrong with the mechanism is that it induces these so-called fiduciaries to say, no care for you, but that same mechanism operating at a perhaps less obvious level is inherent in any HMO, so I don't see why the mechanism makes the difference.",
       "time": "00:41:43.93"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In effect, the... the rule of decision that you want us to come down with I think is, we've just got to draw lines here and say, the breach of fiduciary duty is clear when the doctors get a year-end payment and make the decision. There is, however, no breach of fiduciary duty, or at least not a cognizable one, when the interest between denying coverage and ultimate compensation is more subtle than that. That's the rule of decision that you want?",
       "time": "00:43:06.93"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right, and in order not to do so, aren't you asking us for a rule of decision something like what I just put to you?",
       "time": "00:43:47.72"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, suppose... you may have a very good answer to this, and I'm on exactly the same track, but take as separate a person as you want, you know, somebody who has nothing to do with doctors, that works for the ERISA trust plan of a company, and that person says, here's what our plan's going to do. We're going to take a bunch of doctors, and we're going to pay them 3,300 per patient per year, and we say, doctors, you take on some patients. Now, we'll tell you about this money. What you don't spend, you keep. All right? That's our rule. And now what's sort of... what's bothering me is that the rule that you want would outlaw the rule that I just said, and why isn't that so?",
       "time": "00:44:09.52"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know, but what I... see, my rule draws its strength from the fact that we know there are a group of ethical rules governing medicine, and doctors, we believe, governed by this when they take the 3,300, will try to look for the best way of saving the patient anyway, and if they can do so with a little saving extra money, that's to their benefit. So that's why my rule sounded okay. Maybe it's true, maybe it's not, but your role sounds as if it abolishes my rule, so now, how... why not?",
       "time": "00:44:57.03"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think they all attributed the same meaning to the word unduly, which is extremely vague?",
       "time": "00:46:49.51"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What did the questionnaire say?",
       "time": "00:46:59.51"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, I take your answer to be that you're saying that I thought what was a good legal rule isn't, and you don't mind that if I decide for you we also make unlawful under ERISA the rule that I talked about, the 3,300 per patient, or are you going to distinguish it?",
       "time": "00:47:16.28"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "All right. Now, can you tell me... maybe you've said this already, and I'm sorry if I'm asking you to repeat it, but the distinction precisely between the one I had and the one you want is?",
       "time": "00:47:36.52"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Ginzkey--",
       "time": "00:48:08.83"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--why should the courts get into this slippery slope problem that you're posing for us when Congress has designed a scheme that's built on private furnishing of health care through health maintenance organizations that are privately owned, and where there are inherently incentives to keep costs down at the HMO in order to provide the care and make it pay for itself? And that's the scheme Congress has authorized, and they are served by doctors that have ethical obligations in the treatment of patients, and I suppose Congress relied on the ability of the enforcement of those ethical obligations to curb what otherwise might appear to be an unfortunate financial incentive to cut costs, and I... why should the courts get involved in this messy business of deciding what scheme is an undue infringement and what isn't?",
       "time": "00:48:10.35"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you the question I asked your opponent at the beginning of the case? What's really at stake for your client in this case, at this stage?",
       "time": "00:50:48.02"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Recoup it for the plan?",
       "time": "00:51:13.61"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And who would the... if there's this money that should... that's been accumulated, who would get the fund? Would it go back into the HMO, or would it go to the--",
       "time": "00:51:54.73"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is that-- --I thought she was suing on her own behalf.",
       "time": "00:52:03.37"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "On behalf of the plan? Well, let me... I'm a little confused by some of your presentation, because you talked about coverage determinations, and as I understand what occurred here, there was no denial of coverage to your--",
       "time": "00:52:09.16"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--To your client.",
       "time": "00:52:23.71"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It was acknowledged that what she was suffering from was covered by the plan, and what her complaint was is that she got procedure A whereas she should have had procedure B, which was more expensive, and they didn't give her B because of the cost. Isn't that right? So how do we get into the coverage determination question at all? Why is that even involved in the case?",
       "time": "00:52:24.97"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So we don't have to consider that, then, right?",
       "time": "00:52:52.22"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:52:59.46"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say she should have had some other kind of treatment, which would have been more expensive, right?",
       "time": "00:53:07.38"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No?",
       "time": "00:53:13.52"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought it was.",
       "time": "00:53:14.36"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But explain something else to me, if you would. The HMO here contracted with State Farm Mutual, is it, and who would get the money if there is... the doctors had to pay some money? The HMO wouldn't get it, because they are the doctors.",
       "time": "00:53:25.28"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To the risk pool?",
       "time": "00:53:40.29"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I have a... forgive my stupidity, but what is the risk pool? Who... what fund of money... who owns that? Is that the insurance company's property?",
       "time": "00:53:51.80"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's a plan asset.",
       "time": "00:54:02.05"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, who would physically... supposing you get this money, who actually gets title to it?",
       "time": "00:54:04.41"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it goes back to the HMO.",
       "time": "00:54:14.12"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but--",
       "time": "00:54:18.86"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And what qualifies you as a representative of the people in the risk pool?",
       "time": "00:54:26.28"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Ginzkey, may I go back to your answer to Justice Scalia? You were telling him what this case was not. You said, it's not a malpractice case.",
       "time": "00:54:38.06"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's not a coverage case. It's not a denial of benefits case. What is it?",
       "time": "00:54:46.87"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Resulting in what kind of harm? I mean, in a malpractice case we know what the harm is. In a coverage case, we... and so on. What exactly is the harm? The harm is simply that the risk pool is smaller than it otherwise would be?",
       "time": "00:54:55.34"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're basically making a financial management claim. You're saying, they're misapplying funds?",
       "time": "00:55:29.31"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I will... you know, I will assume that, but may I just come back to a follow-up question. Assuming, and you know your case, this is a mismanagement of funds case--",
       "time": "00:56:29.88"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--am I right that in order for you, which I think we've all been assuming, am I right that in order for you to make out your case that there has been mismanagement of funds, it's necessary for us to accept the proposition that whenever a physician in an HMO has a strong financial incentive to make a medical decision, that that medical decision is therefore a fiduciary decision, and is therefore... and therefore a claim against him is preempted from State malpractice law in favor of ERISA fiduciary law?",
       "time": "00:56:43.63"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then it's not the median term. Why isn't it the median term in order to get your result?",
       "time": "00:57:28.38"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And that kind of decision was involved in this case?",
       "time": "00:57:58.06"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't it? I mean, isn't that your understanding of what you're claiming, that that kind of decision was crucial to your claim in this case?",
       "time": "00:58:02.06"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Are you saying that it just happens to be a coincidence that you are bringing this financial mismanagement claim under the same... with the... joined with the same pleadings that happen to make malpractice claims? Are you saying that out of the blue, even if your client had lived a totally healthy life and never been denied an immediate appendectomy, that you could bring this claim, and it's a mere coincidence that you happen to be here in the context of this case?",
       "time": "00:58:21.27"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:58:56.01"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't realize--",
       "time": "00:58:57.39"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I didn't realize you were making any ERISA claim. I thought you were making State claims, and the reason all of this comes up is that the objection to your Count III and Count IV State claims was that they were preempted by ERISA.",
       "time": "00:58:58.38"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where does that appear in your--",
       "time": "00:59:15.99"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Amended Count III. So we've actually... now, your client's appendectomy is irrelevant, the malpractice is irrelevant, has nothing to do with it, it's entirely... which is... I mean, and then it's going to come down to either the fiduciary issue, or if you are fiduciaries, we have to figure out what the standard is on what incentives could be so extreme that they violate the obligation to everybody. Is that basically where we are?",
       "time": "00:59:20.69"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what in your view is the standard for determining whether... because you concede that some incentive plans could be okay, so what's the standard for determining... and I think the Government concedes that there could be some that weren't okay.",
       "time": "00:59:48.08"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. I know.",
       "time": "01:00:02.57"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So now we've got a lot of agreement here, and what we've got to-- [Laughter] What, in your view, is the difference in the standard, then, as to when they're okay when they're not okay?",
       "time": "01:00:03.85"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. How would you draw it?",
       "time": "01:00:24.80"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you. Thank you, Mr. Ginzkey. The case is submitted.",
       "time": "01:00:57.99"
     }

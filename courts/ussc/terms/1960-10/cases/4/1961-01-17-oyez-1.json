@@ -3,35 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/4/19610117r_4_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "LESTER P. SCHOENE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MILTON KRAMER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 4 on the docket, International Association of Machinists, et al, Appellants, versus S. B. Street et al. Mr. Schoene.",
       "time": "00:00:00.00"
     },
@@ -43,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you got a new brief, Mr. Shcoene?",
       "time": "00:03:05.63"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A daily newspaper?",
       "time": "00:05:06.74"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that a daily newspaper?",
       "time": "00:05:08.38"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Weekly newspaper.",
       "time": "00:05:10.39"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I interrupt just a moment please?",
       "time": "00:08:44.36"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did I understand, you say there's no question of the use of money for candidacies for public office here? That's done by assessment. Did you say private --",
       "time": "00:08:46.48"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Federal office.",
       "time": "00:09:04.18"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Otherwise, there would be a violation of that Act.",
       "time": "00:09:36.37"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- of the violation of the Act.",
       "time": "00:09:45.10"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Before you get to expend -- before you get to the expenditure Mr. Schoene, you have to -- you have acquisition of that which you propose to expend.",
       "time": "00:10:29.18"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, argumentatively we may have decided this case, but expressly we did not decide this case, did we? I'm not saying argumentatively we haven't, all I'm saying is could you -- if so your -- all you agree, needed to do is to cite Hanson against whatever the other side of the case was.",
       "time": "00:10:58.10"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What I mean, by argumentatively, but you spent a (Inaudible).",
       "time": "00:11:28.49"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't have to argue -- you don't -- for me at least, you have to argue more than, I think, the word governmental action, and so well defined a concept or a phrase with complete and comprehensive and exclusive content that everybody would give at the same content, the same meaning and the same scope in the prima facie.",
       "time": "00:13:07.05"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On their what?",
       "time": "00:15:15.53"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This -- the so called 8-hour a day, everybody who knows anything about this knows that that's a euphemistic term, didn't they? Well as much vagueness involved in it as much as ours -- I mean what's the new, wasn't just the flat 8-hour a day, you can't work any more than eight hours.",
       "time": "00:15:26.74"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but I am talking about the law there had held back.",
       "time": "00:15:56.75"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It is the agreement of eight hours?",
       "time": "00:16:05.63"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What did the Supreme Court hold about it?",
       "time": "00:17:27.77"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "We have to accept that, don't we?",
       "time": "00:17:37.39"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But does that make any difference? Do we or not in your judgment have to accept the statement of the Supreme Court of Georgia with all the states, so long this is all they announced. This doesn't violate the federal --",
       "time": "00:17:58.26"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well I -- I didn't know you had that argument, then we will find out by your --",
       "time": "00:18:27.93"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the relevance of this question anyhow to our problem?",
       "time": "00:18:36.51"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't mean -- I don't mean your view of what is controlling on us on what Georgia has decided, but assume we all agree that it has decided without qualifications and that your equal protection argument is in tenures for considerations, what's the relevance of that to our problem that if this statute -- if this nullify the right to work?",
       "time": "00:18:43.20"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In other words, whether or not Georgia's illegalizing your -- nullifying Georgia's Law on that point matters as whether or not the Federal Government can pass any enactment which sidetracks or displaces that allowance by the State, does it?",
       "time": "00:19:17.98"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that thing --",
       "time": "00:20:05.34"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did you -- has that any bearing on the First Amendment problem?",
       "time": "00:20:25.93"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I can't collectively see it.",
       "time": "00:20:33.66"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well this -- you are not suggesting or are you suggesting that because you can now have a collective agreement whereby you have a union shop, whereby John Doe, if he wants to work on that railroad, must he belong or join that union and pay assessments, union assessments, but since they're now authorized to make such an agreement, at least the Federal Government has removed the bar against making them, that the Congress of the United States has removed the bar against making them, it doesn't forbid it. Therefore any expenditure for any purpose, for any purpose is not challengeable by a member of the union? It's not properly within the purview of what fund could be expended? Can they therefore -- can they therefore make a contribution to some outlaw -- legally outlawed organization? And a member of the union can't come in and say this is -- to put in the most neutral terms, as you said, the ultra vires expenditure?",
       "time": "00:23:25.68"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, in the abstract way to which you put it, because the Government allowed them to make a contract, therefore, future expenditures are not subject to scrutiny.",
       "time": "00:24:37.76"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know what that means.",
       "time": "00:24:52.99"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, as I understand it, the Court -- the Supreme Court of Georgia said this, \"We do not believe one in constitution, to be compelled to contribute money, to support ideas, politics and candidates, which he opposes.\" They then said, in (Inaudible) that the union while expending money for political candidates, politics, they are saying that the people have voted. They then said that, \"But far this federal law, that couldn't be done because Georgia forbade it. That seems to me your issues is, which I think you will get to. Further, \"It does violate the constitution to -- for the Government to pass a law which prevents a state protecting a man from joining some organization whereby they collect his money and use it for candidacies against it.\"",
       "time": "00:24:55.15"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why do we -- why do we have to think out and imagine all the conceivable constitutional -- when you say constitutional limitations, do I have to decide -- I only have to worry about my own views about this thing. Do I have to decide, yes or no that constitutional limitations do apply or they don't? Is that the question before us?",
       "time": "00:26:08.74"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well is there any question before? I mean that I have to search all the possibilities within the Constitution to find out whether something maybe done under such an agreement, which may bring into play something which is -- which, when they conclude is not authorized or whatever it is, is not permitted for the union -- the railroad union, by virtue of the Labor Act. I don't know why you argue this all in this abstract way, I really don't.",
       "time": "00:26:40.73"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You haven't any idea of what I think about this case from anything that I've said. You couldn't possibly --",
       "time": "00:27:22.55"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'd never put -- I wouldn't agree with putting the question in this case in those terms.",
       "time": "00:28:13.02"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, I couldn't agree with you, and neither disagree, and since it's very important what question is put in order to decide what answers is there. I don't start up with that problem, to tell you frankly. In other words, you're making the argument --",
       "time": "00:28:23.41"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- I'm just telling you my difficulty.",
       "time": "00:28:36.75"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kramer.",
       "time": "00:28:52.98"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't say it was a comment. I thought it was a question, to see if I --",
       "time": "00:29:21.65"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- I can get the question that we have before us. That's what this is --",
       "time": "00:29:25.77"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't quite understand it, but to get this concrete, as it can be more concrete than the Supreme Court of Georgia made it. Suppose the unions after a man -- he had to join the union to get a job by reason of the law protecting it, by Congress, will decide to contribute, to have their fund to a particular change. What would you say?",
       "time": "00:30:25.62"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if it's unconstitutional on this abstract mode of the argument that seemed to (Inaudible), then it hasn't superseded because Congress has done something that's unconstitutional.",
       "time": "00:31:06.29"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it does do this much, doesn't it? If a union member is required to give $5.00 to the union, which $5.00 -- or make it easy, let's say $1.00, that is spent to support a certain candidate. That takes -- that prevents him from spending that dollar for the candidate's opponent.",
       "time": "00:32:22.70"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So am I.",
       "time": "00:32:45.98"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I'm talking about the expenditure by the union, of that member's dollar for Mr. Smith.",
       "time": "00:32:49.43"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That prevents that member for spending that dollar against Mr. Smith.",
       "time": "00:32:55.03"
     },
@@ -595,25 +595,25 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's questionably --",
       "time": "00:33:05.89"
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would he have had to pay that dollar --",
       "time": "00:33:07.09"
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That presents the issue.",
       "time": "00:33:08.21"
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would he have had to pay that dollar to get a job but for federal law?",
       "time": "00:33:09.66"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You know, do you not to get -- maybe I'm wrong about the issue. You do know did you not that the reason -- that the union could make this closed shop agreement whereby this man, these people, could not get a job unless they pay dues, but because the federal government has passed an act?",
       "time": "00:33:24.89"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the reason they could make the agreement and that's the reason, but for that, he would have been compelled by law, would he to pay dues to the union in order to get a job.",
       "time": "00:33:47.48"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That seems to be the issue, isn't it?",
       "time": "00:34:00.62"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, maybe he couldn't get the dollar back but would you have to pay it out of his pocket?",
       "time": "00:34:19.10"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it was simply addressed to the statements you were making to us at the time that there was nothing in this to prevent a member from supporting or failing to support or refusing to support somebody else.",
       "time": "00:34:32.49"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did those four members base that on a record which showed that the union -- and the raised a question that whether a union could constitutionally talk of using funds that it had gotten from people who compelled to join the union, even though they didn't want to?",
       "time": "00:37:31.23"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well you didn't' have any trouble with that so long as the government didn't have this law, did you?",
       "time": "00:38:02.25"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you present here to say so? I am using Mr. Justice Frankfurter's statement on that abstract. I think that is abstract in this case, going this case raises the question to whether when a man has to join the union to get a job, and he has to join because the Federal Government has passed the law. Whether they can take the money that he has to pay in for dues and use it to support candidacies he is against? It's not a question that you put. Of course, there are many inducements to join unions, which most of us realize and appreciate and most of us perhaps believe they are good, but that's not the question here.",
       "time": "00:38:42.61"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't think.",
       "time": "00:39:23.17"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now Mr. Kramer.",
       "time": "00:41:06.68"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/82-5576/19830427a_82-5576.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "HAROLD W. HORNE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "SUSAN SHORT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Pickett against Brown. Mr. Horne, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Horne, why did the mother wait so long in this case to bring her suit?",
       "time": "00:04:57.53"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it your position that no statute of limitations can be applied to an illegitimate child during the minority for establishment of paternity?",
       "time": "00:05:46.60"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Horne, what about a state which doesn't toll any statute during minority? That is, the statute runs against minors, not just on legitimation claims, but on contract claims, tort claims and the like.",
       "time": "00:06:28.10"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It wouldn't be a equal protection violation, would it, if all causes of action of minors are treated the same?",
       "time": "00:07:12.44"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's not an equal protection claim, though, I wouldn't think. Well, at any rate, does Tennessee have a general tolling statute for causes of action accruing to minors until they come of age?",
       "time": "00:08:51.35"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is the practice or law in Tennessee regarding the leukocyte antigen test for paternity actions?",
       "time": "00:09:29.68"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are those blood tests admissible today in evidence in Tennessee?",
       "time": "00:10:14.74"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Doesn't the legislature, quite apart from the conduct of paternity suits, have an interest, or isn't it legitimate for the legislature to say we don't want that kind of a case to be tried 16 years after the events in which it happened. Sure, it's going to hurt both parties, but the judicial determination on the evidence 16 years later is just not sufficiently reliable to allow the case to proceed.",
       "time": "00:15:29.76"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's an equal protection argument and you may well be right on that, but I think a legislature, or would you disagree with the observation of a legislature, if it acted even-handedly, could say that there are just some passages of time that are too long to allow for an accurate determination of facts.",
       "time": "00:16:12.15"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Horne, can I ask you a question?",
       "time": "00:17:23.75"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Perhaps it's not appropriate, but I'm sure, you say you tried 2,500 of these cases.",
       "time": "00:17:26.89"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are these... are part of these for the welfare situation, or are they all private?",
       "time": "00:17:48.10"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I take it this is a fairly substantial percentage of the total number of such cases, or is it, I'm just not familiar with the volume of this litigation.",
       "time": "00:18:22.66"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:18:53.41"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How many do you suppose there are in Memphis?",
       "time": "00:19:03.96"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Horne, in what percentage of the cases is the HLA test employed, in your experience?",
       "time": "00:20:05.43"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Who bears that expense in Tennessee?",
       "time": "00:20:39.84"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is the expense very substantial in your state?",
       "time": "00:21:11.16"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Isn't that a little out of line with the general expense over the country?",
       "time": "00:21:37.19"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Where is this lab? In Memphis?",
       "time": "00:22:30.03"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Sound like you have a little state parochialism in Tennessee, isn't there?",
       "time": "00:22:54.58"
     },
@@ -311,13 +311,13 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Apparently they don't even need outside lawyers, do they?",
       "time": "00:23:05.91"
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Short.",
       "time": "00:23:09.23"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would that be true, for example, if the father had made some small contribution to the child during its first year and then not again? Would the statute be tolled during the entire minority of the child?",
       "time": "00:25:02.83"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's hard to see how that furthers the state's goal then to eliminate stale claims if something like that could occur.",
       "time": "00:25:32.50"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In other words, the state has the statute of limitations, the period of limitations nine times longer than the mother has.",
       "time": "00:26:18.46"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Even though the mother... even though the child is dependant on the mother for support.",
       "time": "00:26:36.30"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "No, in the mother's case however.",
       "time": "00:26:41.64"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I'm just drawing the parallel. If the mother is supporting the child exclusively, she has two years.",
       "time": "00:26:43.56"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So the state has nine times the length of time.",
       "time": "00:26:53.05"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you think that's fair?",
       "time": "00:26:57.01"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would that be true for the state, as well, if the period of time that the child was on welfare was very brief, the state would still have up to 18 years to bring an action?",
       "time": "00:27:06.01"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What happens to the difficulties of proof argument where the state is involved.",
       "time": "00:27:41.15"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why shouldn't it bar the state from suing then?",
       "time": "00:27:56.42"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The state should be... you should be quicker to excuse the state in making a mistake?",
       "time": "00:28:07.32"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the argument is that there's a great possibility of making a mistake after a period of time.",
       "time": "00:28:18.82"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that right? Isn't that the argument against the mother? This is liable to be an unreliable proceeding if you take too long to bring the suit.",
       "time": "00:28:23.22"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And yet that doesn't bar the state?",
       "time": "00:28:34.14"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You can make all the mistakes you want to, but if the mistakes... the chance that the mistake is really existent, the state can nevertheless override it.",
       "time": "00:28:42.65"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In these cases, about 15 or 16 years later, is there a dispute over paternity or merely a dispute in most of them over whether the person should or can pay?",
       "time": "00:29:01.74"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Beg pardon?",
       "time": "00:29:21.92"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, do you know, has an examination been made of these records to find out in how many of those of cases had run a long time... ten, 12, 14 years, the real dispute is merely over the support and the ability to pay or whether there is a dispute over the responsibility.",
       "time": "00:29:26.35"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Short, in your... going back to the question that we were addressing, under the Tennessee scheme, if the child received welfare for a brief interval, let's say in the first year, then goes off welfare, under the Tennessee scheme the mother has 18 years to bring a paternity action for the child.",
       "time": "00:30:00.98"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that right?",
       "time": "00:30:26.94"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if that isn't done, as I understand the Tennessee scheme, the mother would then have the full 18 years in which she could bring the action.",
       "time": "00:30:33.48"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the child was ever a public charge.",
       "time": "00:30:44.02"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so the stale claim argument isn't made in those circumstances, and yet the circumstances are identical to the situation if she had never gotten welfare.",
       "time": "00:30:47.77"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but you've just acknowledged that it would be waived also for the mother if the state didn't bring the claim after the brief welfare episode.",
       "time": "00:31:29.21"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I think perhaps that argument was directed also to the independent right of the child to bring an action for support, or does Tennessee law recognize an independent action for the child?",
       "time": "00:32:43.77"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And in this case, was the mother the only person who could have brought the action at the time it was brought under Tennessee law?",
       "time": "00:33:18.38"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Let's see if I understand this. From what you've just said, the Tennessee statute is more restrictive than the Texas statute in Mills.",
       "time": "00:33:51.16"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, in this respect, the child can't bring its own action. In Texas it could. And the mother's posture sometimes can be in conflict with the child's.",
       "time": "00:34:02.77"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What if she may have a crush on the father and doesn't anticipate he's going to be a good boy after all and when he grows up he'll take care of the child and just not bring the action?",
       "time": "00:34:29.08"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "May I repeat my observation. I think your statute, in this respect, is more restrictive than Texas.",
       "time": "00:34:58.21"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe this is just repetitive, but how can you make that argument if she could go on welfare and then the action could be brought tomorrow.",
       "time": "00:36:35.44"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But how does that argument deal with the problem if she goes on welfare tomorrow, she could... you could then bring the action. Why don't the faded witnesses... why isn't that problem still right there?",
       "time": "00:36:44.61"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The state's interest in getting some money is superior to the child's interest in establishing his relationship with his father. That's your position.",
       "time": "00:37:07.16"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do I state it fairly?",
       "time": "00:37:15.89"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What you're saying is that the state's interest in getting its money back is superior to the child's interest in establishing the relationship with his father?",
       "time": "00:37:19.02"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Horne?",
       "time": "00:42:45.93"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It's an economic question.",
       "time": "00:43:42.85"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Fading memories in an appellate proceedings are not very important. It's at the trial level.",
       "time": "00:45:00.35"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You mean it takes eight years to get on to trial?",
       "time": "00:45:08.09"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would the equal protection problem be equally solved here by holding the Tennessee statute on 18 years unconstitutional?",
       "time": "00:45:57.99"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Horne, maybe I missed it, but what statute of limitations would you be satisfied with?",
       "time": "00:46:43.33"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, I'm talking about the mother.",
       "time": "00:47:03.52"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On what basis?",
       "time": "00:47:06.73"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "She reaches a certain age? Suppose she's 55. You don't think that's mature?",
       "time": "00:47:11.10"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought the 18 years was because the child was not mature. Was that the reason?",
       "time": "00:47:24.98"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That you give a child two years plus 18 because an infant is not mature enough to maintain a lawsuit.",
       "time": "00:47:33.21"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is that true of a 45-year-old mother?",
       "time": "00:47:42.87"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "She's not mature?",
       "time": "00:47:49.25"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes. She's not mature?",
       "time": "00:47:52.52"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm not talking about that decision.",
       "time": "00:48:56.45"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm talking about this case. I'm not talking about any case about somebody dragging somebody in courts, or any of your 2,500 cases.",
       "time": "00:49:14.83"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm talking about this one.",
       "time": "00:49:26.54"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why does this woman here, this mother, have 18 years to make up her mind?",
       "time": "00:49:30.34"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Plus two. She has 20 years to make up her mind.",
       "time": "00:49:42.72"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I heard what you said.",
       "time": "00:50:30.10"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:50:32.44"
     }

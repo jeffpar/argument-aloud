@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/242/19620221a_481_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "ARCHIBALD COX",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROGER ROBB",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EUGENE GRESSMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- continue.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:02:50.40"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is sentence up to a year?",
       "time": "00:03:00.41"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:03:07.66"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you state that again General, I didn't get it.",
       "time": "00:06:02.69"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:06:07.79"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Voice Overlap)",
       "time": "00:06:21.89"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "For those --",
       "time": "00:07:11.25"
     },
@@ -143,13 +143,13 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- elements that you are arguing in this case, I mean they can't decide --",
       "time": "00:07:11.69"
     },
     {
       "turn": 18,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes, this is -- this is not an ad hominem a-- argument that (Voice Overlap) --",
       "time": "00:07:16.14"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not the amount -- they're relevant with the 1922 statute --",
       "time": "00:07:32.77"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no.",
       "time": "00:07:38.68"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, I didn't refer to that.",
       "time": "00:07:40.87"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because under that consideration, some of us are in trouble.",
       "time": "00:07:45.17"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "General may -- may I ask you before you leave that point, if Congress could pass a statute authorizing the assignment of municipal judges of the district -- to the District Court.",
       "time": "00:08:09.88"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If we stretch ourselves and -- and take up every issue that -- that's intellectually implied in this litigation then I could press you with some questions on your last statement, the Congress doesn't have the power that it has over the district. But by the Tidewater case, there's nothing but trouble for me, why hasn't any different power under the provision of Section 8 of Article I roughly to the district than it has under the Commerce Clause in the same section.",
       "time": "00:15:24.97"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't think we have to decide that.",
       "time": "00:16:01.86"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't mind my having reference to the answer I gave you, is that true?",
       "time": "00:16:24.08"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What?",
       "time": "00:16:31.83"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Can I ask you one question? From the point of view of the clearing of the massive backlog or where you choose to call it, meaning, those two grounds of proceeding, do you see -- you have a preference in one over the other?",
       "time": "00:24:21.44"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I believe the Chief Justice (Inaudible) on that.",
       "time": "00:25:22.70"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "General, if we -- if we decided on this limited theory, I'd like to ask you this question. But the statute says that the Chief Justice may assign a member of the Court of the -- Court of Patent and Appeals to the District Court in the District of Columbia and he professes to do so, would he have the power, do you think, to restrict him insofar as his being a district judge is concerned by saying that, “Well, I will assign you but I will only assign you to take care of the local cases involving local law”?",
       "time": "00:26:37.04"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, my -- my point is simply this, that if he is a district judge, is he not a district judge one is defined without any limitation can be placed for him by anyone except that the --",
       "time": "00:27:52.02"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- the laws --",
       "time": "00:28:07.65"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- do powers of the district judges?",
       "time": "00:28:09.10"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I think we ought to consider also that when the Chief Justice assigns a judge as a district judge, the Chief Judge of a Circuit also has the right to use him as a member of the Court of Appeals.",
       "time": "00:29:43.75"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. I see.",
       "time": "00:30:15.20"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:32:49.35"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:33:28.48"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:33:39.76"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:33:47.13"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Court of Customs?",
       "time": "00:33:50.24"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:34:27.16"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:34:39.85"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And do you think that before 1958, it was constitutional court?",
       "time": "00:35:53.17"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there any legislative history they show why Congress acted in 1958?",
       "time": "00:36:35.74"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What I was saying of this, General, suppose -- suppose that this session of Congress, an act would be passed making the tax courts a constitutional court in giving him permanent -- permanent tenure, do you think that because they are now enable to -- to adjudicate cases that that would make the judges who would retire prior to that time, judges capable of assignments throughout the country?",
       "time": "00:37:54.22"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. I know.",
       "time": "00:38:38.83"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Speculating (Voice Overlap) --",
       "time": "00:38:40.72"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- my own problems here.",
       "time": "00:38:41.90"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So let's -- yes?",
       "time": "00:38:46.91"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, I -- I understand you.",
       "time": "00:38:49.55"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:00.36"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They were not.",
       "time": "00:39:09.59"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't think they could by an act of --",
       "time": "00:39:29.16"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- Congress but the court could be made into one. And those who had -- previously had a life tenure could upon re-nomination by the President for good behavior term and confirmation by the Senate.",
       "time": "00:39:31.10"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then get --",
       "time": "00:39:45.66"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that status.",
       "time": "00:39:46.18"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:52.40"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why do you -- why do you say this is not a situation which need to defer to, is it because it's the jurisdiction or the judiciary problem?",
       "time": "00:42:31.19"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, I know but that was -- that didn't meet with as much fairer advantage than it does with you now.",
       "time": "00:42:43.97"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:42:50.56"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think there -- I think --",
       "time": "00:42:59.57"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I agree with you entirely. I only want to make this qualification. To me, there's a difference when there is an act of Congress whatever weakens the statute, containing the jurisdictional or judiciary problem using that word as an adjective, and having given that of any thought that is not now raised yet but that was my view in Lincoln Mills as you know but after the decision by this Court and consideration of the problem conscious consideration by the problem, by the Congress that was true in these enactments after Bakelite, I think you've got a different situation.",
       "time": "00:43:07.39"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How do you --",
       "time": "00:43:54.64"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes -- I'm just --",
       "time": "00:43:59.95"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I agree with that. All I'm saying is where you've got to deal with the problem which is inherently returns difficulties so that men are concerned and familiarity with these problems can -- to put it mildly take two views the fact that Congress, in the light of prior decision that this Court has taken the view that it has, has weight which wouldn't be have an issue of.",
       "time": "00:44:29.07"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind --",
       "time": "00:55:44.66"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- would you mind being specific and state what matters the Court of Customs and Patent Appeals deals with that one dealt with for 50 years by Judge Hand sitting in the District and Circuit Courts in the numerous patent and unfair trade cases that he had.",
       "time": "00:55:45.27"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right. That's what I thought.",
       "time": "00:56:09.33"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that isn't -- as I understand it, that isn't -- the subject matter is non-judicial but it isn't final because the President can exercise its political power to -- to reject it.Isn't that right?",
       "time": "00:57:30.45"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But suppose you -- suppose you take it at face value that they differ from the power which the Courts of the District have which are now constitutional court could fix the rates.",
       "time": "00:58:25.75"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Robb.",
       "time": "00:59:37.50"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What was the tenure advantage Mr. Robb?",
       "time": "01:05:15.66"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What was the tenure of those judges in the Seventh --",
       "time": "01:05:18.24"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Life.",
       "time": "01:05:21.61"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may take another minute to --",
       "time": "01:10:20.74"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- to finish it.",
       "time": "01:10:22.94"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I want to ask you one question.",
       "time": "01:11:04.80"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "With reference to the first part of your argument.",
       "time": "01:11:07.14"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You drew distinctions along the line of difference between a legislative court and an Article III court.",
       "time": "01:11:10.70"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't -- I find it difficult to decide, difficult to follow that what you meant by that in this respect -- in this respect, I understood you to say that the District of Columbia, a man could be tried for what you call a legislative court.",
       "time": "01:11:21.17"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And one wherein could be tried -- which could only be tried in places outside of the District Court. In other words --",
       "time": "01:11:42.23"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- define that murder case.",
       "time": "01:11:49.29"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could you tell me what is (Inaudible)? In the structure, in the -- the significant in the structure --",
       "time": "01:11:52.73"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- or in the method of administering the (Voice Overlap) --",
       "time": "01:12:01.05"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You draw your distinction there between a misdemeanor and something else. Suppose its murder, what's the difference? What could be the difference as the way it functions? Someone will operate --",
       "time": "01:12:35.48"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- forgetting the word legislative Article III --",
       "time": "01:12:47.41"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and everything else.",
       "time": "01:12:51.04"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I understood you to say though it could -- the cases could be tried differently as the man and the people in other states and places, had to be tried by the federal court one way for their crime but could be tried a different way, crime generally could be tried a different way in the District of Columbia.",
       "time": "01:12:55.66"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you talking about how it is done?",
       "time": "01:13:35.56"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose it's a murder, are you taking, as I gather, you have drawn in distinction between the way people could decide constitutionally --",
       "time": "01:13:37.99"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- in the district and outside.",
       "time": "01:13:48.96"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could there be?",
       "time": "01:13:51.20"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there -- is your case dependent on that?",
       "time": "01:14:14.98"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If the argument has been made on the side you are on, leads to the conclusion that people charged with felony or a crime can be tried one way under the Constitution in the District of Columbia, another way in the -- outside of the District of Columbia to the disadvantage of either that would raise different questions so far as I'm concerned.",
       "time": "01:14:42.44"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't intend evidently.",
       "time": "01:15:17.15"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm trying to find what you meant.",
       "time": "01:15:19.05"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean to be tried by a judge not appointed for life as independent as you know constitutionally --",
       "time": "01:15:32.61"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- right to there -- in the District of Columbia?",
       "time": "01:15:40.23"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I -- that's what I thought.",
       "time": "01:15:57.39"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I hope it's not.",
       "time": "01:16:11.29"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I can't see is that if the whole argument is based on that assumption --",
       "time": "01:16:15.60"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- it is not here.",
       "time": "01:16:20.99"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, the Solicitor General says that he makes that either inconsiderable the Congress could do it, could provide.",
       "time": "01:16:43.37"
     },
@@ -1181,13 +1181,13 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The Solicitor General meets Justice Black's question had on by saying that for a local crime in the District of Columbia, Congress could provide for a trial written through an Article III judge in the sense of one having (Inaudible).",
       "time": "01:16:52.52"
     },
     {
       "turn": 191,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And so do you.",
       "time": "01:17:11.60"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- (Voice Overlap) -- backing away from that argument --",
       "time": "01:17:13.79"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "So your case doesn't involve it.",
       "time": "01:17:16.48"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you've said it explicitly that you agreed in that.",
       "time": "01:17:18.78"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Congress not only could do it but did do it.",
       "time": "01:17:22.60"
     },
@@ -1247,13 +1247,13 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In the 19th century.",
       "time": "01:17:25.64"
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The other way around is Justice Black's trouble --",
       "time": "01:17:26.78"
     },
@@ -1265,13 +1265,13 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the other way around is important too. Not that Congress did it, but couldn't.",
       "time": "01:17:29.75"
     },
     {
       "turn": 205,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's my problem.",
       "time": "01:17:34.07"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Sometimes --",
       "time": "01:17:36.53"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- sometimes they say that Congress could not do it that way.",
       "time": "01:17:37.64"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well that's a state court.",
       "time": "01:17:53.18"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The District of Columbia is not a state.",
       "time": "01:17:55.91"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- (Voice Overlap) -- was that -- what pre-held in Tidewaters.",
       "time": "01:18:01.39"
     },
@@ -1343,37 +1343,37 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If that -- if by that is mean that people in the district must be -- can be tried for crimes precisely the argument in state, they can be tried in the state according to this Court's previous opinion without an indictment, without a jury and as you say without judge appointed for life.",
       "time": "01:18:15.40"
     },
     {
       "turn": 218,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I would -- I would say, may it please --",
       "time": "01:18:39.22"
     },
     {
       "turn": 219,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you say that that can -- that the people of the district can be tried without juries?",
       "time": "01:18:40.35"
     },
     {
       "turn": 220,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, sir.",
       "time": "01:18:44.50"
     },
     {
       "turn": 221,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap)",
       "time": "01:18:45.12"
     },
     {
       "turn": 222,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) -- different.",
       "time": "01:18:46.32"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The -- they can in state.",
       "time": "01:18:48.32"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well then of course, you are not saying that the people here can be tried as they are tried in the state.",
       "time": "01:19:19.50"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Just according to a pick and choose method.",
       "time": "01:19:26.91"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose one thought that the Bill of Rights including your whole Constitution, includes the right to be tried by a judge appointed for life independently --",
       "time": "01:19:37.18"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- what about that?",
       "time": "01:19:46.76"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gressman.",
       "time": "01:19:59.45"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:21:08.59"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:21:33.62"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:21:37.06"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:22:06.14"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:22:40.27"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:22:50.95"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We should heed common law history but not American history, is that right?",
       "time": "01:23:07.73"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "History of more than 100 years.",
       "time": "01:23:13.59"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I --",
       "time": "01:23:23.02"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I should hope -- I should suppose that in the earlier days, the Congress probably knew as much as judges, has much part of the Constitution as we know now.",
       "time": "01:23:23.85"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:25:21.03"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I thought Justice Lamberth had said that the answer to the argument was, but he got the 1922 statute for purposes of assignment in the district. I --",
       "time": "01:25:59.53"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I can't read that otherwise on the last page of his opinion.",
       "time": "01:26:10.51"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He's indicating that he thought it's alright for them to sit in the District Court.",
       "time": "01:26:14.41"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know.",
       "time": "01:26:34.52"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that's what I've been trying to suggest to you all through your arguments.",
       "time": "01:26:41.68"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You couldn't possibly justify the Commerce Court on that general talk of Justice Sutherland because that court had nothing but a jurisdiction which need not have been conferred on Court.",
       "time": "01:28:48.61"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but the Court wasn't -- the Court wasn't.",
       "time": "01:29:09.21"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm saying that therefore the Commerce Court was not a constitutional court.",
       "time": "01:29:15.13"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But Mr. Gressman, if that same statute were passed today and I was sitting on the Court of Appeals and I were appointed by the President of the United States whereas to sit on the Commerce Court, I could say very respectfully as John Jay did to Washington, you're asking me to perform non-Article III duties and to a great respect, I decline to do so.",
       "time": "01:29:48.48"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We're talking across purposes. I'm saying that they couldn't superimpose on me with the enlightenment you've given me, duties to serve on a court which is not a constitutional court.",
       "time": "01:30:32.34"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but there is a difference between a tribunal and the members there are.",
       "time": "01:30:54.23"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if the tribunal is charged with delegable duties so that which Congress as to the Emergency Court could've left with the Food Administrator or the Secretary of Agriculture, a tribunal was created according to your insistence that was not of an imperative judicial nature and no federal judge could be compelled to serve a tribunal of an imperative non-judicial nature.",
       "time": "01:30:59.22"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm trying to learn from your lesson.",
       "time": "01:31:25.52"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And they can do it?",
       "time": "01:31:38.51"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can they --",
       "time": "01:31:41.33"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- do it then?",
       "time": "01:31:41.60"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It isn't because Hayburn's case said we wouldn't do it. Hayburn's case refused to do it, the judges refused to exercise that power, why? Because that which they were asked to do are subject to review by the Secretary of the Treasury.",
       "time": "01:31:52.78"
     },
@@ -1793,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'm -- according to your definition, the Commerce Court was not a judicial body in the sense of Article III. Because --",
       "time": "01:32:20.73"
     },
@@ -1805,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- it's jurisdiction, I'm not talking about the judges, its jurisdiction -- it was given jurisdiction over matters which need not have been conferred on a court.",
       "time": "01:32:28.76"
     },
@@ -1817,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's equally subject to your condemnation.",
       "time": "01:32:43.35"
     },
@@ -1829,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand all that but it doesn't deal with your argument which I thought of -- sent to it -- you said it's sent to it.",
       "time": "01:33:09.65"
     },
@@ -1841,7 +1841,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that a court -- that as a party isn't a judge free tribunal unless it has been given by Congress the jurisdiction which necessarily must be given to court.",
       "time": "01:33:16.19"
     },
@@ -1853,7 +1853,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "01:33:30.49"
     },
@@ -1865,7 +1865,7 @@
     },
     {
       "turn": 304,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gressman, the -- the Court takes notice of the fact that you're appointed by the Court of Appeals to represent this indigent defendant and that you've not only carry it through your obligation there what you've done here in a very extensive and a very able way and we're very grateful to you for what you have -- what you have done. We thank you -- we thank you Mr. Robb for your representation of -- of the Court of Customs and Patent Appeals and of course, you, Mr. Solicitor General for your helpful manner representing the Government.",
       "time": "01:33:31.97"
     }

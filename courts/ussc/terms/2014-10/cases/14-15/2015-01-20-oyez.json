@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2014/14-15/20150120a_14-15.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "CARL J WITHROE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES M PIOTROWSKI",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 14-15, Armstrong v. The Exceptional Child Center. Mr. Withroe.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you tell me, if this is unlike those other cases where we've invoked the Supremacy Clause, what's the basis for those cases?",
       "time": "00:01:11.43"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure I understand your answer.",
       "time": "00:01:41.34"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the claim here, that there's a Federal law that is contrary to the State law, and I don't know why you can't look at this as an enforcement action. The State law won't permit these individuals to charge an amount greater than they're willing to pay. So if these doctors or providers wanted to charge more, they would be in violation of State law and would have an enforcement action against them. So, I mean, I don't -- I don't actually see this enforcement -- this enforcement argument that you're making.",
       "time": "00:01:43.92"
     },
@@ -99,13 +99,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, they could, and then you would come in and say, you violated Federal and State regulation. But you--",
       "time": "00:03:13.64"
     },
     {
       "turn": 10,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You wouldn't pay it.",
       "time": "00:03:18.97"
     },
@@ -117,7 +117,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes, but what if they just asked the -- the patient herself to -- to pay a supplemental rate? And then you would have come in and you would say, you know, you can't do that.",
       "time": "00:03:28.97"
     },
@@ -129,7 +129,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes, it's not allowed. That's right. But that's why you would bring an enforcement action against such a supplemental bill.",
       "time": "00:03:44.79"
     },
@@ -141,7 +141,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "That would be a merits question. I mean, they would make that exact claim. They would say, the rates are too low; the rates violate Federal law; we're entitled to a higher rate.",
       "time": "00:04:07.68"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We have an appendix to the red brief that cites some 57 cases. And is it your contention that those -- all of those cases fit into this mold of an affirmative -- anticipatory affirmative defense or regulation of primary conduct?",
       "time": "00:04:39.86"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could -- can you do this? I'm a doctor, and I -- say I performed some services. I send in the patient -- the bill to the patient would have been $82, all right? And the stat -- State statute says you only get 60. So I bring a lawsuit, and I say, I want 80. And you come back and say, no, the State statute says 60. I say, okay, that State statute is preempted by this Federal word that it has to be sufficient so that enough providers come along. So forget the State statute. Pay me. Now, can't he say that? And now -- in California, you could say, well, 80 is too high, you'd have to have some way of figuring out what's the right amount, but everybody would say that if it's true that 60 isn't enough to enlist, then the State statute which says 60 is preempted by the Federal. Now, that isn't trying to enforce it. What you're trying to do is enforce your claim to get some money for services rendered. Can they not do that?",
       "time": "00:05:38.26"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why not?",
       "time": "00:06:45.38"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm not saying we don't to write under 30(A). There is a plan in California, and that plan has a lot of words in it, and some of those words say that a doctor who provides services under this plan gets paid. Now, the next word happens to be $60. So he wants everything else, but when you get to that 60, he's going to say those words are preempted by the Federal plan and by the Federal statute. And -- and that doesn't seem to me to have anything about -- all these briefs are about Federal causes of action under the Supremacy Clause. This just seems like a normal case, like where -- where there's a State statute, there is a claim for services rendered, he's entitled to services rendered, but a few words of that State statute are preempted by a Federal one. Now, I -- I must be wrong so -- because this has been the second time we heard this case, and I didn't understand why it was different than that the first time. So -- so -- so if you can't -- if I'm off-base, don't bother to spend a lot of time.",
       "time": "00:06:48.71"
     },
@@ -201,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, yes.",
       "time": "00:08:04.64"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:08:06.04"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, did it go, Mr. Withroe -- and this is true of some significant parts of your brief, you might have an argument on the merits that there shouldn't be preemption here, that the nature of 30(A) is that the Federal law doesn't preempt the State law. But that's an argument on the merits; it's not a question about whether somebody can come into court and make that claim and tee it up for a court to decide whether there's been preemption in the case.",
       "time": "00:09:07.30"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--I'm sorry. Then what you're arguing is that unless there's a 1983 claim, there's no cause -- unless there's a private cause of action, there could never be a Supremacy Clause claim.",
       "time": "00:09:59.35"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But why doesn't that -- I mean, I thought that the rate that the providers can bill is the rate that CMS approves. So, first, maybe you should straighten out what is the rate. We did have the 2006 rate and that was approved by CMS. Did CMS approve the 2009 rate?",
       "time": "00:11:04.18"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And there has been -- has been no approval of the 2009 rate then?",
       "time": "00:12:06.22"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The -- the recommended rate for 2009, the -- the rate that Idaho itself said was the appropriate rate, that CMS -- CMS did not pass on that.",
       "time": "00:12:12.33"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm -- I'm sorry, what's correct? That there has been no approval of the particular rates or the methodology?",
       "time": "00:12:32.07"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I still don't understand why, as Justice Kagan pointed, that isn't just an argument on merit. If we go back to your very first statement, I thought it was important. You -- I thought you were saying -- please correct this if it's -- if it's improper -- if it's the wrong interpretation -- there -- there -- there's no supremacy problem here because the Federal government and the State government agreed. And then Justice Sotomayor said but the position of -- of the Respondents is that the Federal government was wrong. And that's just what Justice Kagan pointed out. You -- if -- if -- if there's no preemption, then you just win on the merits. And did I miss something about your -- your first statement? I -- I thought you were going to give us a principled way to say why this case is different from our other preemption cases, and you began by saying the Federal government and the State government agree. But the point is the Federal government's wrong under -- under the assumption of the Respondent's case.",
       "time": "00:13:03.24"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do they have that right?",
       "time": "00:14:24.24"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's a somewhat ineffective remedy. Let's assume, as inflation is going up constantly, what happens 2 years into the plan when providers can't work for what the State is giving or the State is imposing a tremendous hardship on them, which is happening to a lot of providers who are being underpaid. Where do they go? They can't go to the Federal agency because there's no action to challenge. So what do they do?",
       "time": "00:14:49.52"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I assume they could go to the Federal agency as well and -- and petition for a new rulemaking.",
       "time": "00:16:03.58"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if that rulemaking is denied, they could appeal on the basis that that final agency action is arbitrary or capricious in light of inflation.",
       "time": "00:16:09.56"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Kneedler. ORAL ARGUMENT OF EDWIN S. KNEEDLER FOR THE UNITED STATES, AS AMICUS CURIAE, SUPPORTING PETITIONERS--",
       "time": "00:16:25.80"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Kneedler, you can and I won't interrupt. But then get to why the various cases that we've said there are private causes of action under 1983 would survive because--",
       "time": "00:16:53.82"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--I don't understand why that is. Why is the Spending Clause different than any other provision?",
       "time": "00:18:20.42"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "We're not absent the Medicaid program. The -- the Medicaid program is just like any other statute which provides certain people with certain entitlements or abilities or benefits or something else. And the question here is whether a benefit that the Medicaid program has provided and whether a requirement that the Medicaid program has imposed on the State is being flouted, and that's the question, just like it is in any other question not arising under the Spending Clause.",
       "time": "00:18:45.98"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That still goes to the merits.",
       "time": "00:19:51.63"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But this is forgiving the essence of the Supremacy Clause question. This is about -- you're trying to make it one of is it preempted or is it not. But instead, the Supremacy Clause question is: Do you have a right to ensure that State governments are complying with Federal law, whether it's under the Appointments Clause, whether it's under any provision of the Constitution. Why is it that we should exempt out all Spending Clause cases, because that's what your argument is basically saying, from that kind of enforcement? Who's going to go around when the Federal government doesn't care to ensure that States are, in fact, doing what they promised to do?",
       "time": "00:20:07.53"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What effect would private suits like this have on HHS's ability to do its job? Would they assist HHS or would they interfere?",
       "time": "00:21:21.28"
     },
@@ -441,13 +441,13 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What do you do--",
       "time": "00:21:51.48"
     },
     {
       "turn": 67,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Judging from the -- the names on the brief, I take it that HHS does not agree with that statement.",
       "time": "00:21:51.75"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Judging from the names on your brief--",
       "time": "00:21:59.73"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--or the absence of names on your brief, I take it that HHS does not agree with that statement.",
       "time": "00:22:01.68"
     },
@@ -483,13 +483,13 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean--",
       "time": "00:22:23.08"
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I suppose -- I suppose HHS may be interested in having these provider rates raised so that they get a bigger chunk of the Federal budget. And in fact, I mean the competition here is not between the agencies and the providers. It's between healthcare sector and roads, schools, parks. I mean, the effect here is that Federal judges get to decide what the reimbursement rates are in a particular area, and it depends -- I mean, what would happen if you have five cases going, each one claiming rights to higher rates for under the roads program, under the parks program? Under what? Are you aware of any situation where the Federal judges get together and try to balance the State budget?",
       "time": "00:22:24.25"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If CSM thinks that that standard in (30)(A) isn't satisfied that they're not paying enough to enlist sufficient providers to provide the service, could CMS -- we're told in the briefs they can cut off funds. Could CMS sue this State and say, we want to enjoin you from paying less than what it takes to provide what (30)(A) calls for?",
       "time": "00:23:31.47"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you -- you agree that -- that CMS has never blessed this 2009 rate, the rate.",
       "time": "00:24:18.36"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Just to follow up, it never approves the rate in particular, right?",
       "time": "00:24:32.29"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Let's assume that I were to accept the former HHS officials' position that these private causes of action are highly important, given the limited resources of the agency. Why couldn't we suggest utilizing the doctrine of primary jurisdiction?",
       "time": "00:24:40.87"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, I'm not sure what -- “ jurisdiction ”, what that means.",
       "time": "00:25:15.17"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, this is a Federal law. They're coming in and saying if the State law violates the Federal law. On the merits, they may or may not win.",
       "time": "00:25:23.53"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But we keep going back to how is jurisdiction missing.",
       "time": "00:25:33.07"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm thinking -- I'm thinking about your -- your -- your distinction between preemption suits we've had in the past and this, which is based on the Spending Clause and there you said there's a -- there's a right to proceed or right to life or liberty or property. What about the American Trucking Association? There was an agreement with the State. There was no preexisting right. There was an agreement with the State, and then it was alleged that the Federal government is tripping on this--",
       "time": "00:26:06.58"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--So that would -- that would -- that would fit your--",
       "time": "00:26:36.76"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Why isn't -- why isn't the business of -- of medical -- providing medical services involved here?",
       "time": "00:26:50.35"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Kneedler. Mr. Piotrowski.",
       "time": "00:27:07.73"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm sorry. That just confuses me. Suppose you were for their approving a methodology that would end up with Dr. Smith getting $60. Okay? So what do -- why do you attack it? You approved it. If you wanted it, if you like -- you're saying they had a methodology, you approved it, you liked it. Now they apply it and he gets the $60, you think he should get 80. But I mean, how does this -- now I'm confused.",
       "time": "00:28:11.46"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "That's -- that's your whole claim, right, is that they didn't -- the State didn't apply the methodology that the State developed and that CMS approved. So CMS is completely consistent with your position. The only--",
       "time": "00:28:40.33"
     },
@@ -657,13 +657,13 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--thing that is inconsistent with your position -- and the Department, for that matter, is consistent with your decision. The only thing that's inconsistent with your decision is the State's willingness to go ahead with the methodology that its own department devised and that HHS, CMS approved.",
       "time": "00:28:52.29"
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Approved. Well, then, why didn't you just sue -- see, that's why -- look. You think -- the doctor says $80, I want 80, you have some statute in there that says 60. Okay. I'm suing you. There must be a whole set of rules that say when doctors get paid under this program. Probably half are State, half are Federal. So he brings a suit under those rules; and when they come to the number that's there, they say, I'm so sorry, but that number has been preempted by the Federal determination under this statute. Now, why is -- well, I can't get away from that because I don't see why that -- I don't understand what's wrong with what I'm saying.",
       "time": "00:29:10.22"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There's no set of rules that allows the doctor to say -- in other words, it's not the State that pays the doctor? Who pays the doctor?",
       "time": "00:30:11.30"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If there were a set of rules to that effect, would you still have an action under the Supremacy Clause, or not?",
       "time": "00:30:29.33"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So -- but what you're saying is if the -- you cannot rely on the Supremacy Clause to enforce the action in that case because there are particular rules that give you an avenue of relief, right?",
       "time": "00:30:43.98"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. How is that different than -- I mean, from the private cause of action? What you're saying in that case is you're not going -- you know, you're going to follow these rules in one situation, but you're not going to follow the rules in the other situation.",
       "time": "00:30:55.89"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's a good question.",
       "time": "00:31:28.65"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "When Congress has been silent. What if Congress has been express? What if they say in the statute, and to be clear, there is no private right of action to enforce this provision, under the statute, under the Supremacy Clause, under anything?",
       "time": "00:31:49.06"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if it -- what if it means that Congress doesn't want to review a private right of action? Because for the reasons that have been set forth in our implied right-of-action cases, there's an expert Federal agency that regulates in this context, there's other avenues of relief for people, they just say, look, we're entrusting this to HHS. It would be too difficult if every provider can bring a cause of action, if every provider under every provision of the healthcare act can bring a private right of action, we want the agency to be the one in charge of implementing this.",
       "time": "00:32:24.38"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And if you say that Congress can cut off -- that it can prevent a suit like yours, if it says that expressly, I don't know why it doesn't follow that Congress can also do that if it is clearly -- if we can clearly infer from the statute that Congress didn't want that, where do you get -- where does this express statement rule come from?",
       "time": "00:33:14.05"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How about 1983? Do you agree that there's no 1983 claim here?",
       "time": "00:34:05.38"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When you say it's clear -- it's clear to exclude a 1983 claim, but it's not clear to exclude the claim that you're bringing--",
       "time": "00:34:17.49"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--why is that?",
       "time": "00:34:26.39"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't there a difference in the remedies of the two actions?",
       "time": "00:34:36.47"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I mean, you know, when we're talking about a private right of action, we're talking about damages, we're talking about restitution, we're talking about all sorts of things. Here, we're talking just about stopping the State from doing something that's wrong. Isn't that it?",
       "time": "00:34:40.65"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Let me try once more. I did understand all these molecules. I ought to be able to understand this. I don't know if I can. Maybe I'll put it this way. This is how it always seemed to me it should work, but apparently it can't. I'm a doctor, I want $80. Under the -- under the -- under the rules of California, I can go ask for 60. So I follow all those rules, I file my claim, and when it comes to the number, I put 80 instead of 60. All I did was change the 8 to the 6. And the defense says, hey, you shouldn't have changed the 6 to the 8. I say I did that because the 6, that number 6, is preempted by this language in Section 30 of the Federal thing, and I think, though it doesn't tell you, it should be 8, okay? Now I've got my preemption into the case. If the district judge agrees with me, he's going to make a point. He's going to say: We can't have 500 different judges deciding whether it should be an 8 or a 3 or a 5 or some other thing. Don't worry; there's a doctrine called primary jurisdiction; go ask the agency what to do. And the agency will either tell you, hey, there's no problem with the 8, or it will have a hearing or it will submit a brief. It will do something and everything will work out. We'll get there. But now, there's lots wrong with what I just said. Maybe you can't even know where to begin. But insofar as you can shed some light on it, I would be helped.",
       "time": "00:35:08.98"
     },
@@ -843,13 +843,13 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There used to be a fairly well established doctrine at the Civil Aeronautics Board, of blessed memory, and the -- the -- they'd sometimes get briefs, sometimes they'd send the parties over. There were ways of doing it. Now, that doctrine I don't think is too live, and if -- so maybe you shouldn't go on. Just leave me to try to do my best.",
       "time": "00:37:19.76"
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. May I go back to this -- what you started with earlier. You're okay with the methods and procedures that have been approved for the States setting rates. You're saying they misapplied--",
       "time": "00:37:41.61"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--What exactly are you saying? Because you keep saying, I'm entitled to more money. But what did they do wrong?",
       "time": "00:37:57.11"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Right.",
       "time": "00:38:15.20"
     },
@@ -885,13 +885,13 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you're saying--",
       "time": "00:38:50.91"
     },
     {
       "turn": 141,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Can I ask you this question to understand how far your argument goes? Federal law still makes it a crime to sell marijuana. Some States have legalized the sale of marijuana. So let's say there is a party in one of these States who can satisfy Article III standing, is injured in fact by the sale of -- of marijuana, the person lives near the facility, the person says it causes crime and so forth in the area. Could that person file a lawsuit like yours based on the Supremacy Clause to challenge the State law legalizing marijuana?",
       "time": "00:38:51.29"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But you're saying there wouldn't be Article III standing. My hypothesis is that the person could show injury in fact and the other elements of Article III standing.",
       "time": "00:39:49.93"
     },
@@ -915,19 +915,19 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about if--",
       "time": "00:40:32.19"
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If you have--",
       "time": "00:40:32.78"
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--In this case -- in this case there is a puzzle based on the district court's determination. (30)(A) is what you're relying on and it requires sufficient -- all that, sufficient to enlist enough providers. According to the district court, all eligible recipients received the services that they needed. So again, there was no waiting list; nobody's being kept waiting. These providers, while they say they're not getting enough, are still providing the service. So where is the 30(A) violation?",
       "time": "00:40:33.56"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you look at this and say, well, the service was efficient, it was economical, quality care, and it enlisted enough providers.",
       "time": "00:41:52.84"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Could I -- but that's really irrelevant -- it's not relevant to -- to your argument. You're saying CMS approved a certain method and procedures for setting the rate. The State didn't follow what CMS required, and -- well, what they agreed to. And as a result of that, the rate was -- the rate they set had nothing to do with the method and procedures that had been set. Doesn't matter whether it's efficient, it doesn't matter what it is. The bottom line is that they were required to follow a certain method and a certain procedure. Am I correct about that?",
       "time": "00:42:18.46"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Absolutely.",
       "time": "00:43:08.95"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--What -- there are dozens of different types of providers under the Act. There's home care providers, you have dentists, you have brain surgeons, orthopedic surgeons, everything. And in most instances -- I don't know, maybe all -- they have a similar provision: Rates have to be reasonable to ensure the availability. Now, what do you do if -- if each of those providers bring a lawsuit similar to yours? The effect, it seems to me, will be putting the setting of budget priorities in the hands of dozens of different Federal judges, and I just don't know what the practical significance of that's going to be.",
       "time": "00:43:14.24"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's in each -- in each particular case, right? Let's just say down the street in the next courthouse or across the river in Montana or whatever that there is a suit going on for orthopedic surgeons. Their rates are not reasonable and they bring the same suit. What -- it seems to me that this is a prescription for budget-busting across the board.",
       "time": "00:44:09.52"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's not the problem, the problem -- that's -- I mean, that underlying this is what's bothering me, that you have a very strong case, in your view, that there is a number, the number is produced by CMS methodology, they just didn't follow it. And, therefore, all the relief you need is tell them follow the Federal rule, which is CMS period. But if your suit is allowed, I do not see how you distinguish -- let's say there are 5 million case, there is an approved rate-setting methodology and medical procedures. Each has a cost. There are 500 judges. And 500 times 5 million is an awful lot of numbers and they will conflict with each other. And how do we get some coherence out of this? Although you've solved the problem here, we can't close the door to everybody else if we open it to you. So how is that problem solved? That's why I was harping on primary jurisdiction, et cetera. But what I'm looking for is the solution to the problem the Chief Justice brought up.",
       "time": "00:44:47.77"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. Are you asking us to send this back to the agency?",
       "time": "00:45:53.20"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:45:59.18"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But you don't want us to send it back to the Federal agency so they can tell us whether you're right or wrong about the number?",
       "time": "00:46:05.04"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They approved the methodology. They didn't approve the number. That's what you're challenging here, not the methodology. You agree with the methodology. You can't at one and same -- at the same time agree that this is a primary jurisdiction case and yet not ask to send it back to, to the Federal agency.",
       "time": "00:46:15.43"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is it?",
       "time": "00:46:36.00"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see. It's too late for that now.",
       "time": "00:46:41.31"
     },
@@ -1083,13 +1083,13 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Piotrowski--",
       "time": "00:46:47.87"
     },
     {
       "turn": 174,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It seems to me if I understand your claim, it's that CMS has already spoken. All you're asking is for the State to come into compliance with what CMS said, that's it.",
       "time": "00:46:48.47"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So they're not going to send it back for you. They've already spoken. You're just asking the State to come into compliance with what HHS has said.",
       "time": "00:47:00.10"
     },
@@ -1113,19 +1113,19 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "HHS has not said $80. It has said the methodology. If you think $80 is not in accord with the methodology, according to Justice Breyer you should send it back to the Federal agency--",
       "time": "00:47:09.06"
     },
     {
       "turn": 179,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, you think--",
       "time": "00:47:21.11"
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--under primary jurisdiction but you didn't ask for that and you still don't ask for it.",
       "time": "00:47:21.51"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--That's the problem. I mean -- but now we're getting to the merits and it's not before us. Justice Breyer was absolutely right and this answers just -- the Chief Justice's point. The injunction here should have been a simple one: State, come into compliance with the methods. The -- they may have come out to the same number if they had figured it out. Armstrong was the guy they -- who published, but the State didn't accept that number. But they should have done the method and presented the figure to the judge. But that's not what happens here, correct?",
       "time": "00:47:38.75"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right.",
       "time": "00:48:19.41"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So maybe there's something wrong with the injunction, but all you were seeking was compliance with Federal law, follow the methods and procedures that CMS approved.",
       "time": "00:48:19.87"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, if that's correct, then it's -- again, as Justice Breyer pointed out, there's no way to allow you to seek that relief under an implied right of action under the Supremacy Clause without opening the courthouse door to everybody who says the Federal law was not followed, whether it was in going from 80 to 60 or improving the methodology or whatever.",
       "time": "00:48:36.30"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, so it doesn't matter. The discussion we'd be having over it's whether it's 60 or 80, the rates, or if it's the methodology. Under your theory of the case, it doesn't matter. You still get into Federal court, right?",
       "time": "00:49:03.51"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If I understand your position, it is that the Federal Government could create a system in which it's for the Federal agency to decide whether the State has complied or not. It can do that. It just has not done so expressly here, right?",
       "time": "00:49:30.80"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you say it cannot do so impliedly.",
       "time": "00:49:51.78"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think they're -- they're asserting that under our standard there -- there is no private right of action unless it is created by the Congress and we do not have implied rights of action. Now, you -- you want to create an implied right of action here. I -- I don't know why that isn't implicit in the scheme. Congress did not give a right to the providers. It -- it provided a remedy through the Federal agency.",
       "time": "00:50:13.56"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That may well be, but it seems to me it's -- I am able to say that -- that when Congress wants the scheme that you desire, it creates a private cause of action. It has not created a private cause of action here and, therefore, it impliedly does not want the scheme that you desire.",
       "time": "00:51:11.75"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If the plaintiffs in Sandoval and Gonzaga, for example, had brought a suit like yours, would they have stated a claim?",
       "time": "00:51:50.61"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So they just missed -- they just missed the boat. They didn't -- all of this has been clear for 200 years, but they missed it and the court missed it, right?",
       "time": "00:52:02.84"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So the Court spent a lot of time determining whether there's an action -- whether there's a claim under 1983 or whether there's an implied cause of action at all was clear and has been for a long time under the Supremacy Clause itself?",
       "time": "00:52:11.42"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Could I--",
       "time": "00:52:40.02"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Mr. Piotrowski, could I go back to Justice Breyer's question and just if you will tell me if you agree with this. In the -- in the mine run of cases, CMS will have approved something. It will have approved a methodology and/or a set of rates. And -- and somebody's going to come in and challenge that and -- and they're going to lose, right? Because the Court is just going to say, we give deference to CMS and CMS has approved what the State has done -- is doing, end of case, correct?",
       "time": "00:52:50.06"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So that leaves I think two kinds of cases. And it's exactly the kinds of cases that we've seen in Douglas and in this case. In Douglas the State just flouts CMS. It says we're going to go ahead and do what we want without seeking their permission. States usually don't do that, but that's what they did there and that gave rise to a claim which was not so easy to dismiss. And then in the second kind of case, the State goes to CMS, says: \"This is what we'd like to do. \" CMS says: \"You're right, this is a great thing to do. \" And then the State just doesn't do it. All right. So it's these two very cabined circumstances: One where the State flouts CMS; and the other where the State asks CMS, gets its approval and then decides, we're not doing it. Those are not the mine run of cases. The mine run of cases are going to be extremely easy, I would think, under standard principles of deference, to deal with.",
       "time": "00:53:23.09"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Are those merits determinations?",
       "time": "00:54:32.69"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you agree -- do you agree that -- with your brother that -- that C -- CMS could have gotten this injunctive -- could have gone into court and said, they told us this is their method, they didn't follow it, court enjoin them from not following the method?",
       "time": "00:55:12.63"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You're saying it's clearly right under the law because of CMS that we should get $80. Clearly right. Now, for a variety of reasons, we can't just go into court and say, give us the 80. But what we want to do is reverse it. Ask that the Federal law preempts the State's reason for not giving us the 80, namely, that statute. Is that right? That's the form of this suit?",
       "time": "00:55:32.74"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can CMS go into court as you say? I thought -- I thought what CMS can do is to -- is to simply refuse to fund the program.",
       "time": "00:56:07.69"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that right? Do you know of any cases where that's what CMS does instead of -- instead of using the coercive power it has to simply cut off the funding? I thought that was its only remedy.",
       "time": "00:56:22.01"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's had that power but never used it.",
       "time": "00:56:36.17"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does CMS routinely -- and do Federal agencies that have this Draconian power -- do they in fact -- are there in fact fund cutoffs? I mean, the reality is that a fund cutoff hurts everybody; the recipients don't get the benefits, the providers don't get money for the services they rendered. So it's a theoretically very powerful remedy, but practically it's never used as far as I know.",
       "time": "00:56:39.69"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Withroe, you have four minutes remaining.",
       "time": "00:57:18.80"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Sorry, Mr. Withroe, but I just -- when you say that, I mean, my understanding of the district court's opinion was that it was specifically -- it wasn't sort of doing this on its own in deciding what would be efficient by its lights. What it was entirely based on was the State's own cost studies and it was just saying that the State had already decided this and because the State had already decided that this was necessary in order to meet the standard, that the State had to comply with its own views.",
       "time": "00:58:12.04"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So are you agreeing with him that you didn't follow the procedures and methods set out in (30)(A), that you went about it your own way?",
       "time": "00:59:03.08"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Let me -- let me go back to -- forget your position, take my hypothetical. You didn't follow the methods and procedures. Who has -- do they have any right to come in on ex -- on an ex parte Young theory--",
       "time": "01:00:29.94"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--and say, moving forward, follow the procedures and set a rate consistent with the methods and procedures that you obligated yourself to do.",
       "time": "01:00:47.33"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:23.42"
     }

@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1274/19851104a_84-1274.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL BRADFIELD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY S. DAVIDSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JOHN D. HAWKE, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Board of Governors of the Federal Reserve System against Dimension Financial Corporation, et al. Mr. Bradfield, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bradfield, in 1966 when Congress was considering adopting the definition, did the Board propose to Congress that, in defining demand deposits, that it include accounts which in actual practice were paid on demand? Was that a suggestion made by the Board to Congress in '66?",
       "time": "00:03:37.30"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but my concern is to determine whether it be the essence of the present Board rule and position was one that was suggested by the Board itself to Congress in 1966 and resulted in the adoption of somewhat formalistic language by the Congress that rejected--",
       "time": "00:04:19.91"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, can we say in concluding that Congress did not intend to pick up passbook savings accounts?",
       "time": "00:05:21.87"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, tell me whether you think literally the Board's new definition of a NOW account is broad enough to pick up passbook savings accounts.",
       "time": "00:05:34.37"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, does the literal language of the Board's new definition cover... is it broad enough to conceivably cover passbook savings accounts?",
       "time": "00:05:55.03"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Bradfield, if you turn to page 2 of your petition for certiorari, and you probably have this material at hand without turning to it, if you look at the statutory definition in 1841(c), that a bank means any institution which accepts deposits that the depositor has a legal right to withdraw on demand. And then, if you look right below below it to the regulation, the regulation comes along and says deposits that the depositor has a legal right to withdraw on demand means any deposit that, as a matter of practice, is payable on demand. Now, I... that doesn't strike me as being within what Congress was talking about. Congress says you have to have a legal right to withdraw on demand, and the Board says no, it's just a practical matter.",
       "time": "00:06:56.94"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, perhaps that's a sensible answer to my question, but I had intended to get at another point. It seems to me... It seems to me when Congress has said that... they're talking about deposits that the depositor has a legal right to withdraw on demand. And then the Board comes along and says this language that Congress means, means any deposit that as a matter of practice is payable on demand. And it seems to me that that's a significant alteration of Congress' meaning. Congress was talking in pretty strict terms about the legal right to withdraw on demand.",
       "time": "00:08:11.79"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well why, then, did they use the rather technical language \"has a legal right to withdraw on demand? \"",
       "time": "00:09:26.45"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, yet, they didn't take the Board regulations, they took this much stricter language.",
       "time": "00:09:39.75"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does... Does a NOW account really differ significantly from the kind of account you just referred to?",
       "time": "00:11:57.48"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bradfield, if your position... if the Board's position with its new definition of NOW accounts is invalid, do I understand that it would then, it would be required that some industrial loan companies go out and purchase, try to purchase FDIC insurance, which for other technical reasons they would not be able to do? Are we going to have a hiatus in the requirements?",
       "time": "00:12:54.78"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bradfield, did these institutions change their routine practice of allowing withdrawals on demand?",
       "time": "00:14:21.92"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did they change their--",
       "time": "00:14:32.68"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--If they change the practice, where would you be then? Without... you rest quite heavily on that.",
       "time": "00:14:45.69"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then it wouldn't be like an ordinary bank anymore.",
       "time": "00:15:00.98"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, certainly other agencies have expressed disagreement with the Board's regulation, have they not?",
       "time": "00:17:47.66"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I wasn't taking so much of a poll of all the affected parties as the fact that perhaps other federal agencies who disagree might suggest that your construction of federal law might be mistaken in a way that it wouldn't be if they didn't disagree.",
       "time": "00:18:32.62"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bradfield, Justice Rehnquist emphasized the word \"legal right\" in dealing with deposits, and I was also interested in your comments on the second statutory requirement, and particularly the word \"making\", in the business of making commercial loans. Are you going to address yourself to that? It seems to me that your regulation expands that concept rather dramatically.",
       "time": "00:19:44.38"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Making commercial loans.",
       "time": "00:20:23.56"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bradfield, the question here is, of course, not what is the sensible and sound thing to do. We could concede that the Board has come to very sensible conclusions. The question is more narrowly whether we can... whether the Board can construe the statute that way.",
       "time": "00:23:42.90"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Davidson.",
       "time": "00:26:00.40"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Nonaction, nonaction by the Congress is hardly a very weighty consideration with the Courts.",
       "time": "00:30:53.55"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Davidson, now the Board's new definition of commercial loan seems to boil down, basically, to saying that it covers any extension of credit between two parties where neither is a consumer, and that strikes me as perhaps consistent with the broad general term commercial loan, which Congress did not choose to define very specifically.",
       "time": "00:31:48.86"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how about some of these other items that are included in the definition?",
       "time": "00:33:15.23"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Davidson, can I just ask you one question?",
       "time": "00:36:32.60"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing a bank does make a big loan to a manufacturer; a million dollar loan. And then after it's partially paid off, the bank... another bank purchases that loan from the first bank. Has the second bank made a commercial loan?",
       "time": "00:36:34.46"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I realize it's a commercial loan. Has the second bank made a commercial loan, in your view?",
       "time": "00:37:00.40"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Hawke.",
       "time": "00:38:29.48"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have five minutes remaining.",
       "time": "00:48:18.27"
     },
@@ -399,13 +403,13 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:53:18.79"
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at 10 o'clock.",
       "time": "00:53:21.01"
     }

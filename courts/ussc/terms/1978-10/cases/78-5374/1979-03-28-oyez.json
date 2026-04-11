@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/78-5374/19790328a_78-5374.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "HOWARD L. CARDIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STEPHEN H. SACHS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Smith against Maryland. Mr. Cardin, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, actually, your client will be a lot better off if we still had the system where the operator answered when you picked up the phone and said “number please,” wouldn't it-- wouldn't he?",
       "time": "00:00:57.05"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, modern technology is actually improving the position of your client in this case?",
       "time": "00:01:18.18"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't one of your arguments that under mo-- under the modern technology, whereby local calls simply are not monitored by the telephone company, there is an expectation of privacy because nobody except the caller knows and under the old technology, whereby the telephone company operator asked you for your number, you knew that you were telling the third party what the number was.",
       "time": "00:01:45.51"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cardin, in agreeing with Mr. Justice Rehnquist, are you saying in effect that you would agree there would've been no search in the olden days, let's call it, my kids like to refer to it, when-- if it sat-- if a police officer had sat to the operator and broke down all the numbers that from a-- when a particular-- it said, “every time number so-and-so calls, I'd like to know who they're calling,” and he just sat there and wrote down the numbers they would call. There'd be no search there.",
       "time": "00:02:18.88"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then, if there's no expectation of privacy, there's no-- well, at least there's no-- at least, no Fourth Amendment question.",
       "time": "00:02:51.16"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Alright.",
       "time": "00:02:56.44"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:02:57.40"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And a good-- and the answer to this question would depend upon--",
       "time": "00:03:14.90"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What she did.",
       "time": "00:03:17.79"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You're not-- are you suggesting this couldn't be done without a warrant?",
       "time": "00:04:14.57"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It couldn't be done under any circumstances?",
       "time": "00:04:21.43"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, wouldn't the average subscribers due to know that?",
       "time": "00:05:16.53"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Even if it's not asked, it's not private.",
       "time": "00:05:28.94"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, he knows it's not private locally that, at the time, the phone company will cut in.",
       "time": "00:05:33.85"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there are occasions?",
       "time": "00:05:46.02"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right.",
       "time": "00:05:51.23"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cardin, do you think the police need a warrant to use a tracing device?",
       "time": "00:06:14.86"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you're going to find out where-- you're going to find out where the call came from and invade that person's privacy, aren't you?",
       "time": "00:06:22.02"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it obtains information about the other end of the line without the knowledge of the person at the other end of the line.",
       "time": "00:06:53.56"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Certainly and it defines, say, A calls B. You put the device in B's phone.",
       "time": "00:07:05.22"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You find out that A made the call and A didn't expect you to find that out. Why isn't that a precisely the same invasion of A's privacy as if you put it on A's phone?",
       "time": "00:07:09.42"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not until after they found out that a call originated from Michael Smith's phone, which they found out by putting a tracing device on B's phone and finding out that A called and originated from A's phone. Isn't that right?",
       "time": "00:07:30.29"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but for purposes of my question, couldn't a-- if it had gone directly to A's home and you, thereafter, put it. Why isn't the tracing device just as much an invasion of privacy as the pen register?",
       "time": "00:07:48.31"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And in terms of expectation of privacy, is there a difference?",
       "time": "00:08:05.36"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in the record about all these different things?",
       "time": "00:08:40.09"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in the record about tracing and all of these different things?",
       "time": "00:08:44.08"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:08:49.19"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, because you're wrong on your facts about the eye spring.",
       "time": "00:08:51.63"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You pause up to the form and you get back the exact number of the phone that was called, where it's located, who it's register to, etcetera.",
       "time": "00:09:02.35"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would you stick with the record on it?",
       "time": "00:09:19.41"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That depends on what state you're in, doesn't it? I mean, in the State of Virginia, for example, you don't. You have to dial the area code, but you don't dial 1.",
       "time": "00:10:50.16"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless this callee happens to be a police informant.",
       "time": "00:13:27.81"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but the person who answers the phone though is-- knows the that the other person called him.",
       "time": "00:13:35.90"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I certainly know that you called me.",
       "time": "00:13:44.17"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No.",
       "time": "00:13:50.38"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I-- if you say who you are, I know you called me.",
       "time": "00:13:54.64"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's not true in the case of an arrest, is it?",
       "time": "00:14:42.43"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought it's search or seizure.",
       "time": "00:14:46.90"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cardin, how can there be particularity? You put the device on. It's on 24 hours a day, isn't it?",
       "time": "00:16:00.91"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what grants the probable-- on basis of probable cause, find that hundreds of numbers are probable engaged in violation of the law and, therefore, they're all subject to penalty?",
       "time": "00:16:35.29"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your particularity then means limited to one phone, not to what can be done to that phone.",
       "time": "00:17:02.87"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:17:07.23"
     },
@@ -565,13 +565,13 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You're not talking about hundreds of phones.",
       "time": "00:17:13.32"
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One phone.",
       "time": "00:17:15.88"
     },
@@ -583,19 +583,19 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, we thought a tall building with hundreds of phones.",
       "time": "00:17:17.67"
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One phone.",
       "time": "00:17:20.85"
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you know the cost to that, you--",
       "time": "00:17:21.02"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Cardin, did your Court of Appeals hold that this was a search and seizure but didn't require a warrant or that it was not a search and seizure?",
       "time": "00:18:25.06"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're not talking about-- if you're comparing the necessity of a warrant to doing it simply on probable cause without a warrant, I take it, that has no applicability here.",
       "time": "00:18:42.04"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they were designated by statute.",
       "time": "00:19:22.90"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the State of Maryland could provide by similar statute that warrants could only issue under terms of that statute. It hasn't done so here, I take it.",
       "time": "00:19:36.59"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, what's Giordano got to do with its statutory requirements about the-- with this case?",
       "time": "00:19:51.62"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Cardin, was-- what was introduced into evidence against your client as a result of the attachment of the pen register?",
       "time": "00:22:34.21"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What?",
       "time": "00:22:47.17"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But-- and then, was the photograph admitted into evidence-- At the trial?",
       "time": "00:23:26.38"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He would never have been arrested--",
       "time": "00:23:48.80"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Without the pen register, but that's even assuming a gross violation in his arrest, can he-- even assuming you're right and that his arrest was a result of a gross violation or a vio-- a very conceded violation of the Fourth and Fourteenth Amendment, does it follow that his conviction gets set aside? I'm thinking of cases like Frisbie against Collins, of which you may be familiar with, where the defendant was kidnapped and abducted from one state to another to stand trial and this Court held a non-constant. That has nothing to do. He got a fair trial and we don't disturb his conviction, even conceding this was a gross terrible violation of his--",
       "time": "00:23:50.07"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Fourteenth Amendment rights prior to trial.",
       "time": "00:24:37.08"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It resulted in his arrest.",
       "time": "00:24:57.67"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Attorney General.",
       "time": "00:26:11.31"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, don't you-- are you suggesting there is no right of privacy or no expectation of privacy as to what calls are being made, it is to whom they are being made, if they're calling from your home or your office?",
       "time": "00:27:38.28"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you mean the phone company wouldn't be subject to suit if they were-- gave that information to a third party?",
       "time": "00:28:44.64"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The phone company-- the police officer is going to also get unlisted phones, too.",
       "time": "00:29:19.16"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't see why that makes it legal just because the police officer can do it.",
       "time": "00:29:27.38"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't think you need all of this for your argument. Excuse me, I couldn't--",
       "time": "00:29:34.00"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm sorry. I apologize.",
       "time": "00:29:39.03"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let me see that a minute, Mr. Attorney General. Suppose you have a very distinguished physician, lawyer, public servant, whatever but he has the vice of being fascinated with horse races and he is everyday calling and placing bets. Perhaps he's an elective officer and doesn't want that known. Wouldn't you think he would have some expectation that the fact he's calling the bookie once or twice a day to place bets would be an entirely private matter? It's his own private vice.",
       "time": "00:30:60.00"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's true of a distinguished physician who commits statutory rape, too, I suppose with the implicit assumption that his victim would not inform on it.",
       "time": "00:31:59.13"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Those are unlawful. You're speaking of a lot of unlawful things. There's nothing unlawful about calling a bookie. At least in Maryland I guess there isn't, is there?",
       "time": "00:32:35.87"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let's assume, the state-- I thought Maryland-- gambling was legal in Maryland because you have horse racing and I didn't think horse racing survived except by gambling, but let's suppose you've got a state--",
       "time": "00:32:49.11"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the governor of the state probably in a-- let's take Utah now and he's placing telephone calls to a bookie. He certainly hopes that's not going to be made known to a predominantly Mormon population in the State of Utah, isn't he?",
       "time": "00:33:12.87"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you say there's no reasonable or legitimate expectation of privacy. This is a risk he takes.",
       "time": "00:33:35.09"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr.-- General Sachs.",
       "time": "00:36:13.08"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What do you do with your opponent's example of a maid in a hotel room? You certainly have an anticipation that a third party will be in the room which don't expect the police to come in.",
       "time": "00:36:14.50"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And used to convict me and put me in jail?",
       "time": "00:37:34.02"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's a lot different from a pork chop.",
       "time": "00:37:36.90"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Going back--",
       "time": "00:37:40.91"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Going back, Mr. Attorney General, to the hotel room, I would assume everyone takes the risk that if he leaves a 45-automatic on the top of the dresser in a hotel room or a package of marijuana, that the hotel maid is under instructions and is very likely to report that to the housekeeper who'll report it to the manager who will report it to the police.",
       "time": "00:37:43.46"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Attorney General. Do you have anything further, Mr. Cardin?",
       "time": "00:39:40.40"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's attached to telephone company property, isn't it? It isn't attached to the defendant's property. It's attached to the telephone company's lines.",
       "time": "00:40:16.53"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In Katz, the surveillance was on telephone company property.",
       "time": "00:40:45.76"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A payphone booth.",
       "time": "00:40:49.13"
     },
@@ -1027,19 +1027,19 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would you say if the telephone company sent a letter to all its subscribers and says “from here on, we are publishing the list of-- or available in our office on demand or on request is the list of all the calls from any telephone in the city. We just--",
       "time": "00:41:22.80"
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Under the Freedom of Information Act.",
       "time": "00:41:40.78"
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "“We just-- they are ju-- we're just-- anybody who wants them can have them.”",
       "time": "00:41:42.50"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you have no complaints about that then.",
       "time": "00:41:54.62"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you're just-- you're relying on somebody else for confidentiality.",
       "time": "00:42:04.82"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're relying on the telephone company though not to-- not itself to keep track of the calls that you're making and publishing them.",
       "time": "00:42:17.83"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you are.",
       "time": "00:42:27.62"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your answer is yes.",
       "time": "00:42:28.40"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Under Mr. Justice White's question, when the telephone company announced it, you'd be in the same situation on local calls as you would on long distance calls, wouldn't you?",
       "time": "00:42:29.48"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And there's no intrusion.",
       "time": "00:42:41.47"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Or any kind, because it's what comes out of the house not what goes in the house.",
       "time": "00:42:48.60"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, what-- when the telephone company puts the pen register on, all that monitor is what comes out.",
       "time": "00:42:56.68"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the only thing it monitor is the dig-dig-dig-dig. That's all, nothing else.",
       "time": "00:43:07.71"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's the number called, the dig-dig-dig-dig.",
       "time": "00:43:13.81"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And, now, is there anything in the record who pays for this? The government pays for it, doesn't it?",
       "time": "00:43:18.34"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Or if the for--",
       "time": "00:43:26.55"
     },
@@ -1207,13 +1207,13 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Gentlemen. The case is submitted.",
       "time": "00:43:57.51"
     },
     {
       "turn": 196,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10:00.",
       "time": "00:43:59.96"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1960/185/19610508a_185_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM E. JAMES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BURT M. HENSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "STANLEY MOSK",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you may continue.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:00:07.65"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:00:28.43"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Third?",
       "time": "00:00:36.91"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you, do you have a brief in the Duncan case also?",
       "time": "00:01:54.29"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did he plead guilty too?",
       "time": "00:02:40.25"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are the original exhibits filed with our clerk, Mr. James?",
       "time": "00:03:28.18"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you purported to go through all the exhibits before the trial court under the motion to change the venue?",
       "time": "00:04:06.91"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no. I'm asking whether you have and thus far, are you planning to do that or --",
       "time": "00:04:14.72"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were those the ones that you've just referred to or there's more?",
       "time": "00:04:22.41"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Am I wrong -- am I wrong in thinking it was reference to these all of them but one related to the fake trial case?",
       "time": "00:04:29.22"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand that but --",
       "time": "00:04:44.72"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- was the subject to fake trial?",
       "time": "00:04:48.25"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That motion --",
       "time": "00:05:03.45"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In other words, that motion would may pertain in the venue on the ground that the publicity in connection with the other (Voice Overlap) --",
       "time": "00:05:06.09"
     },
@@ -231,13 +231,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- that was all prejudice to public if you couldn't have that trial.",
       "time": "00:05:13.48"
     },
     {
       "turn": 32,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, but you haven't finish the --",
       "time": "00:05:15.74"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Later exhibits bring in the other matter, don't they?",
       "time": "00:05:18.40"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well Mr. James, the last one made reference to the kidnapped and murdering?",
       "time": "00:05:21.83"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This before the body was found.",
       "time": "00:05:27.23"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, why -- were the three of them arrested?",
       "time": "00:05:30.14"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would she remain detained after December 12th on the fake annulment charge?",
       "time": "00:05:47.24"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Isn't that a bailable offense?",
       "time": "00:05:52.35"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "With no -- did she make no effort to bail?",
       "time": "00:05:55.38"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that was denied?",
       "time": "00:05:58.13"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright, so thank you. $50,000 seemed to be pretty stiff for fake annulments.",
       "time": "00:06:07.99"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible) $5000.",
       "time": "00:06:20.45"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I'm -- I'm not quite clear with -- that last exhibit you referred to. What happen if she -- were they -- the three of them charged at this time before the body was found?",
       "time": "00:06:27.61"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the date? When was -- when --",
       "time": "00:06:56.93"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So they were charged with conspiracy to murder and (Voice Overlap) this --",
       "time": "00:07:04.49"
     },
@@ -405,13 +405,13 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:07:11.13"
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Before the finding of the body (Voice Overlap) --",
       "time": "00:07:11.92"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) -- December 22nd, wasn't it?",
       "time": "00:07:14.04"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "21st.",
       "time": "00:07:17.71"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm a little mixed up Mr. James.",
       "time": "00:07:30.86"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You said she was -- she was -- the day was fixed at $50,000 on the fake annulment charge. That charge preceded the charge in Santa Barbara County for conspiracy for murder.",
       "time": "00:07:32.84"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When was the reduction from $50,000 to $5000? Because after December, what was it, 16, she was under a murder charge, a conspiracy with murder?",
       "time": "00:07:47.48"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, there -- that -- that wouldn't be bailable, would it or wouldn't it?",
       "time": "00:08:05.20"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not. After all, I'm -- what's the relation of the $5000 reduced fail to that charge, must have preceded I suppose.",
       "time": "00:08:09.36"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Must have, must have.",
       "time": "00:08:18.16"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "None of these exhibits that you summarized thus far by -- affidavits by --",
       "time": "00:08:25.39"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All the affidavits by Moya were not annexed to the motion on behalf of Mrs. Duncan, were they?",
       "time": "00:08:32.37"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "After he's under indictment, after she was under indictment for a murder.",
       "time": "00:08:56.02"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You're going to go on and state when it come to her case with particularity exactly what was the basis of the motion for change of venue and her case.",
       "time": "00:09:03.88"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And all the exhibits that were introduced at any time in connection with Mrs. Duncan after the indictment on December 26.",
       "time": "00:09:14.86"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What did -- the body was found or Baldonado confessed then they (Voice Overlap) --",
       "time": "00:09:42.35"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And where did he confess?",
       "time": "00:09:49.19"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And this, after the indictment for conspiracy murder in Santa Barbara?",
       "time": "00:09:54.12"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The same day apparently though.",
       "time": "00:09:59.55"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Succeeding day.",
       "time": "00:10:02.28"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But of course Mr. James, if in fact, if in fact the District Attorney makes a statement regarding a pending case which fairly considered may poison the minds of prospective jurors. The fact that at the time, California was seriously considering measures dealing with the abolition of capital punishment wouldn't -- wouldn't make a difference, would it?",
       "time": "00:13:47.33"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "As I -- follow you that --",
       "time": "00:14:35.87"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't think any sinister purpose you just saw in this case reinforcing arguing for reviews.",
       "time": "00:14:47.54"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:14:55.07"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How did the press get hold of Baldonado's confession?",
       "time": "00:17:07.32"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I read something in the briefs, perhaps I misunderstood it, to the effect that the grand jury proceeding, the grand jury minutes of California as a matter of public registry, is that so?",
       "time": "00:17:14.93"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Was the -- was the confession of Baldonado confession given before the grand jury?",
       "time": "00:17:36.90"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Voice Overlap) -- matter of public record once it had been given, once the minutes had --",
       "time": "00:17:48.10"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Meaning -- meaning by that, does anybody wants to get a copy, can look at it or --",
       "time": "00:17:58.58"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- or has been published automatically.",
       "time": "00:18:03.93"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:18:07.36"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's that --",
       "time": "00:18:56.17"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- Exhibit 10?",
       "time": "00:18:56.43"
     },
@@ -795,19 +795,19 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But --",
       "time": "00:19:06.71"
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Go on.",
       "time": "00:19:08.11"
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I was going -- I was going at this point as this. In California, whether -- whether the State proceeding by indictment or by preliminary examination, the -- the testimony has made a matter of public record.",
       "time": "00:19:09.85"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:19:32.76"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did I hear you say to Justice Harlan in answer to his question, that in fact the confession was emitted by the authority as you put it?",
       "time": "00:19:36.11"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that it wasn't the publication of the confession, didn't derive from somebody going to the grand jury to the appropriate place to find out what the grand jury minutes (Voice Overlap) --",
       "time": "00:19:47.26"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You said, they were given by the --",
       "time": "00:19:59.66"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "By the authorities.",
       "time": "00:20:02.22"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Nothing has been said, not -- not a word has been said thus far when you -- you speak of news media which this covers it, but nothing has said about the radio that the radio interest itself in other matter while this is going on.",
       "time": "00:20:07.18"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There's no reference specifically to communication through the radio or through TV of any -- of the statements or emission of -- of statements or confessions?",
       "time": "00:20:45.66"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or in the record?",
       "time": "00:21:03.30"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that broadcast? Is the record --",
       "time": "00:21:14.75"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does the record show it was broadcast?",
       "time": "00:21:17.23"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Broadcast.",
       "time": "00:21:21.51"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that everybody could go and should --",
       "time": "00:21:25.84"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And that was done at whose instance?",
       "time": "00:21:30.02"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, could he be -- could he be all those things on his own without permission of the -- of the authority?",
       "time": "00:21:46.26"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, what I want to know is could he, in order -- I'm quite reading about these things. But in order to get on the air, you have to have some dealing with the radio people. Now, could he have those arrangements to his counsel on his own and he's (Voice Overlap) --",
       "time": "00:22:01.77"
     },
@@ -999,13 +999,13 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, what kind of -- I know it's a lugubrious crime but is it -- is that engaging to people to person that they can do all these things?",
       "time": "00:22:17.64"
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He had counsel, didn't he?",
       "time": "00:22:25.22"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He did.",
       "time": "00:22:27.26"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It was said -- it was said by (Voice Overlap) --",
       "time": "00:23:51.30"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- rather who proceeded you that these statements were made after the District Attorney had fed the press.",
       "time": "00:23:54.86"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's been closed after, wasn't it?",
       "time": "00:24:04.18"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:24:06.43"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was it after -- was it after the grand jury testimony was made public?",
       "time": "00:24:17.49"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I suppose would have to because your grand jury --",
       "time": "00:24:22.64"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- testimony would be there by the 13, wouldn't it?",
       "time": "00:24:25.42"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That was the arraignment date so --",
       "time": "00:24:28.50"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- that would have to be filed for 13th of January.",
       "time": "00:24:30.40"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:24:33.86"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When you say made public, it doesn't mean that it's handed out the way press releases are handed out by official.",
       "time": "00:24:34.47"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:24:42.34"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) -- the indictment, anybody could go up and see it.",
       "time": "00:24:47.60"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Though, it was release to Defense Counsel, it could be authorities that withheld the concession?",
       "time": "00:25:51.88"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or he hasn't.",
       "time": "00:26:00.86"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And when will this confession by Moya in relation to time and when was the recording of it? Do you have it in mind?",
       "time": "00:26:17.74"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean he moved fast out, between 25th and 26th counsel for defendant got a court order?",
       "time": "00:26:40.45"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Between the 26th (Voice Overlap)",
       "time": "00:26:51.36"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, January, I beg your pardon, I thought it (Voice Overlap) --",
       "time": "00:26:54.15"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, this -- this was front page news for about a month, was it?",
       "time": "00:27:15.97"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A mystery.",
       "time": "00:27:30.40"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And after -- after the confession in the finding of the body, was it front page news for days thereafter?",
       "time": "00:27:37.82"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, what date was that?",
       "time": "00:31:05.76"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. James, may I -- may I just interrupt to ask you if -- if it is claimed that there was any slanting of the -- of the news for the purpose of -- of prejudicing any of the petitioners in this case or was there any editorial matter in the newspapers that is complained of by these people.",
       "time": "00:33:08.45"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:33:36.85"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, are they --",
       "time": "00:33:48.25"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They have been referred to in the case.",
       "time": "00:33:50.60"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, you shouldn't be bothered about that.",
       "time": "00:33:52.33"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What date is that?",
       "time": "00:35:51.23"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Thus not merely the two articles, but this circulation of the confession because it's -- if merely the fact that grand jury minute a public documents right pleading, the District Attorney wasn't contend to rely on that. He himself was an active agent in putting it in circulation. He didn't rely on the things being a public document.",
       "time": "00:36:39.85"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the fact is supposed to be elicited in the courtroom and not in newspaper.",
       "time": "00:37:18.15"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that hearing, he'd never tried. Just give -- give the press the facts.",
       "time": "00:37:43.34"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There are many claims can be made for California but not that human nature there is different from other places --",
       "time": "00:38:07.66"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- of power to control that gets into the mind can be controlled in California when it can't be controlled in New York or in Massachusetts.",
       "time": "00:38:13.63"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you've -- but you've said several times with your characteristic conduct, if I may say so, that even rely on the publicity on the public record quality of the confession, he sought to it that the newspapers got it.",
       "time": "00:38:25.86"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there a denial -- is there a denial by him?",
       "time": "00:38:45.70"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That he omitted this confession? Is there?",
       "time": "00:38:49.19"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That he --",
       "time": "00:38:53.81"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is -- is there a denial by the District Attorney that it isn't true that he put out or put into the hands of the press --",
       "time": "00:38:55.46"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the confession.",
       "time": "00:39:03.46"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well --",
       "time": "00:39:07.55"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- specifically, did he deny that -- did he say -- why, of course, they got it by going to the record office, whatever you call it, I didn't get the confession out. Did he make any such denial?",
       "time": "00:39:08.17"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let's say I'm innocent. I can put everything out of my mind that ever got into it.",
       "time": "00:39:35.35"
     },
@@ -1551,13 +1551,13 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Some that could and some that couldn't, most of us can't.",
       "time": "00:39:41.66"
     },
     {
       "turn": 252,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. James, have you -- have you read anything conquer as yet? Or perhaps, I didn't hear it that Mr. Gustafson who was attributed to Mr. Gustafson in any of these news articles that he had turned over a -- any of these confessions to the press?",
       "time": "00:39:45.74"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You haven't read anything of that too --",
       "time": "00:40:03.11"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He said public -- he said the authorities.",
       "time": "00:40:08.09"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- who identified the authorities was the sheriff's office.",
       "time": "00:40:11.01"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That was the issue of December 22nd.",
       "time": "00:40:14.61"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Wasn't -- was the charge made that he did?",
       "time": "00:40:18.75"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean by the defense. If they say, it was the District Attorney who let go and put into the hands of -- of media.",
       "time": "00:40:22.27"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well I -- no. Well, Mr. Wirin said so and tell us he was going to tell us where but I never heard him tell us before (Voice Overlap) --",
       "time": "00:40:32.99"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, no. I -- what I'm trying to get to is you hadn't shown us anything which indicates that the District Attorney gave to the press either Baldonado's or Moya's confession.",
       "time": "00:40:59.25"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you said the authorities --",
       "time": "00:41:11.66"
     },
@@ -1677,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, who would be the authority?",
       "time": "00:41:13.59"
     },
@@ -1689,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And are they free willing? Can they go on their own? Or is the case, when a murder case get into this situation, isn't the District Attorney the controlling authority?",
       "time": "00:41:16.81"
     },
@@ -1701,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I'm not asking necessarily. I'm talking in the normal course of business, wasn't the District Attorney, isn't he the chief law officer?",
       "time": "00:41:27.59"
     },
@@ -1713,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does he or does he not control police officials?",
       "time": "00:41:38.32"
     },
@@ -1725,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But we're not children. I know he doesn't necessarily. I'm asking you what is the normal course of business?",
       "time": "00:41:44.87"
     },
@@ -1737,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think basically limit that to California because I was thinking. As far as I'm concern, it was my experience as prosecuting attorney does not control the police as a sheriff with reference to what they publish.",
       "time": "00:41:52.90"
     },
@@ -1749,13 +1749,13 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Based on where I can from.",
       "time": "00:42:06.66"
     },
     {
       "turn": 285,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well anyhow, they're part of the prosecutorial obstacle of the State, aren't they?",
       "time": "00:42:08.14"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:42:12.94"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any -- was -- did the defense make any specific charge that the authority disseminated these confessions in their motion for change of venue.",
       "time": "00:42:36.71"
     },
@@ -1791,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well then, that isn't an issue at all, isn't it?",
       "time": "00:42:49.30"
     },
@@ -1803,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you --",
       "time": "00:42:53.09"
     },
@@ -1815,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But one of them said that the authorities did.",
       "time": "00:42:57.73"
     },
@@ -1827,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no. But they -- that same issue said that the authorities disseminated -- the the confession, didn't they?",
       "time": "00:43:07.01"
     },
@@ -1839,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, now did the District Attorney make any reply to that?",
       "time": "00:43:16.39"
     },
@@ -1851,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did he say anything about it?",
       "time": "00:43:19.87"
     },
@@ -1863,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But he didn't say, \"I'm not one of the authorities\" so that's a false statement in the press. You said a little while ago, the newspapers published nothing but the facts.",
       "time": "00:43:26.62"
     },
@@ -1875,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It revolves a statement of fact that the authorities gave these. Was that denial on behalf of the State?",
       "time": "00:43:35.03"
     },
@@ -1887,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:43:44.23"
     },
@@ -1899,13 +1899,13 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So far as I'm concerned, I don't care whether the sheriff or the District Attorney who puts him to the stream of publicity, things that ought to be kept out of the stream of publicity by the enforcing officials. (Voice Overlap)",
       "time": "00:43:52.81"
     },
     {
       "turn": 310,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I understand what you're saying is that while the papers had an article which said that came from the authority. The authorities haven't said so and I -- suppose you're saying, prosecuting attorney doesn't ordinarily consider his duties to deny every statement made in the press about his spectacular case.",
       "time": "00:44:04.68"
     },
@@ -1917,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it was put in issue, it was put an issue by the finding of an affidavit which made part of its allegations, this paper and this paper made two allegations that the District Attorney issued the statement on capital punishment. It also made a statement that the authority disseminated the confession. I suggest that when a District Attorney makes a comment on one part of a statement in an affidavit of change of venue, which says nothing about the other presumably, he doesn't deny it.",
       "time": "00:44:33.73"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- which is a very different thing from having -- asking a District Attorney to deny everything that's put in the newspapers.",
       "time": "00:45:11.64"
     },
@@ -1941,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This was an affidavit of which the -- this newspaper was the basis.",
       "time": "00:45:17.57"
     },
@@ -1953,7 +1953,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you know which affidavit now is being referred to?",
       "time": "00:45:24.28"
     },
@@ -1965,7 +1965,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Change of venue.",
       "time": "00:45:36.50"
     },
@@ -1977,13 +1977,13 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I follow your argument but to one like myself to whom it is not irrelevant whether he did or didn't. You say the only issue is true or false, did that so corrupt the minds of the jurors that they couldn't rid themselves of this. I think that is not the only issue because I think that kind of a psychological answer presupposes things that are contrary to human experience.",
       "time": "00:46:04.72"
     },
     {
       "turn": 323,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. James at the time that this affidavit was presented to the Court for -- on a motion for change in venue, the transcript of the grand jury with the complete testimony of these two men confessing to this crime was a matter of public record.",
       "time": "00:46:30.83"
     },
@@ -1995,13 +1995,13 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I say to you --",
       "time": "00:46:55.94"
     },
     {
       "turn": 326,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As a matter of public record that everybody conceive.",
       "time": "00:46:56.44"
     },
@@ -2013,7 +2013,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I say to you what I said before. If the District Attorney handed out these confessions, it means he wasn't contempt to have people go to the record office that he actively saw to it that they got it and didn't rely on the mere -- the availabilities, the matter of official doctrines.",
       "time": "00:47:00.62"
     },
@@ -2025,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Are you referring -- are you referring to the footnote, that bottom of page 144 of --",
       "time": "00:48:07.11"
     },
@@ -2037,7 +2037,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- of the Duncan record.",
       "time": "00:48:15.31"
     },
@@ -2049,7 +2049,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Record 144.",
       "time": "00:48:17.08"
     },
@@ -2061,7 +2061,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. James, I do hope you're going to save some time before an issue of Duncan case as jurors.",
       "time": "00:49:23.11"
     },
@@ -2073,7 +2073,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I think your time is running and --",
       "time": "00:49:33.04"
     },
@@ -2085,7 +2085,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you mean that jury was picked on panel of 83 for the Duncan trial.",
       "time": "00:52:16.74"
     },
@@ -2097,7 +2097,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "How many were excused by the Court to calls in Duncan?",
       "time": "00:52:36.77"
     },
@@ -2109,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "And only five --",
       "time": "00:52:59.67"
     },
@@ -2121,7 +2121,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Only five on it were excused for other grounds.",
       "time": "00:53:01.33"
     },
@@ -2133,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I read some of likeness whole exemption which excused the cause of form the opinions.",
       "time": "00:53:09.38"
     },
@@ -2145,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Yes.",
       "time": "00:53:20.44"
     },
@@ -2157,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's -- that's the one who (Voice Overlap), isn't it?",
       "time": "00:53:26.93"
     },
@@ -2169,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who's been murdered, but she sat on the jury.",
       "time": "00:53:32.94"
     },
@@ -2181,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Only one more Mr. James.",
       "time": "00:53:46.78"
     },
@@ -2193,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you please explain the allegation in Mr. Sullivan's affidavit about the statement printed on page 7 in -- his crime is one of the most vicious and powerful, then the editor, there's no such statement ever appeared to this statement. Page 7, this crime is one of the most vicious and horrible and (Inaudible). And then the next day, the editor, Mr. Jackson Henry, the managing editor of Ventura County Star examined the issues, did not make any such statement, had no knowledge or information to believe that he made any of the statement to anyone.",
       "time": "00:53:49.18"
     },
@@ -2205,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that -- is that cleared how -- how Mr. Sullivan or an oath to say this appeared in the December 27, 1958 or just --",
       "time": "00:54:39.60"
     },
@@ -2217,13 +2217,13 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Just a piece of flagrant carelessness.",
       "time": "00:54:51.40"
     },
     {
       "turn": 363,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. I -- I think that's explained isn't it by the District Attorney's affidavit which appears on page 9 and at the bottom he says, \"I publicly made the following statement, the brutal calculated revoking killing for hire with all the Duncan\" is one of the number of horrible crimes which have recently been committed in California's time after that.",
       "time": "00:54:53.97"
     },
@@ -2235,7 +2235,7 @@
     },
     {
       "turn": 365,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There isn't much --",
       "time": "00:55:16.33"
     },
@@ -2247,25 +2247,25 @@
     },
     {
       "turn": 367,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:55:31.63"
     },
     {
       "turn": 368,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't understand why he said that.",
       "time": "00:55:31.91"
     },
     {
       "turn": 369,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's pretty close to it.",
       "time": "00:55:33.75"
     },
     {
       "turn": 370,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't understand that. He said he didn't make publicly the following statement. The proof of calculated revolving killing for hire of Olga Duncan is one of -- is a number of horrible crimes recently have been committed in California. And then he says neither of the following statement or anything resembling it was ever made by me at anytime. This crime is one of the most vicious and horrible in the annals of modern justice.",
       "time": "00:55:35.19"
     },
@@ -2277,7 +2277,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In the sense of nicety of English, it is very nice.",
       "time": "00:55:58.75"
     },
@@ -2289,7 +2289,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but in --",
       "time": "00:56:15.11"
     },
@@ -2301,7 +2301,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- statement which he avows on the 21st, he did say the proof of calculator result in killing for Olga -- Olga Duncan. So, this wasn't just generally in capital punishment source. This is using Olga Duncan vicious horrible crime as an argument to capital source.",
       "time": "00:56:15.71"
     },
@@ -2313,7 +2313,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, as I understand the argument Mr. James, the argument is that the error in that regard, as they saw it, deprived them because it exhausted their preemptory challenges when these three came along, deprived them of their opportunity to use a preemptory challenge to get rid of these three. They couldn't, as a matter of trial practice, challenge the cause because this has been gotten involved (Voice Overlap) --",
       "time": "01:00:07.71"
     },
@@ -2325,7 +2325,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the right equipment when they started.",
       "time": "01:00:35.60"
     },
@@ -2337,7 +2337,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The Court -- the Court as I understand it, their argument is that as to the first four, the Court had been wrong and would have repeated its error as to these three if they had challenge the Court.",
       "time": "01:00:38.02"
     },
@@ -2349,7 +2349,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That the four or --",
       "time": "01:01:21.04"
     },
@@ -2361,7 +2361,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That didn't discuss -- that didn't discuss the other did he, because they have this",
       "time": "01:01:24.78"
     },
@@ -2373,7 +2373,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Voice Overlap) join to them.",
       "time": "01:01:28.68"
     },
@@ -2385,7 +2385,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Voice Overlap) --",
       "time": "01:01:49.39"
     },
@@ -2397,7 +2397,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Assuming at one -- assuming -- let's assume that there was error in the refusal to excuse the four, then assuming if one disagreed with it, he had felt that there was clear error with reference to the three that it should be noted here. Is there anything that shows with reference to those three that they had a fixed opinion?",
       "time": "01:01:51.33"
     },
@@ -2409,7 +2409,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- by opinion one way or the other?",
       "time": "01:02:19.07"
     },
@@ -2421,7 +2421,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there anything in the record that shows?",
       "time": "01:02:21.98"
     },
@@ -2433,7 +2433,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there anything that shows that they had an opinion which was of the kind that the other four had?",
       "time": "01:02:26.23"
     },
@@ -2445,7 +2445,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Oh, how about to page 647 of the record, I'm referring now to the Ms. Hall who sat. She'd early -- she had earlier stated at voir dire that her -- she'd had a sorority sister who had been murdered further that her sister was a policewoman and that her father was a policeman.",
       "time": "01:02:33.34"
     },
@@ -2457,7 +2457,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not on those things would go to cause but they went raised interesting questions from the part of -- the possibility of our preemptory challenge obviously on the part of the defense. And then on page 46, 47, she says, in answer to this question, now there's opinion that you formed with the respect to the guilt of Mrs. Duncan. \"Do you still have that opinion as you sit in the jury box this -- box this morning?\" \"Well, yes, sir.\" \"And is that opinion such that it would take some evidence on the part of the defense overcome?\" \"No, sir.\" And then earlier what I meant to read was this, \"I take it then that you form an opinion that Elizabeth Duncan was guilty of this charge. Is that right?\" He says, \"That's right.\" And that's where -- that's -- that was her opinion as she came into the jury box.",
       "time": "01:02:51.22"
     },
@@ -2469,7 +2469,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, (Voice Overlap) says that he had tried to challenge for cause.",
       "time": "01:03:54.41"
     },
@@ -2481,7 +2481,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These other four and it had been unsuccessful. And based on that experience, the argument is that he was not going to -- since he knew he would be under -- had bearing, good reason to believe it'd be unsuccessful challenging for cause in this case. He was not going to try it and just to incur the resent under juror.",
       "time": "01:03:59.18"
     },
@@ -2493,7 +2493,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And also that because his previous challenges for cause, if it disallowed, he was -- didn't have a remaining preemptory challenge for this juror or for the other two. That's the basis of his argument.",
       "time": "01:04:18.90"
     },
@@ -2505,7 +2505,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And there is an indication here on page 647 that is as this Ms. Hall came to the jury box quite apart from the murder of her friend and the rest of it, but as to her opinion about these defendant's guilt, she said she had it that she thought she was guilty.",
       "time": "01:04:31.28"
     },
@@ -2517,7 +2517,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He didn't say positivity.",
       "time": "01:04:51.57"
     },
@@ -2529,7 +2529,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But --",
       "time": "01:05:00.51"
     },
@@ -2541,7 +2541,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well --",
       "time": "01:05:26.49"
     },
@@ -2553,7 +2553,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I understand your argument but in the -- in this particular context, the argument may have some merit to it (Voice Overlap) --",
       "time": "01:05:27.29"
     },
@@ -2565,7 +2565,7 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Your point surely is that it affects counsel cannot play the game in both ways. If he wants to stand on this challenge, he's got to make it clear and if he doesn't want to risk the effect of it, well that's too bad whether he loose an appeal.",
       "time": "01:06:02.49"
     },
@@ -2577,7 +2577,7 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Isn't that your position?",
       "time": "01:06:16.54"
     },
@@ -2589,7 +2589,7 @@
     },
     {
       "turn": 424,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. James, what -- what significance do you give to this of 673? I notice it's captioned under renewal of motion for removal and change of venue and denial error. But certainly, this point was made to the trial judge, have the presence of the juror, wasn't it, the middle of 673?",
       "time": "01:06:43.55"
     },
@@ -2601,7 +2601,7 @@
     },
     {
       "turn": 426,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Whether (Voice Overlap) --",
       "time": "01:07:11.13"
     },
@@ -2613,7 +2613,7 @@
     },
     {
       "turn": 428,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "It's all directed in a motion for change.",
       "time": "01:07:14.79"
     },
@@ -2625,7 +2625,7 @@
     },
     {
       "turn": 430,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. James, these -- these three jurors which we're talking about, it kept down for they -- for they kept on after the defense that exhausted preemptory challenges?",
       "time": "01:07:17.79"
     },
@@ -2637,7 +2637,7 @@
     },
     {
       "turn": 432,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well then --",
       "time": "01:07:34.09"
     },
@@ -2649,7 +2649,7 @@
     },
     {
       "turn": 434,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Very well. Suppose they had to exhaust their preemptories when they should have been -- when they could have kept them in that juror should be drawn off the course. And therefore, they had no preemptories left. And suppose all that was wrong, suppose people should have been drawn off the course but weren't and therefore, they have --",
       "time": "01:07:35.92"
     },
@@ -2661,7 +2661,7 @@
     },
     {
       "turn": 436,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, they should have had four more preemptories. Many of counsel can exercise preemptory although he couldn't -- he couldn't throw them off for cause and that right to not to take risks is also a very important right at trial, that's why people have preemptories.",
       "time": "01:08:02.29"
     },
@@ -2673,7 +2673,7 @@
     },
     {
       "turn": 438,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean, suppose he --",
       "time": "01:08:32.69"
     },
@@ -2685,7 +2685,7 @@
     },
     {
       "turn": 440,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He couldn't -- he couldn't make a record as them again -- as because you might be right about that. You think he should have then said, \"Your Honor, if I had three more preemptories, I would exercise them against A, B, and C.\" Is that -- the back of that is what you say?",
       "time": "01:08:34.67"
     },
@@ -2697,7 +2697,7 @@
     },
     {
       "turn": 442,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but --",
       "time": "01:09:00.90"
     },
@@ -2709,7 +2709,7 @@
     },
     {
       "turn": 444,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose -- suppose the counsel or conscientiously -- conscientiously believe there isn't ground of objecting this amount of cause. Should he then make a speech to the trial judge and say, \"Your Honor, this is the situation I am in. There isn't ground for us Your Honor to discharge these jurors. But if I had reference, I would not have that.\"",
       "time": "01:09:03.90"
     },
@@ -2721,7 +2721,7 @@
     },
     {
       "turn": 446,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean --",
       "time": "01:09:40.73"
     },
@@ -2733,7 +2733,7 @@
     },
     {
       "turn": 448,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean he should have --",
       "time": "01:09:43.12"
     },
@@ -2745,7 +2745,7 @@
     },
     {
       "turn": 450,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- he should have made an appeal misericordia.He should have asked the compassionate and said, \"Your Honor, I'm not agrestic but would you please\" nevertheless I'm troubled about these two jurors and not to seek them. Is that it?",
       "time": "01:09:44.75"
     },
@@ -2757,7 +2757,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's to make it sound --",
       "time": "01:09:55.40"
     },
@@ -2769,7 +2769,7 @@
     },
     {
       "turn": 454,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, he had no objection except the trial under which had gone against it.",
       "time": "01:10:00.31"
     },
@@ -2781,7 +2781,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Sufficiently fix -- sufficiently fix for his purposes so that he wouldn't have had them if he could keep them all. But it's not sufficiently vague as a matter of cause, he should have been -- not allowed to sit.",
       "time": "01:10:14.48"
     },
@@ -2793,7 +2793,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think you should obtain really time to -- that I started out to ask you about these three jurors and I would like to say (Inaudible) find out who was the second, who was the third and where is the statement about that?",
       "time": "01:10:32.18"
     },
@@ -2805,7 +2805,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I think it goes from 629 to 640.",
       "time": "01:11:03.41"
     },
@@ -2817,7 +2817,7 @@
     },
     {
       "turn": 462,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "01:11:08.98"
     },
@@ -2829,7 +2829,7 @@
     },
     {
       "turn": 464,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) -- again to 665.",
       "time": "01:11:22.78"
     },
@@ -2841,7 +2841,7 @@
     },
     {
       "turn": 466,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's Mr. Horrell.",
       "time": "01:11:25.57"
     },
@@ -2853,7 +2853,7 @@
     },
     {
       "turn": 468,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Henson.",
       "time": "01:11:35.23"
     },
@@ -2865,7 +2865,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, right there --",
       "time": "01:12:33.44"
     },
@@ -2877,7 +2877,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. -- where and tell us that you were going to tell us where it is that it appears that the District Attorney released a confession or confessions. Where is that?",
       "time": "01:12:35.51"
     },
@@ -2889,7 +2889,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the date of that?",
       "time": "01:13:54.77"
     },
@@ -2901,7 +2901,7 @@
     },
     {
       "turn": 476,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, was that an exhibit?",
       "time": "01:14:04.43"
     },
@@ -2913,7 +2913,7 @@
     },
     {
       "turn": 478,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What exhibit?",
       "time": "01:14:07.03"
     },
@@ -2925,7 +2925,7 @@
     },
     {
       "turn": 480,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, this was after the appearance before the grand jury?",
       "time": "01:14:12.55"
     },
@@ -2937,7 +2937,7 @@
     },
     {
       "turn": 482,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Which had occurred when?",
       "time": "01:14:30.08"
     },
@@ -2949,7 +2949,7 @@
     },
     {
       "turn": 484,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When you say publish, what do you mean by that?",
       "time": "01:14:43.35"
     },
@@ -2961,7 +2961,7 @@
     },
     {
       "turn": 486,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Publish means available to the public.",
       "time": "01:14:52.48"
     },
@@ -2973,7 +2973,7 @@
     },
     {
       "turn": 488,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "01:14:55.64"
     },
@@ -2985,7 +2985,7 @@
     },
     {
       "turn": 490,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What paper was that?",
       "time": "01:15:43.18"
     },
@@ -2997,7 +2997,7 @@
     },
     {
       "turn": 492,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, may I ask you if you have time with Chief Justice's permission? Were these press accounts attached as part of your affidavit asking for a change of venue?",
       "time": "01:17:28.91"
     },
@@ -3009,7 +3009,7 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did the District Attorney make any reply to that affidavit?",
       "time": "01:17:44.02"
     },
@@ -3021,7 +3021,7 @@
     },
     {
       "turn": 496,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He said nothing about these others?",
       "time": "01:18:04.80"
     },
@@ -3033,7 +3033,7 @@
     },
     {
       "turn": 498,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But they were part of the -- they were a foundation of your motion?",
       "time": "01:18:07.27"
     },
@@ -3045,7 +3045,7 @@
     },
     {
       "turn": 500,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think you specifically claimed that the -- the marshaling of these various successive statements attributing statements to him. Well but in your view, affected the opinion of the feelings or the thoughts of the capacities of prospective jurors.",
       "time": "01:18:12.13"
     },
@@ -3057,7 +3057,7 @@
     },
     {
       "turn": 502,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And he made no reply to these affidavits attributing to him the statements you quoted. Is that right?",
       "time": "01:18:31.72"
     },
@@ -3069,7 +3069,7 @@
     },
     {
       "turn": 504,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. I understand that other than that. Is that correct?",
       "time": "01:18:40.25"
     },
@@ -3081,7 +3081,7 @@
     },
     {
       "turn": 506,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But this applied only to Moya, does it?",
       "time": "01:18:44.17"
     },
@@ -3093,7 +3093,7 @@
     },
     {
       "turn": 508,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know you're in a difficult position but --",
       "time": "01:18:47.91"
     },
@@ -3105,7 +3105,7 @@
     },
     {
       "turn": 510,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is in your -- in your motion.",
       "time": "01:18:50.45"
     },
@@ -3117,7 +3117,7 @@
     },
     {
       "turn": 512,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but this is very important to me. But to this earlier motion in January, in which -- to which you are next I take it all these newspapers or reporters' data or reproductions of them.",
       "time": "01:19:12.78"
     },
@@ -3129,7 +3129,7 @@
     },
     {
       "turn": 514,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Making these explicit attributions either to the District Attorney or members of his own staff, not somebody else's staff. There was no denial except as to the one statement. Is that right?",
       "time": "01:19:26.23"
     },
@@ -3141,7 +3141,7 @@
     },
     {
       "turn": 516,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where -- where Mr. Henson did you specifically charged the District Attorney with having -- having done anything in your -- in your motion or in your affidavit?",
       "time": "01:19:41.80"
     },
@@ -3153,7 +3153,7 @@
     },
     {
       "turn": 518,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "16 of Moya's --",
       "time": "01:19:59.78"
     },
@@ -3165,7 +3165,7 @@
     },
     {
       "turn": 520,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "16.",
       "time": "01:20:03.13"
     },
@@ -3177,7 +3177,7 @@
     },
     {
       "turn": 522,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but I want -- I just want where you -- what you specifically charge the District Attorney with.",
       "time": "01:20:12.93"
     },
@@ -3189,7 +3189,7 @@
     },
     {
       "turn": 524,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, do you -- you don't -- with that paragraph, you don't necessarily charge him, do you? If you say there are some high officials but do you charge him specifically with doing anything?",
       "time": "01:21:26.93"
     },
@@ -3201,7 +3201,7 @@
     },
     {
       "turn": 526,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That he admitted.",
       "time": "01:21:53.93"
     },
@@ -3213,7 +3213,7 @@
     },
     {
       "turn": 528,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That he admitted. Now, what else do you charge him with that he didn't admit?",
       "time": "01:21:56.79"
     },
@@ -3225,7 +3225,7 @@
     },
     {
       "turn": 530,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, there isn't there a difference in the -- in which you're expecting to respond to depending upon whether you charge him with something in an affidavit or whether -- or whether you just file a group of newspapers?",
       "time": "01:22:26.56"
     },
@@ -3237,7 +3237,7 @@
     },
     {
       "turn": 532,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did you file the affidavit? I -- I take it that -- that he would be -- he should respond to it, so it would make an issue on your motion for change of venue. But if you -- if you just put in a lot of newspapers, would -- would he have to deny everything that's in the newspapers?",
       "time": "01:22:43.51"
     },
@@ -3249,7 +3249,7 @@
     },
     {
       "turn": 534,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may.",
       "time": "01:23:09.19"
     },
@@ -3261,7 +3261,7 @@
     },
     {
       "turn": 536,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He denied that, didn't he?",
       "time": "01:23:40.52"
     },
@@ -3273,7 +3273,7 @@
     },
     {
       "turn": 538,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:23:43.59"
     },
@@ -3285,7 +3285,7 @@
     },
     {
       "turn": 540,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, is that the original motion for change of venue?",
       "time": "01:24:40.53"
     },
@@ -3297,7 +3297,7 @@
     },
     {
       "turn": 542,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was it also for any purpose except that, as to the change of venue?",
       "time": "01:24:44.66"
     },
@@ -3309,7 +3309,7 @@
     },
     {
       "turn": 544,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well Mr. Henson, on the 10th day of January, when that affidavit was -- was made, every fact that you complained of in there that has not been denied by the District Attorney, was made known to you and to the public and to the press of course, through the -- the regular records in this case, were they not?",
       "time": "01:25:21.20"
     },
@@ -3321,7 +3321,7 @@
     },
     {
       "turn": 546,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Alright. Now what things that -- what things do you charge him with that -- that were not -- that did not stem from the -- in your affidavit? What -- what things do you change him with that were not in the testimony of the grand jury before the grand jury?",
       "time": "01:25:53.68"
     },
@@ -3333,7 +3333,7 @@
     },
     {
       "turn": 548,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, where do you charge him specifically with that?",
       "time": "01:26:24.91"
     },
@@ -3345,7 +3345,7 @@
     },
     {
       "turn": 550,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well then how did you know he gave -- he gave it out? That's a matter of common knowledge that --",
       "time": "01:26:29.40"
     },
@@ -3357,7 +3357,7 @@
     },
     {
       "turn": 552,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- that newspapers get from police records and what a -- what a man's prior record was and if you're charging the District Attorney, I would think you would -- I -- I would think you would have charged him.",
       "time": "01:26:34.00"
     },
@@ -3369,7 +3369,7 @@
     },
     {
       "turn": 554,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if -- if that's the purpose of it, is one thing, but if you seek to -- to pass all of these things on -- on the District Attorney, then it seems to me that you have to charge him specifically with him with those things before you can say he has failed to deny them. That's all I'm -- I'm concerned about now.",
       "time": "01:27:05.70"
     },
@@ -3381,7 +3381,7 @@
     },
     {
       "turn": 556,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If you -- if you just want to take to thing in its totality, and say these things whether they came from the District Attorney, whether they came from a sheriff or a police officer, or anybody else, has applied to this -- has applied to this petitioner deprives him of a -- of a fair trial. I can unders -- I can understand that, but this thing is sort of congealed around the District Attorney and if -- if he is to be charged with these things, it seems to me that he should -- and -- and in addition of being charged, if he's to be charged with not answering when he should have, it seems to me that we should be able to find those things in the affidavits supporting you -- your motion for change of venue.",
       "time": "01:27:30.53"
     },
@@ -3393,13 +3393,13 @@
     },
     {
       "turn": 558,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Very well.",
       "time": "01:28:19.88"
     },
     {
       "turn": 559,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you don't --",
       "time": "01:28:20.94"
     },
@@ -3411,7 +3411,7 @@
     },
     {
       "turn": 561,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but you don't disavow the responsibility of the District Attorney in the setting of the fact that it's well-known the district attorneys do talk to the press that there were charges in the newspapers that you filed saying that the District Attorney did this and he didn't answer that.Is that correct?",
       "time": "01:28:22.45"
     },
@@ -3423,7 +3423,7 @@
     },
     {
       "turn": 563,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't quite get the complete importance of the question you raised of the -- who did it. It seems to me like if you were to try the right to -- if you were forced to try a case in a county where you should be because of the -- that feeling in that county, the question is whether you -- whether they should give you a change of venue. And what difference would it make who said it except to the question (Inaudible)",
       "time": "01:28:42.35"
     },
@@ -3435,7 +3435,7 @@
     },
     {
       "turn": 565,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think that -- that was -- give you a greater -- greater reason to get your change of venue?",
       "time": "01:29:20.92"
     },
@@ -3447,7 +3447,7 @@
     },
     {
       "turn": 567,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that's why you raised the issues.",
       "time": "01:30:30.06"
     },
@@ -3459,7 +3459,7 @@
     },
     {
       "turn": 569,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, have you filed the brief you raised with the State? Was your argument before the State, if you had asked the Court to grant a mistrial if a new trial is something on the ground of the District Attorney of that behavior?",
       "time": "01:30:35.60"
     },
@@ -3471,7 +3471,7 @@
     },
     {
       "turn": 571,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was that ever -- was that ever done?",
       "time": "01:30:51.24"
     },
@@ -3483,7 +3483,7 @@
     },
     {
       "turn": 573,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Henson, are -- are any of the counsel who were -- who were now representing any of these petitioners appointed by any of the courts below?",
       "time": "01:31:15.38"
     },
@@ -3495,7 +3495,7 @@
     },
     {
       "turn": 575,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, Mr. Henson on behalf of the Court, I should like to express our appreciation to you for representing this -- this defendant. We are always comforted when lawyers are willing to give their time in -- for public cause of that kind before entitled to representation. And -- and we always feel good about it when somebody is willing to do it. So, I address my appreciation to you for having performed that public service --",
       "time": "01:31:33.83"
     },
@@ -3507,7 +3507,7 @@
     },
     {
       "turn": 577,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- to consider. And Mr. Attorney General, of course, we -- we appreciate the -- the manner in which you have represented the interest of your State.",
       "time": "01:32:06.27"
     },

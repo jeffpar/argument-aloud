@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-1370/19821109a_81-1370.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "GARY W. DAVIS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BASIL W. KELSEY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Energy Reserves Group against Kansas Power and Light. Mr. Davis, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Davis, may I ask you whether the prices under the contract here had increased under that second clause before the Kansas legislature passed the act here?",
       "time": "00:05:07.44"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mm-hmm. And that was when?",
       "time": "00:05:35.44"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the act retroactively apply, the Kansas act, to--",
       "time": "00:05:39.60"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Davis, if you were correct and your client were allowed to terminate its contracts, what price could it now charge under the Natural Gas Act, under the NGPA? What section would control the price, if you were right?",
       "time": "00:08:35.15"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it clear that Section 109 would not apply?",
       "time": "00:09:23.71"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "By \"different\" you mean lower?",
       "time": "00:10:06.24"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if the contract... absent this contract what price could you charge?",
       "time": "00:10:09.27"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Well, suppose that... suppose... suppose the contract was in force and you wanted a price increase, and the utility said sorry, we won't pay it, and you say well, we will then exercise our option to cancel the contract, so no contract. What price then would you--",
       "time": "00:10:24.93"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The price would be controlled by the Federal act.",
       "time": "00:10:45.46"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And not the 109 price.",
       "time": "00:10:49.72"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but the Section 105 price applies to gas that's under contract, right?",
       "time": "00:10:52.14"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it your position that the gas would not be under contract?",
       "time": "00:10:56.48"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but if it's not under contract and if 105 doesn't apply, clearly 102 would not apply, so wouldn't 109 apply, and if so, wouldn't you get an even lower price?",
       "time": "00:11:06.42"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but your position, as I understand, in this Court is that the contract doesn't cover this case. Or have I got it backwards? You're arguing that the gas... that the contract does apply, aren't you?",
       "time": "00:11:19.71"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. The maximum relief you could get is be free of the contract.",
       "time": "00:11:49.40"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so if the utility said sorry, we won't pay the contract prices, your maximum release is to have no contract.",
       "time": "00:11:54.73"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To anybody you wanted to.",
       "time": "00:12:06.52"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But would it be subject at all to the Gas Policy Act?",
       "time": "00:12:08.24"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In Section 109, wouldn't it? Well, yes. That's the point.",
       "time": "00:12:16.83"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're saying \"was under contract\".",
       "time": "00:12:31.38"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll resume there at 1:00.",
       "time": "00:13:18.16"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may continue, Mr. Davis.",
       "time": "00:13:19.99"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about the time when there isn't any contract?",
       "time": "00:14:23.34"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's irrelevant. If a contract expires, it's irrelevant because it was covered by a contract on the date of the act, is that it?",
       "time": "00:14:30.29"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah.",
       "time": "00:14:42.60"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see.",
       "time": "00:14:48.89"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Davis, certainly the legislature has some right to target a particular area of perceived danger or problem, doesn't it, without making the rule that adopts for that area applicable right across the board.",
       "time": "00:17:16.67"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the Federal act set a ceiling on the price of this gas?",
       "time": "00:18:55.03"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And despite any provision in the contract.",
       "time": "00:19:05.57"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that wouldn't be unconstitutional? You don't claim the Federal act was unconstitutional.",
       "time": "00:19:08.79"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if there were some... you don't think the Federal act is vulnerable at all under provision of the Constitution.",
       "time": "00:19:19.12"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did... did... is there a preemption issue here?",
       "time": "00:20:18.12"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But even if it did, it wouldn't reach the contract clause issue.",
       "time": "00:21:11.80"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It just would be a commerce issue.",
       "time": "00:21:15.22"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, did the... did the Kansas court rely on the federal act as precluding the operation of these clauses?",
       "time": "00:21:46.99"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "With respect to your point about kind of chopping up the market and it's just a small part of the market, doesn't the federal scheme work in somewhat the same way by differentiating between new gas and old gas and putting a lower price on the old gas?",
       "time": "00:22:11.38"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Kelsey.",
       "time": "00:24:04.18"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I hope you're clearing up the question, not the answer. [Laughter]",
       "time": "00:24:41.03"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's all right.",
       "time": "00:24:49.87"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would it be known that... would it be classified that way if it expired by cancellation?",
       "time": "00:25:28.51"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose... suppose the... suppose the utility, your client... is that your client, the utility?",
       "time": "00:25:40.21"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Suppose the utility said well, you've purported to increase the price. We just won't pay it. And then the pipeline or the producer or the other side of the contract said we cancel the contract pursuant to its terms. Is that an expiration or--",
       "time": "00:25:49.11"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--And what would that... then what would the controlling section be?",
       "time": "00:26:11.84"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Um-hmm.",
       "time": "00:26:49.35"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Kelsey--",
       "time": "00:30:05.85"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Supposing that in the Allied Structural Steel case the pension contract between Allied Structural Steel and the pension trustees had provided that it was subject to all provisions of state law, or state and federal law... a provision I think is probably not uncommon in most contracts. Do you think that would have resulted in the Allied Structural Steel case coming out differently?",
       "time": "00:30:06.51"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this question in that connection? The Kansas Commission approved the escalation clause initially, did it not?",
       "time": "00:31:06.06"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But under your assumption of what it could be done, could the Commission now independently of the federal act change its position with respect to the escalation clause and hold it null and void, of no effect? You say that the parties have what they contracted for because the state reserved the right to regulate rates, but having approved this clause could the State of Kansas independently of the federal act have revoked the escalation right?",
       "time": "00:31:15.13"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, is there any authority in Kansas on that point? Can the Supreme Court--",
       "time": "00:32:00.13"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--Yes.",
       "time": "00:32:07.71"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes.",
       "time": "00:32:09.94"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes.",
       "time": "00:32:14.80"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it's also intrastate gas.",
       "time": "00:37:07.60"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's also intrastate gas.",
       "time": "00:37:09.87"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are you saying, in effect, that even had Congress not passed this statute, which seems to be the subject of most of the discussion of the case, that Energy Reserves would be in no better position?",
       "time": "00:37:31.86"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or say in no worse position?",
       "time": "00:37:47.60"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If the Kansas legislature hadn't passed the statute.",
       "time": "00:37:51.65"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that the Kansas statute had no effect on what Energy Reserves was entitled to receive?",
       "time": "00:38:45.80"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought the 102 applied to new gas.",
       "time": "00:39:42.40"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But this is old gas.",
       "time": "00:39:48.57"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I see. Well, isn't your theory quite different from that of the Kansas Supreme Court?",
       "time": "00:40:34.79"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't the theory you're now arguing different from that in which the Kansas Supreme Court upheld the act, the Kansas act?",
       "time": "00:40:39.27"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah, but the Kansas Supreme Court obviously felt obligated to deal with the Energy Reserves claim of impairment of contract obligation, and it didn't go off on the ground that you now urge that we do, that the contract had a provision that said it would be subject to all state law. It went through a constitutional analysis. I understand from your argument that that really isn't necessary.",
       "time": "00:40:59.50"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about their argument that they've lost their right to terminate?",
       "time": "00:41:57.13"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean a contractually allowed increased price.",
       "time": "00:42:14.95"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you're saying the contract wouldn't allow an increased price because the state law was to the contrary.",
       "time": "00:42:20.26"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "102, yeah.",
       "time": "00:42:30.57"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kelsey, what justification is there for the Kansas statute to allow increases under these indefinite escalator clauses for old intrastate gas in contracts executed after April 20, 1977 but not for contracts executed before that date?",
       "time": "00:45:06.16"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Based on the President's speech.",
       "time": "00:45:51.28"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the complaint is that it violates a specific provision of the Constitution limiting state authority.",
       "time": "00:50:33.74"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that just turns the contract clause into a due process limitation.",
       "time": "00:50:58.52"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Davis?",
       "time": "00:52:16.26"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:55:43.38"
     }

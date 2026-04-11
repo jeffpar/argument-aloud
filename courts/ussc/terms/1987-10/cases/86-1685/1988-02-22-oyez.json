@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-1685/19880222a_86-1685.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES T. COLLETTE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WOODROW M. MELVIN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in number 86-1685, Florida versus Hughlan Long. Mr. Collette, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Collette, as a preliminary matter, would you explain to me the mechanics of the plan that led to males receiving lower monthly benefits than females? Normally, the application of a sex-based table would not yield that result.",
       "time": "00:03:20.46"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask at that point, is one of the options available, at least pre-August 1, 1983, a lump sum settlement?",
       "time": "00:07:17.76"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there had been, just to clarify the question Justice O'Connor raised, if there had been a lump sum, it would have meant that the female would have gotten a larger lump sum?",
       "time": "00:07:35.70"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because it's calculated backwards from life expectancy at a fixed rate where they both get the same amount.",
       "time": "00:07:47.44"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:07:51.72"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are some of them pre-Manhart?",
       "time": "00:19:01.93"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Including pre-Manhart?",
       "time": "00:19:33.06"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you say all of that was wrong?",
       "time": "00:19:53.74"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you say both retrospective and prospective awards were in error under Norris?",
       "time": "00:20:37.57"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. All right.",
       "time": "00:20:48.11"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "With me joining him.",
       "time": "00:20:58.31"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question about the pre-Manhart retirees. The award as to them only went back to the date of Manhart, though, didn't it?",
       "time": "00:21:24.92"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You mean if they got too low benefits, received benefits before Manhart, those are also adjusted?",
       "time": "00:21:34.94"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Benefits calculated on contributions prior to Manhart.",
       "time": "00:21:45.95"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But these pre-Manhart people you're talking about are people whose contributions were made before Manhart.",
       "time": "00:21:58.63"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. And benefits received before Manhart?",
       "time": "00:22:09.03"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Full prospective award, but they did not get an adjustment of the award that was paid to them between the date of their retirement and the date of the Manhart decision?",
       "time": "00:22:30.52"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me put it this way. You retired in 1975, Manhart was decided when in '78?",
       "time": "00:22:43.16"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And say they received $100 a month during those three years in benefits. Was that benefit increased later for those three years?",
       "time": "00:22:49.43"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, how can it be? If they got an addition on account of those checks, that wouldn't be prospective.",
       "time": "00:23:03.92"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:23:17.13"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:23:20.37"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The only payments that were increased were those benefits that were paid after August 1, 1983?",
       "time": "00:23:23.72"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but all I'm saying is that no one who received a benefit check prior to August 1, 1983 had that check adjusted.",
       "time": "00:23:42.07"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay. Right. Well, I don't want to add to the confusion but supposing that someone retired say before 1978, received retirement checks before the effective date of Manhart. Now does this decree augment any of the payments that person got for that period of time before '78?",
       "time": "00:24:02.51"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Just a small point. Does the plaintiff class include any male retirees who have chosen male joint annuitants? I take it it would.",
       "time": "00:25:02.97"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And under the Eleventh Circuit's holding, do any retirees get lower benefits as a result of that holding, or is everything a topping up in effect?",
       "time": "00:25:49.89"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Collette. We'll hear now from you, Mr. Melvin.",
       "time": "00:26:18.08"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Just a minute, Mr. Melvin.",
       "time": "00:32:48.74"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That could have been for the purpose of indispensible parties. You know, when you talk about something being an employer for one purpose, it doesn't necessarily mean it's for another purpose.",
       "time": "00:32:50.05"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Melvin, what language in Manhart informed employers that they were forbidden to apply sex based tables to non-employee joint beneficiaries? I've reread the opinion and I had trouble finding anything in there that would address that.",
       "time": "00:34:25.75"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are we dealing with that?",
       "time": "00:35:05.50"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the male employee is not suffering discrimination because of his sex?",
       "time": "00:35:54.25"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of somebody's sex.",
       "time": "00:36:09.00"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's different from Manhart.",
       "time": "00:36:11.98"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We didn't do that in Norris, then. We were wrong in Norris, then, if the case by case approach is preferred. We certainly didn't treat it... did we treat it as a factual issue? I thought we announced a rule that would apply for you know generally in Norris, didn't we?",
       "time": "00:41:42.35"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're saying that was wrong?",
       "time": "00:42:00.77"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Melvin, one sentence in the Court of Appeals opinion in this case, when it's dealing with retroactive relief says, \"the District Court's refusal to consider evidence of the impact on pension funds on the national level is also not in error. \" I gather then some evidence was offered to kind of make this a case by case thing and the district court didn't consider it?",
       "time": "00:43:02.63"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Melvin, could I interrupt you for a minute? This letter that you read us from the... what was the fellow's title? The auditor? Do we know that he was pronouncing on you know what Title VII required and what Manhart held and so forth?",
       "time": "00:54:47.35"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is he a lawyer?",
       "time": "00:55:14.33"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So for all we know, this may be one piece of advice that the managers of the system got, but they may well have taken that letter and consulted with their lawyers.",
       "time": "00:55:21.33"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And their lawyers may well have told them, you know, Manhart doesn't say this. Pre-Manhart it doesn't require, and Manhart doesn't say it. And who is this fellow who is just some actuary and we went to law school.",
       "time": "00:55:32.21"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wasn't convinced as to what?",
       "time": "00:56:32.82"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who had the burden of proof on this? This was a factual question. Who had the burden of proof on the factual question?",
       "time": "00:56:35.99"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Melvin.",
       "time": "00:57:12.56"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Collette, you have four minutes remaining.",
       "time": "00:57:14.30"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The only thing I'd ask about that is did you argue in the lower courts that the State was in the posture of a third party?",
       "time": "00:57:50.38"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "For what purpose did you emphasize that fact when you made this stipulation that the Court could regard the case as though it involved only one employer? Why would you be talking about 1100 employers?",
       "time": "00:58:09.99"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Collette. The case is submitted.",
       "time": "00:59:16.13"
     }

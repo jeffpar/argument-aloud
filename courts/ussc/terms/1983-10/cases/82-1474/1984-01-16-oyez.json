@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1474/19840116a_82-1474.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES R. HOOVER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWARD RONWIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you may proceed whenever you are ready, Mr. Hoover.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hoover, may I ask you, assuming, and I know you, of course, deny the allegations in the complaint, but assume that the examiners did not set the exam schedules on the basis of competence to practice law, but they wanted to set the figure so low that very few new lawyers would be admitted to protect the existing bar from the competition of too many lawyers in the community, and the Plaintiff wanted to challenge that practice, which I assume may not well happen. If he wanted to challenge such a practice, how should he do it other than by the antitrust laws?",
       "time": "00:04:10.64"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But we must assume it's true.",
       "time": "00:04:51.72"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, so how does he challenge it?",
       "time": "00:04:56.61"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you argue res judicata?",
       "time": "00:05:55.36"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:06:14.19"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose that on his very first go-round, when he went to the Arizona Supreme Court, he did present his antitrust claim and said, I should have a license.",
       "time": "00:06:53.17"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the Arizona Supreme Court turned him down. What if, in petitioning here, he had said, the Arizona Supreme Court didn't understand the antitrust point, so they made a mistake. They made a mistake on the antitrust laws. They assumed that it wasn't a violation of the antitrust laws obviously, and they were wrong. Suppose we had granted that petition for certiorari on a claim like that, what would your... your argument then here would be not procedure, but it would be that this is state action.",
       "time": "00:07:03.22"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would still be saying that it is not... that your action is state action.",
       "time": "00:07:36.08"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that, but what would your argument be?",
       "time": "00:07:49.50"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would your argument be?",
       "time": "00:07:55.21"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would also say, though, that the antitrust laws have nothing to do with it because we were acting as an agency of the state.",
       "time": "00:08:01.54"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Actually, since the Arizona Supreme Court would have been turning him down, that is state action, I suppose.",
       "time": "00:08:20.27"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Hoover, do the bar examiner screen on the basis of anything except legal competence?",
       "time": "00:10:12.72"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How does he show that, Mr. Hoover?",
       "time": "00:10:51.77"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you have an interview like some states do for ethics or moral qualifications?",
       "time": "00:11:07.95"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you don't have an automatic interview?",
       "time": "00:11:24.98"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But of course-- --Excuse me, go ahead. If... I gather legal competence is determined on the basis of a written examination, is it?",
       "time": "00:11:38.92"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If the applicant passes that, he may nevertheless be denied admission on one of these other factors?",
       "time": "00:11:49.41"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Age is simple, of course, he is or isn't over 21, but what about the mental one?",
       "time": "00:11:59.65"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, as Justice Stevens asked you, though, we assume that he has been denied because... it is a pleading stage because he wasn't admitted when he took bar because you had a quota.",
       "time": "00:12:43.68"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is as though he had been denied admission because you only wanted, let's just take, for instance, 100 lawyers instead of 200 lawyers being admitted each year, and he happened to be the 101st on the list. That is the way we judge this case, isn't it?",
       "time": "00:13:01.39"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just one other question following on what Justice Brennan asked.",
       "time": "00:13:19.62"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it part of the state policy that the Arizona Supreme Court and these various people administer to limit the number of lawyers for economic reasons?",
       "time": "00:13:23.24"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If it is not the state policy, then how can you contend that the policy he describes is mandated by the state?",
       "time": "00:13:37.14"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but there is a very great difference between excluding electricians, because you don't want ten new ones this year, and saying, we won't let any in unless he knows the difference between getting a shock and not getting a shock.",
       "time": "00:13:57.56"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does the professor embrace the Boulder Television case?",
       "time": "00:16:12.58"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Before.",
       "time": "00:16:22.80"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why wouldn't it be passivity if the legislature or the supreme court of your state gives you authority to do anything you want to or very broad discretion in giving exams and in recommending admission?",
       "time": "00:16:42.53"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You could go any way of several ways.",
       "time": "00:16:59.33"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Hoover, where is there any specification on that?",
       "time": "00:17:34.92"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On what type of exam you give, how many, or anything.",
       "time": "00:17:39.92"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in writing on this?",
       "time": "00:17:44.97"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there any specificity of any kind that I can look at?",
       "time": "00:17:53.31"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in the rules or the instructions that say that you cannot adopt a rule which says that we will only let every third person by?",
       "time": "00:18:18.31"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is nothing to stop you from doing that?",
       "time": "00:18:33.65"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Perhaps you've already answered this, Mr. Hoover. I gather that X number by the results of the examination demonstrate minimum competency. There is no practice of saying, well, only half of those or only three quarters of those will be admitted.",
       "time": "00:19:08.53"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that is not what is alleged in the complaint.",
       "time": "00:19:39.13"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We are arguing the merits not the legal sufficiency of the complaint.",
       "time": "00:19:41.83"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you are answering it on what the evidence will show, and not what the pleading shows.",
       "time": "00:19:47.75"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It really seems to me that you are in a position where head you win, no matter what happens you win, because is you have a quota policy, you can say that is the state policy, it is state action. If you're willing to say it, but you don't because apparently you don't really have one. If you don't have one, you're going to win on the facts.",
       "time": "00:20:15.22"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The Supreme Court could expressly do it.",
       "time": "00:20:38.58"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To depart from the pleading situation, on another hypothetical, I assume that a person could take the examination, get a mark of 99, and then in the later stages it would develop that he had just recently been convicted of stock fraud in violation of the Securities and Exchange Act, and you might then reject him... reject the admission on that ground, even if he had 99 on the examination.",
       "time": "00:20:50.12"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But that is not this case.",
       "time": "00:21:24.98"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Hoover.",
       "time": "00:21:35.69"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Rule 28(a) of your bar, quoted on page 7 of your brief, provides that the committee shall examine applicants, shall recommend to this court for admission to practice applicants who are found by the committee to have the necessary qualifications, and would only, if not there--",
       "time": "00:21:39.06"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--Do you see the rule I am reading from, it is Rule 28(a).",
       "time": "00:22:07.89"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It starts on page 6 of your blue brief.",
       "time": "00:22:19.10"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Look over on page 7, the fourth line down, \"The committee shall examine applicants and recommend to this court for admission to practice applicants who are found by the committee to have the necessary qualifications. \"",
       "time": "00:22:28.22"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Do you construe that to mean all applicants who have the necessary qualifications as determined by your committee?",
       "time": "00:22:47.97"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is that the policy of the State of Arizona?",
       "time": "00:23:00.61"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How can you say that you should have won this summary judgment motion.",
       "time": "00:23:06.08"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "A motion for dismissal, why should you win that, because it says that he was excluded not because he didn't have the qualifications or the requirements, but just because he was the 101st on the list, that's in his, because to restrict the numbers.",
       "time": "00:23:19.30"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then you must... How can you say that you are living up to that policy, if you concede that he was excluded because he would have made too many lawyers.",
       "time": "00:23:49.12"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then you don't... You really can't be contending that it is state policy to do that, then.",
       "time": "00:25:04.60"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To get in the state action exception, you have say, this is our state policy to restrain competition. You just said to me, well, nobody would ever restrain competition this way.",
       "time": "00:25:11.77"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me that you have a perfect defense on the merits.",
       "time": "00:25:24.51"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't have faith in our Federal judicial system.",
       "time": "00:25:54.70"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Sure.",
       "time": "00:26:01.96"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you have deviated from the state policy... Suppose you did deliberately deviate from state policy as it seems to have been alleged in the complaint. I don't know about antitrust liability, but you wouldn't think that you should be deviating from state policy?",
       "time": "00:26:32.99"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Ronwin.",
       "time": "00:27:27.73"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you mean to apply that proposition even it developed later that the person was not a citizen of the United States or was not 21 years of age.",
       "time": "00:29:22.35"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You've got to meet all of the qualifications, would you not?",
       "time": "00:29:32.83"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In other words, Mr. Ronwin, it's your allegation that the bar examiners purposely restricted the number of lawyers allowed?",
       "time": "00:30:37.80"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I am asking, are you alleging that?",
       "time": "00:30:52.89"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What you are saying that they did... Perhaps I misunderstood you. Did you say you are not alleging that they purposely did this to restrict the number of those admitted?",
       "time": "00:31:27.73"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it you do allege that in advance they had some idea about how many they wanted to admit.",
       "time": "00:31:55.82"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In other words the number... Are you alleging that the number who came out with the 70 was just coincidentally the number that they decided that year to admit?",
       "time": "00:32:38.16"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They must have been doing it knowingly, then.",
       "time": "00:33:03.58"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How can you win your case without that?",
       "time": "00:33:09.60"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Ronwin, are you admitted anywhere to practice?",
       "time": "00:37:10.07"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In Iowa.",
       "time": "00:37:12.71"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you want to move to Arizona, or you have moved to Arizona?",
       "time": "00:37:14.52"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace.",
       "time": "00:40:44.74"
     },
@@ -935,19 +939,19 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wallace, could I put a hypothetical to you, I'm sure you have thought about it.",
       "time": "00:49:11.77"
     },
     {
       "turn": 150,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "What about a state law school.",
       "time": "00:49:17.16"
     },
     {
       "turn": 151,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It is common knowledge, of course, that law schools establish scores below which one does not pass. Are you arguing that a state law school that does that arguably would be in violation of the antitrust laws?",
       "time": "00:49:19.13"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "That hasn't been shown in this case, has it?",
       "time": "00:49:52.93"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But every law school would be subjected to suit if a complaint like this were filed against it... every state law school?",
       "time": "00:50:00.02"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would it be inappropriate for a state law school to decided, as I think some have, that it wishes to have a higher quality of students and require a higher grade of performance before it gives the accolade of a degree?",
       "time": "00:50:45.97"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Many states, I think, still admit people to practice who may not have graduated from a law school, but other states do not, and law firms, certainly the law firms I am familiar with are not going to hire someone who failed to graduate from an accredited law school.",
       "time": "00:51:47.36"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "True.",
       "time": "00:52:06.95"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You have to find one that has a low standard of quality.",
       "time": "00:52:11.07"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Hoover.",
       "time": "00:56:54.19"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why didn't you tell him before?",
       "time": "00:58:09.00"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why has he passed now and he didn't pass before?",
       "time": "00:58:16.26"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:58:34.47"
     },
@@ -1079,13 +1083,13 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:58:47.96"
     },
     {
       "turn": 174,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:58:49.83"
     }

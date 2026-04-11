@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-1124/19911106a_90-1124.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "GEORGE H. MOYER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL J. LARKIN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 90-1124, Keith Jacobson against the United States. Mr. Moyer.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Moyer, refresh my recollection. Was the jury permitted to find entrapment in this case but did not?",
       "time": "00:02:19.81"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The jury found--",
       "time": "00:02:30.52"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But you say that it shouldn't have been up to the jury that there was entrapment as a matter of law?",
       "time": "00:02:35.35"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why doesn't that tend to prove that he was disposed to commit the crime? It doesn't have to establish it in its entirety. It's just one element of proving that he was disposed to commit the crime.",
       "time": "00:03:09.53"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that what the instructions said to the jury?",
       "time": "00:03:55.95"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what did, was there an objection to the jury charge?",
       "time": "00:03:58.46"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "About entrapment?",
       "time": "00:04:05.24"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Moyer, do you take the position that the Government must always prove predisposition in these entrapment cases by establishing events that occurred before the Government started its sting operation?",
       "time": "00:04:19.84"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that your position?",
       "time": "00:04:39.72"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And isn't that virtually the same, then, as requiring reasonable suspicion or reasonable grounds to believe that this particular individual is suspect?",
       "time": "00:04:40.78"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We didn't grant certiorari on that question, I guess.",
       "time": "00:04:59.57"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "As a matter of law. You think that incorporates your first question as presented on certiorari?",
       "time": "00:05:11.55"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If you're correct in your position that the events have to have occurred before the Government sting operation, then I suppose some of these sting operation pawn shops and so forth that are set up in various communities are operating illegally, then, in your view?",
       "time": "00:05:34.23"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, wait, how did they get him... they got his name, as I understand it, because of his purchase of material which would not have been illegal at the time he originally purchased it, but which would have been illegal after this act was passed that made--",
       "time": "00:06:24.95"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You don't concede that, but that's the Government's contention.",
       "time": "00:06:45.16"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "These, what is it, Bare Boys I and Bare Boys II books that purported to be just books about nudist colonies.",
       "time": "00:06:48.74"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right. Suppose we agree with the Government that those books would violate the law later passed. Would you then concede that there was adequate reason to pursue your client?",
       "time": "00:07:00.57"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though the Government would then know he had an appetite for what was, what was illegal?",
       "time": "00:07:17.11"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I think there's a little difference between what you might call a malum prohibitum and a malum in se. I don't think the proper analog would be cigarettes, but perhaps cocaine. If that were originally not illegal and then made illegal, you think the Government could not target people who were known prior users of cocaine?",
       "time": "00:07:49.60"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Um-hum.",
       "time": "00:08:16.78"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you don't think it's pernicious?",
       "time": "00:08:31.44"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you don't think it's pernicious?",
       "time": "00:08:35.25"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But not... only after it's outlawed?",
       "time": "00:08:38.68"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It depends on what the activity is. If it's that kind of an activity, just as if it would have been cocaine, I think one may, one may suspect this is a person who does not care that much about societal norms. You don't think that's a reasonable suspicion?",
       "time": "00:08:53.09"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't want you to concede that. We're assuming that for purposes.",
       "time": "00:09:27.53"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me you are requiring more than mere suspicion that he is the type of person who would violate the law. You require that they know that he had violated the law before. Is that--",
       "time": "00:10:24.80"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is that what you require, that they have to suspect that he has violated the law before?",
       "time": "00:10:37.63"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, here it was activity of a similar type, if we accept the hypothesis, but it was not yet illegal, and you say that makes the difference?",
       "time": "00:11:20.21"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you have authority for that proposition?",
       "time": "00:11:34.73"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What, what's an example of one of the early cases that you just referred to in your answer to Justice Kennedy?",
       "time": "00:12:02.68"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your brief?",
       "time": "00:12:27.93"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "These are all... none of these are from this Court, are they?",
       "time": "00:12:36.90"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Courts of appeals? But your point is the Government should have some, some kind of a suspicion that he, that the target is likely to break the law by a certain course of conduct?",
       "time": "00:12:44.18"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It isn't that he was likely... that some time he was engaging in this activity, but he is likely to continue it even though--",
       "time": "00:13:03.35"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--even though he knows it's illegal?",
       "time": "00:13:12.82"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, does the statute require a knowing receipt?",
       "time": "00:13:56.92"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So I take it, then, the jury just disbelieved that. I mean, that's an element of the offense.",
       "time": "00:14:07.34"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That he knows that it's child pornography. All right.",
       "time": "00:14:25.37"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, if... he doesn't have to know it's a crime in order to be convicted, right?",
       "time": "00:14:40.50"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well then why--",
       "time": "00:14:46.08"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Um-hum.",
       "time": "00:14:50.55"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In addition to knowing that it's pornography he has to know that, that it's child pornography, he has to know that it's illegal to receive child pornography?",
       "time": "00:14:55.79"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You didn't bring that point here, though.",
       "time": "00:15:05.44"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, your petition for certiorari simply says the question you are raising is were, was your client entrapped as a matter of law.",
       "time": "00:15:13.34"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just lost on your submission. So if the case comes here, I guess this point is against you.",
       "time": "00:15:21.09"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you raised the issue below and you lost on it, that, on the question of knowing illegality.",
       "time": "00:15:32.47"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You lost on it. You didn't bring that issue here.",
       "time": "00:15:40.48"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, okay. Suppose we agree with the lower court that ignorance of the law is no excuse, which tends to be the rule. Suppose we agree with them. Then the Government... why does the Government have to show that this is a person who not only acquired child pornography before, but also acquired it before knowing it was in violation of the law? Why does it have to prove that since in order to convict you don't have to prove that he knew it was in violation of the law? All you have to prove is that he received child pornography.",
       "time": "00:15:46.55"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So under your position if someone uses marijuana, say in the Netherlands where it's legal, that's irrelevant as to whether he is disposed to use it here? I find that very difficult to accept.",
       "time": "00:16:35.30"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the question is one of relevance, whether or not... you're telling us it's just irrelevant.",
       "time": "00:17:40.59"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How many numbers were there?",
       "time": "00:18:41.23"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Five?",
       "time": "00:18:45.85"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, I thought he responded to all of these quite promptly, with one--",
       "time": "00:19:48.42"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--exception.",
       "time": "00:19:53.26"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought he wrote that he hadn't gotten the sexual attitude survey. I thought that's what had happened, but then--",
       "time": "00:21:02.56"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Did he testify as to the number of times he was solicited and this sort of thing?",
       "time": "00:23:51.60"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He did testify in some other aspects of the case, did he not?",
       "time": "00:24:07.24"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're talking as though each contact was a contact that offered him child pornography, and that's not how I understand the record. Some of the contacts just asked him about his attitudes and he responded to some of those. It wasn't he was offered child pornography 11 times, turned them down, and the Government continued to nag him until he finally bought one. There wasn't an offer every one of those 11 times, was there?",
       "time": "00:24:13.63"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Moyer. Mr. Larkin, we'll hear from you.",
       "time": "00:26:14.20"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I happened to look through them and most of them are boys standing up all by themselves.",
       "time": "00:27:02.15"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's different from what your description was, though.",
       "time": "00:27:18.81"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you agree that it was not unlawful to purchase them at the time they were purchased?",
       "time": "00:27:37.28"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, since you say that's the short answer to the whole case and since you concede that at that time nothing illegal had transpired, take Justice Kennedy's hypothetical of someone who regularly used marijuana in a foreign country where it was lawful, and you had nothing except that evidence to support the predisposition count if you found the person eventually in possession of marijuana that a Government agent had somehow or other delivered to him. Would that prior evidence be sufficient to establish predisposition?",
       "time": "00:27:46.09"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's sufficient to establish it, too, because--",
       "time": "00:28:20.59"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--What if he just purchased one item 5 years earlier?",
       "time": "00:28:37.95"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But here we don't have an attempt to distribute. Mere possession is not... you have to have a parallel example, you have to have an offense consisting of mere possession.",
       "time": "00:28:49.52"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But of course he hadn't seen the second set of magazines at the time he ordered them.",
       "time": "00:29:05.15"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The ones... the crime he committed.",
       "time": "00:29:11.17"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He had seen the 1984 magazine, but that, he's not being put in jail or punished for that.",
       "time": "00:29:13.50"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He's being punished for a magazine that he ordered without seeing it.",
       "time": "00:29:19.70"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand that, but I understand your opponent to be arguing that predisposition must rest on some evidence that he was willing to violate the law and had previously, before the Government engaged in the attempt to induce him to engage in this transaction, had previously done something that he thought was illegal. Do you have any cases that are like this in the sense that the prior, that the activity prior to the contact by the Government did not involve any knowledge of illegality?",
       "time": "00:30:26.25"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, you're relying on evidence, and maybe that's enough, of his knowledge after the Government began its program. Prior to the Government's first contact with him there is no evidence that he had ever done anything knowing it to be unlawful, isn't that correct?",
       "time": "00:31:10.43"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do... well, I understand, but do you have any cases saying it's not required?",
       "time": "00:31:26.41"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So this, whichever way we go we're going to have to make a little new law today.",
       "time": "00:31:30.90"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:31:35.08"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't, I take it you are not suggesting that the Government didn't need to have some basis for targeting this man?",
       "time": "00:32:03.14"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there some... there is a predisposition requirement, I suppose, but is that satisfied just by the fact that he ultimately commits the crime?",
       "time": "00:32:26.40"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume in this case they had no evidence, no indication that, any of this evidence until they targeted him and then they finally induced him to buy. That would be enough?",
       "time": "00:32:47.90"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In fact isn't that a very common practice throughout the country in an effort to find burglar rings and so forth?",
       "time": "00:33:18.59"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but that's passive Government conduct. They set up the pawn shop all right, but the only people who come in are people who are interested in doing something. But how about just targeting a person and pursuing him?",
       "time": "00:33:31.13"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I ask you again, suppose that they didn't have this evidence of his ordering these magazines before but they just happened to target this man and pursue him. They did, they contacted him time after time. Finally he bought, and I take it... and your submission is that would be just fine.",
       "time": "00:33:54.51"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether he had a predisposition.",
       "time": "00:34:13.47"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Larkin, is this similar to some of the sting operations involving public officials around the country?",
       "time": "00:34:35.71"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you have somebody posing as someone who wants a vote in exchange for financial benefits.",
       "time": "00:34:49.78"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But there's no evidence that this man did any of those things, is there?",
       "time": "00:36:19.06"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And probably by the time, by 2... after 2 years of investigation the Government was reasonably convinced there was no danger of any of that, wasn't there?",
       "time": "00:36:24.20"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He never, he never mailed any pictures back, he never described that kind of activity, he denied having engaged in that kind of, the pedophilia itself.",
       "time": "00:36:33.21"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that a... just out of curiosity, I didn't know about... is that an illegal mailing?",
       "time": "00:38:10.41"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if they had been face-to-face and instead of what is written on paper in the correspondence it had been said orally? Would it be a different case?",
       "time": "00:39:17.64"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Two and a half years isn't reluctance. Two and a half years of failing to make a purchase of this kind is not reluctance.",
       "time": "00:39:31.09"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did they, did the jury instructions define predisposition?",
       "time": "00:40:33.96"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about when there should be evidence of a predisposition?",
       "time": "00:40:40.33"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Before... there had to have been a predisposition before the contacts?",
       "time": "00:40:58.75"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The jury must find that there--",
       "time": "00:41:04.66"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yeah. Well, then the case does present the question... I hadn't quite realized... does present the question of whether legal conduct, you know, with the same... whether the legal conduct before any contact is sufficient as a matter of law.",
       "time": "00:41:08.82"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It isn't necessarily found. They necessarily have to have relied on the two 1984--",
       "time": "00:41:24.83"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Or it can be used to show that just because he finally committed the crime that there, that he was, prior to the first contact, predisposed.",
       "time": "00:42:09.81"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Larkin, if the Bare Boys I and II evidence was not found and they had just sent out general mailers, would there have been entrapment, then, according to instruction number 15 at page 11, because then there would be no evidence that he had the predisposition before the first contact.",
       "time": "00:42:37.32"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So does your whole case depend on Bare Boys I or II, or am I misreading the instruction?",
       "time": "00:42:59.11"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There was predisposition.",
       "time": "00:43:19.10"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In other words the... excuse me. Go ahead. In other words the contact can be made even before there is evidence of predisposition?",
       "time": "00:43:45.76"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it that, I take it that it would be all right for the Government, then, to, without any prior experience with the person, to target that person and in the course of things offer him something and the fellow says, is this legal, and the Government says of course it is, and he buys. Would that be evidence of predisposition?",
       "time": "00:44:03.61"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But wouldn't that sort of qualify as leaning on a fellow?",
       "time": "00:44:38.90"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He just asked, by the way, I don't want to commit a crime, but is buying this stuff legal, and the Government says sure.",
       "time": "00:44:45.25"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would that be leaning on him or not?",
       "time": "00:44:52.45"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it would, so he, so there wouldn't... the conviction would stand?",
       "time": "00:44:55.34"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it would be leaning on him if it were a crime of willfulness that he was charged with, wouldn't it?",
       "time": "00:44:58.54"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's funny.",
       "time": "00:45:09.83"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To mislead him to think it's legal when it's illegal? You don't really think the Government can do that, do you?",
       "time": "00:45:18.21"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:45:27.68"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah, but it is on the list. It is on the list and he says it isn't.",
       "time": "00:45:51.80"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right, but go back-- --You just lost me, Mr. Larkin. I think you've gone too far now. That's-- [Laughter] Go back to the related question of what it shows about predisposition. If it's a willfulness crime and your only evidence is that before he committed the prior act he said is this... I am sorry, and your only evidence is that he committed acts which were not unlawful at the time he committed them, that would not be sufficient evidence of a predisposition to commit a willfulness crime, would it?",
       "time": "00:46:01.14"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but malum in se crimes aren't likely to be willfulness crimes.",
       "time": "00:46:55.58"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It would be a very peculiar circumstance, though, wouldn't it?",
       "time": "00:47:04.45"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that's highly unlikely.",
       "time": "00:47:07.66"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Our previous cases haven't parsed this matter quite so finely, have they, made kind of a minuet out of it. They have simply, in Sherman they identified all the facts which led the Court to conclude there was entrapment as a matter of law, but it didn't go into a lot of discussion of what had to come first.",
       "time": "00:47:23.34"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, yet, Mr. Larkin, let me just follow up on something you said. First of all, if the evidence that he engaged in a lawful but shabby transaction back in 1984 is not sufficient because you have to prove intent to violate the law, then you would have to also support it by stuff like the language that you called our attention to on page 9 which was shortly before the actual purchase, which does, I have to agree, is very strong evidence of a willingness to violate the law at that time. But you say that must also prove a willingness to violate the law before the Government began its program back in 1985, I guess it was. Isn't that right?",
       "time": "00:48:05.10"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I think we have all finally distilled the requirement that there must have been evidence of a predisposition to violate the law before the Government's first contact in 1985, which could be established in one of two ways; by the original purchase of a unlawful piece of material, and later by responding to solicitations which were rather, plainly indicated something illegal. But those were way, two and a half years later. And so you have to say in effect from what he did in 1987 you an reasonably infer that back in 1984 he was also then willing to violate the law. That's really what you're saying is that that's a reasonable inference.",
       "time": "00:48:43.32"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but does any of the other evidence between the original contact by the Government and the final purchase in 1987 contain the same type of graphic indication that it was probably illegal?",
       "time": "00:49:26.02"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that's, of course, the actual material there is not in the record, is it?",
       "time": "00:49:45.87"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:49:50.85"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And when was that?",
       "time": "00:49:52.93"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so there must be, there must be some evidence... I guess the judge has to be convinced that there's enough evidence to show a predisposition prior to the first contact, but that evidence doesn't have to be evidence of facts or conduct prior to the contact?",
       "time": "00:49:57.20"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it... well, that answers it. In other words the Government doesn't have to know of that evidence at the time that it makes the contact?",
       "time": "00:50:23.99"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought you said you were, you didn't concede that there has to be evidence of predisposition before the first contact. I thought you said you were willing to take that on but you don't really think that's essential.",
       "time": "00:50:30.56"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What do you do about the pawn shop? The Government sets up a pawn shop and I see the pawn shop, I have no predisposition. I get to thinking about it, gee, there's a pawn shop. I can take anything in there, they don't know whether it's mine or not. And I, and so I thereafter conceive the idea of stealing something and bringing it to the pawn shop.",
       "time": "00:50:41.54"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you saying that that, that I have been entrapped now because I did not have the predisposition when I first--",
       "time": "00:50:58.10"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--His coming to the pawn shop shows that he had a pre--",
       "time": "00:51:08.29"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--He had a predisposition.",
       "time": "00:51:11.56"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Larkin. Mr. Moyer, you have 3 minutes remaining.",
       "time": "00:51:20.52"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, most of Mr. Justice Roberts' opinion was not approved by the majority in Sorrells. And again in Sherman the Court was asked to adopt his concurring opinion in Sorrells and it refused to do that.",
       "time": "00:52:05.20"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Moyer, I've been thinking, if we adopted that proposition that you are urging on us, that it's unlawful for the Government to approach a person unless the Government knows in advance of approaching him that he has the predisposition, then I guess the Government couldn't put an ad in a magazine, you know, that suggested that it has child pornography for sale. Right? Because that ad would get to all sorts of people, including people that don't have the predisposition, and any conviction derived from that would be invalid. Is that right?",
       "time": "00:52:59.51"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see a whole lot of difference between, you know, a throwaway in the mail and an ad in the newspaper. I mean, they're both standard ways of advertising the availability of something.",
       "time": "00:54:03.55"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Moyer. The case is submitted.",
       "time": "00:54:43.81"
     }

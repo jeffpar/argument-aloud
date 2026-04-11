@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/79-886/19801105a_79-886.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL M. GRIBBON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen, the case is submitted, we will hear arguments next in Upjohn Company v. United States. Mr. Gribbon, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "By the SEC or by your client?",
       "time": "00:05:33.30"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is it your submission, Mr. Gribbon, that both items requested were work product?",
       "time": "00:06:13.79"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know we're part in that aspect of the case now.",
       "time": "00:06:22.30"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I know we're talking now about the privilege, not about work product.",
       "time": "00:06:35.36"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And since I've already interrupted you, quite apart from what the scope of the privilege may be in this context or any other, who is the beneficiary of the privilege?",
       "time": "00:06:40.36"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The client?",
       "time": "00:06:53.75"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not the lawyer, the client?",
       "time": "00:06:55.94"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So only the client would--",
       "time": "00:06:59.47"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--But the lawyer is the beneficiary of the work product?",
       "time": "00:07:05.89"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right. All right. Mr. Gribbon, while we have you interrupted, does the record show how many of the interviewees have been talked to by the Government?",
       "time": "00:07:13.51"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So that the Service has found a way to get to them?",
       "time": "00:07:44.88"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gribbon, one minor detail. Did you give them the blank questionnaire?",
       "time": "00:09:03.73"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But no answers yet?",
       "time": "00:09:09.39"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If Mr. Thomas, even though he'd gone to law school were, say, vice president in charge of personnel, and had sent out this questionnaire, would--",
       "time": "00:11:05.01"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--So when does it apply?",
       "time": "00:11:17.61"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not to any--",
       "time": "00:11:22.27"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--Well, tell us what the factual situation is. Or his personal situation is.",
       "time": "00:11:40.25"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was the purpose of the inquiry, wasn't it? And that could have been delegated, at least arguably, just as well to the vice-president in charge of finance?",
       "time": "00:11:44.84"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Even though that vice president might be a member of the bar somewhere, he wouldn't be acting as a lawyer. He was getting factual information.",
       "time": "00:11:58.46"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Weren't they factual inquiries?",
       "time": "00:12:23.35"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Other people might do it too.",
       "time": "00:12:40.79"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What did you do, and when did you do it?",
       "time": "00:12:47.29"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you saying that the first thing a lawyer should do when he is confronted with a problem by a client is to get the facts?",
       "time": "00:13:05.86"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And then he can't have any opinion about the law until he has some facts to which to apply the law?",
       "time": "00:13:12.73"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gribbon, what if the general counsel without the authorization of the board simply felt that there's something wrong here and I'm going to blow the whistle on this board because I think they're covering up some stuff, and went around and conducted exactly the same interviews? Would you claim the same privilege for him then?",
       "time": "00:13:23.92"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would happen if you get two corporations and one gets his general counsel to do it and another one gets its vice president who is not a lawyer to do the exact same thing? One's governed by one rule and the other is not.",
       "time": "00:14:08.01"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then the next corporation did the exact same thing with a man who happened to be a member of the bar?",
       "time": "00:14:33.31"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The same question now.",
       "time": "00:14:46.64"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The same questionnaire.",
       "time": "00:14:48.62"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "To the client it would be the same.",
       "time": "00:14:54.38"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you buy that, you're going to be in trouble. I can't hold you to it. I can't hold you.",
       "time": "00:14:57.68"
     },
@@ -431,13 +435,13 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm glad to see somebody else recognize the difference between a lawyer and a member of the bar. Thank you.",
       "time": "00:15:24.01"
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gribbon, supposing when he got all through when his investigation, he said to the president, my advice to you is to fire the ten branch managers. Would the privilege survive?",
       "time": "00:15:29.25"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What I'm really inquiring is, how do we know whether the advice that this executive, who is both a lawyer and an executive, gives is properly considered legal advice, because it may well be kind of a blend of management and legal advice?",
       "time": "00:15:55.13"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But this is... this wasn't the rationale below, I take it, whether it was legal advice or not?",
       "time": "00:16:55.62"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the Government would like to make it--",
       "time": "00:17:04.44"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Do you think the Government is entitled to make, as a respondent entitled to make this argument? Or would it change their relief?",
       "time": "00:17:26.99"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless it would expand their relief.",
       "time": "00:17:40.48"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they couldn't rely on it at all if they had not preserved it on their appeal from the District Court to the Court of Appeals.",
       "time": "00:17:55.99"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think it would have a tendency to lead lawyers to write less and have long distance telephone calls more?",
       "time": "00:21:48.51"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't there tension in more ways than one here, isn't there? Because the corporation as you describe it is a very abstract entity and... the board of directors are human beings who may have tensions and conflicting interests themselves.",
       "time": "00:24:44.11"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The privilege generally covers both the communications from the client to the lawyer as well as the advice that the lawyer gives the client, isn't that correct? It's a two-way communication between the two, isn't it?",
       "time": "00:26:43.62"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Without having factual knowledge. So the privilege, quite apart again from the particular scope of the privilege with respect to a corporate client, the privilege generally covers the two-way communications between lawyer and client?",
       "time": "00:27:00.31"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace?",
       "time": "00:28:52.20"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Doesn't the privilege extend to any agent of a client who's acting as an agent of the client?",
       "time": "00:30:43.10"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Imparting his own impressions.",
       "time": "00:31:16.84"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Which the principal may not know.",
       "time": "00:31:22.29"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "We're dealing here only with a proposed evidentiary rule in the federal courts. Is that correct?",
       "time": "00:31:57.45"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that's... those are the metes and bounds of our inquiry.",
       "time": "00:32:18.55"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can a lawyer from whom advice is sought properly perform his function if there isn't a complete and free flow of information, factual material from the client to the attorney, whether it's a corporation, an individual, or whatever?",
       "time": "00:32:56.48"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But isn't the primary source the client in most cases?",
       "time": "00:33:22.72"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you don't have to go outside of the attorney-client field for a precedent, do you? How about Cardozo's opinion in United States v. Clark, where he says that if the information communicated suggests fraud or crime, it's not privileged.",
       "time": "00:34:35.35"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose whatever evidentiary rule is established in this case would be... arguably, at least, equally applicable to a governmental agency, wouldn't it, federal governmental agency?",
       "time": "00:35:50.73"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, wouldn't it be? That's a question.",
       "time": "00:36:07.34"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I'm not sure either.",
       "time": "00:36:12.83"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it wasn't in that connection that you conducted an investigation or an inquiry among the various agencies?",
       "time": "00:36:21.17"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the Proposed Rules of Evidence for the Federal Courts prior to their amendment in Congress take a position on this?",
       "time": "00:39:02.61"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So that's the way it went to Congress?",
       "time": "00:39:28.07"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, can I just ask one background question? You suggest this is more or less the common law test, by virtue of history, am I not correct in remembering that Judge Kirkpatrick's opinion is the first announcement of this test?",
       "time": "00:41:10.47"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it was a replacement, or at the time it was being considered as... an alternative that was considered was the Radiant Burners test of no privilege at all. So there isn't really any law in common law that supports it.",
       "time": "00:41:28.33"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what was the test or was there before that, before the control group test was invented?",
       "time": "00:41:48.00"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, has it been denied?",
       "time": "00:42:10.21"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in one case, the Radiant Burners case, denied it, and that was rejected.",
       "time": "00:42:17.95"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it appropriate or necessary that we fish or cut bait right at this moment in view of the wording of the rules? I mean, do we have to choose for all time between one and the other in every given possible situation?",
       "time": "00:42:49.30"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but common law developed over three or four centuries and it certainly grew by accretion.",
       "time": "00:43:20.34"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question... two kind of factual questions, if I may. First of all, do you have the identity of the people who received the questionnaires for the Government?",
       "time": "00:44:13.06"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there any reason why the Government couldn't have... it has the questionnaire, I understand. It couldn't have just sent the same questionnaire to all these people?",
       "time": "00:44:24.88"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I was wondering what--",
       "time": "00:44:34.72"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No, but presumably they'd be truthful answers; that's all.",
       "time": "00:44:52.00"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I also ask, on the interview aspect of the inquiry, it's the Government's view, I gather, that if these people had been, say, grand jury witnesses or something like that, but junior employees, but they were interviewed after testifying before a grand jury for the purpose of advising the corporation as to what position to take in response to a pending indictment, something like that, there'd be no privilege attached to those interviews? Because the people, by hypothesis, were not... the witnesses would not be in the control group. The fact that it's a tax investigation isn't particularly important in your analysis. The relevant test is what I'm asking.",
       "time": "00:45:54.67"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does this direct itself to both the privilege and to the work product?",
       "time": "00:47:24.41"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you think that in some circumstances, Mr. Wallace, the lawyer would be precluded from even conceding or responding with an answer that he was representing the client?",
       "time": "00:50:16.31"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I'm thinking of a situation specifically where a government agent would come to a lawyer and say, I want to talk to you about this client, naming the client. And first, I understand you are representing this man or this company. Is the lawyer free or not free to say, I will not discuss anything with you including whether I am or whether I am not representing him?",
       "time": "00:51:13.31"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, surely, many lawyers have acted on that assumption that they would not respond to any questions about whether they represented a given client.",
       "time": "00:51:58.42"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But it bears on how far the relationship can be penetrated, does it not? They can be--",
       "time": "00:52:18.34"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Mr. Wallace, under the subject matter test, if the lawyer makes the investigation and collects the statements from the witnesses and then writes an opinion letter to a member of the control group who asked him to do it, and who had told the employees to cooperate, he writes a letter but he attaches all the statements. Are those statements privileged in the hands of the member of the control group from discovery from that member by the Government?",
       "time": "00:52:37.83"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Wallace, suppose a member of the control group himself had carried out the investigation and had collected all the statements from the witnesses, surely you could get them then?",
       "time": "00:53:16.46"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But instead he tells the lawyer to gather them, and the lawyer gathers them and then gives them to the control group member.",
       "time": "00:53:34.14"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you'd say that, Mr. Wallace, under either test?",
       "time": "00:53:55.30"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Wallace, this question arises, I suppose, most frequently, or at least frequently, not in the international context of this case but rather in the more mundane case of a truck owned by the corporation getting involved in an automobile accident or a products liability claim or something like that, in which the lawyer is going to talk to the employees of the corporation that are directly involved, and probably the top officers or directors of the corporation don't know or care anything about that particular lawsuit. How would your test apply there? How would either test apply there?",
       "time": "00:54:03.99"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, a lawyer represents the corporation and the corporation will be liable under respondeat superior if it's found that its agent was liable in driving the truck, or if its product was what caused harm.",
       "time": "00:54:57.64"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, nobody directs... the foreman, the man's foreman just said, our lawyer is Joe Smith, call him, Mr. Joseph Smith. Nobody who's very high in the corporation ever knows about this, or cares about it.",
       "time": "00:55:22.49"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Presumably somebody in the control group or the control group generally decided to hire Mr. Joseph Smith as its general counsel, Smith & Jones. But from then on, the general counsel just does that kind of work for the corporation. And many of these, much of its legal work, would be in cases about which the higher echelon control group would not know or care.",
       "time": "00:56:04.43"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if you apply the test, Mr. Wallace, would it not be true that say, you had an insurance manager or somebody who handled personal injury settlements. Communications between him and the lawyer would be privileged but the interview between the lawyer and the truck driver and the man who loaded the truck about what happened at the accident scene, all that would be open season. There would be no privilege.",
       "time": "00:56:34.77"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But no privilege would apply.",
       "time": "00:56:53.81"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, no, I see. There would not be attorney-client privilege.",
       "time": "00:56:57.78"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But they would be just like third-party witnesses as far as the test was concerned?",
       "time": "00:57:14.37"
     },
@@ -1097,13 +1101,13 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, they're not treated as third-party witnesses in court, are they? In court they're treated... well, they'd have to be a managing agent, wouldn't they?",
       "time": "00:57:27.62"
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if a corporation has a general counsel and he's just simply authorized to settle or litigate all personal injury actions against the corporation, and he does the investigations and does the settling, and he just sends something to the treasurer when he settles one. I suppose you would say the corporation has no... there is no privilege in that situation?",
       "time": "00:57:34.35"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but although he is the sole person who is authorized, who has been authorized to make these settlements and decide them on the part of the corporation, he would not be a control group person as far as you are concerned, and you wouldn't recognize that he's communicating with himself?",
       "time": "00:58:13.41"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you'll just say, in that circumstance there just isn't any attorney-client privilege?",
       "time": "00:58:36.19"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, I just wanted to--",
       "time": "00:58:45.72"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I wanted to find out what your position was.",
       "time": "00:58:50.10"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Gribbon?",
       "time": "00:59:53.01"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did he have Judge Wyzanski's opinion?",
       "time": "01:00:34.25"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Gribbon, when you talk about decisions in the federal court. But I suppose that there must have been a lot of state litigation involving these questions?",
       "time": "01:01:15.75"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did Judge Wyzanski treat it as if he was writing on a clean slate, or--",
       "time": "01:01:35.04"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Well, Mr. Gribbon, has there been some litigation, either in the state or federal courts, where in an individual proprietorship when the same question comes up about employees of the individual proprietorship?",
       "time": "01:02:12.50"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or employees of a partnership?",
       "time": "01:02:24.44"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or agents' employees?",
       "time": "01:02:30.63"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Say there's an individual proprietorship and he has an employee that drives a truck, who gets in a wreck, and the individual proprietor tells a lawyer to go out and investigate that, and he does. And the truck driver is told to cooperate with the lawyer, and he does. Now, are there cases like that around saying it's privileged?",
       "time": "01:02:33.71"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But are there attorney-client privilege cases that say that's privileged?",
       "time": "01:02:59.98"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how is it that the uniform rules came out the other way?",
       "time": "01:03:08.35"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is yours easy to apply?",
       "time": "01:03:58.08"
     },
@@ -1295,13 +1299,13 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:04:34.01"
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at 10:00.",
       "time": "01:04:36.11"
     }

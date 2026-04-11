@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2015/14-1132/14-1132_20151201-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "JONATHAN D. HACKER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PETER K. STRIS",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 14-1132, Merrill Lynch, Pierce, Fenner & Smith v. Manning. Mr. Hacker.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Now, does your -- does your test depend solely on what is alleged in the complaint or what might be proven under a -- a more generally worded complaint? Suppose the complaint in this case made no reference to any Federal regulations but -- I'm not that familiar with the pleading rules in New Jersey, but suppose they would -- it was, you know, notice pleading and so there's no reference to the regulations but they -- they sought to prove their case by arguing that the New Jersey -- the New -- the rule in New Jersey should be the same as the Federal regulation. Would that fall within your test?",
       "time": "00:01:41.28"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So they could amend the complaint, and then we wouldn't be here, because they could amend the complaint to say that we're suing under New Jersey law and New Jersey law mirrors the Federal law. It's a matter of New Jersey's choice.",
       "time": "00:02:41.74"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is the Court obligated to do a search of all Federal laws and regulations to know if this complaint might have a Federal cause of action?",
       "time": "00:03:10.77"
     },
@@ -95,13 +95,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But what you said --",
       "time": "00:03:28.82"
     },
     {
       "turn": 10,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let -- let me ask you: This -- this -- this -- let's assume, as Justice Alito assumed, that New Jersey is the same as the Federal system, notice pleading. Can you just tell me as a matter of practice, do most complaints set forth the Federal statute under which -- not 1331 but the specific Federal statute that creates the duty, or they just allege the duty?",
       "time": "00:03:29.40"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let's say just under notice pleading under Federal standards.",
       "time": "00:03:54.59"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they -- but they don't have to do that. As -- as I understand your case, they don't have to explicitly refer to the Federal statute.",
       "time": "00:04:12.74"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that imposes quite a -- quite an onerous task upon -- upon the Federal district court, it seems to me. You -- you have to sift through the complaint and see if any of the claimed causes of action under State law mirror a cause of action that happens to exist under Federal law, without even the hint that they mention the Federal statute.",
       "time": "00:04:56.02"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I just don't understand how.",
       "time": "00:05:50.85"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Meaning under Pan Am, we looked at the operative paragraphs of the complaint, not the general pleadings or background. We looked at what remedies were sought to determine whether you were looking to enforce the law. Each of the causes of action here are under State law. How is that seeking redress under Federal law?",
       "time": "00:05:53.96"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No, it looked at the operative paragraphs. Why should --",
       "time": "00:06:32.64"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The operative paragraphs here are the causes of action.",
       "time": "00:06:35.09"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Without the Federal law, would there be a duty under State law not to short sell?",
       "time": "00:07:13.62"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Please go back to answer my direct question: If there were no Federal law.",
       "time": "00:07:20.42"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, New Jersey -- New Jersey law certainly prohibits fraud. So is -- are they doing anything more than saying, we think this constitutes fraud?",
       "time": "00:07:38.09"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "\"This\" being what the -- the violation -- what you say is the violation of the Federal law.",
       "time": "00:07:49.09"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So do they have to expand their allegation and say, okay, we're not going to call it \"a Locate,\" but we think it's fraud when you're, you know, short-selling this and you're supposed to have -- and you haven't borrowed this much, blah, blah, blah? In other words, just creating a parallel duty -- which I understood you to tell Justice Alito that would be okay. Instead, they're using a shorthand, \"the Locate.\" Is that -- is that all the -- the only difference?",
       "time": "00:08:07.08"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then why isn't this just like --",
       "time": "00:08:48.14"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There are -- there are many, many instances in which there is a State claim, say a State claim for negligence, and the negligent conduct is alleged to be violation of a Federal safety standard. So it's all about whether the Federal safety standard was violated, but the claim is a State claim for negligence. You wouldn't say that that is a claim that has to be brought in Federal court.",
       "time": "00:08:49.63"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So in your -- in your view, you have to -- if -- if -- if this Court finds that the section here, Section 27, is the same as \"arising under,\" you lose?",
       "time": "00:09:53.50"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm sorry. Can we go back? Because I'm not sure I understood your answer to my question. Are you saying that if a State adopts a violation of a Federal safety standard as constituting negligence, that that claim arises under Federal law?",
       "time": "00:10:18.78"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But what's the answer to Justice Ginsburg's question?",
       "time": "00:10:58.82"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't understand. Necessary for what?",
       "time": "00:11:14.82"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You said that it would be only a suit if it were -- Federal suit if it were necessary.",
       "time": "00:11:18.29"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Hacker, just looking at the language, I mean, I understand your interpretation of it, but it seems to me that there's, you know, a -- just as good interpretation which says the opposite. In other words, you know, what does it mean for a suit to be brought to enforce a liability in a kind of circumstance you're talking about? In the circumstance you're talking about, the suit is brought to enforce State law. Now, it's true that State law might look to Federal law; State law might incorporate Federal law in certain ways; State law might have some kind of relationship to Federal law. But what's the suit brought to enforce? The suit is brought to enforce State law.",
       "time": "00:12:02.96"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But State liabilities.",
       "time": "00:12:46.15"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you would say that's a duty created under this chapter.",
       "time": "00:13:34.25"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But why isn't it created under State law as well?",
       "time": "00:13:40.63"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think that's sort of ambiguous in the statute. Let's assume you have a State statute and a Federal statute, both of which impose the same duty. Okay? And someone brings a suit only under the State statute; does not -- does not even mention the Federal statute. As I understand your case, you would say that that person is suing to enforce a duty under Federal law. I would not say that. I would say that person is seeking to enforce the duty that State law creates, not the one that Federal law creates.",
       "time": "00:14:12.09"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you would have no --",
       "time": "00:15:11.89"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You would have no case if New Jersey passed a law saying, as a matter of New Jersey law, we hereby adopt, you know, everything under the Securities Exchange Act, including, in particular, Regulation SHO. That is State law. We're following the Federal law because, you know, we think it's easier to do that than write up our own securities code. That's fine with you?",
       "time": "00:15:13.29"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, it is. It's saying -- it's saying wherever it says Federal law as -- we just strike that and put in New Jersey law. They can do that. They can adopt whatever law -- source of law they want.",
       "time": "00:15:41.84"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Even though it's precisely the same at the same level of detail, you have to say under your theory that if you sue just under the New Jersey law, that's okay.",
       "time": "00:15:54.76"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Right.",
       "time": "00:16:19.21"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, the duty under New Jersey law is passed by whatever statute they enact saying we -- us too, we want to do it as well, as a matter of New Jersey law.",
       "time": "00:16:23.93"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah.",
       "time": "00:16:38.34"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And as New Jersey -- as New Jersey law.",
       "time": "00:16:48.44"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But then you're going to be in a situation where the judge is going to have to try to figure out whether State law exactly mimics Federal law, or whether there are minor deviations from Federal law. And that can't be a good jurisdictional test, can it?",
       "time": "00:17:04.05"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I don't think this is a marginal question. I think this is kind of a, you know, pretty ordinary question of like, well, what is the State law doing? Is it exactly -- lots of State laws exactly mimic Federal law, and lots of them don't.",
       "time": "00:17:24.46"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Why couldn't the New Jersey Supreme Court -- why couldn't the New Jersey Supreme Court say this is our interpretation of a provision of the -- the New Jersey Uniform Securities Act, with respect to short selling, this is what it means, and without ever referring to Reg SHO, adopt basically the same or exactly the same rule that is incorporated in that regulation? Would you say that then an -- that an action under that provision of the New Jersey Securities Act would be one seeking to enforce a Federal duty?",
       "time": "00:18:09.01"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But it seems to me --",
       "time": "00:19:07.47"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The only one who benefits from that are -- are printing companies. You say they can't say, we adopt Regulation SHO as New Jersey law; they have to actually go ahead and reprint everything that SHO says, and then it's okay.",
       "time": "00:19:08.52"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if -- what if the State law says -- and I'm not sure this one doesn't. What if the State law says, we are adopting the disposition of the current regulation in, you know, in -- in 2015; all right? That's all it says. So if that regulation changes and Federal law changes, State law would not change. What happens in that situation?",
       "time": "00:19:46.83"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why? Why? Why?",
       "time": "00:20:18.97"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The court likes this regulation. It doesn't know what this kooky SEC is going to do in the future. This regulation is okay. So they put that -- they put that into State law.",
       "time": "00:20:21.11"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Current SEC requirements.",
       "time": "00:20:42.22"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't that what the court is going to do when it hears this action?",
       "time": "00:20:49.16"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't that what the State court's going to do when it hears this action? There's nothing about the alleged causes of action -- they allege theft and fraud. So they're going to have to prove theft and fraud under State law as defined in the sections that they've cited.",
       "time": "00:20:52.77"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All of that.",
       "time": "00:21:13.40"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Now, that might be something you could object to at trial if they try to say State law is the same as Federal law and can't prove it. You then appeal that decision if it's wrong. If State law is different, you prove it's different. I'm just not sure what that has to do with the well-pleaded complaint that -- that they are saying this is a duty that arises under the theft and fraud provisions of New Jersey's uniform Securities Act.",
       "time": "00:21:14.66"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Surely they mean the current regulations, right? And you've just told me that if the State law applies only to the current regulation, it is not adopting Federal law, right? So this complaint is referring to the current regulation. How do you know it's referring to that regulation as it may change in the future?",
       "time": "00:22:04.68"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:22:27.85"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Fine.",
       "time": "00:22:34.82"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because that regulation is a good regulation, and it ought to be New Jersey law. But if that regulation changes, we -- we don't say that it ought to be New Jersey law.",
       "time": "00:22:36.30"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then they'll lose under -- they brought a claim -- look, is it a necessary -- as a Federal issue, Federal issue is whether what they've done violates Regulation SHO. They don't say that anywhere in the complaint, not even in paragraph 24, but you cite it, I read. This is background. They don't say anything about it, but is it necessary? Is it necessary for them to prevail that they prove a violation of Regulation SHO?",
       "time": "00:23:17.10"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do they --",
       "time": "00:23:52.75"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't ask you that. I asked what you thought.",
       "time": "00:23:54.31"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You think it is necessary.",
       "time": "00:23:59.23"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Fine. Fine. That's all I want to know.",
       "time": "00:24:00.13"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now they presumably think it isn't necessary. Okay?",
       "time": "00:24:02.15"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if it is necessary and you're right, then this case should have been brought under 1331.",
       "time": "00:24:05.93"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It wasn't, and we're not deciding that. So since we're not deciding it, we have to assume that it is not necessary.",
       "time": "00:24:13.19"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay? If we assume it is not necessary, if we assume that the conditions for 1331 are not met, and therefore it doesn't get into Federal court for that reason, why would anyone want a case like that in Federal court when the States want to adjudicate it?",
       "time": "00:24:21.09"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what is the evidence that Congress wanted that?",
       "time": "00:24:38.11"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And all you're left with is, you say, read the language of the statute, don't look to the purpose, don't look to surrounding -- don't look to the surrounding rules of law which actually make very little necessity for this to be in Federal court, and don't look to anything else. You have your language.",
       "time": "00:24:41.28"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I agree you have your language.",
       "time": "00:24:57.96"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You have the language. I'm not saying you're going to win on the language.",
       "time": "00:24:59.61"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Go ahead.",
       "time": "00:25:03.43"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So why -- why isn't the SEC here?",
       "time": "00:25:27.19"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Curious.",
       "time": "00:25:38.35"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You are relying on a different language. This is not arising under, but the special language in Section 27. And we have a brief; it's a public citizen brief that says, well, this is -- this Section 27 is not unusual. It lists about, what is it, some ten other statutes that are phrased the same way.",
       "time": "00:25:45.00"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So with respect to every one of those statutes, Public Utilities Holding Company, Federal Power Act, Connally Hot Oil, the same argument would apply to those statutes.",
       "time": "00:26:06.51"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And you think we can reach that interpretation, even as to the Natural Gas Act consistent with Pan American?",
       "time": "00:26:36.73"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:27:01.53"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Stris.",
       "time": "00:27:07.86"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Why do you think, Mr. Stris, this different language was used in these ten statutes?",
       "time": "00:27:50.73"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The amount in controversy wasn't very high. And wouldn't most cases of this character easily meet it?",
       "time": "00:28:59.55"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If it was $3,000, something like that?",
       "time": "00:29:11.70"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Or even less?",
       "time": "00:29:15.47"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "$3,000 is probably a lot of money today.",
       "time": "00:29:38.86"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "$3,000 is probably a lot of money today.",
       "time": "00:29:42.76"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would you like to have 3,000 1934 dollars?",
       "time": "00:29:47.69"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's a yes-or-no question, counsel. (Laughter.)",
       "time": "00:29:55.50"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If -- if -- if your answer is correct, why do they need to use the term \"exclusive\"? Why don't they just -- just -- just --",
       "time": "00:30:07.29"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "-- there is jurisdiction in Federal court. That -- why -- that doesn't explain the -- the use of the word \"exclusive.\"",
       "time": "00:30:12.78"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Over --",
       "time": "00:31:57.87"
     },
@@ -1085,19 +1085,19 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But Congress must have --",
       "time": "00:32:55.36"
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes. Please.",
       "time": "00:32:56.93"
     },
     {
       "turn": 176,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Congress must have had in mind a certain category of claims that it did not want adjudicated in State court, correct?",
       "time": "00:32:57.76"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All right. So you seem to be saying that the category of claims they did not want adjudicated in State court are only these: Those in which the plaintiff is asking for the enforcement of a Federal duty, and there is no comparable State duty at that time, and the State court is unwilling to recognize a comparable State duty in the context of that litigation. So these are essentially cases in which the State is basically hostile to the Federal duty. And those are the only cases that Congress did not want to have adjudicated in State court. Am I -- have you gone wrong in that?",
       "time": "00:33:06.21"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Supposing that you had brought this claim specifically to enjoin violations of this SHO regulation. So that's your complaint. Court, please enjoin the defendant from violating SHO.",
       "time": "00:35:02.57"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Can I ask you to describe your complaint? In other words, Mr. Hacker has a certain characterization or description of your complaint, and the -- and the -- the role played in your complaint by the regulation. So if you had to describe your complaint, and particularly, what role does this regulation play in your claims under State law?",
       "time": "00:36:36.78"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I just -- yes. I mean, but there are parts of your complaint that go in much greater detail and focus on the Federal Rules. I -- I think Paragraph 33 says, you know, as set forth in detail herein, the defendants violated the trading rules and regulations requiring that they actually deliver shares they owed to the DTCC to settle short-sale transactions. That's a duty imposed by Federal law.",
       "time": "00:38:54.54"
     },
@@ -1157,19 +1157,19 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, along these lines, look -- look at Count 9, 100a of Appendix to the Petition. \"Each defendant --",
       "time": "00:39:58.13"
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What page is that?",
       "time": "00:40:04.95"
     },
     {
       "turn": 188,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "100a. \"Each defendant enterprise owed plaintiffs a duty of care in their capacity as gatekeepers of the market. Each depend -- each defendant enterprise breached the duty of care that they owed to the plaintiffs to report suspicious transactions and naked short sales.\" Where does that -- doesn't that come right from Reg SHO?",
       "time": "00:40:05.73"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But that doesn't seem to -- that doesn't seem to be relying on Reg SHO as a background proposition. You say that they breached a -- this is a claim for negligence, requires a breach of a duty, and you say the duty that they breached is a duty that's created by Reg SHO.",
       "time": "00:40:47.96"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That isn't what it's saying. It's saying they breached the duty of care that they owed to the plaintiffs to report suspicious transactions of naked short sales. That's the allegation under negligence. What duty of care? A duty of care imposed by New Jersey law? What New Jersey law?",
       "time": "00:41:58.20"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or is it a duty of care imposed by SHO?",
       "time": "00:42:18.54"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Which State law?",
       "time": "00:42:25.00"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so the exact words there that the duty of care is referring to are what?",
       "time": "00:42:45.36"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If you know.",
       "time": "00:42:51.95"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I see what you're saying.",
       "time": "00:42:58.50"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. I -- I have a bigger -- a question that I can't get -- I can't figure out, and so I would like your help. Let's go through this. Let's suppose, for present purposes, that as I read through your complaint, I find words -- it's not the words we just said, but similar words somewhere, and I sink -- think, but there is nothing under New Jersey law unless New Jersey picks up SHO. All right? Why isn't that good enough on that matter to get them into Federal court in arising under cases?",
       "time": "00:43:02.43"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm doing it for argument because --",
       "time": "00:43:43.35"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- I'm really concerned about I can't clarify in my mind the difference between somebody being thrown out in an arising under case, and yet getting back in under Section 27. That's what doesn't make too much sense to me. If this is necessary -- the Federal issue is necessary for the plaintiffs to win, there's arising under jurisdiction. Then I don't know what to do with the word \"exclusive.\" But all that seems not to be in the case.",
       "time": "00:43:44.83"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So -- so then, if -- if it is not sufficient to get in under arising under, why in heaven's name should it be to get in under 27?",
       "time": "00:44:10.65"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You're not going to resist my conclusion, but you see, it's -- it's -- I -- I need clarification, because I'm not sure I've thought it through correctly.",
       "time": "00:44:24.96"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right, something. And -- and don't tell me I'm right if you think it favors you, because maybe it does favor you, but I've got -- there will be other cases, you know, so sympathize a little with my problem.",
       "time": "00:46:56.15"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm looking for a way to see if we really have to answer all these difficult questions that have been raised, which are pretty tough. And so I was thinking, look, here's what you look to. Judge, see if it is a necessary thing, and if so, whether it falls under 1331. Okay? If it's an arising under claim under 1331, kick it out of State court and send it to Federal court. But if it isn't an arising under claim because it isn't necessary to winning for the plaintiff, forget about it. Keep it in State court. I don't care whether it's -- don't -- don't worry about whether the State passed it this way, or the State legislature referenced it by numbers or referenced it by -- don't worry about all that stuff. Just decide one question.",
       "time": "00:47:07.74"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Does it meet the four criteria for arising under? If so, kick it out. If not, keep it.",
       "time": "00:47:56.61"
     },
@@ -1361,13 +1361,13 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I just clarify? I thought it was conceded there was no arising under jurisdiction.",
       "time": "00:48:07.24"
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's true. I'm not looking in this case. I'm looking for the general rule.",
       "time": "00:48:13.00"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Stris, I guess I don't understand why you're resisting just say saying this language ought to be interpreted in the same way as arising under jurisdiction is interpreted. And it's true they're different words, but it's at least as good an interpretation of these words that they essentially refer to what the arising under test refers to, which after all -- I mean, the arising under test doesn't really have a whole lot to do with the language arising under anymore.",
       "time": "00:50:31.49"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So -- so why isn't that just sort of the simplest thing to do is, we have a test, it's a four-part test, and this language seems to fit that test pretty well, and that's what we should do, we should just have one test.",
       "time": "00:51:02.49"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So in light of SLUSA, the issue that's before us would apply only in individual actions and small class actions?",
       "time": "00:52:51.56"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, just out of curiosity, why is it so important for your client not to be in Federal district court?",
       "time": "00:54:37.99"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You said that you could prevail in this case without showing any violation of the SHO regulation. So could you explain how you could prevail even if you don't show a violation.",
       "time": "00:55:39.95"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Three minutes, Mr. Hacker.",
       "time": "00:57:22.39"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. I always thought violations had to do with criminal law. And the whole structure of this provision talks first -- in the first half of the first sentence it talks about violations of the law. The second sentence parallels it, says criminal. The second half of the first sentence talks about all suits in equity at actions at law, or actions at law.",
       "time": "00:59:10.03"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I don't know that --",
       "time": "00:59:39.09"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It talks about criminal proceedings.",
       "time": "00:59:46.83"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:57.24"
     }

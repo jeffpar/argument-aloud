@@ -3,31 +3,31 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/320/19560328a_320_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STANLEY REED",
+        "title": "JUSTICE"
       },
       {
         "name": "ABE FORTAS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REED",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Fortas, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -39,7 +39,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose they couldn't.",
       "time": "00:01:30.34"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose they couldn't.",
       "time": "00:01:31.66"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose they couldn't.",
       "time": "00:01:34.00"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It --",
       "time": "00:01:37.59"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The same -- in the same district.",
       "time": "00:01:42.59"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "For several districts, several divisions in one district is relatively an easy figure.",
       "time": "00:01:47.97"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You argue this on the premise, straightforward premise, that there was -- although there was an exercise of discretion here, this was an abusive discretion. You don't stand on the proposition that there was a failure to exercise discretion.",
       "time": "00:06:09.94"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you -- you must contend it before, as I should think, in order to urge a reversal or rather to urge that he committed error. You must urge that he didn't exercise and allowed the discretion, otherwise, the remedy assuming the agreement is to send it back to him to exercise this right.",
       "time": "00:07:20.26"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, the answer to -- to your answer, if I may so, to Justice Harlan's question is that under those circumstances, could he have exercised the discretion in the way which you did and therefore, they should give direction to him to undo what he did.",
       "time": "00:08:09.30"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And --",
       "time": "00:08:28.00"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- and that is based on 21 (c)?",
       "time": "00:08:28.34"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "(c) -- (c) is what keeps it in this new district, is it?",
       "time": "00:08:37.64"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "A new division.",
       "time": "00:08:44.43"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And your --",
       "time": "00:08:51.39"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "-- and your position is that the -- if the prosecution shall continue is to be read literally in those words?",
       "time": "00:08:51.74"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "And that the other rights of -- that might have existed before to dismiss can no longer exist --",
       "time": "00:08:58.53"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "They can only make one removal.",
       "time": "00:09:06.45"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I've got it then.",
       "time": "00:09:08.98"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, couldn't -- supposing the defendant had said that they found that the conditions are prejudicial to the removed district, do you say that he couldn't make a motion to remove further to another district?",
       "time": "00:09:09.96"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There can't be some --",
       "time": "00:09:26.18"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let I ask you this, Mr. Fortas, suppose as I did in my question for Mr. Thoron, suppose the Government has not moved the way they did, suppose they merely reindicted in the west or indictment in the Western District? I take it you agree with your associates that there was no jurisdictional defect.",
       "time": "00:09:53.03"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, the indictment couldn't be --",
       "time": "00:10:19.24"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- sustained, could it?",
       "time": "00:10:23.20"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Pardon me?",
       "time": "00:10:24.46"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You then have these two -- there was -- there were then the -- these two indictments outstanding. The Government then moved the western indictment for trial. What power would the judge in the Western District have to say, “No, you must try the Southern District indictment first”?",
       "time": "00:10:30.79"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean, he would have to exert -- assume he had, would he have to exert it?",
       "time": "00:10:50.07"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that -- we still have the --",
       "time": "00:11:04.75"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the question.",
       "time": "00:11:05.76"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think -- I think your speculation is not unfair, but I think you're unjust to your imagination to say that it's inconceivable that a judge would agree to the Government's motion to move a trial before a hearing. All sorts of consideration come into play while later -- a later indictment should be tried first. Certainly, I don't -- I don't know. I find it difficult to -- to conceive on my part that there's any -- any restriction of law that would compel Judge Rice or any other judge in the Southern District not to entertain the Government's motion.",
       "time": "00:13:11.41"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It cannot be compelled (Inaudible) for entertaining it.",
       "time": "00:13:50.89"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Circuit read --",
       "time": "00:14:28.63"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Circuit read it as a dirty word and it doesn't ask the question of how.",
       "time": "00:14:30.22"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You still have --",
       "time": "00:15:12.59"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you -- would you phrase what the nature of the benefit is?",
       "time": "00:17:28.89"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The benefit that you obtained. You said you obtained the order of benefit to you.",
       "time": "00:17:34.04"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And I would like you to spell out what the nature of the legal benefit is that you obtained by having the indictment transferred to Laredo.",
       "time": "00:17:40.93"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He seems to have changed his mind as it is with the (Inaudible)",
       "time": "00:20:03.52"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What is the date of -- what was the date of the hearing taken?",
       "time": "00:20:08.11"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, the one as to the Court of (Inaudible)",
       "time": "00:20:14.93"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you found the date (Inaudible)",
       "time": "00:20:20.60"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "April 27.",
       "time": "00:20:26.48"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it's a friendly -- Mr. Thoron, most essentially you, what he said on May 19th?",
       "time": "00:20:28.96"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but he -- but he did -- I understand that. But he did agree regardless of the case (Inaudible)",
       "time": "00:20:39.32"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that has a relation to the administration of justice.",
       "time": "00:21:19.95"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know if that has a relation to the administration of justice --",
       "time": "00:21:23.14"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- were the worst abuses of American criminal justice is precisely that.",
       "time": "00:21:26.45"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What?",
       "time": "00:21:35.89"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Why -- why did Judge Kennerly say that he didn't think he had authority to transfer it to the Western District? What -- what case did you say that?",
       "time": "00:21:39.62"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Was there a motion to transfer? There was no motion to transfer to the Western District, was it?",
       "time": "00:21:53.40"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Wholly a comment on his part as to where he thought it ought to be tried.",
       "time": "00:22:02.22"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REED",
+      "name": "STANLEY REED",
       "text": "Well, there was never anything in the Western District.",
       "time": "00:22:25.32"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But Kennerly said he could not transfer to the Western District out -- just out of his own thought and thinking about it. Is that the way that came up?",
       "time": "00:22:28.91"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Put it outside of the district.",
       "time": "00:22:44.34"
     },

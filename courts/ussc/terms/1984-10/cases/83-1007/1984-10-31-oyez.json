@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1007/19841031a_83-1007.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL D. SAVAGE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Savage, I think you may begin whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Savage, does 7609(f), the John Doe summons procedure, apply only to summons to the people who are third party record keepers, as defined in 7609(a)?",
       "time": "00:02:18.14"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Savage, is it not for us to determine what the purpose was? It seems to me that you and the government are at odds on that one. How are we going to determine that?",
       "time": "00:08:34.15"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You are willing, I understand, to give the Service everything it wants except the identification of your clients.",
       "time": "00:09:44.21"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, under your reading of the statute, I'm not sure you aren't suggesting it should read identify not just person or persons, but I think all of the persons is really the meaning you would read into it, I think, that proves identity... I mean the summons issued. And if you do that, and then you go over to subparagraph 2, which says there must be a reasonable basis for believing that such person or a group of persons... there may be a tax deficiency of some kind. How could they ever get the names of the people on your list if they don't have any specific knowledge about, say, a particular John Doe? And they don't know who he is, so they really can't say whether there's any tax deficiency. How would they get it?",
       "time": "00:09:53.75"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, of course, under the Court of Appeals holding, they don't have any trouble. I understand that. But under your reading of the statue, how would they get it?",
       "time": "00:10:44.39"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that under the Court of Appeals interpretation of the statute, they will get these names if it's a secondary purpose. Under your reading of the statute, could they ever get the names of people that they just have kind of a hunch that maybe these franchisees, or whatever they are, ought to be looked at or ought to be audited, without first having some basis for believing there was a deficiency of some kind.",
       "time": "00:10:53.96"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, presumably, if they get the names, they would then go to those people and take... examine their returns and see if there is any reason for going further. But you say they shouldn't be permitted to do that.",
       "time": "00:11:35.13"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, is that quite right? Isn't one of the problems the statute deals with is subpoenas on banks? And they don't have to audit them. Of course, there they would have to follow the procedure, of course, if a subpoena--",
       "time": "00:14:22.79"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Savage, if you were correct on your interpretation, and if the IRS went through the John Doe proceedings before the court and failed to prove that it harbored a reasonable suspicion, as provided by subsection (f), then what could the IRS review of Tiffany's own records thereafter to determine the questions that it might have concerning the proper reporting by Tiffany of its income from licensees... what would it do to verify that?",
       "time": "00:15:40.64"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "With the names of the licensees deleted? Is that what you're--",
       "time": "00:16:30.49"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--You get into some curious questions about how the IRS might be able to follow up adequately on the liability of, for example, Tiffany itself, under your view.",
       "time": "00:16:50.57"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it that, does the government... do you understand the government to concede that if Tiffany had not been under audit, that it could not have summoned Tiffany to produce the names of its customers without going through the John Doe procedure?",
       "time": "00:21:22.06"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But do you think that getting the names of the customers and investigating the customers would help the government determine Tiffany's obligation? If the interest to the government is the fact that Tiffany allegedly was selling tax shelters, I suppose it might help... if the government thought Tiffany was doing it illegally or contrary to the law or something, I suppose it would help to know who the customers are and what their affairs might show.",
       "time": "00:21:45.07"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It wouldn't?",
       "time": "00:22:34.74"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why, if they're under audit?",
       "time": "00:22:38.96"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would it help... I'll put it this way. Would it help the government conclude its audit of Tiffany?",
       "time": "00:22:40.31"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if it knows who they are.",
       "time": "00:23:25.49"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If they know who they are.",
       "time": "00:23:51.82"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I guess the Court of Appeals didn't proceed on this basis anyway. They assumed that there was a dual purpose, I suppose.",
       "time": "00:24:13.99"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so that even if the IRS wanted the names of the customers, wholly aside from its audit of Tiffany, the Court of Appeals held they were entitled to get it.",
       "time": "00:24:25.21"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Savage, Tiffany raised the issue of relevance below, did it not? Whether this information was relevant to the audit of Tiffany?",
       "time": "00:24:52.63"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I see.",
       "time": "00:25:13.29"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Excuse me for going back to the statutory language again, but I keep rereading this darn statute, and I just confess that even if you read it your way and say the person or persons, and assume there's a bunch of unidentified persons, and then you go around the one, two, and three, it still does relate to the investigation of a particular person, namely, your client, and there is reason perhaps for believing that person hasn't paid all his taxes and the information contained with him would relate to his liability. So even if you read the introductory portion of the statute your way, they would do that in court, but it would have been perfunctory, because all they would have had to have shown in court was that Tiffany was suspect... was under audit. And then the subpoena would have been enforceable, if I read the one, two, and three correctly.",
       "time": "00:25:33.62"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In court. But what I'm suggesting is that as long as you read \"person\" to mean \"person or persons\", one of those persons would have been Tiffany in any event, and the showing necessary to get enforcement of the subpoena would merely have required them to show that Tiffany was under audit. So it would have, in the most perfunctory kind of proceeding.",
       "time": "00:26:27.69"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what it says. They've got to show the summons relates to the investigation of a particular person or ascertainable group. At least it relates to Tiffany. And there's a reasonable belief for believing that such person, Tiffany, is... you know, is the... and so forth. So that it seems to me that as long as... even reading the introductory portion your way, I don't see that... you could require a court proceeding, I agree, but-- --But what if the IRS say to Tiffany, give us the names of your customers, and Tiffany says why? Will it help you with auditing us? And the IRS says no, but we just want them, because we want to maybe investigate them. Then paragraph 1 isn't satisfied. The summons relates to the investigation because the IRS says... and says no, this summons doesn't relate the investigation of Tiffany at all. And I asked you a minute ago... you said that even if that happens, the Court of Appeals for the Second Circuit would say you don't have to follow the John Doe proceedings. If you don't read it that way, I would think Justice Stevens is certainly right. So what about paragraph 1 on page 4?",
       "time": "00:26:50.44"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. And you're in court now.",
       "time": "00:29:05.74"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they say our summons is... we want to investigate the tax liability of (a) Tiffany, whom we know; and (b) Mr. X, whom we do not know.",
       "time": "00:29:09.14"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The information sought to be obtained is available.",
       "time": "00:29:28.67"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, all the argument is then that the government could easily satisfy the John Doe proceedings, the John Doe summons. They could always get it. They could always say well, it's Tiffany.",
       "time": "00:29:59.81"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So why have they got an objection to going through the procedure?",
       "time": "00:30:16.32"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There would be if they weren't investigating Tiffany's tax liability. Then the statute would apply right on the nose. If they conceded that Tiffany paid all their taxes every year, but they still want to look at their customers' liability, then the statute would apply. And there must be a lot of cases of that kind. You don't audit every record keeper whose records you want to look at, I don't suppose.",
       "time": "00:30:32.26"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Wasn't that really what Congress was concerned in, in passing the statute? The situation like California Bankers Association v. Schultz where the bank is subpoenaed to produce records of AB, a depositor. The bank says, sure, take a look. They don't have any real motive to protest. This was to give someone with an adverse interest a right to participate.",
       "time": "00:30:58.91"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, Mr. Savage.",
       "time": "00:31:59.70"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace.",
       "time": "00:32:08.11"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the names, the bare names, as opposed to the transactions or licenses or agreements would be relevant? Is that your--",
       "time": "00:34:51.13"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Mr. Wallace, let's just assume that the names of the customers were completely irrelevant to Tiffany's audit or Tiffany's liability, and that Tiffany said, well, why do you want these names? And the IRS said, well, we don't want them because we're investigating you; we just want them because you've got them. And we want to investigate them. Now, why isn't that a third party summons?",
       "time": "00:38:28.05"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you suggest... do you say that... judge this case on the basis that the names of the customers were relevant to the investigation of Tiffany?",
       "time": "00:39:17.99"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would say it would be a third party summons, if in this case--",
       "time": "00:39:32.58"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--the names of the customers were wholly irrelevant to the investigation of Tiffany.",
       "time": "00:39:37.05"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. All right.",
       "time": "00:39:45.90"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it's also... but we also judge the case on the assumption that the IRS may have been interested in the tax liabilities of the customers also.",
       "time": "00:39:57.03"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt you, Mr. Wallace, before you get too far into your argument. I must confess I've been a little troubled by the affidavit that both briefs quote, in which the agent says one purpose of the audit was to check out Tiffany. It seems to me it's almost the equivalent of saying that the investigation has at least two purposes, one of which was to investigate Tiffany, and the other of which was to investigate the tax liability of certain unidentified persons. And if the subpoena, on its own face, had said the purpose of this subpoena is twofold... to investigate and Tiffany and also to investigate another group of unidentified people whose names we don't know... and they said that in so many words, so that you would know that you could read the statute as to them the way your opponent does, would the statute then have applied? Would that change the case any?",
       "time": "00:41:47.68"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well... but I'm not sure that's a complete answer, because Congress has said that when you're going after identified taxpayers, you want to follow a little different procedure, maybe not--",
       "time": "00:44:07.36"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I interrupt you again, Mr. Wallace, with... supposing one paragraph of the subpoena plainly did not relate to Tiffany's liability, but somehow said also the name of the customer who bought a million dollar island in Jamaica or something, if you had some descriptor plainly seeking that person. Would you agree that if there was a severable part, that should be treated as a separate subpoena for which 79... the separate procedure would apply?",
       "time": "00:51:46.99"
     },
@@ -583,13 +583,13 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:56:32.43"
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10:00.",
       "time": "00:56:35.66"
     }

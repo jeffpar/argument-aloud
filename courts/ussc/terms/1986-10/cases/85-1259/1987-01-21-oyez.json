@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-1259/19870121a_85-1259.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD N. NAGEOTTE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Nageotte, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Nageotte, we granted certiorari only on the jury trial issue in this case.",
       "time": "00:02:25.38"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Nageotte, if the language of the statute had made clear that the so-called civil sanction was to be related to disgorgement of economic benefit for example, would you think the Seventh Amendment would then guarantee a right to trial by jury?",
       "time": "00:03:54.17"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you would concede that it could be an equitable remedy?",
       "time": "00:04:45.87"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is it possible that we could interpret this statute as essentially one for that type of relief even though it's not express?",
       "time": "00:05:10.17"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you clarify one thing factually for me? Was your client offered an opportunity to repair the damage or fill in the canal in lieu of a penalty?",
       "time": "00:06:45.46"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Nageotte, do I understand you to say that there is no discretion as to whether or not a civil penalty shall be imposed under the statute?",
       "time": "00:08:28.21"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Says that any person who commits a violation shall be subject to a civil penalty.",
       "time": "00:08:41.27"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, shall be subject to.",
       "time": "00:08:50.06"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If someone is subject to deportation, it means he must be deported. If someone is, if someone who commits a particular crime is subject to death, it means the death penalty must be imposed? I don't read the phrase, \"subject to\" that categorically.",
       "time": "00:09:06.15"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree that you're subject to them. I'm just... do you have any case that says that, that a penalty must be imposed, that the court has no discretion not to impose a penalty in this case?",
       "time": "00:09:46.80"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, if Congress had vested the authority in an administrative agency to impose a civil fine, I don't suppose you'd be here.",
       "time": "00:13:43.95"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you are in effect saying Congress made its choice. It's put the collection of penalties in the court and they're stuck with it.",
       "time": "00:14:11.60"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, xxx but is there a jury trial.",
       "time": "00:14:26.44"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any administrative mechanism for imposing civil penalties under the Clean Water Act?",
       "time": "00:15:16.04"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "None at all?",
       "time": "00:15:24.31"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would you be satisfied with an advisory jury?",
       "time": "00:17:17.15"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well that's the usual chancery rule xxx called it an advisory jury. Is that right gone, or is it still there?",
       "time": "00:17:59.65"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't Mugler a state court case?",
       "time": "00:20:40.13"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the Seventh Amendment wouldn't be involved there anyway. I mean, that wouldn't be precedent against the use of the Seventh Amendment.",
       "time": "00:20:43.50"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And even if it had been the Seventh Amendment has never been held to guarantee jury trial in state courts. Your client was tried in a federal court.",
       "time": "00:21:00.71"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now is there, if a government cleans up a site or something and spends money for it does it have a cause of action to recover from the, from a private party, the cost of the clean up?",
       "time": "00:26:51.74"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there an action like that under the Clean Water Act?",
       "time": "00:27:09.47"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If there were would you suppose a jury trial would be required?",
       "time": "00:27:31.79"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it just says, when the, if the government undoes the pollution they can sue the party responsible for the costs of undoing it.",
       "time": "00:27:41.68"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Yes, for money, yes.",
       "time": "00:28:00.56"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It just isn't disgorging?",
       "time": "00:28:12.06"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you may have taken it, but you've done something to me and I refuse to pay you for it.",
       "time": "00:28:37.43"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:28:49.57"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the key is not whether it's a money judgment. Because you get a money judgment in disgorgement and you get a money judgment in restitution which you acknowledge is equitable relief.",
       "time": "00:28:59.84"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:29:17.47"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But, the key is what it's for--",
       "time": "00:29:32.73"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--not that it's a money judgment.",
       "time": "00:29:34.10"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you. Thank you, Mr. Nageotte. I'll hear from you now, Mr. Wallace.",
       "time": "00:29:60.00"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You haven't addressed it at all. You've just said some penalty ordinarily is assessed xxx--",
       "time": "00:30:45.95"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Have you addressed whether it must be assessed.",
       "time": "00:30:53.20"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Good.",
       "time": "00:30:57.07"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Forever to the expense to the government for cleaning up?",
       "time": "00:31:28.96"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well does it have, is it, should it have some relation to the cost of undoing the pollution if you're ever going to undo it?",
       "time": "00:31:49.17"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is willfulness one of them? Just sheer willfulness? How much warning the individual had?",
       "time": "00:32:08.66"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And he went crashing ahead--",
       "time": "00:32:14.67"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and even though he caused--",
       "time": "00:32:15.85"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--little damage to the government you'd hit that kind of an individual a lot harder?",
       "time": "00:32:17.37"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:32:21.61"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what were you arguing in the district court was the $1,000 a day, I gather from your opponent. Or, $10,000 a day.",
       "time": "00:32:30.26"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wallace, that doesn't sound like it has anything to do with restitution. That sounds like it's a penalty or a fine, you know, thirty days/$30, something like that.",
       "time": "00:32:49.56"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, in addition to the plan you also asked for these civil penalties.",
       "time": "00:33:52.82"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, in this case, he may have done that. Do you think he was required to do that?",
       "time": "00:35:27.44"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could he of--",
       "time": "00:35:40.09"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Having computed $5,000 per lot could he have also said, well, this fellow had notice over and over again, he deliberately did things we told him not to do, he's a bad man for all sorts of reasons so I'll add an extra $1,000 per lot. Could he have done that?",
       "time": "00:35:41.87"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then the measure is not limited to the same remedy with the inequity, is it?",
       "time": "00:35:57.48"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Couldn't the trial judge in a criminal case decide an appropriate fine would be measured by the amount of money the person stole or something like that? And that wouldn't make it disgorgement would it? I mean I suppose you can always take it into account. Unless you're required to take it into account, why is that legally relevant?",
       "time": "00:36:07.74"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But we're looking for analogues to the action, Mr. Wallace, not to analogues to what happened to have been done by the judge in this case.",
       "time": "00:36:45.13"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The disgorgement if not an analog to the action.",
       "time": "00:36:55.67"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On Page 61 (a), the page right after, when you--",
       "time": "00:37:16.13"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--the judge goes on to say for the unlawful filling of a navigable waterway of the United States, the Defendant shall pay a fine in the sum of $250,000.",
       "time": "00:37:22.42"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He doesn't seem to say there that that's tied into any restoration costs.",
       "time": "00:37:32.67"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx... but you also had the order to restore.",
       "time": "00:39:09.36"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I know, but what was the, and what were the fines imposed?",
       "time": "00:39:27.05"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, I xxx.",
       "time": "00:39:44.59"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but he could, he had never recovered those fines.",
       "time": "00:39:47.88"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, ordered to pay them and to restore?",
       "time": "00:39:54.78"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So where does that leave--",
       "time": "00:39:57.90"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well so how does, where does that leave these fines that he can't get out of? He has these fines to pay but he also has to restore. So the fines can hardly be to represent the cost of restorations since he's going to have to do that again.",
       "time": "00:40:00.69"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So they are just plain old fines.",
       "time": "00:40:23.18"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx--",
       "time": "00:41:00.66"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What if they used a criminal penalty for that purpose, you wouldn't be here arguing that you don't need a jury trial xxx--",
       "time": "00:44:02.58"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What, my point is, what does that have to do with what I understand everyone agrees is the issue before us, whether in 1791 this would have been essentially an equitable or a legal action.",
       "time": "00:44:35.03"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Anymore than the fact that it added the criminal penalty later to achieve the original goals of the act has anything to do with whether that's a criminal action now.",
       "time": "00:44:49.79"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well that's very interesting, but that's the purpose of the criminal penalty too.",
       "time": "00:45:30.37"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I just don't see what it has to do with the point before us.",
       "time": "00:45:34.04"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that what penalty provisions normally are? Civil penalties are mainly designed to raise revenue. They may not be. In an another statute-- --They're usually designed to--",
       "time": "00:45:57.68"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Nobody is arguing that the nature of the other action, which is equitable, is altered. The issue is not whether the nature of that action is altered the issue is whether this action for--",
       "time": "00:46:24.42"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--civil penalties is equitable.",
       "time": "00:46:37.78"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, you had both set of--",
       "time": "00:46:50.78"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Walsh, you had those same kind of things in Beacon Theatres and Dairy Queen and the court said where it's equitable you go without a jury, but where you add in something that is legal then you get a jury trial. I don't think the whole ball of wax argument works.",
       "time": "00:46:53.72"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but I'm sure it could have been argued that it was all one ball of wax and that sort of thing, but the court said, No, you don't get off that way.",
       "time": "00:47:34.15"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think this turns on whether we decide that these claims on the complaint on the Clean Water Act are \"one cause of action\" or \"two causes of action\"?",
       "time": "00:47:48.24"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the Porter case never referred in any place to the right to jury trial. I just re-read it.",
       "time": "00:48:23.16"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, I don't think you can take that phrase or that dicta and apply it to the jury trial situation when there was no question of jury trial rights in Porter. Have you prevailed on this claim before any other Court of Appeals?",
       "time": "00:48:45.57"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is the first time it's ever come up in a Court of Appeals, the right to jury trial on a civil penalty under the Clean Water Act?",
       "time": "00:49:10.89"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you take the same view towards the Court of Appeals Case, Judge Friendly's case, as the Fourth Circuit did in this case where he said--",
       "time": "00:49:32.26"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Yes.",
       "time": "00:49:46.07"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just out of--",
       "time": "00:49:58.37"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Judge Friendly didn't understand the one ball of wax doctrine. [Laughter]",
       "time": "00:50:18.79"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think the Chief Justice was belittling it, I don't think it--",
       "time": "00:50:37.08"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, think of how efficient it would have been to have an administrative agency to collect these fines.",
       "time": "00:51:27.35"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When was that?",
       "time": "00:52:40.28"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, are you saying that the government is only going to seek that degree of penalty in the future, only disgorgement?",
       "time": "00:54:09.62"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Wallace,--",
       "time": "01:00:21.36"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--In order to win your case and cases like this, in this particular case were there real factual disputes?",
       "time": "01:00:22.98"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And would it be a really serious matter for a jury, those factual disputes? I take it there is some claim on the other side that the jury would have to determine the penalty also?",
       "time": "01:00:45.64"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right, right, but--",
       "time": "01:01:00.32"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Put that aside--",
       "time": "01:01:01.64"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--put that aside. You think in the run of the mill case like this it really wouldn't be a terrific burden on the government to have a jury because of the complicated facts or what?",
       "time": "01:01:03.10"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It would cost money wouldn't it?",
       "time": "01:01:22.77"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wallace. Mr. Nageotte, you have two minutes remaining.",
       "time": "01:01:40.40"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Nageotte, are you really serious in your claim that the jury would have to set, if you have a right to jury trial, you have a right to have the jury set the fine?",
       "time": "01:01:50.42"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nageotte. The case is submitted.",
       "time": "01:02:15.63"
     }

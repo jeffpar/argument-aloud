@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1960/105/19610228a_105.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
       },
       {
         "name": "THELMA C. FURRY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "NORMAN J. PUTMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mrs. Furry, you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -47,13 +47,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Isn't that a matter --",
       "time": "00:01:14.12"
     },
     {
       "turn": 4,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It isn't -- oh, pardon me. That's what I'm asking, isn't that a matter of state law?",
       "time": "00:01:14.55"
     },
@@ -65,7 +65,7 @@
     },
     {
       "turn": 6,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was this point raised in the -- in the Supreme Court of Ohio, this particular point that you're in now?",
       "time": "00:01:55.43"
     },
@@ -77,7 +77,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did they decide it?",
       "time": "00:02:04.27"
     },
@@ -89,7 +89,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you said -- when did you say the Committee had done nothing?",
       "time": "00:02:34.25"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, if -- did you -- you said something about the Committee not being active now?",
       "time": "00:03:16.97"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But Mrs. Furry, what -- what relevance does that have to whether or not the Committee might investigate after our decision in the Uphaus case?",
       "time": "00:04:40.57"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, they did, in fact, recommend legislation which was in fact passed, I think (Voice Overlap) --",
       "time": "00:05:39.02"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it shows that the Attorney General of Ohio has not -- for one reason or another, he has not thought it was unenforceable, is that it?",
       "time": "00:05:44.08"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, who prosecuted this case?",
       "time": "00:06:22.25"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say that the Attorney General didn't prosecute it. Who did prosecute it?",
       "time": "00:06:24.97"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:06:29.81"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Has the Attorney General appeared in this case?",
       "time": "00:07:15.15"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does the Attorney General normally appear in cases of this kind in -- in Courts of Appeals?",
       "time": "00:07:24.26"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In Ohio, he does not.",
       "time": "00:07:34.15"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:07:39.25"
     },
@@ -233,13 +233,13 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Follows it through.",
       "time": "00:07:42.89"
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It has no relevance, I suppose, but (Inaudible) do you mean that, from the State Supreme Court, the Attorney General leaves all the tenant work to the -- the county attorney?",
       "time": "00:07:43.44"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, assume that the -- that this was a case of murder, a robbery or arson or something of that kind, would it -- would it be pursued up to this Court by the District -- District Attorney or your prosecuting attorney rather?",
       "time": "00:08:27.54"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And not by the Attorney General.",
       "time": "00:08:42.94"
     },
@@ -275,13 +275,13 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that so?",
       "time": "00:08:45.12"
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, when -- when Raley was here, was it not the county prosecutors who appeared in those cases?",
       "time": "00:08:46.42"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mrs. Furry, before you do, may I just ask one question. Raley involved what the court -- this Court said was an improper representation by the Chairman of the Commission to the witnesses that they might rely on their privilege against self-incrimination. Is that issue involved in these cases?",
       "time": "00:09:10.68"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, had these witnesses involved before us now, been told that the statute -- the Ohio statute extended immunity?",
       "time": "00:09:55.49"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that judge's opinion was that there would be immunity for prosecution for any testimony they gave?",
       "time": "00:10:42.90"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do you take the position here that Raley, in any way, governs the problems before us?",
       "time": "00:12:35.19"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "What are those two, Mrs. Furry?",
       "time": "00:13:41.98"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:13:47.16"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What's that second one?",
       "time": "00:13:53.83"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, yes.",
       "time": "00:13:57.73"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, were there any of these that were not told of this statute?",
       "time": "00:14:17.69"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What ones?",
       "time": "00:14:24.63"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, didn't your Supreme Court, however, Mrs. Furry, in -- I've forgotten, was it the Morgan case?",
       "time": "00:14:45.38"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Hold that the statute was automatically available?",
       "time": "00:14:51.03"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In other words, that there was no obligation affirmatively to advise a witness that immunity was available, that the statute was automatically available but in Raley, we found that the Chairman of the Commission supplied everyone but Stern, I think, did it not, had -- had told the witnesses that they were free to claim their privilege whenever they thought it advisable to do so?",
       "time": "00:14:55.29"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was that before or after --after these people appeared before the Committee?",
       "time": "00:16:45.22"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "164 what?",
       "time": "00:17:15.73"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That was the Morgan case.",
       "time": "00:17:25.86"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What -- what were you reading from now?",
       "time": "00:21:29.05"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought that you read from one of our opinions about the Court presuming that Congress was not (Inaudible) --",
       "time": "00:21:46.24"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- people to double jeopardy?",
       "time": "00:21:53.12"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Nelson.",
       "time": "00:21:55.93"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You say the witnesses did ask what the purpose of the investigation was?",
       "time": "00:24:11.37"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where do we find the immunity statute in the record or briefs please?",
       "time": "00:26:29.29"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that the one filed January 11? Is that the brief filed January 11?",
       "time": "00:27:00.74"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "On -- well, now --",
       "time": "00:27:07.04"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, I see.",
       "time": "00:27:15.30"
     },
@@ -593,13 +593,13 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, yes, thank you.",
       "time": "00:27:17.09"
     },
     {
       "turn": 95,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mrs. Furry, do I correctly understand then that we -- your position is we must reach the arguments or rather attacks upon the proceedings that we did not reach in Raley because there is not present here a situation such as there was in Raley, namely, of the Chairman having misadvised the witnesses that they might rely on the privilege against self-incrimination?",
       "time": "00:27:21.61"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I know, but -- it's only by implication, they --",
       "time": "00:28:08.04"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "suggested it. In other words there --",
       "time": "00:28:11.27"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- there was no expressed statement as was true in the Morgan and Raley cases --",
       "time": "00:28:13.06"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that you may rely on the privilege. That, we do not have in this case.",
       "time": "00:28:19.33"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may reserve the rest of your time. Mr. Putman.",
       "time": "00:28:34.82"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "4-to-4 opinion?",
       "time": "00:35:11.32"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what you have -- what you're relying on is an affirmance by necessity.",
       "time": "00:35:21.93"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How much of a precedent that is, is another question?",
       "time": "00:35:26.95"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Putman, while we're getting this background, may I --",
       "time": "00:36:59.24"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- interrupt you before you get into the other. Now, you say that this was -- was a commission as distinguished from a legislative committee.",
       "time": "00:37:02.67"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:37:15.18"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:37:17.03"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:37:19.84"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Now, all I want -- all I want to ask you is whether that holding of the Supreme Court was before or after the hearing that these people had for which they are now held in contempt.",
       "time": "00:37:24.02"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The hearing was after the Supreme Court had --",
       "time": "00:37:41.88"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:37:57.18"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:37:58.39"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, now, this -- this language, if -- this language is rather explicit, and I'm wondering if, in the absence of -- of such a holding, if they wouldn't be entitled to rely on this language because it says \"except a person who, in writing, request permission to appear before a committee or subcommittee of the General Assembly or be their House thereof or who, in writing, waives the rights, privileges and immunities granted by this section, the testimony of a witness examined before a committee or subcommittee shall not be used as evidence in the criminal proceeding against such witness.\" Now, it says nothing about the Commissions in there and would not a private citizen, in the absence of a -- of a rule by the Supreme Court, be entitled to -- to say that this meant what it said, a -- a committee or subcommittee of the Legislature?",
       "time": "00:38:00.09"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:14.64"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but after -- after this one?",
       "time": "00:39:30.40"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:33.09"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:41.87"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:39:44.07"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What page is that on the brief?",
       "time": "00:42:08.51"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Page what?",
       "time": "00:42:37.39"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "This is at the beginning --",
       "time": "00:42:46.87"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Was each witness so informed?",
       "time": "00:43:45.80"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Where does it show that?",
       "time": "00:43:56.07"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I -- I thought Mrs. Furry told us it was not the fact, that there were two of them -- two of them, they asked that Slagle, Mladajan and Cooper, is that right, were not present? Is that what the counsel stated that --",
       "time": "00:44:41.17"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I --",
       "time": "00:45:01.06"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:45:04.08"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And the record doesn't show.",
       "time": "00:45:06.87"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:45:10.66"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. -- may I ask you, suppose they did tell them that and suppose a court of pleas court in Franklin County had previously held that. Would that ever stop the county prosecuting attorney from prosecuting them with the Supreme Court's interpretation that they did not -- that the -- that it gave to the act? How would they know that the Supreme Court would hold that?",
       "time": "00:45:12.09"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And there was a room for, and there was, a very sharp cited opinion, Mr. Putman.",
       "time": "00:45:47.97"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was there anything unreasonable about the lawyers telling her that you can't rely on this judge -- this one opinion of this one judge when this is a committee of a -- of a legislature?",
       "time": "00:45:54.98"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Wouldn't it been a --",
       "time": "00:46:11.48"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Wouldn't it been a very -- wasn't it have been a very natural advise --",
       "time": "00:46:12.89"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- for a lawyer to give this to him?",
       "time": "00:46:17.07"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Due -- due process question in this case --",
       "time": "00:46:25.38"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- is whether a right or a wrong about the immunity statute, these witnesses were put on fair notice that the Committee wanted an answer.",
       "time": "00:46:27.76"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "That's the due process question --",
       "time": "00:46:35.69"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- that's all there is to it, isn't it?",
       "time": "00:46:36.34"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, why is that the only question? If the record shows that the law, as it then stood, remind that 90% of the lawyers, for instance, did not grant the power to grant immunity, why were they compelled to act on the basis that the Supreme Court would hold the contrary, if the record shows that?",
       "time": "00:46:39.66"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Due process requires a fair proceeding before anybody goes to jail, I suppose.",
       "time": "00:47:02.83"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And the record does show that, as I understand, they put on the stand, they were told, You have immunity. The lawyer took the position, We don't have it. Although one judge has said so, we don't know that at all, and they still refuse to answer.",
       "time": "00:47:11.80"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And under the law as a normal person would have read it in Ohio.",
       "time": "00:48:27.72"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would have incriminated them. I mean, they -- they couldn't know that they wouldn't be prosecuted if they admitted it.",
       "time": "00:48:36.35"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well --",
       "time": "00:48:48.36"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- there might be a difference, might there not?",
       "time": "00:48:49.20"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And a case where you want to -- you've got to prove that some person will willfully do it and something, you have to do prove that in Ohio?",
       "time": "00:48:51.82"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You don't have to prove that they willfully defied the Committee?",
       "time": "00:49:00.78"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What could be done to the person who does that?",
       "time": "00:49:38.36"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean in jail?",
       "time": "00:49:44.27"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, then there's much -- much difference what they call it, does it?",
       "time": "00:49:45.96"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The result is they could be --",
       "time": "00:49:49.75"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- put in jail.",
       "time": "00:49:50.91"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they could have been if the Court hadn't --",
       "time": "00:49:52.35"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- contrary to the dissenters' view, which sounded rather natural and normal view to me, if they hadn't, contrary to his view, held that it meant that they conclude something besides what it said on its face.",
       "time": "00:49:55.89"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes I -- I understand that.",
       "time": "00:50:43.30"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand that --",
       "time": "00:50:45.59"
     },
@@ -1343,13 +1343,13 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- in your presentation.",
       "time": "00:50:46.85"
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Putman, may be you gave us the page but if you did, I -- it escaped me, the -- the page where the judge had been -- page of the transcript where the judge had them in his chambers before the hearing and told them about the waiver of immunity and so forth.",
       "time": "00:50:48.24"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "90?",
       "time": "00:51:36.20"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, let's see what -- what that language is. I'm asking your husband's name and you have given the answer which indicates there is something about mentioning your husband's name that would tend to incriminate or degrade you. Of course, you -- you know best what the relationship with your husband is. If you choose to refuse to answer on the basis that such an answer would make you subject to federal state prosecution, I will only point out to you that, possibly, your counsel has already called to your attention a decision recently handed down by the Common Pleas Court of Franklin County which states that a witness may not avail himself of the amendments to the federal constitution in a hearing before a state commission, before which the State of Ohio is granted immunity for prosecution for any offense except perjury. Has your counsel called that to your attention?",
       "time": "00:51:52.92"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, you say that -- that is the place?",
       "time": "00:52:53.32"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I thought that --",
       "time": "00:52:56.70"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well --",
       "time": "00:53:50.45"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understood you also to say that the Commission had resolved that -- that they could not be prosecuted and -- and that no prosecutions would result if they did testify.",
       "time": "00:53:52.26"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, I --",
       "time": "00:54:09.00"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- I misunderstood what you said then.",
       "time": "00:54:10.20"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Putman.",
       "time": "00:55:20.95"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What issues are before us in this case?",
       "time": "00:55:22.45"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Laying aside your reliance, if you will, upon the equally divided vote in Stern as settling the validity of the Commission.",
       "time": "00:55:28.39"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do we have to isolate the questions as to each of the five witnesses?",
       "time": "00:58:53.12"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what were the sentences, concurrent on all those counts as to which (Inaudible)",
       "time": "00:59:01.50"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So that any one is good.",
       "time": "00:59:08.49"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Each conviction.",
       "time": "00:59:12.21"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did the judge -- did the judge give concurrent sentences on each one of the counts or did he just say six months for -- for your offenses? Didn't he just give an aggregate sentence as distinguished from saying I give you six months in the first count, six in the second, and so forth and saying they'll be served concurrently?",
       "time": "00:59:24.40"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, what --",
       "time": "01:00:51.55"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- does the journal show in this case?",
       "time": "01:00:51.87"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But do we have to consider each of these sentences on each of the five witnesses on -- if it doesn't show that they're concurrent?",
       "time": "01:01:05.83"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "May I ask, what is it that you ask us to do?",
       "time": "01:01:51.52"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you sound to me as if you thought the immunity ought to extend to both federal and state prosecution.",
       "time": "01:02:52.31"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't mean to embarrass you. I just say you --",
       "time": "01:03:02.87"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it's very resourceful.",
       "time": "01:04:56.52"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Putman, you've been very frank with us, and I -- I do want to get this -- this straight in my -- my mind though. Now, at the -- at the time these people testified before the Committee or rather refused to testify before the Commission, there was no ruling of your Supreme Court to the effect that this immunity statute embrace commissions, as well as committees and subcommittees of the Legislature. And all these people had before them, so far as the basic law of your State was concerned and the rulings of your Supreme Court, the language of the section which limited it specifically to committees and subcommittees of the -- of the Legislature. Now, is it not the -- is it not a real issue in this case as to whether those people had a right to rely upon a plain language of the -- of the statute in refusing to -- to testify on the grounds that their testimony might incriminate them?",
       "time": "01:05:23.08"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I'm talking out -- about the plain reading of the statute. Now, if it was -- if it was other than the plain reading of the statute, it might be a different situation. But -- but this statute reads Any -- any witness who is called before a committee or a subcommittee of the Legislature is given immunity, and you have told us that this body that they refused to testify before was consciously made a commission and not a committee or subcommittee of the legislation -- Legislature for a specific purpose.",
       "time": "01:07:28.11"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Alright. Well, now, if -- if that is true, is there any reason on earth why they aren't entitled to rely on a plain and obvious reading of that statute?",
       "time": "01:08:12.13"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, by a Court of Common Plea, your Common Pleas Court. Then -- then where does that -- where does the Court of Common Pleas stand in the hierarchy of the courts?",
       "time": "01:08:38.14"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That --",
       "time": "01:08:51.44"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It isn't a bind -- it isn't a decision that's binding all over the State, is it?",
       "time": "01:08:53.02"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:09:10.44"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:09:12.73"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:09:36.92"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And I -- I presume that if, subsequent to this hearing, the Supreme Court had held otherwise that the language of the section when it said a committee or a subcommittee meant a subcommittee or a committee and nothing else, that they could not then be punished for contempt, could they?",
       "time": "01:10:00.06"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, that's what I meant.",
       "time": "01:10:34.61"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is the Franklin County case published?",
       "time": "01:10:53.89"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The one --",
       "time": "01:11:05.33"
     },
@@ -1793,7 +1793,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the one where the report was made.",
       "time": "01:11:05.91"
     },
@@ -1805,7 +1805,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "01:11:13.54"
     },
@@ -1817,7 +1817,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are those reported cases?",
       "time": "01:11:15.86"
     },
@@ -1829,7 +1829,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They are not published in the record, are they?",
       "time": "01:11:19.90"
     },
@@ -1841,7 +1841,7 @@
     },
     {
       "turn": 302,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, are they published cases in (Voice Overlap) --",
       "time": "01:11:25.41"
     },
@@ -1853,7 +1853,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you --",
       "time": "01:11:30.94"
     },
@@ -1865,7 +1865,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- there was a note to them from one of you after the case was decided.",
       "time": "01:11:31.79"
     },
@@ -1877,7 +1877,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It may not be material, but --",
       "time": "01:11:37.13"
     },
@@ -1889,7 +1889,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- I'd like to see them myself.",
       "time": "01:11:38.51"
     },
@@ -1901,7 +1901,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Speaking for myself, I think that would be very helpful, Mr. Putman, because it's quite impossible on what's presented to us now.",
       "time": "01:12:00.04"
     },
@@ -1913,7 +1913,7 @@
     },
     {
       "turn": 314,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. May I ask this, could you -- could you and counsel agree upon whatever you send to us in that regard, do you think?",
       "time": "01:12:09.33"
     },
@@ -1925,7 +1925,7 @@
     },
     {
       "turn": 316,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:12:18.78"
     },
@@ -1937,7 +1937,7 @@
     },
     {
       "turn": 318,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you -- would you do that jointly then for us? We'd appreciate it very much, Mr. Putman and Mrs. Furry.",
       "time": "01:12:19.32"
     },
@@ -1949,7 +1949,7 @@
     },
     {
       "turn": 320,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Thank you. You've been very frank with us, Mr. Putnam.",
       "time": "01:12:25.80"
     },
@@ -1961,7 +1961,7 @@
     },
     {
       "turn": 322,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We appreciate it.",
       "time": "01:12:28.41"
     },
@@ -1973,7 +1973,7 @@
     },
     {
       "turn": 324,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mrs. Furry.",
       "time": "01:12:30.67"
     },
@@ -1985,7 +1985,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was it in Campton?",
       "time": "01:13:54.77"
     },
@@ -1997,7 +1997,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I -- I thought -- I thought your Supreme Court said that an offer of immunity was unnecessary that, automatically, the statute accorded immunity without offer.",
       "time": "01:14:19.05"
     },
@@ -2009,7 +2009,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, did the -- was that -- was that the gist also of the Franklin County Common Pleas decision?",
       "time": "01:14:39.63"
     },
@@ -2021,7 +2021,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "October term 1958, Number 463?",
       "time": "01:15:07.22"
     },
@@ -2033,7 +2033,7 @@
     },
     {
       "turn": 334,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, where is that again, please?",
       "time": "01:15:34.32"
     },
@@ -2045,7 +2045,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "His import -- his name was what?",
       "time": "01:15:59.14"
     },
@@ -2057,7 +2057,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could I ask you a question?",
       "time": "01:18:52.39"
     },
@@ -2069,7 +2069,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Is there any place that you can point as to -- in the record if there is any member of the Committee, you said, that these questions don't have to be answered because it -- they will incriminate you or that you don't have to answer them because there is doubt as to the scope of this immunity statute? Can you point to any place in the record where either of those things appeared?",
       "time": "01:18:53.52"
     },
@@ -2081,7 +2081,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "In that presentation, yes.",
       "time": "01:19:19.12"
     },
@@ -2093,7 +2093,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Yes.",
       "time": "01:19:20.28"
     },
@@ -2105,7 +2105,7 @@
     },
     {
       "turn": 346,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, the Court -- the Court will appreciate very much the cooperation of counsel on both -- both sides in untangling this kind of -- of facts for us.",
       "time": "01:20:01.44"
     },
@@ -2117,7 +2117,7 @@
     },
     {
       "turn": 348,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes or --",
       "time": "01:20:25.21"
     },
@@ -2129,7 +2129,7 @@
     },
     {
       "turn": 350,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- or any other -- any other comparative facts here that will -- will show us the status of the -- of the individual defendants before this Court.",
       "time": "01:20:26.54"
     },
@@ -2147,7 +2147,7 @@
     },
     {
       "turn": 353,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, no, it need not. It need not be, if you will just -- if you will just have it typewritten and sent to us, that will be sufficient. So we don't ask you to write any additional briefs. If you will just -- if you will just make the facts known to us in a rather graphic form, we appreciate it very much.",
       "time": "01:20:40.87"
     },

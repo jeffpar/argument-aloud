@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/76-860/19771004a_76-860.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN L. URBANCZYK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "J. D. RIFFEL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear first this morning number 76-860, Califano against Jobst. Mr. Urbanczyk you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Counsel, do you know whether there are many marriages each year between insured disabled persons and uninsured disabled persons?",
       "time": "00:04:01.23"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "(Voice Overlap) stop there would it be constitutional?",
       "time": "00:04:51.38"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "His wife was or is disabled.",
       "time": "00:06:31.76"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the reason she is not a beneficiary is simply that her parent was not covered.",
       "time": "00:06:39.27"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which is part of the same act, is it?",
       "time": "00:07:38.68"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the difference in amount?",
       "time": "00:07:49.57"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Per month.",
       "time": "00:08:09.88"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that condition obtained today?",
       "time": "00:08:12.46"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Generally under the general rule of the Statute, that terminates benefits upon the marriage of the beneficiary, if there subsequent divorce within the period that the beneficiary would be eligible i.e. under 22 or under 18 depending upon the whether or not he is a student or a disabled person. This statute provide that former benefits resume?",
       "time": "00:08:46.87"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But there is no re-entitlement after marriage or divorce.",
       "time": "00:09:33.85"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or the death of the spouse.",
       "time": "00:09:37.56"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, it is normal that the wife takes care of the husband, is it?",
       "time": "00:12:43.84"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is normal that the wife takes care of the husband, is it? Which would be required in this case, would it not?",
       "time": "00:12:47.75"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When they become normal, right now?",
       "time": "00:12:59.36"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is normal that the wife takes care of her husband?",
       "time": "00:13:02.24"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Court has past emphasized the importance of not thinking in stereotypes in this area, has it not?",
       "time": "00:13:25.43"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean the stereotypical picture is a husband supporting his wife.",
       "time": "00:13:36.10"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is (Inaudible) stereotype, it is stereotype that when you get married, to leave home? I guess it is (Voice Overlap) you want.",
       "time": "00:13:44.36"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well the balance what the Court has said about stereotypes, Court has also said many times that Congress is entitled to legislate on the basis of the generality of human experience, has it not?",
       "time": "00:14:12.78"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The argument is that it’s constitutionally under-inclusive, is that it?",
       "time": "00:16:19.17"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It’s unconstitutional because it is under (Voice Overlap).",
       "time": "00:16:23.94"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not to include the --",
       "time": "00:16:39.78"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you are satisfied that, that is all you need indicate with the rationality?",
       "time": "00:21:35.87"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This does deter marriage I would suppose; I mean the general marriage rule would deter marriage, would it not?",
       "time": "00:22:03.30"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, you do not think that you need to pay much attention to the validity of your general marriage rule or your disqualification of marriage.",
       "time": "00:22:23.72"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So your answer is, no you do not need to pay any attention to that.",
       "time": "00:22:36.29"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it not sometimes true that two individuals who marry, each having an income will pay a higher tax than they did unmarried, separately.",
       "time": "00:22:53.11"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well I suppose a State law that permits a minor to renounce his contract so long as he is under the age of minority or not married, might be said that they deter marriage too.",
       "time": "00:23:11.68"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suggesting a rule of billion dollars generally. I just suggest it might raise this level of scrutiny. So he would have to make individual determinations of need rather than having either an over inclusive or under inclusive classification.",
       "time": "00:23:28.78"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you might have some trouble.",
       "time": "00:24:13.72"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well you certainly given up attention in the brief to the validity of your underlying marriage rule. Didn’t you?",
       "time": "00:24:22.67"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would happen if there is an unknown --",
       "time": "00:25:00.88"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, on everything that you said up till now, if there is an annulment, he would be out.",
       "time": "00:25:21.18"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, he will be out.",
       "time": "00:25:31.43"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You say, he was never married.",
       "time": "00:25:38.19"
     },
@@ -475,13 +479,13 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "As of nominee that --",
       "time": "00:25:43.05"
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Mr. Urbanczyk, is the SSI program relevant to your constitutional argument at all. I do not understand it to be, but I just want to be sure.",
       "time": "00:25:46.02"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, there is no constitutional requirement that the SSI program be adapted in order to save this particular statute (Voice Overlap)",
       "time": "00:26:22.61"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Riffel. You may proceed.",
       "time": "00:26:51.61"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Riffel could I interrupt you, is it really quite correct to say that the statute makes the classification you describe, there is nothing in the statute that places people who marry totally disabled non-recipients in a special category. It’s a broader category of which they are a part. Isn’t that correct?",
       "time": "00:28:56.49"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well it refers it creates the B class for those who marry totally disabled dependents who are covered, but there is no classification in the Statute of persons who marry totally disabled spouses who are not receiving benefits. It’s these people who marry anyone who is not receiving benefits. Is it not the classification?",
       "time": "00:30:02.16"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean that is line the statute draws. You are saying within that broad category there is the smaller category.",
       "time": "00:30:29.00"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And your submission is that the District Court's decision should not be understood to affect the validity of the general provision of Social Security Act and that would terminate benefits for a beneficiary of the category under which your client falls, who marries a wage earner or anybody else who is just simply not disabled. Am I right?",
       "time": "00:30:54.64"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It does make it rather narrow.",
       "time": "00:31:27.16"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The District Court's the constitutional decision was made in January of 1974, wasn’t it?",
       "time": "00:34:41.29"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that was before our decision in Weinberger, before our decision in Lucas, and before our decision in De Castro.",
       "time": "00:34:47.92"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn’t the language of Congress one of the best evidences of the purpose that it had in mind?",
       "time": "00:37:35.38"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And here the statute itself clearly bars your client, doesn’t it?",
       "time": "00:37:52.69"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you arguing that the legislative history is contrary to the statutory language that bars your client?",
       "time": "00:39:06.51"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Which do you take, the express legislative language or legislative history in a case like that?",
       "time": "00:39:15.12"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well the question is whether what the Statute says is Constitutional?",
       "time": "00:39:42.00"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you go to the legislative history only if the statute is ambiguous. Isn’t that correct?",
       "time": "00:39:51.11"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Only if the statute is ambiguous.",
       "time": "00:40:02.39"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about the statute is unconstitutional? The wording of the statute.",
       "time": "00:40:06.60"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you look at the wording, what about the wording is unconstitutional?",
       "time": "00:40:20.79"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does that make it unconstitutional because it's under-inclusive?",
       "time": "00:40:54.42"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Aren't you really trying to get another exception in the statute to write it in?",
       "time": "00:41:04.84"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In your case, you want the statute to say that when a person marries and is divorced, he comes back to the original status. Isn't that what you want us to write into the statute?",
       "time": "00:41:16.22"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how else can we cover your man?",
       "time": "00:41:32.32"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "To him, because of his peculiar circumstances.",
       "time": "00:41:38.98"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose it would, you and I could agree that there might be many such people, who after they are 18 year old, still have the same needs, still of dependency, non-disabled children of a deceased wage earner lose their benefits when there is secondary benefits, when they reach the age of 18 and are still students but I suppose you and I could agree that many people over 18 are in the same economic position after their 18th birthday one day as they were one day before their 18th birthday.",
       "time": "00:42:05.71"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "A birthday terminates an event.",
       "time": "00:42:43.24"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well the statute provides they must have been disabled before the death, disability of the wage earner, doesn't it?",
       "time": "00:43:27.80"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Anytime before age 18.",
       "time": "00:43:38.50"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Riffel, you started out by emphasizing the narrowness of the District Court holding, why would not the District Court's reasoning apply equally to widower situation? Assume your client were a widower, who was drawing benefits, and married first in one case, a person who was getting benefits then his benefits would continue. In the other case, married someone who had cerebral palsy and was not receiving benefits and not able to support the widower. The benefit will terminate and would it not be equally invalid under your reasoning within the stay. That termination would be equally subject to challenge.",
       "time": "00:43:56.50"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or may be not a disabled person; may be just an older person who is not able to -- who was too old to get a job and support her or support him. I mean it is we are talking about a man losing his benefit, he could very often marry a person of his own age who is unable to get a job to support him but yet is not covered by the act.",
       "time": "00:44:44.64"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the constitutional difference between that situation and the one before us? I do not quite follow why you would not apply the same reasoning in both cases?",
       "time": "00:45:16.86"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whichever way you come out that is--",
       "time": "00:45:25.65"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "My hypothesis, my other example is one where the person is just getting the secondary benefit. By hypothesis, it is not a person who has got the social security benefit out on the basis of his own earnings. So what is the difference?",
       "time": "00:45:50.28"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But even then they are the same statement in the statute as to widowers who marry covered spouses, isn't it exactly the same?",
       "time": "00:47:06.38"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well but that--",
       "time": "00:47:17.39"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought that in all of these secondary benefits situations if the person, who is covered, marries another person who is covered, benefits of both continue, but that is the overall effect of the (Voice Overlap).",
       "time": "00:47:39.16"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then that is why I suggested that two cases really are quite parallel and maybe it does not mean you are necessarily wrong, the only thing I question is whether the holding is quite as narrow as you describe it.",
       "time": "00:47:53.83"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Riffel, can I ask you one question about the Court's relief?",
       "time": "00:55:39.19"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As I understand the Court's order the test of entitlement of your client is whether his spouse was disabled, so that even if your spouse was disabled but not needy, say she was a wealthy person and had independent means nevertheless he would recover, is that correct?",
       "time": "00:55:42.18"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So that even under the Court's holding, the test is not one of need.",
       "time": "00:56:07.55"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have any further?",
       "time": "00:56:58.06"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just be sure I understand what you are saying because it is of some importance to me. You are saying that the prior to 1958, there was flat termination when there was marriage. After 1958, there is a broad classification in the two -- two broad categories rather. One is persons who marry other persons who are covered, and the other classification is persons that is secondary beneficiaries, who marry persons who are not covered.",
       "time": "00:58:04.29"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you should test this statute on the broad classification. I notice in that event, actually when you have a marriage between two covered persons if you did not have the 1958 Amendment, two people would be affected by the rule.",
       "time": "00:58:29.71"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentleman. The cases is submitted.",
       "time": "00:59:34.66"
     }

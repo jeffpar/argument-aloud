@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2009/08-678/20091005a_08-678.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "RANDALL L.  ALLEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JUDITH RESNIK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument next in Case 08-678, Mohawk Industries v. Carpenter. Mr. Allen.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Allen, except for the fact that you and I are lawyers, do you really think that the -- that confidentiality right is any more important to the proper functioning of society than, let's say, the protection of trade secrets? So that in a case of discovery where the defendant says, if I produce this I would be giving up a trade secret and it's not necessary for the case, and the judge says no, turn it over -- would there be in your view a right to interlocutory appeal in that case? And if not there, then why here?",
       "time": "00:00:53.56"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same thing with a trade secret. It is a suit between another company who is a competitor of yours--",
       "time": "00:02:11.16"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And the Judge says, turn over your trade secret, the formula for Cocoa-Cola, and you say no. No interlocutory appeal, right?",
       "time": "00:02:16.52"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or do you say there should be an interlocutory appeal there?",
       "time": "00:02:28.00"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But what if the court doesn't, as Justice Scalia has posited? The court here could do the same thing, depending on the secret being disclosed. It could set up any number of protective mechanisms. The issue is broader than that, which is: Why is the public policy of anti-disclosure any more important in the attorney-client privilege than in the trade secret context?",
       "time": "00:02:51.30"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Ah. Are you sure?",
       "time": "00:03:42.08"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But isn't the role -- the central role -- role, is to encourage the frank and open communication between client and attorney? That's the purpose of the rule, isn't it?",
       "time": "00:03:53.22"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. If that is the purpose, the very existence of exceptions infringes that purpose. The minute you create an exception, you are placing some sort of limitation to the frank and open discussion that you are permitting, so the damage is already done. The further disclosure doesn't really serve the purpose -- or help the purpose in any meaningful way. The fact that an erroneous decision on attorney-client disclosure is not going to stop people from talking to lawyers if they really need to and they are staying within the rules.",
       "time": "00:04:09.50"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well -- but that's what I'm trying to figure out, because you are positing that erroneous decisions on disclosures are being made routinely by the lower courts. Assuming, as I do, that there are some erroneous disclosures, but that that's not necessarily the majority, why is there an incremental erosion significant enough to overcome our interests in the finality rule?",
       "time": "00:05:06.13"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Let's talk about predictability. Once you make an exception for waiver, there is already that limitation. It's not absolute. Maybe it can be waived. Secondly, you have to worry about a district court finding it to have been waived, even though it really wasn't. That's another point of doubt. And, thirdly, you have to worry about the Supreme Court affirming a district court that wrongly found it to have been waived because we give, you know, weight to the fact-finding of the -- of the district court. Once you -- once you factor in all of those uncertainties, you are not talking about a -- you know, about a fail-safe privilege at all. There are those doubts, and I'm not sure the doubts are increased enormously, by simply saying a district court may make a mistake without -- without your being able to go up to the court of appeals on that mistake.",
       "time": "00:06:15.23"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Allen, you used a term before, and I think you were right in using it -- you said, v. Beneficial is a narrow exception and it -- the theory is, it is a final judgment. It's not interlocutory. And, nowadays, the courts have 1292(b). They can certify a question, if they think it's sufficiently important and they need an answer, without pretending that it's a final judgment in the case. So, given 1292(b), shouldn't we be particularly reluctant to extend Cohen v. Beneficial to include a case of a privilege that maybe was wrongfully denied?",
       "time": "00:07:42.74"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that's what 1292(b) was meant to deal with.",
       "time": "00:08:47.82"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why do you think that your -- that this privilege -- or is it -- more important than any other privilege? I mean, Justice Scalia's question and your answer convinced me that you can protect this the same as you can any other trade secret -- any trade secret. Of course, you do disclose it to the opposing party, but that is also true of any breach of any privilege, so husband-wife, priest-penitent, psychiatrist and patient. I take all of those are privileged. Do we allow collateral appeals there?",
       "time": "00:09:20.98"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, if we don't allow collateral appeals with the husband and wife, with the priest and -- and someone in -- you know, confession or something, I don't -- with a priest, or with a psychiatrist who is dealing with a patient, why would we allow collateral appeal here?",
       "time": "00:09:52.09"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But then if we grant your collateral appeal, don't we have to, perhaps, equally grant it in every situation, where a judge arguably makes an erroneous ruling on a question of privilege?",
       "time": "00:10:15.06"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's the lawyer.",
       "time": "00:10:40.37"
     },
@@ -251,13 +251,13 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So it's -- in your opinion, it's more important to protect the lawyers, who talk to clients, from erroneous rulings, than protect the priest or protect the wife or husband or protect the psychiatrist who is dealing with a patient? Now, that's hard for me to see why. I mean, I think lawyers are very important, but it's a little hard to see why they are more important than these other people.",
       "time": "00:10:56.58"
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What is the use -- I'm -- I'm sorry if I cut you off. But what is the use by the adversary lawyer that you are worried about? That the lawyer is going to use the information against your client, correct?",
       "time": "00:11:22.60"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So there is a remedy. After final judgment, if the information was disclosed erroneously, the court sets aside the judgment, sends it back, and says, you can't use it in the future and so make your case without it.",
       "time": "00:11:39.66"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why isn't that an effective remedy for the harm that you are claiming exists in the disclosure?",
       "time": "00:11:59.31"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You have to a right to choose your lawyer and not to be -- and not to be represented by a -- by a different lawyer, and yet we don't permit that to be interlocutorily appealed.",
       "time": "00:12:30.64"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why is this any greater in terms of the harm that your client suffers?",
       "time": "00:12:44.32"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I understand what the court below did. I'm just following up on your point about the importance of this privilege and why it's critical that it be subject to interlocutory appeal as opposed to the final judgment ruling.",
       "time": "00:13:15.59"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not -- it's not a rule of efficiency. It's a firm final judgment rule that we have in the Federal system. And we are talking about a narrow exception. The exception was first declared in Cohen v. Beneficial. The question there was security for costs, yes or no? Does that -- that is a pure question of law. It doesn't depend on the variety of factual circumstances. Attorney-client is quite different because it can often be fact-bound. It depends upon this particular case. Cohen v. Beneficial was meant for the kind of question that doesn't get you into the facts. Otherwise, once you get into -- once it's a fact-bound question, you are really eroding the final judgment rule.",
       "time": "00:14:01.79"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you are carving out an area, attorney-client privilege, as opposed to the kind of situation Cohen v. Beneficial dealt with. Here's a rule that a State has. You have to put up security for costs before you go ahead with a class action. The answer to that is either yes or no, that it either requires it or it doesn't require it. No facts at all. You just have a class action, you need security for costs. Maybe this particular case doesn't involve many facts, but there will be attorney-client privileges cases, waiver cases that surely do. So we can't take that category, attorney-client privilege, and equate it to what was the kind of question at issue in Cohen.",
       "time": "00:15:12.32"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Because those are cases that say your right is not to be tried, your right is not to be exposed to trial at all.",
       "time": "00:16:22.23"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask two yes or no questions? One, did you, in fact, ask for a 1292(b) right to appeal, make an interlocutory appeal?",
       "time": "00:16:48.33"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the second question is, would your rule apply if the decision had gone the other way? If they had denied access to the documents, would the other -- would the person seeking discovery have the same right to appeal that you asked for here?",
       "time": "00:16:58.14"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why not?",
       "time": "00:17:17.44"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Some time ago Justice Breyer asked the question of why is this different than the other privileges, and I would like your answer to that.",
       "time": "00:17:41.76"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Allen, one of the purposes, one of the -- the underpinnings of Cohen v. Beneficial is that this kind of question is not going to come up very often, but attorney-client privilege, once you say that that's open to -- everything stops while you go to the court of appeals to get that. And if you -- and if we hold the way you want us to, then a lawyer will be obligated every time she thinks that she has a valid claim to the privilege or that it hasn't been waived, she would be obligated to take an appeal which you are urging would be an appeal of right.",
       "time": "00:18:25.21"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Are you -- just so I'm clear about your position, are you arguing that all issues related to attorney-client, whether they are waiver, crime or fraud, scope of the privilege, et cetera, that all issues are immediately appealable because the public interest is the same in all cases related to the attorney-client privilege, or are you wanting us to limit this rule only to the waiver cases?",
       "time": "00:20:43.61"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So -- but your position logically would apply to everything, wouldn't it?",
       "time": "00:21:16.66"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Otherwise, how do we distinguish or make a difference in your analysis?",
       "time": "00:21:22.84"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No one is doubting its importance. The issue is whether or that importance outweighs the finality rule. That's a very different thing for you.",
       "time": "00:21:37.61"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any sensible line between an invocation of the privilege, denied, and a holding that the privilege has been waived? I know in your reply brief you -- you draw some kind of a distinction between waiver of the privilege and the existence of the privilege. I didn't follow it.",
       "time": "00:23:48.82"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There is another. You are stressing the importance of the attorney-client relationship, the work of the attorney. Do you extend your position to work product? It's not privileged.",
       "time": "00:24:48.87"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's certainly -- it's certainly protected against disclosure.",
       "time": "00:25:07.07"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Resnik.",
       "time": "00:25:49.47"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will get to that, I think, when the government lawyer gets up. But does that distinction make sense to you?",
       "time": "00:27:02.91"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Government lawyers get the privilege, private lawyers don't?",
       "time": "00:27:11.73"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But we are talking about the central privilege to the maintenance of the adversary system which we've determined to be central to maintaining the rule of law. This is not like the other privileges, priest-penitent, other evidentiary privileges, because it is the privilege that allows lawyers to protect the interests in those other cases. And it just seems to me that -- that to allow a single ruling by a district court judge to undermine the privilege is going to affect people. What -- I mean, the statement of the lawyer could be, look, you are going to lose this case, and you are saying the district court can require the disclosure of that without allowing at least a quick trip to the court of appeals to check it out.",
       "time": "00:28:06.26"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That is in the Third Circuit.",
       "time": "00:29:20.33"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Allen has told us that there are very few cases, in fact 11 cases in I don't know how many years, in the Third Circuit.",
       "time": "00:29:37.92"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it matters which they do, right? If they are denying disclosure the statistics don't mean much.",
       "time": "00:30:28.54"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I was on the Third Circuit for eight years under this regime. And it didn't seem to me that the sky was falling. In fact I can't remember any cases, any appeals involving this issue, and we had lots of cases of a variety of kinds. So maybe there's -- I don't want to be a witness in this, but you know, convince me that the sky really will fall if we were to adopt this.",
       "time": "00:31:03.04"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So the Eleventh Circuit was wrong on that issue? Didn't they hold that this was -- this was separate from the merits?",
       "time": "00:32:15.48"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Ms. Resnick, can you go back and articulate what you see as the rule that we have on what is important enough? Because that is what really is at question. So how would you articulate a rule that would apply both to the cases in which we have granted interlocutory appeal and to those that you are advocating we don't. Because it's not just freedom from suits like qualified immunity or double jeopardy. We have granted interlocutory appeal in other areas, including in the Cohen case.",
       "time": "00:33:13.74"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But are you suggesting that -- that Cohen itself wouldn't come out the same way today if the question of security for costs, whether State or Federal, hadn't been settled?",
       "time": "00:35:13.92"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But it is a bit of a hurdle, isn't it, since you do have to satisfy the materially advanced -- the litigation and those other criteria?",
       "time": "00:35:58.67"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that is only in egregious cases.",
       "time": "00:37:03.71"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Are you -- are you arguing that the collateral order door is closed now? That -- that nobody else is going to get through that door?",
       "time": "00:37:17.12"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "An interlocutory appeal doesn't have to stop everything, does it?",
       "time": "00:38:00.69"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The usual way that the district court, after denying the recognition of the privilege, insists that people proceed is, they want the lawyer to go to jail. They say, You've got contempt, you can appeal contempt. The district judges, as you've mentioned, they want these things to move on and they tend not to think that their rulings are in error, and the lawyers are frequently confronted with an extremely difficult choice, of violating what they think is their ethical obligation or going to jail.",
       "time": "00:39:58.11"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And how -- how is it -- unless the judge cooperates, it has to be criminal contempt. It wouldn't be civil contempt. The judge says, I'm not going to hold you, and--",
       "time": "00:40:41.70"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But mandamus is supposed -- not supposed to be a run about the final judgment rule, and if -- and if Cohen v. Beneficial is available, then mandamus would not lie, right?",
       "time": "00:41:12.98"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, a protective order isn't going to work -- a protective order isn't going to work at all. You're not going to -- I mean, the lawyers on the other side get the privileged material, so they don't care -- I mean, in terms of the viability and protection of the privilege, it doesn't matter if the clients get it.",
       "time": "00:42:45.01"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but the -- you know, the -- the American Bar Association has said the exact opposite. It will say that the opening up of the privilege and the disclosure, however rare the case is, will, in fact, undermine the -- the value of the privilege.",
       "time": "00:43:37.58"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Oh, sure, the other people are, too, but we -- I, at least, look at a brief of the American Bar Association and view that as a representation of how the people affected here, the lawyers, view the value of the privilege and what will happen to it.",
       "time": "00:43:59.45"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Oh, but the law -- the law professors aren't the ones who deal with this question on a day-to-day basis and have to worry about going to jail, if they want to protect their client's -- what they view as their ethical obligations.",
       "time": "00:44:22.07"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it's only going to jail that gives you criminal intent.",
       "time": "00:44:38.62"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's immediately appealable.",
       "time": "00:44:42.45"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is the attorney-client claim sometimes raised, along with a host of other discovery issues, as a bargaining chip?",
       "time": "00:45:34.34"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. Mr. Kneedler?",
       "time": "00:46:07.69"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, except when the government is the one raising it.",
       "time": "00:46:54.86"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, but, in the government context, what would be in the private context, an attorney-client privilege, is redressed as a different type of governmental privilege. When you give advice to a government agency, you don't call that the attorney-client privilege. You call it a governmental privilege, a deliberative privilege, all these other things. In the private sector, when you are an attorney and you give advice to a client, you can't say, This has got something. It's the attorney-client privilege.",
       "time": "00:47:06.18"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you are saying that you -- government lawyers cannot seek an interlocutory appeal of any privilege claimed, other than Presidential communications and State secrets?",
       "time": "00:48:10.54"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, you could -- you could seek an interlocutory appeal under 1292(b).",
       "time": "00:48:27.79"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. There are problems with 1292(b). Are you telling me, when your office writes a letter to the Department of Interior and says, Look, we are not going to appeal -- we will appeal your case, but we think you have got a really bad case, you are likely to lose; and you assert -- the only privilege you can assert is the attorney-client privilege, and, if a district judge says, that's not covered, for one reason or another, you -- you don't get an interlocutory appeal?",
       "time": "00:48:42.86"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't think that the attorney-client privileges rises to the level of who gets to -- who has to put up security for costs that was an issue in Cohen?",
       "time": "00:50:14.55"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We are not talking about -- I guess what, perhaps, the case comes down to is, if you think the attorney-client privilege is like every other evidentiary privilege that you have just listed, relevance, materiality, all those sorts of things, or if you think the attorney-client privilege is different, even more important than who has to post security for costs, because it is central to the rule of law, because it is central to how the adversary system functions.",
       "time": "00:51:00.82"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But the review -- I follow your answer but the review on final judgment is meaningless. I mean, the cat is out of the bag.",
       "time": "00:52:16.86"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The injury to the party, but not the injury to the attorney-client privilege.",
       "time": "00:52:38.68"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Kneedler, I think I have this right, but correct me if I am wrong. I thought in Cohen v. Beneficial, it wasn't just a question that we would like to get this legal question settled, but, in fact, for many plaintiffs if security for costs was something that the Plaintiff has to put up up front, that would be the end of the lawsuit. It would be the practical end of the lawsuit. Unlike in an attorney-client privilege, the suit goes on. So Cohen v. Beneficial wasn't simply that this was an important question unsettled under Erie, it was the practical reality that plaintiffs who had to put up security costs would be out of--",
       "time": "00:53:19.67"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, Mr. Kneedler, is true that true, that the case goes on? Isn't it true that of the civil cases that get through discovery, only a tiny percentage ever come to an appealable final judgment? The vast, vast majority of these things are settled, are they not?",
       "time": "00:54:06.11"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right, because there never could be an appeal.",
       "time": "00:54:26.24"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It means that the erroneous -- if there was an erroneous ruling, it's built into the -- it's irretrievably built into -- well not irretrievably, but powerfully built into the bargaining--",
       "time": "00:54:28.52"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--If the privilege were in a statute, that would make a difference?",
       "time": "00:55:11.25"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Putting aside the question of whether the attorney-client privilege has a good pedigree in public law, my experience has been that litigants on one side frequently request and demand in discovery material that they know is covered by the attorney-client privilege, one, precisely because that's where the good stuff is; and two, because it gives them leverage, because they know that the other side is going to have to go through this impossible process and can't get an immediate appeal. Why isn't that a concern that we should have?",
       "time": "00:55:28.01"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Kneedler. Mr. Allen, you have four minutes remaining.",
       "time": "00:56:40.45"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It doesn't go ahead with the trial, does it?",
       "time": "00:57:18.93"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It never would, would it?",
       "time": "00:57:22.55"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, just go ahead with trial while a material issue is still pending, I can't imagine that.",
       "time": "00:57:26.90"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I can't imagine a judge going to trial in a case when an important issue like this is pending on appeal. Has that ever happened?",
       "time": "00:57:56.48"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So -- so, I think any system of -- that denies you the interlocutory appeal, will, in fact, work some injustice. I have no doubt about that. Any system that allows too many interlocutory appeals wrecks the judicial system through delay. Now, I think on that kind of question which is here, maybe there is some information that you come across with the ABA, for example, which has 300,000 -- maybe 600 -- you know, hundreds of thousands of members. There might be instances in the circuits where appeal was denied, where the lawyers would say, my goodness, appeal was denied, I want to tell you the hardship that that worked. Has anyone gone around and tried to find if there are such instances, as there must be, how serious it was? How harmful, how often do we have any empirical information on that question?",
       "time": "00:59:40.33"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it wrong for me to expect that if this would work, a lot of instances of serious hardship not allowing the appeal, some lawyers in their meetings would be upset and they would raise a few examples? So doesn't the fact that you have been unable to find any tend to count against you?",
       "time": "01:00:58.11"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:19.06"
     }

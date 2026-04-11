@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1970/69-5035/19710301a_69-5035.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD A. BUCKLEY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUISE KORNS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in 51-61, Johnson against Louisiana. Mr. Buckley, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Buckley, how old is the Louisiana system? Is it an ancient one?",
       "time": "00:01:38.44"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does the record show or do you know how long the jury deliberated?",
       "time": "00:04:53.33"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How long did the trial last?",
       "time": "00:05:04.55"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me get that last, four days all together?",
       "time": "00:05:17.65"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, your equal protection, I suppose, is based on the difference between the Louisiana requirement in capital cases and which requirement with respect to the non-capital cases which are subject to punishment of hard labor. Is that your equal protection?",
       "time": "00:06:48.19"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your equal protection doesn't work down the line, does it because you -- on that basis, you get better protection than with 5-man juries?",
       "time": "00:07:14.35"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Buckley --",
       "time": "00:08:17.53"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "As a lawyer engaged in the defense of criminal cases, do you think it's harder to get unanimity among 5 or 9 out of 12?",
       "time": "00:08:21.50"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, 5 out of 5 is obviously more difficult than 4 out of 5, but I wondered if 5 out of 5 was harder to obtain than 9 out of 12.",
       "time": "00:08:54.64"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And in any event, whether it'd be 5 or 12, the fact remains that a single person can result in a hung jury if you require unanimity?",
       "time": "00:09:49.84"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One, and that's true whether it'd be 5 or 12?",
       "time": "00:09:59.34"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Buckley, what are the Capital crimes in Louisiana, murder?",
       "time": "00:10:23.06"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Rape, aggravated rape, how about burglary?",
       "time": "00:10:29.14"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, it's murder, aggravated rape, that's it, treason I suppose?",
       "time": "00:10:36.84"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Kidnapping, even when the victim is returned unharmed?",
       "time": "00:10:41.39"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you want unanimity with 12 in all crimes?",
       "time": "00:10:51.03"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, suppose they say a 9 out of 12 for murder, then you'd be out of courtrooms?",
       "time": "00:11:13.61"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why not?",
       "time": "00:11:22.77"
     },
@@ -275,13 +275,13 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, you have equal protection of course?",
       "time": "00:11:33.84"
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If we were 9 out of 12 for murder and 4 out of 5 for misdemeanor?",
       "time": "00:11:39.04"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You'd be clearly out on equal -- on you equal protection argument?",
       "time": "00:11:44.10"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do I understand that you would not object to a two-man jury or a one-man jury?",
       "time": "00:11:47.53"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Where would you draw the line?",
       "time": "00:12:19.78"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, now when you responded to Justice Blackmun, were you responding as to your own choice as a matter of policy or a constitutional requirement?",
       "time": "00:12:32.90"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Of course, you recognize that some defense counsel would rather have 25 of the unanimous requirement?",
       "time": "00:12:48.48"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Buckley, in any event, you are not attacking the five-man in this case?",
       "time": "00:12:59.57"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that the standard, the constitutional standard, Mr. Buckley, which is likely, more likely or less likely, to produce a verdict of guilty or not guilty?",
       "time": "00:14:24.63"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you have the same objection if the 9-3 verdict were permitted in Louisiana after three hours of deliberation or two or four hours?",
       "time": "00:15:09.42"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the hypothetical situation that I put to you that it applies in some states, doesn't restrict it. It restricts the jury merely in returning a less than unanimous verdict until they have run the course of some minimum period of deliberation. In many states, as you know, in civil cases particularly, after x-hours of deliberation, they may return a verdict of 5-6 in a civil case. Now, do you think that's as constitutionally objectionable in criminal cases as the one we're dealing with here?",
       "time": "00:15:52.41"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I thought you were complaining at the brevity of their deliberations under the 9-3 provision of Cal -- of Louisiana, permitted a verdict to come back in a short time and --",
       "time": "00:16:43.27"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the federal practice require an unanimous verdicts, during the criminal cases, does the Constitution require it?",
       "time": "00:19:05.47"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Federal trials?",
       "time": "00:19:20.58"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What particular provision of the Constitution would you rest on there?",
       "time": "00:19:26.61"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "History might have something to do with it I suppose?",
       "time": "00:19:43.54"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose they deliberated for four days and came in 9-3?",
       "time": "00:22:23.17"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose they come in 11-1?",
       "time": "00:22:38.09"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, my whole point is, I just want to know how much stress you're putting on this length of time of deliberation, that's all I'm trying to clear in my mind. You seem to say that the only purpose that you want to (Inaudible) jury is so that they'll deliberate and obviously from you answer, that's not what you mean to say.",
       "time": "00:22:45.81"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are the most of the 11-1 juries are short-term? I don't know what part of the country you're talking about.",
       "time": "00:24:05.23"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I mean. There are quite a few.",
       "time": "00:24:18.18"
     },
@@ -521,13 +521,13 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's days and days and days. That's the trouble with the weight you're putting on these two different points. I think you realize that you just can't take 12 out the clear blue sky and bag it up. That's the feeling I get from your argument, am I right? I don't understand, Your Honor, but -",
       "time": "00:24:22.96"
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why 12?",
       "time": "00:24:50.83"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You would be satisfied with the five-man unanimous verdict of murder, including the death penalty.",
       "time": "00:25:04.41"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that your limit?",
       "time": "00:25:15.45"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And here you have 9 men?",
       "time": "00:25:24.76"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you're back where if you're just on the unanimous?",
       "time": "00:25:39.00"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, what you're saying is that because three have a doubt, nine must have a doubt or should have had a doubt?",
       "time": "00:25:45.75"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you see any parallel at all between a requirement of unanimity that you argue for in a jury case and a requirement that has sometimes been proposed of unanimity of multiple-judge Appellate Court? Is there any connection between the two?",
       "time": "00:26:30.98"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, when an Appellate Court, this Court included, reviews a claim of sufficiency of evidence, is there some connection between that and the jury function?",
       "time": "00:27:00.98"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Because they enlarge on that a little bit?",
       "time": "00:27:13.41"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I was addressing myself to the situation when the jury has found a guilty verdict and it is being reviewed for the sufficiency of the evidence.",
       "time": "00:27:36.13"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So you consider that purely a question of law than when an Appellate Court reviews on that basis?",
       "time": "00:27:52.66"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This was post waive the lineup or the post waive case lineup?",
       "time": "00:29:03.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did he have a lawyer at the lineup?",
       "time": "00:29:08.89"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Including him?",
       "time": "00:29:20.44"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather you're not arguing that this is invalid on the waive, but only --",
       "time": "00:29:25.56"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Only that the arrest was invalid and this was a fruit of that, isn't it?",
       "time": "00:29:31.20"
     },
@@ -719,13 +719,13 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:29:36.28"
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you don't argue there was no probable cause?",
       "time": "00:29:36.92"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No warrant?",
       "time": "00:29:47.19"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well --",
       "time": "00:29:59.31"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The essence of your argument is that whenever time permits, there must be a warrant to make an arrest, that's what it adds up to, isn't it?",
       "time": "00:30:31.68"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just in a home you would require that?",
       "time": "00:30:43.55"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "00:31:01.40"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let me see, if I get your identification problems. What you're saying is that if the arrest is illegal then the identification, however good it was, on its own body, is an unlawful proof?",
       "time": "00:31:05.27"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's what you're saying.",
       "time": "00:31:24.97"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose you would argue -- would you argue the same if he wasn't identified until the trial?",
       "time": "00:31:34.07"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Korns.",
       "time": "00:31:48.48"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, we'll see what your needs are.",
       "time": "00:32:03.15"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Since Mr. Buckley has run out of time, if we do enlarge yours, we'll enlarge his a little bit.",
       "time": "00:32:04.99"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you can still have a -- it doesn't answer the equal protection claim, does it? You could say it satisfies due process for a state to charge $20 a year for an auto license tag, but it certainly wouldn't violate the Equal Protection Clause for a state to charge $20 to some of its motorists and $10 to the others based on some irrational classification, wouldn't it?",
       "time": "00:37:31.62"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Even though neither one would violate due process?",
       "time": "00:37:58.55"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Korns.",
       "time": "00:38:45.50"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To pursue Mr. Justice Stewart's question, if a state provided that all automobiles of up to 2,000 pounds would have a license of $10 and all those over 2,000 would be $20, would there be any equal protection problem in that?",
       "time": "00:38:46.65"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but if it's based upon the weight of the automobile or the price of the automobile, is that an invidious discrimination?",
       "time": "00:39:33.40"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mrs. Korns, is it possible to be convicted of murder and get 35 years in Louisiana as sentence?",
       "time": "00:40:12.24"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your point is, as I understand the petitioner's argument, he says that if he's going to end up with a punishment in prison, the same prison that somebody else goes to for practically the same amount of time, that he has less chance of a hung jury with the majority ones than he has with the unanimous ones?",
       "time": "00:40:39.33"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why is it that you have unanimous protection?",
       "time": "00:41:29.25"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mrs. Korns, as far as you know, has the Louisiana system ever been federally attacked before this case?",
       "time": "00:43:18.85"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But, on the unanimity provision or lack of it, you've had no federal attack for 75 years?",
       "time": "00:44:58.84"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you? You've been arguing about whether more would be convicted or less would be convicted. What difference does that make to the constitutionality of the law?",
       "time": "00:45:13.05"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When did the British go to -- give up the non-unanimous verdict?",
       "time": "00:46:12.63"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When did the British --",
       "time": "00:46:16.92"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And before that, it had been unanimous?",
       "time": "00:46:21.12"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For how long?",
       "time": "00:46:23.91"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, of course, since you mentioned it, you recall that there were, I think, 5 colonies out of the 13 --",
       "time": "00:46:58.30"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "-- which had less than unanimous.",
       "time": "00:47:05.30"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And there was no federal law on the subject then at all, was there?",
       "time": "00:47:17.46"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In the federal government?",
       "time": "00:47:22.34"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you again, is that the way we determine constitutionality?",
       "time": "00:50:17.89"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you think is the way to establish the trail of law required or to deny the trail of law under the --",
       "time": "00:50:52.14"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What does it say? What does the Constitution say?",
       "time": "00:52:29.86"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose, Mrs. Korns, it could be argued, although I know your counsel doesn't make the argument, that a divided jury is not an impartial jury?",
       "time": "00:53:05.74"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If nine of them are partial to the prosecution and three of them are partial to the defense, then that's not an impartial jury, is it?",
       "time": "00:53:16.69"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, I wasn't talking about that. I was simply getting a at the Constitution of the United States.",
       "time": "00:53:41.42"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But Kalvin & Zeisel --",
       "time": "00:53:47.19"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They're not in the Constitution.",
       "time": "00:53:48.72"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The word “impartial” is.",
       "time": "00:53:50.89"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose you would argue that does not require that we hold the jury has to be locked up without food and drink?",
       "time": "00:54:54.73"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "From that jury?",
       "time": "00:55:51.24"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And then he gets a new trial and he gets a different jury?",
       "time": "00:55:53.88"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, I know.",
       "time": "00:56:03.22"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And then he'd get a new chance before a --",
       "time": "00:56:30.31"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, isn't there another stage in there? Isn't there another stage and that is that the nine may persuade the three so that it isn't -- there's no assurance?",
       "time": "00:56:35.61"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's from Kalven & Zeisel.",
       "time": "00:56:48.13"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They didn't sign the Constitution, though, they weren't part of the --",
       "time": "00:56:51.38"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if the argument is made -- had been made by Mr. Buckley that a 9-3 verdict means there are 9 jurors partial to the prosecution. I suppose your answer to that might be that if it's a unanimous verdict of 12 then there are 12 who are partial to the prosecution.",
       "time": "00:57:04.27"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Korns.",
       "time": "00:58:23.45"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You've only got about 3-4 minutes left for the arrest point if you want to reach it.",
       "time": "00:58:24.37"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You make the election as to which you want to argue. I just wanted to alert you.",
       "time": "00:58:30.82"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you've covered this.",
       "time": "00:58:36.49"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The king has to have probable cause to get in the house?",
       "time": "00:59:17.31"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many arrest warrants do you have?",
       "time": "00:59:58.04"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you proud of that?",
       "time": "01:00:03.50"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you say this was a reasonable search?",
       "time": "01:00:59.68"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I was just wondering if six men with shotguns --",
       "time": "01:01:04.48"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "With their shotguns.",
       "time": "01:01:11.75"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And who else is in there?",
       "time": "01:01:15.44"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did they know who else is in there? How many children were in there?",
       "time": "01:01:19.22"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many women are in there?",
       "time": "01:01:24.32"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you sure they knocked?",
       "time": "01:01:28.74"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "With their guns up?",
       "time": "01:01:31.26"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you think Mr. --",
       "time": "01:01:37.14"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where was Mr. Johnson?",
       "time": "01:01:40.74"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Who did you say was under the bed?",
       "time": "01:01:48.08"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They searched his house and found the man was hiding under the bed.",
       "time": "01:01:53.46"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, I think we know the facts, Mrs. Korns.",
       "time": "01:02:00.08"
     },
@@ -1559,13 +1559,13 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you.",
       "time": "01:02:02.91"
     },
     {
       "turn": 254,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mrs. Korns, let me ask you a question. Did -- you're not old enough and this isn't a legal question, but wasn't there a fairly popular movie a long time ago, I think it was Henry Fonda in the lead role, which had to do with a jury process?",
       "time": "01:02:02.97"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And one man initially holding up --",
       "time": "01:02:18.75"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So it does happen in fiction, doesn't it?",
       "time": "01:02:22.33"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you.",
       "time": "01:02:29.39"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. The case is submitted.",
       "time": "01:02:30.27"
     }

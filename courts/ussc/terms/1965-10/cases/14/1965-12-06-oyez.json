@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1965/14/19651206a_14.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT W. GINNANE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "J. EDGAR MCDONALD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 40 -- Number 14, Interstate Commerce Commission, Petitioner, versus Atlantic Coast Line Railroad Company et al. Mr. Ginnane.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What's the [Inaudible]",
       "time": "00:08:17.93"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible]",
       "time": "00:08:25.99"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "In 17 (9) is part of 1940?",
       "time": "00:08:35.42"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What year?",
       "time": "00:08:42.67"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Ginnane, that means if the [Inaudible]",
       "time": "00:09:19.09"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:09:26.88"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the statute that you suggest it?",
       "time": "00:09:39.81"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The way you [Inaudible] that this was [Inaudible]",
       "time": "00:10:18.76"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:10:43.53"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] the shipper owner said well actually [Inaudible]",
       "time": "00:11:33.37"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now I suppose that Commission's order [Inaudible]",
       "time": "00:16:17.48"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:16:28.64"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So they could in fact set aside the Commission's order procedure [Inaudible]",
       "time": "00:16:42.43"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Ginnane, as I understand that and I may be wrong about this. What happens on the shipper suit is that the findings and order of the Commission are offered as prima facie evidence then the shipper further if he wanted to supplement that evidence, that is to say that Commission's findings and order and carrier can introduce evidence to show that despite their prim -- prima facie -- the findings in order are incorrect, is that right?",
       "time": "00:16:57.52"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Ordinarily, the knowledge – it occurs to me as antitrust claim in a -- findings in order in any antitrust action brought by the Government. And when that is used as prima facie evidence in a private suit then the procedure -- I believe is as I have described it, but you're telling me that as practical matters, it's different here?",
       "time": "00:17:51.67"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes.",
       "time": "00:18:35.90"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But as a matter of law is it -- is it your view that under this statute, the carrier could come in and introduce evidence in a usual way --",
       "time": "00:19:00.11"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And similarly, the shipper could come in and introduce supplementary evidence?",
       "time": "00:19:17.37"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, but to -- to whatever purpose he choose to reinforced to strengthen the case made to reinforce or supplement the prima facie case.",
       "time": "00:19:25.54"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:19:55.68"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's the petition of the appellant?",
       "time": "00:20:21.43"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:20:58.49"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:20:59.62"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I hope in the --",
       "time": "00:21:13.39"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:21:32.59"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Ginnane, here you're presenting this as I understand your theory that 16 (2) provides an adequate method of review of the Commission order?",
       "time": "00:23:38.84"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "We decide --",
       "time": "00:24:08.66"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "As I studied this, it seems I -- I perhaps was misled by my own study of this thing, but it occurred to me that the Commission, in one point of view maybe functioning here as nothing more than sort of a master to make a findings and conclusions that are not self-executing and then if that is so then you wouldn't -- might consider whether the absence of judicial review is legal. If your concern is nothing more than finding of master in subsequent proceedings are -- in the hands of interested [Inaudible] and that was my understanding of this, but I take it that you would reject that in the absence --",
       "time": "00:24:12.90"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, perhaps I can state my difficulty this way. If you assume that the type of order that the Commission enters in a reparations case is an order which requires judicial review then I -- it made me that there's problem here which is of considerable difficulty. Is that your assumption that as a matter of law a Commission's reparation order requires judicial review machinery?",
       "time": "00:25:37.53"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I didn't want to ask you but I get you. That is -- it was not my question. I said a review of that order as distinguished from a -- an independent proceeding in which the Commission's findings and orders are merely part of the mass of evidentiary material. That is -- you can have a court arriving at a result in theory at any rate that is opposite or contrary to the result that the Commission arrived at, but the court's contrary decision being based upon evidence before it, which is not before the Commission, is that correct or not?",
       "time": "00:26:19.38"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Ginnane, why -- you would rather stay out of what you call review proceedings of your decisions which underlie reparation order, you prefer to stay out of those of the 16 (2) suits I take it.",
       "time": "00:28:28.10"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then this time left the Court pass on your -- on the Commission's judgments which might involved matters of some import, only a fact that how much the dollars and cents of reparation --",
       "time": "00:28:45.88"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the courts pass on that without being there at all?",
       "time": "00:29:01.96"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I didn't -- again, that --",
       "time": "00:29:08.13"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the answer is yes --",
       "time": "00:29:10.49"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You'd rather stay out of it.",
       "time": "00:29:12.24"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Have you ever?",
       "time": "00:29:22.14"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Although, the shipper -- the shipper can -- that the carrier has not way of getting you in the Court to -- for purposes of judicial review one of the reparation orders according to your view.",
       "time": "00:29:33.35"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if the -- he cannot finally have any carrier under 16 (2) proceeding sets your order aside, the railroad -- the railroad cannot have your order set aside. All -- all the Court can do is say that the shipper or this railroad doesn't need pay this particular shipper.",
       "time": "00:29:47.58"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:30:33.73"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:30:49.52"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well then Mr. McDonald.",
       "time": "00:31:05.45"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does it appear in the statute Mr. McDonald?",
       "time": "00:33:52.31"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does that distinction appeared with the statute in any way or what's the basis of that?",
       "time": "00:33:56.02"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You are saying that there are decisions of this Court that support the propositions that you just stated?",
       "time": "00:34:29.12"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And not cited in your brief?",
       "time": "00:34:37.23"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It's nothing in the Section 16 (2) that would indicate that difference there, is there?",
       "time": "00:34:53.53"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was it tried this on the record then?",
       "time": "00:37:09.00"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the Second Circuit case, how about it?",
       "time": "00:37:17.98"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. But how about -- how about have it presently that's -- that they accept the rule that's the understanding?",
       "time": "00:37:22.12"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I gather that this was a -- this ruling was it the response of the -- this represents the Commission review clearly.",
       "time": "00:37:29.23"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Commission [Inaudible]",
       "time": "00:37:40.19"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was the Commission in that case?",
       "time": "00:37:42.25"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now tell me. Under 17 (9) would you -- would it be different? Which you have decided on the record -- I mean, that proceeding would be a proceeding under record below?",
       "time": "00:37:47.90"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's I don't understand Mr. McDonald. What -- what I understood you to say was that in that Deere case, a 16 (2) proceeding --",
       "time": "00:38:17.45"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "– you are limited to review on the record made before the Commission.",
       "time": "00:38:27.34"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yeah. Well, what you say that the determination was made on record before the Commission?",
       "time": "00:38:33.20"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well that is how I think you are worse than you'd be in the 17 (9) proceeding?",
       "time": "00:38:37.98"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what -- what happen -- I gather, your position is in the 16 (2) of all the things you have told us could be asserted in 17 (9) or 1336 proceedings, would also be asserted by way of defense in 16 (2). If you prevail under 16 (2) proceeding, the shipper does not get an order against the railroad to pay the reparation, but the order of the Commission itself remains to the books.",
       "time": "00:40:26.73"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what -- well, now what -- what value is an order treated that way of a 16 (2) proceeding, even though it's still on the books, what value is it to any other shipper?",
       "time": "00:40:54.33"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or the finding of the Court --",
       "time": "00:41:30.50"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- has the facts in any experience. It was 16 (2) proceedings where reparations were not ordered at the conclusion of the proceeding where nevertheless the ICC order has been relied on in another instance. Is there any experience to that?",
       "time": "00:41:31.58"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I guess if you are going to 17 -- under 17 (9) railroad -- again, instead of being put off the 16 (2), you wouldn't have choice -- the railroad will have a choice of venue that would enjoin 16 (2) and it wouldn't have to pay any attorney's fees.",
       "time": "00:44:55.24"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. No, you have five minutes from the time that red-white light comes off.",
       "time": "00:55:46.93"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Red light will come after that.",
       "time": "00:55:51.83"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Who made that statement Mr. McDonald? Who did you say made that statement?",
       "time": "00:57:40.20"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, go on.",
       "time": "00:57:50.93"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is he one managers of the Bill?",
       "time": "00:58:14.72"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was he one of the managers of the Bill, Bacon?",
       "time": "00:58:17.43"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:59:59.99"
     }

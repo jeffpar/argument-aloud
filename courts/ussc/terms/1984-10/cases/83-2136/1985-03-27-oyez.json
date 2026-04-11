@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-2136/19850327a_83-2136.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES ALVIN MILLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KATHRYN ANNE OBERLY",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Miller, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I inquire about the consequences of a ruling adverse to your position? If the Government is correct in its view of this statute, would it be possible for states to simply scatter mental patients around among the intermediate care facilities and just not put as many of them in a single facility, as existed here, and succeed in having reimbursement by that device?",
       "time": "00:02:35.37"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yeah. And so we're not really talking about the money so much as the inconvenience perhaps of having to scatter them?",
       "time": "00:03:16.69"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What do you know about the practical application of the Government's test? Do they look to see whether 50 percent or more of the patients are mental cases, or 30 percent, or how is that being applied in your experience?",
       "time": "00:04:14.53"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Miller, do you think you should win the case if you can show that your reading is the better reading, or is the only reading that is possible?",
       "time": "00:13:46.29"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, apparently the Government has great difficulty concluding that it means what you say it does.",
       "time": "00:14:42.54"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:14:49.23"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you saying there is just no room in this language for the Government's construction?",
       "time": "00:14:58.89"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think the Court should just make its own independent... take its own independent look at the statute and figure out what it means without regard to what the agency says.",
       "time": "00:15:48.99"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you asked certainly--",
       "time": "00:16:09.12"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--disregard it.",
       "time": "00:16:10.45"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, when were--",
       "time": "00:16:54.78"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--When were the intermediate care facilities covered?",
       "time": "00:16:58.50"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "'67.",
       "time": "00:17:04.07"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "'71.",
       "time": "00:17:08.87"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Miller, may I just interrupt, because I think you'll be coming to this right now. It would be helpful to me if you would tell me at what stage in the chronology the people that you now say are covered became covered. They were clearly not covered before 1967, I guess.",
       "time": "00:18:46.52"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I guess they weren't covered by the '67 amendment or the '71 amendment. Just when did they become covered?",
       "time": "00:19:02.41"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That was the aged, blind and disabled, wasn't it?",
       "time": "00:19:23.71"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But are you contending that the coverage here was created in 1971?",
       "time": "00:19:43.30"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:19:55.53"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the... you don't have to rely on the '72 amendment then.",
       "time": "00:19:57.30"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, maybe I'm--",
       "time": "00:20:04.28"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--I want to be sure about the page. Twenty-eight did you say?",
       "time": "00:23:15.11"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you have to... you certainly are making this argument, though, to say that this definition seems to foreclose or tends to foreclose defining this kind of facility that you represent as an IMD.",
       "time": "00:23:46.04"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They say that... in effect they say that because this facility serves such a high percentage of mental patients, it is, in effect, an IMD.",
       "time": "00:24:05.19"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:24:19.18"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they certainly don't claim it's a psychiatric hospital.",
       "time": "00:24:22.32"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:24:29.47"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Oberly.",
       "time": "00:30:32.72"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's true, but I think it's of general interest to know whether the states can just scatter the mentally ill around in more facilities that presumably will have less specialized staff to take care of them, and if that satisfies the law in your view.",
       "time": "00:31:15.12"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Perhaps.",
       "time": "00:32:35.52"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Oberly, is it correct that the Government would be seeking to recoup vast sums of money from the states if your position is sustained here?",
       "time": "00:32:37.05"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, was the interpretation of Connecticut widespread among the states?",
       "time": "00:33:02.13"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the interpretation placed on the statute--",
       "time": "00:33:06.69"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--by Connecticut the same interpretation most states placed on it?",
       "time": "00:33:10.74"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has the Department, the Government, HHS, ever taken a different view of the proper meaning of the statute?",
       "time": "00:34:14.03"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the Government ever asked by states for an interpretation of this regulation? I mean are there letters that have been sent out giving different interpretations?",
       "time": "00:36:18.16"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I take it you certainly concede that Middletown was not a mental hospital.",
       "time": "00:40:25.55"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It was an intermediate care facility.",
       "time": "00:40:33.69"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But also an IMD, is that it?",
       "time": "00:40:35.75"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:40:42.15"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is the name we give it or the function the controlling factor?",
       "time": "00:41:00.80"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you clarify something for me I thought I understood, but I'm not sure I do. In this particular facility, say there were 75 percent of the people were mental patients and 25 percent were nonmental or tuberculosis patients, if it is an IMD, as you contend, and if they continued to have the 25 nonmental patients there, they would not be reimbursed for them, would they?",
       "time": "00:41:41.97"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that suggest they are mutually exclusive categories then? I mean you can't... if you are--",
       "time": "00:42:39.48"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Ms. Oberly, what year was it that the Department of Health and Human Services adopted its criteria, including the 50 percent figure?",
       "time": "00:45:26.22"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, I know.",
       "time": "00:45:41.41"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I asked what year it was--",
       "time": "00:45:43.43"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask again about the subparagraph 15 of the section we were talking about? Why wouldn't their reading make sense if the regulation read the way they thought it did; in other words, that IMDs were defined as psychiatric hospitals. Wouldn't it make perfectly good sense that that was the... because you could conceivably have--",
       "time": "00:46:01.49"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, then what I'm suggesting is one can read it either way. That's all I... it makes sense.",
       "time": "00:46:22.72"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm puzzled by the first example, because the end of the section... there's one definition of... I don't know what it is... intermediate care facility, the last part of it says, \"any public institution or distinct part thereof for mental diseases or mental defects. \" I thought you could divide up institutions by floors.",
       "time": "00:47:29.35"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I see.",
       "time": "00:47:49.03"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is incredible.",
       "time": "00:48:03.27"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On the practical level do you know how it works, Ms. Oberly? In order to be eligible for reimbursement of Medicaid funding, does an ICF apply to some office of HHS and ask for certification with that status as an ICF?",
       "time": "00:50:05.56"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They'd apply through the state who acts for the federal government, in other words, in making a certification?",
       "time": "00:50:30.53"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And, of course, no application is ever made to be certified as an IMD. That's a category that--",
       "time": "00:50:50.01"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--would be determined by the federal government following an audit, presumably?",
       "time": "00:50:57.01"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the listed criteria are imposed flexibly by the federal government? It could be any combination of the listed eight or nine criteria?",
       "time": "00:51:22.83"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So an ICF would certainly have no very comfortable basis for knowing whether a later audit would be--",
       "time": "00:51:41.56"
     },
@@ -735,13 +735,13 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Might there be other facilities around the country where it would be quite an uncertain question?",
       "time": "00:52:21.53"
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00. Ms. Oberly, you may resume. You have eight minutes remaining.",
       "time": "00:52:31.06"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you suppose... I take it, then, you don't think there's room in this statute for the Department to take a different view, to take Connecticut's view?",
       "time": "00:55:47.23"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:13.13"
     }

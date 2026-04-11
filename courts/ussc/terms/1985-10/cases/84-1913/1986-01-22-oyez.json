@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1913/19860122a_84-1913.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAURENCE STEPHEN GOLD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in AT&T Technologies, Incorporated, against Communications Workers of America. Mr. Lee, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Lee, I can't let you go through an entire argument without interrupting.",
       "time": "00:10:25.89"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I have to raise this question that your argument troubles me with. You start out with your three different issues and say the ultimate issue is whether the contract, I guess you are saying, prevents the company from laying off workers in Chicago when there is no shortage of jobs in Chicago. I suppose if you describe that as the ultimate issue, you are saying that there can be two views of whether the contract so permits.",
       "time": "00:10:32.33"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there are two views of what the contract could mean, are you not conceding that the issue is arbitrable and therefore, although the Court of Appeals adopted the wrong rationale, that your opponent is right on the issue of arbitrability?",
       "time": "00:10:59.55"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:11:22.11"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What I have in mind, of course, is the language of Article VIII of the agreement, they failed to settle by negotiation. Differences arising with respect to the interpretation of the contract. It seems to me there is a difference between you and your adversary as to meaning of the contract on the ultimate issue. That is what I am--",
       "time": "00:11:57.48"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--Are you asking us in effect to overrule Warrier and Gulf?",
       "time": "00:14:46.33"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lee, would you care to comment on the position taken in the amicus brief filed by the National Academy of Arbitrators?",
       "time": "00:15:32.77"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I wasn't as concerned about the terminology as the substance of their position.",
       "time": "00:17:03.63"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lee, I take it you do not disagree with the Academy's amicus brief that the decision of the jurisdiction is for the court, not the arbitrator.",
       "time": "00:18:59.39"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And the court should not undertake to try to give some guidance to the arbitrator on how the merits should be decided. On that you, I am sure, agree.",
       "time": "00:19:13.35"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gold.",
       "time": "00:19:32.69"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You are concerned, I take it, only with the result, not how they got there.",
       "time": "00:21:03.37"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What you mean, I guess, is, it is a harmless error case.",
       "time": "00:21:33.91"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I take it, Mr. Gold, you feel that there is less here than meets the eye.",
       "time": "00:22:26.81"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which is sort of the position of your adversary.",
       "time": "00:22:38.23"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gold, was your case argued this way before the Seventh Circuit?",
       "time": "00:27:09.37"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And was your opponent's case argued the same way before the Seventh Circuit?",
       "time": "00:27:13.54"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, you know, if the company's argument was presented in those terms to the Seventh Circuit, your argument was presented in the terms you have just presented to us. I dare say both of you were astounded to get the Seventh Circuit's opinion.",
       "time": "00:27:45.25"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying the agreement... the court should have said this issue was arbitrable and the company is saying the court should have said this issue is not arbitrable? The Court of Appeals doesn't say either one.",
       "time": "00:28:21.62"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that wasn't what the Court of Appeals said, and that wasn't its reasoning either.",
       "time": "00:29:55.46"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you really just arguing that you want an affirmance on a different ground?",
       "time": "00:30:46.16"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Any ground you can get.",
       "time": "00:30:56.15"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, if an arbitrator was to live up to the Court of Appeals' judgment, he would first have to consider arbitrability.",
       "time": "00:31:53.42"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wouldn't he, under the judgment?",
       "time": "00:32:02.15"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:32:03.96"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but only after a court has said it is arbitrable.",
       "time": "00:32:08.22"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the court never said that.",
       "time": "00:32:13.15"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would be asking for a different judgment.",
       "time": "00:32:16.01"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where are you reading?",
       "time": "00:32:44.02"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have any quarrel with the District Court's statement of it?",
       "time": "00:33:00.98"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If they had affirmed on the District Court's opinion, everyone... perhaps not Mr. Lee, but at least we would have a clearer set of reasons, wouldn't we?",
       "time": "00:33:04.14"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would you say, Mr. Gold, about a district judge in the first instance being confronted with a demand for arbitration under a contract and the district judge says this is facially, obviously frivolous, nonsense, and I am not going to order an arbitration? Could he do that?",
       "time": "00:35:01.01"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Before you get to that, Mr. Gold, I am not sure you really responded to my question.",
       "time": "00:37:16.32"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now let's bring us up into 1986, long after the Trilogy. The district judge looks at it and says this is utterly frivolous nonsense, and I am not going to bother anybody. Can he do that, or must be let the arbitrator decide that?",
       "time": "00:37:21.85"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And the terms of the contract.",
       "time": "00:37:50.32"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gold, if we bought your argument, we wouldn't be affirming the Court of Appeals, we would be modifying his judgment to some extent.",
       "time": "00:39:38.09"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would be striking out that one--",
       "time": "00:39:59.35"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--provision that directed the arbitrator to decide arbitrability.",
       "time": "00:40:01.44"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, you didn't cross-petition. Do you think you are entitled to make this argument just as respondent?",
       "time": "00:40:07.91"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because it does change the judgment. You are getting more than you got.",
       "time": "00:40:20.92"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On that theory then you shouldn't modify the judgment at all.",
       "time": "00:40:51.67"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, you went through this a while ago. I guess I didn't--",
       "time": "00:40:57.73"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I just wanted you to play it over again. 0 [Generallaughter.]",
       "time": "00:41:01.64"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That you have just gone through.",
       "time": "00:41:36.90"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If it had gone through this routine that you say it should have, either way it would have come out, the case probably wouldn't be here.",
       "time": "00:41:48.68"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, may I ask-- --So why should we sit to go through this routine now? Because it is here, I guess.",
       "time": "00:41:58.75"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Gold, I take it the last sentence of Judge Grady's order is entirely satisfactory to you, isn't it?",
       "time": "00:42:10.24"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And you would just like us just to do that, and that is the end of the case. Is that it?",
       "time": "00:42:17.91"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take the essence of your argument to be that the Seventh Circuit was right for perhaps the wrong reasons, or not--",
       "time": "00:42:23.33"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--for all the right reasons.",
       "time": "00:42:29.87"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, before--",
       "time": "00:42:32.19"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Before I leave you, that sentence was affirmed by the Court of Appeals.",
       "time": "00:42:33.74"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What does Judge-- --Defendant is ordered to arbitrate the grievance, period.",
       "time": "00:42:44.08"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know. Yes.",
       "time": "00:42:51.30"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Court of Appeals said the arbitrator has got to do something else.",
       "time": "00:42:54.17"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:43:02.04"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:43:03.81"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:43:07.61"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gold, can I take you back for moment to the Western Electric case? You were telling us that it is not a very impressive body of judicial opinion. But as I understand your opponent's use of it, he is not so much talking about it as a legal authority but rather as sort of a factual interpretation of the identical provision in the agreement that is at issue here. And my question to you is, do you think it permissible in doing what a judge is supposed to do on a case like this to go beyond the four corners of the agreement and look at bargaining history and factual matters such as that?",
       "time": "00:43:24.30"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if this agreement turned out to be the case on all fours as far as the factual pattern, you know, moving people from one place to another, and there was another letter that said this is the way we have always interpreted this particular article for the last 20 years throughout the country and the union agreed. Could they put that kind of evidence before the judge?",
       "time": "00:45:17.62"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know you don't think it's this kind of evidence. I am not suggesting that.",
       "time": "00:45:37.12"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gold-- --When you say that the labor bar, a help to the labor bar, wouldn't that be a help to everybody?",
       "time": "00:49:27.35"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gold, could I ask you a question?",
       "time": "00:49:35.89"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I take it no mandate has been issued by the Court of Appeals here. I think it has been stayed, according to the--",
       "time": "00:49:38.76"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--Sometimes a mandate is a little different from the final words of the Court of Appeals opinion. And I wonder what would have happened if the Court of Appeals had entered a judgment and mandate, but we don't know, do we?",
       "time": "00:49:48.53"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of good will.",
       "time": "00:50:17.22"
     },
@@ -851,13 +855,13 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Very well. 0 [Generallaughter.]",
       "time": "00:50:18.88"
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lee, do you have anything further?",
       "time": "00:50:21.74"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If the-- --Or what it would do.",
       "time": "00:50:40.10"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If it were possible to take an appeal directly from the District Court here, would you have undertaken to bring the case here?",
       "time": "00:50:43.20"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let's suppose the Court of Appeals, then, to shorten it, said we adopt the opinion of the District Court.",
       "time": "00:50:59.64"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gold doesn't defend it.",
       "time": "00:51:28.75"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or at least lukewarm.",
       "time": "00:51:34.97"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He is defending the result.",
       "time": "00:51:40.39"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We don't reverse opinions.",
       "time": "00:51:50.93"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you would agree, would you not, that the bargaining history ought to relate to the question whether the dispute is arbitrable rather than the merits of the dispute?",
       "time": "00:53:05.91"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And reform its judgment.",
       "time": "00:53:54.14"
     },
@@ -977,13 +981,13 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:54:04.68"
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10:00.",
       "time": "00:54:06.28"
     }

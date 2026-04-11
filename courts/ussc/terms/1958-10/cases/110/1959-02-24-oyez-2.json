@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/110/19590224a_110_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM B. MAHONEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN F . DAVIS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Mahoney, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Inaudible) Judges Lumbard and Waterman with Judge Hincks --",
       "time": "00:00:56.01"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- dissenting.",
       "time": "00:00:58.79"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Do you think Congress (Inaudible)",
       "time": "00:07:46.42"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Could I ask you one question? (Inaudible)",
       "time": "00:08:53.93"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:09:12.34"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, one thing is clear that mere service in the army and honorable discharge, that alone isn't sufficient to be -- get naturalization. That's clear, isn't it?",
       "time": "00:10:38.16"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Isn't that true?",
       "time": "00:10:49.95"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that Congress did want something in addition to the great service that a man does by joining the army when he can -- thought of it and serving it faithfully and honorably.",
       "time": "00:10:52.22"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm merely suggesting that -- that citizenship, the right to citizenship isn't -- isn't wholly correct to say but that's the reward for serving Uncle Sam.",
       "time": "00:11:14.13"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) but I'm -- I'm pointing out that there isn't that equation (Inaudible)",
       "time": "00:11:30.39"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Mahoney.",
       "time": "00:13:26.08"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I suggest to you that if none of these facts are true, that we -- we may have cases where not one of those facts that you've just recited happened or took place, and yet, the problem would be exactly the same. You -- you -- these facts indicate hardship and -- are appealing. But they seem to me just as irrelevant as the -- to the issue as Mr. Justice Whittaker's hard case put to you of a child coming here -- firstly, coming here as a child and then leaving and then smuggling himself in and then serving, isn't that true? You said quite correctly. From my point of view, it makes no difference from yours.",
       "time": "00:13:28.03"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose these -- these merciful elements that you just narrated are equally indifferent to the problem, aren't they?",
       "time": "00:14:08.66"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's just to point up -- point up the hardship.",
       "time": "00:14:16.43"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, but Justice Whittaker's case also points up the -- the [Laughs] non-appeal in the other case.",
       "time": "00:14:25.60"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Davis.",
       "time": "00:16:04.44"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Before you launch into your argument, I haven't looked at the brief, you may have told me there the Act. Do we know that the problem is approximately how many potential cases of this sort are involved?",
       "time": "00:16:08.19"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't mean to suggest that would move one way or the other.",
       "time": "00:16:21.96"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Potentially I said.",
       "time": "00:16:27.55"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Had been already.",
       "time": "00:16:48.82"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it may not have come up here. So --",
       "time": "00:16:54.01"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, this is a few cases, is it?",
       "time": "00:17:05.38"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "These -- these two cases or --",
       "time": "00:17:08.96"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean go back on the 40,000 so that non-jurisdiction --",
       "time": "00:17:28.50"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- there is no jurisdiction or something.",
       "time": "00:17:32.66"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They're raising to the appellant.",
       "time": "00:17:40.76"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They're raising to the petitioner.",
       "time": "00:17:42.77"
     },
@@ -383,13 +383,13 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't mean to suggest the -- the legal relevance, just want to know what the scale of the problem was.",
       "time": "00:18:23.90"
     },
     {
       "turn": 58,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible) have any idea of applying the facts of the 40,000?",
       "time": "00:18:29.10"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You don't know of any?",
       "time": "00:19:02.47"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:19:04.16"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He had overstayed for 29 days leave (Inaudible)",
       "time": "00:19:39.33"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This question, Mr. Davis, is there -- that -- for the purposes of this statute, Honolulu or Hawaii, the Hawaiian Islands are the United States (Voice Overlap) --",
       "time": "00:20:49.13"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:21:59.23"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:23:16.14"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Davis, may I ask you about the case put by Mr. Justice Whittaker. A kid is brought in by his alien parents and they then -- and they stay here two years, the family stays here two years, then they go back for a month or two (Inaudible) go back. Now, and then he comes here unlawfully himself, stays less than a year or comes here lawfully and stays less than a year, does the -- does the juvenile -- does the minority here comes? What about that? I can follow your argument that the -- that the lawful entry and a -- and a year's physical present conditions for getting naturalization should conjoin, that doesn't make much sense in the case but I put -- drawing it from Justice Whittaker.",
       "time": "00:29:43.31"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but not -- no connection with the -- that the year can be wholly unrelated to the subsequent service in the army.",
       "time": "00:31:00.24"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Immediately preceding the service?",
       "time": "00:31:12.08"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, if I was here, as I was from, what, 1894 and 1895 and then my parents show and go back to the Vienna, I would have been here a year --",
       "time": "00:31:26.82"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What?",
       "time": "00:31:42.52"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At the time of entering, sure.",
       "time": "00:31:47.06"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not -- not immediately preceding the service.",
       "time": "00:31:49.08"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At anytime.",
       "time": "00:32:19.22"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is the year must have -- must have been at least a year at the moment that he is called out, is that right?",
       "time": "00:32:28.23"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm -- I feel in -- clouding my own mind whether you say that the statute required that when he called out, he should have been continuously at least for a year preceding the call up been here rather than allowing a hiatus between the year plus -- he may have been here after the call up.",
       "time": "00:33:23.81"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You say there must be continuity there, is that right?",
       "time": "00:33:46.17"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no.",
       "time": "00:33:54.25"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No break in the time period?",
       "time": "00:34:00.56"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right. I understand.",
       "time": "00:34:02.93"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you printed that statement of (Inaudible)",
       "time": "00:34:40.81"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:34:44.66"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "At the time of the policy, it makes me so suspicious that a great weight be attached to this (Inaudible) interchanges.",
       "time": "00:35:17.81"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind reading again why -- why the Senate -- what -- what statement we have from the Senate that's authoritative as to the physical presence for a year? What was the reason?",
       "time": "00:35:49.29"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I thought you said the Senate put that in.",
       "time": "00:36:05.56"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They gave no reasons for (Voice Overlap) --",
       "time": "00:36:08.60"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, in the Selective Service Act, the requirement is that he -- at the time that he must -- just call up, if that's the term, he -- he then was in the process of continuously having been and still being here and not a prior presence here, is that right?",
       "time": "00:36:44.50"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Read again the tense, who has been, what is it?",
       "time": "00:37:58.47"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Who has remained, this is having been physically present.",
       "time": "00:38:21.18"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. Davis, there -- and this has a rather long legislative history that goes back into a previous session of the Senate. And at that time, Congressman Walter made it plain that he not -- that it was to apply only to those who were lawfully in the United States at that time. And Senator Lehman objected to the word \"lawful\" and said that aliens who enter the service should be entitled to this relief even though they were -- were not lawfully and at the time they didn't pass that time, then Congressman Graham introduced his Bill 4233 and said, as you have stated that it applied only to aliens who are legally and lawfully in the United States and at the same time, the -- the Department of Justice tried to make that very plain by having them insert \"who have been lawfully admitted to the United States, who shall have been, at the time of entering the Armed Forces, lawfully within such area.\" But that was rejected.",
       "time": "00:38:27.45"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And that was not put in there.",
       "time": "00:39:43.64"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And they left it in this -- this rather nebulous state that it is now.",
       "time": "00:39:45.68"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, yes, please.",
       "time": "00:39:54.51"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What -- what was the significance of the letter that the Deputy Attorney General tried to have?",
       "time": "00:41:36.75"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do I understand -- do I understand, I'm still hopping on that amendment of --",
       "time": "00:42:54.90"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the Senate. Was that -- was that written in by the Committee as it reported the bill (Voice Overlap) --",
       "time": "00:43:00.23"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And -- and permitted in the assembly except what you reported, namely, it should be more in alignment with the Selective Service.",
       "time": "00:43:08.00"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There was no -- I just want to know whether I get this. There was no discussion of that in the Senate, then they had to go back to the House and a Conference Committee had to be appointed, wasn't it?",
       "time": "00:43:15.98"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And nothing was said in the Conference Committee on this subject at all, right?",
       "time": "00:43:26.09"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Without any comment?",
       "time": "00:43:30.68"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:43:32.40"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And Senator Lehman's concern was with the problem that Justice Harlan put to you in the form of question early in your argument, the case of the student who entered legally but then overstayed his legal entry, was that it?",
       "time": "00:43:53.55"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was --",
       "time": "00:44:09.97"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "His entry was lawful but who's extend -- extend his stay was perhaps unlawful.",
       "time": "00:44:11.32"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you know whether or not there was any provision in the law under which an alien could come to this country and go right into the Army at that time? Was there any agreement or any -- any way that he could just notify that he wanted to get out in the Army?",
       "time": "00:44:24.05"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap)",
       "time": "00:44:42.49"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:45:03.34"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:45:20.25"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You wouldn't have to come to this country at all.",
       "time": "00:46:00.51"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, yes.",
       "time": "00:46:06.78"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But, for instance, Free French couldn't join the American units?",
       "time": "00:46:08.79"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No.",
       "time": "00:46:15.67"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, I mean under this provision, there was no other provision.",
       "time": "00:46:17.05"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's 8 U.S.C. what?",
       "time": "00:47:09.03"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, as you will know, this -- a number of Americans went to Canada, in 1915 and 1916 and enlisted in Canadian Army (Inaudible) went to Canada from this country to enlist in Canadian units. I don't what the legal machinery there was. We have had nothing like that as you say.",
       "time": "00:47:27.48"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "00:47:56.67"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if that's -- if that's of any importance at all, shouldn't it redound to his credit rather than against it?",
       "time": "00:48:48.68"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:48:56.70"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:48:58.93"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:49:02.10"
     },
@@ -1121,13 +1121,13 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:49:03.04"
     },
     {
       "turn": 181,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Davis, can you tell me, is there any tracts of handling this kind of thing by a special bill? Has there been any in the Congress?",
       "time": "00:49:03.15"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Pardon?",
       "time": "00:49:20.46"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But there have been special acts granting naturalization.",
       "time": "00:49:41.91"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't mean at this time, I mean Congress has passed individual naturalization acts.",
       "time": "00:49:46.22"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There are a number of them.",
       "time": "00:49:51.57"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is this a suspendable case?",
       "time": "00:50:14.30"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why not?",
       "time": "00:50:18.03"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does it appear where he originated in China?",
       "time": "00:50:32.90"
     },

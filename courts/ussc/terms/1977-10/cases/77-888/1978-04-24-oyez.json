@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/77-888/19780424a_77-888.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MELVIN KENT KAMMERLOHR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS A. WURTZ",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Vitek v. Jones. Mr. Kammerlohr I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May he be detained in the mental hospital beyond what would be the expiration of this term of imprisonment?",
       "time": "00:01:43.89"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "A civil commitment?",
       "time": "00:02:13.76"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose though you can transfer a prisoner and keep him in the mental facility during his prison term for reasons and under the circumstances that you could not get him committed after the present term is over?",
       "time": "00:02:20.00"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you mean if you could not commit a person out on the street you could not transfer one of these prisoners to the mental facility?",
       "time": "00:02:48.92"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "During the prison term you can transfer him to the mental facility for reasons that would never justify putting him there after his term is over?",
       "time": "00:03:14.42"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, putting it the same way. If he is in prison you may transfer him for reasons which perhaps if you never had gone to prison you could not initially commit him?",
       "time": "00:03:29.76"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that right?",
       "time": "00:03:41.20"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but that is just a question of treatment, is it not?",
       "time": "00:03:55.26"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But he cannot go back if he wants too. He can be detained there against his will if they think he needs treatment?",
       "time": "00:03:59.70"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That he is going to be detained somewhere against his will as long as he is serving a sentence?",
       "time": "00:04:06.94"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose he develops symptoms of acute appendicitis, what will they do with him?",
       "time": "00:04:12.94"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Any illness, they transfer him to a hospital?",
       "time": "00:04:25.54"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose a prisoner says I know this mental facility and you propose to give me shock treatments or something like that, well, I do not want those treatments and I do want to go back, I know you got to keep me somewhere, but I do not want to be over here and submit to the treatments. I take it you say that although if you were not in prison, the state could not keep them. Do you think you are entitled to keep him because he has been sentenced to a prison term?",
       "time": "00:05:07.33"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now take the specific example. What Mr. Justice White suggested to you, he does not want an insulin shock treatment which is prescribe by the psychiatrist. What relief do you think you could have, habeas corpus?",
       "time": "00:06:28.59"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not mean it could have habeas corpus, the purpose of that is to get release and you cannot be released?",
       "time": "00:07:11.95"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you state habeas? He can be released from a mental hospital and sent back to the prison, can he?",
       "time": "00:07:27.02"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose he filed habeas and the court said, “Well, I am not going to release you, but on this showing I will restrain the particular condition of your treatment, namely the administration of insulin shock treatment until there is more evidence presented.” Could you do that under your state procedure?",
       "time": "00:07:41.75"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How about federal habeas?",
       "time": "00:08:14.76"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the state law means that his transfer is just conditional on the fact of a finding by a doctor rather on the truth of the fact?",
       "time": "00:10:56.04"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That does not follow an adversary proceeding of any kind, it is just a doctor who examined him and --",
       "time": "00:11:12.48"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If a patient gets violent as some of the incorrigible ones do, they administer tranquilizer sometimes, if you know?",
       "time": "00:11:51.51"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It does not apply if you are taking him downtown to have his appendicitis removed either you said?",
       "time": "00:12:26.23"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Kammerlohr the difference is that he is very glad to go to get the treatment and that is why they do not come up. When a man got appendicitis, I cannot conceive of him complaining about being cured of appendicitis?",
       "time": "00:12:36.18"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you say some people are crazy and then they get, what is it, they do not agree with you?",
       "time": "00:12:54.84"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think that is the difference. I do not think the other one for just ordinary medical treatment, I do not think the problem comes up?",
       "time": "00:13:03.92"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is the one. He is going cooperative with that, but what would have happened if he did not? Suppose he says I am probably lay in doubt --",
       "time": "00:13:27.65"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Attorney General is Jones still in Indiana?",
       "time": "00:14:57.64"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is Mr. Jones still on Indiana?",
       "time": "00:15:02.66"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is he getting involuntary medication there, do you know?",
       "time": "00:15:12.99"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kammerlohr you did not mention the question of mootness. Are you going to rely on your brief for that?",
       "time": "00:15:48.89"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where he is now at Danville, Illinois?",
       "time": "00:16:00.99"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would base through on the need of treatment rather than on the need to segregate that the rule did not come about because of any decision by the present administrators that once it has determined that a person is mentally ill that he may be disruptive or that he should be separated from the prison population, you want to transfer him for treatment, is that it?",
       "time": "00:16:37.95"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But it is not on the notion that you want to segregate him?",
       "time": "00:17:10.75"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you are not relying on the fact that a mentally ill patient kept in a Penal Complex might be a burden on the other inmates at all?",
       "time": "00:17:14.86"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I thought you just (Voice Overlap)",
       "time": "00:17:29.31"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It would not satisfy the prison authorities just to have him insulated or have him segregated from the other prisoners, you want to transfer him for treatment?",
       "time": "00:17:49.20"
     },
@@ -483,13 +487,13 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Attorney General, the prison has no jurisdiction over the hospital, but once he goes there, the prison has nothing to do with the prisoner, yes or no?",
       "time": "00:18:12.51"
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it a state institution?",
       "time": "00:18:24.39"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If they are entitled to come back, I mean the prison does not describe what treatment he gets?",
       "time": "00:18:38.05"
     },
@@ -513,13 +517,13 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then how why do they do it --",
       "time": "00:18:46.52"
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Once they send him over there, unless the hospitals thinks he is ready to come back the prison authorities cannot demand that he come back?",
       "time": "00:18:50.40"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the warden of the prison has not any power under the statute. I understand that to say to the mental hospital, please send this man back even though you think he needs treatment? I take it that is the decision of the mental hospital?",
       "time": "00:19:15.78"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you do with the last sentence of the statute in appendix, page five of your jurisdictional statement. It says a person who is so transferred shall remain subject to the jurisdiction and custody of the department of correctional services and shall be returned to the department when prior to the to expiration of his sentence, treatment, such facility is no longer necessary. Do you say that the treatment is no longer necessary, decision is one that is made by the people in the transferee facility and the warden in the transferring facility must respect it?",
       "time": "00:19:44.57"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The mental institution did turn him lose on the pubic, is it not that true?",
       "time": "00:20:22.15"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If they do not turn him lose, they turned him back to the prison?",
       "time": "00:20:28.49"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kammerlohr you and your colleague Mr. Wurtz both apparently agree that the case is not moot as I read your non printed briefs. How did the question of mootness get into this case? Did the court asked --",
       "time": "00:21:41.00"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wurtz?",
       "time": "00:22:06.33"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you suggest that the state of Nebraska has any responsibility for either his custody or his treatment at the present time?",
       "time": "00:22:45.75"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That was a condition of his parole.",
       "time": "00:23:09.97"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If he escaped from the Veterans Hospital in Illinois he would be in violation of the conditions of parole and would be a fugitive, would he not?",
       "time": "00:23:17.78"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any reason to believe that the Veterans administration has some bias against him or is treating him improperly in any way?",
       "time": "00:23:37.51"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You suggested a moment ago that if he did not take his medication, he would soon be back in Nebraska? Is that on the thought the Veterans Hospitals would refuse to have any more to do with him?",
       "time": "00:23:59.74"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That is true with lots of other complaints besides psychiatric ones as I understand. If you have a back problem or liver problem and any number of things that happen to people twice your age, you can find out that the doctors says either do this, follow my advice have an operation or do not have an operation or I just cannot go on treating. It is not limited to psychiatric care?",
       "time": "00:24:32.60"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if it was LSD in the experimental phases that one reads about in the newspapers experimental drugs, are you suggesting that that is permissible, but something other than medication is not?",
       "time": "00:25:29.19"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The doctors?",
       "time": "00:25:47.84"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You got appendicitis and they take you to a city hospital you could object to that?",
       "time": "00:25:54.38"
     },
@@ -711,13 +715,13 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said you usually have the right to commit suicide.",
       "time": "00:26:03.69"
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You are going to have a hearing to see whether he should have his appendix removed?",
       "time": "00:26:08.21"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if he says he is a Christian scientist and will not submit to any surgery?",
       "time": "00:26:17.16"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because that issue is the right to transfer at all in this case? Are we to judge this case on the assumption that this state had the power to transfer him if they went through the right procedures?",
       "time": "00:26:28.11"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about your position?",
       "time": "00:26:46.41"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is not what I asked you. Let us just suppose the state now gives up all the procedures that the lower court afforded. Is the procedural due process issue is the only one that is here?",
       "time": "00:26:54.05"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So we judge it on the assumption that as long as due process was satisfied the state had the right to transfer him, so that we have not got the issue in the case that you were just talking about, the right to refuse treatment?",
       "time": "00:27:06.50"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is just for the purposes of treatment?",
       "time": "00:27:57.54"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose he becomes violent, suppose he starts beating up everyone, are you going to have a hearing?",
       "time": "00:28:04.82"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Inside the of the prison, the man is just raving insane and he says all of you blank, the blank, need to die and then he starts to banging on them, does he have to have a hearing?",
       "time": "00:28:16.31"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then who is going to come in at a hearing, if he is banging on everybody, who is going to volunteer to the hearing, would you?",
       "time": "00:28:33.30"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would you volunteer a hearing? He had beaten up everybody he laid eyes on, would you give him a hearing?",
       "time": "00:28:47.27"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let us back up on what brought that on. Here is a man who in fact set fire to himself with burns so severe that he was five months in the hospital being treated for burns. Is it unreasonable to draw an inference that there is possibly some mental and emotional instability in that man that needs treatment?",
       "time": "00:29:11.14"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It is not a prima facie case that he needs mental treatment?",
       "time": "00:29:34.46"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, how about the fire?",
       "time": "00:29:41.94"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But your case really depends on our assumption that exactly the same treatment could have been given to him in the facility where he was as would be given to him in the facility to which he was transferred, does he not?",
       "time": "00:30:22.32"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think the statue was intended to confer a right on the prisoner that certain findings be made or that certain fact situations exist before he was transferred?",
       "time": "00:31:23.97"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You think that was intended to confer a right on him?",
       "time": "00:31:49.24"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if they had a wing at the hospital or let us say the top three floors of the hospital of the penal institution was a hospital for a emotionally and mentally disturbed prisoners, now they move in from the second floor to the top floor, you say they are going to have a hearing to that. On the top floor I assuming the psychiatrists are in charge and the function and activity there is the same as in the state mental institution, you have to have a hearing to move him from the second floor to the sixth floor?",
       "time": "00:32:02.07"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They are doing the same thing they are doing here.",
       "time": "00:32:37.89"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When he went to that burn hospital did he not get some treatment?",
       "time": "00:33:05.58"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He did not receive the treatment?",
       "time": "00:33:11.14"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He sort of enjoyed it did he not? He did not complain, did he?",
       "time": "00:33:14.11"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "About the treatment?",
       "time": "00:33:23.33"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He did not have any hearing either, did he?",
       "time": "00:33:26.09"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So it is up to him as whether he wants a hearing for a medical treatment?",
       "time": "00:33:34.95"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So this is where we end up. I understand with attorney general that they just wanted him to go to the hospital to be examined and if he was found not in need of treatment he would be returned to where he wanted to be, is that correct?",
       "time": "00:33:50.48"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that what the statute provides?",
       "time": "00:34:13.74"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then that has nothing to do with his having been transferred, it looks, does it not, as you have said they could have done it eight floors up in the same building?",
       "time": "00:34:55.13"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is a lot of confusion here I think as to what the issue is what and perhaps that we would be clarified if you could say what would be the issues at the hearing?",
       "time": "00:35:10.71"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can hold that hearing before you have had a diagnosis?",
       "time": "00:35:33.04"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is what he is being sent for to the hospital and they cannot give a diagnosis in one day or two days?",
       "time": "00:35:41.69"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The issue is then you say would be whether or not he is not mentally and if so if he is a danger to himself and others. Then if the finding after a full due process hearing with counsel is that yes he is mentally ill and yes he is a danger to himself and others, upon that finding do you then concede that he could be transferred against his will to a mental hospital for involuntary treatment?",
       "time": "00:35:58.45"
     },
@@ -1101,13 +1105,13 @@
     },
     {
       "turn": 178,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do, well I think that clarifies. This is why I thought it was.",
       "time": "00:36:26.06"
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The statute does not require any finding that is a danger to himself and others?",
       "time": "00:36:33.06"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know, but why do you put that in. I thought you had said a moment ago that this issue was, we really were not dealing with that issue that we just assume that if the procedure is right he could be transferred regardless of what the subsequent findings are?",
       "time": "00:36:41.26"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Court of Appeals did not say you had to find that he was a danger to himself or other?",
       "time": "00:37:14.78"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the District Court went I thought on quite a different theory than you answer to the question of my brother Stewart. It did not talk about the right to refuse involuntary treatment. It went on Meachum v. Fano, Montanye analysis of a right of someone who already committed to have some sort of hearing before he was transferred to another kind of institution.",
       "time": "00:37:31.31"
     },
@@ -1155,13 +1159,13 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it rested its judgment I thought on the fact that state law conferred this right on it and my brother Stewart’s question was surely even though a state law did not confer right upon you to be free from involuntary brain surgery, you might well have a due process right, but it would not be a Meachum v. Fano type analysis.",
       "time": "00:38:11.57"
     },
     {
       "turn": 188,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That makes it a different issue, a different case if that is what the issue is, but as I understand it now that is not your contention. As I understand it now it would have been a irrelevant plain in this due process hearing or is represented by counsel for him to say I am Christian Scientist and I do not believe in any kind of administration of drugs into my body, correct? Do I understand that correctly?",
       "time": "00:38:36.45"
     },
@@ -1173,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "because that is what the issue is here? You answered the question a while ago and said the issue was not here. That issue was not here at all.",
       "time": "00:39:10.35"
     },
@@ -1185,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would you do with the institution in the State not too far from here in New York that has one prison that is in two parts. One part is criminally insane and the other part is criminal and they move across the same building, you are supposed to have a hearing for that?",
       "time": "00:39:22.99"
     },
@@ -1197,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It would be different treatment, one is medical and one is not.",
       "time": "00:39:49.33"
     },
@@ -1209,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Supposedly, criminal hospital and there are many institutions that very good hospitals, many criminal institutions and the man goes there and he said with this type of disease you have I might give you this drug and you say I will not take it then you have a hearing?",
       "time": "00:40:00.52"
     },
@@ -1221,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No sir it is a drug and I do not need anything to be added to it. It is a drug that I do not want. The prisoner does not want, aspirin, anything, does he have to have a hearing?",
       "time": "00:40:21.38"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why? What is the difference between the two, it is the mans individual right your talking about?",
       "time": "00:40:38.30"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well then the man does not have an absolute right to decide whether he will take a certain treatment or not, you shift him again?",
       "time": "00:40:55.43"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said certain kind of drug. I just want to know what does right that this man has that he has to have a hearing for?",
       "time": "00:41:10.54"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I do not know, I am not a physician, but I would take any drug in the world if you can find two doctors one will say is right and the other one says wrong. Who decides that?",
       "time": "00:41:25.34"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well do you not agree that before the hearing he should be examined?",
       "time": "00:41:50.52"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is what we have done here.",
       "time": "00:41:56.41"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was he not to go for examination and he said that they gave him a drug?",
       "time": "00:42:00.69"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How could he be examined except to be transferred?",
       "time": "00:42:20.79"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are there any facilities in the prison involved for getting the psychiatric examination?",
       "time": "00:42:27.26"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question was to make a thorough psychiatric examination?",
       "time": "00:42:36.42"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you find a prison with one of those you will let me know will you, none of them have that. That is why they are sent to these institutions, is it not that right?",
       "time": "00:42:42.80"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why are you objecting if you do not know what you are objecting to?",
       "time": "00:42:54.93"
     },
@@ -1377,13 +1381,13 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is all.",
       "time": "00:43:08.52"
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What are they going to hear at this hearing, if no psychiatrist has been able to give him a 30 or 60 day examination? Do you think any psychiatrist is going to make an evaluation on just walking him into a hearing room and giving a judgment or is he going to say he wants at least a 30 day or perhaps more?",
       "time": "00:43:10.82"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But was not that what the state of Nebraska did to him here, send him to a place where he could get an adequate examination?",
       "time": "00:43:36.87"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if you are transferred for treatment for alcoholism?",
       "time": "00:44:43.84"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that is worst stigma than being in prison than having gone through the process of setting himself on fire? Do you think there is some stigma that is gong to be worse than that?",
       "time": "00:45:22.83"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not feel that we are getting away in maturing in our concepts of psychiatric treatment as contrasted to 20 years ago?",
       "time": "00:45:45.33"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 235,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Getting away from the old stigmatizing approach, do you still think there is a stigma to be subjected to psychiatric treatment?",
       "time": "00:45:56.23"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that if someone undergoes psychoanalysis that he is stigmatized?",
       "time": "00:46:41.14"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Be careful how you answer that?",
       "time": "00:46:55.27"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Those are not ordinary hospital, you can be strapped down and injected the things that you do not like to remember?",
       "time": "00:47:27.09"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you are going to way pass this case because this man is going to examine or not, is he not?",
       "time": "00:49:16.70"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All this you argue is way over this case is it not?",
       "time": "00:49:27.95"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, there is a lot of difference between being in AA Hospital that is run by the government and an average insane asylum run by the state. People do not have the same feeling about them, do they?",
       "time": "00:50:28.31"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This is a Veterans Administration Hospital, where is my father, he is in the state insane asylum for felony insane people, there is a difference?",
       "time": "00:50:49.61"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record show that his treatment at Danville is any different from what he would have had at the Lincoln Regional Center?",
       "time": "00:51:28.81"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you are taking the position of medication he received in Danville was somehow different from medication he would receive in Lincoln?",
       "time": "00:51:45.91"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that makes the case moot?",
       "time": "00:51:57.83"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Neither one of you want it moot, but we have to struggle with this and I do not think you can stick the case out on the grounds of this ruling.",
       "time": "00:52:02.85"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you want to hold Nebraska responsible for the collateral consequences of his being in Illinois in a mental institution?",
       "time": "00:52:29.72"
     },
@@ -1599,13 +1603,13 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time is expired Mr. Wurtz.",
       "time": "00:52:42.50"
     },
     {
       "turn": 262,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "One more question, if you prevail in this litigation, your Client will stay right there in the Veterans Hospital in Illinois, will he not?",
       "time": "00:52:44.84"
     },
@@ -1617,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If he does not violate his parole?",
       "time": "00:53:00.05"
     },
@@ -1629,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it does not have any effect on you. I still have not understood this mootness business, but it is too bad because there is not adversary in our relationship?",
       "time": "00:53:04.32"
     },
@@ -1641,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As well as your opponent, you both want to get it decided even if it is moot?",
       "time": "00:53:15.23"
     },
@@ -1653,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes you have said that before and your time is expired. Do you have anything further Mr. Kammerlohr?",
       "time": "00:53:24.21"
     },
@@ -1665,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Kammerlohr, can I ask you a question on that?",
       "time": "00:53:43.39"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing during a criminal trial the trial judge knew quite a bit about psychiatry and at the end or maybe even a medical psychiatrist and at the end of the trial the trial judge said well I have heard all the evidence and instead of sentencing you to the prison I talked to my law clerk and we have decided it would be better for you to go the mental hospital, could he do that?",
       "time": "00:53:46.61"
     },
@@ -1689,7 +1693,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why not? Constitutionally, could he do it assume the statute authorized that. The trial judge can have discretion without any hearing on mental competence to send either to a prison or a mental hospital, will the constitution tolerate that?",
       "time": "00:54:10.96"
     },
@@ -1701,7 +1705,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They might want more than a law clerk’s opinion however, might they not Mr. Kammerlohr?",
       "time": "00:54:28.37"
     },
@@ -1713,7 +1717,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We do not have to be concerned about the method in this statute. We must first decide whether the convicted person has any protected constitutional interest in not being sent to a mental institution. We do not reach the statute till we first decide that and as I understand your position, the state can have the trial judge without any hearing whatsoever decide I think I will send you to a mental hospital instead of the prison because I think it would be better for you. I have watched you during the trial. I think you would be probably be better off over there where they give you these very special treatment. That is your position, I take it?",
       "time": "00:55:06.19"
     },
@@ -1725,7 +1729,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We do not have to worry about the adequacy of the hearing at all because there is no constitutionally protected interest in not being sent to a mental institution as opposed to another prison?",
       "time": "00:55:43.74"
     },
@@ -1737,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is matter of grace by the state. It gives whatever protection it wants to but the constitution does not afford any protection, that is your position?",
       "time": "00:55:58.81"
     },
@@ -1749,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does the constitution guarantee him a hearing after he gets to the mental institution or is that just a matter grace given by the state?",
       "time": "00:56:24.07"
     },
@@ -1761,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Maybe the constitution guarantees that a state cannot lock anybody up involuntarily in a hospital who is neither ill nor in need of treatment or diagnosis?",
       "time": "00:56:43.73"
     },
@@ -1773,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It would determine as whether he needs a hearing before that the termination is made or could I say have my law clerk make that determination if I were a trial judge?",
       "time": "00:56:58.90"
     },
@@ -1785,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The question is what does the constitution require? As I understand your position that he has been convictive of crime, constitution does not require anything, he can go wherever the trial judge sends him?",
       "time": "00:57:32.25"
     },
@@ -1797,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your real position is that even if there is a liberty interest you do give adequate procedures?",
       "time": "00:58:06.99"
     },
@@ -1809,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is your secondary. Your first position you really do not have a lot of confidence?",
       "time": "00:58:11.76"
     },
@@ -1821,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:58:34.11"
     }

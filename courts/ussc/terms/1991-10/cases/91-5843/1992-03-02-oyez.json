@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/91-5843/19920302a_91-5843.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "GARY CALDWELL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CAROLYN M. SNURKOWSKI",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 91-5843, Dennis Sochor v. Florida. Mr. Caldwell.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could you speak up, please?",
       "time": "00:00:20.58"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is hard to hear. Maybe you could raise the podium or something.",
       "time": "00:00:23.62"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:00:36.59"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, this Court has said in several opinions, I guess, that it's a State that... in which the judge sentences.",
       "time": "00:01:59.34"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they don't reweigh any mitigating circumstances, do you?",
       "time": "00:05:04.13"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just the mitigating evidence, you say?",
       "time": "00:05:13.77"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about in this case? What's... I thought the... I thought it was found by the judge that there weren't any mitigating circumstances.",
       "time": "00:05:27.17"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the supreme court affirmed that.",
       "time": "00:05:41.13"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you mean... I don't mean to put you off your argument, but don't you mean that the jury had mitigating evidence to weigh? It didn't find any circumstances, isn't that right?",
       "time": "00:06:30.79"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. So what it was weighing is... against the aggravating circumstances what it was weighing was evidence. Not specific findings, but it was weighing evidence, mitigating evidence.",
       "time": "00:06:42.76"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But what you mean is that there was evidence which had a mitigating tendency. Isn't that what you mean?",
       "time": "00:07:01.56"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what I'm talking about... when I'm using the word circumstance, I'm talking about specific findings which are provided for by statute... the finding, for example in this case, cold-blooded or what not. And when you use circumstance just to mean any fact that had a mitigating tendency, it just gets confusing. And I think what you mean, if I understand you correctly, is that the jury had evidence of mitigating facts, but it did not go through a purpose... a process of finding that mitigating circumstances, as a term of art, existed. Is that fair?",
       "time": "00:07:12.53"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but the Florida statute, as I understand it, does not say there are certain facts which we will dignify by the term mitigating circumstances. They are a, b, c, d, and e. There is no such provision in Florida law, is there?",
       "time": "00:08:03.82"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It does?",
       "time": "00:08:21.72"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And is the jury instructed to find them in the same... or fail to find them... in the same sense that it is instructed to find or fail to find aggravating circumstances?",
       "time": "00:08:22.43"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that in this case the jury had mitigating evidence, but it in fact made no findings that mitigating circumstances had actually been proven.",
       "time": "00:08:33.49"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Oh. The jury then is charged as to its duty to deal with aggravating circumstances and with mitigating evidence, but then it simply returns a verdict of death or not death.",
       "time": "00:08:52.38"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it's an advisory verdict.",
       "time": "00:09:14.41"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but here it was not a life verdict, was it?",
       "time": "00:09:32.22"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We've had a couple of cases earlier on, Spaziano and then per curiam several years later, kind of explaining what we thought that process was.",
       "time": "00:09:51.55"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And the judge does make specific findings, right?",
       "time": "00:10:41.69"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In other words, he doesn't come in with a general verdict, as it were. He makes specific findings of aggravating circumstances, or mitigating.",
       "time": "00:10:45.96"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In this case he found four aggravators and he found no mitigators.",
       "time": "00:10:51.41"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think it's ambiguous at all. He is much more specific than that. He said, however, after considering the testimony, their testimony... he's talking about specific testimony... this court finds no nonstatutory mitigating circumstances. He found both no statutory mitigating and specifically found no nonstatutory mitigating. That's what he said.",
       "time": "00:11:29.94"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. He said, after... however, after considering their testimony, this court finds no nonstatutory mitigating circumstances.",
       "time": "00:11:56.88"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, you think he meant that... what?",
       "time": "00:12:16.33"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think it's ambiguous at all. He clearly found no nonstatutory mitigating circumstances. On what page in the record will we find this colloquy that you're discussing?",
       "time": "00:12:21.33"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's on page 15 of your brief.",
       "time": "00:12:43.82"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:12:54.79"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where it starts out: In summary, it is the conclusion of the court, after carefully and conscientiously weighing the aggravating and mitigating circumstances, that there are sufficient aggravating circumstances to justify and warrant the imposition of the death penalty, and that there are no mitigating circumstances to outweigh the aggravating circumstances? Where do you find the ambiguity there?",
       "time": "00:13:11.13"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There is certainly... you have to read something else from an earlier part of the paragraph in to bring an ambiguity to that sentence: there are no mitigating circumstances to outweigh the aggravating circumstances. I suppose you could say that the phrase to outweigh might modify mitigating.",
       "time": "00:13:40.32"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Caldwell, before you go on--",
       "time": "00:14:04.26"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm concerned about what is just above what you've read.",
       "time": "00:14:05.32"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Paragraph 8 on page 353, which begins, stating the subject: any other aspect of the defendant's character or record and any other circumstances of the offense. There were several members of the defendant's family who tearfully and grievously testified. However, after considering their testimony, this court finds no nonstatutory mitigating circumstances. And the first sentence of 8 says, any other aspect of the defendant's character or record. I think that's absolutely clear to me that there are just no nonstatutory mitigating circumstances found by the district court.",
       "time": "00:14:09.55"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But this was not a life verdict.",
       "time": "00:15:16.62"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Excuse me. You're on the... you did not object at trial to the--",
       "time": "00:19:36.56"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yes, on cruel and... the heinous circumstance instruction, right?",
       "time": "00:19:45.84"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand why you say you are not procedurally barred. As I read the State court's opinion, it did rely upon a procedural bar. Although it went on to discuss the merits, that was an alternate ground. Wouldn't that be enough to say that you're procedurally barred?",
       "time": "00:19:51.03"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then you should raise your unconstitutional objection at that point. It seems to me you should either do one or the other.",
       "time": "00:21:38.89"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In connection with the instruction?",
       "time": "00:21:49.13"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Prior to trial.",
       "time": "00:21:53.30"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And Florida's rule is that you must in any event make a specific objection to the instruction or there is a procedural bar?",
       "time": "00:22:07.69"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why wasn't it invoked here?",
       "time": "00:22:22.63"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. And that, under Florida law, can be a procedural bar if it's invoked by the appellate court.",
       "time": "00:22:32.14"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. And suppose the appellate court here said we find there is a procedural bar. As an alternate ground, we find the claim has no merit. Would that have been adequate to prevent our review?",
       "time": "00:22:38.66"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And the reason is?",
       "time": "00:22:54.35"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes. Where there's plain error. Fundamental error or plain error?",
       "time": "00:23:28.95"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why doesn't it make those cases distinguishable? I mean, is it clear to you that there is... well, I'm sure you're going to say yes. It's not clear to me that there is fundamental error here... if there is.",
       "time": "00:23:54.23"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then any error is fundamental error.",
       "time": "00:24:17.56"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You see... you have to tell me why you think this is a fundamental error. Is anything a fundamental error that is not a harmless error? Are those two categories of error? Harmless and fundamental?",
       "time": "00:24:36.39"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Caldwell. Ms. Snurkowski, we'll hear from you.",
       "time": "00:25:11.94"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In a case in which the jury does not... I'm sorry, a case in which the jury does recommend death, what is the articulation under Florida law of the weight to be given to that recommendation?",
       "time": "00:26:52.72"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but what weight does he have to give the jury's recommendation?",
       "time": "00:27:32.77"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if he doesn't give it any weight at all, why does Florida go through the process of having the jury make a recommendation?",
       "time": "00:27:50.11"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Now, how does the appellate weighing of the... strike that. I'm not going to use that term.",
       "time": "00:28:08.29"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How does Florida articulate the degree of weight to which the appellate court should ascribe?",
       "time": "00:28:14.41"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Life gets great weight. What does death get?",
       "time": "00:28:40.69"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They both do.",
       "time": "00:28:43.64"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Perhaps I'm under an misimpression. I had thought, under the Florida system, that as the jury returns the recommendation of life, that the trial judge can upset that only if he finds that no reasonable jury could have come to that conclusion.",
       "time": "00:29:03.48"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But surely the appellate court doesn't impose a standard on the trial judge that the standard... that the trial judge doesn't have to apply himself.",
       "time": "00:29:31.17"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If you're a trial judge in Florida, and you receive a verdict from a jury which recommends life, my understanding that the trial court's duty is to sentence him to life unless he can find that no reasonable jury could have come to that conclusion. Isn't that correct?",
       "time": "00:29:40.21"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that is not inconsistent with the proposition I put to you, is it?",
       "time": "00:30:17.38"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But he cannot make that determination unless he finds that the jury has committed... has departed very substantially from the evidence. It seems to me that you're really, with all respect, that you're quibbling with us in your answer to Justice Souter when he was asking you about this. You said, oh, well that's for the appellate court to do. Well, all the appellate court does is determine whether or not the trial court properly applied standards under Florida law. And that standard is that the verdict cannot be set aside, the life recommendation, unless there is this very, very high standard that the trial court finds. Is that not correct?",
       "time": "00:30:26.29"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I understand that. They give simply a general verdict, so he must assess all of the evidence.",
       "time": "00:31:20.49"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The standard is the one that I have described.",
       "time": "00:31:24.76"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does that frequently happen?",
       "time": "00:31:48.94"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There is a statement somewhere in the papers, this has never happened.",
       "time": "00:31:52.47"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Although the Supreme Court of Florida has.",
       "time": "00:31:58.45"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Although the Supreme Court of Florida has changed it.",
       "time": "00:32:00.94"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But not a trial court.",
       "time": "00:32:04.30"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question about the standard of review in Florida of a trial judge's statement in the finding that there are no nonmitigating circumstances, the difference between mitigating evidence and mitigating circumstance that Justice Souter indicated? Suppose, as in this case, a lot of evidence is offered as to mental stability, alcoholism, he supported the family for a while, and so forth and so on, in which it clearly is mitigating evidence. And the judge says, well, I've heard all this, and I don't disbelieve any of it, but in my judgment, it does not carry enough weight to be called a mitigating circumstance. Does the Supreme Court of Florida review that at all, or as its opinion seems to suggest, is this entirely a matter for the trial judge to just decide whether or not this evidence is worthy of the characterization as a mitigating circumstance?",
       "time": "00:32:50.94"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did they do that in... did they do that in this case?",
       "time": "00:34:29.05"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, they did not in the aggravating. I'm talking about the nonstatutory mitigating, and as to that, what they said, the decision as to other particular mitigating circumstance is proven lies with the judge and jury.",
       "time": "00:34:34.23"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it your understanding that they, the Florida Supreme Court concluded that the mitigating evidence offered was untrue?",
       "time": "00:35:24.64"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand on the mental condition.",
       "time": "00:35:36.01"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But as things like whether he supported the family when his father wasn't working and his alcohol problem, that that was untrue?",
       "time": "00:35:38.37"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's my point. That's my point. What did the Florida Supreme Court do with respect to that bit of evidence here?",
       "time": "00:36:05.92"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Didn't they say that that's a matter for the trial judge which we don't review?",
       "time": "00:36:12.38"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there was a reason in this case, namely that he relied on at least one aggravating circumstance that was improper. Does that give rise to any duty to review the rest of what his determination was?",
       "time": "00:36:33.16"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where did they do that? Where in the appendix?",
       "time": "00:37:00.03"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Doesn't necessarily. Does it require--",
       "time": "00:37:27.94"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--anybody to reweigh the aggravating versus mitigating?",
       "time": "00:37:30.19"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Ms. Snurkowski, I apologize for what I'm afraid is going to make the confusion worse, but I've got to ask the question. As I understand, you're referring to the carry-over paragraph that begins at 381 of the appendix.",
       "time": "00:37:52.53"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you're saying in effect, that's the point at which the Florida Supreme Court considered the evidence, mitigating evidence, even though no mitigating factors were found for purposes of harmless error. But isn't the Florida Supreme Court's object at that point to conduct a disproportionality analysis? And that is not the same thing as its harmless error analysis.",
       "time": "00:38:08.46"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Now where did it go through a harmless error analysis in response... going back to Justice Steven's question... where did it go through a harmless error analysis, which considered, let alone discussed, mitigating evidence?",
       "time": "00:38:37.50"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I don't know we would have or not, but they didn't say the magic words, and where can you find a harmless error analysis that considers mitigating evidence in that opinion? I mean, the question invites the answer. I don't see it.",
       "time": "00:38:57.70"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's assume that that's an appropriate statement of law. It has nothing to do, it seems to me, with the question whether they went through that process in this case.",
       "time": "00:39:30.75"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean unless the Florida Supreme Court said we are not going to do harmless error analysis here, that we've got to assume that it did?",
       "time": "00:39:52.88"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How can you go through an analysis without analyzing anything? I mean, I don't see any discussion here.",
       "time": "00:40:07.49"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Certainly our Clemons case is not consistent with any submission that a court is deemed to perform its duty to reweigh the evidence, is it?",
       "time": "00:40:55.11"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But isn't... It seems to me that that's what you're arguing to us here.",
       "time": "00:41:10.42"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That that's quite inconsistent with Clemons.",
       "time": "00:41:16.30"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Either one.",
       "time": "00:41:21.67"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That is true.",
       "time": "00:41:27.39"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Clemons said that either one would do.",
       "time": "00:41:29.44"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that one had to be performed, and there was no presumption that the State performed it if it wasn't there on the record.",
       "time": "00:41:32.05"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Before you go on, you do acknowledge that the harmless error analysis has to be done.",
       "time": "00:43:34.82"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you acknowledge that if one of the aggravating factors was inappropriate, the court itself would have had to determine that, beyond a reasonable doubt, there were no mitigating factors that the jury could have considered. Is that what the harmless error would have been here?",
       "time": "00:43:50.73"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:44:40.52"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's what you mean by harmless error then, then maybe the sentence the court used is adequate. Under the circumstances of this case and in comparison with this case, we find Sochor's sentence of death proportionate to his crime.",
       "time": "00:44:43.74"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same result would have happened.",
       "time": "00:45:28.86"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The result in the recommendation from the jury.",
       "time": "00:45:29.81"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then I don't understand why you're talking about harmless error analysis. If the jury... if the jury determination is given no weight at all, all you have to do is reweigh. We all agree--",
       "time": "00:46:12.74"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask another question? Would you agree that there could be cases in which, after looking at the whole record, the Florida Supreme Court could conclude that the death penalty is not disproportionate to other death penalties throughout the State, but that nevertheless, prejudicial error had occurred?",
       "time": "00:46:48.28"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because the mere fact that they conclude something is not disproportionate really doesn't speak to the question whether error occurred.",
       "time": "00:47:13.23"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you get to proportionality in this case because the last paragraph of the opinion responds to the argument that it was disproportionate.",
       "time": "00:47:27.53"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it fair to say that, in a close case, either a life or death sentence might survive a proportionality analysis, but that either a life or death sentence might be the result of error that was not harmless?",
       "time": "00:48:01.90"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, I see, so the only proportionality analysis... okay, we'll just modify my question then. Let's say it's a close case. The actual sentence is a death sentence, and the court finds that it is not disproportionate to other... to the... to other death sentences under other circumstances. Isn't it also the case that even though the death sentence survives the proportionality analysis, it still may be the result of error which could not be called harmless?",
       "time": "00:48:31.44"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:49:01.35"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "My only point is if you can't argue from the fact that they survived... that the sentence survived to proportionality analysis, that they must therefore also have conducted a harmless error analysis.",
       "time": "00:49:06.03"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I thought you just admitted something which is inconsistent with differing.",
       "time": "00:49:20.18"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, they did it in this case.",
       "time": "00:49:35.21"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm talking about this horse and this cart. And they did it in this case. And I don't see how you can infer from the fact that they did proportionality in this case that they also must have done harmless error.",
       "time": "00:49:37.36"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But the point then is we know they did harmless error because they've cited a harmless error case, not because they did proportionality analysis.",
       "time": "00:49:58.22"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Ms. Snurkowski?",
       "time": "00:50:06.78"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what you consider harmless error analysis to be. You need some baseline as to what was harmless. What do you mean by harmless error analysis? What would it have shown would have come out the same? You say it would not have shown that the jury recommendation would have come out the same. That is not what its object is?",
       "time": "00:50:08.50"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's to show that what would have come out the same?",
       "time": "00:50:30.97"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you acknowledged earlier that he cannot impose a death sentence unless... if the jury had recommended life, unless no reasonable jury could have recommended life.",
       "time": "00:50:52.41"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So part of his determination, it seems to me, is the jury's determination.",
       "time": "00:51:06.28"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Snurkowski. Mr. Caldwell, you have 4 minutes remaining.",
       "time": "00:53:05.61"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm sure if there are, Justice Scalia will ask them. [Laughter]",
       "time": "00:54:19.38"
     },
@@ -1515,13 +1515,13 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Caldwell. The case is submitted.",
       "time": "00:54:25.40"
     },
     {
       "turn": 246,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:54:27.43"
     }

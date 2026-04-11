@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1960/561/19610502a_561.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "PERCY D. WILLIAMS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "B. H. TIMMINS, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 561, James M. Bushnell, Petitioner, versus O. B. Ellis, Director, Texas Department of Corrections. Mr. Williams, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "May I ask you in that connection please, Mr. Williams, under your law, was that testimony, and in the event of a new trial, re-admissible against him?",
       "time": "00:02:18.45"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Has that been changed since --",
       "time": "00:03:14.11"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What is the felony under Texas law, is that --",
       "time": "00:03:32.68"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Penitentiary. It doesn't matter if the length of this --",
       "time": "00:03:37.01"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- the date --",
       "time": "00:03:40.04"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- the date of entry of the felony?",
       "time": "00:03:40.65"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "They imposed that the sentences for (Inaudible) let's say a years, are to not (Inaudible)",
       "time": "00:03:47.29"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I understand you to say that the new Texas statute --",
       "time": "00:05:17.35"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- (Voice Overlap) the appointment requirement to appoint a counsel to felony.That's (Voice Overlap) --",
       "time": "00:05:20.89"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, this much is clear, Mr. Williams, that had he been tried within the last couple of years on the offense for which he was convicted, the revised 494 would have required the appointment of counsel, is that so?",
       "time": "00:07:32.00"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "On your brief?",
       "time": "00:12:10.30"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "On your brief?",
       "time": "00:12:12.24"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Of the record.",
       "time": "00:12:15.02"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Williams, may I ask you whether if he had the (Inaudible) defense lawyer in Texas, could those questions be subject to objection if it's inadmissible or improper?",
       "time": "00:16:24.86"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do they care if they came and say excludable? Would they -- do you think it would've been error on -- error by your Court (Inaudible)",
       "time": "00:17:17.78"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Before you (Inaudible)",
       "time": "00:17:55.59"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did I understand your suggestion, Mr. Williams, the whole proceeding governing the admissibility of the confession was in the presence of the jury, there was it?",
       "time": "00:18:31.56"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And may have -- may --",
       "time": "00:18:41.86"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This requires a request of it, of the trial judge?",
       "time": "00:18:51.91"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But -- but there must be one otherwise may be heard in the presence of the jury?",
       "time": "00:18:56.62"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And your point is that had he had counsel --",
       "time": "00:19:04.33"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- it might suppose the request would've been made for a hearing on the presence of the jury.",
       "time": "00:19:07.38"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What is the explanation of the long delay 15 years before this proceeding was brought (Inaudible)",
       "time": "00:20:43.05"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Lucky color.",
       "time": "00:21:21.19"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Williams --",
       "time": "00:26:49.48"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- suppose that should happen on hearing that there was evidence that the Court believed that at trial is petitioner refused counsel, would that make any difference?",
       "time": "00:26:50.55"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "How do we know what the facts are in that respect from this record?",
       "time": "00:27:09.55"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Timmins.",
       "time": "00:27:53.20"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "First, we're -- we're not concern here with the ultimate question as to whether there was lack of due process or not, we're concern with is whether the context of this record, the situation was such that he was prejudiced by not having him a counsel.",
       "time": "00:33:45.29"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Voice Overlap) --",
       "time": "00:34:07.62"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Yes.",
       "time": "00:34:15.25"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, would you -- you wouldn't consider that a denial that he had beat him without mercy, would you? What you just read on 13 or the question by the defendant was, \"You jerk me out of my car over on a Louisiana state highway, no Louisiana law, just you and two kids had beat me up without mercy,\" and the answer was, \"It wasn't over in Louisiana.\" That -- that's hardly a denial of -- of beating him up without mercy, is it?",
       "time": "00:34:22.09"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, but -- but just before that, the petitioner said, \"Well, you beat me up across in Louisiana,\" and the answer was, \"I never touched you over there.\"",
       "time": "00:35:17.27"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And -- and the next question was, \"I have scars to prove it on my back,\" and the answer is, \"I ain't touched you but once,\" and then we get to that question, \"You jerked me out of my car over Louisiana state highway, no Louisiana law, just you and two kids and beat me up without mercy.\" Answer, he wasn't over in Louisiana. This is hardly a denial, is it?",
       "time": "00:35:29.53"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the question was, \"I have scars on -- that -- to prove it on my back,\" and the answer says, \"I ain't touched you but once,\" is that -- would you consider that a denial or any?",
       "time": "00:36:29.46"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:36:44.21"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, didn't -- didn't they have a full opportunity? I notice after this page 13 when he said it wasn't over in Louisiana, the District Attorney excused the witness. He never asked him another -- another question to clear that up although he did have real opportunity to do so.",
       "time": "00:40:21.56"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:40:51.36"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, I see.",
       "time": "00:41:00.14"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:41:01.30"
     },
@@ -541,13 +541,13 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:41:02.46"
     },
     {
       "turn": 85,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Is Hop Williams the same as (Inaudible)",
       "time": "00:41:04.29"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Is the man named Hop Williams, is he same (Inaudible) witness, Clyde --",
       "time": "00:41:08.08"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The same man.",
       "time": "00:41:15.63"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Your contention is on the later testimony when he (Inaudible) back on the stand that he claimed the -- the details of what he did (Inaudible)",
       "time": "00:41:18.41"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did the man -- did this man try to get into the federal court, I mean into the state courts to have this matter heard before this proceeding?",
       "time": "00:42:20.09"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:42:30.18"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, is that the place for him to go?",
       "time": "00:42:36.13"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Of the -- in the writ -- is the writ tried in the Court of -- in your Court of Criminal Appeals or do they sent it back to a lower court?",
       "time": "00:42:51.40"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if they have to -- they wouldn't -- they would act on the record of the trial court rather than it's too substantially as I believe, whereby the appellate court is asked to leave to send the case for determination of their claims so far as their contested facts at lower court.",
       "time": "00:43:17.79"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, well, I -- I misunderstood your answer to the Chief Justice. I thought you said -- I -- if I understood the Chief Justice's question was whether there was any application by way of habeas corpus in the courts of Texas, and I understood your reply to be that that must be lodged with the Court of Criminal Appeals, is that correct?",
       "time": "00:43:52.94"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But can you say that he made no effort to bring this to the attention of any court in Texas for this long period of time?",
       "time": "00:44:28.26"
     },
@@ -679,25 +679,25 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:44:50.30"
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, go ahead.",
       "time": "00:44:51.73"
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I think the Chief Justice, may I ask question after that.",
       "time": "00:44:52.59"
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, there -- what other courts in the State would have had jurisdiction over habeas corpus or coram nobis or whatever it might -- might be?",
       "time": "00:44:55.42"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "After he -- after he's convicted and was in the penitentiary, what other courts --",
       "time": "00:45:06.96"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "--- than the Court of -- of Appeals?",
       "time": "00:45:11.98"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you just told us that --",
       "time": "00:45:14.79"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- the trial court.",
       "time": "00:45:16.80"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. That's what I did not understand.",
       "time": "00:45:40.02"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:45:43.02"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And only that.",
       "time": "00:46:10.07"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And only that.",
       "time": "00:46:12.47"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I would think -- I would think that would give him a terrible burden to the Court of Appeals to -- to have all those writs from all the prisoners and all your penitentiaries go direct to the Court of Appeals.",
       "time": "00:46:13.61"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It does.",
       "time": "00:46:28.96"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You say in your brief, and my Brother Clark has pointed out, you say in your brief that implied within -- whatever the figures are 300 odd, in your brief some (Voice Overlap) --",
       "time": "00:46:30.62"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Actually filed in your Court of Criminal Appeals?",
       "time": "00:46:52.54"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Federal courts?",
       "time": "00:47:12.71"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And then --",
       "time": "00:47:15.74"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And when you say you are not, do you think the General's Office doesn't have to deal with those, that means the district prosecutors deal with it?",
       "time": "00:47:17.95"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You have a state's attorney?",
       "time": "00:47:28.47"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Court of Criminal Appeals.",
       "time": "00:47:33.10"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "And the state's attorney would handle matter for the State in the Court of Criminal Appeals, wouldn't he (Voice Overlap) --",
       "time": "00:47:42.49"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He's competent to statewide?",
       "time": "00:47:49.08"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you call him state's --",
       "time": "00:47:51.94"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- state's attorney.",
       "time": "00:47:53.09"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now, Mr. --",
       "time": "00:48:02.55"
     }

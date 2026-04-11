@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/78-575/19790423a_78-575.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "MARK L. EVANS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WANDALEEN POYNTER",
-        "role": "advocate"
+        "title": "MS."
       },
       {
         "name": "RICHARD A. ALLEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JOHN H. CALDWELL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "HAROLD E. SPENCER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in 78-575, Southern Railway against Seaboard and the consolidated cases. Mr. Evans, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Am I right in thinking Mr. Evans that under Section 13 complaint, the Commission doesn't simply set as an adjudicator but it has an affirmative duty to investigate it?",
       "time": "00:05:11.92"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, can it just seat back and say you two contestants bring your evidence before we will decide or does it have to participate in the investigation?",
       "time": "00:05:35.34"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the investigation is the same under either 13 or 15?",
       "time": "00:06:15.91"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Evans, can you help me in one perhaps it's an awfully narrow question but under a Section 15 proceeding, if folks see the word investigate. Does the word investigate refer to what the Commission should do before it decides whether or not to suspend or does it refer to the examination made after the suspension?",
       "time": "00:07:47.02"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, doesn't it always follow that if the Commission has decided not to suspend, it is also necessarily decided not to investigate?",
       "time": "00:08:32.97"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then -- then your answer was misleading.",
       "time": "00:08:43.03"
     },
@@ -135,13 +135,13 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Or is it my brother --",
       "time": "00:08:45.45"
     },
     {
       "turn": 16,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's got me confused.",
       "time": "00:08:46.73"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that an investigation may be for the purpose of determining whether or not to suspend?",
       "time": "00:09:11.85"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Alright.",
       "time": "00:09:23.25"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But there must be some ready hallucination leading to a decision of whether or not to investigate?",
       "time": "00:09:33.39"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And then protest come in?",
       "time": "00:09:52.76"
     },
@@ -201,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:09:58.41"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or it has to be some sort of an appraisal.",
       "time": "00:10:23.07"
     },
@@ -225,19 +225,19 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then, you still have me confused about one thing. It's still seems to me that if the investigation under the statute is the post suspension proceeding, necessarily a decision not to suspend would include a decision not to investigate?",
       "time": "00:10:34.92"
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:10:48.45"
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't it?",
       "time": "00:10:49.89"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Without suspending?",
       "time": "00:10:56.75"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "As you might --",
       "time": "00:11:14.10"
     },
@@ -273,13 +273,13 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you may investigate without suspending.",
       "time": "00:11:14.68"
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are two different kinds of investigation in other words?",
       "time": "00:11:14.96"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would that -- the word investigate under the statute can refer two different kinds of investigations. One, a post-suspension investigation and alternatively, an investigation without a --",
       "time": "00:11:18.15"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Since you analogize it to an injunction, is it the same, broadly the same kind of discretion to be exercised by the Board as a court would -- of equity would exercise?",
       "time": "00:11:35.79"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you say that the discretion is broader in part because they have absolutely feel a safe way of protecting everybody?",
       "time": "00:12:18.67"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question. In the, if there is an investigation pursuant to Section 15 not the Section 13, the burden, I take it is on the carriers to demonstrate the lawfulness of the rates.",
       "time": "00:13:26.54"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:13:42.99"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But my other question was, in such a proceeding is, are reparations a possible form of relief?",
       "time": "00:13:47.29"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It still the rate was -- at the end of the proceeding, it was determined that the rate have been unreasonable.",
       "time": "00:13:55.44"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In the Section 15 case.",
       "time": "00:14:01.47"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, I see.",
       "time": "00:14:07.11"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Evans, I assume that your position in the Court of Appeals that is the ICC's provision was different and not taken by the Department of Justice there?",
       "time": "00:17:20.15"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Government just developed its esoteric theory in this Court?",
       "time": "00:17:48.02"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Quite different from its position below?",
       "time": "00:17:52.66"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it from your answer to Justice Rehnquist do you think its esoteric?",
       "time": "00:17:56.30"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's arcane, yes.",
       "time": "00:18:03.53"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "With yourself?",
       "time": "00:18:13.39"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wish you thought of it yourself?",
       "time": "00:18:14.58"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Poynter.",
       "time": "00:19:06.29"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Ms. Poynter. Mr. Allen.",
       "time": "00:24:49.67"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do we need to decide that in this case? Is it inevitable that we must decided it?",
       "time": "00:26:07.33"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In this case?",
       "time": "00:26:17.04"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You don't think that Arrow and SCRAP then are the cases that control this particular aspect of the case?",
       "time": "00:29:17.19"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Congress just hadn't intended them to be?",
       "time": "00:29:48.63"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, wouldn't it follow if Congress had not intended review of the suspension power? It would likewise had not have intended review of the authority to investigate preliminary to a suspension?",
       "time": "00:30:09.37"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I suppose there is something in nature of at least to analogous to probable cause and the -- that enters into their thinking at that stage?",
       "time": "00:31:06.42"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have to equate action and non-action to sustain your position, don't you?",
       "time": "00:35:44.81"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Allen, is there a time within which a Section 13 (1) proceeding must be commenced?",
       "time": "00:36:18.92"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your under analysis, a decision not to investigate never become final unless such a proceeding was some time of two or three years, some time rather commits because there will always be a potentiality that such a proceeding can be commenced and terminated then that would have the effect of making final. The earlier decision by the Commission not to investigate, that's your theory, is it?",
       "time": "00:36:25.32"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose that's about equally probable as you say there's really little practical difference between your position and --",
       "time": "00:37:16.73"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is it that they voilated the dispose of this case assuming either you are the ICC is correct. Is it the long the line suggested by the Chief Justice to say that even assuming that the matter is not entirely committed to the discretion of the Commission. Nevertheless the order is plainly not final. We don't have to reach the question.",
       "time": "00:37:44.36"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So it is necessary to decide. It really is not necessary to decide the difficult question you argue?",
       "time": "00:38:02.24"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You just have to put you foot in the door for future's development.",
       "time": "00:38:18.26"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or even if your foot isn't in the door, you'd like to have the door left open.",
       "time": "00:38:30.02"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Caldwell.",
       "time": "00:39:14.99"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is this something that this loud point that you just made not the one that it's just about me, something that will be apparent on the face of the proceedings?",
       "time": "00:40:44.25"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that allegation one capable of being resolved simply on the face of your protest without some sort of investigation?",
       "time": "00:41:10.48"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, okay, you use the word substantial examples that the tariffs on their face were invalid, is it your position that the ICC could simply by having looked at the tariffs and looked at the Section of the statute you rely on concluded without any further factual investigation, the tariffs were invalid?",
       "time": "00:42:00.14"
     },
@@ -723,19 +723,19 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How many --",
       "time": "00:43:09.66"
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Pardon, go ahead.",
       "time": "00:43:10.98"
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How many pages did the tariffs consist of?",
       "time": "00:43:12.76"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You mean the pleadings were half the size of the yellow pages of the Washington?",
       "time": "00:43:39.41"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They're supposed to do that in four days?",
       "time": "00:43:50.97"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Caldwell, do I understand the Commission still doesn't agree with you on that?",
       "time": "00:44:18.12"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do they or not?",
       "time": "00:44:23.17"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they have -- they haven't --",
       "time": "00:44:25.93"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They agreed with you even after all this time. After bidding everything you ever said about, they still haven't agreed with you?",
       "time": "00:44:28.22"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Caldwell, if all that's clear, could you not file a 13 (1) proceeding and you get prompt relief?",
       "time": "00:44:44.62"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There's no --",
       "time": "00:45:03.70"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say that it's perfectly obvious there's a violation but you're saying because the Commission exercises discretion not to suspend and not to investigate even though the patent violation were disclosed of the Commission, as a matter of pride, they wouldn't rule that way? Why wouldn't they rule that way if you could see?",
       "time": "00:45:27.50"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the United States and the Commission of represented to us that the issue you want raise would be open in the Section 13 proceeding. You're telling us they are misrepresenting the law.",
       "time": "00:46:21.94"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if this is your objection, the United States position would take care of you?",
       "time": "00:46:41.11"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because they would go back and say that they should have investigated.",
       "time": "00:46:49.01"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They would say that the decision did not -- to investigate was wrong and they'll put you back in a position that as if the Commission had been investigating. If the Commission has investigated here and found the rates, shouldn't be filed but haven't suspended them, there would be a refund",
       "time": "00:47:03.39"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly.",
       "time": "00:47:24.06"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you say this Court serve court intervention is permissible only when a violation of 4 (1) is claimed?",
       "time": "00:49:55.64"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, and you can alleged that anytime?",
       "time": "00:50:14.83"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or it has the power to intervene if it thinks --",
       "time": "00:50:21.63"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, valid, substantial, you know --",
       "time": "00:50:25.51"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But why?",
       "time": "00:50:48.84"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Caldwell, let me ask this, what if the Commission thought the allegation were simply frivolous? It said nothing about them?",
       "time": "00:50:50.61"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what if it said nothing but they thought they were frivolous.",
       "time": "00:50:57.32"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what if --",
       "time": "00:51:07.99"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what is its standard under your view?",
       "time": "00:51:24.94"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know but would you say the Commission, when these allegations are made, should it say --",
       "time": "00:51:31.62"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what if they say well, it's about evenly balance so they're arguable?",
       "time": "00:51:47.15"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, I know but (Voice Overlap) sometimes things are not that clear about what the statute means.",
       "time": "00:51:55.30"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And sometimes, the Commission and other agencies have changed their mind and have been upheld on both occasions.",
       "time": "00:52:01.43"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about reparations? Don't the reparations take care of curing the unwanted condition?",
       "time": "00:52:26.53"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Excuse me. You described from patent violations on the long haul short haul relationship rates and your opponent, the ICC points out this tariff are quite large and may contain thousands of changes in rates. Roughly, how many changes are there in this tariff and how many violations do you think they're patent, is it like 1% of it or 50% of it?",
       "time": "00:53:14.37"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Out of how many?",
       "time": "00:53:41.74"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thousands?",
       "time": "00:53:46.62"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Hundreds of thousands?",
       "time": "00:53:47.91"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How many did you identify in your pleadings?",
       "time": "00:53:53.96"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You identified five specific examples out of several thousands.",
       "time": "00:54:04.67"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that you say that anytime you alleged a statute, so-called statutory violation whether it's four or some other statutory violation that the Commission must adjudicated in its suspension proceeding.",
       "time": "00:54:32.62"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You must investigate and then adjudicate it.",
       "time": "00:54:51.58"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll resume at 1 o'clock. You may continue Mr. Caldwell.",
       "time": "00:55:00.82"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "However, have rulings on legal points?",
       "time": "00:55:43.58"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Any allegation that would have that effect, you say the ICC would have to rule on?",
       "time": "00:56:05.98"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:56:15.33"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, are you saying that they could not -- are you saying they just have to investigate or they could not – that they could not refuse to suspend?",
       "time": "00:56:27.42"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you're saying --",
       "time": "00:56:40.61"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Their refusal to suspend then is reviewable for the same reason as well as --",
       "time": "00:56:48.62"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I --",
       "time": "00:56:53.87"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if you were wrong on your argument with respect to the refusal to suspend? What if the Commission could refuse to suspend despite your allegation of the Section 4 violation? Would you say that Commission nevertheless erred in refusing to investigate?",
       "time": "00:57:06.74"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't judicial review of refusal to suspend covered by Arrow and SCRAP?",
       "time": "00:57:43.98"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:58:13.07"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now that would lead them against Congress in the way --",
       "time": "00:58:41.36"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now.",
       "time": "01:00:47.74"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Spencer.",
       "time": "01:01:01.64"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't the question, is when that access is granted?",
       "time": "01:03:56.86"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Counsel, it's that clear, I think? But why would you not promptly start a Section 13 complaint proceeding?",
       "time": "01:06:27.59"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you contend they should decide the question of law just on the pleadings?",
       "time": "01:09:57.17"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No evidence?",
       "time": "01:10:00.68"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just on the basis of the tariff itself?",
       "time": "01:10:02.31"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. You have about seven minutes remaining.",
       "time": "01:10:15.42"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And suppose the allegations have been they said there are hundreds and they are as follows and they listed 500 of them and they were as clear as the bells. What about the -- which should the Commission do then could they refuse to suspend and refuse to investigate?",
       "time": "01:12:28.25"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the United States and Commission's position the same in the Trans Alaska case?",
       "time": "01:12:55.86"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you remember the footnote?",
       "time": "01:13:01.43"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You gain and the Trans Alaska case?",
       "time": "01:13:02.97"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that still your position?",
       "time": "01:13:05.75"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If they say -- this footnote says in this Court the United States is modified that position and now apparently concedes that courts have jurisdiction in view of the suspension orders to the limit and extent necessary to ensure that such orders do not overstep the Commission's authority.",
       "time": "01:13:07.82"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you say it's different if you say it's alleged that you have no authority to refuse to suspend?",
       "time": "01:13:28.91"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "These allegations say they have absolutely no authority to suspend in the circuit --- to refuse to suspend in these circumstances?",
       "time": "01:13:40.48"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the allegation?",
       "time": "01:13:46.95"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is this -- you say you've been absolutely consistent and are you remaining consistent?",
       "time": "01:13:58.61"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you said that it didn't make any difference what you said how illegal it was alleged the rates were claimed to be under Section 4, the Commission could refuse to suspend them.",
       "time": "01:14:08.32"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Without having any -- without their being reviewability?",
       "time": "01:14:21.27"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, --",
       "time": "01:14:37.86"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think if they refuse to suspend it's reviewable or not?",
       "time": "01:14:40.11"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then -- then reviewable?",
       "time": "01:14:45.33"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but it's alleged here that the Commission has absolutely no discretion to refuse to suspend in this case when it so clearly claimed that there's a violation of Section 4 on the face of the tariffs. That's the allegation.",
       "time": "01:15:02.98"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you don't think that is within the reviewability concession in TAPS?",
       "time": "01:15:17.72"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I would think you would make the same argument between investigation and suspension.",
       "time": "01:15:37.90"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take your argument to be -- to have an emphasis on the limited order of the Eighth Circuit related only to investigation.",
       "time": "01:15:57.02"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Evans, do you understand the Court of Appeals to have ordered a complete investigation of the entire tariff or just to the five instances that they say were finally unlawful?",
       "time": "01:17:08.92"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do you take the position of these five examples are or are not unlawful.",
       "time": "01:17:40.75"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So your submission then that even if they are patently violative of Section 4, the Commission they reach is suspended?",
       "time": "01:17:51.92"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but they never -- there's not a murmur as to whether they think they are patently unlawful or not?",
       "time": "01:18:12.66"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think they are patently unlawful? I just thought (Voice Overlap) --",
       "time": "01:18:19.88"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you just answered my Brother Stevens that the Commission has not passed on it?",
       "time": "01:18:25.84"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not patently?",
       "time": "01:18:34.56"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose the Commission thought they were patent, could they still refuse to suspend?",
       "time": "01:18:39.69"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, that's what --",
       "time": "01:18:44.05"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, the language itself says “may” doesn't it?",
       "time": "01:18:45.57"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "01:18:50.25"
     }

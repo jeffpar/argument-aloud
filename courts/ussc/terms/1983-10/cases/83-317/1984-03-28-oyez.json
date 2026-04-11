@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-317/19840328a_83-317.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "FREDERICK R. BENNETT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALVIN J. BRONSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Block against Rutherford. Mr. Bennett, I think you may proceed when you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Just this one jail, that's over 4,000 square miles?",
       "time": "00:01:57.21"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Oh, I'm sorry.",
       "time": "00:02:05.94"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Bennett, when you say they're involved in appellate process, you mean perhaps a motion to suppress that's appealed prior to trial, that sort of thing?",
       "time": "00:03:40.32"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they're not members of the class, are they? Isn't the class just pretrial detainees?",
       "time": "00:04:29.72"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought the Court of Appeals' opinion referred only to pretrial detainees, that the order only referred to them.",
       "time": "00:04:48.97"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, the legal issues would be quite different if they were sentenced people, would they not?",
       "time": "00:05:07.60"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there still are within the technically certified class a small minority who are not pretrial detainees?",
       "time": "00:05:14.67"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there a claim here, Mr. Bennett, that those objectives could have been accomplished by less intrusive, less restrictive measures? That is, using a wire screen that would prevent the passing of weapons or narcotics, but eliminating the telephone? Is there a claim?",
       "time": "00:08:36.56"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "This included children as well as adults?",
       "time": "00:09:32.15"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I take it that your New York counterpart disagrees with some of the things you've just said?",
       "time": "00:09:36.28"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Excuse me, before you go on. Do you have any record or any statistics on the drug problem within the facility? To what extent has there been a drug problem?",
       "time": "00:10:44.26"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bennett, before you get into that. You started to tell us about the three classes of inmates and I was curious to know... as I understand the district court's order, it only applies to those who have been in the facility for over 30 days, and also it excludes the drug people who can be identified as associated with drug traffic, I guess. How many people does the order apply to, in your judgment?",
       "time": "00:12:14.74"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it put a ceiling of 1500. It didn't require you to have 1500 visits, as I read the order. It says no more than 1500.",
       "time": "00:12:39.52"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And out of those, how many would be... how many could you segregate out as having association with drug traffic or being particularly violent?",
       "time": "00:12:52.66"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't have any classification system at all?",
       "time": "00:13:07.95"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but for example, if someone's arrested on a drug charge presumably the jailer would know that and just make him ineligible for this visit. That wouldn't be very difficult, would it?",
       "time": "00:13:32.40"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What I'm trying to find out... and I don't know if the record will tell us... is how many people would get the benefit of this order if the Ninth Circuit were affirmed, in your judgment? If you assume you can identify people who were arrested for murder and people who were arrested on drug charges--",
       "time": "00:14:00.07"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I'm not asking you what the court expected you to find. It put a 1500 person ceiling, I understand that. How many people do you think the order will benefit?",
       "time": "00:14:21.67"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have no idea?",
       "time": "00:14:30.52"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why would he do that? The court didn't require him to find a lot of people. The court put a ceiling on. Is he going to go out looking for people unnecessarily, to make it as hard a case as possible?",
       "time": "00:14:46.20"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what if you told him that you thought he shouldn't do any more than absolutely necessary? How many people would then be involved, in your judgment?",
       "time": "00:15:06.70"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't have any idea?",
       "time": "00:15:13.57"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The inmates and the guards.",
       "time": "00:17:01.82"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The guards don't like it either.",
       "time": "00:17:03.59"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, before you leave the contact visit issue, may I ask you. As I understand it, if we're talking about pretrial detainees the issue is whether it can be punishment under Bell against Wolfish. In your view, could it ever be punishment, no matter how long the incarceration, to deny a person who has not yet been tried any contact whatsoever with his family? Could that ever constitute punishment?",
       "time": "00:18:30.48"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it does if it's punishment.",
       "time": "00:18:56.42"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your answer is it could never become punishment as long as other alternatives that are less desirable to the inmate are provided?",
       "time": "00:19:07.47"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think you would.",
       "time": "00:19:15.90"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Bronstein.",
       "time": "00:21:02.14"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Bronstein, can you answer the question that was earlier asked Mr. Bennett as to approximately how many people are included within the class certified?",
       "time": "00:22:01.46"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bronstein, I have a recollection, but I haven't been able to check it out, of a case that came to us from the Second Circuit that involved a contact visit with the mother bringing a small child in, and in New York they had, or at least in the Second Circuit, there had been a screen barrier that was preventing the transfer of drugs or weapons or anything else. Do you recall that case?",
       "time": "00:22:27.94"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Perhaps I'm confusing one--",
       "time": "00:22:59.57"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, what is the precise definition of the class certified, do you know, Mr. Bronstein?",
       "time": "00:25:26.88"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And is that the one there's the 1500 cap?",
       "time": "00:25:51.49"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that doesn't apply to the convicted ones who are also detainees?",
       "time": "00:25:55.13"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, aren't there some of those that are convicted? Aren't some pretrial detainees convicted felons?",
       "time": "00:26:05.34"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes. Aren't there many of them?",
       "time": "00:26:16.69"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does it apply to them?",
       "time": "00:26:19.98"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the class is certified not just to include Mr. Rutherford, who you say was there for 39 months, but to include anyone who is there for more than 30 days. So that we have to analyze it in terms of someone who has been there 35 days as well as someone who's been there 39 months.",
       "time": "00:28:09.88"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it that you do not suggest that there's no risk of having drugs or weapons come into prisons, Mr. Bronstein?",
       "time": "00:30:31.56"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Some risk?",
       "time": "00:30:46.65"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You think it's just some risk, or that it is an enormous risk?",
       "time": "00:30:48.35"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I'm speaking of generally. Lay aside the findings of the district judge for a minute.",
       "time": "00:30:52.95"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you knew Ryker's Island, you'd find you can learn a whole lot in one day.",
       "time": "00:33:24.27"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there any... I know there's no evidence as to how much of drugs came in during that period.",
       "time": "00:33:53.45"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is--",
       "time": "00:34:01.86"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Well, the incident would be a person being caught.",
       "time": "00:34:07.01"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there is no record of those who were not caught.",
       "time": "00:34:10.91"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The trial judge didn't make new findings after the remand, did he?",
       "time": "00:35:23.96"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He just relied on his--",
       "time": "00:35:30.80"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Court of Appeals?",
       "time": "00:35:32.99"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And he could have held it? He could have made new findings.",
       "time": "00:35:38.29"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that speaking only of pretrial detainees?",
       "time": "00:36:19.68"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think, Mr. Bronstein, that there is a difference between the classification of prisoners in the federal system and in what we're dealing with here? What kind of crimes bring people, 25, 30,000 people, into federal prisons as compared with--",
       "time": "00:36:50.32"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--A great many so-called white collar crimes?",
       "time": "00:37:25.74"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Bronstein, the Court of Appeals in remanding to the district court said... this was in giving the district court some guidance: \"A condition is punitive if there is a showing of express intent to punish. \" \"Otherwise, if a particular condition is reasonably related to a legitimate, non-punitive objective, it does not, without more, amount to punishment. \"",
       "time": "00:38:25.80"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well now, my question to you is, do you think that invites a balancing process?",
       "time": "00:38:56.80"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it invites an inquiry as to whether a particular restriction is reasonably related to a non-punitive goal?",
       "time": "00:39:07.41"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well--",
       "time": "00:39:33.01"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The district court said: \"Thus, it seems to me, regardless of how it's phrased, the test still remains what is reasonable under the circumstances. \" And you think that's... you think that Wolfish directs a district judge just to answer, just to decide what he thinks is reasonable?",
       "time": "00:39:36.64"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what he said.",
       "time": "00:39:59.46"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it your suggestion that a district court's conclusion as to whether or not a condition is reasonably related to a legitimate non-punitive objective is a finding of fact?",
       "time": "00:40:53.71"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or his result of a balance is a finding of fact?",
       "time": "00:41:11.01"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You've referred to several times, Mr. Bronstein, to overreaction or... I've forgot the precise phrase, that there is an overreaction to--",
       "time": "00:42:02.19"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Exaggerated response to the problem. Suppose here, instead of a glass partition and malfunctioning telephone that you mentioned, they put up this fine screen which is used in many institutions, where you see the person, you have a conversation normally, but you can't pass any articles to them. Would you say that that was permissible?",
       "time": "00:42:13.91"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that really anything but a rather sophistic distinction?",
       "time": "00:46:29.03"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, do you think a district court could properly say that, after this court has analyzed a particular claim under the Fourth Amendment, to reach a wholly different result, just saying, well, I'm going to use a little different constitutional provision?",
       "time": "00:46:36.55"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how does that bear on our opinion in Wolfish?",
       "time": "00:47:15.81"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Bennett?",
       "time": "00:48:48.03"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:54:00.42"
     }

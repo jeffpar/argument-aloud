@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/66/19611212a_66.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MORRIS J. LEVY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "ALLAN F. CONWILL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 66, Isadore Blau, etc., Petitioner, versus Robert Lehman et al. Mr. Levy.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Levy.",
       "time": "00:06:27.48"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This legislation did not apply to insiders such as directors, officers, and majority stockholders, did it? It applied specifically and expressly and exclusively to directors, officers, and stockholders who held 10% or more of the equities -- securities, isn't that correct?",
       "time": "00:06:29.17"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So it didn't say insider such as these people?",
       "time": "00:07:07.56"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's -- I just -- you told us that's the--",
       "time": "00:07:10.05"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As defined?",
       "time": "00:07:23.71"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Does it appear that they dropped it because of administrative difficulties or because they didn't approve it?",
       "time": "00:08:06.13"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Is it?",
       "time": "00:08:14.69"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Where does that appear?",
       "time": "00:08:15.37"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well then, under the statute, a director must disgorge, even though he were completely (Inaudible), is that right?",
       "time": "00:08:59.80"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But, also under the statute, a stockholder who owns only 9% of the stock is not affected by the statute at all.",
       "time": "00:09:09.63"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No matter how much inside knowledge he used?",
       "time": "00:09:16.34"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Was the Commission regulation enforced when this transaction took place?",
       "time": "00:15:20.41"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "That regulation, as I understand it, merely required the partner director to report to the Commission his share in this transaction. Is that right?",
       "time": "00:15:27.85"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "The problem -- this is the problem. That's the prior rule --",
       "time": "00:15:45.72"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- exactly?",
       "time": "00:15:49.65"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The one that was enforced when this transaction took place is the one that you printed on page 53 of your brief?",
       "time": "00:15:51.79"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Was that one on page 53 later recalled?",
       "time": "00:16:04.29"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Did you say appointed? Is that the way it's done?",
       "time": "00:18:41.54"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Oh, I see.",
       "time": "00:18:47.29"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I don't understand that. You say that they got some extra volume from their partnerships as the substitute for what would have been their interest in the short-swing profit?",
       "time": "00:24:39.52"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "From the point that he made it up, is that your point? Suppose there hadn't been any made up, just in this Tide Water transaction, and Mr. Thomas forewent his share in the partnership -- in the distributed shares of the partnership. He said, “In lieu of my relation to Tide Water, I'm not going to take a penny of profit out of that which has come to the firm out of Tide Water's dealing.” Therefore, there'd be more in the pool left to be distributed among those partners who are in Tide Water oil case. Is that right?",
       "time": "00:25:36.49"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:26:08.81"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't follow that. I had in my mind the recent experience of one of the most pristine investment office in England, one of the partners of which was a member of the governors of the Bank of England. He was under obligations to make no revelation to -- to his other partners. In this country, was that against the law?",
       "time": "00:27:06.91"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know. I'm asking you.",
       "time": "00:27:34.57"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In the situation I put to you, in that troublesome case in England, it couldn't happen here.",
       "time": "00:27:46.12"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that a specific provision in the New York Partnership Law?",
       "time": "00:27:55.24"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you mind reading it?",
       "time": "00:27:58.90"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That means the director of a company who is a partner in a firm must tell all his fellow directors, his fellow partners, business of the firm of which he is a director. Is that what you --",
       "time": "00:29:04.04"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- saying?",
       "time": "00:29:14.27"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Although he's under -- the statutory duty is not to make that disclosure, not to give off confidential information in his director's role, is that it?",
       "time": "00:29:22.05"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I think that makes some differences. There's a statutory duty of one partner to tell all the inside information--",
       "time": "00:29:55.92"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- of the corporation of which he's a director. That may have a bearing on this case.",
       "time": "00:30:02.94"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that's already on demand. That's already a qualification.",
       "time": "00:30:17.83"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't have to interpret that New York statute in this case in its fullness.",
       "time": "00:30:31.28"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Levy, can you tell without arguing it, just unequivocally, can you tell whether New York has the entity theory of a partnership?",
       "time": "00:33:36.42"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. Is the New York law based on an entity conception of a partnership?",
       "time": "00:33:47.92"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I just want to know, is it capable of being to say yer or no?",
       "time": "00:33:56.57"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may do that.",
       "time": "00:34:21.68"
     },
@@ -515,43 +515,43 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Seymour.",
       "time": "00:34:23.96"
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Do I precede the Government on this, Your Honor? The Government is here as amicus curiae.",
       "time": "00:34:26.55"
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, whichever order -- whichever order you have --",
       "time": "00:34:30.02"
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I rather assume the --",
       "time": "00:34:32.63"
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- agreed before.",
       "time": "00:34:33.20"
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "-- Government would go next.",
       "time": "00:34:33.51"
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. Conwill, will you proceed first, yes?",
       "time": "00:34:35.11"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What 16 (b) have -- or the Exchange Act have to say about disclosure or nondisclosure, nothing, does it?",
       "time": "00:35:45.54"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Liability on whose part?",
       "time": "00:37:12.21"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What if, instead of telling Lehman Brothers -- what if instead of Lehman Brothers, his partners purchased and sold these securities, what if his brother had, who was not his partner? And let's assume, if you think it's relevant at all, that he had given his brother a lot of inside information.",
       "time": "00:37:26.78"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The statute makes that entirely irrelevant, doesn't it?",
       "time": "00:37:52.14"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I suppose more people have brothers --",
       "time": "00:38:14.32"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- than have partners, don't they?",
       "time": "00:38:15.79"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose there are more people with brothers than there are people with partners, aren't there?",
       "time": "00:38:18.07"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, probably, the danger is greater telling your brother than it is of telling your partner. It would happen more often.",
       "time": "00:38:23.16"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, instead of a brother, let's take a wife. What if he told his wife?",
       "time": "00:38:40.28"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And his wife had made -- had bought -- had been in a position to buy $50 million-worth of securities and turn a short-swing profit of $100,000.",
       "time": "00:38:47.68"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What I was really getting at, Mr. Conwill, was only this. You stated these four conceded uncontested facts and acted as though that was kind of a QED under this statute and I just was wondering if it was a QED.",
       "time": "00:39:20.81"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, is that particular case has got quite a different issue.",
       "time": "00:40:07.64"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it can't -- they can't be quite as loose that you've just put it because the danger in the hypothesis given by Justice Stewart, if it's merely a question of danger, then you could be with the brother and the wife situation.",
       "time": "00:40:15.67"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you look at the specific -- if that's the test.",
       "time": "00:40:31.53"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And what do you --",
       "time": "00:40:41.88"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What did you have before?",
       "time": "00:40:43.72"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, we do have to go back and consider -- if I refer -- if I'm tied with the implication of the remark you just made -- do we have to go back to conceptions of the partnership's relation and to see the general condition of a partnership?",
       "time": "00:41:04.51"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Partnership under the Act is a -- is it a person? I forget the definition.",
       "time": "00:41:24.55"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "10% beneficial owner?",
       "time": "00:41:53.63"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where is the word “person” in 16 (b)?",
       "time": "00:42:24.69"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But, how does that definition help you?",
       "time": "00:42:30.03"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then is the partnership a director?",
       "time": "00:42:57.02"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean that Lehman Brothers was a partnership of this concern, of this corporation?",
       "time": "00:43:02.03"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that vital to your case?",
       "time": "00:43:10.41"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't want to make a fine point of it, but you have to say it is a part -- that it is a director, not equal to, but a director.",
       "time": "00:43:31.46"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "May I ask you please, did I correctly understand you to say, in answer to Mr. Justice Frankfurter, that you consider it vital to your case that we consider director to include partnership as the form of word is used in 16 (b)?",
       "time": "00:43:51.28"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well, suppose that a partner actually, beneficially interested, had such equity securities taking the names of other people. It'd still be his transaction (Inaudible)?",
       "time": "00:44:20.08"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:44:39.70"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Alright. Now, suppose he had a piece of it and somebody else had a balance, would it be different?",
       "time": "00:44:43.65"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And that would all be directors?",
       "time": "00:44:52.26"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I just ask one other question?",
       "time": "00:45:33.64"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does that lead us thus far? Suppose Mr. Thomas had been killed over a period -- over the period when all these transactions occurred. In consequence, he was not able to give any attention either to his duties as director or as partner, yet resigned from neither position, would you be taking any different position for that?",
       "time": "00:45:35.59"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That case was decided about 10 years ago.",
       "time": "00:46:50.48"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Don't you think -- to answer your question, don't you think it's for Congress to say? Rattner has been on the books for 10 years. The SEC makes periodic reports to Congress, tells them all about the Rattner case. Don't you think it's for Congress to say when this is -- when the law is going to be changed?",
       "time": "00:49:16.02"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's correct.",
       "time": "00:49:37.84"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, hasn't -- haven't -- hasn't about 90% or more of this litigation under this statute in the Second Circuit?",
       "time": "00:49:46.52"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "All the precedence I could find were Second Circuit precedence.",
       "time": "00:49:54.84"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This--",
       "time": "00:50:02.41"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not if the evil is of greater (Inaudible) and here it is. That's the whole point of having an adverse decision by a court in which this kind of litigation dissented, reaching such a disastrous result and not asking for remedies, and I think it foregoes this case. All I'm saying is you -- your suggestion that you don't run to Congress every time you have an adverse decision, I commend you for doing that, but not if the evil is as portentous as you tell us.",
       "time": "00:51:10.71"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it developed at the time--",
       "time": "00:52:05.63"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The point is it developed at the time, and presumably it's a safe rule of life that people would go on doing the same thing. That's the general principle which I have been curious to verify.",
       "time": "00:52:07.11"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you, again, are going to rest that it's not your business to run to Congress every time you get an adversed opinion.",
       "time": "00:52:41.35"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Merely, the Second Circuit by the judge's dissent in that case.",
       "time": "00:52:57.43"
     },
@@ -1079,13 +1079,13 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You said is a “partner,” is a “director.”",
       "time": "00:58:46.91"
     },
     {
       "turn": 174,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Meaning “director”?",
       "time": "00:58:48.34"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you had a generalized catch-all phrase or other fiduciary relationship.",
       "time": "01:00:54.11"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That --",
       "time": "01:01:02.52"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have you got any --",
       "time": "01:01:05.17"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- any such catch-all phrase in 16 (b)?",
       "time": "01:01:05.87"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, on any other --",
       "time": "01:01:14.78"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- fiduciary capacity meaning we have to construe what a fiduciary capacity is and that isn't easily fit into (Inaudible), is it?",
       "time": "01:01:15.76"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what comparable phrase is there in 16 (b)?",
       "time": "01:01:37.93"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Except the word “such” that carries you back to 16 (a)?",
       "time": "01:01:46.20"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now, Mr. Conwill.",
       "time": "01:01:50.73"
     },

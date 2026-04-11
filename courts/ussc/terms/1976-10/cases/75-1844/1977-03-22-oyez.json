@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1844/19770322a_75-1844.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUIS GILDEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN P. RUPP",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume arguments in United States against Lovasco. Mr. Gilden.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That you see is the defendant’s burden.",
       "time": "00:01:10.92"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That Mr. Stewart had to do only was sum of the guns not all of them.",
       "time": "00:01:54.31"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, this is my next question, does your position depend on what the governments investigation uncovers in the interim. Suppose they had done something and it either did or did not produce something additional, your position different.",
       "time": "00:02:46.51"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that was totally different in what respect would that had met your case?",
       "time": "00:03:18.05"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What you are saying is if they had proved that much?",
       "time": "00:03:28.34"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I say it proved that much, not withstanding the prejudice that you had proved nevertheless you would lose.",
       "time": "00:03:31.33"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if it is no question of the government, what if there is no suggestion of any deliberate delay to hurt you and no negligence, but simply a desire of the government to keep it under coverage and under covered.",
       "time": "00:03:56.16"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know but let us  assume that we are true.",
       "time": "00:04:14.90"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that would not be a continuous investigation of you or your client, it would simply be that this agent was in place and he might be making other cases.",
       "time": "00:04:21.48"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you think that also.",
       "time": "00:04:35.36"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you would think that as long as your prejudice even in negligence, even in attention just in attention and negligence would -- that you do not even need to show that I think you just show the delay in the prejudice and then the government must explain it.",
       "time": "00:04:42.12"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In other words, any reasonable explanation by the government, let see if I get this. The defendant concedes that it will have the burden of showing both delay and the prejudice and then the government can successfully meet that merely by showing some reasonable explanation of why the delay.",
       "time": "00:05:05.35"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose, any one or all three had been the subject of some government testimony to District Court, could you be here?",
       "time": "00:06:40.02"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are not you really arguing that we are bound; we must read the statute of limitations as Congress had said, the action maybe brought within five years. But, provided that it must be brought sooner, must the government shows that it could not have been brought sooner, isn’t that really what you are arguing on the modification of the statute?",
       "time": "00:07:13.10"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Doesn’t the statute say that they can move within five years?",
       "time": "00:07:47.90"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What they are saying is that Congress gave them five years of inertia in statute of limitation.",
       "time": "00:08:07.93"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what about a civil case, where the government is given a period to bring an action against a private individual by a statute of limitations and you can make the same showing in a civil case, does the Due Process Clause violated there?",
       "time": "00:08:34.97"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if the Due Process Clause talks about deprivation of life, liberty or property, presumably a civil defendant could be deprived of property just as surly as a criminal defendant could be deprived of liberty by unwarranted government delay that was still within the limitations period.",
       "time": "00:08:59.10"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the rundamental constitutional rights you are talking about other than the right to, not be deprived of liberty without due process of law.",
       "time": "00:09:21.45"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If stood, the day after the crime, what would you have?",
       "time": "00:09:41.77"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I still think its here.",
       "time": "00:09:50.67"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think it is still here.",
       "time": "00:09:52.99"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, who determines how much evidence is available for prosecution other than the US Attorney?",
       "time": "00:10:13.53"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Isn’t that he is provocative and nobody else’s?",
       "time": "00:10:25.96"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Weel, if he wants to little bit more, he just wants one more witness.",
       "time": "00:10:31.53"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would that been enough?",
       "time": "00:10:37.86"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, can’t you assume that?",
       "time": "00:10:40.93"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you do not assume that he did it to deliberately, will you?",
       "time": "00:10:44.36"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what good is it to do it, to hold up prosecution deliberately?",
       "time": "00:10:53.51"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I was told at Law School that delay was to the benefit of the defendant because he would always rely on the prosecutor's witness dying.",
       "time": "00:10:59.79"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Weren't you taught that in Law School.",
       "time": "00:11:08.85"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Suppose in this very case, prosecutor had command US Attorney to come in and to testify. Well, we have got a very large calendar in this district; we just do not have enough personnel, enough resources to put everything on as we might want as properly as you might want. We have to select out the most important and our exercise of our discretion, prosecutorial discretion, this case sat on the backgrounder for a while, will that be enough?",
       "time": "00:11:42.93"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You think you would still prevail it. That is the only (Voice Overlap).",
       "time": "00:12:19.79"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But that is a practical matter, is not that true in many districts?",
       "time": "00:12:24.47"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I suppose a speedy trial well, might have a bearing out all…",
       "time": "00:12:37.43"
     },
@@ -479,13 +483,13 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn’t the speedy trial act going through the pressure on the government not to bring its indictments until it is sure that it is all ready to go to trial. Well, certainly because they are going to have all of their evidence, I think that is what they want to do, but I don’t…",
       "time": "00:13:12.00"
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but the Justice Department did not sponsor the speedy trial.",
       "time": "00:13:24.98"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not sure what you mean by that, but I think if you look at the records, you would find that infinitely more cases are continued and postponed at the request of defendants by a ratio of 3-4 to 1; then are now continued and postponed with the request of the prosecution with the all parts.",
       "time": "00:13:52.38"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gilden in the government’s brief, they make a second argument that the decision on that delay should have been made after trial rather than I advance of trial. Did they ask for this help -- did they ask the Court to postpone the decision?",
       "time": "00:14:42.95"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What do you think about their suggestion as a procedure?",
       "time": "00:15:09.96"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Once again Mr. Gilden what good is the statute of limitations. Rather what use is it?",
       "time": "00:16:05.89"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What part of the Constitution or statute tells the prosecuting attorney, that he must file his -- get his indictment within a certain number of months?",
       "time": "00:16:33.58"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are you injured?",
       "time": "00:16:46.40"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are you injured?",
       "time": "00:16:48.12"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Who guarantees you those witnesses?",
       "time": "00:16:52.93"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, you are entitled to show it but I wonder whether you entitle to win?",
       "time": "00:17:14.14"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On the merits how many months do you think are necessary?",
       "time": "00:17:20.37"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Of course you can because you can get a narcotics indictment in about 16 minutes and you can get involved in conspiracy indictment in about two years, right?",
       "time": "00:17:24.91"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, there is no line to draw.",
       "time": "00:17:39.57"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would the gravity of the offense play any part in the calculus you are suggesting, for example, typical state law there is no statute of limitations for murder. Whereas for ordinary theft larceny the statute the maybe three years, four years. Would you say that the government’s time could be longer depending on the seriousness of the offense?",
       "time": "00:17:59.36"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gilden are behind in your criminal calendars in the eastern district?",
       "time": "00:19:09.89"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Have you had many cases like this out there or emotions of this kind have been made.",
       "time": "00:19:18.00"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Both.",
       "time": "00:19:34.00"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Who was the judge on that one do you remember.",
       "time": "00:19:41.84"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Rupp, do you have anything further?",
       "time": "00:20:37.57"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is not it true that he did in this case? Is that true or not?",
       "time": "00:23:11.02"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, isn’t that to answer to my question?",
       "time": "00:23:22.52"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That he did do it.",
       "time": "00:23:27.61"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you say, he never called the prosecutor and says, “Why do not you do some about this case?”",
       "time": "00:23:54.18"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, like the government.",
       "time": "00:24:05.50"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he did do that.",
       "time": "00:24:07.15"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Isn’t that what you wanted him to do?",
       "time": "00:24:09.47"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he certainly could not have told him that I am afraid that Mr. Stewart is going to die.",
       "time": "00:24:25.54"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Rupp before you sit down, your opponent has said that in the lower courts, the government took the position that all of the defendant need to show as prejudice and unreasonable delay. Has he correctly characterized the record?",
       "time": "00:24:39.79"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Rupp I asked to you that argument of part two of your brief, that you just discussed that the -- when a trial judge is met with the motion of this kind by the defendant, that he should differ ruling on until after trial, you mean after verdict or in case of all the evidence, which is unclear to me?",
       "time": "00:25:51.37"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it could come certainly as it could come before trial, but what is your argument?",
       "time": "00:26:16.16"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I understand your reasoning, what is your argument before or after verdict.",
       "time": "00:26:45.75"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though the Jury might acquit it…",
       "time": "00:26:58.24"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And even though if you appeal from the dismissal before verdict and the Court of Appeals besides your own, then you may not be able to prosecute a man because that is double jeopardy.",
       "time": "00:27:02.15"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That would be a double jeopardy problem.",
       "time": "00:27:12.50"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, that has prompted my question.",
       "time": "00:27:19.41"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that is what Marion seems to contemplate.",
       "time": "00:27:28.74"
     },
@@ -917,13 +921,13 @@
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Thank you.",
       "time": "00:27:33.99"
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:27:35.19"
     }

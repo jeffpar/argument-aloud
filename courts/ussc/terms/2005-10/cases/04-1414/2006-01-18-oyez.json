@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/04-1414/20060118a_04-1414.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MARK J. REICHEL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first today in No. 04-1414, United States v. Grubbs. General Dreeben.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I think, Mr. Dreeben, at the end of the day, I agree with you on the particularity argument, but do you take the... does the Government take the position that the... that the... that a valid warrant need not contain an indication of the time within which it may be served, executed?",
       "time": "00:01:41.63"
     },
@@ -71,13 +71,13 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "As far as--",
       "time": "00:02:05.33"
     },
     {
       "turn": 6,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What would prevent the issuance of just a blanket warrant? We have a warrant for this... for this premises to be searched.",
       "time": "00:02:06.65"
     },
@@ -89,7 +89,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose that a warrant like a... like a contract has a... a reasonable life. Don't you think a warrant expires if it does not have a concluding date? You think it goes on forever and ever and ever? Don't you think a warrant just lasts a reasonable time?",
       "time": "00:02:50.36"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Dreeben, I understood you to say a short while ago that if it were executed before the triggering event, it would be invalid because there was no probable cause.",
       "time": "00:03:32.16"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, you don't because then the warrant shouldn't have issued.",
       "time": "00:03:44.36"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even... even if the warrant did not specifically say that it was an anticipatory warrant and that... and that you can only execute it after the delivery?",
       "time": "00:04:20.66"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I thought that's supposed to be a... a magistrate's determination.",
       "time": "00:04:41.19"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If they become aware, but the... it's a big leap from that to say that they must make their own determination of probable cause.",
       "time": "00:05:28.55"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You... you indicated a warrant can't be served unless they determine there's probable cause, but that's for the magistrate to do, as Justice Scalia--",
       "time": "00:05:41.70"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, does that mean that the executing officer must be the same officer who got the warrant?",
       "time": "00:06:36.98"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't know why he's going to give a warrant to his... some just call in a police officer and say I want you to execute this warrant. He doesn't know anything about the probable cause. He just says he's mandated to carry out the warrant.",
       "time": "00:06:43.08"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, there's no... there's no authority for that. I... I thought warrants were issued to police officers all the time without knowing the... the precise reason. It's to search the house to try to find X, and the warrant speaks for itself. A judge has made that determination.",
       "time": "00:07:04.02"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, if you want us to write the opinion with this qualification in it, it seems to me that you're making a big change in the way search warrants are used.",
       "time": "00:07:20.39"
     },
@@ -221,13 +221,13 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But... but, Mr. Dreeben, there's an ongoing obligation of reasonableness in the manner of which the... in... in the manner in which the search is carried out. But unless every officer who... who acts under the authority of the warrant is aware of the probable cause evidence and can make a judgment when that evidence either is stale or, in this case, has not yet ripened, then in fact there is no way for an officer to make that kind of what you're calling the reasonableness judgment in the execution of the warrant. He simply doesn't have the factual background for it, and that's where the timing... we'll call it... the timing clause comes in because at least an officer who may not know the probable cause behind it all... at least an officer who has a warrant that says, you may search between times X and Y, or a warrant that says, upon the occurrence of event X and time Y, has a... a rough and sound idea of when he can act. But if that's not in the warrant, the officer cannot make that judgment. He doesn't know the probable cause necessarily and he doesn't know the time.",
       "time": "00:07:39.55"
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The affidavit... wasn't the affidavit available to the executing officer?",
       "time": "00:08:56.00"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It... it was... I take it it was, in fact, not attached but it was somewhere on the premises.",
       "time": "00:09:39.66"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So an officer who picked up the warrant would not be able to tell necessarily. If he said, hey, has somebody got the affidavit, they could have brought it forward and he could have found out. But if... if somebody didn't know where the affidavit was, he wouldn't have any way of knowing.",
       "time": "00:09:47.61"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but the facts of the triggering event are not always going to be so clean, and in many cases they're going to require an exercise of judgment by the officer. I mean, if the triggering event is a, you know, delivery of a bale of marijuana or something and they see a big box coming in, they're going to have say, well, is that what they're talking about or is... you know, is that it. And the point is under the Fourth Amendment that those types of judgments are supposed to be made by the magistrate and not by the officers on the scene.",
       "time": "00:10:35.22"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but doesn't that simply... isn't the analogy there that when a... when a search warrant says you may... you may pick up implements of drug traffic, all it covers is drug traffic. It doesn't cover coffee, tea, and... and milk. In... in the case of the electronic surveillance, they're supposed to record criminal conversations and... but not others.",
       "time": "00:12:05.95"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But those... those are judgments about facts that they are finding. They are not judgments about probable cause or the moment at which the warrant becomes valid.",
       "time": "00:12:34.16"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it is. The... the moment... the triggering event is the event that determines that the probable cause determination is, in fact, true now.",
       "time": "00:12:46.41"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And his judgment, though, is there will be probable cause when the triggering event occurs.",
       "time": "00:13:04.14"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And so the triggering--",
       "time": "00:13:09.76"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--the triggering event has a probable cause implication, which the selection of objects to be seized does not have.",
       "time": "00:13:11.29"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, he's saying two things. There is probable cause to believe that what we're calling the triggering event will occur, and there is probable... and when that triggering event occurs, there will be probable cause to believe that evidence of a crime may be found and seized at such and such a place. There are two determinations.",
       "time": "00:13:36.18"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of course, that's not what the... what the warrant says. The warrant says I'm satisfied that the person or the property so described is now concealed on the premises.",
       "time": "00:14:14.00"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The affidavit itself says there is now concealed a certain person or property. He checked the wrong the box--",
       "time": "00:15:01.93"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--If you read the whole affidavit, you know it doesn't mean what it says there.",
       "time": "00:15:08.96"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you this question? With a warrant to conduct a wiretap, does the warrant just merely specify the telephone number and the time at which the... the officer may listen, or does it have anything to do with what... what... the content of the... of the conversation?",
       "time": "00:15:22.09"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but I mean in describing the authority of the investigating officer to execute the warrant, does it describe it just in terms of a physical number that can be listened, or one or more numbers, plus a time period, or does... does it say you may listen only when he's talking about foreign affairs or--",
       "time": "00:15:58.73"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--It's a minimization as to what they will transcribe, isn't it?",
       "time": "00:16:23.18"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dreeben, could... could I ask you if the Government would... would defend a... an anticipatory warrant in these circumstances? The postal inspectors know that the unlawful video has been put in the mail and they know that it... it is going to one of 17 individuals. They're not sure which one of the 17. So they go and get a warrant that says, you know... and... and it will be obvious in my hypothesis that the delivery of the video has occurred. So can they get a warrant that says you can go in... it lists all of these 17 people. And it says you can go into their premises as soon as you see delivery of the video. Would... would you support that kind of an anticipatory warrant?",
       "time": "00:17:03.11"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then... then... well, I'm sorry to hear you say that because then you are really not saying that there has to be probable cause.",
       "time": "00:18:05.45"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because at the outset there's no probable cause to believe that any one of those 17... unless you think one seventeenth is enough for probable cause.",
       "time": "00:18:11.98"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:18:22.39"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but I'm not talking about a particular location. I'm talking about we know it's going to be one of 17... or make it 50, if you like. We don't know which of those.",
       "time": "00:18:35.91"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We want a warrant that will let us go in immediately when we see it delivered. Would you support that warrant?",
       "time": "00:18:43.18"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. It's in somebody's home. It's into a home.",
       "time": "00:18:53.94"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, but there's no... there's no probable cause until the triggering event. When... when the triggering event takes place, you've eliminated the 16 others and you do know that it's... it's... there's probable cause. How is that different from this case?",
       "time": "00:19:03.38"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's not true. Maybe the... maybe the person decides he won't accept it.",
       "time": "00:19:31.90"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So there are a lot more things than just the delivery. It's not entirely controlled by you.",
       "time": "00:19:40.01"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what... what... take this variable. The... the warrant can be executed when the item is taken into the house, if I remember what it said. Suppose the defendant is sitting on a porch, sees the postal carrier, gets up, takes the package, and proceeds to walk down the street, and never enters the house. Could the warrant be executed?",
       "time": "00:20:00.90"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but you don't want us to decide the case on that ground. I mean--",
       "time": "00:21:34.94"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Could you elaborate just a little bit for me on why you think this case is different from Justice Scalia's hypothetical with the 17 people? Because my concern is there... here you say once the triggering event takes place, then you do... the probable cause comes to fruition or whatever. How is that different than his hypothetical?",
       "time": "00:21:55.41"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It is probable that this package will be delivered to this individual. That probability exists at the time that the warrant is... is issued.",
       "time": "00:22:56.21"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's the probable cause you're relying on.",
       "time": "00:23:07.28"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is probable that this package will be delivered to this individual.",
       "time": "00:23:09.96"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that probability does not support the truth of the statement that the person or property so described is now concealed at the place for the issuance of the warrant.",
       "time": "00:23:14.63"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, if the... if the stuff was already there that supports the warrant and the search, we don't even reach the question of a... of the anticipatory warrant.",
       "time": "00:23:50.96"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I should say I... I've approached the case on the assumption that the only thing we're worried about is whether... whether the anticipatory part is okay.",
       "time": "00:23:59.20"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it doesn't seem to me to be a fair response to say, well, we had other grounds for--",
       "time": "00:24:06.82"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But... but you would defend the warrant even if the only thing they were looking for was the stuff delivered at the... at the time.",
       "time": "00:24:36.35"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And as to that aspect of it, the warrant is incorrect.",
       "time": "00:24:43.47"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The warrant itself.",
       "time": "00:24:47.73"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it's not really a box. I am satisfied, et cetera, the property so described is now concealed on the premises.",
       "time": "00:24:51.87"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben. Mr. Reichel.",
       "time": "00:27:10.32"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Reichel, it... it seems to me it's part of your case that the probable cause must be in existence at the moment the warrant is issued and that the magistrate cannot take into account the passage of time. Are you-- Suppose that... that policemen apply for a... a warrant in Manhattan which is to be served in Brooklyn, and it's going to... it's going to take half an hour to get there. Everybody knows it's going to take half an hour. And the probable cause that they come up with is they know that this mob leader is going to be in this apartment between 6:30 and 6:45. Okay? And they present the warrant to the magistrate at... at 6 o'clock. It will take half an hour to get to Brooklyn. The magistrate knows that when it's served, the mob leader will be in this apartment. Can that... can that warrant issue?",
       "time": "00:28:08.20"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, and... and likewise, it... it would work the other way. If the magistrate had the same facts, the... the mob leader is going to be there between 6:30 and 6:45, and the warrant is presented to him at 6:30, he would have to decline it because he knows by the time it's served, it's... it's going to be gone. Right?",
       "time": "00:29:23.38"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the magistrate is always looking to the condition when... when the warrant is executed, and that's all that's happening here. There is probable cause to believe that this person will be receiving contraband. There is probable cause to believe it because he sent for it and it was mailed to him. It's just a matter of waiting till it gets there. There is probable cause to believe that he will receive it. And all you're doing is predicting in the future, saying the probable cause doesn't exist now, but it exists when the warrant will be executed. I don't see... I don't see any real difference between that and the... and the mob leader example I just--",
       "time": "00:29:41.85"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No, but it's probable. At the time that he issues the warrant, it is probable that this person will be receiving contraband because they showed, you know, this guy sent for it. He sent for the... these child pornography films in... in a... you know, a Postal Service rouse, and we mailed it to him. It's probable that he's going to be receiving it.",
       "time": "00:30:35.68"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Reichel, one of the concerns about the position you're taking, the alternative would be that the police officer, expecting that this package is going to be delivered at a certain time, is on the lookout for it. He sees the post officer approaching, calls on his cell phone to get an emergency warrant, let's say. The magistrate will not be nearly as well informed as he was when he was presented with... was it a 64-paragraph affidavit? So the magistrate knows that the whole deal... he can't possibly know it if he's got... got a telephone call on an urgent basis. So if you want the magistrate's judgment rather than the police officers' on the spot, then it makes much more sense to have the magistrate get a detailed picture of what's going on and decide whether or not he'll issue the warrant.",
       "time": "00:31:27.80"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I just... I made the opposite argument, that a telephone warrant has to be done on the basis of minimum information. The officer... the magistrate will have a detailed affidavit when it isn't on an emergency basis. He... he will have, as he did in this case, an affidavit with 64 paragraphs explaining the whole deal, how it was set up. So isn't... isn't there greater security if you could have a magistrate with time to think, well, is there really probable cause than to have the magistrate make that judgment on a... such a quick basis?",
       "time": "00:32:43.41"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So there has to be... when does he get the... when does the magistrate get the affidavit?",
       "time": "00:34:07.28"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Reichel, did you take the position in the proceedings below that anticipatory warrants are invalid?",
       "time": "00:34:27.76"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No. And did you raise the issue in your response to the petition for certiorari?",
       "time": "00:34:35.74"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No. But you want us to address it now. I mean, you... you make a big deal of the notion that there's no such thing as an anticipatory warrant. And yet, it's never been addressed below. It wasn't addressed by the court below.",
       "time": "00:34:42.16"
     },
@@ -851,19 +851,19 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I--",
       "time": "00:35:54.95"
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't see--",
       "time": "00:35:55.43"
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--can I take you through my... a variation of my earlier hypothetical? You say that the magistrate can issue the warrant at 6 o'clock, although he knows that there really won't be the probable cause until 6:30. You say that would be valid. He could issue it in Manhattan knowing that it wouldn't be served in... in Brooklyn until 6:30. What if the magistrate specified that out of an abundance of caution? It's just the same case, but he writes on the warrant, this warrant is not to be served until 6:30. Does that make it invalid? Whereas, it was valid before, it's not valid if he... if he says I am anticipating what will be the situation when the warrant is executed. He says it explicitly, it can't be served until 6:30. Does that make it bad?",
       "time": "00:35:55.45"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't it strike you as... as strange that it's perfectly okay if he issues it at 6 o'clock, knowing that it'll be... won't... that there isn't probable cause now, but there will be at 6:30 when it will be served. You say that's perfectly okay. But if he says it on a warrant, not to be served until 6:30, it suddenly becomes bad.",
       "time": "00:36:54.46"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see. So... so you say so long as you say something as clear as 6:30, that's okay. It cannot be served until 6:30.",
       "time": "00:37:28.47"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where... where is time? I know that the Fourth Amendment says persons and places. Where does it say time is one of the particulars?",
       "time": "00:37:40.20"
     },
@@ -911,13 +911,13 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think time... time is certainly relevant to probable cause, but the... the Fourth Amendment says what you have to identify with particularity are places and the items and the person. Person, things, and place. It doesn't say time, but you say that's inherent. Have we... are there decisions of this Court that say time goes to the particularity requirement?",
       "time": "00:38:16.44"
     },
     {
       "turn": 146,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me give you another example. There are search warrants for wiretaps, are there not?",
       "time": "00:38:53.38"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And they are often anticipatory. They aren't issued because the suspect is now using the phone, but because it's anticipated in the future the suspect will use the phone at some point and there's probable cause to believe, if... if the suspect does, there may be evidence of a crime. I mean, anticipatory warrants are just inherent in the system. I don't... I just don't think your argument follows from precedent.",
       "time": "00:38:59.69"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the Constitution still applies to it, and they are inherently anticipatory.",
       "time": "00:40:08.29"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Probable cause that there... this is somebody who's going to use a certain telephone number and that there may be reason to suspect a crime will be discussed.",
       "time": "00:40:23.15"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And... and this is no different than that.",
       "time": "00:40:34.61"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, the conversation is not occurring right now. The magistrate has to say in the future, when this warrant is executed, the conversation probably will be occurring. Right? And so also here. You know, the... the receipt is not occurring now, but on the basis of all of the evidence before me, I think that that receipt will be occurring.",
       "time": "00:41:01.71"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure the Framers used controlled deliveries either. [Laughter]",
       "time": "00:41:41.63"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. I... I have a question that you could just clarify a confusion. You want to bring into this case the question of whether or not anticipatory warrants are ever valid. I had a case in the First Circuit where I explained my view on that. I thought they would be reasonably described. So I don't know if that issue should be brought up here. Maybe. I can't figure out what issue should be brought up here. There's a Van Treska case that says we ought to read these things in a common sense fashion. All right? I read it. My common sense says I have a warrant here. It says nothing about anticipatory anything. It says you can go and search for any of 16 items, 14 of which are in his house well before the delivery. After all, he's had all this correspondence with these people about child pornography. They have terrific reason for thinking he might have some. And that's all it says. And then it says, is there probable cause for a warrant that says go in any time now and search for any of these items, including what will be delivered, if that's when you do it? I say I look at the probable cause. His probable cause is he thinks that another package is being delivered, and he's right to think it. Now, whether it is delivered or not doesn't add anything really to the issuance of the warrant. It might add to his personal confidence. But that's my common sense opinion. The common sense is the only question here is do they have probable cause to issue a warrant that allows them to search now, because that's what it says. So now how... how, given that... I grant you the Ninth Circuit went into all kinds of other things, but you explain to me, please, how I'm supposed to reach those other things and what I'm supposed to do, and why I'm wrong.",
       "time": "00:41:48.24"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, no, it's not supported. It's specific. It says go to Jeffrey Grubbs' residence and then it has an attachment A which describes it with great specificity. And go and search for and seize the records and materials described in attachment B, and then we have 16 different kinds of items with great specificity. That's it. That's the end of this warrant, and that's what it says to do, and that's what he did. And then he has a different affidavit which gives him the probable cause for issuing the warrant I just described.",
       "time": "00:43:44.09"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where does it say that?",
       "time": "00:44:25.62"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. I'm reading the warrant. I'm not reading the affidavit. It happens to say that the affidavit is... that that affidavit is... it's in appendix A, appendix B, but it doesn't say anything about going in on... where does it say that?",
       "time": "00:44:29.17"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It says... mine says, you may command to search on or before April 27th for 10 days the person/place named and make the search in the daytime between 6:00 and 10:00. That's what mine says.",
       "time": "00:44:46.99"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then there's an affidavit about probable cause. That's true. So--",
       "time": "00:45:02.18"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--What's not stated?",
       "time": "00:45:13.22"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where is there a limit?",
       "time": "00:45:16.46"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It is?",
       "time": "00:45:21.63"
     },
@@ -1109,13 +1109,13 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is it that tells us that? I just happened to read an affidavit where the... the person says that he won't enter until this package is there, but there are a lot of cause I would think--",
       "time": "00:45:22.63"
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't the Government concede this point? I had thought the Government conceded that this warrant would not have been validly executed if they went in before the triggering event. Otherwise, there's no purpose in putting in the triggering event. Maybe we'll have to get the Government to... to state that explicitly, but that... that's my understanding, that they acknowledge this warrant would not have been validly executed if they went in before the triggering event occurred. If that's not the case, I agree. I don't know why we took the case. [Laughter]",
       "time": "00:45:33.73"
     },
@@ -1127,19 +1127,19 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well... well, he says in his affidavit he's not going to execute it until this package is delivered, but that... if I read it in a common sense way, say, of course, he isn't going to because he wants to get everything at once. But after all, he's in the place. I would say there's a lot of probable cause for him to looking for 12 of these items which are there whether this package is there or not. Of course, he's not going to execute it till later.",
       "time": "00:46:11.20"
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, of course, if you take that view, why did they bother to put the words, anticipatory search warrant, on the document? That's what we're fighting about. If we decide it on your ground, we never should have taken cert.--",
       "time": "00:46:36.81"
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe that's the answer.",
       "time": "00:46:48.97"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What else is there in this joined at the hip particularity requirement? The number of officers? Which officers, FBI agents or DEA or something else? I mean, you're... you're adding to the text of the amendment, and I just wonder what else is added under your view.",
       "time": "00:46:53.99"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. That's your argument. I'm just saying what else is joined at... at the hip besides time. You say they don't say time. They say persons to be seized and place to be searched, and you say inherent in that is time. Well, what else is inherent in there?",
       "time": "00:47:19.30"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's time. Is there anything else that's not written there that is part of that particularity requirement?",
       "time": "00:47:38.77"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, there's all sorts of, as Mr. Dreeben explained, reasonableness. It doesn't say how you enter the house, but if you suddenly go in with a... with a tank, we might find that unreasonable. But that's not something that has to be spelled out particularly under the terms of the Fourth Amendment.",
       "time": "00:47:57.93"
     },
@@ -1199,13 +1199,13 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So who--",
       "time": "00:48:25.02"
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It doesn't have to be spelled out in the warrant itself.",
       "time": "00:48:25.97"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So who, what, and where includes when, but it doesn't include how. Right? Where... where do you derive this proposition?",
       "time": "00:48:31.30"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask--",
       "time": "00:49:20.40"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--may I ask you this question? The warrant now says it is now... the warrant says the contraband and so forth is now concealed on the person or in the house. And if I understand your position correctly, your first argument is it should have said, will be concealed upon the happening of the anticipatory event. That would have... and describe the event properly. That would have satisfied the Ninth Circuit's objection.",
       "time": "00:49:22.54"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, why would that not also have satisfied the objection of the warrant... the argument you make in this Court? Because it would have made it clear that there is now probable cause to believe it will be there at the time of the execution. Why isn't that sufficient to make the warrant valid?",
       "time": "00:49:47.54"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Will it also satisfy the text of the Constitution that says no warrant shall issue except upon probable cause? And I'm asking you why is it not adequate probable cause to say we believe that will probably happen when the anticipatory event occurs?",
       "time": "00:50:07.66"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he has made a determination of the facts that will establish probable cause.",
       "time": "00:50:36.57"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Will you... will you just help me with this? Justice Stevens answered my question. The word anticipatory. The word anticipatory does suggest it isn't valid for a while. Nothing else in the warrant does. What am I supposed to do if I think there's adequate probable cause for issuing that warrant right now in respect to 12 of the things? And it's really pretty hard for me to try to understand what this warrant is about if I'm supposed to understand it, by reading through about 15 or 20 pages of small print and there discovering somewhere in the back of it some... the post office says I'm not going to execute this until this other package gets there too. Now, that does make me nervous. That... that supports you.",
       "time": "00:50:49.32"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I understand that, but it's not going to support you enough unless you connect this anxiety I'm having now about this being buried in page 28 of an affidavit when it's an important condition of the warrant, the only clue to that fact being the word anticipatory. And there we are. Now, you tell me why this anxiety, which is going to help you, is connected to something in the law.",
       "time": "00:51:40.69"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, please don't. I start with an assumption that an anticipatory warrant is constitutionally valid. I start with that assumption. I'm assuming that the conditions have to reasonably describe. My anxiety is resting only on the fact that this warrant doesn't seem to be an anticipatory warrant but for one word, and to know what it's about, you have to look through 28 pages of fine print. Now, you connect that anxiety to something in the law.",
       "time": "00:52:15.58"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, all... this whole argument begs the question. It... it assumes that the particularity requirement includes time, not only who, what, where, but also when. Right? I mean, you... you acknowledge that if you're wrong about that, if you're wrong about the fact that who, what, and where automatically includes when, the argument you've just made doesn't get anywhere.",
       "time": "00:53:11.71"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand that's your argument, but you agree that if... if that argument is wrong, you're done.",
       "time": "00:53:45.23"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They have first the outer limit of the 10 days in the warrant itself. And in fact, this warrant was executed within 2 days of its issuance. Is that not--",
       "time": "00:54:07.59"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And could it be if the officer knows that this package... let's say it's loaded with dynamite or guns or drugs... is going to be delivered at a certain time and it... the delivery occurs, and then the officer busts in and says, there's exigent circumstances. They're going to take those drugs and they'll be off the premises. That might happen.",
       "time": "00:54:21.95"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, my... my question is, isn't it better to have the police go to the magistrate when there's time for the magistrate to reflect, than to have this scenario where the police will say this was really dangerous stuff, exigent circumstances? Wouldn't you want the officer to apply in advance for the warrant?",
       "time": "00:54:59.72"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Even... wasn't this man... magistrate told we've set this whole thing up? We've put this package in the mail. It's going to be delivered at such and such a time. Wasn't the magistrate told that?",
       "time": "00:55:36.98"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So why was there a need for a second call when exactly that happened?",
       "time": "00:55:53.88"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Didn't... was... he was on the premises?",
       "time": "00:56:34.06"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And he said, I know why they're here.",
       "time": "00:56:36.46"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, and they... and they found other... other videotapes besides the one that had just been delivered, didn't they, in the course of the search?",
       "time": "00:56:41.82"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And exactly the same thing would be true if they had stated the triggering event clearly somewhere in... in the warrant. The... the argument here is that the triggering event was stated in the affidavit.",
       "time": "00:57:09.08"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:57:49.17"
     },
@@ -1469,13 +1469,13 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Dreeben, you have 3 minutes remaining.",
       "time": "00:57:51.98"
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dreeben, a quick yes or no. Does the Government concede that when you have an anticipatory warrant, the warrant is not properly executed until the... the anticipated event occurs?",
       "time": "00:57:55.32"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that... that puzzles me a little. The... the affidavit says execution will not take place until the event. But the authority to search, which is in the last paragraph, is not limited to the time after the anticipatory event.",
       "time": "00:58:16.26"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, not even... it is not only the warrant, but the affidavit itself doesn't say we merely request permission to search after the... after the event. It's a general request for authority to search.",
       "time": "00:58:35.91"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No. I'm drawing your attention to paragraphs 61 and 64 of the affidavit.",
       "time": "00:58:59.91"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the authority is broader than the authority to search for those items.",
       "time": "00:59:11.73"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it takes a step of reasoning beyond merely saying we incorporate the... the affidavit into the warrant.",
       "time": "00:59:35.77"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you just want us to say, look, the Ninth Circuit is wrong. They're okay to have conditional warrants like this and there is no absolute rule you always have to have the triggering condition in. As to whether this is too confusing or not too confusing, send them back and let them figure it out.",
       "time": "01:00:33.90"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben. The case is submitted.",
       "time": "01:01:16.65"
     }

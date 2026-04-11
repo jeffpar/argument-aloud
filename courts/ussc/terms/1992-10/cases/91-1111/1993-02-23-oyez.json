@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1992/91-1111/19930223a_91-1111.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN M. SHAPIRO",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MOLLY S. BOAST",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LAUREL A. PRICE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in 91-1111, Hartford Fire Insurance Company v. California consolidated with Merrett Underwriting Agency v. California. Mr. Shapiro, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What, then, do you do with the language in Royal Drug Company, Mr. Shapiro, about when you conspire or agree with someone who's not protected the exempt party loses the exemption?",
       "time": "00:02:14.00"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, excuse me, it isn't enough to be within the business of insurance. You have to be within the business of insurance regulated by the States--",
       "time": "00:02:50.69"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Isn't that right?",
       "time": "00:02:58.00"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that is certainly not conceded that the foreign insurers, or the reinsurers generally, are within the business of insurance regulated by the State.",
       "time": "00:02:59.28"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't whether your client is regulated, it's whether the business of reinsurance is regulated, isn't it? I mean, you can't play the game both ways. You're either talking about the business of insurance or you're talking about individuals, and we're talking about the business of insurance.",
       "time": "00:03:35.39"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So... so the question is whether the business of reinsurance is, number 1, part of the business of insurance, which I assume it is, and number 2, regulated by the States.",
       "time": "00:03:50.20"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The forms-developmentprocess cannot compel a reinsurer to reinsure something that he doesn't want to reinsure or that he's agreed with others not to reinsure, can it? The form process has nothing to do with that. In fact, as I understand it, all the States except one permit the first kind of insurance that's been eliminated... event occurrence insurance. All States but one permit it, but it's not offered by anybody, right?",
       "time": "00:04:29.00"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is general law, not peculiarly insurance regulation, right?",
       "time": "00:05:51.08"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But these laws do not cover the foreign reinsurers.",
       "time": "00:06:31.87"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you say, then, that CA 9 was wrong in holding that your clients conspired with some companies, some foreign companies that were not subject to regulation?",
       "time": "00:06:35.65"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, all right, suppose... suppose that it was true that your clients conspired with foreign companies that were not subject to State regulation.",
       "time": "00:06:53.20"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, what is your position on that?",
       "time": "00:07:03.49"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because--",
       "time": "00:07:06.81"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, how is it... why is it, then, that if you're... that you wouldn't be entitled to this immunity if you conspired with somebody outside the insurance industry?",
       "time": "00:07:18.83"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but what's the reason? The reason is that that person outside the insurance industry is not subject to regulation.",
       "time": "00:07:35.62"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's the reason, then?",
       "time": "00:07:44.16"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You still haven't told me why, if your clients conspired with people outside the insurance industry, you would not have McCarran immunity.",
       "time": "00:07:55.02"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you said that if your clients conspired with someone outside the insurance industry, you wouldn't have McCarran immunity?",
       "time": "00:08:20.05"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that right, or not?",
       "time": "00:08:28.42"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, did you say that, or not?",
       "time": "00:08:30.44"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so Royal Drug looks in the direction. Then, why would it have said that you wouldn't have had McCarran immunity if you conspired with somebody outside the insurance industry?",
       "time": "00:08:42.75"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's the reason?",
       "time": "00:08:52.82"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't--",
       "time": "00:09:07.11"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You might... I think you're just not answering the question, and I don't want to waste your time by insisting that you do, so go right ahead, Mr. Shapiro.",
       "time": "00:09:08.48"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Here's the statement from Royal Drug, Mr. Shapiro, and it's obviously one sentence out of a long opinion. It says, \"In analogous context the court has held that an exempt entity forfeits antitrust exemption by acting in concert with nonexempt parties. \"",
       "time": "00:09:45.07"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question just on that? They have alleged, as I read the complaint, that the reinsurers agreed not to provide reinsurance to companies that wrote the kind of coverage that they didn't want.",
       "time": "00:11:56.02"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's not... what?",
       "time": "00:12:08.56"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I guess that's... yes.",
       "time": "00:12:11.76"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, that would... would you say that's a boycott within... or not?",
       "time": "00:12:13.72"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they could--",
       "time": "00:12:22.86"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But they won't write them even if they're not reinsuring the insurance they don't want to... the... you know, the kind they don't want. They will not reinsure the company if the company writes that kind of insurance that might be reinsured with someone else.",
       "time": "00:12:24.25"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what 87A says--",
       "time": "00:12:47.25"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--As I read it.",
       "time": "00:12:49.36"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If they had alleged further we won't do business with you if you do this kind of business, that would be a boycott. You would agree with that. But you say that's not what they've alleged.",
       "time": "00:13:01.99"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if the refusal to deal, unless you, the insurance company, only writes that kind of insurance.",
       "time": "00:13:18.78"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that a conditional or an absolute refusal, as you described it?",
       "time": "00:13:25.30"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And as long as you don't write a different kind of insurance--",
       "time": "00:13:36.04"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But you agree if that were alleged, that would be a boycott.",
       "time": "00:13:41.29"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You agree that you ought to concede it's a boycott. [Laughter]",
       "time": "00:13:49.65"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There was an agreement to enter into whatever kind of a boycott this was, conditional or not.",
       "time": "00:14:00.85"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the Justice Department has just got it wrong.",
       "time": "00:14:57.30"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:15:03.71"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, Mr. Shapiro, I can understand why an insurance company has an interest in getting the reinsurer to agree that he will insure this kind of insurance and will insure this kind of a form. I do not know why... explain to me why it's important to the insurer to know that the reinsurer will not insure another kind of risk, or will not accept another kind of form. Why is that necessary?",
       "time": "00:16:40.10"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see... I see. I see. I gotcha.",
       "time": "00:17:38.87"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, are you saying... is the thrust of your submission at this point that it's not a boycott because there was a legitimate reason for the action?",
       "time": "00:18:04.65"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that would be true whether or not the primary insurers had a legitimate interest in the solvency of the reinsurers.",
       "time": "00:18:28.02"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, Mr. Shapiro, under your solvency point, are you arguing that if Hartford and Allstate agreed with the reinsurers that we will not do business with you because we're concerned about your solvency if you reinsure companies that write the kind of insurance we don't want written?",
       "time": "00:19:07.12"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, we won't deal with you if you deal with competitors who write the insurance that we don't want to write.",
       "time": "00:19:33.42"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:19:50.74"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I read paragraph 64 and that sequence of events as indicating that Hartford and Allstate went to the reinsurers and said we want to get you to stop reinsuring this other kind of insurance, and in effect we won't do business with you unless you--",
       "time": "00:20:02.61"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I'm misreading the complaint.",
       "time": "00:20:16.47"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At this meeting, Hartford and General Rate agreed to either coerce ISO to adopt their demands or, failing that, derail the entire ISO-CGL forms process.",
       "time": "00:20:39.62"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without any impact on third parties.",
       "time": "00:20:55.23"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, I don't mean by people who buy insurance, but with competitors.",
       "time": "00:21:00.86"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Shapiro, I assume that the reason the contention was not even made that the United States insurers coerced the reinsurers to not handling certain types of coverage is that on its face it would be laughable.",
       "time": "00:21:29.43"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because if you can't go to Lloyd's... you're going to boycott Lloyd's of London for reinsurance.",
       "time": "00:21:44.16"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would not be able to reinsure anywhere. I mean--",
       "time": "00:21:49.09"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The coercion would go in the other direction, if anything.",
       "time": "00:21:58.67"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, doesn't--",
       "time": "00:23:44.26"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I guess I've confused some of the positions here. Does the Justice Department concede that the reinsurers alone could agree on all of these things and agree not to write certain kinds of coverage?",
       "time": "00:23:47.90"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but I think the Justice Department might well say that the reinsurers are in the business of insurance but they're not regulated by the States--",
       "time": "00:24:02.37"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And therefore can't do that.",
       "time": "00:24:10.24"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe not a boycott, but I understood that they would say that's a violation of the antitrust laws.",
       "time": "00:24:18.65"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it does seem to me that there is a difference. If the primary insurer is involved, then the primary insurer is using its influence or economic force in order to impose standards on competitors, and that is what a boycott is.",
       "time": "00:24:38.80"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the reinsurers all agree that they're going to issue only certain forms... certain... of insurance, that's not a boycott, but if the primary insurer is involved, then the primary insurer is forcing certain standards on its competitors, and that's a boycott.",
       "time": "00:24:58.21"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Shapiro, I know you've gone over this already, but I'm still not sure. It appeared to me that what the plaintiffs below alleged was that your client tried to alter the terms that other primary insurers would offer, and alleged that your clients tried to compel ISO to change the forms that all primary insurers would offer.",
       "time": "00:26:36.70"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Those are the allegations.",
       "time": "00:27:20.03"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if those are the allegations, does that not fit what was said in Barry, that there was pressure brought on ISO and the uncooperative other primary insurers to change their conduct by enlisting reinsurers and so forth?",
       "time": "00:27:28.75"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it wrong to say that the reinsurers under the allegations of the complaint, together with some of the primary insurers, were trying to change the market practices of their competitors?",
       "time": "00:28:20.17"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You can't get that out of the allegations.",
       "time": "00:28:35.59"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Shapiro. Ms. Boast.",
       "time": "00:29:11.83"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whom do you represent?",
       "time": "00:29:44.63"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:29:48.07"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Boast, I assume just sort of by the way that if you contend that these foreign reinsurers are not subject to the Sherman Act, I assume you also contend that they are not subject to State regulation.",
       "time": "00:33:33.91"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, Lauritzen was what, Jones Act?",
       "time": "00:35:23.20"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Jones Act, but the holding was the Jones Act didn't apply, wasn't it?",
       "time": "00:35:27.14"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're not contending that the Sherman Act doesn't apply abroad. I... it seems to me it's one thing to say, having considered all the pros and cons, this legislation does not apply abroad. It's another thing to say well, it does apply sometimes, and it doesn't apply other times. I don't know how I can do that with the Sherman Act. It either applies or it doesn't apply.",
       "time": "00:35:32.22"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it the exercise of the jurisdiction, or maybe it's just not an unreasonable restraint of trade? That is to say, it becomes a reasonable restraint. I mean, we've always had a lot of room not to fiddle around with our jurisdiction but to fiddle around with what constitutes a restraint of trade under the Sherman Act. It's essentially a common law antitrust that we've developed ourselves. Why couldn't we say that, that the Sherman Act applies fully, and we have full jurisdiction, however, it's not an unreasonable restraint of trade given that these people are acting in England and subject to English regulation?",
       "time": "00:36:12.18"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I may be more comfortable with that. [Laughter]",
       "time": "00:36:54.97"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, why is it exclusively in Britain? Wasn't there asserted to be any connection between the conspiracy with the foreign reinsurers and the domestic reinsurers? Wasn't it part of one plan?",
       "time": "00:39:17.36"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Boast. Mr. Wallace, we'll hear from you.",
       "time": "00:41:44.55"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, as I understand it, it's perfectly okay for the insurers to agree among themselves that no matter how many consumers might want a particular coverage, it will not be offered, right?",
       "time": "00:46:52.53"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the consumer is left at the mercies of insurers plus State--",
       "time": "00:47:07.54"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Regulation to that extent, right?",
       "time": "00:47:12.28"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:47:18.25"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it is thought, I suppose, that if they can't make that kind of an arrangement the company coming in with the more attractive coverage may be a fly-by-night company and they will all be tempted into insolvency, right? That's probably the theory behind it.",
       "time": "00:47:25.51"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if that's a problem... I mean, if that's a problem downstream, why isn't that a problem upstream? Are you any better off with an insurance industry that goes bust at the reinsurance level than at one that goes... than you are with one that goes bust at the insurance... I mean, that... the whole scheme doesn't seem to me to make much sense unless the insurance companies have the ability to ensure solvency at the reinsurance level just as well as at the insurance level.",
       "time": "00:47:43.98"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I could understand it if the primaries are coercing the reinsurers, but there's no allegation of their coercing the reinsurers. They're just trying to persuade the reinsurers, look, you fellas, if you insure this kind of coverage, you are going to get burned so badly you're going to go down and we're going to go down with you. Now, why is that an evil kind of a boycott that we should say the Government comes down on, given the scheme... given the scheme?",
       "time": "00:48:37.20"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, just from the standpoint of defining the word, boycott, or the juridical concept, boycott, if the reinsurers had come up with this idea on their own, and they had met, and they had said, we're not going to offer reinsurance for this particular kind of coverage, boycott or no?",
       "time": "00:50:27.59"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right, well, if--",
       "time": "00:51:42.80"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If we take the simple case and assume for discussion that that is not a boycott, does it become a boycott when a primary insurer participates in the agreement?",
       "time": "00:51:45.09"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why is that? What is the definitional part of \"boycott\" that makes this distinction for me?",
       "time": "00:51:58.85"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wallace. Mr. Price, we'll hear from you.",
       "time": "00:56:23.32"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What pressure was applied here? Pressuring others to withhold... what pressure was applied against, in particular, Lloyd's?",
       "time": "00:58:20.78"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "At all. I don't see how it could be. Would it have been unlawful for the American insurers just to call to the attention of the reinsurers the fact that in their view it would be financially disastrous to continue to reinsure this kind of contract?",
       "time": "00:58:33.37"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What was the agreement? You and I agree that you will not do something. Is that an agreement?",
       "time": "00:59:05.32"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:59:16.76"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see how that's an agreement. That's just the reinsurer telling the insurer, you're right, it's a good idea, I will not insure these... it's not an agreement. One side has to do something, the other side does something else. What's the insurer's remedy for breach, if the reinsurer breaks the agreement?",
       "time": "00:59:27.25"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But he could do that without any agreement. Well, that's precisely the question. I mean, there's no consideration, though, the way you've described it. What consideration flows from the reinsurer to the insurer?",
       "time": "00:59:51.37"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What were the two... to have an agreement, you have an exchange of promises or performance on both sides, in contract law.",
       "time": "01:00:11.70"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was to be... what did the insurer agree to do or perform in exchange for the reinsurer's agreement to not write the claims-made forms?",
       "time": "01:00:19.88"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay--",
       "time": "01:00:45.25"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--And you say that was an agreement.",
       "time": "01:00:46.03"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you've said that what the reinsurers agreed to do was not to reinsure any more claims-made forms, but what did the insurers agree to do?",
       "time": "01:00:48.43"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, was that an agreement they made with the reinsurers?",
       "time": "01:01:13.27"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you're saying, then, that there wasn't an agreement between the insurers and the reinsurers, that the insurers agreed among themselves and then went to the reinsurers to put muscle into the agreement.",
       "time": "01:01:27.43"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In exchange for what?",
       "time": "01:01:44.92"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They agreed in exchange for what?",
       "time": "01:01:46.01"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And someone had to talk them into that.",
       "time": "01:01:55.26"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Someone had to talk them into that. [Laughter]",
       "time": "01:01:57.03"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it seems to me it's just somebody coming in and telling them, look, you're going to get into real trouble in the American market, and they say, my God, you're right, we better do that, and--",
       "time": "01:02:04.53"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Maybe they were saying to one another, look, if there's any real problem in the American market, certainly the American insurers will let us know. I mean, basically these are sophisticated companies, and if there's some kind of coverage that we shouldn't be handling, they'll come and tell us, and sure enough, that's what happened.",
       "time": "01:02:36.65"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because there are some risk-averse people and some nonrisk-averse people, and the whole theory of insurance regulation is that nonrisk-averse people shouldn't be running insurance companies.",
       "time": "01:03:44.28"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but the whole antitrust exemption is based on a quite different philosophy. The whole antitrust exemption is based on the philosophy that this kind of interaction and cooperation is beneficial to the industry as a whole.",
       "time": "01:05:22.31"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Before you do that, Mr. Price--",
       "time": "01:09:50.92"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You've talked about the boycott issue. I don't think you've talked about the... maybe the prior issue of whether these are even the business of insurance regulated by State law. What is your position on that?",
       "time": "01:09:52.69"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just the foreign. What about the domestic--",
       "time": "01:10:14.41"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What about the domestic reinsurers? Do you concede that they are regulated by State law?",
       "time": "01:10:15.95"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, but not as reinsurers.",
       "time": "01:10:44.27"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That raises an interesting question, though. Is it the reinsurance you should look to, or the insurance? The alleged object of the conspiracy, the alleged object of it, is not to fix reinsurance. The vice is fixing insurance, right?",
       "time": "01:10:56.24"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is the means, right--",
       "time": "01:11:13.26"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But since the object is to fix insurance, shouldn't the proper question be whether that is regulated by State law?",
       "time": "01:11:14.98"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why not?",
       "time": "01:11:24.09"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How have you?",
       "time": "01:11:36.73"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How have you? Couldn't the regulators require insurance companies to offer particular types of coverage?",
       "time": "01:11:39.51"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think Lloyd's is going to kiss goodbye to half of all of its reinsurance business.",
       "time": "01:12:35.65"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the allegation and the proof were that the sole motive of the primary insurers in making these overtures was the continued solvency of the reinsurers, would that be an unlawful boycott?",
       "time": "01:13:24.96"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Right. The primary insurers said, there is a glitch in a lot of these policies, our principal concern is the preservation of Lloyd's as an effective reinsurer, we are advising you that in your interest and in ours from the standpoint of the solvency of reinsurers, you should not offer this coverage. Is that unlawful?",
       "time": "01:13:51.55"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose as a result of those overtures the reinsurers got together and said, you know, Hartford and its... other companies like it are absolutely correct. We will now agree together not to offer this other form of insurance.",
       "time": "01:14:25.02"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In that hypothesis, are the primary insurers violating the antitrust laws?",
       "time": "01:14:45.21"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but many effects can follow from a single motive, and I'm hypothesizing a single motive which I suggest to you may be lawful.",
       "time": "01:15:22.37"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what's your authority for that, Mr. Price? I mean, in the antitrust context?",
       "time": "01:17:32.17"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it involved exempt and nonexempt--",
       "time": "01:17:53.67"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Why does one principal necessarily carry over to the other?",
       "time": "01:18:04.06"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but--",
       "time": "01:18:16.70"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--How about the statement in Perino, coming after Royal Drug, that the fact that an exempt... deals with nonexempt is a factor, but it isn't controlling?",
       "time": "01:18:21.86"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So Royal Drug is your principal authority for the proposition that you stated a moment ago.",
       "time": "01:19:19.86"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Were you going to get to the comity issue?",
       "time": "01:19:32.87"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose you would say that the foreign reinsurers are subject to the Sherman Act and I guess would be liable as a contract combination or conspiracy even if the American insurers had not been part of the scheme, right? I mean, it's contrary to the Sherman Act for all of these reinsurers to agree upon the terms of reinsurance, whether at the instance of American insurers or not.",
       "time": "01:23:45.30"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, I would think so.",
       "time": "01:24:15.55"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "An unflagging obligation. [Laughter]",
       "time": "01:24:50.20"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Price. Mr. Shapiro, you have 1 minute remaining.",
       "time": "01:25:57.06"
     },
@@ -1767,13 +1771,13 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Shapiro. The case is submitted.",
       "time": "01:27:06.14"
     },
     {
       "turn": 288,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "01:27:09.51"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/82-695/19830419a_82-695.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "PATTI S. KITCHING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "JAMES P. WATSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in the Francise Tax Board of California against the Construction Laborers Trust. Ms. Kitching, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could you raise your voice a little, Ms. Kitching.",
       "time": "00:01:52.86"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Kitching, when you say that California relied solely on state law, is that true of your declaratory... prayer for declaratory relief, as well as your prayer that the taxes be... judgment be given?",
       "time": "00:04:50.12"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I realize that statute gave you the procedural vehicle for a declaratory judgment. But what was the substance of your claim for a declaratory judgment that there had been no preemption?",
       "time": "00:05:10.37"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And did... I suppose in that part of your prayer for a declaratory judgment you had to discuss some federal authorities?",
       "time": "00:05:34.86"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not in your prayer, perhaps, and perhaps not in the allegations of your complaint. But did you file a memorandum of supporting authorities along with the complaint on a motion?",
       "time": "00:05:49.17"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I'm trying to... I suppose everybody would concede that if your claim had simply been that, you owe us the taxes because California statute XYZ says you do, give us judgment, that there is no... under the well-pleaded complaint doctrine, there is no raising of a federal question. But I'm wondering whether when you add to that a declaratory judgment prayer you don't, based on preemption, you don't perhaps raise a federal question.",
       "time": "00:06:10.17"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but didn't the complaint itself, though, refer to the question about whether ERISA preempted the levy and referred to the position on the face of the complaint taken by the trust fund, the trustees?",
       "time": "00:07:05.82"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Before we leave jurisdiction, for the Tax Injunction Act to be applicable I suppose we have to determine that there was an adequate state remedy available. And I wondered whether under California law the trustees, for example, could have challenged the levy, since the California statute seems to limit to only the taxpayers the right to challenge.",
       "time": "00:09:07.69"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They couldn't have brought an action had they been concerned?",
       "time": "00:09:52.01"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if the trustees had gone to the federal court in the first place, beat you to the courthouse, and wanted a declaratory judgment that ERISA did preempt your tax scheme? Do you think there would have been federal jurisdiction?",
       "time": "00:10:19.02"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think... why not?",
       "time": "00:10:38.87"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But aside from that provision, would there have been federal jurisdiction?",
       "time": "00:10:46.27"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They go in and--",
       "time": "00:11:00.61"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--their claim, their federal claim, is that ERISA preempts. That's their sole claim in federal court. It may be thrown out under the Injunction Act, but otherwise there would be jurisdiction?",
       "time": "00:11:02.28"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You feel that that is a precedent for this case?",
       "time": "00:18:56.87"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What is a high public service, collection of taxes?",
       "time": "00:19:06.43"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But there are other means of collecting taxes, aren't there?",
       "time": "00:19:13.93"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On that point, I suppose that the spouses and dependent children of a beneficiary under the trust fund stand in a special relationship, because they are among the beneficiaries in a sense themselves, the intended beneficiaries of those funds ultimately, unlike perhaps the State of California.",
       "time": "00:19:42.70"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you have withholding in California?",
       "time": "00:20:42.52"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And that was insufficient in these cases?",
       "time": "00:20:45.72"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I ask that because you emphasize the transient character of these workers. Normally, withholding would catch those that do opt, if they're in there for just a short time and then go out and leave the state.",
       "time": "00:21:05.59"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is just a test case, of course, but the great sum of $308 or something like that?",
       "time": "00:21:40.76"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, if we were to vacate and remand this case on your jurisdictional approach, that doesn't mean you've necessarily won it in state court, does it?",
       "time": "00:24:42.78"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Actually, you won it at the district court level on the federal side.",
       "time": "00:24:56.66"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And you're complaining now because you got tipped over in the Court of Appeals.",
       "time": "00:25:02.05"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Watson?",
       "time": "00:25:14.55"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When did the federal question arise in the case?",
       "time": "00:26:35.39"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Watson, it is correct, is it not, that the entire prayer of the complaint, the four paragraphs after the \"wherefore\", say nothing at all about anything federal?",
       "time": "00:27:17.43"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you not also agree that the reference to the federal claim is in the nature of what the Defendants will assert by way of defense?",
       "time": "00:27:42.89"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the prayer for relief and what they ask for is not a claim arising under federal law, is it?",
       "time": "00:28:07.60"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could the state have filed this action in the federal court?",
       "time": "00:28:22.27"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On what grounds?",
       "time": "00:28:28.84"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How does 301 get here?",
       "time": "00:28:46.27"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the complaint allege anything about 301?",
       "time": "00:28:56.17"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I asked could this complaint have been filed in a federal court.",
       "time": "00:29:00.19"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Originally?",
       "time": "00:29:04.16"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And on what basis?",
       "time": "00:29:05.87"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you would agree to jurisdiction?",
       "time": "00:29:22.40"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You'd have been in there fighting just like you're fighting now, wouldn't you?",
       "time": "00:29:27.62"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the Tax Injunction Act, which Congress also passed, certainly would indicate that the district courts will not enjoin the state tax, and Grace Brethren says that applies to declaratory judgment as well.",
       "time": "00:30:10.74"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Watson, perhaps Congress thought that tax laws weren't preempted.",
       "time": "00:32:41.34"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, before you get too far away from the jurisdictional question, on the question of an adequate state California remedy, are you telling me that, supposing the state had levied, had a case of mistaken identity, for example, that a person that they said owed them taxes was not really a beneficiary of the trust or something like that... wouldn't the trustees have a remedy in resisting the levy in some state proceeding that would be prompt and efficient?",
       "time": "00:34:49.28"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me just be sure I understand your position. You're not questioning the fact that the trustee would have a prompt and adequate state remedy to determine whether or not it had any obligation to comply with the levy, are you?",
       "time": "00:35:42.34"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you don't think there is any declaratory judgment proceeding in California law at all that would enable the trustee to question a levy of this kind?",
       "time": "00:36:02.38"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that the duty of the trustee always would be just to pay over the money?",
       "time": "00:36:32.66"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you think the trustees would just automatically pay over the money in all cases?",
       "time": "00:36:43.32"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:36:49.08"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm assuming no ERISA problem, just the state law, you know, sort of garden variety defense.",
       "time": "00:36:50.84"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you.",
       "time": "00:37:12.41"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Watson, if I understood Ms. Kitching correctly, she suggested that the state remedy was for the trustees to pay it over and then sue for conversion?",
       "time": "00:37:37.97"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that the theory?",
       "time": "00:37:51.03"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Watson, suppose the trust fund didn't pay its property tax. Would that be a federal case?",
       "time": "00:40:12.05"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, sir, on the building it owned.",
       "time": "00:40:25.85"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only reason it has a defense is... well, let me try. They didn't pay the property tax and they alleged in the complaint that this was an agreement they had and all. Would that change it?",
       "time": "00:40:40.39"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They're trying to take assets of the fund. They're trying to get their taxes.",
       "time": "00:41:09.60"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In both cases they're trying to get money.",
       "time": "00:41:15.19"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You couldn't take the property taxes out of that money if there was no other money?",
       "time": "00:41:31.06"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Differently from pension trusts.",
       "time": "00:42:58.23"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That doesn't answer the propriety of removal here.",
       "time": "00:44:48.57"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't suppose there's any doubt that, had the trustees sought to sue, they could have found some basis for federal jurisdiction. But that doesn't answer the propriety of removal on the basis of the state's complaint.",
       "time": "00:45:19.02"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00 o'clock, counsel. Mr. Watson, you may continue.",
       "time": "00:46:08.89"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What is the difference? What is the significant difference as far as this case is concerned? Well, the significant difference as far as this case is concerned is that it can be argued, and I say not necessarily rightly, but it can be argued, that the purpose of the trust instrument is met when you give the benefits to co-beneficiaries, a husband and wife, particularly in a community property state where they jointly own the whole community property, with California as a community property state. When you give the benefits to a third party creditor not interested in benefits under the trust fund, simply trying to latch onto those assets to satisfy some alleged debt incurred by one of the beneficiaries, you are defeating the purpose of the trust in a way you are not doing when you give the benefits to another person, a spouse, a husband or a wife, who shares those benefits under California law with the named beneficiary under the trust fund. Well, I suppose if there were a levy on a life insurance policy that had a large cash value and a lot of beneficiaries in a community property state, it wouldn't be any different, would it?",
       "time": "00:48:25.55"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any barrier to a creditor levying on the cash value of a life insurance policy in California?",
       "time": "00:49:31.80"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why should there be a difference because it's in a controlled trust?",
       "time": "00:49:47.88"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The purpose of the life insurance trust would be defeated, too.",
       "time": "00:50:16.01"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you be making the same argument if all these events occurred after 1982?",
       "time": "00:50:39.81"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the '82 amendment just confirmed the meaning of the prior law?",
       "time": "00:51:27.62"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't what it says. It really... it just didn't disturb whatever the law was.",
       "time": "00:51:46.80"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it didn't really change, the '82 amendment--",
       "time": "00:52:02.10"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--didn't purport to change what the law was or anything of the kind.",
       "time": "00:52:05.51"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It said \"may\". It didn't say they had to.",
       "time": "00:52:44.23"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right.",
       "time": "00:52:47.79"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Watson, let me be sure I understood your answer to my other question. Where is the requirement that the trustees must proceed in federal court?",
       "time": "00:54:35.74"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of ERISA?",
       "time": "00:54:49.13"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you're saying... excuse me, go ahead. I just want to be sure. What you're saying is the reason there's no state remedy is that ERISA has preempted the state remedy? That's what you're argument is?",
       "time": "00:55:44.25"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That the absence of the adequate state remedy, if I understand your argument, is because there's a provision in ERISA which preempts what might otherwise be a state remedy?",
       "time": "00:55:58.63"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In other words, the state court would have no jurisdiction to pass on your defense?",
       "time": "00:56:26.87"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's sort of like in antitrust, federal courts have exclusive jurisdiction over antitrust cases, and I take it state courts haven't got any jurisdiction. I might, before you sit down: you're lucky that your brief was filed in this Court. I didn't see a summary in your brief, and I thought our rules provided for a summary. Usually briefs get sent back if they don't have a summary, but you were just lucky. Thank you.",
       "time": "00:56:38.09"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Kitching.",
       "time": "00:57:13.53"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think about 502(a)(3), then?",
       "time": "00:57:49.46"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't think it was Congress' intention, then, to reserve those kinds of considerations for a federal court?",
       "time": "00:58:02.21"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you say about the '82 amendment?",
       "time": "00:58:14.36"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wouldn't be making this argument, then, after... or would you, after '82?",
       "time": "00:58:22.01"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:15.32"
     }

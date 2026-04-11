@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-687/19840116a_82-687.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MARK IRVING LEVY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CARL D. LIGGIO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "WILLIAM ELDRED JACKSON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you may proceed whenever you're ready, Mr. Levy.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, federal law doesn't require that; that's a matter of accounting standards, is that right?",
       "time": "00:02:53.49"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. But that just is determined by the practice of the accountants generally, not by federal law.",
       "time": "00:03:06.14"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Levy, would your position be any different if this were a small closely held corporation, not listed?",
       "time": "00:03:17.43"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, certainly some of your arguments here would be inapplicable in that situation, I would think.",
       "time": "00:03:50.47"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Wouldn't some of your arguments be inapplicable, to wit, the duty owed to the public?",
       "time": "00:04:17.33"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Levy, a special agent had shown up before the summons was issued, hadn't he?",
       "time": "00:06:19.87"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would your case be stronger if he hadn't appeared?",
       "time": "00:06:28.04"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, certainly the appearance of a special agent has criminal case overtones.",
       "time": "00:07:36.26"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Levy, hasn't this Court gone into this about a thousand times by now, the great theory of the IRS?",
       "time": "00:11:06.05"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, do we need it for this case?",
       "time": "00:11:20.47"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's up to you. It's your time.",
       "time": "00:11:29.51"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's a question basically of Congressional intent, I suppose, isn't it? You know, how effective did Congress intend these procedures to be, and did Congress perhaps imply that there might be some room for this kind of privilege?",
       "time": "00:12:49.86"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what reason, then, do you think that Judge Feinberg thought supported his opinion if it weren't some implicit Congressional intent?",
       "time": "00:13:13.22"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Levy, may I ask you a question here. Supposing... well, I guess the federal securities laws require an opinion of a lawyer on contingent liabilities in litigation, or it very well could. Supposing in this particular situation the statute, instead of asking for an accountant's opinion, asked for a legal opinion on the adequacy of the reserve for contingent tax liabilities, and all the other... everything else about the case was exactly the same. What would your view be about it?",
       "time": "00:14:34.08"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Doesn't... of course, it's an accountant, not a lawyer, and it's kind of a semi-legal judgment that he has to make in interpreting tax laws. And as we all know, accountants probably practice more tax law than lawyers do. So I just wonder if it really isn't very close to the case of asking the legal opinion.",
       "time": "00:15:14.57"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but in the hypothetical statute I've posited he would have a duty of giving an opinion on which the public would rely.",
       "time": "00:15:47.60"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Levy, regarding that part of your answer to Justice Stevens, you're stating now what the accountant's role is, that he doesn't give advice like lawyers do. I mean, is this a matter of public record or do we take judicial knowledge of some of this differentiation that you see between the role of accountants and lawyers? Or is it disputed?",
       "time": "00:16:47.24"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, are you suggesting that a lot of accountants, CPA's, do not give legal advice, about tax liability?",
       "time": "00:17:13.37"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you think that function is wound up in both of these kinds of papers that are involved in this case?",
       "time": "00:17:32.14"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if for other purposes they give advice about what tax liability is?",
       "time": "00:17:48.02"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Levy, what would happen if the accountant was in a legal office?",
       "time": "00:17:58.75"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would happen if the accountant was in a legal law office?",
       "time": "00:18:04.16"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It wouldn't?",
       "time": "00:18:13.89"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So that the lawyer and the accountant advising the client, the lawyer is privileged but the accountant is not?",
       "time": "00:18:17.66"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, that's what got me on this tangent.",
       "time": "00:18:40.12"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what would... I know this is way out in left field. What would happen if the lawyer gave the opinion that the accountant should have given? Would that be privileged?",
       "time": "00:18:52.14"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They're not in this case?",
       "time": "00:19:26.15"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if the statute did provide it, I dare say that the corporations involved might not be quite as forthcoming with the SEC as they were with their own, or who they thought were their own accountants.",
       "time": "00:19:53.89"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Levy, of course lawyers, just as accountants, file opinions with registration statements with the SEC. How do you draw the distinction between a lawyer's certification, for example, that an issue of securities has been validly authorized and is lawful and outstanding, and an accountant's certificate that a balance sheet and a profit and loss statement are correct?",
       "time": "00:20:31.16"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, there may be more of an opinion expressed by counsel than perhaps by an accountant, although where you're dealing with a tax accrual estimate that finally comes down to an opinion, I suppose.",
       "time": "00:21:28.51"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Levy, supposing that we reverse the Second Circuit in this case and then a new breed of service comes into effect, the lawyer-accountant, which does all the same work that CPA's used to do except that the person to whom the corporation talks is now a lawyer, and they go about... a particular corporation consults one of these entities and does work only with the lawyer, but the firm is functioning in the capacity just as the CPA's are here, preparing reports that are required by the SEC. Now then, would that challenge be resolved any differently than this one?",
       "time": "00:23:46.43"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It would have to be the same.",
       "time": "00:24:31.87"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, after all, the accountants do have lawyers in their organizations, don't they?",
       "time": "00:24:39.19"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Some law firms have certified public accountants in their establishment, do they not?",
       "time": "00:24:50.53"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In response to Justice Rehnquist's question, would it not turn on what the particular actions were? If they were the actions of a lawyer traditionally it might have one answer; if it was a function of an accountant it might have a different answer?",
       "time": "00:25:00.03"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Levy, how big was the reserve in this case?",
       "time": "00:25:49.24"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I notice a reference in the papers to $7,000 of these foreign payments. Is that all we're talking about?",
       "time": "00:25:54.99"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you know if in a case of this kind the Government is more interested in finding out what the elements of the contingent liability that are included in the reserve are or the ones that are left out? Which are they primarily looking for?",
       "time": "00:26:17.84"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I've seen some balance sheets where the contingency actually identifies the area of potential controversy, that there's some fight over inventory or something that's going to recur year after year. But you're mainly thinking of things that would be undisclosed in the balance sheet itself?",
       "time": "00:26:50.93"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Levy, since '81 you have guidelines.",
       "time": "00:29:33.28"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you have any idea how frequently requests are made now under those guidelines?",
       "time": "00:29:37.36"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Liggio.",
       "time": "00:30:07.76"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You use the term Mr. Liggio.",
       "time": "00:35:21.74"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You use the term \"we\".",
       "time": "00:35:25.11"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You meant the client, you meant Amerada?",
       "time": "00:35:28.86"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The auditor, not the client?",
       "time": "00:35:32.06"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In any event, the \"we\" does not include counsel, is that right?",
       "time": "00:35:40.82"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're not suggesting that it's legal advice?",
       "time": "00:36:06.25"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And in giving this information, this advice to Amerada, Arthur Young & Company doesn't use lawyers for that purpose?",
       "time": "00:36:16.53"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Liggio, at one place in your brief, on page 25, you say that under these circumstances, and you describe it. It's the last paragraph of footnote 15: \"Under these circumstances, the creation of a qualified privilege is a proper exercise of judicial discretion. \" Do you think that's what the Court of Appeals did here, kind of exercised its judicial discretion to create a qualified privilege?",
       "time": "00:36:35.03"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but don't you... aren't you stuck by some difference that Mr. Levy refers to, that the Hickman case arose in a context of litigation, where one of the concurring opinions says, even if a lawyer lives by his wits he shouldn't have to live... be able to live by his adversary's wits? Where there is kind of an idea people should be made equal, it's competitive, adversarial, as opposed to this situation?",
       "time": "00:37:29.20"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Were these papers prepared in your view in anticipation of litigation?",
       "time": "00:39:06.73"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the work papers were sought not by IRS but by the SEC or by some private individual in a securities proceeding? Do you think there should be a privilege there?",
       "time": "00:39:15.52"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What would it turn on if it were sought by the SEC? What would the answer turn on in your view, the terms of a particular statutory provision or some policy?",
       "time": "00:40:19.15"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let's assume it is.",
       "time": "00:40:40.97"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why should the outcome be different if it's for the IRS?",
       "time": "00:40:54.28"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the papers had been given by the accountant to the client and they were in the client's possession and the IRS sought them? Should there be a privilege?",
       "time": "00:41:33.79"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Liggio, I don't quite understand this argument. Are you suggesting that the corporation that is being audited or ultimately may be audited would conceal information from their accounting firm?",
       "time": "00:43:50.64"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Are you suggesting that the auditors wouldn't probe for all relevant information?",
       "time": "00:44:05.04"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The level of candor by whom?",
       "time": "00:44:16.68"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "By the client.",
       "time": "00:44:19.12"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "If you audit a company's books regularly, do you have a relationship with your client that would not permit that sort of pressing type question?",
       "time": "00:44:40.28"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "I would have thought so.",
       "time": "00:44:52.60"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But if you didn't have information that you were satisfied was fully adequate, you'd qualify your certificate, wouldn't you?",
       "time": "00:45:24.79"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you can always get the information by telling the client you won't certify the audit if they don't give you the information. And I don't think the problem is your access to it; it's rather what you don't want to appear in the file, isn't it?",
       "time": "00:45:47.58"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Liggio--",
       "time": "00:46:13.88"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Suppose the client asked its tax lawyer to prepare certain information, not in anticipation of litigation, but concerning potential tax problems. Would any work papers of the lawyer be privileged under existing law?",
       "time": "00:46:17.65"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even though they're... even if you assume, as I suggested, that they were not prepared in anticipation of litigation?",
       "time": "00:46:58.54"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Jackson.",
       "time": "00:47:24.65"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Jackson, if we should decide in our subjective judgment that it was not \"fair\" to do that, ought we to affirm the judgment of the Court of Appeals?",
       "time": "00:48:32.30"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What authority in our past cases is there for that sort of a thing, to just evaluate something in terms of \"fairness\"?",
       "time": "00:48:49.02"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the taxpayer had done his own work and prepared work papers that IRS sought? Would they be somehow protected?",
       "time": "00:52:33.70"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose not many taxpayers have ever thought that the proceedings with IRS were necessarily fair, have they?",
       "time": "00:53:31.91"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Jackson, may I ask you this question. Supposing you have a set reserve. I don't know what the amount might be, a couple hundred thousand dollars. Could you be compelled to disclose the components of that, how much of that is for the particular pending claim and how much is for something else? Do you think that you're just entitled to have it all concealed in a ballpark figure?",
       "time": "00:54:16.45"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I'm assuming they're not, they're not flagged. You've got three separate claims in litigation. You know what the demand is in each claim. Could you be compelled to say with respect... and then there's $200,000 set aside. Could you be compelled to say that 100 is for claim A, 50 for claim B, and 50 for claim C?",
       "time": "00:54:57.26"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, it wouldn't do you any good if there's only one claim pending.",
       "time": "00:55:24.20"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Jackson, you referred to the fundamental fairness argument. But isn't the entire tax system established on the theory that every person who evades or avoids a tax, particularly evades a tax, puts a burden on every other taxpayer, and doesn't that fundamental fairness have to take into account all of the taxpayers' interests?",
       "time": "00:55:30.83"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Levy?",
       "time": "01:03:07.51"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:03:12.73"
     }

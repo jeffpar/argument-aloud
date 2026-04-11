@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1170/19841002a_83-1170.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSHUA I. SCHWARTZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "H. LOUIS NICHOLS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in United States against 50 Acres of Land. Mr. Schwartz.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schwartz, you say that in the case of sewers and water lines, fair market value simply doesn't exist. Are you saying that a finder of fact, properly instructed with valuation instructions in that kind of a case, in hearing testimony, couldn't place a value on, say, a sewer line?",
       "time": "00:09:45.02"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least there haven't been any sales.",
       "time": "00:10:29.32"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you know, in cases where there are no comparable sales, you can go to sometimes to reproduction cost. Why can't you do that in the case of a sewer line?",
       "time": "00:10:46.03"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But why not say that is one form of fair market value rather than saying where fair market value can't be ascertained you resort to substitute facilities. Well, it isn't market value, is it? I mean, it's fair value, but it isn't market value.",
       "time": "00:11:27.91"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Schwartz, I guess there is language in our cases that something other than fair market value can be used in two instances: one, if you don't have a fair market value, which you have been discussing; or secondly, where it is manifestly unjust to the owner or the public to apply a fair market value principle. Now, did the court below attempt to analyze this case within that framework to determine whether it is manifestly unjust here to use fair market value?",
       "time": "00:13:09.69"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could, could a case like this, where you are taking a landfill, for example, or some other public facility that must be replaced, would it ever be appropriate to analyze it in terms of that manifestly unjust standard? Could it fit?",
       "time": "00:13:54.05"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, okay, would it include the fact that inevitably this local government is going to have to acquire a substitute because it is under an obligation to dispose of trash and garbage; and secondly, because it is going to have to make a substantial additional expenditure to do it over and above acquiring the land, if those were the facts?",
       "time": "00:14:38.78"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it may have a more immediate necessity. If what has been taken is the public water supply or the, in this case, sanitary landfill, the city or the county has an obligation tomorrow to have something in place to take care of that.",
       "time": "00:16:57.67"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The homeowner can go rent something temporarily. Sure, you need a place to live, but it is not the same. The public entity has an obligation to keep these public services going. Now, can that be a factor in determining what is manifestly unjust?",
       "time": "00:17:19.32"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if the cost of the substitute was significantly less? It might be to the government's advantage to compel a substitute facility cost measure because you could pay the local government less.",
       "time": "00:18:42.86"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how did the jury come in with $750,000?",
       "time": "00:20:40.22"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wouldn't the Court of Appeals adjustments take care of that?",
       "time": "00:22:03.49"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wasn't it aimed at that?",
       "time": "00:22:12.71"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the substitute facility is obviously twice as big, or lasts twice as long, I would suppose the adjustments would take care of that.",
       "time": "00:22:17.60"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it did vacate the--",
       "time": "00:23:02.32"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Didn't you have a chance to put on your evidence? I gather you did; you put on your evidence as to what this substitute facility was worth.",
       "time": "00:25:13.94"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You said you were the only evidence about that.",
       "time": "00:25:25.41"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you did... you did it as well as you could, and the jury just didn't believe you.",
       "time": "00:25:44.98"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or they didn't accept your story, anyway.",
       "time": "00:25:50.64"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you had your chance, though.",
       "time": "00:25:57.90"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, I guess you are stuck with it if we think the substitute facility view is all right; you are stuck with the Court of Appeals deductions from this $750,000, I take it.",
       "time": "00:26:35.46"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On remand, on remand are they going to redetermine the value of the substitute facility or just determine some deductions?",
       "time": "00:26:52.97"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why would they set aside the 750,000 valuation as a base from which to make some deductions?",
       "time": "00:27:10.69"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me go back, Counsel. Isn't the basic rule fair market value unless it is not ascertainable?",
       "time": "00:27:36.87"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I suppose if the federal government was taking a local airport, you might have difficulty finding a fair market value of the airport as such unless it was adaptable for development, real estate development. Would that be the type of case where they might turn to some other standard?",
       "time": "00:28:22.32"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It really would be hard to sell O'Hare Airport, wouldn't it?",
       "time": "00:29:18.00"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Nichols?",
       "time": "00:29:37.37"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Nichols, how much time elapsed in this case between the first notice you had of the condemnation and the actual taking by the government, the dispossessing?",
       "time": "00:30:56.72"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What, did you have less than 90 days or more than 90 days?",
       "time": "00:32:04.73"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You referred, Mr. Nichols, to the language of the Constitution--",
       "time": "00:32:20.78"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--which is the starting point, but hasn't that language been embellished by construction to place on the meaning of the Constitution fair market value as the primary--",
       "time": "00:32:26.83"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Not the only, no, but isn't that the starting point through the law generally? I am not speaking of our Court here.",
       "time": "00:32:48.02"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, now, Mr. Nichols, I guess your city had the right to go out and condemn another parcel and take it right away.",
       "time": "00:34:39.68"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or a prison.",
       "time": "00:35:23.98"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, would the cost of that be includable in the substitute cost figure that you would urge?",
       "time": "00:36:29.04"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that the CA 5 would allow to be considered on remand?",
       "time": "00:36:37.45"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The temporary one or the--",
       "time": "00:37:34.32"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The permanent one.",
       "time": "00:37:36.63"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying in effect, Mr. Nichols, that anything, any damage that was really proximately caused to you by the condemnation ought to be picked up by the government.",
       "time": "00:38:01.88"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but I think you are going against a large body of condemnation law there because traditionally, for instance, the owner of a small business whose site is condemned gets the fair market value of the site, but he gets nothing for good will, nothing for moving expenses. Congress enacted a bill a few years ago that said over and above just compensation, we will pay you for these sort of items, but that has never been thought to be part of just compensation.",
       "time": "00:38:23.22"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why should that, why should a public condemnee such as your client be any different from a small businessman who suffers incompensible causal damage as a result of a condemnation?",
       "time": "00:39:04.80"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so what? So what?",
       "time": "00:39:26.44"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say it's a different purpose--",
       "time": "00:39:31.62"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Why should the different purpose make any difference?",
       "time": "00:39:33.91"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you can make that argument just as well in the case of your small businessman as you can in the case of your local government.",
       "time": "00:39:51.84"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why has that got anything--",
       "time": "00:40:08.72"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--No, why has that got anything to do with it? I know you are stating that, but why does that bear on the question?",
       "time": "00:40:11.35"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The small, the small businessman is either going to have to get back in business or starve.",
       "time": "00:40:36.96"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, usually people like to get back in business.",
       "time": "00:40:46.17"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But now, I still don't understand from your submission, you have repeated the phrase several times, that the city was obligated to do this.",
       "time": "00:41:13.13"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why does that make any difference?",
       "time": "00:41:22.26"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what... no case from this Court supports that proposition, does it?",
       "time": "00:41:54.08"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Suppose the only place you could get would require a road that cost $80 million to get to the place? Would that be the cost?",
       "time": "00:42:05.89"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "World the government have to pay eighty--",
       "time": "00:42:19.33"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, the government, did the government agree from the very outset that it would go to the jury on this bifurcated instruction?",
       "time": "00:43:30.41"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was the only one.",
       "time": "00:43:43.72"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the government said the--",
       "time": "00:43:47.75"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Did you try the case below?",
       "time": "00:43:56.84"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Before the jury?",
       "time": "00:44:00.21"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now I understand.",
       "time": "00:44:02.57"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me pose this question to you.",
       "time": "00:44:07.67"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I don't know how big Duncanville is but I suppose--",
       "time": "00:44:10.68"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--How many?",
       "time": "00:44:14.23"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have got a local courthouse, state courthouse.",
       "time": "00:44:16.12"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, if the United States came along and said we want to build a federal building there, everybody would like to have the federal building, but in determining value, it is pretty hard to find a market for your courthouse because not many people want to buy a courthouse as such, and I thought it was understood that these alternative methods were to meet that kind of a situation where you can't really find the fair market value of a local county courthouse of 28,000, a city of 28,000 people. So there you might get something other than... you'd have to have another value, so you might go to reproduction cost or something like it.",
       "time": "00:44:21.14"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think this case fits that proviso?",
       "time": "00:45:47.81"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, now, the Court of Appeals didn't appear to me at least to be making a determination on the manifest unjust result basis.",
       "time": "00:46:25.51"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why didn't you cross-petition up here?",
       "time": "00:48:16.88"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right, you did, and you wanted us to set aside the remand.",
       "time": "00:48:23.03"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, you are treating indemnification and compensation as being, having the same content, meaning the same thing.",
       "time": "00:49:20.12"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Nichols, can I ask you a perhaps a question which will display my ignorance to you, but the Fifth Amendment talks about the taking of private property for public use without just compensation. I know there are some lower court cases, but has this Court ever said that the taking of public property shall be paid for by just compensation?",
       "time": "00:49:38.03"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand the government doesn't challenge it, but I just... is it... we have never, or have we ever said that the right standard is just compensation?",
       "time": "00:50:17.03"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't think they take that position.",
       "time": "00:50:52.18"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but you mean they wouldn't pay you market value for what you could sell this land for?",
       "time": "00:50:58.81"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought your opposition here stood up and said it is always market value, whether it is going to cost you that much or not.",
       "time": "00:51:12.42"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be. That isn't their submission here, though.",
       "time": "00:51:28.00"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, it isn't.",
       "time": "00:51:33.11"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "By the way, what statute did the United States proceed under here?",
       "time": "00:51:44.98"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does the statute they proceeded under, do they give the procedure as to how compensation is to be determined?",
       "time": "00:51:53.68"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does that happen to use any words about what the measure of damages is?",
       "time": "00:52:07.35"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The statute doesn't say a word about that.",
       "time": "00:52:13.92"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean they can't turn this into a statutory case.",
       "time": "00:52:20.42"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would be your position if the government gave you notice and you, just about six months before you were going to fill up that landfill? Within six months you are going to have to go out and replace it for this $1,200,000, and the government gives you notice and says six months from now we want that property, just at the very time where it will be of absolutely no use to you whatsoever for a landfill, and you will have to go get another one. So you would say that they could have your property for nothing?",
       "time": "00:53:34.86"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you have a piece of property there that now you can build buildings on it, and--",
       "time": "00:54:13.97"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--No, the landfill was--",
       "time": "00:54:21.74"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--What was the, what was the testimony at the trial? How did they have market value? How did they arrive at market value, what that piece of property could be sold for?",
       "time": "00:54:24.76"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what was the use of the land that was filled?",
       "time": "00:54:44.98"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you could sell it for something apparently.",
       "time": "00:55:05.27"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The testimony was you could sell this property including--",
       "time": "00:55:09.82"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Including the piece that was filled.",
       "time": "00:55:12.60"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would be zero?",
       "time": "00:55:28.65"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would be zero, would be zero. On my facts, the value would be zero, is that it?",
       "time": "00:55:30.92"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would apply that rule--",
       "time": "00:58:30.09"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--You would apply that rule to the hypothetical I gave you about taking your local courthouse, that if you could build another or for less, then you'd--",
       "time": "00:58:33.54"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--But if you built it 40 years ago, you probably couldn't build it for that much money today.",
       "time": "00:58:47.63"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think the rule is that there is no duty to replace? Then it is market value, isn't it?",
       "time": "00:59:10.93"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or is it zero?",
       "time": "00:59:18.18"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about your--",
       "time": "00:59:22.37"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Schwartz?",
       "time": "00:59:47.50"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just follow up on that? I know it was addressed in Note 9, but is it... am I correct in understanding that although the Court has held that there is the power to condemn, there has been no holding on what the measure of compensation is?",
       "time": "01:00:15.68"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what I understood Note 9 to say.",
       "time": "01:00:29.49"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I still have a problem with the fact, what was wrong with the instructions to the jury?",
       "time": "01:02:06.62"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You have a jury verdict pursuant to instructions. You didn't object to the instructions did you?",
       "time": "01:02:14.35"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you didn't object to the instruction.",
       "time": "01:02:39.11"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So if the instruction is all right, you lose.",
       "time": "01:02:42.56"
     },
@@ -1315,13 +1319,13 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Counsel. The case is submitted.",
       "time": "01:03:03.92"
     },
     {
       "turn": 214,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "01:03:06.39"
     }

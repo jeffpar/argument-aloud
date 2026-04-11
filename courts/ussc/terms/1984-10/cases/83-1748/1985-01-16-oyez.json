@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1748/19850116a_83-1748.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "THEOPHIL C. KAMMHOLZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GERALD S. BOISITS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Kammholz, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kammholz--",
       "time": "00:04:42.14"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--on a side point, may I inquire whether the disability plan involved here is governed by ERISA?",
       "time": "00:04:45.56"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Kammholz, I gather the Court, in Linn at least, recognized that there might be state law action, notwithstanding a breach of... that was a libel action, wasn't it?",
       "time": "00:10:25.43"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, when you say preemption, I gather what you mean is that it's a breach of contract. The action must be under 301 whether that action is brought in the state court or the federal court.",
       "time": "00:10:47.10"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's not really preemption. It's state law... rather, federal law, and only federal law applies if it's an action for breach of the collective bargaining.",
       "time": "00:10:57.42"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it then was not a breach of collective bargaining?",
       "time": "00:11:12.15"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Didn't we have another? I thought we had some other that... well, I've forgotten.",
       "time": "00:11:15.02"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would it have been all right, in your view, if the supreme court of Wisconsin had adjudicated this case but applied the principles of federal labor law that you say are derived from the Lincoln Mills cases?",
       "time": "00:11:39.26"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but I... my question was was it all right for the supreme court of Wisconsin to have adjudicated this case so long as it applied principles of federal law derived from the Lincoln Mills trilogy?",
       "time": "00:11:57.69"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather, Mr. Kammholz, what you would have hoped the Wisconsin court would say is we'll treat this as a 301 suit brought in state court; we'll stay it while we send you to, under Boys Market, to exhaust your administrative remedies and end up in arbitration. That's what you wanted, wasn't it?",
       "time": "00:12:28.29"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it clear, Mr. Kammholz, that if this particular respondent had a claim for... under this plan that he would have had to submit it to arbitration under the collective bargaining agreement?",
       "time": "00:13:17.13"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I have one question.",
       "time": "00:13:39.59"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But again, it's not directly related to the facts of this case obviously. But assuming for purposes of the question that your position is correct and that this is a 301 case, if it's also governed by ERISA are there any conflicts between the remedies available to someone in the circumstances of the plaintiff below by virtue of the fact that it might also be an ERISA plan?",
       "time": "00:13:41.75"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Both being federal laws--",
       "time": "00:14:16.86"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--but with different remedial approaches. And yet, one can't help but be struck how the facts of this case and the one that was just argued are identical.",
       "time": "00:14:19.65"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "At any rate, it's federal, not state.",
       "time": "00:14:58.48"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "00:15:01.79"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Boisits.",
       "time": "00:15:04.62"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did the claim... did his claim arise out of the union contract?",
       "time": "00:15:44.45"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did his claim arise under the union contract?",
       "time": "00:15:49.02"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did that derive from an agreement between the company and the union?",
       "time": "00:16:18.84"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's what happens under collective bargaining agreements all the time where you have to go through the grievance procedure, and you have to be... you have to settle for whatever you get out of the grievance or the arbitrator.",
       "time": "00:17:34.37"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And even... even if the employer keeps the wages that you are... withholds, wrongfully withholds wages that you would like to use to feed your family.",
       "time": "00:17:50.74"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you say that this agreement, then, this agreement that was provided for arbitration of disputes about this very plan, is contrary to public policy? Is that what you're saying?",
       "time": "00:18:12.51"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's just unenforceable, that provision of the contract.",
       "time": "00:18:26.79"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if it's enforceable, why can't you insist that he go to arbitration?",
       "time": "00:18:33.93"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but most arbitration provisions say that the arbitrator... the arbitrator's decision will be final and binding, and that's all you get.",
       "time": "00:18:48.78"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If we join you and make this exception as to insurance policies, can you tell me anything that the state can't also do and wreck the whole contract?",
       "time": "00:19:37.43"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yeah, yeah.",
       "time": "00:19:53.16"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, can you name something that they couldn't do? Couldn't the state say it's against our policy to pay a minimum wage?",
       "time": "00:19:55.69"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would that apply?",
       "time": "00:20:05.45"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why not?",
       "time": "00:20:07.96"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Something that's bound by the contract.",
       "time": "00:20:18.43"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just like the policy.",
       "time": "00:20:23.65"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is... does the contract in any way say that this benefit under the policy is different from the rest of the contract?",
       "time": "00:20:28.55"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You say this is a separate part of the contract.",
       "time": "00:20:39.30"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does it say that it is separated from the contract so that it does not apply to arbitration?",
       "time": "00:20:43.61"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then how can you say so? It's just the contrary.",
       "time": "00:20:53.57"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can the state do it?",
       "time": "00:21:04.18"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How?",
       "time": "00:21:08.04"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather, though, Mr. Boisits, what you're saying is even though the collective bargaining agreement says for issues of this kind you must go through the grievance procedure, you must accept arbitration, it doesn't really mean anything, because if the state wants to intervene and say well, we've got a different policy in particular respects, and if that policy is violated, then that's in addition to whatever remedy you have under the collective bargaining. That is what you're saying?",
       "time": "00:21:56.94"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, but it's... it's adding something. I thought you just suggested to Justice White that there isn't any question in terms at least that the arbitration and grievance procedure applied to this claim; isn't that right?",
       "time": "00:22:31.22"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that one of the... so the employee says to the... says to the employer or to the insurance company or whoever he's talking to, you haven't paid me my benefits, and furthermore, you have not done it... you've done it in bad faith. And the employer says well, let's arbitrate; this is a dispute about the payment of these benefits. And you say you divide that up into two things. One is you go arbitrate for your benefits, and you sue in the state court for bad faith.",
       "time": "00:23:10.13"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's-- --Well, if the union became convinced that Allis-Chalmers was horsing some of its members around, as you put it, on these disability payments, couldn't the union decide that we don't want to submit that kind of thing to arbitration and simply withdraw that from the arbitration contract, and that then you'd really be in a lot better position, I would think.",
       "time": "00:23:42.88"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I realize--",
       "time": "00:24:08.81"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But he's bound by the union's contract on his behalf to arbitrate this particular kind of dispute, as I understand it.",
       "time": "00:24:29.97"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is this obligation on the benefits a debt? Is it a debt relationship?",
       "time": "00:25:39.83"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then, is every person who doesn't pay his bills on time committing a tort?",
       "time": "00:25:54.54"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, you've just said that their failure to pay was a tort.",
       "time": "00:26:01.53"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let's say that you write Brooks Brothers and say that go fly a kite, we're not going to pay you the bill, and don't waste your postage sending me any more bills. Is that a tort? [Laughter]",
       "time": "00:26:14.08"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They haven't got their money.",
       "time": "00:26:39.65"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How's Brooks Brothers any different from your client?",
       "time": "00:26:46.98"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How?",
       "time": "00:26:50.07"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How can you say the union was disinterested in this case? Did he apply to the union?",
       "time": "00:27:23.13"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what did the union refuse to do?",
       "time": "00:27:33.90"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you can't complain against the union.",
       "time": "00:27:39.05"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You can't, can you?",
       "time": "00:27:45.98"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why try to do it now?",
       "time": "00:27:47.61"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the union... do you think the union's reason is that it might be a defendant in such a claim?",
       "time": "00:28:19.60"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, may I ask you on that point, this contract, as I remember it, there's some supplementary correspondence about insurance-related matters, that they had some kind of a special arbitration procedure. If they had said in those documents insurance-related matters shall include arbitration of claims that the company was slow in paying, for bad faith or otherwise, and that the arbitrator would have the authority to grant appropriate relief if that happens, would you then feel you had to go through that procedure?",
       "time": "00:28:41.79"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then, may I ask why couldn't one argue that your first step in this problem, if it's a general problem, is to ask the union to negotiate such a provision, or to bring a proceeding and see whether they might not even interpret the existing documents to give that relief? I suppose it's conceivable that if you took the claim to arbitration and said that insurance-related matters includes claims of this kind as well, and if you have very sympathetic facts, as presumably you do.",
       "time": "00:29:14.78"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, Mr. Boisits, I'm looking at the collective bargaining agreement at page 24 of the Joint Appendix, and there's a provision as to the jurisdictional authority of the impartial referee, and it says, \"It's defined as, and limited to, a determination of any grievance which is a controversy between the parties, or between the company and employee covered by this agreement concerning compliance with any provisions of this agreement, and is submitted to him consistent with the provisions of this agreement. \" Now, I don't know. That seems to me broad enough to cover the kind of grievance that is I haven't been paid my benefits in time.",
       "time": "00:29:48.36"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I was looking at the conclusion of the agreement. I wasn't looking--",
       "time": "00:30:37.88"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Joint Appendix, page 24.",
       "time": "00:30:41.44"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Twenty-four, yes. See that paragraph, the first paragraph at the top of the page, 240? It's a rather broad authority.",
       "time": "00:30:47.72"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, doesn't... doesn't the... under that provision would not the arbitrator decide whether a given grievance comes within his authority or not?",
       "time": "00:31:15.88"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Whether it's an arbitrable grievance. Wouldn't that be within his authority to decide?",
       "time": "00:31:30.72"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the supreme court of Wisconsin didn't consider it at all, did they?",
       "time": "00:32:18.53"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That provision. Did it?",
       "time": "00:32:24.14"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's not in their opinion at all, is it?",
       "time": "00:32:34.16"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, look at this letter at page 43 that you refer to expressly says that \"question within the committee's scope shall be referred to it and shall not be processed in the first three steps of the grievance procedure, but may be presented for arbitration in the established manner once they've been discussed and have not been resolved. \"",
       "time": "00:33:06.70"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't see any independent. That seems to me to reach your... that's your arbitration--",
       "time": "00:33:29.86"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--But your complaint says nothing except contract.",
       "time": "00:41:16.58"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your complaint in this case says nothing except a violation of the contract.",
       "time": "00:41:20.75"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It doesn't say contract?",
       "time": "00:41:30.60"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It doesn't say contract?",
       "time": "00:41:34.95"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that's all it said. It says the contract with Aetna Life and Casualty Company under contract number ACS-558781. You can't be more specific than that.",
       "time": "00:41:40.46"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I think we have your point on that, counsel.",
       "time": "00:42:17.72"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could you tell me where specifically it is that the agreements or the letter of understanding require that claims for benefits, disputed claims for benefits be arbitrated?",
       "time": "00:42:20.19"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:42:37.80"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, is this committee that that letter talks about, is that the... are they the arbitrators?",
       "time": "00:42:41.40"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but now you... where does it require that... we're talking about an insurance-related matter, aren't we?",
       "time": "00:42:55.59"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And tell me where this letter requires something to be presented to arbitration.",
       "time": "00:43:06.07"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:43:31.41"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the committee is... so where do you present it for arbitration?",
       "time": "00:43:44.97"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the committee are the arbitrators.",
       "time": "00:43:51.58"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that would be under the main contract?",
       "time": "00:44:03.43"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that word \"may\" is in there.",
       "time": "00:44:12.16"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, does that require presentation to arbitration?",
       "time": "00:44:15.02"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose--",
       "time": "00:44:18.96"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--If the company... but if the company wanted to present it for arbitration, the claimant would have to go to arbitration.",
       "time": "00:44:32.94"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, counsel, that letter can't alter the terms of the contract, can it?",
       "time": "00:44:44.48"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel.",
       "time": "00:45:07.55"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Kammholz?",
       "time": "00:45:10.94"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I have a question, Mr. Kammholz. Supposing that in this contract Allis-Chalmers, instead of acting as a self-insurer, had simply provided that as one of the benefits it was giving employees it would provide them with a disability policy with Aetna Life Insurance Company, but the contract also said that any disagreement between the employees and Aetna Life Insurance Company over the payment of a disability would be submitted to arbitration the same way a grievance is to the conditions in the plant. Do you think federal labor policy requires a state court to apply federal law to that situation?",
       "time": "00:45:15.72"
     },
@@ -1199,13 +1199,13 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:45:56.54"
     },
     {
       "turn": 194,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until Monday next at 10 o'clock.",
       "time": "00:45:58.07"
     }

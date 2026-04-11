@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2007/07-5439/20080107a_07-5439.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD B. VERRILLI, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROY T. ENGLERT, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GREGORY G. GARRE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in the Case 07-5439, Baze v. Rees. Mr. Verrilli.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Verrilli, your argument is based on improper administration of the protocol. You agree that if the protocol is properly followed there is no risk of pain?",
       "time": "00:00:43.76"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought your expert... I'm looking at page 493 to 494 of the joint appendix... agreed that if the two grams of sodium pentothal is properly administered, the way he put it, in virtually every case there would be a humane death.",
       "time": "00:01:18.65"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if it were properly administered, would you have a case here? Let's assume 100 percent of cases are properly administered.",
       "time": "00:01:51.41"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, my question--",
       "time": "00:02:06.42"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Let's assume hypothetically, and we know this isn't true, that 100 percent of the time it's properly administered. Then do you have an argument to present to the Court?",
       "time": "00:02:07.21"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But would you... would the monitoring suffice? In other words, you started out by saying there is no way that it could be administered and assure 100 percent against risk, so it would be helpful if you clarified: Yes, there is a way of monitoring adequately and tell us what that would be, or no, there is no way.",
       "time": "00:02:50.47"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who would be a medical doctor... and medical doctors, according to the Code of Ethics of the American Medical Association, can't participate.",
       "time": "00:03:35.95"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, that seems to be a big part your argument, but it doesn't appear that that argument was raised at all in the Kentucky courts, and it seems that there is virtually nothing in the record of this case that shows that that's practical or that it's preferable to the three-drug protocol. It may well be, but without anything in the record of this case, how could we hold that the three drug protocol is unconstitutional?",
       "time": "00:03:57.65"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Where was it raised? The citations in the brief that was submitted by your co-counsel are inaccurate to show that it was raised in the Kentucky courts.",
       "time": "00:04:32.24"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "No, that's... that's the trial court, and you think that just the word an \"alternative chemical poses less risk\" is sufficient to raise the argument that the three-drug protocol is unconstitutional, because a single drug protocol involving thiopental is preferable. That one word?",
       "time": "00:05:02.93"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What are they? That is, I was... I can't find... what should I read? Because I've read the studies. I've read that Lancet study, which seemed to me the only referee for it said it wasn't any good. And I've read the Zimmer study and I found in there an amazing sentence to me which says that The Netherlands Information Task Force concluded it is not possible to administer so much of it that a lethal effect is guaranteed. They're talking about thiopental. So I'm left at sea. I understand your contention. You claim that this is somehow more painful than some other method. But which? And what's the evidence for that? What do I read to find it?",
       "time": "00:05:30.73"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But that's what they're... they're giving a three gram dose, I take it, and if... or two grams or three grams; I thought it was three grams here. And I ended up thinking of course there is a risk of human error. There is a risk of human error generally where you're talking about the death penalty, and this may be one extra problem, one serious additional problem. But the question here is can we say that there is a more serious problem here than with other execution methods? I've read the studies. What else should I read?",
       "time": "00:06:39.47"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do we do with the euthanasia... instead of talking... I looked; I found it more important to look at what they do with euthanasia than to look at what they do with animals, frankly, and I was therefore taken aback with the sentence I just read to you. What am I supposed to do about that?",
       "time": "00:07:43.11"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That method has never been tried, correct.",
       "time": "00:08:19.68"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do we know whether there are risks of pain accompanying that method?",
       "time": "00:08:27.61"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The record establishes that the second drug that's used here is used to prevent involuntary muscle contractions. That would not be... there wouldn't be a safeguard against that under one drug protocol, I take it.",
       "time": "00:08:38.79"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Can you... do you agree that that is an appropriate problem to be addressed by the execution protocol, that they should try to reduce the likelihood of involuntary muscle contractions?",
       "time": "00:09:03.05"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I think that their... one of their reasons was that it would enhance the dignity, not only of the procedure as a whole, but also to the condemned.",
       "time": "00:09:26.51"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What do we do with the... if you prevail here, and the next case is brought by someone subject to the single drug protocol and their claim is: Look this has never been tried. We do know that there's a chance that it would cause muscle contractions that would make my death undignified. It will certainly extend how long it takes to die, so I'm subject to a lingering death and the more humane protocol would be the three drug protocol?",
       "time": "00:10:01.57"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Verrilli, I think that your main argument in this case, I mean, there's... barbituate only seems to have come up rather late in the day, as Justice Alito pointed out, but your main arguments seem to be that the controls were inadequate. So you were beginning to say what controls would be necessary to render this procedure constitutional, and one that you said... trained personnel to monitor the flow.",
       "time": "00:11:04.24"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:11:40.22"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And what is--",
       "time": "00:11:43.16"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Two questions: Who would the trained personnel be? And, the second question, what would be the measures that they would employ?",
       "time": "00:11:44.52"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what do we do about the point... the point that the doctors or the nurses say it's unethical to help with an execution? I mean, if we are going to talk about the constitutionality of the death penalty per se, that isn't raised in this case. And what the other side says is, well, you're just trying to do this by the back door, insist upon a procedure that can't be used.",
       "time": "00:12:01.77"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could you use those EMTs? Would they be qualified? Would the team that inserts the IV, would that team be qualified?",
       "time": "00:13:08.77"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Verrilli, are we in the difficult position in hearing your answers that, in effect, we're being asked to make findings of fact about the availability of medical personnel and the feasibility of training and so on that the trial court never made because it didn't think it had to make a comparative analysis here, so that if, in fact, the comparative analysis is crucial to the case, we should send the thing back for factfinding by a trial judge rather than trying to do it here. Should we remand if we accept your argument?",
       "time": "00:13:25.53"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You were interrupted, and you gave Justice Ginsburg... you said you have two problems for monitoring. She asked you who would do this and what measures would they use.",
       "time": "00:14:46.00"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you were never able to get to the second.",
       "time": "00:14:56.03"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, as to the cuff, I thought the record was rather clear that it is just not used at these low blood pressure levels.",
       "time": "00:15:19.29"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Verrilli, this is an execution, not surgery. The other side contends that you need to monitor the depth of the unconsciousness. When you expect to bring the person back and do not want harm to occur to the person. But they assert that to know whether the person is unconscious or not all it takes is a slap in the face and shaking the person.",
       "time": "00:15:42.06"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's their contention.",
       "time": "00:16:10.19"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "With regard to the trial court's failure to make findings about the availability of people to do this and about the possibility of... practical possibility of more effective and less painful drugs, was that a failure to ignore evidence that you produced?",
       "time": "00:16:36.39"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you introduce evidence to show that indeed medically trained personnel were readily available to do the things you say?",
       "time": "00:16:58.84"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm very reluctant to send it back to the trial court so we can have a nationwide cessation of all executions while the trial court finishes its work and then it goes to another appeal to the State supreme court and ultimately, well, it could take years.",
       "time": "00:17:26.00"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't want that to happen.",
       "time": "00:17:43.60"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I ask you another question?",
       "time": "00:17:55.27"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I ask another question about the state of the evidence. It really goes to an understanding of your position that was discussed a little bit earlier about the preferability of simply barbiturate dose as opposed to the three-drug combination. You said a moment ago that the evidence was... and I think it was undisputed evidence... that three grams of the barbiturate actually used would be sufficient to cause death; is that correct.",
       "time": "00:17:57.72"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And that was undisputed?",
       "time": "00:18:29.41"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:18:34.64"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that if the current three-gram dosage were used and the second and third drugs were not administered, death would occur based on the undisputed evidence in this case.",
       "time": "00:18:37.00"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Secondly, my understanding, my recollection, is that in a couple of places in your brief, one at least, you referred to the preferability of administering a, and I think the term was, massive dose of barbiturate, which I took to mean more than the three grams. Is that what you meant?",
       "time": "00:18:50.29"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That is the massive dose.",
       "time": "00:19:11.91"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is there any evidence in the record about what the enhanced dose would appropriately be if you decided or if a protocol author decided that there would be no chance whatsoever that death would not occur, and the amount should be greater than three grams? Was there any evidence in the record about how much there ought to be if you were going to go above three grams?",
       "time": "00:19:21.59"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the government has told us they do.",
       "time": "00:19:53.79"
     },
@@ -591,13 +591,13 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In the Federal response.",
       "time": "00:19:56.95"
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You have objections that would apply even to your single drug protocol. You tell us that one reason this challenged protocol doesn't work is because people will mix the drugs in the wrong way, including the sodium pentathol. That objection would still be there if we adopted your alternative, wouldn't it?",
       "time": "00:19:57.84"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm focusing specifically on the mixing of the drugs. The mixing of the sodium pentathol would be undertaken under the Kentucky procedure and under your proposed alternative, correct?",
       "time": "00:20:22.63"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We have been discussing this as though that is a constitutional requirement. Where does that come from, that you must find the method of execution that causes the least pain? We have approved electrocution, we have approved death by firing squad. I expect both of those have more possibilities of painful death than the protocol here. Where does this come from that in the, in the execution of a person who has been convicted of killing people we must choose the least painful method possible? Is that somewhere in our Constitution.",
       "time": "00:20:51.80"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I don't agree with that. The concern was with torture, which is the intentional infliction of pain. Now, these States, the three-quarters of the States that have the death penalty, all except one of whom use this method of execution, they haven't set out to inflict pain. To the contrary, they have introduced it presumably because they, indeed, think it's a more humane way, although not one that is free of all risk.",
       "time": "00:22:00.63"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No--",
       "time": "00:22:38.68"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Unnecessary and wanton, unnecessary and wanton infliction of pain.",
       "time": "00:22:39.87"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then, you're changing your position. You said... you just said earlier that we didn't have to find the least painful way.",
       "time": "00:22:53.82"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if you're not using the least painful way, you are inflicting unnecessary pain, aren't you?",
       "time": "00:23:00.88"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you rectify that?",
       "time": "00:23:06.34"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Isn't your position that every form of execution that has ever been used in the United States, if it were to be used today, would violate the Eighth Amendment?",
       "time": "00:23:22.35"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, which form that's been used at some time in an execution would not violate?",
       "time": "00:23:32.07"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Hanging certainly would, right?",
       "time": "00:23:45.03"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that a hard question? Is that a hard question, whether hanging would, whether you had experts who understood the dropweight, you know, that was enough that it would break the neck?",
       "time": "00:23:49.43"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Hanging's no good. What about electrocution?",
       "time": "00:24:07.88"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It has to be, it has to be painless?",
       "time": "00:24:20.11"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You have no doubt that the three judge protocol that Kentucky is using violates the Eighth Amendment, but you really cannot express a judgment about any of the other methods that has ever been used?",
       "time": "00:24:34.26"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would think you'd have to show it's unusual, not painless. I mean, cruel and unusual is what we're talking about. There's no painless requirement in there.",
       "time": "00:25:09.34"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where does this unnecessary pain requirement come from?",
       "time": "00:25:22.57"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Dictum in our cases, right?",
       "time": "00:25:26.39"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Dictum in our cases.",
       "time": "00:25:30.28"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Verrilli. Mr. Englert?",
       "time": "00:26:38.94"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But do you also agree with the counter-proposition that if it is not properly administered there is some risk of excruciating pain?",
       "time": "00:27:04.15"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do you agree that if that risk, say, occurred in every case, that it would violate the Eighth Amendment?",
       "time": "00:27:12.27"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I take it this is obvious, but I wondered when I went through the brief. I assume this phlebotomist is not an MD?",
       "time": "00:27:55.72"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What is the training? I mean, \"phlebotomist\" is somebody who works with veins, I take it.",
       "time": "00:28:04.47"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So it's somebody like the Red Cross worker who puts in the needle when somebody donates blood.",
       "time": "00:28:35.05"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Englert, I thought that there wasn't a serious question about who inserts the IV, that those are trained people, but the point that was highlighted was that the people who control the flow into the IV connection, that those people have no training, the ones that are called executioners, the ones who operate the, what is it, the syringe.",
       "time": "00:29:04.29"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they also are not trained people. I think what seems puzzling to me is the State has made an effort to make sure that the people on the team that inserts the IV, that those are well-trained professional people, but then apparently they leave the room, so that once the IV is inserted there is no professional person that has any further part.",
       "time": "00:30:24.44"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but isn't it clear that a five gram administration of that drug would be fatal?",
       "time": "00:32:38.86"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's not in the record, but it's in this document that we received the last few days, this long deposition of Dr. Dershowitz.",
       "time": "00:32:47.18"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if it doesn't, if you just administered more of the drug, then what?",
       "time": "00:33:09.98"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:33:17.68"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you contend that the second drug in the three-drug protocol is necessary in order to make the execution effective?",
       "time": "00:33:27.85"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Particularly the one that the Chief Justice described.",
       "time": "00:33:35.92"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't want to have unpleasant appearance of death at the time.",
       "time": "00:33:39.39"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the justification for the second drug when it does, that is the drug that creates the risk of excruciating pain?",
       "time": "00:33:46.75"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. I understand that.",
       "time": "00:34:01.05"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The dignity of the process outweighs the risk of excruciating pain?",
       "time": "00:34:15.54"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then the risk of excruciating pain outweigh the risk of an undignified death?",
       "time": "00:34:21.11"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even a minimal risk. Everyone who goes through the process knows there is some risk of excruciating pain that could be avoided by a single-drug protocol. Would he prefer to say, I want to die in a dignified way?",
       "time": "00:34:33.93"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what's \"very long? \" \"10 minutes? \"",
       "time": "00:35:00.57"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They use a single drug protocol for animals because it's more humane than the three drug protocol.",
       "time": "00:35:07.82"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, isn't it required by Kentucky law?",
       "time": "00:35:28.06"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, so something more is involved than merely veterinary practice.",
       "time": "00:35:36.66"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right. But in the setting of Kentucky law the legislature of Kentucky has said we are going to make this a legal requirement and I assume they had some reason for it other than the fact that vets do it that way.",
       "time": "00:35:56.00"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Does the Kentucky law do anything other than adopt the AVMA guidelines.",
       "time": "00:36:06.51"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why was that necessary to pass a law if the standard veterinary practice was not to use T I'm obviously trying to get to what evidence we have here for a finding somewhere that we can take into consideration that there is a comparative benefit under the, under the veterinary practice as distinct from the protocol which has been devised so isn't it reasonable to suppose that the Kentucky legislature needs some kind of a finding came to some kind of a conclusion that in fact there was/SEUG deleterious about using the second drug.",
       "time": "00:36:25.20"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:37:06.80"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The only cost correct me if I'm wrong but the only cost that you have identified in using the one drug only are number one, the appearance cost which you equated with dignity in your response to Justice Stevens and number two, the possibility and I don't know how strong a possibility but the possibility that the one drug would not work. Is there any other cost? In using one drug.",
       "time": "00:37:31.39"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And I take it you don't have a figure for that, Justice Stevens said 10 minutes and I don't think you had a clear answer one way or the other as to whether there was likely to be more.",
       "time": "00:38:05.25"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And 30 minutes is against some risk of excruciating pain is, that in effect is it reasonable to say 30 minutes is too long.",
       "time": "00:38:24.61"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is your point that there is simply no quantification of what that risk is.",
       "time": "00:38:42.15"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay what's your.",
       "time": "00:38:49.03"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So the nub of your argument really is they have not made a case or they do not have a record case for any significant likelihood of excruciating pain.",
       "time": "00:39:49.70"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's still unclear why they should make such an effort to get trained personnel in the first instance and then even if they are in the next room, why isn't, why did they deliberately pick nonprofessional people to both administer the drugs and to check the inmate for consciousness.",
       "time": "00:40:41.13"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What are the reasons.",
       "time": "00:41:07.42"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But have you that expert team and it seems that they would be preferable to executioners who have no professional qualifications.",
       "time": "00:41:23.58"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I mean the people who administer the... who place the IV lines.",
       "time": "00:41:39.11"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Englert, can I ask you a rather basic question? Do you think the constitutionality of the three-drug protocol itself is at issue in this case or merely the question whether Kentucky has done an adequate job of using that protocol?",
       "time": "00:41:53.16"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So if we just decide this on the ground... and the record is very persuasive in your favor, I have to acknowledge... but if we decide the fact that Kentucky is doing an adequate job of administering this protocol, that would leave open the question whether the basic use of this second drug, which does nothing but avoid unpleasantness of the visitors, is itself constitutional?",
       "time": "00:42:12.42"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do we have to wait for another case to decide that rule?",
       "time": "00:42:33.38"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because I... to be very honest with you, I think that you're... you make a very strong case on the administration in Kentucky on the record in this case, but I'm terribly troubled by the fact that the second drug is what seems to cause all the risk of excruciating pain, and seems to be almost totally unnecessary in terms of any rational basis for a requirement.",
       "time": "00:42:43.14"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that we're not going to be able to decide today.",
       "time": "00:43:05.60"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It may have been in this very case, it may be. But that leaves often a whole other area of litigation, is what troubles me.",
       "time": "00:43:14.36"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But no legislature has ever required it, as I understand it.",
       "time": "00:43:30.53"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The three-drug protocol?",
       "time": "00:43:35.29"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the executioners are also not visible to the public?",
       "time": "00:44:31.25"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was a finding that the second drug serves no therapeutic purpose.",
       "time": "00:44:35.59"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's--",
       "time": "00:44:45.86"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if we held that that justification was insufficient to justify this protocol, it's hardly likely we would hold that it's so serious and make the whole procedure unconstitutional.",
       "time": "00:45:35.32"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The interest in protecting the dignity of the inmate and of the observers is the justification for the second drug.",
       "time": "00:45:47.97"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If we held that that... that that justification is insufficient to justify the protocol, how could we ever hold that that justification is so serious as to make the whole procedure unconstitutional.",
       "time": "00:45:56.48"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And presumably it would depend upon whatever new alternative the plaintiff in that case proposed.",
       "time": "00:46:23.20"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Englert. Mr. Garre?",
       "time": "00:46:50.55"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What do you say to the response which I think was in the briefs that the substantiality requirement has been derived in the course of conditions of confinement... sort of litigation... and we really should regard execution as sort of a... a separate subject for purposes of coming up with a standard. What do you say to that?",
       "time": "00:48:09.85"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we did for purposes of making a habeas 1983 distinction, but I... is the distinction supportable when we come down to the question whether there should be a standard specific to execution as opposed to other conditions?",
       "time": "00:49:00.58"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Is there any comparative element in the substantial risk standard, if it were clearly established, undisputed that there was an alternative method that was much less risky, would there be an Eighth Amendment problem with the State or the Federal government nevertheless persisted in using a method that was inferior?",
       "time": "00:50:00.79"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's part of the analysis, this never ends.",
       "time": "00:50:26.31"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's part of the analysis, there will always be some claim that there is some new method that's been devised, and once again executions are stayed throughout the country.",
       "time": "00:50:29.51"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you're standard is that there has... well, don't let me misphrase it for you, but there have to be other obvious available alternatives.",
       "time": "00:51:07.32"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So your threshold one is the only safeguard you have against Justice Scalia's concern against endless litigation, or does your threshold two do the same thing.",
       "time": "00:51:47.01"
     },
@@ -1569,13 +1569,13 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those who oppose capital punishment entirely across the board are quite willing to take a careful look at everything. They are quite willing to take a look at other alternatives. That's the problem we come up with a decision that requires a careful look in every case whenever there is a newly developed method of execution the problem will always be before us and executions will always be impermissible. We agree with those concerns, Justice Scalia, I want to be clear. Our standard is not a least risk--",
       "time": "00:52:13.38"
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You have to, I mean, I can't, I don't know if \"substantial\" is the right word to capture it. Perhaps the right word is is there a significant risk that can be easily averted and what I'm worried about here is do we or do we not send it back, I'm quite honestly disturbed by the fact that in this Netherlands euthanasia report they both recommend pancuronium and say that the thiopental alone doesn't work not even in grams of three doses in all cases but they think the contrary and if there is uncertainty here should we send it back for consideration of all these things in a more full hearing under a standard that does allow comparisons with other methods not to find a comparison not too fine a comparison but at least a practical comparison.",
       "time": "00:52:46.10"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes but if we don't do something like that in this case Mr. Garre another case is going to come along and we are going to be right back here a year from now or 18 months from now and wouldn't it be better to get one case litigated thoroughly and get the issue decided rather than simply wait here for another one to wind its way.",
       "time": "00:54:03.41"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Sure but if we decide it on this basis the next Petitioner is going to say I'm coming into court with evidence these people did not present and therefore we are going to have a new case and new round of litigation and I think what's disturbing Justice Breyer what's disturbing me and others is we want some kind of a definitive decision here, and it seems to me that the most expeditious way of getting it if comparison analysis is appropriate and I will be candid to say I think it is is to send this case back and say okay do a comparative analysis, make the findings and we will then have a case that will in effect resolve the issue as much as one case can ever do.",
       "time": "00:54:34.60"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You say that substantial, that comparison with other possibilities is not necessary so long as the only risk that is coming is a risk of negligence or improper execution of what, of what the protocol requires right?",
       "time": "00:55:53.13"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would say that so long, so long as the only risk comes from negligent application of the protocol, no comparison is required?",
       "time": "00:56:13.45"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if we decided that, if we decided that if this protocol is properly executed, it does not create a substantial risk that would be the end of the matter wouldn't it.",
       "time": "00:56:24.09"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And we would not have another case in front of us next year.",
       "time": "00:56:38.24"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Garre would you explain to me why the Federal Government has picked five grams instead of three.",
       "time": "00:56:53.66"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:57:02.53"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you mean to say unconsciousness.",
       "time": "00:57:22.39"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you Mr. Garre. Mr. Verrilli, you have three minutes remaining.",
       "time": "00:57:31.03"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But the anesthesia concern of course is you don't want to kill the person when you're administering just anesthesia in a surgery so you would want somebody trained there to ensure that you could bring them back if anything went wrong that concern is not present here.",
       "time": "00:58:10.60"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Finish your sentence.",
       "time": "01:01:10.56"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you counsel. The case is submitted.",
       "time": "01:01:24.72"
     }

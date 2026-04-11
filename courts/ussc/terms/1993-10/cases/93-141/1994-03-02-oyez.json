@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/93-141/19940302a_93-141.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "STEVEN J. ROSENBAUM",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DOUGLAS H. WILKINS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 93-141, West Lynn Creamery v. Jonathan Healy. Mr. Rosenbaum.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rosenbaum, I'm wondering if... if all we have in the order was the requirement that there be paid an assessment on all liquid milk sold in Massachusetts, would that be a Commerce Clause violation?",
       "time": "00:01:11.54"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Nothing more than that. We have the assessment on all liquid milk.",
       "time": "00:01:34.04"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Not... if all we had was not an assessment, but just money appropriated by the State to give to Massachusetts dairy farmers to help them, would that be a Commerce Clause violation?",
       "time": "00:01:43.31"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Presumably that's okay. We have all kinds of ways of helping local industries, don't we?",
       "time": "00:02:12.07"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And we've never held that's a violation of the Commerce Clause.",
       "time": "00:02:17.40"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if both of those acts can be constitutional, then what makes it unconstitutional when you put them together, in your view?",
       "time": "00:02:27.36"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that purpose would not be invalidating so long... you... I think you've said... so long as the subsidy were applied in some other way, right?",
       "time": "00:03:40.81"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can... I can want to protect or... or compensate Massachusetts dairy farmers for their inefficiency if I want to, right?",
       "time": "00:03:50.13"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. So, all that has to be done in this case is to provide... provide the same tax, but the funds, instead of going into this segregated fund, go into general revenues, and that'll do it?",
       "time": "00:04:04.40"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not?",
       "time": "00:04:17.12"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why wouldn't that do it?",
       "time": "00:04:18.38"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh.",
       "time": "00:04:41.40"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... you can't tax milk processors separately? This is a category of taxation that you can't use?",
       "time": "00:04:43.50"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you can't pick that out? You can't pick that out?",
       "time": "00:04:54.30"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, not the proceeds of the tax, the tax goes into general revenues. And then, in a totally different bill the State votes out of general revenues money that could be given to, you know, to elderly and little children, and they say, we're going to give it instead to inefficient milk producers; they make that decision to take the money out of general revenues. You say that is still bad?",
       "time": "00:05:05.83"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're not being... they're not being taxed from other... differently from other people similarly situated. All milk processors are taxed the same way.",
       "time": "00:05:36.89"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, taxes are imposed that way. You pick a class of people and you say, you know, we're going to have a... a lawyers tax, a milk processors... gee, we tax all sorts of little individual groups.",
       "time": "00:05:42.93"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, you are complaining about a subsidy then? You're saying--",
       "time": "00:05:56.68"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You... you acknowledge that taxing milk processors alone would be okay. It... however, if you do that, you're saying, you cannot have a subsidy to Massachusetts inefficient milk producers?",
       "time": "00:06:00.40"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose you just did it in a separate time period, two different acts. One is just the tax on all dealers who sell fresh milk, and then, another one is, out of general revenues, there's going to be a subsidy for Massachusetts dairy farmers, two discrete acts?",
       "time": "00:06:34.87"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought your position was that that... that you were, at least not... that your argument here was not dependent upon that being unconstitutional.",
       "time": "00:06:53.79"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, could you distinguish that from what we have before us?",
       "time": "00:07:04.87"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why... why isn't it, as one of the briefs said, that's just a matter of form?",
       "time": "00:07:07.69"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I thought the assessment was on all milk from any source.",
       "time": "00:08:33.66"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It just so happens that a high percentage of the milk is purchased from out of State.",
       "time": "00:08:39.48"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you take the position that if all we had before us was an assessment on the sale in Massachusetts of all liquid milk from any source, that that would be a violation of Baldwin... that it would fall under the Baldwin principle and be invalid?",
       "time": "00:08:59.27"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you say that if they both, impose that tax and also subsidize Massachusetts producers, then it becomes bad?",
       "time": "00:09:48.24"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if they only subsidized Massachusetts producers in two-thirds of the amount that they... that they garner from this tax?",
       "time": "00:09:56.57"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I--",
       "time": "00:10:20.85"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't want to have to play two-thirds, four-fifths and whatnot, which makes me think, if it comes out of general revenues, it's okay. And if I think that it's okay when it comes out of general revenues, why isn't it okay when it comes out in your case? Why is your case so different from general revenues?",
       "time": "00:10:22.34"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But assume that I'm... I'm stupid... and that's... that's how I feel about it. Why is your case different from general revenues?",
       "time": "00:10:40.55"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or the elderly and children.",
       "time": "00:11:11.11"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that it happen every year.",
       "time": "00:11:12.53"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, you'd pay a political price for it?",
       "time": "00:11:15.37"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Rosenbaum, isn't there another... and maybe I'm just missing something here... but it isn't merely whether it's out of general revenues or not, but, rather, whether the computation of the amount of the subsidy is dependent upon the amount collected from all the dealers?",
       "time": "00:11:18.20"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's the key, isn't it, rather than... it doesn't matter whether you fund through general revenue or have two separate bills. But if it's so separate that the one can go up and the other remain constant, then you'd have a different case?",
       "time": "00:11:30.58"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, four-fifths is okay, so long as it isn't tied to the other one?",
       "time": "00:11:46.74"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why is it key that it's this precise correspondence that you talk about?",
       "time": "00:12:04.88"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I know. But why is that so critical?",
       "time": "00:12:12.62"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought in your answer to Justice Stevens you said it was.",
       "time": "00:12:17.00"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't... isn't it because the correlation is directly to a source of revenue which is not subject to political responsiveness within the State? Isn't that the key to your argument?",
       "time": "00:12:38.45"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why is it any concern of this Court interpreting the Commerce Clause as to whether the milk commissioner in Massachusetts or the... what do you call it, the general court, the body that passes laws... makes the decision? I mean, the organization of State government is purely a matter of State law, isn't it?",
       "time": "00:12:53.55"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We ought to somehow fuse those into our Commerce Clause analysis?",
       "time": "00:13:21.81"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But... but that would happen whether it was done by the Massachusetts legislature or by the milk board.",
       "time": "00:14:21.72"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you--",
       "time": "00:14:51.85"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But in answering Justice O'Connor's question, I thought you said that simply a levy on the processors, without any ensuing subsidy, would be unobjectionable?",
       "time": "00:14:56.45"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I have difficulty putting your case into the Baldwin framework. Because in Baldwin, there was almost a violation of the State's jurisdiction. It was predicating its act on occurrences that were outside of the State. Here the act is key simply to an in-state Massachusetts transaction. That's all that's happening. I don't think it's necessarily fatal to your case, but I just do not see the applicability of Baldwin here at all.",
       "time": "00:16:04.62"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No. But the... the law could not operate unless the milk commission, or whoever the State enforcing agency was in that case, took notice of a price of a transaction of an occurrence that happened outside the State.",
       "time": "00:16:46.89"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is not this case.",
       "time": "00:17:04.75"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's only for purposes of the... of the subsidy, not for the tax.",
       "time": "00:17:22.96"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in that... in that connection, is it any part of your case... perhaps it is not... but is it any part of your case that the invalidity of this scheme is triggered by the fact that it, in effect, piggy-backs off a regional milk-pricing scheme?",
       "time": "00:18:19.12"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Not only does it upset, but it... it uses it as a formula, as a base.",
       "time": "00:18:48.74"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that seems to me somewhat suspect.",
       "time": "00:18:53.39"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you say the same about a State income tax law which used the Federal income tax return as the form, and then computed the State income tax on the basis of that?",
       "time": "00:19:04.90"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's the difference?",
       "time": "00:19:18.29"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that it's preempted by the Federal system?",
       "time": "00:19:28.72"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, what is your response to Justice Kennedy? Is that simply a neutral factor or... I understood you to say that it was perhaps kind of suspect, without being more definite than that.",
       "time": "00:19:35.13"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what does that mean?",
       "time": "00:19:48.63"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it does no more than perhaps show motive, is that what you're saying?",
       "time": "00:20:15.04"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, without the Federal minimum, it would just be a less-efficient mechanism of doing what it's doing, for the State to do what it's doing?",
       "time": "00:20:36.10"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The... the Federal minimum gives the scheme a great potency, which it would not otherwise have--",
       "time": "00:20:43.74"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--A potent effect on the market, which it would not otherwise have?",
       "time": "00:20:48.93"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It was not clear to me why you have the motive to prefer one truck over the other.",
       "time": "00:22:16.73"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you... you acknowledge that they... you acknowledge that that's perfectly okay, so long as they do it by a general subsidy. They could have the same motive: we have inefficient producers. We want to keep those inefficient producers in business. We are going to carefully calculate how much money we have to give them to keep them in business. They can do that.",
       "time": "00:24:10.61"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, you're just complaining about the tax, really?",
       "time": "00:24:25.59"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Rosenbaum. Mr. Wilkins, we'll hear from you.",
       "time": "00:24:52.76"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying Massachusetts is not doing anything worse than what the Federal Government is doing, right?",
       "time": "00:26:40.31"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same thing... the Federal Government just... just isn't giving enough of a subsidy to inefficient producers to carry the Massachusetts people. It's just carrying people from other States?",
       "time": "00:26:45.89"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The theory of the Commerce Clause is not that you can't subsidize inefficiency. It's that only... or favor in-state inefficiency... that isn't the theory of it. The theory of the Commerce Clause is that only the Federal Government can favor in-state inefficiency, and not the States.",
       "time": "00:27:09.61"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, what about the sales tax hypothetical that your... your colleague put to us? You impose a sales tax on in-state and out-of-state goods, and rebate the full amount to all the in-state people. That's bad, I suppose. Why? Because it's a rebate.",
       "time": "00:27:47.88"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. So, we don't call... no, this is not a true rebate. It's going to be called a subsidy. It happens to be in the same amount as the tax that you paid; that's okay?",
       "time": "00:28:05.03"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know what you mean when you say there's no chance that they're going to pass it along. I don't under... would you explain that?",
       "time": "00:29:08.79"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He doesn't use it to reduce price, he uses it to increase sales. Since everybody has to pay this tax, and only he gets it back, he can make more sales. Otherwise, he couldn't afford to sell at those prices.",
       "time": "00:29:32.99"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have no doubt about that.",
       "time": "00:29:54.40"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have no doubt about that. But maybe he shouldn't... he shouldn't be able to survive. I mean, that's... you know, that's the theory of the free market.",
       "time": "00:29:55.11"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're saying that the dormant Commerce Clause, Mr. Wilkins, does not enact Herbert Spencer's social status?",
       "time": "00:30:37.76"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, on that point... and I'm not sure it determines anything under the Commerce Clause... but I assume that if the proposition had to go before the legislature every year, of whether the State should be paying out so much cash to dairy farmers, that might be tough sledding. But where it can be packaged in a deal, where the legislature is told, look, you only have to decide this one time. If you let the agricultural secretary impose this order, 90 percent of the cost is going to fall on out-of-staters, and we can help our dairy farmers at no cost to in-staters, for all practical purposes. That's an easy sell.",
       "time": "00:31:06.35"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but the practical effect here is that 90 percent is coming from out of State, and... and milk sold from out of State is contributing the bulk of the money that's being recycled in-state to local farmers.",
       "time": "00:32:14.76"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if I were a legislator up there, I think I'd found a way.",
       "time": "00:32:45.97"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And do you think that we could, consistent with our precedence, write in this opinion that any State that wishes to impose a discriminatory tax may do so by imposing a neutral tax and then rebating all in-state payors their share of that tax?",
       "time": "00:33:31.12"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why is this case any different?",
       "time": "00:33:56.51"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does formalism count... would formalism count for everything here--",
       "time": "00:34:14.56"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I didn't understand it to be that. I thought they were arguing that if the State itself linked the two, by saying the amount of the subsidy would be geared to the amount of the tax; that then it could be challenged?",
       "time": "00:40:46.68"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I hate to... maybe you've answered this, but you're saying that if they have a trust fund which is supported entirely by revenues from members of an industry, both in-state and out of State, and then the proceeds of the trust fund are distributed entirely to the in-state members of the industry, that that's strictly a matter of State business?",
       "time": "00:41:19.94"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh.",
       "time": "00:41:46.59"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what... what if there is a pass-through, and the effect is to let the Massachusetts dairy farmers sell their milk more cheaply than out-of-staters? I mean you might have a scheme where the effect is just like imposing a tax on out-of-state milk.",
       "time": "00:42:04.75"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if it did, what's the result?",
       "time": "00:42:25.50"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why do you say that inquiry isn't required here?",
       "time": "00:43:01.05"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think there are local dairy farmers in Massachusetts that can lower their prices because of this subsidy?",
       "time": "00:43:16.65"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you do admit, Mr. Wilkins, indeed, it's the whole purpose of the law that some dairy... some dairy farmers in Massachusetts stay in business, who otherwise wouldn't be able to stay in business?",
       "time": "00:43:56.13"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that deprives out-of-state farmers of an opportunity to sell more milk, doesn't it?",
       "time": "00:44:09.31"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't?",
       "time": "00:44:16.80"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You mean when a dairy farmer goes out of business in Massachusetts, the people of Massachusetts stop drinking as much milk?",
       "time": "00:44:18.48"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't seem to me it makes any difference whether they can raise their price or not raise their price. If you're keeping somebody in business who otherwise would be out of business, and an in... an in-state person in business who otherwise would be out of business, you're affecting the opportunities of out-of-state people to sell. It has to follow.",
       "time": "00:44:35.76"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's... that's a different argument. That's different from the argument that there's no harm done because these people can't lower their... lower their prices anyway.",
       "time": "00:45:03.85"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wilkins. Mr. Rosenbaum, you have four minutes remaining.",
       "time": "00:48:16.85"
     },
@@ -1211,13 +1211,13 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rosenbaum. The case is submitted.",
       "time": "00:51:15.47"
     },
     {
       "turn": 196,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:51:17.27"
     }

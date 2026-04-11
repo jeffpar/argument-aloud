@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/00-292/20010319a_00-292.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN D. MASHBURN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GREGORY S. COLEMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "MICHAEL MINNIS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "GREGORY G. GARRE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 00-292, C & L Enterprises v. the Citizen Band Potawatomi Indian Tribe of Oklahoma. Mr. Mashburn.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but it didn't use the magic phrase. It didn't say waive immunity.",
       "time": "00:01:37.41"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I understand.",
       "time": "00:02:06.31"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, what if the non-Indian brought the suit in the Tribal Court? Why wouldn't it have jurisdiction?",
       "time": "00:03:16.54"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You must be suing on the arbitration order. It seemed to me you would waive any objection to tribal jurisdiction if you brought the suit.",
       "time": "00:03:28.43"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, there's a consensual exception to Montana too, is there not, where there's a consensual transaction between the tribe and a non-Indian?",
       "time": "00:03:49.55"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, if the very same clause were in a contract that your client entered into with a state, do you think that we would have found a waiver of Eleventh Amendment immunity?",
       "time": "00:04:24.88"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I would have thought we wouldn't, that our cases would have said not, that wouldn't be enough to waive sovereign immunity.",
       "time": "00:04:49.92"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you concede, Mr. Mashburn, that an Indian tribe has the same sort of immunity as the state under the Eleventh Amendment?",
       "time": "00:06:09.45"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in some ways, Indian tribes have been given more immunity than states, hasn't that been the--",
       "time": "00:06:29.60"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Mashburn, as this respects foreign sovereigns, Congress in 1988 made the specific provision that if you agreed to an arbitration dispute settlement mechanism, then you have no immunity. The Congress did that by statute and doesn't that imply that when Congress doesn't do it by statute, the immunity persists?",
       "time": "00:07:10.51"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You don't take the position do you, maybe you do, that any arbitration agreement necessarily implies the waiver of sovereign immunity?",
       "time": "00:08:50.19"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're dealing with this one.",
       "time": "00:09:04.53"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the Foreign Sovereign Immunities Act, of course, was just tracking developments in international law that had generally allowed suit on commercial transactions by states. Why do you think it's open to us to apply such a rule to the sovereign immunity of Indian tribes, which we made up ourselves anyway, right?",
       "time": "00:09:27.21"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Mashburn, even if you could... you've agreed the agreement is saying yes, they agreed to arbitration. That's explicit right out there that but they are going to resolve this through arbitration. But, where do you get tied to that, that the Court to enforce the arbitration award would be a state court? There is no explicit agreement to that by the tribe, is there?",
       "time": "00:10:49.93"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The reason that the Tribal Court would not have had jurisdiction is--",
       "time": "00:12:25.48"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--So, even if, are there, is there a Tribal Court?",
       "time": "00:12:50.18"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And has it had any arbitration proceedings?",
       "time": "00:12:57.70"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Have they asserted jurisdiction over arbitration in other cases?",
       "time": "00:13:05.72"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I wouldn't have thought that the Montana case would prohibit a non-Indian from choosing to resort to Tribal Court jurisdiction. I mean, if your client wanted to go into Tribal Court to enforce it, I wouldn't have thought Montana would be a barrier. That arose in the context of a Tribal Court or a Tribal plaintiff trying to force a defendant into Tribal Court. Now, that's a different question.",
       "time": "00:13:18.29"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is there any indication that the tribe would waive its immunity in its own court in this case?",
       "time": "00:14:00.19"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. Assume you lose in this Court on the interpretation of the contract, I take it that the tribe would say that they're immune from suit in their own court as well. Is that correct?",
       "time": "00:14:13.95"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, obviously not because you were going to sue them in state court. But, they say the words, we agree to be sued in any court meaning any Tribal Court. Now, what's the answer to that argument? You say they're not able to say that in a contract? Why not? You and your client and they could sign a contract saying we want to be sued in a Tribal Court. Is there a Tribal Court? Yes. What happens if they try to assert immunity in their Tribal Court? You say you signed a promise here not to by your own words. So, what's the problem? I mean, if this were a state, we'd say it meant any state court. This is a tribe, so they're saying by analogy it means any Tribal Court. Now, what's the answer to that? There's a kind of black hole in this case.",
       "time": "00:15:01.76"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Mashburn, you are now retreating from a position that you started out originally because you answered Justice O'Connor's question if we're talking about personal jurisdiction, of course, you can submit to personal jurisdiction. But, before that, you were taking a position about the subject matter jurisdiction of Tribal Courts. You were saying that parties can't confer subject matter jurisdiction on the court. And if we follow that reasoning, then your answer to Justice O'Connor should have been no. These courts are simply powerless to entertain the case where one of the litigants is a non-member and the episode and suit occurred off reservation, you started out, are you abandoning that position?",
       "time": "00:16:10.57"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very well, Mr. Mashburn. Mr. Coleman, we'll hear from you.",
       "time": "00:17:25.37"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about a forum selection clause? Would that comply with your test because you want to know what that says? But, the standard forum selection clause?",
       "time": "00:18:16.26"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, it's not if it just says in any dispute between the parties the laws of the State of New York will apply? That wouldn't do it?",
       "time": "00:18:33.28"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would this clause have sufficed to waive state sovereign immunity for Eleventh Amendment purposes if it were state instead of a tribe?",
       "time": "00:18:41.52"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about cases that have delineated a narrower immunity for tribes, Indian tribes?",
       "time": "00:19:43.58"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're asking us to adopt a rather confusing body of law. We have one set of standards for when an Indian tribe is deemed to have waived its sovereign immunity and another for the state and, why should we do that?",
       "time": "00:20:15.42"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Perhaps I misunderstood. I thought you indicated to Justice O'Connor that this would be insufficient to waive immunity if it were the state that was involved.",
       "time": "00:20:40.03"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but her question didn't just ask you about the Eleventh Amendment. It could be a waiver of sovereign immunity pursuant in the state's own courts?",
       "time": "00:20:57.08"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's the answer then? That they say the words, this agreement shall be specifically enforceable in any court having jurisdiction means in any Tribal Court having jurisdiction, and why doesn't it mean that? So, why... I mean that's a possible reading. What's wrong with their argument?",
       "time": "00:21:15.62"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let me just interrupt you if I may. What is it that imposes the limit on the Tribal Court's jurisdiction? You talked about Montana. Is it federal law, state law or tribal law or all three?",
       "time": "00:22:09.14"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The federal law prohibits an Indian tribe from accepting... a Tribal Court from accepting jurisdiction in a case like this? That's your position?",
       "time": "00:22:21.85"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:22:31.62"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Wait a second, I'd like to get both. You had a second answer. This is in... I just want to know what your second answer is.",
       "time": "00:22:32.69"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It seems rather strange to me that they can agree to an arbitration by the American Arbitration Association, which is a private body, but then they couldn't further agree that the arbitration would be enforceable in an Indian Court.",
       "time": "00:23:28.54"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, you say that would allow them to get into state court because the arbitration agreement incorporates the State Arbitration Act, which refers to a state court of general jurisdiction, right?",
       "time": "00:24:05.17"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, the arbitration agreement also incorporates the rules of the American Arbitration Association, which allows them to get into any state or federal court. Now, which one of the two do you want to have been incorporated? Why should we prefer the one rather than the other?",
       "time": "00:24:21.23"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think they couldn't get into federal court?",
       "time": "00:24:37.35"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, you're not contradicting the assertion that the rules of the American Arbitration Association were incorporated, which refer to both state and federal court?",
       "time": "00:24:53.28"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Coleman, what do you make of the argument that going back even before we get to the arbitration clause, that the people who negotiated this contract had no authority to do so because they didn't officially represent the business council.",
       "time": "00:26:26.57"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was the authority contested in the Oklahoma Courts from which this case came to us?",
       "time": "00:27:18.42"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you. Thank you, Mr. Coleman. Mr. Minnis, we'll hear from you.",
       "time": "00:27:27.61"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't there more here than a mere arbitration clause and let me direct you to the language that concerns me. I'm quoting it from page of the blue brief, page six. The relevant... page six on the blue brief. The relevant language in the middle of the block quotes is this \"The award rendered by the arbitrators. \" I'm skipping \"shall be final and judgment may be entered upon it in accordance with applicable law in any court having jurisdiction thereof. \" That reference to jurisdiction thereof has to mean jurisdiction to enter judgment on an arbitration award. So, it is describing a court by reference to a certain kind of subject matter jurisdiction that that court has. When they agree that in effect they will be subject to a court, having that subject matter jurisdiction, and when they agree that they are subject to any court having that subject matter jurisdiction, isn't that a pretty clear waiver and doesn't it go beyond certainly merely an agreement to arbitrate? And doesn't it go beyond merely an agreement to be subject to a court with jurisdiction or with competent jurisdiction? Isn't it pretty darn specific in identifying courts by reference to a certain subject matter?",
       "time": "00:27:55.45"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why?",
       "time": "00:29:22.49"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, it does--",
       "time": "00:30:03.31"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--But, it does take it out of the ambit of those cases that are merely considered references to courts of competent jurisdiction in which the reference to the jurisdiction in those cases is far less specific than it is here. Isn't that true?",
       "time": "00:30:05.18"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yeah.",
       "time": "00:30:26.48"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What does the fact that it's boiler plate language have anything to do with it?",
       "time": "00:30:45.91"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then, the answer is, is it not... it isn't a severely specific waiver. I don't see why the fact that it's boiler plate cuts one way or the other.",
       "time": "00:31:06.05"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "These were customers of a securities firm?",
       "time": "00:32:08.48"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "These were customers of a securities firm?",
       "time": "00:32:11.38"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And does it matter here that apparently, and we are told, and I gather without contradiction, that it was the tribe that prompted this agreement? It was the tribe that proposed using this form.",
       "time": "00:32:15.02"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that correct? And doesn't that make a difference?",
       "time": "00:32:26.44"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the word in... and does the word in any court mean in any Tribal Court in your view?",
       "time": "00:32:31.93"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And what else could it include?",
       "time": "00:32:40.43"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You say could, what else?",
       "time": "00:32:42.17"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if it includes state court, then they have said shall be specifically enforceable in any state court. So, that's the end of this case.",
       "time": "00:32:47.17"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No. I'm saying in your opinion, what does it mean? Does it mean in any Tribal Court?",
       "time": "00:32:55.47"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When you say could, what else could it mean?",
       "time": "00:33:02.78"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Sorry. There are words, in any court.",
       "time": "00:33:12.49"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm asking a simple question. You say those words do not mean, do not include state court. So, I want to know what in your opinion they do include.",
       "time": "00:33:14.89"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Fine. Now, my next question is, is there a Tribal Court?",
       "time": "00:33:25.43"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. My next question is, has that Tribal Court ever considered an arbitration case involving people off the reservation?",
       "time": "00:33:30.45"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, do you know that they ever have?",
       "time": "00:33:44.34"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. You're not aware if they ever have?",
       "time": "00:33:48.18"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. Is there an indication they ever considered any arbitration matter?",
       "time": "00:33:50.86"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you aware, and you are their lawyer--",
       "time": "00:34:01.98"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--of any instance in which any case involving arbitration was decided by this particular court?",
       "time": "00:34:05.37"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. Are you aware of any instance in which any... I'm doing a little cross examination.",
       "time": "00:34:12.62"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What I'm trying to figure out is why would a contractor sign a contract to go to a court that's never even heard of our... I mean, never even considered any arbitration matter. I mean, I'm trying to construe these words in any court. And you said they mean any Tribal Court. And after all, contractors are in business. They're businesspeople. If they want to deal with arbitration, it seems highly unlikely that that's what they would have meant or what anybody would have meant. Now, what's the response to that? Because I mean that's what I'm trying to get a response to. This seems so unlikely, your interpretation, and I want a response to it. I would agree with Justice Breyer's perplexity if it were clear to me that tribes say that they consent to jurisdiction in Tribal Court. This is the first time I've understood that. Is it your position that you consent that you waive immunity in Tribal Court?",
       "time": "00:34:17.58"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, you don't think it means Tribal Court? I didn't understand your answer to Justice Breyer. You don't think it even mean Tribal Court, do you?",
       "time": "00:35:10.88"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You think it means any court that you can get me in without this agreement, which doesn't include any Tribal Court.",
       "time": "00:35:20.23"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it a court on the moon? I mean, what is... there are only to my knowledge Tribal Courts, federal courts, state courts, what else is there?",
       "time": "00:35:27.99"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, you say no court has jurisdiction because this isn't a waiver of tribal immunity.",
       "time": "00:35:41.15"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought your position was no court had jurisdiction.",
       "time": "00:35:46.63"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're on the moon.",
       "time": "00:35:50.30"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, the tribe in effect has asked the contractor to use a term which in fact is totally meaningless, utterly misleading, and apparently an act of intentional bad faith. Isn't that the consequence of your position?",
       "time": "00:35:52.87"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It means any court having jurisdiction. A-ha, there isn't one of those. Too bad. We didn't mention that. That seems to be the argument.",
       "time": "00:36:11.33"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I interrupt you with this question? We had a case a couple weeks ago and it rose out of California contracting and problems with that. Suppose California had this clause as a standard part of all its government contracts, all its procurement contracts. Would it be enforceable or not?",
       "time": "00:36:25.84"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Precisely the same language we have before us and they agreed to arbitration, the American Arbitration Association, and all the rest. Would that be an unenforceable or an enforceable agreement in your view?",
       "time": "00:36:44.19"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It would? Even if they did, in all their contracts, they said this precise thing?",
       "time": "00:36:57.40"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is standard boiler... we're using your term, it's boiler plate. They use it in all their contracts.",
       "time": "00:37:01.85"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If it is created by the--",
       "time": "00:37:13.91"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Well, they're the ones who tender the contract just like your client did. Is it enforceable against the state or not in your view?",
       "time": "00:37:15.88"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is not, I have not seen. I have never seen... you say any government other than an Indian tribe government could make this argument. I have only been here a limited time, but I have never seen a state government make this argument. I thought that state governments would argue the words in any court in our contract mean in any state court. And of course, the state courts are open. They have waived immunity in those courts. It's a perfectly plausible alternative forum. I've never... and so, if there is some case where it is different between the Tribal Government and the state government, I'd like to know what that is because my impression is it's the same.",
       "time": "00:37:39.31"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, yes. I'll look at that. I was just saying that. [Laughter]",
       "time": "00:38:42.38"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Minnis, the picture here is that a tribe selects out a certain form contract to present to the other side. And as I understood the way this thing unfolded, it wasn't simply the enforcement in court. The tribe stayed out of the arbitration forum too, didn't it?",
       "time": "00:38:47.78"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, it gave the other side a piece of paper that says arbitration and the whole thing was a deception. It was illusory?",
       "time": "00:39:09.80"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is also a rule, isn't there, in most common-law jurisdictions that parties deal in good faith with one another and don't pretend something, which is just illusory as you interpret this contract to be?",
       "time": "00:39:40.27"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I just thought I--",
       "time": "00:39:58.36"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Just deceptive you said. Is that your answer to Judge--",
       "time": "00:39:59.81"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Wasn't that your answer?",
       "time": "00:40:02.73"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just a minute.",
       "time": "00:40:05.30"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm asking you what your answer to Justice Ginsburg was, whether you didn't agree whether it was a deceptive contract?",
       "time": "00:40:06.58"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, the tribe brings this contract to the contractor. It says they agree to arbitration in any court having jurisdiction, but it really doesn't grant anything that way.",
       "time": "00:40:26.72"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, of course, that just restates the proposition of what the law is and brings us right back to where we started. Let me ask you this. For this party, this contractor, are there any claims procedures by which he can request payment? Suppose he built the building and the tribe just didn't pay?",
       "time": "00:41:36.94"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There are no... would he go to the Tribal Council and ask for a special private bill to get paid? I mean, is that the way it works?",
       "time": "00:42:03.19"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm asking what alternative remedies there are if you contract with this tribe and you've got this language in it and the tribe says it means that you can't sue.",
       "time": "00:42:18.02"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, you do-- --Don't other states have the possibility of pursuing private bills, of pursuing--",
       "time": "00:42:37.15"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--pursuing--",
       "time": "00:42:45.15"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--pursuing administrative claims adjudication?",
       "time": "00:42:46.29"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I'm asking if any of those procedures have ever been... exist with the tribe or have ever been pursued by other contracting parties?",
       "time": "00:42:49.85"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Justice Scalia, Did you have a question? I was um, you know, it doesn't matter. Pardon? Thank you, Mr. Minnis.",
       "time": "00:43:08.45"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Garre, we'll hear from you.",
       "time": "00:43:21.96"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the authority for that, Mr. Garre? Was that said in the Kiowa case?",
       "time": "00:43:54.83"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was just dicta in Santa Clara, wasn't it?",
       "time": "00:44:02.50"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, you think clear waiver necessarily means the same standards that are required for a waiver by a state under the Eleventh Amendment?",
       "time": "00:44:22.50"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, what's unequivocal? It may mean something different when you're talking about a state court and when you're talking about a Tribal Court. For instance, if I read this clause about, you know, you can bring suit in any court having jurisdiction thereof, if the tribe were taking the more limited position, which I gather the United States is, that this was at least an agreement to suit in the Tribal Court. Okay. If I had this agreement with a state, I would think that it might be limited to just the state court. But, if I entered into this agreement with a tribe with respect to real estate off of the tribal reservation, the notion of a Tribal Court just wouldn't enter into my mind when it spoke about in accordance with applicable law in any court having jurisdiction thereof.",
       "time": "00:44:53.77"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean, what's unequivocal depends on what you have in your... maybe I'm not enough of a westerner. I don't know. But, a Tribal Court wouldn't occur to me.",
       "time": "00:45:47.65"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No. I'm assuming they exist. But, I'm still saying the reasonable import of that language, the unequivocal import of that language with regard to a state might well be that you can only bring suit in the state court. I am not sure that it would be the same when you're dealing with a tribe simply because who thinks of any court having jurisdiction thereof as a Tribal Court.",
       "time": "00:46:18.79"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but doesn't that presumption operate in circumstances in which the state is making agreements in the state context. The state is making agreements for work to be done in the state. And if here the agreement were for work to be done on the reservation, you would have a stronger argument. But, here the agreement is for work to be done outside the reservation on non-Indian lands. And doesn't that bring us back to what Justice Scalia said? That if you've got a contract within its four corners makes it clear that you're contracting about work to be done outside the reservation.",
       "time": "00:47:01.45"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It doesn't have the implication that it's a waiver only as to Tribal Courts.",
       "time": "00:47:41.36"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You know, but it's the... but the question is what does unequivocal mean here? What is clear here? And it seems to me that what is clear here will perhaps vary depending on whether the subject matter of the contract is subject matter on reservation or off reservation.",
       "time": "00:47:58.32"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why isn't it a sensible distinction to draw? In other words, we're trying to find meaning here.",
       "time": "00:48:23.27"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 235,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, it also might be helpful, at least to me I would think, if any tribe is supposed to be Tribal Court. I would like to know. Do Tribal Courts normally handle arbitration matters or don't they? You represent the Interior Department. I would imagine that they must have discussed this with you. So, are there normally arbitration matters in Tribal Courts or are there not?",
       "time": "00:48:48.42"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know. But, that isn't a matter of the record. It's a matter of what the Interior Department and the government would represent.",
       "time": "00:49:11.27"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, this contract does refer to application of the rules of the American Arbitration Association and it makes some reference to the state act. Both of those in turn refer to at least state court and in the American Arbitration Association to state or federal court. Now, why isn't that part and parcel of the contract then? We know what it referred to.",
       "time": "00:49:29.25"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't think so. No. It refers to it within the contract itself. It asked the parties. The parties agreed that's what's going to be binding.",
       "time": "00:50:00.77"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just on this whole issue, you're arguing that this might be in Tribal Court. But, the tribe represented to us 12 minutes ago that it was not waiving its immunity in a Tribal Court. So, this is just a red herring that you're entered into it seems to me.",
       "time": "00:50:33.32"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 245,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes. But, didn't the agreement incorporate the rules of the American Arbitration Association which refer to federal or state court and don't mention Indian Tribal Court?",
       "time": "00:51:02.01"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, why couldn't you say it provided for arbitration in Oklahoma by virtue of the fact that it could be brought in any court of competent jurisdiction?",
       "time": "00:51:58.01"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "First I thought that in winning this case, the tribes would lose the war because they'd have an awfully hard time getting people to contract with them. In general, what contractors will go into this kind of thing with your fine spun arguments being used against them?",
       "time": "00:52:24.83"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, what is your answer to that?",
       "time": "00:52:40.49"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you, Mr. Garre. Mr. Mashburn, you have three minutes remaining.",
       "time": "00:53:22.55"
     },
@@ -1579,13 +1583,13 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Mashburn. The case is submitted.",
       "time": "00:53:32.17"
     },
     {
       "turn": 256,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:53:34.72"
     }

@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/77-454/19780321a_77-454.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD K. BARNES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRY M. GRIGER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Moorman Manufacturing Company v. Bair Mr. Barnes, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Barnes, I just have one question there. If the statute is unconstitutional, why do you owe any tax?",
       "time": "00:04:45.69"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why did you have to pay any at all?",
       "time": "00:04:55.31"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you say that the constitution mandates the three-partite formula that you used in filling out your returns?",
       "time": "00:05:08.53"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If that is correct then, as my brother Stevens has indicated, you would owe no tax under the Iowa statute and yet you voluntarily paid the tax, did you not?",
       "time": "00:05:33.23"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How can it be, as a taxing agency, it is already they set up a different formula?",
       "time": "00:06:25.78"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They do, and they then compute tax on some three factor or other formulas?",
       "time": "00:06:35.16"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you have paid the tax, based on the three factor formula?",
       "time": "00:07:32.74"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say that all the states that are pertinent, you mean the ones in which your client is subject to taxation?",
       "time": "00:07:53.47"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that because so many other states have adopted the three factor formula, Iowa is under constitutional mandate to do the same thing?",
       "time": "00:08:21.68"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but supposing every state in the union had adopted Iowa?s formula, could you make the same argument that you are making now that Iowa?s formula is unconstitutional?",
       "time": "00:08:43.20"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the wrong state?",
       "time": "00:08:59.69"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but certainly, there would be some nexus between the taxes collected and the earning of income.",
       "time": "00:09:19.33"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You have got to show that Iowa's proposed measure is unconstitutional not just that you do not like it or that you would have done something else if you were a legislator.",
       "time": "00:09:50.43"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Barnes, you argued the General Motors case, did you not?",
       "time": "00:10:19.66"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I should. Washington in District of Columbia.",
       "time": "00:10:27.36"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This again is a constitutional argument I take it and not just an economics argument?",
       "time": "00:12:28.34"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your basic constitutional claim as I understand it Mr. Barnes is that what Iowa has done, results in the double taxation of interstate commerce?",
       "time": "00:12:53.33"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And precisely how does this double taxation as you refer to it take place? How do you define double taxation?",
       "time": "00:13:14.45"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you say that if the same income is attributed to more than one state, it is double taxation?",
       "time": "00:13:58.39"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What case supports that?",
       "time": "00:14:11.81"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think Freeman v. Hewitt is still good law after our recent decisions in the last two or three years?",
       "time": "00:14:54.49"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Barnes, supposing you had a neighboring state, next to Iowa that had a two factor formula, payroll and property and Iowa had the one factor formula sales, would both statutes be unconstitutional and say all the goods are manufactured in the two factor formula state and shipped into the one factor formula state, would both statutes be unconstitutional?",
       "time": "00:15:32.22"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then they would both be bad.",
       "time": "00:16:10.31"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Barnes, what I am asking is does your argument rest on the overlap where you get to and which seems to me would make both statutes unconstitutional or are you arguing quite a different argument that the sales factor just is not justifiable because there is not enough activity in the state? If you are arguing overlap, I do not see what difference it makes which factor you use. Anyone would be unconstitutional if it is not the same as the neighboring state?",
       "time": "00:17:00.91"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does not your overlap argument apply equally to both states?",
       "time": "00:17:33.66"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But are you then saying that if every state in the country used a purely sales method, every state statute would be unconstitutional and then you do not have to rely on overlap at all.",
       "time": "00:17:48.47"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have got two quite different theories and I am trying to understand which one you are really resting on. One is an overlap double taxation theory, the other is that sales is not any good no matter how it is done and which is your principle argument?",
       "time": "00:18:22.88"
     },
@@ -379,13 +383,13 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you rely equally on the due process issue I take it?",
       "time": "00:18:40.79"
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That is the sales factor, just the taxes, income earned in another states?",
       "time": "00:18:46.39"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How much latitude do you think the Constitution allows the various states in using one, two or three formulas and in weighting the formula?",
       "time": "00:21:13.48"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Tell me specifically, what impact does this sales factor have with respect to the competition between Iowans and the people from Illinois?",
       "time": "00:22:34.36"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say it is a tax on imports because both Illinois and Iowa are taxing the same income and so that tax burden on Moorman is higher?",
       "time": "00:23:00.35"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does it help Iowans control the Iowa market?",
       "time": "00:23:28.50"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it makes it less able to compete in the Iowa market?",
       "time": "00:23:45.63"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So do you think there is a discrimination then against interstate commerce or not?",
       "time": "00:24:13.02"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is that an independent basis for invalidating?",
       "time": "00:24:21.55"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think it is the same?",
       "time": "00:24:32.09"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But in other words, Iowa?s constitutional right to tax or the constitutional limitations on Iowa?s? power to tax is affected by the means chosen by other states?",
       "time": "00:24:51.23"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I would have thought that every state enactment was presumed constitutional?",
       "time": "00:25:12.03"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So why does Iowa have the burden of proof?",
       "time": "00:25:19.27"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But do you think if neither party had introduced evidence in the recent Wisconsin case, the Wisconsin statute would it have been struck down because Wisconsin had the burden of proof to show it was constitutional?",
       "time": "00:26:05.38"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Barnes, does the record tell us what the tax rates were and how much and how heavy a tax is it?",
       "time": "00:26:38.38"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think it would be unconstitutional to impose a 10% sales tax on --?",
       "time": "00:26:49.48"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would be making the same argument, I take it if this tax rate were ½ or 1% or 100 to 1%?",
       "time": "00:27:15.05"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes but why should not a reasonable question be here, whether or not a state is extracting from Moorman a reasonable return for what it does for Moorman?",
       "time": "00:27:48.09"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, 1000, so 1% rate, you would not say that it was more that what Iowa is doing for Moorman?",
       "time": "00:28:09.74"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, unless you say the constitutional principle is that interstate commerce and Moorman have to pay their way and the state can unless somebody can show this state is extracting too much, for what it is giving that this tax is constitutional?",
       "time": "00:28:28.67"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us say the Iowa people who are exporting and manufacturing and exporting are paying property taxes and everything else in Iowa?",
       "time": "00:29:07.49"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The total tax burden imposed by Iowa may be greater than Moormans for all you know?",
       "time": "00:29:16.89"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Iowa's tax rate was 1% and it had a single factor formula and Illinois? tax rate were 15%, but it had a three factor formula, would your answer as to the constitutionality of Iowa?s statutes still be the same?",
       "time": "00:29:26.52"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Griger?",
       "time": "00:30:26.73"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you mean by facial constitutionality?",
       "time": "00:31:10.64"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That is really over breadth you are talking about, is it not?",
       "time": "00:31:41.04"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that is only going to apply in the First Amendment area, has it not? Why do you need to wrestle with facial constitutionality at all when you are talking about a tax statute that has nothing to do with free speech?",
       "time": "00:31:45.28"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you did not have to buy that, did you?",
       "time": "00:32:13.74"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is true is it not General that your single formula does benefit your Iowa manufacturers and this I take it is why we have an amicus brief from Deer & Co and Maytag and others who ship out of the state?",
       "time": "00:36:50.93"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Their headquarters are, but you have an Iowa establishment, do you not in Monsanto?",
       "time": "00:37:17.44"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We certainly do if Deer & Co at the quad cities on the Iowa side.",
       "time": "00:37:25.22"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And this is why they are in favor of the single sales formula.",
       "time": "00:37:34.36"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If there is an answer.",
       "time": "00:37:53.22"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, this is a legitimate question.",
       "time": "00:38:07.06"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am not suggesting that Mr. Barnes necessarily will prevail here, but I am just wondering if the so called Iowa formula on the single factor is not the result of the legislative response to Iowa manufacturing?",
       "time": "00:39:03.12"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So having practiced in the neighboring state, they were adopted in these times of tax laws of that time and they were fairly simple and they wanted single factors. Iowa never has pressed beyond that point I suppose because it is helpful to them. I am not saying that is unconstitutional.",
       "time": "00:39:42.67"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Let us put it in another way, would not Moorman be better off if they moved their factory to Iowa?",
       "time": "00:40:28.99"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Really!",
       "time": "00:40:39.52"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It would not increase their Iowa taxes and it would presumably reduce their Illinois taxes so why is my brother Marshall not correct?",
       "time": "00:41:16.02"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And they would not increase their Iowa tax?",
       "time": "00:41:32.82"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Moving their factory to Iowa, they came out ahead, would they not, is not my brother Marshall exactly right?",
       "time": "00:41:40.41"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They have not paid that component of the Illinois tax at all and there would not be any increase in Iowa?",
       "time": "00:41:50.03"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You have a property tax in Iowa?",
       "time": "00:41:57.64"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They would pay then Iowa property?",
       "time": "00:42:03.20"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "This assumption also would rest on Illinois keeping the same tax that is has now, it is not likely, but it might abolish its taxes?",
       "time": "00:42:10.59"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Rescind what they have got now?",
       "time": "00:42:22.53"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And I gather from your reluctance to answer my question that if you did answer that it would be better off and you would lose your case?",
       "time": "00:42:26.80"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No sir, I said do I assume that if you answer my question yes, you would lose your case and that is why you did not say yes? You might answer it.",
       "time": "00:42:37.75"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that in the Moorman would be better off or have a better chance of winning this case if it had put some accountants on the stand and proved by cost accounting that part of its net profit is attributable to its manufacturing operations in Illinois, that was Hans Rees, was it not?",
       "time": "00:43:54.95"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General, Iowa has not joined in the multistate tax commission yet?",
       "time": "00:44:49.54"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Nor have you been in and out of it as some states have?",
       "time": "00:45:07.46"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00. [Recess]. You may continue counsel.",
       "time": "00:45:47.35"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I just pursue that again, that we had an exchange about this before lunch, but if there had been a cost accounting evidence that part of the profit was assignable to Illinois manufacturing, and assume that it was uncontradicted, what would you say then, could you still use the sales formula?",
       "time": "00:47:09.03"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose that was a third, that is what the accountants testified to and on any reasonable accounting basis a third of the income is assignable to the Illinois manufacturing and then Iowa said well, we are still going to use the single sales formula. What would you say then?",
       "time": "00:47:50.33"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So are you suggesting that you will agree that constitutionally, Iowa may not tax income that could be shown to be traceable to the Illinois manufacturing?",
       "time": "00:48:20.68"
     },
@@ -1033,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Griger, what you do understand Justice White?s phrase traceable to Illinois manufacturing to mean when you answered his question?",
       "time": "00:48:46.00"
     },
@@ -1045,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would not say the evidence like that would be irrelevant or inadmissible, would you?",
       "time": "00:49:21.27"
     },
@@ -1057,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if the judges concluded or made findings that based on the evidence before me, 1/3 of the income is due to manufacturing in Illinois and if there is a finding like that, would you argue that Iowa could nevertheless tax that part of the income?",
       "time": "00:49:26.91"
     },
@@ -1069,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that, but if you --",
       "time": "00:49:56.43"
     },
@@ -1081,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would your understand as such a finding by a trial judge that if 1/3 of the income is ?due to? manufacturing in the Illinois to mean economically?",
       "time": "00:50:05.69"
     },
@@ -1093,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it, for instance, when you are talking about the production of copper wire, you have copper that may have been mined in Arizona and Utah, smelted in El Paso, refined somewhere else and made into wires still somewhere else. It would hard to describe ?due to? finding to any one of those activities?",
       "time": "00:50:41.03"
     },
@@ -1105,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Barnes, you have one minute remaining.",
       "time": "00:59:14.29"
     },
@@ -1117,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:15.35"
     }

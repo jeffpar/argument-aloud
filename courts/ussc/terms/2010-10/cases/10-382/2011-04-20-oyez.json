@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/10-382/20110420a_10-382.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "PRATIK A. SHAH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STEVEN D. GORDON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument today in case 10-382, United States v. Jicarilla Apache Nation. Mr. Shah.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, all of the statutes relating to these funds use the word \"trust\". Not one statute defines trust and says in any way this is not a fiduciary relationship. To the contrary, in fact, most of the statutes require what would be consistent with fiduciary obligations, and at least one of them that you rely on says \"but not limited to\". So the issue before us doesn't involve a competing sovereign interest by the U.S. You've conceded that in your cert petition. The circuit below said this is not a case where there is an independent sovereign issue governing the U.S. activities. Just explain to me what's the rationale that would permit a trustee of a trust fund to withhold from the beneficiary the kinds of documents that relate to the management of the fund? If the funds exist for the benefit of the Indian tribe, why aren't they entitled to management documents?",
       "time": "00:01:36.71"
     },
@@ -67,13 +67,13 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the part that doesn't make -- that you're not explaining.",
       "time": "00:02:53.98"
     },
     {
       "turn": 6,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Shah, you might want to make your third point. You said you had three points preliminarily, so why don't you make your third point and then respond to the question.",
       "time": "00:02:58.35"
     },
@@ -85,7 +85,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But in both -- in all of those cases, counsel, it was a limitation related to competing interests, meaning it was recognizing that there are potentially moments in which an attorney is acting both in the interest of the government and in the interest of the tribe.",
       "time": "00:04:54.16"
     },
@@ -97,7 +97,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that was a jurisdictional question, not a question with respect to -- to the -- to the obligation. You're not seriously suggesting that if you're a trustee of an Indian fund that you can breach your fiduciary duty by simply not exercising care in your investment strategies. So some form of -- of duty exists.",
       "time": "00:05:54.26"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--from the common law, and the common law has to define that.",
       "time": "00:06:21.63"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And so why would, if it imposes those duties, protect you from disclosing items that might -- attorney confidences that go to that very act, the very act of investing in the way, even under your definition, that the trust requires you to?",
       "time": "00:06:49.51"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you agree that the -- do you agree that the fiduciary exception is well established as a general matter?",
       "time": "00:08:34.25"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So if this cause arose in a different context with a different trustee, the position of the United States would be that under Rule 501 of the Federal Rules of Evidence there is a fiduciary exception to the attorney-client privilege?",
       "time": "00:08:58.03"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Shah, you don't have to take a position on that, because you don't represent a private trustee. And the government can accept arguendo that there would be such a relationship, but I don't think you have to defend it.",
       "time": "00:09:44.84"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The thrust of what -- my understanding of the thrust of what Justice Sotomayor was asking is something like the following: It's easy to understand how there can be competing government interests when you're talking about some, the management of lands, things of that nature. But when you're just talking about managing funds, what competing interests can there be in practical terms? If you assume arguendo that this exception applies to a private trustee, why should it not apply to the government in practical terms?",
       "time": "00:10:43.36"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose we have the Union Trust Company, a private company that has 5,000 trust accounts. One day the president of the company says to the lawyer: Mr. Smith's account is in a special situation. Will you please look into what we should do for him as trustee? There's no implication for any other account. There's no threat of litigation. I just want to know what we're supposed to do. Now, I take it the document that is subsequently written would be open for Mr. Smith to get; is that right?",
       "time": "00:13:31.29"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, okay. Now, why should the government be treated differently were the situation identical to what I just proposed?",
       "time": "00:14:05.74"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But this argument, frankly, would be -- we wouldn't have any need for 501, because if as an evidentiary rule the government is always different, then there is no situation in which fiduciary duties in common law would ever exist.",
       "time": "00:14:24.26"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is there -- is there any greater value to a fiduciary duty than to manage the account for the benefit of the beneficiary? That's the very essence of what a trust means, and so I'm having a hard time understanding not a competing interest situation where you're addressing a different statutory requirement, but merely -- and that's what this case was presented as, merely the management of the trust. So what you're, it seems to me, you're arguing is there is no duty. You're saying it's all defined by statute only, but you're rendering -- there's no need to use the word \"trust\" because it wouldn't be a trust.",
       "time": "00:15:07.92"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would like to get an answer to my question.",
       "time": "00:16:18.35"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "My question, to go back to it, was imagine that the government has a thousand trust accounts for a thousand tribes.",
       "time": "00:16:21.45"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And imagine that several of them consist of nothing more than $500,000 in cash.",
       "time": "00:16:32.04"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And one day the Secretary of the Interior says to a lawyer: I fear there is kind of a difficult fiduciary problem arising into account number 302, which is owned by such and such tribe. There is no threat of litigation. As far as I can tell, the answer to this will have no implication for anything else in the government. Will you please look at it and give me a memo what to do? Now, why should that memo not be given to the lawyer for the tribe if in the identical case of the Union Trust Company you would give the lawyer -- the memo to the beneficiary?",
       "time": "00:16:38.69"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You're saying, one, we're not really a trustee totally?",
       "time": "00:18:04.67"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Now, if we treated -- the courts treated you as a trustee really and totally--",
       "time": "00:18:10.55"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--in this very limited situation I described, what harm would befall the government?",
       "time": "00:18:16.79"
     },
@@ -313,13 +313,13 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Shah--",
       "time": "00:19:35.54"
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Other than the time and expense of going through voluminous records, which is obvious, is there any other harm to the government in being required to show that there's a competing interest that makes disclosure unnecessary or improper?",
       "time": "00:19:35.96"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Is one -- is one of them shielding government actors? I mean, from what you said so far, on the one hand you recognize that it is what we call a guardian, the guardian-ward relationship between the United States and the tribe. But what you seem to be suggesting is that the government has a dual focus, and one is its guardianship relation to the tribe, but the other is these are government actors and the government is also interested in shielding its actors. Is that -- is that it or is it a more nebulous interest?",
       "time": "00:20:10.55"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, this is just the general purpose behind the exception to 301, right, the -- the exception for providing attorney's advice. The ordinary private litigant doesn't have to show, when he refuses to turn over attorney advice, that there's some conflict which would make it harmful for him to turn that over, does he?",
       "time": "00:21:17.03"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not in the trustee context. I'm just talking about the normal operation.",
       "time": "00:21:50.81"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And -- and so, once you establish that this isn't the normal trust complex, we apply the normal Rule 301 law, and -- and that does not require the person who declines to turn over the information to show why it would really hurt him to turn it over, right?",
       "time": "00:21:59.84"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How many -- how many of these mismanagement suits are there? Do you have any estimate?",
       "time": "00:22:17.06"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I hadn't thought about your argument until this -- until you made it this morning, that if there -- if -- if the tribe is correct that it owns these documents and gets -- can get them anytime, but the -- the -- the trial court here divided the documents into five categories.",
       "time": "00:24:40.26"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As to some of those categories it -- it denied -- it denied production.",
       "time": "00:24:58.08"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I take it did that in the context of recognizing the attorney-client privilege, including work product, which were the accountant's records.",
       "time": "00:25:03.97"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Shah.",
       "time": "00:25:41.58"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Gordon.",
       "time": "00:25:42.78"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's -- you don't doubt that in this context sovereign commands would trump trustee obligations, do you? In other words, if Congress--",
       "time": "00:26:24.41"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Okay.",
       "time": "00:26:35.71"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what do you make of the fact that the Uniform Trust Code reserves decision on the question whether there is a fiduciary exception to the attorney-client privilege? That seems to suggest that as a general matter, this is not as well-established as you seem to argue.",
       "time": "00:27:15.46"
     },
@@ -487,13 +487,13 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Gordon--",
       "time": "00:27:58.55"
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Has it ever been applied, to your knowledge, where -- where it was not the case that the trust paid for the attorney's advice out of the trust funds and where the trust did -- where -- where the trust owned the papers that consisted of the attorney's advice? Is there any case where those two conditions or either one of them did not exist where the -- the trust was required to turn over the attorney's advice?",
       "time": "00:27:59.73"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but, see, that's the argument of the government, that the exception, the trust exception to the extent that it exists, was based principally upon the fact that these papers belonged to the trust and that the attorney's advice had been paid for by the trust, so of course the trustee is entitled to get it.",
       "time": "00:28:40.34"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you don't have a single case?",
       "time": "00:29:55.18"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought Riggs -- you said Riggs was a case where the trust fund paid the lawyer, and the Court distinguished cases where that wasn't so, where the trustee was paying the lawyer for the trustee's own protection, and the Court went out of its way to say we are dealing with a case where the lawyer is paid out of trust funds. In Riggs, the -- seminal case, right?",
       "time": "00:30:01.26"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, the attorney-client privilege is policy-based and I'm concerned about the policy implications of your position. Our system has concluded that it works best if people have candid advice from their lawyers, and my concern here is if you're a lawyer -- you are a lawyer -- and -- and you're asked for your advice by a trustee--",
       "time": "00:31:44.73"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--and if you know that that is going to be shared with the beneficiary, you're going to give bland, mushy, hedging advice rather than direct and candid advice to the trustee, because it's going to be shared more widely beyond the trustee. And that's -- that hurts not only the trustee, but also the beneficiaries, whose trustee does not have candid legal advice.",
       "time": "00:32:07.14"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So how does -- I appreciate the point, but how does a trustee get candid legal advice? In every case, isn't the -- the lawyer -- concerning his dealings with the beneficiary, with the trust: I don't know if I have to do this or I have to do this.",
       "time": "00:32:57.92"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And it seems to me if the -- if the information is always going to be shared with the beneficiary, the trustee is always going to get hedged advice.",
       "time": "00:33:14.50"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. Why can't the trustee say: I'm going to hire my own lawyer? I'm not going to pay this lawyer out of trust funds, so it will be my lawyer, and his advice is only to me and serving my interests? Why wouldn't -- why wouldn't that suffice?",
       "time": "00:33:34.28"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's always a question of liability. If he messes up and doesn't manage it the way he's supposed to, he will be liable. So the distinction you draw doesn't seem to me to be a workable one.",
       "time": "00:34:18.73"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The trustee cannot hire his own lawyer, you're saying. So long as he's a trustee, he cannot hire his own lawyer to get advice on how to manage the trust in a way that will avoid his liability. He just can't do it, right? Trustees can't--",
       "time": "00:34:45.30"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's your best case that you have on that in the private trustee context? I had thought your answer was going to be that in that case, the fact that the payment is made by the trustee out of the trustee's own funds and not out of the trust funds might be dispositive and might give him the privilege. But you -- you seem to say, in answer to the questions from the Court, that, other than this distinction you make between what the personal liability is and how he ought to manage the trust, which I think is a murky distinction, that the documents have to be disclosed. What's your best case for that?",
       "time": "00:35:09.09"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So I'm the trustee, and I say I would like legal advice as to whether I should renegotiate this lease with the government.",
       "time": "00:36:26.12"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Now, I want that advice so I manage the trust correctly, and I'm concerned if I don't manage the trust correctly I'm going to be sued. Now is the document from the lawyer responding to that inquiry privileged or not?",
       "time": "00:36:34.78"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if he says this is what I did and I might be liable, it's privileged. If he says this is what I'm going to do--",
       "time": "00:37:15.69"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Which means you can't get preventative advice, which is one of the most important kinds of advice an attorney can give.",
       "time": "00:37:24.71"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I have a question on that particular point, and there may be an obvious answer to this which I just couldn't find. But if the lawyer is in the government and he writes a memo, then -- and if it's available to a litigant who litigates against the government, as it would be here, then why isn't it available to the entire world via the Freedom of Information Act?",
       "time": "00:37:41.67"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's certainly true, they're not. But I just wonder, what is it in FOIA that would make this not available to the world?",
       "time": "00:38:20.38"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that just -- that just says it may or may not be coextensive. Reading the statute, it says you have to make all interagency or all memos available of a certain type, which I think this would fall into. Then exception 5 protects, among other things, attorney-client memos that are privileged because they're inter-agency or intra-agency memos that would not be available by law to a party other than an agency in litigation.",
       "time": "00:38:32.20"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, they are available if you win. And so, if you win that exception doesn't seem to apply. And if it doesn't seem to apply, that's what was -- then the whole world can get this memo. And what I'm wondering is there must -- either there is a very obvious answer to that, which there could be, or there isn't. If there is an obvious answer, that's the end of it.",
       "time": "00:39:00.54"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If there isn't an obvious answer, I'll have to go away and worry about it.",
       "time": "00:39:24.19"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know you don't want that, and what I'm looking is how you prevent that.",
       "time": "00:39:48.85"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we assume for the sake of argument that a private trustee may, using the private trustee's own fund, hire an attorney to obtain prospective advice about liability, does that doom your argument here for the reason that the government claims it has no ability to set up a system like this, to have some attorneys in the solicitor's office provide advice regarding the management of the funds and other attorneys in the solicitor's office provide advice regarding -- regarding the possibility of prospective liability in light of all of these suits that you mentioned?",
       "time": "00:40:02.84"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Again, as the Chief Justice pointed out, that seems to me an artificial distinction. What I ask from -- for from the attorney is advice as to how I can manage the trust so as to avoid liability. I mean, the -- the two are connected. You can't separate out advice as to how to manage, how to manage the trust from advice as to how to avoid liability. In the -- in the context of asking, of a trustee's asking advice, the two are the same.",
       "time": "00:41:20.09"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You make a distinction, I -- I take it, between attorney-client privilege and work product. Initially, you were seeking both on the theory that the tribe is in fact the client, but apparently you are not pressing that point any more about work product?",
       "time": "00:43:05.33"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So under your theory if there's a claim of privilege on -- on -- on the government's behalf, presumably the district court would conduct an in-camera review to determine whether it was retrospective for liability or prospective for responsibility?",
       "time": "00:43:42.52"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did it do -- did it do on that basis, retrospective versus prospective?",
       "time": "00:44:21.43"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There were no prospective, is that -- did you--",
       "time": "00:44:29.07"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, they -- they could be retrospective, too, right? The government exposes itself to liability, obviously, in these areas as well. That's the basis for your suit, right?",
       "time": "00:44:41.22"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I suppose the government as a whole has an obligation to act in the best interests of the citizenry, right? Why doesn't the same theory apply to any citizen? Look, government, you're supposed to -- you're acting in a fiduciary statute -- status with respect to me. You're supposed to be acting in my best interests. If you're getting advice from the, you know, Department of Justice about what to do, I'm entitled to get that.",
       "time": "00:45:45.73"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Are there any other -- are there any other areas in which the government's relationship to particular groups of citizens is that of fiduciary to beneficiary?",
       "time": "00:47:20.69"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What are some of those?",
       "time": "00:47:30.22"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And your argument could be applied to them?",
       "time": "00:47:45.74"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if I'm a government retiree, I have the ability to get the legal advice that whoever it is that runs that trust gets?",
       "time": "00:47:51.39"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Does that happen a lot? I mean, I -- I -- I'm not -- does that happen a lot? I mean, are there a lot of instances where the lawyers who work for all -- the retirement funds are huge. There must be cases coming up all the time. And all the advice of the lawyers is just available--",
       "time": "00:48:05.95"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I know that. I'm just worried about the -- the attorney-client privilege is somewhat sacred, and suddenly making everything available to the whole public has got me worried. And I looked at that Sears case. I didn't see anything there that eases my concern. And then you referred to a different case, the name of which I forgot, and I could not find.",
       "time": "00:48:56.57"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that in the--",
       "time": "00:49:17.40"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--How am I going to find it? I couldn't get how you spell it.",
       "time": "00:49:20.61"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The government is maintaining throughout that it wears two hats. On the one hand it is a guardian or a trustee, and on the other hand it is the sovereign. So it's the latter, the government's claim that it is the sovereign, that makes the difference, it's not the--",
       "time": "00:50:36.40"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it also has broader authority, and that's just their point, I take it, for many other areas. The sovereign can't easily divest itself of its responsibilities. A trustee can so conform and shape its business that it doesn't have conflicts. A government just can't do that.",
       "time": "00:51:35.16"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We're not talking here about competing interests. I mean, the example you give of -- of the life beneficiary and the remainderman, those are interests of the beneficiaries that conflict.",
       "time": "00:52:46.62"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We're talking here about an interest of the trustee that conflicts with what he is supposed to do, with respect to the person who is the beneficiary of the trust. That -- that's a totally different situation.",
       "time": "00:52:59.71"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And ordinarily if there is that kind of a conflict where the trustee has a personal conflict, he has to step down as trustee. You can't continue to be trustee when you -- your own financial interests, for example, are against the financial interests of the beneficiary; right?",
       "time": "00:53:15.47"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what the government asserts: I have other duties as government besides my duties to the -- to these Indians.",
       "time": "00:53:42.11"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And sometimes those duties conflict with my duties to the Indians.",
       "time": "00:53:48.26"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is this true regardless of the fact that the government may have a very powerful interest in seeking neutral, independent advice from an attorney, and that were you to prevail that advice would become watered down?",
       "time": "00:54:22.68"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The trustee I guess is -- is broadly conceived of as the government?",
       "time": "00:55:12.95"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, isn't the lawyer working for the trustee then a trustee too, an employee of the trustee?",
       "time": "00:55:19.64"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Gordon.",
       "time": "00:55:54.16"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Shah, you have 4 minutes remaining.",
       "time": "00:55:57.31"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If I -- if I pay -- if I pay a lawyer to prepare a document for me, is that -- I do own that document or does the lawyer?",
       "time": "00:59:14.32"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But aren't you confusing, just following up on the Chief Justice's, ownership with access? FOIA itself doesn't make these records less -- the government doesn't own them less merely because FOIA requires them to share it with other people. So the ownership interest is not the defining legal obligation.",
       "time": "00:59:52.68"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Shah, and Mr. Gordon. The case is submitted.",
       "time": "01:00:48.06"
     }

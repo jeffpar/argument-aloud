@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2003/02-1541/20040121a_02-1541.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS J. MILLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "THERESA R. WILSON",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 02-1541, Iowa v. Felipe Edgardo Tovar. General Miller, we'll hear from you.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if someone is going to plead guilty, I guess the question may boil down to whether he has a right to be told the he could be represented by an attorney in making the decision to plead and that it might be useful to him to have an attorney's advice in making that decision.",
       "time": "00:01:47.91"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's a guilty plea. It wasn't a going to trial and he was told certainly of all the things that could be involved in a trial and how an attorney would be helpful but was not told, I guess, expressly that if you plead guilty, you can be represented by counsel and the attorney might give you useful advice.",
       "time": "00:02:14.49"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "My goodness, he wasn't told. You're conceding that he wasn't told he had a right at the plea stage. I thought what they said to him right off the bat was, Mr. Tovar, you're without counsel. I see you waived application for a court-appointed attorney. You want to represent yourself at today's hearing. So what I thought the State was saying is that that's sufficient.",
       "time": "00:02:53.00"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I didn't even think that was an issue in this case. I didn't see it in the petition. I didn't see it in the response to the petition. Maybe it would be an issue for the lower court. So I'm not sure what to do with that. I can see it's ambiguous, but if you want to concede it, that's fine with me.",
       "time": "00:03:12.04"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, nobody is really... at least, is that an issue in front of us?",
       "time": "00:03:37.50"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought it was very much the issue before the Iowa Supreme Court because that court said what was missing here was information about the utility of a lawyer at the plea stage before you enter the plea with you at that hearing. And here, all of the statements made relate to what you're giving up by pleading guilty and not going to trial. Now, I thought, as Justice Breyer did, from that opening colloquy there was information to the defendant that he could consult with a lawyer before entering the plea. And I wondered particularly about the form that he signed. Tovar signed a form waiving counsel before the plea hearing, but that form is nowhere in the record or the lodging. Does it exist?",
       "time": "00:03:43.33"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But do we have the transcript of the... of that initial hearing where he waived counsel?",
       "time": "00:05:34.50"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that wasn't the basis. I... I didn't understand that to be the basis of our decision here. The... the Supreme Court of Iowa did, indeed, focus on whether he was advised at... about how useful counsel could be--",
       "time": "00:05:46.38"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--in... in connection with the guilty plea--",
       "time": "00:06:03.93"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--not that he wasn't advised that he had a right to counsel. The problem here is he was told he had a right to counsel, but it wasn't said, boy, you know, you'd really be stupid to turn it down. That... that wasn't done. Right?",
       "time": "00:06:07.54"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what is your... what everybody I think is trying to do is ask you what is your argument on the point that we thought was why we granted the case, or at least I thought why.",
       "time": "00:06:29.32"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What... what is the reason that the Iowa court is wrong--",
       "time": "00:06:38.73"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--on... on the point just as Justice Scalia put it?",
       "time": "00:06:41.68"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but... but in... in the context of entering a plea, it certainly would be useful for the defendant to know that if he had an attorney, the attorney might take a look at... at the sobriety tests. He might talk with the prosecutor about a plea to the lesser charge, reckless driving. He might talk to the judge about a reduced sentence. It didn't happen here because he got the minimum. But just as... as a general matter, your brief seems to suggest that there's... there's not really much role for the attorney at... in entering a guilty plea. I... I suggest that there... there's a very important role for him.",
       "time": "00:07:47.40"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And collateral consequences, yes.",
       "time": "00:08:35.78"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This... this comes after, I take it, General Miller, the discussion between the judge and the defendant as to whether or not the elements of the offense are present?",
       "time": "00:09:21.35"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:09:42.16"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, and if... if the defendant represents to the court that the factual basis for the plea is there, that he committed the offense charged, why is there any great interest in trying to persuade him not to do that?",
       "time": "00:09:47.24"
     },
@@ -283,13 +283,13 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I--",
       "time": "00:10:30.67"
     },
     {
       "turn": 40,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, the Iowa court made rather a long laundry list of requirements. I suppose you wouldn't have to go along with all of those things, but I am interested to know whether you think there is a baseline requirement that the court advise the defendant in making a plea that he has a right to counsel and the attorney could be helpful in making that decision.",
       "time": "00:10:31.12"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You don't think he has to know that counsel would be helpful.",
       "time": "00:11:01.55"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He doesn't have to be told that counsel would be helpful.",
       "time": "00:11:07.37"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you do agree that he's... you do agree that the advice should include explicit advice that he has a right to counsel at the plea hearing.",
       "time": "00:11:18.02"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he doesn't have to be told by the judge that he has a right to counsel at the... he was not... this... in this case he was not told by the judge he had a right to counsel at that hearing.",
       "time": "00:11:29.83"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why... why is it clear that it would be for this hearing because the judge followed up, after saying that, did you want to represent yourself at today's hearing, which would seem to me to imply that the judge did not know whether or not he had already decided not to have counsel at that hearing?",
       "time": "00:11:47.29"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, of course--",
       "time": "00:12:06.90"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Maybe... maybe you... you should say that he should be advised of his right to counsel, but if he isn't, it is a harmless mistake if it is clear from the record that he knew it.",
       "time": "00:12:13.48"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even... even if there is a... a... an absolute right to have the judge tell you you're entitled counsel, if it's clear on the record at least that you were told, there's... there's no foul.",
       "time": "00:12:24.98"
     },
@@ -397,13 +397,13 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it's not clear on this record, though.",
       "time": "00:12:36.99"
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that you knew.",
       "time": "00:12:38.27"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you draw... draw presumptions, maybe it is. You presume everything was regular. Why sure, then it is. But if you just look at what was said to him at the hearing itself, it's not clear that he knew that he had... he had waived application for a court-appointed attorney. He didn't necessarily say he wanted to represent himself.",
       "time": "00:12:44.84"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but the... all I'm saying is the record doesn't establish it, and we've been... in some situations been rather meticulous about what ought to be on the record because then you solve all the problems of collateral attack if the record does disclose it rather than relying on presumptions and inferences. That's the point.",
       "time": "00:13:22.90"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where did this case come out of? A justice court? It was a misdemeanor, wasn't it, an OWI, operating without a--",
       "time": "00:13:40.54"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But that was basically the rule... what would be in the Federal system, a rule 11 colloquy, and it's all canned. I mean, the... as the transcript shows, he... he went through the... almost precisely the same litany on both times. So--",
       "time": "00:14:03.25"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--He does have a right to counsel at the plea hearing. He does have a right if he asserts it to consult with counsel before the hearing takes place, but I... I think your argument is he doesn't even have to be told that bare information, never mind the... the continuing spiel about how much a lawyer would be worth to him, but just the simple statement before you enter this plea, you're entitled to consult a lawyer. And if you want a lawyer to be with you at the hearing, you're entitled to that too.",
       "time": "00:14:40.20"
     },
@@ -475,19 +475,19 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I think there's something important afterwards. It's or did you want to take some time to hire an attorney to represent you, which--",
       "time": "00:15:39.27"
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--That was at the sentencing.",
       "time": "00:15:46.25"
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--certainly one inference is that to represent you at this kind of proceeding.",
       "time": "00:15:47.81"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That... that was not said at... at his plea hearing. That was said at his sentencing hearing when he pled to another crime that he had committed in the interim. But at... the lines of what went on at the plea hearing is I see, Mr. Tovar, you waived application for a court-appointed attorney. Did you want to represent yourself at today's hearing? Period. That was it.",
       "time": "00:15:54.30"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The States seem to take various positions on this. Do you know if any of them have taken it as a matter of their own constitution rather than the Federal Constitution?",
       "time": "00:16:50.07"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Iowa hasn't, but have other States?",
       "time": "00:17:06.64"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This... this being? This being the issue on which we granted cert or the issue of whether you have to advise him of his right to counsel?",
       "time": "00:17:10.45"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, General Miller. Mr. Stewart, we'll hear from you.",
       "time": "00:17:32.94"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Page 18 of what?",
       "time": "00:18:22.81"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would a Miranda warning be sufficient to advise the... the defendant that you have a right to counsel? Period. It's pretty obvious to me that if you have a right to counsel at interrogation, you certainly have a right to one at the plea bargain. Would that be sufficient?",
       "time": "00:21:06.90"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Stewart, do you know what the general practice is in Federal courts? Are there instructions given to prosecutors to make sure, for example, that the defendant at a guilty plea is told that maybe the... that he has a right to a lawyer and he might be helpful?",
       "time": "00:23:00.83"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you know the practice in... in other States generally?",
       "time": "00:23:53.46"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I... I suppose my comment was in response to the argument that, well, it really doesn't make any difference, which is the... the intimation I... I saw in... in the brief. And I suppose it doesn't make any difference because we assume that anybody knows this stuff?",
       "time": "00:24:07.95"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why... why wouldn't the same argument apply to all of the rights that you're going to lose if you plead guilty? Why... why wouldn't rule 11 be really largely unnecessary under your view?",
       "time": "00:25:23.25"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stewart, as I understand your argument, you're... you're arguing not only are these warnings not constitutionally mandated, you're also saying they're probably unwise in a number of situations. Are you arguing that they're so unwise that we should tell, as a matter of Federal law, a State judge could not give these warnings?",
       "time": "00:26:25.38"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Stewart. Ms. Wilson, we'll hear from you.",
       "time": "00:27:52.11"
     },
@@ -655,13 +655,13 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where is it--",
       "time": "00:28:44.80"
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--That... that isn't what the Supreme Court of Iowa required in this case, is it? I mean, the... their warning, as read by Mr. Stewart, was not nearly that specific.",
       "time": "00:28:45.34"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "My... I guess the difficulty that I have with that is no... no question about the... the soundness of those general statements, but they are so general that they... they raise the question whether there are really very many defendants that don't know that to begin with and whether there is a real utility in requiring those warnings and hence paying the price in the mistaken cases when they're not given. Do... do defendants really need this?",
       "time": "00:29:23.61"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did they say how they knew that?",
       "time": "00:30:22.76"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Did they say... did they... I mean, I'm... I am impressed by the fact that rule 11(b), which is a product of the rulemaking process and presumably, I'm sure, it reflects the experience of trial lawyers, which is not my experience, and... and they try to get in things like the ABA. Yet, they do not require that you tell the lawyer how useful... you tell the... the individual how useful the lawyer will be. They do require that you tell the defendant how... that he has a right to a lawyer at every stage of the proceeding. So I took from the fact that the ABA and everybody else lobby nonstop for this kind of thing that they felt it was very desirable but not so important that you had to actually include it in the colloquy. Otherwise, it would be there in rule 11(b). So now, what... what does the ABA say? Do they say it's a constitutional requirement? Do they try to change even the rule? No. I don't think they do.",
       "time": "00:30:26.68"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you're... you're saying that the Constitution requires the thing that the lawyers themselves through their groups have felt is desirable but not important enough to put in the rules. Wouldn't we go to the rules first?",
       "time": "00:31:28.89"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But, Ms. Wilson, you know, as to how much that requires, when we invented the Miranda warning, we... we simply required that... that the defendant be told you have a right to counsel. We didn't... we didn't say that he be told, and by the way, the first thing counsel will tell you is to shut up, which would be very good advice. [Laughter] We didn't require that. We just said you have a right to counsel. And... and you want us to... to elaborate upon the Miranda warning as well?",
       "time": "00:31:57.38"
     },
@@ -733,13 +733,13 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why... even on this very record, when he came for the sentencing, the judge did say, as Judge Kennedy... Justice Kennedy pointed out, that are you sure you don't want more time to consider having counsel. And one of the questions I was going to ask you is given that the judge was so solicitous at the sentencing hearing, could the defendant at that point have said, judge, I've thought about what I did at the plea hearing and I'd really like to withdraw my plea?",
       "time": "00:33:03.01"
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think you're right. I need more time to consult a lawyer.",
       "time": "00:33:36.41"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the judgment is entered only after the sentence, I would assume. Is that correct in Iowa?",
       "time": "00:33:58.45"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it... it just seemed to me that a judge, being so solicitous about this crime that didn't carry any jail time, would... would certainly say the one that does carry jail... jail time, yes, you think you want to talk to a lawyer? It's okay. We'll hold it in abeyance and you talk to your lawyer.",
       "time": "00:34:04.19"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is... is there any allegation in this case that the defendant didn't know he had a right to appointed counsel for the plea? That allegation has not been made before, has it?",
       "time": "00:35:02.40"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are you making it now?",
       "time": "00:35:15.28"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but that's not an issue in this case, is it?",
       "time": "00:35:24.48"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in any case, you... you didn't cross petition and you didn't raise this in the brief in opposition I take it.",
       "time": "00:35:59.66"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We're... all of this... it goes back to a prior conviction not his most recent one I take it, and all the facts we're talking about were at... those associated with the prior conviction, not this more recent one.",
       "time": "00:36:04.22"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So if we agree with you about that, the thing to do is send it back.",
       "time": "00:36:46.80"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that right?",
       "time": "00:36:50.56"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they can decide it.",
       "time": "00:36:51.43"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, we can't decide it. I mean, we could decide it but I guess it's not really fairly raised, is it?",
       "time": "00:36:52.91"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Send it back. Do we usually do that, send... say, you know, search the record for other possible failures of the lower court--",
       "time": "00:37:00.68"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that haven't been raised and then send the thing back?",
       "time": "00:37:08.02"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why should we do it here?",
       "time": "00:37:10.79"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you didn't cross... as Justice Souter--",
       "time": "00:37:20.70"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--you didn't cross-petition.",
       "time": "00:37:23.47"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You didn't put it in your brief in opposition.",
       "time": "00:37:24.66"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I guess if we just... what we'd normally do here is we say... suppose we didn't agree with your... on your basic argument. We say, well, you lose on that one. Now we send it back from appropriate proceedings, whatever is appropriate. I don't know. At that point, I guess you'd go back to the Iowa court and you'd say you didn't address this other issue which I had in my brief.",
       "time": "00:37:27.18"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there a reason we can't do that? I don't know.",
       "time": "00:37:48.36"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The... the Court usually remands for proceedings not inconsistent with this opinion.",
       "time": "00:37:56.14"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And... and if the Court just addresses what's before them, whether the sentences that Mr. Stewart read to us whether the... if the Court decides it, that's not what the Constitution requires, then it vacates or reverses and remands and Iowa could take it from there.",
       "time": "00:38:04.01"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So how do you deal with the question that was posed that it raises a false hope, and if you tell a defendant a lawyer might know defenses that you don't know, but wouldn't the defendant then ask the judge, Judge, would you please tell me what those defenses might be?",
       "time": "00:38:40.21"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the attorney is going to cost me $200 an hour. Give me a break. Let me know whether it's going to be worth it or not. And the judge will say, sorry, I can't say anything about that.",
       "time": "00:39:14.22"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You ought to know that attorneys are useful. That's... that... do you think that's a considerable help? You ought to know that attorneys are useful?",
       "time": "00:39:26.28"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was it in this case that the judge told the defendant he was not entitled to free counsel because he was dependent on his parent where he was going to Ames or something like that?",
       "time": "00:39:50.59"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you know any other jurisdiction that has required such a... a litany of warnings before a plea could be accepted?",
       "time": "00:40:47.60"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say applied that standard. You mean imposed it as a constitutional requirement?",
       "time": "00:41:46.18"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say preferred, what do you mean by that?",
       "time": "00:41:55.30"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And did the... you're talking about now Federal courts of appeals?",
       "time": "00:42:13.96"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And... and they held this as a matter of Federal constitutional law?",
       "time": "00:42:18.22"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Any other circuits?",
       "time": "00:42:28.70"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In your brief, Ms. Wilson... let me make sure I've got the right one. Yes. In your table of authorities, you have a number of cases from this Court and then you have a number of State cases which seem to be mostly Iowa cases.",
       "time": "00:43:31.74"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And then you don't cite any Federal... Federal cases such as the ones I presume you were referring to. Was there some reason, if... if they support you, why you didn't put them in your brief?",
       "time": "00:43:48.64"
     },
@@ -1147,13 +1147,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And which one dropped the ball?",
       "time": "00:44:06.54"
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:44:08.31"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, what if under... under Iowa law you have a case like the present one? When this case... the... Tovar pleaded... rather, he... he pleaded not guilty. He went to trial, didn't he? And supposing that the prior conviction is 4 years old, can he not challenge that under Iowa law when he appeals as... as an enhancing factor?",
       "time": "00:45:28.07"
     },
@@ -1177,13 +1177,13 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes. What... what I'm concerned with, take the... the present case. The defendant pleads not guilty, goes to trial, the jury finds him guilty.",
       "time": "00:46:00.43"
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And one of the bases for sentencing is that 4 years ago he pleaded guilty to a similar crime but didn't get these waivers. Under Iowa law, could he challenge that 4-year-old conviction as an aggravating... or whatever you want to call it on appeal from his present conviction?",
       "time": "00:46:08.61"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any limit on how many years back you go for enhancing prior convictions?",
       "time": "00:46:51.56"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What was the sentence imposed in this case for the... for the third offense?",
       "time": "00:47:21.01"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that would be the judge's fault then in... in not assuring that he was aware of all of the elements of the crime.",
       "time": "00:49:48.06"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, all you're saying is the judge can make a mistake.",
       "time": "00:49:55.28"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I mean, even if we grant what you want in this case, judges will still be able to make mistakes.",
       "time": "00:49:58.09"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If he doesn't make a mistake, he would know all the elements of the crime. Right?",
       "time": "00:50:05.21"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But in this case... this case I don't think you can raise any such--",
       "time": "00:50:18.96"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--thing because it was a... a blood alcohol test that did him in, and he didn't dispute the results of that test.",
       "time": "00:50:23.00"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I'll ask you the same question I... I asked of General Miller. If in fact the defendant here, Mr. Tovar, says, yes, I was guilty of driving under the influence and I know that the test said that and I don't disagree with it, what public policy is there to try to get him to change his mind because you might have suppressed some of that evidence?",
       "time": "00:50:43.62"
     },
@@ -1303,19 +1303,19 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I ask? Like the Chief, I'm... I'm not sure that as a matter of public policy I... I even... even like what... what you're suggesting even if it were made very, very simple. That is to say, we've gone through the elements of the crime and you acknowledge that you've committed all of them. What you ought to know, however, is that if you got an attorney, he might find some gimmick that would allow you not to be convicted of this crime even though you have committed it. You should know that because it's your right, you know, to know that you can get off even where you're guilty. Now, is this something that we really want to encourage?",
       "time": "00:51:42.61"
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:52:24.59"
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So long as you've told the individual these are the elements, are you sure you did it, why... why isn't that all that the State should require? We want to encourage people to... to confess. We want to encourage people, when they're guilty, to pay what used to be called their just debt to society. Why do we want to encourage them to... to hire a lawyer so that they'll get off on a... on an irrelevancy?",
       "time": "00:52:25.62"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do you think it would be valuable in California to have somebody there to say, by the way, this is the second time you've stolen a chicken and if you plead guilty and do it again, you may go to jail the rest of your life? Or if you're in, say, Alaska, this seems to be an assault case but it's connected, in fact, with the charge of sexual assault. So if you plead guilty, the rest of your life you're going to have to be registered as a sex offender. Or to say, for example, if you're immigrant, you know, it may not seem to be important to you because it just happened to be hitting your child or something, you know, a slap or something like that, but you're going to be deported likely if you plead guilty. Would it be useful to have a lawyer there to tell them that?",
       "time": "00:53:32.17"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if the Iowa Supreme Court thinks so, it could put it in the Iowa rules.",
       "time": "00:55:15.08"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that... that's how it would be.",
       "time": "00:55:19.79"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In this case, the Iowa Supreme Court is projecting what would be law for the Nation.",
       "time": "00:55:24.91"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Wilson. General Miller, you have 4 minutes remaining.",
       "time": "00:55:44.41"
     },
@@ -1387,13 +1387,13 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Miller. The case is submitted.",
       "time": "00:56:19.12"
     },
     {
       "turn": 224,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at 10 o'clock.",
       "time": "00:56:21.73"
     }

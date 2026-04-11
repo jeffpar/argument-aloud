@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/84-237/19841205a_84-237.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STANLEY GELLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Aguilar against Felton and consolidated cases. Mr. Solicitor General, I think you may rest. I think you may proceed whenever you are ready, Mr. Solicitor General.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "General Lee, these programs are offered nationwide. Are there some around the country that are not offered on the premises of the private schools? And would you be able to characterize the extent to which other programs under Title 1 are offered within public schools?",
       "time": "00:03:13.54"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is there then only one school district in the nation that is offering it?",
       "time": "00:04:04.79"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And what has happened to the Pearl case?",
       "time": "00:09:07.19"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Did they try to appeal it here?",
       "time": "00:09:34.01"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Dismissed for want of jurisdiction?",
       "time": "00:09:39.83"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Because of failure to meet deadlines?",
       "time": "00:09:41.49"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Solicitor General, what if it turns out that the Grand Rapids program is stricken down under the First Amendment? What bearing do you think that would have on this case?",
       "time": "00:13:25.14"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think the Title 1 program is realistically distinguishable from the Grand Rapids program for constitutional purposes?",
       "time": "00:13:52.07"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You mean a Congressional determination as opposed to a state determination? Well, I think that would be the ultimate irony, that you would take the religion clauses of the First Amendment which by their terms apply to Congress and only through the adoption of the Fourteenth Amendment have been held to apply to the states and now say they apply with greater force to the states than to Congress.",
       "time": "00:16:27.57"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Was the entire Court in agreement with your statement just made?",
       "time": "00:19:58.83"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But that is a factual statement that you are making.",
       "time": "00:20:14.89"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Solicitor, can I ask this one question about any possible impact on establishment clause values? This is the case, I believe, in which there is the desanctification of the classrooms. They must remove religious objects from the classroom. Do you think that if a religious school is told that you can have some money or some public benefit if you take down some religious objects from your classroom, that that has any impact at all on--",
       "time": "00:23:39.35"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But it is a condition, is it not?",
       "time": "00:24:15.62"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it your answer in effect is, your response is that if the religious symbols were left in the room, your adversaries would hammer you with that fact, and therefore at most removing them neutralizes the problem.",
       "time": "00:25:22.25"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In this connection, do you have any comment on the Missouri case?",
       "time": "00:25:42.75"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So that if you prevail here, that does not necessarily mean you will prevail in the Missouri case.",
       "time": "00:25:57.57"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, you sent a copy of it up here, as did your opponents, and at least a cursory review of it would indicate that things were done in the Missouri case which you claim are not done here.",
       "time": "00:26:13.17"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "At least that shows the possibility of abuse.",
       "time": "00:26:26.09"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Geller.",
       "time": "00:27:37.54"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Court of Appeals reject findings of fact that had been made by the District Court?",
       "time": "00:29:27.01"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you mean that if Congress takes some additional action, this result which you describe will prevail?",
       "time": "00:32:33.32"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Private schools.",
       "time": "00:41:21.22"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the premises of private schools.",
       "time": "00:41:23.13"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting, Mr. Geller, that religious dogma could be somehow subtly filtered into remedial mathematics?",
       "time": "00:42:20.30"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Geller?",
       "time": "00:46:50.24"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there anything in the present record that indicates any incidents like these actually happened?",
       "time": "00:46:51.95"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That may be the hypothesis of those cases, but I don't think the hypothesis was based on the sort of speculation that you were engaging in.",
       "time": "00:48:21.78"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Geller, these classes go on during... these remedial classes go on during the regular school day, don't they?",
       "time": "00:50:25.76"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I would take it that if they weren't going on and weren't being paid for by the Title 1 funds, they would be... the same hours would be taught by private school teachers.",
       "time": "00:50:33.54"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And these remedial classes relieve the private school of the necessity of filling up those hours.",
       "time": "00:50:49.79"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, don't they?",
       "time": "00:50:59.96"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but they... it just means they perhaps don't have to have as many professors. I would think you would argue that it would be... that is a direct aid.",
       "time": "00:51:02.81"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It just saves... yes, but I think it... wouldn't it just very likely save the private school some money?",
       "time": "00:51:23.69"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if the private schools would never put on a course like this, it nevertheless would save them money, because--",
       "time": "00:51:35.28"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But even if they do nothing--",
       "time": "00:51:45.17"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, I would think if there is X number of hours a week that you used to have a private school teacher to teach, if you no longer have to have a private school teacher to teach those hours, you perhaps can get by with a smaller staff.",
       "time": "00:51:53.55"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is no evidence of that?",
       "time": "00:52:15.03"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Geller--",
       "time": "00:52:44.29"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Geller, maybe I don't understand the program. I thought it just took selected students out of some classes under the Title 1 program, and was not in fact reducing the number of teachers required in the private school to do that.",
       "time": "00:52:53.65"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought it was taking selected students and giving them some remedial programs.",
       "time": "00:53:13.64"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, is that correct?",
       "time": "00:53:19.03"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is not reducing the number of teachers required?",
       "time": "00:53:22.07"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Geller, how do you think that the program is generally perceived by the community at large? Is it perceived as a program to aid disadvantaged children, or a program perceived as aiding religious schools?",
       "time": "00:53:53.11"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Your answer is, it just isn't perceived at all, either way. 0 [Generallaughter.]",
       "time": "00:54:40.17"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Geller, before the noon bell rings, I want to ask you this. If this case is reversed and the ruling is against you, can the Court make that reversal without overruling Meek against Pittenger in your estimation?",
       "time": "00:55:45.03"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So that's for the Court to be candid in reversing, it must overrule Meek against Pittenger.",
       "time": "00:56:27.19"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, Mr. Geller.",
       "time": "00:57:31.90"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further?",
       "time": "00:57:34.66"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:06.83"
     }

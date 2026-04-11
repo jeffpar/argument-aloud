@@ -3,31 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1721/19770426a_75-1721.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "RANDOLPH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MARTIN G. WEINBERG",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 75-1721, United States v. Chadwick. Mr. Randolph, you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -39,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record show the source of origin of the shipment?",
       "time": "00:02:11.74"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Origin or?",
       "time": "00:02:18.05"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There is nothing in the record to show that it was transshipped, that is it came from somewhere else to San Diego?",
       "time": "00:02:26.51"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And then San Diego on to Baltimore.",
       "time": "00:02:34.53"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Baggage accompanying means the owners of the baggage, was it not?",
       "time": "00:02:40.73"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was checked baggage?",
       "time": "00:02:45.00"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I got that from reading the brief. The suitcases were not checked and the footlocker was by the owners traveling on the same Amtrak train.",
       "time": "00:02:52.16"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So it was not a question of sending by freight a container from one point to another. It was a baggage accompanying the travelers, exactly?",
       "time": "00:03:18.39"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The agents were still sitting on it?",
       "time": "00:04:06.52"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did the record show what their reaction was to the dog’s conduct?",
       "time": "00:04:18.39"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How long after the loading of the locker into the trunk of the car did the officers open it and where?",
       "time": "00:07:34.29"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "After they have arrived?",
       "time": "00:07:57.28"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The argument of your friends is that they should have retained possession while they proceeded to go and get a warrant.",
       "time": "00:08:06.10"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that a counter worded issue in this case whether or not there was probable cause to seize the footlocker?",
       "time": "00:09:30.07"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I wondered if in the present posture of the case, if that is counter worded issue.",
       "time": "00:09:51.11"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, that is a given in this case, is it not?",
       "time": "00:10:02.05"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There was probable cause to seize the footlocker.",
       "time": "00:10:04.77"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is my understanding.",
       "time": "00:10:08.14"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did I understand you to say that your friends concede that if the footlocker had not been taken while the respondents were sitting on it around the time when the dog identified it, that that would have been appropriate without a warrant?",
       "time": "00:11:27.85"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I got some impression that you intermitted that they concede that. They said that is when it should have been seized, that was perhaps the way you put it.",
       "time": "00:11:52.84"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the issue in this case involves the opening and the search of the footlocker and not the seizure of the footlocker, am I correct?",
       "time": "00:12:27.13"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The footlocker was in a lawful possession or custody of the federal agents and the issue involves the opening and search of it, is that not right?",
       "time": "00:12:43.65"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For a long, long time, plenty of time to get a warrant.",
       "time": "00:13:20.63"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Randolph, you keep mentioning they opened the locker. How did they open it, did they break those locks?",
       "time": "00:13:34.50"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is some information at some point in the record that they picked the lock. That was the phrase used. In other words, used a wire or a screw driver or something. As a substitute for a key.",
       "time": "00:14:00.82"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Randolph, how can it be readily moved if it was in the FBI office?",
       "time": "00:14:40.43"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where was the FBI office? Was it near the courthouse?",
       "time": "00:15:28.42"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I said the courthouse.",
       "time": "00:15:33.72"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was the magistrate in the courthouse?",
       "time": "00:15:37.44"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would it not be important for us to know?",
       "time": "00:15:42.64"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where you could have gotten a search warrant.",
       "time": "00:15:46.68"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well that supports the original seizure of the footlocker. There was an automobile and that the seizure of the footlocker took place without a warrant because it was an automobile and because it was incident to a lawful arrest. So that supports the seizure, but as I understand that the issue is not the seizure of the footlocker, but the opening and the search of it?",
       "time": "00:16:17.81"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your brief or your petition?",
       "time": "00:17:06.43"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was not in the (Inaudible), obviously.",
       "time": "00:17:14.12"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it important that the locker was seized incident to arrest, or not?",
       "time": "00:18:06.80"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You will be making the same argument I take it, if it had been seized in somebody else’s possession.",
       "time": "00:18:14.88"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are there any cases that you know of or what is the established rule in the event you arrest a man and find a locked small box in his pocket? Now, you can search him incident to arrest, I think, but if you find the locked box, will you open it? Are there some cases on that?",
       "time": "00:18:29.28"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about a sealed envelope in his pocket?",
       "time": "00:18:51.87"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "On the incident to arrest theory?",
       "time": "00:19:05.33"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because it was in his possession and under his control?",
       "time": "00:19:10.07"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In his pocket?",
       "time": "00:19:14.36"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you do not know any cases about -- how about arresting a man carrying a locked briefcase? How about that?",
       "time": "00:19:17.25"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If that is a sound approach, you do not need to go any further to uphold this as incident to arrest search, so you, simply argue on the basis that you could have searched it when you arrested them?",
       "time": "00:20:22.76"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That could become a self-fulfilling prophecy. If the FBI agents opened it and it sustained, presumably the next people have no expectation of privacy. The concept of privacy must mean something more than that?",
       "time": "00:21:21.64"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But not quite in such a tautological way, I guess?",
       "time": "00:21:41.85"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is not whether or not we require them, it is whether or not the constitution requires them.",
       "time": "00:22:33.71"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Which one of those cases was the material in the FBI office?",
       "time": "00:22:51.93"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it in their office?",
       "time": "00:22:59.13"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you concede, do you not, that under that standard that you had just quoted, this does not fall within any of the exceptions so far established?",
       "time": "00:23:40.75"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is not your argument that this case is governed by any existing exception to the basic rule?",
       "time": "00:24:04.23"
     },
@@ -639,19 +643,19 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I understood you to say that you thought that this footlocker was analogous to automobiles?",
       "time": "00:24:15.41"
     },
     {
       "turn": 104,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is right.",
       "time": "00:24:21.70"
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And certainly this Court has not upset any search in the past five years of an automobile where there has been probable cause, has it?",
       "time": "00:24:22.44"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think this footlocker is very much like an automobile, it does not have any motor or wheels? In other words, it is not mobile?",
       "time": "00:24:55.51"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well that is a container in an automobile, this one is out and in the custody of the FBI?",
       "time": "00:25:27.93"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was not at the time it was searched, was it?",
       "time": "00:25:37.17"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Randolph.",
       "time": "00:25:46.11"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the expectation of privacy is as great with respect to a footlocker as it might be with respect to, say, the personal suitcase of a traveler?",
       "time": "00:25:48.78"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You want us to say that this opinion, if we go with you, applies only to footlockers and does not apply to other bags? You do not want us to do that, do you?",
       "time": "00:26:29.70"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If your case would be different, Mr. Randolph, if the footlocker had not been traveling with the individual who was arrested?",
       "time": "00:26:44.43"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Randolph, I just want to get one thing straight. Now, you cited the Preston Case and Mr. Justice Black’s remarks in that case. Does Preston not dispositively against you on the question whether it is incident to an arrest because they have invalidated the search?",
       "time": "00:27:20.45"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, Preston certainly does not help you though, does it?",
       "time": "00:27:52.39"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:27:57.50"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well Mr. Randolph, Mr. Weinberg.",
       "time": "00:28:02.18"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Weinberg, let me ask you the same question I asked Mr. Randolph. You say the reduced expectations of privacy are not present after Cady and Opperman. Well, if we decide this case against you and the next case against your counterpart, presumably there will be reduced expectations of privacy in footlockers. That is kind of a self-fulfilling prophecy, however you argue it?",
       "time": "00:30:31.83"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the same kind of argument could have been and was made to us in Cady and Opperman. The right of privacy, protected searches of automobiles even though there might be probable cause, if you did not have a warrant?",
       "time": "00:31:21.86"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if the Fourth Amendment were appealed, there could not be a reasonable expectation of privacy by anybody anywhere, could there?",
       "time": "00:32:07.60"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you the same question I asked your opponent? What do you think the established rule is in the lower courts or maybe here otherwise we do not think we probably settled it, about closed containers in the possession of a person when he is arrested?",
       "time": "00:32:46.56"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, well, let us assume there is no question about immediate control, but the only thing is, the container is closed?",
       "time": "00:33:17.67"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, here the briefcase is just closed. Nobody knows whether it is locked or not. May the officer look in the briefcase or not, is there some established rule about it?",
       "time": "00:33:37.38"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know what you would argue, but what about...",
       "time": "00:33:49.72"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about a sealed envelope? Are there some cases about sealed envelopes found on somebody?",
       "time": "00:33:56.70"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are there some cases on it?",
       "time": "00:34:03.58"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about when you search a car on the spot when there has been probable cause to arrest and there is probable cause to believe that there is some seizable material in the car and you open a locked trunk and you find a closed container. Is there some established rule about that closed container?",
       "time": "00:34:07.48"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose the issue we have here is rather relevant to those situations?",
       "time": "00:34:29.90"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think if the rule were that you can open a closed container found in the possession of a person and under his control when he is arrested, if the rule were that you can open that, would that govern this case?",
       "time": "00:34:52.43"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about if you could open a closed container found in a trunk of a car and the car was otherwise searchable, would that cover this case?",
       "time": "00:35:17.62"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In the Draper Case, what was the situation, I am a little cloudy on that. Was it not a zippered bag like a briefcase that has a zipper on it?",
       "time": "00:35:39.64"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would you think there is any analogy between the zippered bag in Draper and the box with Mr. Machado sitting on it?",
       "time": "00:35:57.27"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was not too heavy to move. Obviously, they moved it, maybe too heavy to move for one ordinary man?",
       "time": "00:36:18.87"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How does the size of it bear on the right to, I suppose instead of lock it had a zipper as some large lockers do.",
       "time": "00:36:31.56"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "After the dog had identified it, they concluded there was probably cause as the Courts below have done and they said, “Mr. Machado, you are under arrest,” and then searched it right then and there?",
       "time": "00:36:50.12"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean they could search it at the depot, but not after they got back to the FBI office?",
       "time": "00:37:13.37"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You would not argue that your position today, if sustained, would necessarily overrule a case authorizing the seizing?",
       "time": "00:37:37.04"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could they not have picked the lock at the Depot as readily as they could at the FBI office? Is that really a controlling factor?",
       "time": "00:38:09.27"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, the evidence that I read here is that they picked it with means other than the key.",
       "time": "00:38:28.93"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What difference does it make really of how they opened it?",
       "time": "00:38:44.66"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But in Robinson, we said rather clearly that whatever the reason behind the allowance of a search incident to arrest, the government did not have to show in every individual case that a particular reason was there, that it was lawful just by virtue of the fact that was incident to arrest?",
       "time": "00:39:26.34"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is some truth in fact to it, is there not? In Coolidge, search of an automobile was upset and the automobile was on the premises of the owner. Subsequent cases have sustained not really distinguishable searches of automobiles where they were in public ways. Someone who carries a sealed envelop on a 3,000 mile journey is probably more opt to have things happen to it than somebody who simply leaves it in a drawer at home.",
       "time": "00:41:18.07"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Draper holds that, does it not, if it is a search incident to arrest?",
       "time": "00:43:00.15"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are saying that the government’s theory would support that even though there was not probably cause for arrest?",
       "time": "00:43:09.09"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Landburg, your real problem, is it not, the dog? Once the dog scratched that trunk, your clients were gone?",
       "time": "00:43:20.42"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They should have said, “I wonder whose trunk this is.” Is that not true?",
       "time": "00:43:39.95"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All they had to do was wait until the next morning and any magistrate in the world on the basis of that dog would have granted the search warrant?",
       "time": "00:43:53.75"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Weinberg, could I ask you a question about the Draper Case? I don not know whether you have conceded or not that that holds that, incident to an arrest, it was appropriate to open the brown zippered bag. The actual facts of that case were that the heroin was in the man’s left hand and the syringe was in a brown zippered bag and I do not think there is any argument about whether or not it was proper to open the brown zippered bag?",
       "time": "00:44:21.43"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So there really is no holding on the point that is before us?",
       "time": "00:44:46.33"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you agree with the Solicitor General that the footlocker could have been held indefinitely pending the attaining of a warrant, the locker having been seized, pursuant to a probable cause?",
       "time": "00:45:13.28"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You had no problem withholding it for a sufficient period of time to obtain a warrant?",
       "time": "00:45:37.75"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The question really addresses whether or not your client could have walked away with the footlocker, under your submission or did the government had the right to retain the footlocker?",
       "time": "00:45:47.24"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that.",
       "time": "00:46:07.45"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That brings you back to Mr. Justice Marshall’s comment, does it not, that your argument really would not really help your client very much in this case, would it?",
       "time": "00:46:21.70"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The only misconduct here is the failure of the government to have obtained a warrant and you concede that the government would have had time to obtain it and had the government obtained it in view of the evidence in this case, the magistrate certainly would have issued the warrant.",
       "time": "00:46:53.16"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It could not be the home because you could not carry the home into the FBI office?",
       "time": "00:48:19.12"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Assume for a moment that, well, you need not assume it, the fact is clear that upon opening this locker and finding that the substances in it were totally innocent, powdered sugar, talcum, whatever. These gentlemen could have been on their way within an hour of so, could they not?",
       "time": "00:48:24.54"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With the apologies of the agents and perhaps a potential case against them, but holding it until they could find a magistrate the next morning. Would that not be a greater intrusion than the intrusion of opening it immediately?",
       "time": "00:48:49.68"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For purposes of this case, I suppose you would agree that it would make no difference whether the contents of the footlocker were marijuana, heroin or a small tactical atomic bomb?",
       "time": "00:49:43.05"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, mind that at 10:00 at night you do not find magistrates or, do you in Boston?",
       "time": "00:50:42.57"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the courthouse?",
       "time": "00:50:49.45"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you conceive to be the basis for the decision in Cooper? What justified the search of the automobile? That was not the automobile theory, was it?",
       "time": "00:51:04.56"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was based on the idea that the car had been used. They had probable cause where either car had been used to transport contraband?",
       "time": "00:51:20.84"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the trunk in this case is in the position of the car in terms of the right of the United States to forfeit it?",
       "time": "00:51:36.74"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know and then I am just asking why would Cooper not pick up, if the United States has the right on probable cause to seize the footlocker and hold it pending of forfeiture proceedings?",
       "time": "00:51:56.32"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was not the Court’s rationale in that case, was it?",
       "time": "00:52:14.26"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 227,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am talking about Cooper.",
       "time": "00:52:24.58"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So the Copper, Opperman approach would cover anything, not just cars, it would cover a footlocker, would it not?",
       "time": "00:52:36.09"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if you are holding the footlocker pending forfeiture proceeding, your submission is nevertheless that you may not search it without a warrant?",
       "time": "00:52:49.89"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Prior to forfeiture, pending to a forfeiture proceeding you still say that the government needs a warrant to search it?",
       "time": "00:53:04.60"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 235,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So again, it is a difference between the car and footlocker?",
       "time": "00:53:31.95"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If this footlocker had been held, Mr. Weinberg subject to a forfeiture proceeding as the vehicle or container of contraband Would it be necessary to open it before the forfeiture proceeding?",
       "time": "00:53:38.70"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why, why could not the government not go into the courts and simply say here, we have probable cause to believe that there is contraband in here and then and there could not the judge say alright, we will have to open it to find out. Now, would that be a “judicial warrant”?",
       "time": "00:53:58.42"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But do you concede that the Court could say, having brought it into the courtroom as you would not trouble to do with the automobile, alright, now we will now have the Marshall of the court open it up and have someone decide whether it is contraband?",
       "time": "00:54:25.63"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "On what subject?",
       "time": "00:54:48.19"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 245,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought it has been conceded now that there is probable cause at this stage.",
       "time": "00:54:53.00"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That footlocker then is in the courtroom in the forfeiture proceeding. Could the court direct it to be opened to determine whether there were machine guns or whatever inside of it?",
       "time": "00:55:01.67"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that would be lawful?",
       "time": "00:55:13.45"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Weinberg, would it make any difference in your argument if there were a provision in the ICC that permitted the carrier to open materials such as this in its custody for inspection at its discretion?",
       "time": "00:55:40.28"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right, I am talking about expectation of privacy.",
       "time": "00:56:00.09"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Randolph, do you have anything further?",
       "time": "00:56:25.80"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Unanimous like one court or incident?",
       "time": "00:56:47.64"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 259,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does any of it have a footlocker in these cases?",
       "time": "00:57:04.69"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 261,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did they do that on the automobile? What about on the searching closed containers in possession when you are arrested, is that strictly on the incident to arrest basis?",
       "time": "00:57:43.77"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 263,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But no court, I take it, has embraced your luggage exception?",
       "time": "00:58:04.40"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 265,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us assume, do you know of any court that has embraced this notion that the government has probable cause to believe that a certain briefcase checked in a hotel has got contraband in it and the checker gives the government the briefcase? There they have it and let us assume they are in lawful possession of it. May anybody justify opening it without a warrant? Do you know any cases like that?",
       "time": "00:58:21.87"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 267,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about that?",
       "time": "00:59:03.32"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 269,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that your theory? The government would like to be able to search any effects that are found outside the home, if they have got probable cause to search it?",
       "time": "00:59:07.14"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 271,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes and I think that the contrary rule.",
       "time": "00:59:23.72"
     },
@@ -1659,13 +1663,13 @@
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "In the government’s possession, the contrary rule that respondents urge has a delusive exactness to it. It sounds very precise, just notable perceptions, but then when you start thinking about it, he makes a distinction between whether the footlocker was weighed 2 pounds or 20 pounds, or even if Mr. Machado was a defensive lineman for a pro football team and had it under his arm as he walked out, it would make a difference. It would make a difference if the car were pulling away. The First Circuit has said that makes a difference, if the car were pulling away, then you can open up the closed container. These kinds of fine-line distinctions, we think do a couple things. One, they lead to a lot of litigation. Second, they do not give the police any real guidance because they are not analytical. I cannot see the line between those events and I think the Court would have difficulty doing so as well. We think not only that, but finally, maybe this is the most important thing, they take away the importance and the seriousness of the warrant requirement because they burden the warrant system with these kinds of cases and I think that may not help to instill the kind of responsibility that we want to instill in magistrates, when they are dealing with very serious intrusions where the Court has held a warrant is required in the home, in the office, and private communications. For that reason, we urge the decision of the Court to be reversed.",
       "time": "00:59:28.40"
     },
     {
       "turn": 274,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In response to Mr. Justice White you said that there was a specific Court of Appeals case I believe.",
       "time": "01:00:43.90"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Relating to a locked briefcase, would you identify that case for us please?",
       "time": "01:00:50.49"
     },
@@ -1689,7 +1693,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Gentlemen. The case is submitted.",
       "time": "01:01:35.25"
     }

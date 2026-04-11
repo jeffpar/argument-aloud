@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/93-518/19940323a_93-518.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID B. SMITH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "TIMOTHY V. RAMIS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in Number 93-518, Florence Dolan v. the City of Tigard. Mr. Smith.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Smith, are you going to comment on the question of whether the City would have been within its rights to deny the building permit entirely?",
       "time": "00:00:54.75"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We... we take the case on the assumption that the City could have denied it?",
       "time": "00:01:24.61"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so far as the finding about the flood plain is concerned, there was a finding that if you pave over with asphalt things that have been previously green or growing in some way, you're going to have a more rapid runoff. Now, that... that doesn't seem very speculative to me.",
       "time": "00:02:34.27"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, you say the City has to... has to quantify something like that, do some sort of empirical studies that would show the portion for which this increase in her usage... or her increased pavement is responsible?",
       "time": "00:03:44.40"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there any reason to believe that creating impervious surface closer to the flood plain causes more of a problem than creating impervious surface further away from the flood plain?",
       "time": "00:04:37.65"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And yet, people who did that further away would not have to dedicate any of their land to the public use?",
       "time": "00:04:53.50"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't there... excuse me... isn't there some sort of attenuation? I mean, if you're three miles from Fanno Creek and pave over 2,000 square feet, surely it's a lesser immediate effect on the creek than if you are right along the creek and pave over 2,000 square feet?",
       "time": "00:05:14.44"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Assume that the additional runoff would require that some vegetation remain alongside of the creek. Is it your position that the demands of the City are nevertheless excessive?",
       "time": "00:05:30.77"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "When we hear about the greenway, is that simply part of the bike path, of is that also part of the flood plain?",
       "time": "00:06:15.30"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, would it be your position that if vegetation must be there, assuming there is some additional runoff and there is a relation between that, that you're entitled to keep vegetation that's other than what would be in the greenway? I mean, is this an excessive demand, so far as the City is concerned?",
       "time": "00:06:59.18"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If all they ask is grass.",
       "time": "00:07:15.94"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what... what... what could she do then that she cannot do now?",
       "time": "00:07:31.61"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, no. My question was imprecise. I'm sorry. On the... on the... the greenway area, the flood plain, which is subject to the easement, she couldn't develop it before... what is it that she wanted to do that she cannot do now?",
       "time": "00:07:46.37"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't the... fill me in... doesn't the public have access to the greenway? I thought the purpose of the greenway was for a park. That's not so?",
       "time": "00:08:18.53"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I mean after... after she complied with the condition for the... for the permit, would the public have had access to the greenway?",
       "time": "00:08:36.45"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's... that's one thing she couldn't... she could do now and couldn't do afterwards, which is keep other people out.",
       "time": "00:08:45.80"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is pretty important.",
       "time": "00:08:54.27"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did the City require an easement or the fee to this area?",
       "time": "00:08:56.63"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. But you say the record as it comes to us shows the requirement of dedication of the fee title to this property?",
       "time": "00:09:37.88"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. Did the City also require Mrs. Dolan to construct the bike path at her expense?",
       "time": "00:09:48.37"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, do you rest your case on the difference between whether an easement had been given or whether she had to convey the... didn't... Nollan involved an easement, as I recall, rather than an outright conveyance, didn't it?",
       "time": "00:10:39.05"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And an easement is... is a right in property, isn't it? It's a conveyance of property?",
       "time": "00:11:00.38"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would the case be the same if it had been a license rather than an easement?",
       "time": "00:11:06.22"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, your answer is yes?",
       "time": "00:11:29.17"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I in fact thought that a license to... to use land is the definition of an easement. I'm not... can you create a license to use land that is not an easement? Can you?",
       "time": "00:11:32.26"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At least it was in my first year property course, which was some years ago. [Laughter]",
       "time": "00:11:49.90"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Assuming that there is some degree of proportionality, do you insist on, you know, actual empirical demonstration of adverse effects?",
       "time": "00:13:18.79"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How would you articulate such a test in... in simple terms? What would you say the test is that you think this Court has or should impose?",
       "time": "00:14:16.42"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if you can't do it, how do you expect us to? [Laughter]",
       "time": "00:14:38.54"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, specifically in this case, what should the City of Tigard have done that it didn't do in order to justify the demands it made on your client for her property?",
       "time": "00:15:22.04"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I... may I raise the question that troubles me about just really the whole case. The requirement of quantification, it seems to me, it would be awfully difficult to meet in cases in which a municipality might perceive a danger that it really couldn't evaluate, but feels it doesn't want to take the risk. Say out in California you worry about earthquakes. You don't know when it's going to happen or how serious it'll be, but you know it's a possibility. How do you quantify against a reasonable risk that you just aren't quite sure what'll happen, but you just don't want to take any chances?",
       "time": "00:15:57.97"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but you've acknowledged they could deny the permit outright if they were concerned in sort of... they just think there's a danger there, but they're not sure they're able to quantify it. I think you've acknowledged they could deny the permit outright?",
       "time": "00:16:44.52"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you say they can't say, well, if you want to go ahead and build, because we're unsure about what's happened, we're going to insist that you make these perhaps exaggerated precautions? You're saying they can't do that?",
       "time": "00:16:55.22"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Smith, I... I assume you don't concede that a proportionality requirement is necessarily in addition to a rational basis requirement? I mean, I... I assume that... that you... you would acknowledge the possibility that something does not have a rational basis if it is wildly disproportionate?",
       "time": "00:17:38.68"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In 1971, the Supreme Court decided that you couldn't make arbitrary distinctions between men and women because that violated the rational basis test.",
       "time": "00:18:40.72"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You said it was no test at all; it seemed to be a pretty significant test in the case of Reed v. Reed.",
       "time": "00:18:53.81"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How do you formulate that? I think it was what Justice O'Connor was asking you earlier. How do you formulate the something more?",
       "time": "00:19:32.22"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's kind of a submiddle tier, because the stock formula, equal protection/due process, is substantial relationship to an important Government interest. This is one notch down, a legitimate Government interest. It's not quite as heavyweight as an important Government interest, is it?",
       "time": "00:20:01.73"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Smith, is there any difference, do you think, in the justification the City can offer for the flood control problem and the justification for the bike path, insofar as Mrs. Dolan's property is concerned?",
       "time": "00:20:20.95"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is Tigard in Multnomah County?",
       "time": "00:21:24.81"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Smith, I don't want to be picky; I think I'm going to sound that way, though. I don't... I still do not grasp your... your... your substantial relationship as a basis for your proportionality test. Are you saying, in effect, that you basically make a fraction... let's say on the runoff problem... that you make a fraction of the amount of runoff that's going to be created by this change in use of the property, with that created by the change of use in the property as your numerator and all the other unnatural runoff that is going to hit this creek as your denominator, to start with? And then, you, in effect, say that fraction governs the... the portion of the cost of improving the creek that can be borne by this landowner?",
       "time": "00:21:32.23"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How do you go... how do you... how do you determine what your denominator is? Do you go back to the point where... before the land was settled, and you figure all of the runoff that is now taking place that wouldn't have taken place if this were just grassland or woodland or whatever it would have been? Or do you... do you start with some baseline, the year 1990, and you measure incremental runoff from that point on? How... how, in practice, does it work?",
       "time": "00:22:31.57"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, it would be the amount of legitimate increase that could be projected from '83, as the denominator, and the portion of that attributable to this change in use as the numerator?",
       "time": "00:23:31.53"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I assume the time you take the snapshot ought to depend on the time when the restriction for which this is the exaction was imposed... that is, the time the zoning requirement, which this exaction is... is meant to justify a waiver from, was imposed... that is when you'd take the snapshot, I assume?",
       "time": "00:23:46.93"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Smith.",
       "time": "00:24:07.41"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Ramis, we'll hear from you.",
       "time": "00:24:10.36"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This property owner had to pay some money for the increased congestion; wasn't there an assessment, the $14,000, that was mentioned?",
       "time": "00:24:44.53"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And this is in addition to that?",
       "time": "00:24:54.65"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What would happen if somebody two lots back from this property, two lots further away from the flood plain, who increased business to the same extent by... by an expansion of the building, and who paid $14,000 similarly, but didn't have any flood plain land to contribute to a bike... to a bike path? What... what would happen to that person?",
       "time": "00:25:46.03"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And this property, there is something peculiar about this property, by being next to the flood plain, adequate services are not available, so that you have to contribute a bike... a bike path?",
       "time": "00:26:22.91"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if you're further away, what... what would be done to a property further away?",
       "time": "00:26:33.34"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the solution to that was a bike path?",
       "time": "00:27:01.10"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "People are going to go to the hardware store on their bike?",
       "time": "00:27:07.94"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That isn't even contended by the City, is it? So, there is no relationship between the increased traffic volume and the bike path?",
       "time": "00:27:11.97"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see, people who would otherwise be driving their cars for recreation will instead ride bicycles for recreation; is that the--",
       "time": "00:27:30.33"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is that the notion?",
       "time": "00:27:39.04"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There are a lot of bike paths around Washington, and I've never seen people carrying shopping bags on their bikes.",
       "time": "00:28:05.19"
     },
@@ -747,13 +747,13 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Perhaps city planners, I guess they--",
       "time": "00:28:12.05"
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Ramis-- --Are you judging the... the obligation of the littoral property owners and the nonlittoral owners by contradictory standards? Because you're saying that... excuse me... in answer to an earlier question, that the... the owner of property two blocks away from the creek would be judged by... by asking whether the... the public facilities that would be burdened by the... by the building were already adequate; whereas you have made, as I understand it, a definitive determination with respect to the littoral property owners that they're not adequate. You're saying we've got to have a bike path because there's too much traffic. We've got to improve the... or set aside more land for creek overflow because there's going to be a quicker runoff. It seems to me that you've made kind of a conclusive determination with respect to... to the Petitioner here, but you haven't made any determination on... on your theory with respect to the nonlittoral owners.",
       "time": "00:28:13.49"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but is... correct me if I'm wrong, as I understand it, the Petitioner here would not have been allowed by the City to come in and say there's... there's plenty of room for the creek to flow and there's... there's plenty of capacity in the streets and sidewalks. You've already determined that the answer to... in each case, is that there is not sufficient capacity--",
       "time": "00:29:31.62"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Okay.",
       "time": "00:29:55.33"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But does... does the property owner two blocks away have to ask for a variance?",
       "time": "00:30:15.51"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But in this case, as I understand it, the proof, so called, has already been made. And the way for the littoral property owner, the Petitioner here, to alleviate the burden is to ask for a variance. Those... those, at least, are procedurally different mechanisms, aren't they? Yes... go ahead.",
       "time": "00:30:29.89"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But supposing that the upstream property owner or the uphill property owner, the one out of the flood plain or littoral, he wants... he wants to enlarge his business the same way that Mrs. Dolan did, would the City demand of him something in the way of an easement... something corresponding to the flood plain easement which they asked of Mrs. Dolan?",
       "time": "00:31:02.56"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What something is it?",
       "time": "00:31:27.47"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose... suppose Mrs. Dolan said that she was willing to build a storage facility?",
       "time": "00:32:09.65"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was she given that... was... did she have that option?",
       "time": "00:32:16.82"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of course, in all events, it seems to me that it's unnecessary for the drainage that the property owner lose the right to exclude the public from access to it. I see no relation between those two.",
       "time": "00:32:57.41"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Ramis, could I... could I come back to your footnote four... footnote six on page four? I don't see that that says what you've described. What that says is that natural drainage ways must be maintained unless submitted studies show that alternative drainage solutions can solve onsite drainage problems. That... it seems to me that regulation is meant to cover the situation where someone is... is constructing an improvement in such a way that it blocks runoff which would normally occur, not that it... that it makes land more impervious. Of course... I mean, all communities require you to put... put some sort of a catch basin or something when you're... you've interrupted the natural drainage flow. But if somebody makes an improvement that does not interrupt the natural drainage flow, I don't see any... any... any requirement that either one of these regulations imposes on them.",
       "time": "00:33:22.23"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Fine.",
       "time": "00:34:21.58"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "B as in buzz?",
       "time": "00:34:33.22"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "D as in dog.",
       "time": "00:34:35.07"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Excuse me, I can't find what you're talking about. Is that something in the red brief?",
       "time": "00:34:42.44"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:34:50.97"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "B as in boy?",
       "time": "00:34:55.00"
     },
@@ -957,13 +957,13 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "B-63.",
       "time": "00:34:56.99"
     },
     {
       "turn": 153,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Thank you.",
       "time": "00:34:58.24"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sure, I think what that means is if the pipe that's going into the municipal conduit that goes down to this stream would be overloaded, so that there's not... not enough capacity in that pipe to carry it off, you have to store it and then let it out at another time. But that has nothing to do with... so long as you can get it into the municipal conduit, you're allowed to do it. I don't read this as having anything to do with the capacity of the flood plain.",
       "time": "00:35:19.54"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if you haven't overloaded it, then there's no such problem or requirement, right?",
       "time": "00:36:12.81"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that's a possibility?",
       "time": "00:36:17.95"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it isn't a possibility for Mrs. Dolan?",
       "time": "00:36:19.46"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let me ask you this. What about the bike path? Did she have an option there?",
       "time": "00:36:47.76"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Then no bike path?",
       "time": "00:37:13.91"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, how about other property owners that are not adjacent to the creek, are they required to build a bike path?",
       "time": "00:37:15.80"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But never a bike path?",
       "time": "00:37:26.09"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it your representation to us that Mrs. Dolan had all of the options of an uphill property owner?",
       "time": "00:37:36.20"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The... go ahead.",
       "time": "00:37:41.92"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Supreme Court of Oregon didn't rely on those in the majority opinion, did it?",
       "time": "00:37:47.48"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:37:55.06"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you mention them in your argument to the Oregon Supreme Court?",
       "time": "00:37:59.52"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it... is it your representation to this Court, Mr. Ramis, that... that... that Mrs. Dolan could have avoided both the bike path dedication and the flood plain dedication... she could have avoided both by simply agreeing to do what some uphill owners would do?",
       "time": "00:39:00.35"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Alternative... an alternative to the bike path?",
       "time": "00:39:32.88"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Something that would solve the traffic problem better than the bike path would?",
       "time": "00:39:34.11"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's zero as far as I can tell. So, what would she come in to?",
       "time": "00:39:39.59"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you said she could have an alternative by providing a sidewalk. Now, that wouldn't provide bike space at all. That's for people to walk on--",
       "time": "00:39:52.09"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If... if she had an alternative that was equally mitigating to the bike path, would your City have the right to insist on the bike path because it preferred it?",
       "time": "00:40:08.94"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Who makes... who is the decisionmaker? You... you said that she could propose. She doesn't like the bike path. She doesn't like your plan. She can come up with an alternative. And suppose you say we, for a variety of reasons, like the bike path better. Who decides and what review is there of that decision?",
       "time": "00:40:35.80"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where does this appear in the record that... that she can come forward with alternative solutions which must be accepted by the City? Does that appear--",
       "time": "00:41:23.25"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Can you give us some citations to the... to the regulations or whatever?",
       "time": "00:41:30.80"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not ability... obligation... if... if she comes forward with it.",
       "time": "00:42:00.95"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:42:06.07"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:42:09.56"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay.",
       "time": "00:42:35.18"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Ramis.",
       "time": "00:42:49.30"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Kneedler, we'll hear from you.",
       "time": "00:42:53.75"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What... what benefits--",
       "time": "00:44:13.90"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is there something in the record that indicates that, had the channel not been widened in some relatively expectable flood, her property would have been hurt?",
       "time": "00:44:34.54"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does it benefit only riparian property owners who want to expand their facilities?",
       "time": "00:44:50.79"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's sort of a haphazard way of... of assessing a benefit, right, when you want to expand your facilities, since we're... we're helping you on the flood plain, we're going to... we're going to make you dedicate... only if you want to expand your facilities.",
       "time": "00:44:58.47"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the nexus that's... that our opinions require is... is not a nexus to whether you're benefitted or not. It's a nexus to the... the permit to which this... this exaction is attached.",
       "time": "00:45:23.82"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I don't see any nexus to the permit.",
       "time": "00:45:38.75"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the fact that you're benefitted is very interesting, but, it seems to me, irrelevant to the nexus requirement.",
       "time": "00:45:41.16"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Kneedler, a moment ago in your response to my question about whether there was a showing in the record that Mrs. Dolan's property would be hurt in the foreseeable future, you referred me to page six--",
       "time": "00:45:55.74"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, page seven has a finding in the drainage plan that there would be flooding in several areas along Fanno Creek, including areas near Petitioner's property. Now, does page eight have something better than that?",
       "time": "00:46:08.69"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that all, just... just... you really think that's... that Nollan said, for... suppose the City is worried about urban congestion and pollution and someone who has a factory wants to... wants to expand it infinitesimally, just a very little bit. Can the State require, as a condition of that permit, a million-dollar contribution to the City, which would go to... to pollution reduction?",
       "time": "00:47:10.60"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It serves the same purpose.",
       "time": "00:47:31.89"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is a proportionality element?",
       "time": "00:47:46.97"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, there's no proportionality requirement, but... but proportionality is a subject of evidence to indicate whether in fact the required relationship... i.e., serving the same purpose... is present or not?",
       "time": "00:49:04.86"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That seems to kind of ignore the word \"substantial\" in the test articulated in Nollan.",
       "time": "00:49:25.22"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I hadn't read it that way, but I guess that's a way one could read it.",
       "time": "00:49:51.53"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The burden, I assume, would be... on your theory, would be on the landowner to show the disproportionality?",
       "time": "00:50:12.74"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And are these tests relevant to an ultimate determination of whether what the City is doing is simply a pretext for furthering its own goals that do not proportionally relate to the property?",
       "time": "00:50:28.68"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can... could I come back to who the burden is on? You mean that a municipality, all it has to do is say, you know, there may be a thimble full of water, we're not going to do any studies, and therefore, we want 10 percent of your land for flood control, and... and the burden is shifted to Mrs. Dolan to do a study, to show that that is disproportionate?",
       "time": "00:50:57.44"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why should the burden be on her?",
       "time": "00:51:16.70"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what do you mean without foundation?",
       "time": "00:51:27.40"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why isn't the burden on the City to demonstrate some rough proportionality?",
       "time": "00:51:28.86"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That just shows you're in the same general ball park, flood control. But why doesn't the City have... have the burden of showing that it's roughly proportional? That's an awful burden to put on the... on the small individual property owner, to conduct a massive study to demonstrate that the City's wrong. All the City has to say is, well, flood control is flood control. One way to do it is to... is to not expand your property. Another way to do it is to give us 10 percent of your property for--",
       "time": "00:51:50.93"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you, Mr. Kneedler. Mr. Smith, you have four minutes remaining.",
       "time": "00:52:22.01"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Will you cover some of the contentions about the variances and so forth?",
       "time": "00:52:30.15"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what about the availability of conditions... of... of alternatives that she could have invoked and that the City would have had to accept as a matter of right?",
       "time": "00:53:14.12"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree with your colleague that the Oregon Supreme Court didn't consider the availability of variances, and they were not argued to the Oregon Supreme Court?",
       "time": "00:54:50.97"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do the other State plans that you referred to in your main presentation... New Jersey and elsewhere... do they provide for some proportionality?",
       "time": "00:55:48.13"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Smith. The case is submitted.",
       "time": "00:56:25.28"
     }

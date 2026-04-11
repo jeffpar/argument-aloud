@@ -3,31 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1969/13/19691110a_13.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "WILL R. WILSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN L. BOEGER",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Number 46 United States against White. Mr. Attorney General.",
       "time": "00:00:00.00"
     },
@@ -39,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the informant didn’t testify in this case?",
       "time": "00:10:38.54"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it a distinction between that in regard to Lewis?",
       "time": "00:10:43.83"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understand that you did not put in all of the conversations.",
       "time": "00:11:30.02"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I think there is difference if the Government picked and choose what the wanted to put in.",
       "time": "00:11:51.56"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because if the man was testifying, he’d have to testify everything.",
       "time": "00:11:57.21"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He would under cross-examination.",
       "time": "00:12:03.88"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, they’re on gross weight. It is no possibility of cross-examination there.",
       "time": "00:12:07.45"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And there’s no way of finding out whether this informant was a paid informant or not?",
       "time": "00:12:13.30"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Or what his relation was to the Government?",
       "time": "00:12:19.76"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record show what he was paid?",
       "time": "00:12:29.04"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But suppose we assume that he was paid?",
       "time": "00:12:31.61"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, if he was on the stand he would be obliged to explain all of that, wouldn’t he?",
       "time": "00:12:37.32"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Since he couldn’t do that?",
       "time": "00:12:43.69"
     },
@@ -195,13 +199,13 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I see your point.",
       "time": "00:12:55.89"
     },
     {
       "turn": 30,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "He didn’t deserve or he didn’t require to do produce the conversations, did it?",
       "time": "00:12:58.42"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 32,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you put it less than all of the record and the records had and the recording was asked -- the rest of the record was asked for, you didn’t refuse it?",
       "time": "00:13:08.97"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question General?",
       "time": "00:20:29.12"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What impact do you think destroys the decision in Desist case?",
       "time": "00:20:31.91"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well if it is, we don’t have to reach the Fourth Amendment choice.",
       "time": "00:20:53.04"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We heard that you got all the comment. Is this same in Katz about the interactive?",
       "time": "00:21:04.30"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where do you go from there?",
       "time": "00:21:12.61"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think it’s a considerably more significance to your department as law enforcement department to know now what whatever happened in this case violated the Constitution? Rather than simply to get this judgment affirmed on the basis of the non-retroactivity of Katz?",
       "time": "00:22:13.58"
     },
@@ -297,13 +301,13 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That’s right.",
       "time": "00:22:54.19"
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Boeger.",
       "time": "00:23:03.22"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We’re talking about two rather different things aren’t we? The Bumper case involve the person whose alleged Fourth Amendment rights were violated, this where a constant to an entry in the search is a very, very critical issue and one that was involved is said in that case. This one involves the question of whether or not this person was or was not a government agent, doesn’t it, a voluntary government agent? There’s no question here of -- no questions raised here about the violation of this absent witnesses Fourth Amendment rights.",
       "time": "00:27:47.37"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Here’s whether or not he was a voluntary agent of the Government. Is that it?",
       "time": "00:28:26.88"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, the mother of the --",
       "time": "00:28:34.73"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don’t remember the facts quite clearly.",
       "time": "00:28:36.53"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You could make that same argument about any treasury agent or narcotics agent or FBI agent and argue that he’d been threatened of being dismissed if not didn’t go in and carrying out this order. If you can prevail on the argument you’re making now?",
       "time": "00:29:09.29"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Has this Court or any court ever said that it has to be this kind of verified consent that you’re talking about?",
       "time": "00:30:01.17"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That you’re talking about now? Has this Court every said in many case intimated that the consent must pass these -- jump these hurdles that you’re talking about?",
       "time": "00:30:10.15"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about General Wilson’s point as where this man was voluntary or not, he did on eight separate times, put one of these things in his pocket and agreed to cooperate?",
       "time": "00:30:40.07"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, as to your client’s right, the respondent’s rights, how are they violated by the agent’s right is being violated? I think that’s the Government position.",
       "time": "00:31:00.95"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, can you answer it?",
       "time": "00:31:16.52"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then do you think the Government --",
       "time": "00:31:31.18"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean the Government had assured the respondent consented to it?",
       "time": "00:31:33.95"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What difference does it make?",
       "time": "00:31:39.63"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let’s assume that they are coerced informants? What impact does that have on it if there is a faithful recording made of what transpired? Let’s take your position for a moment.",
       "time": "00:31:57.55"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose your argument on voluntariness would also go just in the event the Government just paid the informant. No question particularly but there’s a promise of benefit or gain.",
       "time": "00:32:41.55"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think in a guilty plea, rules are not only coercion but promise of benefit or game? That destroys the voluntariness and plea doesn’t it?",
       "time": "00:33:00.55"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, ordinarily in a criminal case, if you are examining a plea bargain for example and if there’s some promise of benefit. Doesn’t that have a lot to do with the voluntariness of the plea?",
       "time": "00:33:18.07"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what about the informant. If the Government pays him enough, he’ll do anything?",
       "time": "00:33:56.76"
     },
@@ -531,13 +535,13 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That’s what I thought.",
       "time": "00:34:03.41"
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it in any way affect the reliability of the evidence that you can suggest?",
       "time": "00:34:08.41"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If that was there evidence in any way, they probably won’t get a conviction?",
       "time": "00:35:58.20"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, here they have evidence and they did use it.",
       "time": "00:36:09.32"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is whether or not it was --",
       "time": "00:36:13.47"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- constitutionally valid use?",
       "time": "00:36:15.84"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Tell me Mr. Boeger, if this informant had appeared, had been cross-examined, would you concede then that this evidence was properly admitted?",
       "time": "00:36:34.79"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about Katz?",
       "time": "00:37:39.32"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about Katz? Are you talking about today? Doesn’t Katz take care of your problem in that --",
       "time": "00:37:42.03"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do you mean? Katz means there has to be judicial authorization in this situation?",
       "time": "00:37:54.27"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think Katz overrule Lopez and On Lee? That’s what you’re saying I take it.",
       "time": "00:38:00.04"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is that Katty?",
       "time": "00:38:19.40"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if you’re right that Katz covered Desist situation, what about Desist?",
       "time": "00:38:37.62"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What’s the date of all these events?",
       "time": "00:39:04.11"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, the events in this case.",
       "time": "00:39:08.84"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does Desist say that Katz is an applicable to anything prior to that decision?",
       "time": "00:39:17.22"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if I follow you, you want the benefit of Katz which came after your case but not the benefit of Desist?",
       "time": "00:39:58.68"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you a question, let’s assume that Katz is -- you can’t rely on Katz for one reason. How do you distinguish this case with On Lee?",
       "time": "00:43:43.33"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is with what, with whom, and for what?",
       "time": "00:44:14.94"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But somehow your man, your informant, if this -- if the man who came into result was the agent and the bug planted on him? He didn’t know he had it at all. Is right a privacy as being a faithful general?",
       "time": "00:44:21.80"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that what you’re arguing?",
       "time": "00:44:45.56"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that --",
       "time": "00:44:47.64"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that’s something that your defendant -- your client can take advantage of it really?",
       "time": "00:44:50.79"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of whom? Is that it?",
       "time": "00:45:04.41"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of the body of the agent? Whose privacy is being bothered?",
       "time": "00:45:06.86"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "By reason of what?",
       "time": "00:45:20.67"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But that has nothing to do as to whoever the agent who had the bug on it knew who is coerced and having it around, knew that he had it on that’s wholly irrelevant.",
       "time": "00:45:31.50"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your point Mr. Boeger, is that if the, in this hypothetical case, the man is an agent only by reason that he is the unknown carrier of a microphone surreptitiously put there by other the government agent that that’s the equivalent of --",
       "time": "00:46:06.52"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just projecting a microphone or bug inside that room, without the knowledge of anybody. But that you don’t -- as I understand it, you don’t go so far as to suggest that this case is that kind of a case when the record shows here that this man voluntarily, knowingly, had a microphone on him over a period of several days. Your question only is whether or not it was or perhaps I was wrong in using voluntarily and attributing it to you but at least knowingly?",
       "time": "00:46:24.91"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it’s not the hypothetical case that we were talking about?",
       "time": "00:46:59.63"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if the man had no bug at all but merely came and testified against the defendant in this case, you wouldn’t have had any argument to make to us, is that it?",
       "time": "00:47:06.84"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would that argument be?",
       "time": "00:47:21.40"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If the Government shouldn’t hire undercover agents to get narcotic peddlers?",
       "time": "00:47:23.23"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I’m talking now about a man who goes in without the device. Are you suggesting that before they send an undercover agent in, in these circumstances, they must get a warrant to send that agent in if he carries no device?",
       "time": "00:47:54.26"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What do you have to say about the Attorney General’s argument that this bugging device as you call it produces a much more accurate version of the conversation so that the undercover agent can’t distort or invent some testimony?",
       "time": "00:48:39.71"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have a recording now, you have a perfectly reliable reproduction of the conversation, don’t you?",
       "time": "00:49:00.56"
     },
@@ -957,19 +961,19 @@
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No investigative functions are denied? And it seems you have to have problem upon --",
       "time": "00:50:00.96"
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, certainly, I think they can investigate.",
       "time": "00:50:10.88"
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "But how can they? Not without a warrant if you want to use an undercover agent.",
       "time": "00:50:16.21"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Somewhere along the line, I hear that -- that’s when it listens over the radio, would they?",
       "time": "00:50:41.18"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Boeger. Mr. Wilson, do you have anything further?",
       "time": "00:51:26.39"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General Wilson, what is the --- what are the characteristics of a kel radio, K-E-L radio, is it?",
       "time": "00:53:00.58"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And is it accurate to say or to surmise that it could be used only in connection with the knowing informer?",
       "time": "00:53:13.96"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I suppose does he turn it turn on and off or not? Do you know?",
       "time": "00:53:35.88"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "General Wilson, do you say that as form now on, you want us to say the Government does not have to get a warrant suggested in Burger and Katz?",
       "time": "00:55:00.26"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you mean that as to narcotics cases?",
       "time": "00:55:19.86"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How far do you want to --",
       "time": "00:55:24.99"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The Fourth Amendment, how far do you want it?",
       "time": "00:55:27.08"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How far do you want us to go on this exception?",
       "time": "00:55:31.21"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. The case is submitted. Thank you for submission gentlemen.",
       "time": "00:56:06.93"
     }

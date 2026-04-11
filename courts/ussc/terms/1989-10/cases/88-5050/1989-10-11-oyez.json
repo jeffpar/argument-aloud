@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/88-5050/19891011a_88-5050.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD S. HONCHELL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "INGE FRYKLUND",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 88-5050, Daniel Holland v. Illinois. Mr. Honchell, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you say a prosecutor could challenge two black jurors out of six black jurors? Say there is a 12-man... 12-person jury and six of the... six of the jurors drawn from the... six of the petit jurors drawn are black, could the prosecutor strike two of them as long as the resulting jury represented a cross... a fair cross-section?",
       "time": "00:02:06.99"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No. That's not a fair cross-section argument. That's an equal protection argument of some kind, isn't it?",
       "time": "00:02:59.89"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what if the prosecutor says, I'm interested in having a fair cross-section jury? All the... all the... suppose just by chance the jury turned out to be all black? I want a fair cross-section jury. Could he do that or not? I guess not, on your thesis.",
       "time": "00:03:09.97"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how does that give you a fair cross-section jury if... if... Justice White's hypothesis is that out of 12 there are 12 blacks?",
       "time": "00:03:41.39"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the selection process need not result in a fair cross-section in your view?",
       "time": "00:04:10.42"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You're not making a claim here, I take it, that there is some systematic exclusion of black jurors throughout the county?",
       "time": "00:04:47.97"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That claim would be open to you under existing precedence, presumably, if the facts warranted it?",
       "time": "00:05:04.89"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "With respect to the venire.",
       "time": "00:05:13.82"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does this objection apply only to racial distinctions?",
       "time": "00:05:38.11"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, one way... one easy way of limiting it is to... automatically is to say that only blacks--",
       "time": "00:06:07.16"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--can object to the elimination of blacks. That... that... that you know--",
       "time": "00:06:13.04"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That eliminates a lot of problems, doesn't it? But you're saying anybody can object to the elimination of any group, right?",
       "time": "00:06:17.64"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. And I suppose rich people could object to the exclusion of rich people. Not only the... I mean, could object... not only to the exclusion of rich people, but even to the exclusion of poor people.",
       "time": "00:06:28.29"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How do we go about deciding the first question?",
       "time": "00:07:10.01"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there's also rather strong in Lockhart, isn't there, that the fair cross-section applies only to the venire and not to the panel?",
       "time": "00:07:25.02"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. What are... what are false assumptions? You say false assumptions. When you're talking about a venire, I... I suppose you can say there are false assumptions when you're talking about any group. You... the only basis for excluding is you think that they're... they're too biased or too stupid or something else, to be jurors at all. But when you're down to a particular case, what is wrong with a prosecutor striking a particular people because they're rich? I mean, the prosecutor says, these are rich defendants; I think I'd stand a better chance of getting a... getting a conviction if I excluded rich people, if I had a poor-person jury. The prosecutors make judgments like that all the time.",
       "time": "00:08:44.00"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's not a false assumption then.",
       "time": "00:09:25.47"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He doesn't exclude that at all... that isn't his assumption at all. His assumption is the chances are better than even. It's not at all... the chances are better than even that a... that a rich person will be more sympathetic to a rich defendant and he therefore wants to strike the person. Isn't that exactly what... what peremptory challenges are all about?",
       "time": "00:09:36.68"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you're really... if you're really honest about your principle, peremptory challenges in general... the whole notion of a peremptory challenge is contrary to having a fair cross-section, isn't it, because the whole purpose of it is to eliminate a fair cross-section and somehow load the jury in such a way that it's more likely to be in your favor. Isn't that exactly what a peremptory challenge is for?",
       "time": "00:10:23.72"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But those reasons are very often generalizations about... you... you... you can't know the person individually so you make generalizations, often on the basis of race, religion, appearance, you know, manner of dress, job. And, you know, it may be a false assumption, but the whole system is built on generalization.",
       "time": "00:11:08.41"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Incidentally, in your hypothetical I noticed you used martial status and wealth as being permitted grounds for disqualification.",
       "time": "00:13:01.85"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It certainly could be argued that those are cognizable groups that come within the rule that you seek--",
       "time": "00:13:18.08"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--to have the Court adopt--",
       "time": "00:13:24.23"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--is it not?",
       "time": "00:13:25.84"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, how can we do that? What principle could you recommend to us or propose that allows us to say that only blacks are protected by the fair cross-section requirement?",
       "time": "00:13:36.10"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that gets back to Justice White's original question, that this isn't the fair cross-section argument you're making at all. It's simply an equal protection argument.",
       "time": "00:14:02.97"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose you would apply this same approach to civil trials in the federal courts?",
       "time": "00:15:13.58"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about the Seventh Amendment?",
       "time": "00:15:36.70"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Certainly there is a right to a jury trial.",
       "time": "00:15:41.13"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In the federal courts.",
       "time": "00:15:43.75"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know. But your rationale would surely apply. Nobody should be able to take a person off the jury on some... just because he figures any member of this group is incompetent.",
       "time": "00:16:05.59"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Counsel, what do you do with Negroes who are passing for white? How do you get to them?",
       "time": "00:16:41.90"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's a fast way to get an all-white jury, isn't it?",
       "time": "00:17:27.15"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That stretches what we've said so far. I mean, it certainly would be a rational system to say that you have to have a fair cross-section for the venire simply to make sure that both sides enter into this lottery that is peremptory challenges on a fair basis, a level playing field. You start off with a venire that is a fair cross-section. After that, each side gets its peremptories. We're not insisting that a fair cross-section come out of the thing. That's very unlikely with only 12 people on the jury anyway.",
       "time": "00:18:54.20"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you've got to start off with a venire of a fair cross section and then each side can then use its peremptories the way peremptories are always used on generalized group bases. I mean, that's how peremptories are used. Why isn't that a perfectly rational system? I mean, it doesn't logically follow that just because we say the venire has to be a fair cross-section the jury has to be.",
       "time": "00:19:28.89"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. The purpose is to make sure that both sides start off on a level playing field.",
       "time": "00:20:09.69"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "After which they can both take their peremptories--",
       "time": "00:20:14.42"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--anyway they want.",
       "time": "00:20:16.23"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think the theory in Batson is that permits the black defendant to challenge the use of peremptories against blacks? Is that an equal protection argument?",
       "time": "00:21:27.77"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The denial of equal protection to the defendant?",
       "time": "00:21:53.40"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why shouldn't... why shouldn't a... why shouldn't a white defendant have that same privilege and without even getting to the fair cross-section argument?",
       "time": "00:22:12.57"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but he's... he's a defendant and that's all you're really saying about the black, is that he's a defendant and you're giving him standing to remedy this denial of equal protection to the juror.",
       "time": "00:22:29.86"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If that's your... that's your theory?",
       "time": "00:22:40.03"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It sounds to me that that might be an easier argument than the--",
       "time": "00:22:51.25"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You're driving uphill in this case.",
       "time": "00:22:54.42"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was your case tried after Batson came down?",
       "time": "00:23:07.49"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, was a Batson claim raised in the lower courts?",
       "time": "00:23:25.80"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, didn't the Illinois Supreme Court in this case say that Batson did not apply in this situation?",
       "time": "00:25:04.93"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. So, the Batson issue was raised and decided in the Illinois Supreme Court.",
       "time": "00:25:12.22"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but it's raised--",
       "time": "00:25:19.81"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--and it was decided.",
       "time": "00:25:21.68"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you relying on it here?",
       "time": "00:25:22.71"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We very rarely do that if the lawyer is unwilling even to say he relies on it.",
       "time": "00:25:43.24"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You haven't argued it yet.",
       "time": "00:25:48.33"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The standing issue is really quite interesting because, as Justice White points out, Batson wasn't a member of the class that was at issue in the case. He happened to be of the same race, but the class was prospective jurors.",
       "time": "00:26:35.67"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I don't know whether you're assuming that he had standing because he was of the same race or because he was a defendant who objected to the adverse consequences upon him of a violation of the Equal Protection Clause against others.",
       "time": "00:26:47.93"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Honchell. Ms. Fryklund, we'll hear from you now.",
       "time": "00:28:45.67"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he's not really saying that. He's saying plus the inclusion of all those races that he wants included. He's not been willing to extend this principle to the defendant, or at least leaves that an open question. He just wants us to hold that the prosecutor can't exclude certain groups on the basis of their group characteristics although the defendant still can, as far as his case goes.",
       "time": "00:35:46.52"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing you had a state... that's probably very improbable, but just to get a point across... in which... a trial court in which the judge followed a practice of always excluding black jurors from an otherwise, you know, cross-section panel and the resulting jury was nevertheless composed of 12 people who were found to be impartial, would the defendant have any basis for... constitutional basis for objecting to such a procedure? A white defendant?",
       "time": "00:37:10.10"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I'm assuming they're in the jury pool. Now, they're in the jury pool and in the venire and you say that's... if your position is that that's the end of the ball game, I take it there would be no remedy if a judge did it at the... during the selection of the petit jury... just refused to seat any blacks.",
       "time": "00:37:58.97"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But could a white... could a white defendant object to that?",
       "time": "00:38:19.52"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that such a practice would be permissible in all cases where the defendant is not black?",
       "time": "00:38:27.66"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then what would--",
       "time": "00:38:36.22"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--What would be... the means would be by passing a law to get them to stop?",
       "time": "00:38:37.94"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose it might be a due process violation if the judge did such an aberrational thing. Clearly not authorized under state or federal law for the judge to do that.",
       "time": "00:38:50.27"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "My question is whether a white defendant could object.",
       "time": "00:39:12.44"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why, then, would a black defendant have standing because he would also not be a member of the class?",
       "time": "00:39:30.95"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Supposing he is and suppose we accept that... even this back door approach, then what's your answer to the argument that the white defendant should have standing to attack the discriminatory exclusion of the black juror just on the ground that blacks are incompetent?",
       "time": "00:41:12.16"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It might even go farther than the Sixth Amendment approach.",
       "time": "00:42:04.92"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think the theory of Batson was? Is it the... is it that the defendant has been denied equal protection?",
       "time": "00:42:22.06"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Namely that... that... that blacks were excluded and that's going to hurt him because blacks might favor him, or what?",
       "time": "00:42:33.41"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what difference does it make what... what defendant raises that issue?",
       "time": "00:43:07.41"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which is... which is what? What is his own injury?",
       "time": "00:43:24.52"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I must confess I'm a little puzzled by that argument. Who is making... you only have one defendant who is objecting to the... to what the prosecutor does.",
       "time": "00:48:46.00"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He can't both insist that they seat these two people and object to their seating.",
       "time": "00:48:53.54"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Whatever he is.",
       "time": "00:48:59.93"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. As he objects to the prosecutor's use of the peremptories. But he couldn't also then turn around and say, I'd like to have them seated.",
       "time": "00:49:09.11"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I really don't think that's a very realistic problem. I think either he's going to object or he isn't going to object.",
       "time": "00:49:22.86"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I take it the argument is not that there is an obligation to excuse in order to get a fair cross-section. It's simply that the state violates the Sixth Amendment because it, by its racially-based challenges, destroys the possibility that the laws of probability are going to work to... to produce a fair cross-section. That's all the petitioner is saying here.",
       "time": "00:50:12.04"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The petitioner is not saying that there is an obligation in every case to use peremptory challenges to secure a fair cross-section, simply that the state cannot by interference prevent the laws of probability from... from operating.",
       "time": "00:50:49.51"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you... that isn't right. Surely there would be some case-related reasons that could be used in exercising your peremptories without any challenge to them. It's just you couldn't alter the luck of the draw by striking people for unacceptable reasons like race or like gender or something like that.",
       "time": "00:52:25.33"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah, but all you get... all you're entitled to under the Sixth Amendment is a chance of the draw and... so the draw comes out. Here it is. It may not even remotely resemble a fair cross-section. But that's the luck of the draw and you're stuck with it except to the extent that you can exercise your peremptories for decent reasons.",
       "time": "00:53:12.04"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's a Sixth Amendment argument.",
       "time": "00:53:40.40"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:53:53.19"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me... I'm sorry. Did you finish your answer? I didn't--",
       "time": "00:53:57.74"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let me give you another example. In Illinois you pick your juries by panels of four, if I remember correctly, that come in in sequence.",
       "time": "00:54:16.11"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And usually the ones who get in earliest have the greatest likelihood of being selected. Supposing they had a system where all the men went first and then the women went later? Would that raise any Sixth Amendment concerns? You have a fair venire but then you have this procedure between venire and petit jury that the men go first.",
       "time": "00:54:23.88"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't think it would raise an equal protection... I mean, a Sixth Amendment concern?",
       "time": "00:54:50.81"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just a fair trial--",
       "time": "00:54:58.77"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--if all the men were on the jury or all--",
       "time": "00:55:07.52"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yeah.",
       "time": "00:55:15.52"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Fryklund. Mr. Honchell, you have two minutes remaining.",
       "time": "00:55:56.02"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Honchell. Your time has expired.",
       "time": "00:58:13.40"
     },
@@ -1175,13 +1175,13 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:58:18.51"
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until monday next at ten o'clock.",
       "time": "00:58:18.67"
     }

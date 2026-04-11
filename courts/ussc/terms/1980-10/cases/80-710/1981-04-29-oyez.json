@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-710/19810429a_80-710.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "LAURENCE STEPHEN GOLD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN AXELROD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in United Association of Journeymen of the Plumbing and Pipefitting Industry v. Local 334. Mr. Gold, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gold, isn't there a certain undesirability in the test advanced by the last six circuits that you mentioned, you don't know when you go into court whether there is jurisdiction or not, depending on a whole bunch of factors?",
       "time": "00:03:03.19"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, there is that other view that the union constitution shouldn't ever be within this.",
       "time": "00:04:09.88"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That would make it simple too, wouldn't it?",
       "time": "00:04:17.06"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes wouldn't preclude a state action, would it?",
       "time": "00:04:59.72"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the state is obligated to apply federal substantive law?",
       "time": "00:05:21.97"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In that case or in Lucas Flour, I've forgotten which.",
       "time": "00:05:30.75"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What kind of law will govern this dispute? Federal law of interpreting international union constitutions?",
       "time": "00:05:41.55"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. Of course, there's a lot of federal law with respect to collective bargaining agreements, but is there any body of federal common law dealing with fights between unions to which there are contracts? You know, the contract between two unions could cover all sorts of different things. Would all of those contractual disputes be governed by federal law in your view?",
       "time": "00:06:11.74"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, say, we'll say one labor union rented office space in New Jersey to another labor union, entered into a contract, and one of them breached the contract. Would that be actionable in federal court?",
       "time": "00:06:34.95"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And federal law would govern the dispute?",
       "time": "00:06:50.20"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Gold, if there isn't any present federal law we have to fashion it for you.",
       "time": "00:06:53.88"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I mean, isn't that what Lincoln Mills held?",
       "time": "00:07:00.50"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gold, let me take you... a little more extreme example. Say one union sells out its office building to an entirely unrelated union but it is also a union. It takes back a first mortgage and a lot of notes and so forth, and there's a foreclosure. They could foreclose in the federal court and federal law would govern the foreclosure proceeding.",
       "time": "00:07:21.15"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Section 301(a) by its terms has simply conferred jurisdiction, it doesn't say what body of law shall be applied.",
       "time": "00:09:57.52"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think that we're bound by Lincoln Mills to construe the example Justice Stevens gave you as governed by federal law?",
       "time": "00:10:27.45"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly in diversity cases we provide jurisdiction without providing substantive law.",
       "time": "00:11:25.91"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gold, do you have any examples in 301 cases of borrowing state law with the result that you do not have uniform rule?",
       "time": "00:12:58.17"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would suggest... you don't suggest that as an ironclad rule that one of the purposes of 301 and of Lincoln Mills was to end up with a uniform federal rule in every contracts case?",
       "time": "00:13:34.28"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That it would be consistent with its history to say that in the proper cases you could borrow?",
       "time": "00:13:52.05"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gold, are you arguing in effect that in constitutional terms, going back to Article III, that every time... this statute having been enacted, every time one union sues another it's a case arising under the laws of the United States, within the meaning of the Constitution, regardless of what... even if they say that they're suing them for some kind of a state tort or whatever it might be?",
       "time": "00:21:09.94"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, here you have rather comprehensive regulation by statute of the relationship between the collective bargaining agent on the one hand and the employer on the other. There really are no set of federal rules of which I am aware that comprehensively regulate relationships among different labor unions, which may or may not be affiliates, which may enter into all sorts of contracts. And you're suggesting that there's a very broad grant, by the creation of a very broad area of federal law that every such contract shall hereafter be interpreted by reference to some substantive rule of federal law that has not yet been identified.",
       "time": "00:22:47.08"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in terms of statute or the Constitution, what difference does it make whether the unions are affiliated?",
       "time": "00:23:43.44"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you also are contending then that there is some federal rule of law that answers this dispute?",
       "time": "00:25:31.12"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, now, in Lucas Flour we said we hold that in case such as this, incompatible doctrines of local law must give way to principles of federal law. But first of all, I think you'd have to find that there's something in the local law that's incompatible, wouldn't you?",
       "time": "00:26:07.29"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Axelrod.",
       "time": "00:27:13.50"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that wouldn't be covered by the language of 301 because we're talking here about language of 301 that confers jurisdiction upon the federal courts of lawsuits between any labor organizations; in your case it's an individual.",
       "time": "00:30:58.05"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "00:31:20.72"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "00:31:28.32"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But then your... you make that point, I suppose, or would make that point if a suit for an accounting were brought, which would be an equity action, and that would not be covered by the statutes. Is that your point? Or that's one of the consequences of the point you make?",
       "time": "00:31:37.85"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Unless the equity action for an accounting were based upon a contract. But if it was just no contract alleged but was a suit for an accounting, you--",
       "time": "00:31:57.43"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--301 confers jurisdiction only over suits for violations of contracts.",
       "time": "00:32:18.50"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "00:32:23.92"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If they wanted an accounting suit, they'd operate under Landrum-Griffin.",
       "time": "00:32:29.97"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Axelrod, would you state once more what you just said about the holding in Smith v. Evening News?",
       "time": "00:32:34.47"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Can a union member, as the law presently stands, bring an individual suit, not against the union for failure to represent him correctly, but simply against the employer for breach of a collective bargaining contract under Section 301?",
       "time": "00:33:57.69"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If there's no grievance procedure provided in the contract, he can certainly sue.",
       "time": "00:34:21.14"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, yes. But if there's a grievance procedure he must follow it.",
       "time": "00:34:30.25"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not without that allegation.",
       "time": "00:34:40.37"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if there is no grievance procedure he may sue the employer directly, as the second step.",
       "time": "00:34:42.57"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just what effect does that have on this case?",
       "time": "00:37:39.99"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that involved in this case?",
       "time": "00:37:51.37"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you deny that it's a contract.",
       "time": "00:38:02.91"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it a contract within the word 301?",
       "time": "00:38:07.23"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it a contract within the meaning of the word \"contract\"?",
       "time": "00:38:17.76"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You might wait till the end; you might not agree. Within the meaning of 301, that's my question?",
       "time": "00:38:26.86"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question was, within 301, which you and I both understand is not state law?",
       "time": "00:38:39.44"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What kind of contract do you think they meant?",
       "time": "00:38:59.20"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Any legislative history to help you that you haven't mentioned? But I mean, is there any that you didn't mention?",
       "time": "00:39:16.26"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What says that this is not a contract?",
       "time": "00:39:53.88"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A little jump there, isn't it?",
       "time": "00:39:59.79"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, if it's not a contract, what is it? An agreement?",
       "time": "00:40:11.33"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, it is.",
       "time": "00:40:15.73"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is a contract--",
       "time": "00:40:19.85"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--In other words, your whole position is it should be governed by state law in a state court and not the federal courts?",
       "time": "00:40:33.26"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's your problem.",
       "time": "00:40:40.41"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, maybe the federal law would be that in every case of this type the federal law incorporates the law of whatever state the controversy arose in. So there would be no conflict then.",
       "time": "00:45:40.71"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, but maybe the federal law would be that in this or that or the other area there need not be uniformity.",
       "time": "00:46:04.36"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's not contrary to a case like Hoosier-Cardinal.",
       "time": "00:46:15.39"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, would you argue that uniformity was the pervasive concept of the labor laws, the federal labor laws?",
       "time": "00:46:26.12"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't that just saying that attaching the word \"labor\" to any number of kind of disputes that may involve a labor organization does not automatically make it a federal labor law question?",
       "time": "00:47:01.88"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Axelrod, what law does apply to this case in your view?",
       "time": "00:47:25.99"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "New Jersey. Mr. Axelrod, Mr. Gold when he started off outlined the three ways in which the federal courts of appeals have gone. And I take it he takes the one position of full jurisdiction.",
       "time": "00:47:34.76"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You take the position of no jurisdiction. Is anybody here supporting the in between, shall I say, majority view?",
       "time": "00:47:54.04"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But then you don't know until after the lawsuit is over whether the court had jurisdiction or not.",
       "time": "00:49:32.76"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would you say that allegations in the complaint are not traversable by the union on remand, or on a removal to federal court?",
       "time": "00:52:55.11"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But at any rate there could be no hearing or factual determination as to whether or not it affected commerce or--",
       "time": "00:53:26.56"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yes, but it can be after it gets in the federal court. And you wouldn't say, if the case was filed there initially, that you would determine jurisdiction solely on the face of the complaint? You'd either have a motion to dismiss for want of jurisdiction and there would be a hearing, and similarly after removal.",
       "time": "00:53:36.80"
     },
@@ -867,13 +867,13 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. That may be so. How about a motion to dismiss the complaint for want of jurisdiction?",
       "time": "00:54:12.95"
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can answer that at 1 o'clock, counsel. 0 [Recess.] Mr. Axelrod, you may continue.",
       "time": "00:54:19.11"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if this suit had been filed in the federal court in the first instance and there had been a motion to dismiss on the grounds that Section 301 did not provide jurisdiction in this case, there would have been an argument on the law. And if the district court agreed, it would have been dismissed.",
       "time": "00:56:37.68"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:57:00.88"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that wouldn't necessarily... as a matter of fact, it wouldn't be a hearing on the merits?",
       "time": "00:57:29.20"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't there some difference between union affairs in the sense of the relation of the members of the union to the union itself as opposed to the relationship between two separate unions?",
       "time": "00:58:22.60"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Two separate locals or two separate nationals.",
       "time": "00:58:42.56"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Axelrod, can I ask you, do you take the position that any dispute between two international unions, arising out of a contract between two international unions, even one for the sale of an office building or something, would give rise to jurisdiction under this statute?",
       "time": "00:59:43.32"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, assuming it's a contract that effects interstate commerce but has no other relationship to any federal statute, just it's a lot of money involved or maybe it's on the border between two states or something, would say there's federal jurisdiction of that suit?",
       "time": "01:00:15.02"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What federal question would it present?",
       "time": "01:00:32.35"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The fact that it affects commerce, doesn't it also have to arise under a federal law under Article III of the Constitution?",
       "time": "01:00:49.59"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, all 301 tells upon us about is the parties. It doesn't tell us anything about the federal law that would govern. I mean, in that kind of a suit-- --Well, that is true so far as the statute goes, but that's... to make that statement is to disregard all the-- --There's a lot of law about collective bargaining agreements and there's a lot of federal law about what kind of, you know, what federal rule should apply to them, but there's no federal law that I know of that tells me what should be done when one union sells a building to another.",
       "time": "01:01:05.95"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you've answered the pending questions now. Thank you, Mr. Axelrod. You have 4-1/2 minutes left, Mr. Gold.",
       "time": "01:02:27.61"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Gold, I thought Mr. Axelrod argued that a union international constitution is not a kind of contract with its constituent locals, but it is a contract with the union members, and therefore not a contract between labor organizations, which is the language of 301.",
       "time": "01:04:55.87"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why wouldn't he be able to sue on the theory that the constitution is a contract between the international and the local and one of the provisions in that contract is for the benefit of the individual who might be disciplined?",
       "time": "01:07:13.24"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, on their own right but they're saying that if there was a breach of a contractual provision between the international and the local, it was made for his benefit.",
       "time": "01:07:30.60"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, no, supposing the local and the international enter into a side agreement saying, we hereby agree between us that there shall be no discipline of any member of our local except under the following circumstances; if it's that clear?",
       "time": "01:07:49.33"
     },
@@ -1065,13 +1065,13 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now.",
       "time": "01:08:43.25"
     },
     {
       "turn": 171,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gold, let me ask you a question, if I may; before you sit down. In the unlikely event that the International Brotherhood of Teamsters were to lease a floor of the AFL-CIO Building here in Washington--",
       "time": "01:08:44.35"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--It is truly a hypothetical. Would a dispute between them over that contract, could that be brought in federal court under 301?",
       "time": "01:08:59.88"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And your position is, it should be yes?",
       "time": "01:09:32.92"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:11:09.36"
     }

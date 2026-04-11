@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-1244/19821103a_81-1244.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL L. BOICOURT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STANLEY J. EICHNER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Hensley against Eckerhart. Mr. Boicourt, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would that cover frivolous claims made if they showed they spent the time on them?",
       "time": "00:03:59.98"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would you give me an example of those you regarded as frivolous?",
       "time": "00:04:34.10"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Any other claims besides that one?",
       "time": "00:05:07.84"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I take it you are conceding at this point, however, that frivolity had not been attained up to trial.",
       "time": "00:05:34.52"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They must have known what their experts were going to testify to.",
       "time": "00:05:50.39"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the dismissal of Count 2 of the original complaint? The one that claimed that the forced performance of work if it had no therapeutic value violated the Thirteenth Amendment prohibition against involuntary servitude. It is my understanding that they accepted a voluntary dismissal on that.",
       "time": "00:05:58.99"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Excuse me, counsel. One point before that. Would you have the lawyer... wouldn't he have to keep books saying that today at ten minutes after 2:00 I am working on Point 3 of this case?",
       "time": "00:07:10.90"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wouldn't he have to?",
       "time": "00:07:30.41"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I thought. Well, wouldn't he spend all of his time bookkeeping?",
       "time": "00:07:34.85"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose while he's working on Point 2 he finds an answer to Point 3?",
       "time": "00:07:39.72"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you have to keep books on that. Have you ever seen any books like that?",
       "time": "00:07:47.53"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question was, have you seen any books that lawyers keep that they are working on Point 1 of Section C of Point 3 in the brief?",
       "time": "00:07:58.99"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the district judge did find... I don't know just what he did, but he said, \"After a close review of the detailed time records of these two attorneys and an opportunity to review the work of both attorneys, the court concluded that the amount of time spent by Mr. Berkowitz and Mr. Bastian both in trial and in non-trial activities is reasonable and their efforts are not duplicative of others. \" Doesn't that kind of... I don't know what the judge did, but doesn't it indicate he did look pretty closely at what their time had been spent on?",
       "time": "00:08:34.76"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does he say that he didn't think he had the authority to reduce it? He didn't give any enhancement, and he did chop off about 300 hours of the youngest lawyer in the group. Is there anything in his opinion that says he thought he didn't have the power to chop off a pert of the fees if he thought... you know, it was basically unsuccessful?",
       "time": "00:09:21.33"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I have read its, and I just didn't get that out of it, to be honest with you, that he was under the impression the Eighth Circuit required compensation for all hours regardless of how useless the lawyer's time might have been. I don't think that's a fair reading of the opinion.",
       "time": "00:09:57.15"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there any... What is the Eighth Circuit precedent that most clearly states what you say their view of the law is on this?",
       "time": "00:10:53.05"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. I think you'd have a stronger... I would understand that as a stronger... but does he cite that case, the district judge?",
       "time": "00:11:28.33"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, he does, I see, on Page A-11.",
       "time": "00:11:34.51"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Boicourt--",
       "time": "00:12:03.35"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--should we really look, though, at the ultimate relief sought in the broad terms of the complaint, or at a pretrial order list of issues in seeing if the attorneys' fees allowed were reasonable?",
       "time": "00:12:05.87"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that the statute prohibits giving attorneys' fees for the so-called catalytic results if the lawsuit is filed and relates to several claims, and before it comes to trial the defendants change the practice, and it isn't necessary to go to trial on it? Under the statute, can attorneys' fees be secured for those results?",
       "time": "00:15:09.25"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in this judge's opinion that said he paid him for working on frivolous matters?",
       "time": "00:17:18.58"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, where do you get your basis for your argument?",
       "time": "00:17:29.71"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the judge say he paid them for the lost ones?",
       "time": "00:17:58.61"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question was, did the judge say, I am paying you for the lost ones?",
       "time": "00:18:08.57"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can anyone looking at the record of the time identify accurately the items for which you say no fee should be allowed?",
       "time": "00:18:17.50"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Has the issue come up in other circuits?",
       "time": "00:19:01.63"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What have other circuits said?",
       "time": "00:19:08.86"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So there are express examples of courts paring down, sorting the case out as between what is won and what has been lost.",
       "time": "00:19:41.10"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that if there has been part won and part lost and the district court doesn't go through that process in the circuits that agree with you they set it aside and tell him to do it.",
       "time": "00:20:04.16"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I understand you to say you are not limiting this to frivolous claims, that your emphasis is on successful claims.",
       "time": "00:20:18.25"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The claims on which relief was granted.",
       "time": "00:20:27.76"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would you say the position is that if somebody claims they denied their civil rights, and they bring a lawsuit, and the other side gives in immediately? Would that be a successful lawsuit?",
       "time": "00:20:48.22"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Completely so?",
       "time": "00:21:07.75"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then, if he goes to trial, then you have to prorate it. But if he gives up up front, you don't prorate.",
       "time": "00:21:14.42"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because I am warning you, my next question is, if you give up halfway through, will you split it in half?",
       "time": "00:21:24.60"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how do you know it is brought on by the lawsuit or not?",
       "time": "00:21:50.28"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I have seen cases settled on the day of trial that have been in preparation for six years. You would allow them to receive fees for their preparation even if you didn't go to trial, would you?",
       "time": "00:21:56.35"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you wouldn't after trial.",
       "time": "00:22:18.14"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, I have got the Brown opinion in front of me. I notice the Eighth Circuit does say that the issues which are clearly frivolous, that are manufactured, do not represent time which has been reasonably expended on a matter, and thus any time claimed for them can be properly disregarded by the court. So that is the rule of the Eighth Circuit. You disregard time spent on frivolous claims.",
       "time": "00:22:32.23"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you don't question that. But than I gather this is the sentence that you take issue with. \"Attorneys' fees for a claim which is reasonably calculated to advance a client's interest should not, however, be denied solely because that claim did not provide the precise basis for the relief granted. \" That is what you want us to change.",
       "time": "00:22:52.83"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though it was a reasonable... the reasonable work of a lawyer who was conscientiously trying to represent his client, for which he would normally be paid by a private client. You would say he should not be paid in the civil rights context.",
       "time": "00:23:15.94"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the test is reasonably calculated to advance a client's interests.",
       "time": "00:23:31.79"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but the court says it should not be denied solely because that claim did not provide the precise basis for the relief granted. And your view is that it should be denied solely because it did not provide the precise basis for the relief granted. Is that right?",
       "time": "00:23:56.04"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm not sure you've answered my question. Is it your view that the compensation should be denied solely because the claim did not provide the precise basis for the relief granted?",
       "time": "00:24:23.00"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it your position is that the trial judge has no discretion to pay... to award fees on a single issue claim that could have been a separate lawsuit on which there is a loss.",
       "time": "00:28:27.99"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, so I have no discretion.",
       "time": "00:28:46.98"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "His discretion is just to award a reasonable fee on issues that... on which the plaintiff prevails.",
       "time": "00:28:47.98"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand. I understand, but your position is, there is no discretion to award fees for... on issues that the plaintiff does not prevail on.",
       "time": "00:28:59.54"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:29:12.80"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is impossible in the examples you gave us, these single-issue claims, these claims that could have been single-issue lawsuits.",
       "time": "00:29:16.91"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So your position is that the judge had absolutely no discretion to award any fees with respect to that claim.",
       "time": "00:29:35.45"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Eichner, let me see if I can clarify some of these things for myself with a hypothetical. This extends the question Justice White was just putting. Suppose you have a hypothetical case with three claims, and two of them are successful and one isn't, and the time records which most lawyers keep and all lawyers should keep if they want to get paid show that the time was spent about equally on the three, just to make the arithmetic simple here. In your view, are the lawyers entitled to recover on the ones on which they did not prevail?",
       "time": "00:29:50.38"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let's assume at least, whether they are totally separate or not, that they are readily identifiable, or not readily, but reasonably identifiable.",
       "time": "00:31:14.53"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let's help it out by saying the complaint has Count 1, Count 2, Count 3, and that their interrelationship is limited to the fact that they involve the same people and the same institutions.",
       "time": "00:31:44.52"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about Count 2 of the original complaint, the involuntary servitude count? Would you say that that was in the severable category with respect to the other counts of the complaint, or do you think that was part of your overall umbrella?",
       "time": "00:32:05.21"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It says... at least where I am looking at the Joint Appendix on Page 4, it says Count 2. Perhaps there is a--",
       "time": "00:32:28.47"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But here you received some compensation for work on Count 2, did you not? I am referring to Page 228 of the Joint Appendix. There is an entry for May 29th, '75, research and drafting of plaintiff's memorandum of law on the applicability of the Eleventh Amendment to plaintiff's claim for damages in Count 2. I merely raise the question, there are several complaints in the Joint Appendix. At least three.",
       "time": "00:33:26.01"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Maybe that's where the confusion is on Counts 2 and 3.",
       "time": "00:33:53.37"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if you agree that was severable, and you took a voluntary dismissal of it, how under your own theory of how the fee statute should be administered were you entitled to be paid for that particular item of work?",
       "time": "00:34:17.97"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Counsel?",
       "time": "00:35:04.34"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "I will put an easy question to you that may clarify your position. Assume you had a 1983 suit against prison officials, and the complaints alleged were that there was double bunking and that the law library was inefficient. You won on one of those issues. You submitted a bill based on 1,000 hours. Should there be any apportionment or not?",
       "time": "00:35:05.20"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Have you read our opinion on Romeo last term?",
       "time": "00:36:10.44"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Do you think the lawyers in that case should win 100 percent on everything they claimed? They lost on their major contention in this Court. I think you could assume they did. We reversed the court below on right to treatment. They won on some issues. If you are not familiar with it, you can pass that up. What I really would like to ask you--",
       "time": "00:36:15.61"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--Do you want to answer that?",
       "time": "00:36:45.80"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the court, the district court in this case went through this catechism that you just--",
       "time": "00:38:06.34"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Where do you find that in its opinion?",
       "time": "00:38:13.34"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, sure they did, and then I take it that they said as long as the party receives some of the relief requested, the status as a prevailing party will not be jeopardized, and then they just... and rejects the suggestion that he should put aside any of these claims. Was there any finding that they were interrelated?",
       "time": "00:38:22.46"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Implicitly? Where is it even--",
       "time": "00:38:52.80"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--That may well be true, but--",
       "time": "00:39:21.30"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--the court didn't go on and say that these are interrelated claims.",
       "time": "00:39:23.48"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is certainly a different test than you suggest to us.",
       "time": "00:42:55.90"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that isn't what... I thought you said you were only supposed to award fees for time spent on successful claims and on other claims that are interconnected or interrelated.",
       "time": "00:43:11.58"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's quite a different test than awarding time spent that is reasonably calculated to advance a client's interests.",
       "time": "00:43:28.57"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Counsel?",
       "time": "00:43:50.56"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In this case, you requested an enhancement fee over and above the multiplication results that hourly rates would provide. The district judge did not allow it. Would you view that as a two-way street so that hourly charges that arguably were expended reasonably by counsel but nevertheless produced a poor result should be discounted?",
       "time": "00:43:54.22"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Do you think it ought to go only up, but not down?",
       "time": "00:44:27.69"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Suppose--",
       "time": "00:44:48.82"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--You would never discount. While you are thinking about that, let me ask you this. Suppose after you brought this lawsuit, you had so impressed counsel for the hospital that they agreed to everything you requested before you had even taken discovery depositions, and you had only recorded 50 hours of time. Would you be entitled to... Suppose you charged $200 an hour. That is $10,000, I think. Was that the limit... Would that be the limit of your fee?",
       "time": "00:44:54.35"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Right, that would be $10,000 in this case, and you've won a victory that was probably worth millions of dollars, perhaps?",
       "time": "00:45:39.69"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You are saying results are of no importance.",
       "time": "00:45:52.75"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Eichner, what was it you were awarded in this case, something like $130,000?",
       "time": "00:46:04.34"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if, as Justice Powell has hypothesized, the defendant agreed to do, right after you had filed the complaint and the memorandum of authorities in opposition to a summary judgment, because the counsel for the state was so impressed by your arguments, he said, well, I'll give you A, B, C, and D, which turns out to be exactly what you ultimately got after years of litigation? Wouldn't you be entitled to something more than just hours spent, if, kind of in a rather dramatic legal move, you get a whole lot without spending a lot of time?",
       "time": "00:46:11.22"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Eichner, can I interrupt you with a question? Do you think the standard that the district judge followed in this case or one who follows the 12 Johnson factors is any different from the standard followed in fixing fees, say, in an antitrust case, or in a trust case, all sorts of cases where courts fix fees? Do you think this is a special standards, or is this just the regular standard?",
       "time": "00:48:14.69"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But do you think that the award given in this case was more liberal than would have been appropriate in any other kind of litigation?",
       "time": "00:49:05.64"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I frankly don't see much difference between the Johnson factors and factors I run into in countless other situations.",
       "time": "00:49:15.89"
     },
@@ -1095,13 +1095,13 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Eichner. Do you have anything further, Mr. Boicourt?",
       "time": "00:56:26.89"
     },
     {
       "turn": 176,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I have a question that is tangential. I don't think it matters to the case. Did you find out in the regular equity cases in state or federal courts any instance where counsel fees were questioned on appeal? Not in a civil rights case.",
       "time": "00:56:30.89"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's all right. I was just wondering. It doesn't matter at all to me.",
       "time": "00:56:57.32"
     },
@@ -1125,13 +1125,13 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:59:06.52"
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10 a.m..",
       "time": "00:59:08.86"
     }

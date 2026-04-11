@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/86-572/19870422a_86-572.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "PENNY R. WARREN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MARK A. POSNANSKY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mrs. Warren, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mrs. Warren, you refer to this as a preliminary hearing?",
       "time": "00:02:26.33"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it from the way you describe it. It isn't the sort of preliminary hearing that one had in Arizona xxx where it's to decide whether you should be bound over for trial.",
       "time": "00:02:31.66"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Pre-trial.",
       "time": "00:02:45.37"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Pre-trial.",
       "time": "00:02:49.32"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it could happen before the trial, it could happen during the trial. The judge holds--",
       "time": "00:03:03.18"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mrs. Warren, may I ask if you would take the same position if the defendant were representing himself?",
       "time": "00:04:25.65"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand. But if he had elected not to have a lawyer then you would--",
       "time": "00:04:49.10"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--agree that he had a constitutional right to be present during this--",
       "time": "00:04:53.11"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But as a lawyer, not as-- --His right to counsel, yeah.",
       "time": "00:04:59.34"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not confrontation?",
       "time": "00:05:02.18"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mrs. Warren, assuming that you didn't have a separate hearing to qualify the witnesses and you did it at the regular trial,--",
       "time": "00:05:04.11"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--you couldn't exclude him then, could you?",
       "time": "00:05:13.55"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So if this is merely for the purpose of excluding him, there would be a problem wouldn't there?",
       "time": "00:05:16.77"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is this always done in Kentucky?",
       "time": "00:05:31.28"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No. That you always qualify witnesses before the hearing?",
       "time": "00:05:38.55"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there is no law on it at all, it's just practice?",
       "time": "00:05:49.06"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about a due process concern? Do you think that there might be situations where the proceeding like this might have a substantial relationship to the opportunity of the defendant to be better prepared for his defense?",
       "time": "00:06:38.47"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you don't think that a defendant might be in a position to suggest appropriate questions or question certain responses with the attorney that would be helpful even at that qualification hearing?",
       "time": "00:07:27.34"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There's no evidence in this case perhaps, I mean--",
       "time": "00:07:45.55"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--it might be harmless error. But, I'm worried about the due process right to be present.",
       "time": "00:07:48.99"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the state used a video tape for example in these situations, do you think the defendant would have no right to be in a position to view the video taping with the lawyer so that he could participate.",
       "time": "00:08:57.32"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your rule doesn't apply just to strangers. It would apply, say it was a custody case or something where it was a minor child was going to testify and one of the parents wanted to be present. You could exclude the parent, I suppose. Or maybe it wouldn't be, I've got a civil example, but say it was a--",
       "time": "00:10:07.16"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--criminal charge against the parent of the child for this very thing we have in this case?",
       "time": "00:10:22.47"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you would say that that parent could also be excluded xxx.",
       "time": "00:10:28.56"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, you would say they would be excluded even though it might be quite likely that they would have suggestions to make to the lawyer that might help find out whether the child was accurate in what he was saying.",
       "time": "00:10:33.81"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is competency also at issue in the trial. Could counsel for the defendant, or the defendant himself, challenge the competency even though the court had allowed the child to testify?",
       "time": "00:10:50.92"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx to being given?",
       "time": "00:11:34.95"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the court could of.",
       "time": "00:11:41.29"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Based on the conduct of the witness.",
       "time": "00:11:44.83"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would counsel necessarily be permitted to ask competency type questions at trial?",
       "time": "00:11:55.20"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because the jury has to make it's own assessment of competency as well. I gather the judge's is just a threshold determination, right? Close enough to get to the jury, but the jury could reject the child's testimony in its view as coming from an incompetent child.",
       "time": "00:12:06.64"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me be sure I understand you. At the trial, under your view, could the defendant and his lawyer ask to go over the same ground that was gone over in the competency hearing? Ask the same questions. If the answer is yes, then why is it any more burdensome to have it in a ten minute session once and an hour later, than having an hour and a ten minute session? I don't understand.",
       "time": "00:12:29.02"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If they had not been excluded from the first hearing they might not found it necessary to ask them a second time.",
       "time": "00:12:57.87"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well of course, if that's a concern you could find a bigger room I suppose. I mean you don't have to do it in the judge's chambers if you--",
       "time": "00:14:04.25"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Do you deny the possibility, and I'm not suggesting it's true in this case, that the presence of the adult defendant might enable the lawyer at the time of the initial competency examination to suggest questions that might be relevant and helpful to making the right decision?",
       "time": "00:14:36.05"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you may not know what the child can attest to until he's heard the testimony. He might not know. The child might tell some story that the adult knows all about and knows it's inaccurate, or something. And didn't anticipate it coming up.",
       "time": "00:15:07.99"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well then you are saying there's just no possibility that the adult could suggest any useful question.",
       "time": "00:15:30.57"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, what you're saying is, even if it's highly prejudicial, it's just too bad because he has no confrontation right except during the trial. That's what you're saying, I guess.",
       "time": "00:15:59.74"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well wait a minute. I understand your position on that is we don't care about prejudice because it's not part of the trial.",
       "time": "00:16:33.89"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then you just say as a matter of due process he has to make an affirmative showing of actual prejudice in the case in order to prevail.",
       "time": "00:16:38.71"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I assume you're also saying that, well I'm not sure, at least it's very unlikely that there can be substantial prejudice, if not impossible that there can be substantial prejudice in as much as he can do the same thing at trial.",
       "time": "00:16:48.65"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If what you've told us is true. That you could repeat the same process--",
       "time": "00:17:03.55"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--at trial, it's very difficult to imagine how there could be substantial prejudice.",
       "time": "00:17:06.70"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If that's true, I don't know why you even need the lawyer there. It seems to me the judge could call the witnesses in chambers and say I think I'll just talk to these young girls by myself and make up a preliminary determination.",
       "time": "00:17:10.98"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if there is a right of counsel--",
       "time": "00:17:28.24"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--If there's a right of counsel it's because it is a critical stage of the proceeding.",
       "time": "00:17:30.89"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:17:38.43"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, can the first-- --Moreover the fact, I'm sorry. --Kentucky could grant the right of counsel without feeling the constitution compelled it. Just because traditionally when judges go into chambers to talk, make some examination of the case, they generally bring the lawyers with them. They may not of thought it through that it's a constitutional right of xxx.",
       "time": "00:17:48.87"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose if the witness is found not to be competent, the child as a witness, then the witness would not be permitted to testify at trial.",
       "time": "00:18:11.22"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, it could be quite critical. Because the witness might be the only witness available to convict a defendant.",
       "time": "00:18:22.64"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "As was the case here.",
       "time": "00:18:31.18"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, take them one at a time.",
       "time": "00:18:37.20"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I assume there were three separate charges.",
       "time": "00:18:39.97"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Significant to a defendant, to be able to persuade a judge that a witness is not competent.",
       "time": "00:18:47.91"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mrs. Warren, supposing that the child was initially determined competent under these Kentucky procedures and then the same questions were asked in open court and the judge was persuaded to change his mind.",
       "time": "00:19:02.00"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would the child's testimony then be stricken from the record?",
       "time": "00:19:17.35"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But did I hear, did you say earlier, Mrs. Warren, that the trial judge might nevertheless not decide it himself, but let the jury decide the question of competency.",
       "time": "00:19:34.36"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He would.",
       "time": "00:19:45.06"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So it's really two separate questions we're dealing with. And it is a rather critical stage, isn't it, to determine whether a witness is competent to testify?",
       "time": "00:19:55.14"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mrs. Warren, do you know if most states, you could conceivably do this by dispensing with the preliminary hearing entirely and just bringing the child on at the trial and conduct the competency inquiry then. It would make the trial longer I suppose. You would assert that, wouldn't you?",
       "time": "00:23:46.03"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do other states do? Do you have any idea what the practice is in other states? Do most of them have such a preliminary hearing whenever there are juveniles?",
       "time": "00:24:09.60"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mrs. Warren, could I ask you on another issue, the Kentucky Supreme Court as I recall it said, their Section 11 or Article 11 of your state constitution was the basis for its decision as well as the Sixth Amendment. And, has there been decision in Kentucky as to whether that provision of the state constitution is co-extensive with the right of confrontation, because they just rely on a Kentucky case that says, every phase of the trial, rather than--",
       "time": "00:24:29.51"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No difference between the two.",
       "time": "00:25:20.13"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mrs. Warren. We'll hear now from you Mr. Posnansky.",
       "time": "00:25:39.94"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Posnansky, the constitutional right is the right to confront the witnesses against him. The right of a defendant to confront the witnesses against him and I presume that means to confront him when they are testifying against him. It certainly doesn't mean he has a right to confront them whenever he wants to come to their house and confront them or anything.",
       "time": "00:27:08.50"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When they are testifying against him. And the point made by Mrs. Warren is that in this hearing, the child is not testifying against your client.",
       "time": "00:27:29.33"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not yet a witness. I mean, the whole purpose is to determine whether this child will be a witness.",
       "time": "00:27:55.07"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The factor though is whether the child shall be or shall not be a witness. And, if and when it's determined that the child shall be a witness, there is time enough to confront the witness. But up until that point you don't know that the child is going to be a witness against your client.",
       "time": "00:28:49.27"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Counsel did that here. Didn't counsel challenge the competency here?",
       "time": "00:30:02.45"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it can be raised at the trial proceeding.",
       "time": "00:30:06.57"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You don't doubt, Mr. Posnansky, do you that Kentucky could go the way of some other states and not have a preliminary competency determination out of the presence of jury?",
       "time": "00:30:44.57"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even your client's lawyer was allowed to question, too, wasn't he?",
       "time": "00:32:01.84"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Both lawyers were.",
       "time": "00:32:06.64"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well what?",
       "time": "00:32:20.14"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, what questions were in fact asked at the competency hearing.",
       "time": "00:32:23.59"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you're saying that the defendant could have furnished valuable information to his lawyer in what, cross examining these girls in their answers to those questions?",
       "time": "00:32:36.91"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How would that be possible?",
       "time": "00:32:49.92"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "xxx.",
       "time": "00:33:24.14"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They weren't asked about the facts of the crime, and I think they never are in these competency hearings. They are asked, how old are you, do you know right from wrong, do you know what it is to tell a lie. They're not asked about the facts of the crime.",
       "time": "00:33:29.71"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, he was subject to cross examination on his testimony before the jury, too.",
       "time": "00:34:01.08"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the fact that his testimony may have been damaging doesn't mean it should be excluded. Presumably all testimony introduced by the prosecutor, it's intended to damage.",
       "time": "00:34:12.14"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But counsel, isn't the real trouble, the prosecutor could ask him any question he wanted to while talking to him. To probably, your point, I would think would be that you object to it being held in the court before a judge. Or, are you saying that the prosecutor couldn't talk to the witness?",
       "time": "00:34:28.92"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But couldn't the prosecutor of held a competency hearing in his own office and talked to the person?",
       "time": "00:34:53.29"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, your objection was that it was done in the court room.",
       "time": "00:35:02.39"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's your only complaint.",
       "time": "00:35:08.25"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was done by the judge.",
       "time": "00:35:14.28"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A part of the judicial proceeding.",
       "time": "00:35:19.12"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well that's xxx--",
       "time": "00:35:22.24"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--prosecutor is doing this. He can ask the witness anything. The only person who can't ask him is the defense counsel. Mr. Posnansky, how was your client actually harmed in this case? I haven't seen any hint or suggestion yet of what would have been done differently had your client been present at the competency hearing.",
       "time": "00:35:24.11"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, I've read it and I just don't understand how the presence of your client would have made any difference in this case. How was he harmed?",
       "time": "00:35:54.61"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I have a transcript now and there are no suggested additions that your client would have made. There is nothing that you have brought forward that would indicate to me how he could possibly have been harmed, even if there was a right to his presence.",
       "time": "00:36:21.01"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But your client has not suggested a single thing that he would have done that would have altered this result.",
       "time": "00:37:11.36"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think he has an obligation to suggest how he might have altered the outcome or how his presence might have made a difference?",
       "time": "00:37:19.63"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if we think it is not a Sixth Amendment violation and all you are left with is a due process argument?",
       "time": "00:37:42.56"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the judge were to determine that the physical presence of the defendant would have so frightened the children that they would not make proper responses and that therefore he was to be excluded? Does that violate your client's constitutional--",
       "time": "00:38:56.80"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--What about the question I asked? Would you answer that: if the judge determines that the presence of the defendant would so frighten the children they would be unable to give proper responses to the questions.",
       "time": "00:39:48.48"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. Was it before the trier of fact? I thought it was a jury trial, wasn't it?",
       "time": "00:41:58.88"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not the trier of fact on the charge?",
       "time": "00:42:06.93"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does the jury know about this?",
       "time": "00:42:39.77"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the jury know that they had been found competent?",
       "time": "00:42:43.74"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But they don't know anything about that other hearing?",
       "time": "00:42:52.68"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. You say before the jury, it goes only to credibility; that's not what I understood Mrs. Warren to say. I understood that at the trial if it should appear on the basis of the examination by counsel for the defendant that the infant is not competent, at that point the infant would be excused and the jury instructed to disregard whatever testimony had preceded. Now, that doesn't go to credibility, that goes to competency.",
       "time": "00:43:34.36"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To admissibility, right?",
       "time": "00:44:05.41"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And again, you asked the judge to do that.",
       "time": "00:44:16.59"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that happened in this case.",
       "time": "00:44:21.24"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that happened in this case.",
       "time": "00:44:23.09"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's done in a lot of states. And I think that's the federal practice too, isn't it?",
       "time": "00:45:30.63"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx.",
       "time": "00:52:00.42"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just don't make such broad sweeping statements.",
       "time": "00:52:21.75"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose you would take the same position if in some states competency was decided by, not by the trier of fact, but by a magistrate or just some separate person?",
       "time": "00:53:00.04"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you say that anybody who determines competency is a trier of the fact?",
       "time": "00:53:18.85"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it you think the right to be present is just broader than confrontation? That the confrontation clause is really not the measure of the right.",
       "time": "00:54:04.56"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Posnansky. Mrs. Warren, you have four minutes remaining.",
       "time": "00:55:47.30"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mrs. Warren. The case is submitted.",
       "time": "00:56:30.33"
     }

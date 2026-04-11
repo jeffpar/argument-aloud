@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1737/19860121a_84-1737.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "ALBERT G. LAUBER, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN B. HUFFAKER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lauber, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Which competitors are you... give me an example.",
       "time": "00:02:43.67"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But they are profit-making entities, are they not?",
       "time": "00:03:00.99"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is the American College of Physicans a non-profit-making institution?",
       "time": "00:03:13.42"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does that distinguish them from Harpers Magazine and a lot of others?",
       "time": "00:03:23.85"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it your earlier point was that Congress did not want to subsidize nonprofit organizations in competing against for-profit organizations in a business?",
       "time": "00:03:47.49"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Now, however, the American College of Physicians has been around a long time, hasn't it?",
       "time": "00:03:58.51"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I'm not sure, but I think this one might even precede that. And, well... okay.",
       "time": "00:04:10.18"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lauber, do you take the position that commercial advertising can never under any circumstance whatever be substantially related to or contribute importantly to a tax exempt organization within the meaning of the statute?",
       "time": "00:07:10.05"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, do you think the regulations can amend the statute?",
       "time": "00:07:34.94"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Because what I think you are arguing for is an absolutely per se rule which could never be varied, notwithstanding the fact that the statute as far as language is not so phrased?",
       "time": "00:07:39.27"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but Congress didn't change the statute. It never changed the language that says that... that speaks in terms of \"substantially related\", or \"contribute importantly to the purposes of the tax exempt organizations. \" so I just wonder whether it's quite fair to say there has to be a blanket per se rule and the statute could never be applied as it's written?",
       "time": "00:07:58.95"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is the critical factor in your view that if the advertising message is simply an accident of the marketplace, that under these regulations it's taxable?",
       "time": "00:09:37.36"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "While I have you interrupted, let me ask you one more question. Do you think the issue of whether something is substantially related to the organization's purpose is a question of fact or a question of law?",
       "time": "00:10:19.16"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Lauber, let me follow through on Justice O'Connor's first question. There is outstanding still a revenue ruling having to do with bar association journals. I think that's Rev. Rule 82, 139, in which the tax authorities made an allocation between substantially related income and income that wasn't substantially related. How does that square with your pressing for an absolute ruling?",
       "time": "00:11:15.82"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, at issue there, in part anyway, were legal notices in the revenue ruling I'm speaking of.",
       "time": "00:12:35.94"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's against the Revenue ruling, and what I m leading up to is that if you should prevail here on your general thesis, shouldn't we just remand for determination of which is properly allocable to, as substantially related income and that which is not?",
       "time": "00:12:56.44"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, the Revenue ruling held flatly, ruled flatly that they were exempt from tax.",
       "time": "00:13:36.22"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, now is this the House report that a company... some substitute of legislation?",
       "time": "00:14:49.61"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how much stronger do you think the Government's position is in view of these hearings and reports than it would be if you simply had to justify the '67 regs on the basis of the statutes as they then stood?",
       "time": "00:15:47.02"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Lauber, I suppose there are instances where the same ad is published in the Annals and in the New England Journal of Medicine, which is a 501-C-6 organization, is that--",
       "time": "00:20:33.52"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--In which case, I suppose you're suggesting that there is a slight element of inconsistency in the result?",
       "time": "00:20:53.73"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure I got all through. Would you just repeat for me the three reasons why you say their 501-C-6 argument is invalid. I knew you've covered them, but I'm not sure I have them identified.",
       "time": "00:22:53.43"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "With respect to that, had he done any of that before Congress reviewed Example 7?",
       "time": "00:23:08.55"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what are your other two--",
       "time": "00:23:42.75"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Not only with the AMA but--",
       "time": "00:23:50.89"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Huffaker.",
       "time": "00:24:30.09"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You take the position, Mr. Huffaker, if I may inquire, that that is purely a factual question?",
       "time": "00:26:54.54"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in the Court of Claims it was determined as a matter of fact that it does not contribute importantly?",
       "time": "00:27:04.91"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the Court of Claims decided the case contrary to your position today, and the Court of Appeals for the Federal Circuit reversed, did it not?",
       "time": "00:27:37.72"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And did they find the findings were clearly erroneous?",
       "time": "00:27:50.29"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I suppose if the only ads run are those of medical economics, you're in a position to be a little more--",
       "time": "00:30:20.62"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--One is tempted to ask why you charge for the ads.",
       "time": "00:31:34.64"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But he charges for that too, doesn't he?",
       "time": "00:32:26.09"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I have great difficulty... I can conceive of your organization being educational and I know this is water over the dam, but I've always had trouble finding out how it becomes charitable. That comes out every time I get a bill from the doctor.",
       "time": "00:32:30.68"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what's wrong with him taking a portion of my bill and paying for the ad? You're not going to say he doesn't have the money.",
       "time": "00:33:13.06"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He doesn't really pay. The patient pays. I know there are very few doctors in business for their health.",
       "time": "00:33:43.63"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't know. That's my problem. Is it my health or my money?",
       "time": "00:33:56.57"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, doesn't he get all that from the pharmacy house's detail men that are at his door constantly?",
       "time": "00:35:19.21"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's true. Mr. Huffaker, let me ask, the College has its own building in Philadelphia, does it not?",
       "time": "00:35:41.78"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With a very extensive medical library?",
       "time": "00:35:49.68"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It has been there a long time?",
       "time": "00:35:53.11"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Huffaker, are you basically... your argument is still describing a publication that would meet Example 7, I think. I appreciate the fact that it's incorporated under a different section of the Code, but are you taking the position that your publication does or does not fit Example 7 insofar as the content of the publication is concerned?",
       "time": "00:36:59.76"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's not my question. My question is, if it does have application, just assume... I know you argued to the contrary, would your publication be of the same character as the publication described in the example?",
       "time": "00:37:25.49"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, wouldn't these products be subject to the same controls if they're published in non-medical publications? Say, the same product... this is the ad you called our attention to, say was published in the New York Times. Wouldn't it still have to meet the FDA standards?",
       "time": "00:38:01.63"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but all your advertising isn't of that kind. Support hose, for example, I notice they make a big point of.",
       "time": "00:38:37.42"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but using the language of Example 7, they are therefore products which are within the general area of professional interest of the members of the organization, is that right?",
       "time": "00:39:09.30"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't that true of your publication's advertising? All of it is within the general area of professional interest of the members?",
       "time": "00:39:22.12"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Huffaker, I'm a little puzzled. Maybe you answered this to Justice O'Connor earlier, but do you think that Judge Kozinsky applied a rule of law that deprived you of an opportunity to--",
       "time": "00:47:46.12"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--But the government says that the Commissioner has applied regulation not only to the class for which it was drafted, but to the class you're in, and that is entitled to some deference.",
       "time": "00:49:18.38"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Huffaker, did the government rely on Example 7 in the Federal Court of Appeals?",
       "time": "00:52:01.16"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that court never really discussed it, did they?",
       "time": "00:52:05.78"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They don't even have to explain to them why they're not invited, I guess?",
       "time": "00:52:19.09"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:52:23.53"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what if we think it's a first cousin? What are we supposed to do?",
       "time": "00:52:27.29"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose that we think it's very much at issue here, Example C-3 organization is close enough to a C-6 that it has great relevance.",
       "time": "00:52:33.63"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if we disagree with you, you lose, it's that--",
       "time": "00:52:55.87"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Lauber?",
       "time": "00:53:29.22"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's hard to know what the Court did really, because it said it found the findings clearly erroneous.",
       "time": "00:54:34.30"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the argument you're making here the same that you made before?",
       "time": "00:55:19.89"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And if it is... it's just not open to show that it's substantially related?",
       "time": "00:55:40.29"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And your claim below was that there should... that that kind of an issue just wasn't open?",
       "time": "00:55:56.97"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And did Judge Kozinsky agree with you?",
       "time": "00:56:16.45"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that there was no issue about... could be no issue about substantial relationship?",
       "time": "00:56:25.48"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What did CA Fed. say?",
       "time": "00:56:36.03"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, did the Court... the Court jut disagreed that this was commercial advertising, or not?",
       "time": "00:56:47.25"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That it was, but it was what, substantially related?",
       "time": "00:56:56.25"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And hence, importantly related?",
       "time": "00:57:00.59"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:57:30.92"
     }

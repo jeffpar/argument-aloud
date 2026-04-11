@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1264/19761109a_75-1264.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "BARRY L. GOLDSTEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "WINN NEWMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "FLETCHER L. HUDSON",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 75-1264, International Union against Robbins and Myers, and 1276, Guy against Robbins and Myers. Mr. Goldstein, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the personnel director have taken an affirmative action at that time or did he just sit?",
       "time": "00:04:28.31"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Goldstein, did she have a right of further review within the grievance machinery?",
       "time": "00:05:51.06"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would it not be appropriate to postpone the complete denial of her contractual rights or termination of her contractual rights until the time in which she could obtain review expired?",
       "time": "00:06:01.01"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that your position or is it whenever they -- I do not see how to differentiate in other words between the denial after the third stage and the initial discharge because under your theory neither of those was the expiration of the contractual relationship.",
       "time": "00:06:28.42"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have been talking so far, Mr. Goldstein, about the Congressional purposes. What are we to decide the case on, the Congressional purposes or the language of the statute? The language of the statute is that a charge shall be filed within 90 days after the alleged unlawful employment practice occurred. That is not ambiguous, is it?",
       "time": "00:10:41.25"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Recently, when Congress amended that, after your case was under way there was no change except changing it from 90 days to 180 days and the language is repeated “shall be filed,” mandatory language, “within 180 days after the alleged unlawful employment practice occurred.” That is on page 2 and 3 of your petition for cert. How much emphasis should we place upon the purposes when the language is clear, if it is clear?",
       "time": "00:11:15.85"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It does not say that though, does it? It says 90 days after the practice or event has occurred and the event was what, the discharge, was it not?",
       "time": "00:12:20.59"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But, as Justice Stevens’ question suggested, if you then were to use other remedies, it might be a long, long time before the period would begin to run on your theory, is that not so?",
       "time": "00:12:51.37"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was your first approach presented in the lower court?",
       "time": "00:14:12.19"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You never argued in the courts below that termination did not occur until the grievance procedure was concluded.",
       "time": "00:14:40.71"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Goldstein. Mr. Newman.",
       "time": "00:16:29.50"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "At what time does the pay stop?",
       "time": "00:17:27.07"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I ask this, Mr. Newman, am I correct in my understanding that on the grievance was first filed there was no claim at all of racial discrimination?",
       "time": "00:17:58.93"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you telling me I miss understood?",
       "time": "00:18:18.74"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But there was not identification of it?",
       "time": "00:18:40.82"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Should that make a difference, do you think? In other words, let us say the grievance was specifically that there had been a violation of some quite different and unrelated provision of the collective bargaining agreement, nothing whatsoever to do with racial or sexual or age discrimination and that had been processed. Would that make a difference in your argument? Would that not detract from some of your arguments for the point of view of both tolling and the finality of the grievance?",
       "time": "00:18:43.61"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If it had been based on a wholly different inquiry than the one that has to be undertaken if there is a claim of racial discrimination?",
       "time": "00:19:22.54"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But in the grievance procedure, was there focus on racial discrimination at all?",
       "time": "00:19:44.08"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It would really be unnoticed if there is no focus and no inquiry into racial discrimination whatsoever during this grievance procedure. There was no notice to the company of any such claim.",
       "time": "00:20:05.25"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, it is not in the record, we do not have it.",
       "time": "00:20:31.49"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He probably would have if it were not even suggested to him that that might have been the reason for the discharge, would he?",
       "time": "00:20:45.42"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, if it came before him.",
       "time": "00:20:55.80"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think perhaps you understand what was behind my question in any event. If there is no notice to the employer at all that this is going to turn ultimately to a claim under Section 7 then perhaps there is some of the force of your argument to disparity.",
       "time": "00:21:39.22"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When you are with the EEOC, it is right to sue latter concluding that there was no racial discrimination. Was the employer informed of that circumstance?",
       "time": "00:22:22.49"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So the employer was entitled to draw some inferences at that time as to status of the matter, was he not?",
       "time": "00:22:43.55"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Newman, if the petitioner was discharged on October 25, could she have filed a claim immediately on October 26 with EEOC?",
       "time": "00:22:56.69"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Newman, let me interrupt because I am troubled by the same points that, apparently, Justice Stewart had in mind. For your argument really to be sound, should you not also have the burden of showing that the grievance procedure and the arbitration procedure focused on the charge of discrimination? Is that not a part of what Judge Tuttle had in mind in Culpepper and the other cases in Appellate Court, but I may be wrong. I have not reread those cases, but if you do not have that, does your argument really hold water? The second part of my question, just to have it all out is, if that is relevant, who should have the burden of showing whether the arbitration did involve racial discrimination?",
       "time": "00:25:27.23"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you are saying the employer should have the burden of showing under a general charge to always come in with evidence that there was no racial motivation. Is that what you are saying?",
       "time": "00:26:14.70"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that, but the question, if it is relevant to know whether or not the arbitration involved racial discrimination who should the judge put the burden on to explain whether or not that was part of the arbitration process? Here, we have a silent record, as I understand.",
       "time": "00:26:25.59"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand, but in terms of that view, bring it out before the arbitrary.",
       "time": "00:26:45.07"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is going to be in every single grievance involving a firing, is it not? Is that not always going to be the claim, that it is unfair?",
       "time": "00:26:57.43"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I cannot think of any because that is such a broad generic covering the waterfront term, that is what it is always going to be, is it not?",
       "time": "00:27:07.30"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The employee and the grievers are never going to say he was fired for absenteeism. He is going to say “I was fired unfairly.” Then the employer is going to respond, well, “The fact is, you were fired for absenteeism.” So, is that not always going to be generic with the charge?",
       "time": "00:27:20.82"
     },
@@ -443,13 +447,13 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is your answer to Justice Stewart’s question?",
       "time": "00:27:56.29"
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or to Justice Stevens, because I do not think you have answered either one of them. Is that not always going to be a claim of disparate treatment?",
       "time": "00:27:58.88"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Clearly, if it would have gone to arbitration, that would have been an issue?",
       "time": "00:28:31.47"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Newman. Your motion will be granted and we will be glad to hear from Mr. Hudson in this case.",
       "time": "00:28:51.19"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But Mr. Hudson is not the purpose of the filing with the EEOC to try and seek voluntary adjustment of the matter without resort to the courts and if that is correct, is it not consistent with that purpose also to exhaust arbitration first?",
       "time": "00:37:00.43"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very simply stated, the purpose is to try and forestall litigation, to try to make it unnecessary to go to court, is it not?",
       "time": "00:37:52.47"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The EEOC has no power other than to try and get the parties to work it out, is it not?",
       "time": "00:38:11.87"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Hudson, does the collective bargaining agreement in this case contain any provisions with respect to the time periods or with respect to concluding grievance proceedings or the filing of grievance proceedings or they going to arbitration, is there a schedule of limitation period within that bargaining agreement with itself?",
       "time": "00:38:53.65"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is that?",
       "time": "00:39:25.00"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any time limitation on filing the initial grievance?",
       "time": "00:39:30.11"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "After the final step, arbitration must be initiated within 10 days.",
       "time": "00:39:42.35"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Hudson, you just referred to the 180-day provision.",
       "time": "00:42:07.97"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I take it you are not receding from your position that the amendment does not apply to this claim as filed.",
       "time": "00:42:11.36"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it true, however, that when the amendment was effected, she still could have filed the day after the amendment and then on time, and you would have no defense to that filing?",
       "time": "00:42:20.89"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Despite the language of the amendment?",
       "time": "00:43:05.75"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you not really saying that none of the amendment applies to all occurrences that took place after the amendment?",
       "time": "00:43:30.53"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you are driven to the position that her charge and her incident were completely extinguished and even if she had not filed the charge and even though it was within 180 days, she could not now file the charge?",
       "time": "00:43:44.61"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is my knowledge she could not have filed the charge between March 24 and April 22 of that year?",
       "time": "00:44:01.56"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you saying Congress was without power to allow her to do so, without constitutional power?",
       "time": "00:44:13.09"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Under what provision of the constitution or what inhibition of the constitution?",
       "time": "00:44:22.62"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Hudson, could the defendant not waive the statute of limitations?",
       "time": "00:44:52.72"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think it is a non-waivable defense, the statute of limitations?",
       "time": "00:45:01.08"
     },
@@ -701,13 +705,13 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is remarkable.",
       "time": "00:45:03.21"
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "In a way, you can waive the Fifth Amendment, I guess.",
       "time": "00:45:05.78"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well that is true as a matter of statute, but what authorities do you rely on for the proposition that the Fifth Amendment would prevent Congress from accomplishing this if they chose to do so?",
       "time": "00:45:24.92"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hudson, I gather on your submission, the 90 days run out on January 25?",
       "time": "00:46:21.15"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But there was a complaint file on February 10?",
       "time": "00:46:31.04"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you say, I gather, that the EEOC could not accept it on February 10 the complaint which, in fact, EEOC did accept that you say had no authority to, and therefore, the complaint filed on February 10, although still with the commission on March 24, was not pending for the purposes of the ‘72 to amendments.",
       "time": "00:46:35.19"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And we have to accept all those propositions to agree with you.",
       "time": "00:47:05.55"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well that is because as I understand it, the Sixth Circuit refused to reach this question on the ground of amicus. I gather EEOC is amicus. It had suggested that it had not been tendered by the petitioners.",
       "time": "00:47:15.39"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is what I said, but it was tendered by EEOC as amicus.",
       "time": "00:47:35.45"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You say that there is nothing in the record that would support that allegation.",
       "time": "00:48:04.11"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The EEOC would not have taken it. That is a lie, is it not? She does not know whether they would or not.",
       "time": "00:48:13.14"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Hudson, let me get back in my question in response to this other ones. Suppose the occurrence took place 30 days before the ’72 amendment, how long would she have to file, 60 or 120 days?",
       "time": "00:48:22.58"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Despite the interposition of the ’72 amendment.",
       "time": "00:48:48.71"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The limitation is a condition to the right itself. You could not suggest that the 180 days would be applicable, could you?",
       "time": "00:49:21.18"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it really accurate to say that the Court of Appeals did not consider this issue? Judge White’s opinion says that there is a new issue which was not raised by the plaintiff in the District Court. I am looking at pages 8A and 9A of the appendix to the petition for certiorari, but then he goes along and in two or three or four short paragraphs he does discuss the issue and dispose of it, does he not?",
       "time": "00:49:32.41"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That does deal with the issue and dispose of it on the merits. Do you give it the same reading as I do?",
       "time": "00:50:18.46"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He ends up the discussion with “the subsequent increase of time to file a charge enacted by Congress could not revive plaintiff’s claim which have previously been barred and extinguished. That seems to me, a fairly unambiguous conclusion. It does not say “if we did decide the issue, we would decide it that way.”",
       "time": "00:50:43.06"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Judge Edward’s dissent is squarely on the 180 days, is it not?",
       "time": "00:51:09.86"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Hudson. Do you have anything further, Mr. Newman?",
       "time": "00:54:01.92"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your side does not seem to address the 180 days.",
       "time": "00:54:11.57"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Actually, if you were right on the 180 days, we would not have to reach any of these.",
       "time": "00:54:19.96"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you want to win your lawsuits, you might try to help us with the 180 days.",
       "time": "00:54:28.70"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would not disagree with the argument made in the amicus brief of the United States?",
       "time": "00:54:47.07"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentleman, the case is submitted.",
       "time": "00:56:32.51"
     }

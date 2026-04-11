@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2002/02-634/20030422a_02-634.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CORNELIA T. L. PILLARD",
-        "role": "advocate"
+        "title": "MS."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 02-634, the Green Tree Financial Corporation versus Lynn W. Bazzle. Mr. Phillips.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Phillips, now, the contract presumably can be interpreted in accordance with the law of the State with jurisdiction.",
       "time": "00:00:29.03"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there was no express provision in the arbitration agreement saying that you can't have class-wide arbitration.",
       "time": "00:00:53.61"
     },
@@ -87,13 +91,13 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but the--",
       "time": "00:01:46.49"
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, how does that... how does differ from Volt, Mr. Phillips? There, the contract didn't say anything about the court staying the arbitration, and yet we said in our opinion that that was a permissible thing for a... that once the law of California had been invoked, that was a permissible thing to be done.",
       "time": "00:01:46.49"
     },
@@ -105,7 +109,7 @@
     },
     {
       "turn": 10,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, they said the place where the construction was... was taken.",
       "time": "00:02:14.59"
     },
@@ -117,7 +121,7 @@
     },
     {
       "turn": 12,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But didn't... didn't the... didn't the agreement here say it would be governed by the law of South Carolina?",
       "time": "00:02:23.04"
     },
@@ -129,7 +133,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is your... your argument that if the South Carolina court is unreasonable in interpreting State law, then it comes up here? I... I just don't understand how we get this... this question.",
       "time": "00:02:34.88"
     },
@@ -141,7 +145,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why do you... I'm sorry, I thought you were done.",
       "time": "00:03:06.31"
     },
@@ -153,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what--",
       "time": "00:03:23.05"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What if the South Carolina court in a somewhat different case had said this arbitration is going to be governed by our State rules of discovery. The parties have said nothing about it, but they just say, if you're going to be bound by the laws of South Carolina, that's what you're going to do. Is that bad?",
       "time": "00:03:25.25"
     },
@@ -177,13 +181,13 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And who are not... and who are not objecting so far as I know.",
       "time": "00:04:16.63"
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:04:18.74"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Green Tree is the one who's objecting.",
       "time": "00:04:19.89"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why... please.",
       "time": "00:04:27.89"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes. Yes, one might doubt it if their claim was worth $2, and it would cost them more to go into court to make the objection. The... the class action vehicle in some cases will make an action possible that wouldn't be brought before an arbitrator before. The--",
       "time": "00:05:02.31"
     },
@@ -231,13 +235,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Do you--",
       "time": "00:06:12.51"
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That's true. That's true, but what's bothering me is exactly this point. I can understand your argument to this point. A State, I don't think could possibly, consistent with section 2, interpret the word arbitration in a contract to contain all the bells and whistles of a court proceeding, because that would transform the arbitration into a court proceeding, and therefore they would have, in this subtle way, not only have shown hostility to but destroyed the arbitration contract, but what about this one. Is this hostile to arbitration? I have no doubt that Green Tree wouldn't have agreed, in all likelihood, had they known what was going to happen, and to that extent it is hostile to arbitration, but the consumers on the other side might have said, oh, we rather like it, in which case from their point of view it isn't hostile to arbitration, so sort of from one side it is, and from the other side it isn't, and how do we decide whether, overall, it is or it isn't?",
       "time": "00:06:12.74"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, but what we don't know here is whether there is or there isn't. We have silence, and like many that are silent, you have to impute an intent, and what South Carolina did is--",
       "time": "00:07:29.88"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is, they imputed an intent.",
       "time": "00:07:45.80"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they did it by a rule that says that since the other parties in our minds would have jumped for joy, and you, your client would have weeped in dismay, we in that situation interpret the contract against the drafter, which happened to be your client, so they chose the other side and thereby concluded that it was not hostile to arbitration, though it wasn't in the interest of one of the parties.",
       "time": "00:07:46.86"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well--",
       "time": "00:08:20.14"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--You... you--",
       "time": "00:08:23.52"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--The reason, as I understand it... the reason, as I understand it, you say there isn't consent was the reason you gave in your answer to the Chief Justice, that, in fact, they had agreed to be bound by South Carolina law with respect to the interpretation of the contract, but not with respect to the arbitration clause itself, and my question is, how do you draw that line? There's nothing, per se, inconsistent between applying the FAA and applying some State law. That has to be done.",
       "time": "00:08:25.44"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So why do you draw--",
       "time": "00:08:56.86"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, but I mean, you say governed exclusively by the FAA, in the sense that the FAA naturally is going to trump any inconsistency with State law, but here, there isn't a clear inconsistency with State law, and the FAA is always applied with some State law in mind. You have to have some procedure, and so on, and... and therefore I... I don't know how you can draw this nonporous line between the FAA and arbitration on one hand and State law on the other.",
       "time": "00:09:08.40"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, first, you're not... you're not urging that there's any inherent inconsistency between the arbitration and class action. You concede in your brief, I think, that if the parties agreed, yes, you could have a class action in arbitration.",
       "time": "00:10:22.00"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Have there been no class actions in... in arbitration?",
       "time": "00:10:48.73"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Have there been no class actions in--",
       "time": "00:10:51.25"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes.",
       "time": "00:10:53.50"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does the AAA have no rules about--",
       "time": "00:11:04.86"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--class actions? It's just silent--",
       "time": "00:11:08.67"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Well, suppose--",
       "time": "00:11:29.50"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--If the parties had chosen, say, a New York forum... I thought an arbitration agreement is supposed to be a forum for action laws.",
       "time": "00:11:31.83"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If they said nothing about class action and they chose New York as a forum, New York has a class action vehicle. They could get... the plaintiffs could get a class action, is that not so?",
       "time": "00:11:42.19"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it... it... then arbitration is something other than a mere choice of forum, because--",
       "time": "00:12:06.58"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Can I... can I interrupt with this question, Mr. Phillips? Supposing you had the... Green Tree had agreements with a large... large number of consumers, and suppose 15 of them filed separate arbitrations, they all went before the same arbitrator. Could the arbitrator have entered an order saying, I think it would be efficient to have all these cases tried together, so I'm going to enter an order requiring you to do so?",
       "time": "00:12:32.93"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, supposing the... supposing Green Tree objects. Could he nevertheless do it?",
       "time": "00:12:57.25"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Oh, but here... here the South Carolina arbitrator, which you... you certainly consented to his appointment, went ahead and did pretty much this.",
       "time": "00:13:07.64"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not... not as sweeping--",
       "time": "00:13:16.31"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Well, but what is your... what is your principle objection to Justice Stevens' hypothetical where the arbitrator simply says, I've got 15 of these and I'm going to just try them together?",
       "time": "00:13:20.22"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But--",
       "time": "00:13:43.33"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But then... but you say your... your objection would have been cured if the arbitrator had written a letter to every plaintiff and gotten an... a written okay, that would have made it okay?",
       "time": "00:13:49.47"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well then, what's the difference between that and my 15-individual case?",
       "time": "00:14:02.07"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they know there's a common issue in all these cases... I mean, they... they all had the same legal issue involved, didn't they?",
       "time": "00:14:12.52"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and--",
       "time": "00:14:45.63"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Please, finish your answer.",
       "time": "00:14:49.95"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the obvious solution to that would be to read into their contract the idea that they had agreed to that situation provided they're fairly represented, et cetera, and if they don't like the result, they can arbitrate that, too.",
       "time": "00:15:08.38"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I want to ask about consent. At what point and how did you first object to the class action? Did... did you instruct the arbitrator that we consented to your appointment for individuals A, B, and C, but not for other--",
       "time": "00:15:29.24"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--We... we do not consent.",
       "time": "00:15:48.08"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And when did you do that?",
       "time": "00:15:49.88"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "After the first--",
       "time": "00:15:51.75"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--the idea of class action.",
       "time": "00:15:53.48"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you did select the arbitrator. It was your arbitrator.",
       "time": "00:16:02.48"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, it leaves this open, and I mean, I agree with you that it is... whether you did... whether this or is not the proper interpretation of what the parties intended is certainly disputable, and if it's disputable, why shouldn't the arbitrator decide that?",
       "time": "00:16:14.86"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well... well, wait. You... I'm going to hear in about 10 minutes or so a pretty good argument the other side, too--",
       "time": "00:16:35.24"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--so that my question is, where you have a contract that says, interpretations of the contractor should be arbitrated, and where, in fact, what we're arguing about today is how one part of the contract should be interpreted, how did we get here? Why wasn't that referred to the arbitrator?",
       "time": "00:16:40.91"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:17:08.74"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I would have thought the meaning of a--",
       "time": "00:17:10.08"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, but wait. There is a case, including one I just wrote, I think, for the Court which makes very clear that what you send to the arbitrator... I mean, there are dozens of cases where you have a phrase in a contract, and that's in dispute, and the parties have agreed we send disputes about the meaning of the contract to arbitration, you send that to the arbitrator. I mean, the only things that you don't are whether there's the arbitration contract is itself valid, et cetera.",
       "time": "00:17:13.88"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:17:47.56"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, is there any... is there any--",
       "time": "00:17:52.38"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is there any case you could cite... I mean, I read most of them when I... when I wrote the opinion in the Howsam case. I don't think you can think of one.",
       "time": "00:17:53.67"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, are we talking about that here?",
       "time": "00:18:07.17"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I--",
       "time": "00:18:13.68"
     },
@@ -813,13 +817,13 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Why should--",
       "time": "00:18:17.16"
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--As to the other contracts--",
       "time": "00:18:17.68"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--the ones that get sucked into this massive litigation, it is certainly a jurisdictional issue--",
       "time": "00:18:19.31"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if not as to yours. Yours, you... you agree to the arbitrator and whatnot, but... but take... take somebody else who--",
       "time": "00:18:30.44"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I'm sorry, I don't understand the meaning of when you say it's a jurisdictional issue, when you agree to somebody else's statement it's a jurisdictional issue. What I have in front of me is a contract. It says, in this phrase, disputes will be arbitrated, there is a question, what does that mean, that word arbitration in this contract, and then I know that the parties have agreed to arbitrate the meaning of the dispute, all right... of any phrase--",
       "time": "00:18:38.02"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--including that one.",
       "time": "00:19:03.71"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So... so how did we suddenly get into court, was my question?",
       "time": "00:19:04.89"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the other individuals--",
       "time": "00:19:23.76"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The other individuals are not here complaining. I mean, they're probably glad they got the 7,000 bucks--",
       "time": "00:19:25.83"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--If you're concerned about the third parties, how does it differ from a court-declared class action where the safeguards are the class members have notice, and there's a notice here that is clearer than most notices, and if they're... if they say that they were inadequately represented, they could collateral attack on that basis. Why should those States' laws be any different in an arbitral forum than in a court forum?",
       "time": "00:19:44.06"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the court can't do it as it... the Federal rules have a class action provision--",
       "time": "00:20:42.48"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and the Federal rules can't affect substantive rights, only procedure, so the class action device, classes are certified every day in... in Federal court--",
       "time": "00:20:47.60"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and they're not changing the substance of any contract that they're declaring in a contract setting, a class action.",
       "time": "00:21:01.19"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're not in court by reason of a contract.",
       "time": "00:21:23.44"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They are not in court by reason of a contract.",
       "time": "00:21:26.27"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Here, they are before the arbitrator only by reason of a contract.",
       "time": "00:21:30.45"
     },
@@ -999,13 +1003,13 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't the difficulty... and I... I... I'm still having trouble getting over this.",
       "time": "00:21:35.20"
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't the difficulty that... one... one thing you said a second ago is... is really not accurate, I don't think.",
       "time": "00:21:39.28"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They don't consent to every jot and tittle of means by which the arbitration will be conducted. They consent in a gross kind of way to arbitration or nonarbitration, and... and that's... that's what their consent makes the difference between, but they don't consent to every consequent detail that enters into the actual conduct of the arbitration, so why should we draw the line where you want us to draw the line as opposed to drawing the line a little further and saying, if you consent to arbitration and a State says, not inconsistently with the FAA, arbitration can be done on a class basis if there are common issues and so on? Why should we draw the line to exclude that?",
       "time": "00:21:46.60"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're... you're saying, this is so far from anything that would have been contemplated--",
       "time": "00:22:49.47"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--as a detail to be filled in later, and that's why you draw the line--",
       "time": "00:22:53.84"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought the South Carolina Supreme Court said there's a... there's a silence in this contract and we're going to construe it against the drafter. You concede that you could have arbitration in a class format, and so that South Carolina said it doesn't... this contract doesn't say one way or the other and we'll construe it against the drafter.",
       "time": "00:23:14.76"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it... but it is true, is it not, that everybody in the class has consented to an arbitration with Green Tree--",
       "time": "00:24:22.54"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Not to a class action arbitration, but to an arbitration.",
       "time": "00:24:28.14"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not with these arbitrators.",
       "time": "00:24:35.74"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I thought that--",
       "time": "00:24:38.98"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But they have consented to the--",
       "time": "00:24:40.52"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But is it really reasonable to assume that if he knew he had a thousand different arbitrations coming up he'd want a thousand different arbitrators?",
       "time": "00:24:54.94"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "With the same issue in every case?",
       "time": "00:25:02.77"
     },
@@ -1149,13 +1153,13 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because--",
       "time": "00:25:05.26"
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Don't they wear... wear out after just one case, then?",
       "time": "00:25:06.01"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You might not want to put your company's entire future in the hands of one arbitrator.",
       "time": "00:25:10.92"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:25:15.88"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Makes some sense.",
       "time": "00:25:18.58"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Where... where is it--",
       "time": "00:25:31.22"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Where is it in the record that you first made your objection to the class action, and do you... does that objection say that we have not consented to the arbitration as to these other parties? Is that how your objection was phrased, and where can I find it in the record?",
       "time": "00:25:32.46"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right.",
       "time": "00:25:50.07"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Phillips. Ms. Pillard, we'll hear from you.",
       "time": "00:25:55.50"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What doctrine of state contract law led you... led to this result, the doctrine of construe the instrument against, contra proferentem against the person who drafted it?",
       "time": "00:26:53.06"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, can... can that produce anything? I mean, suppose one side claims the contract says nothing about it, but one side claims, you should pay all the costs of the arbitrator, all right. Is... is a State court going to decide that question by simply saying, well, the contract says nothing about it, but to do it that way would be against the interests of the drafter, so yes, it's in the contract?",
       "time": "00:27:04.36"
     },
@@ -1275,13 +1279,13 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And my next question is going to be, what if the other side comes in and says, you ought to pay me $10 million, and the other side says, gee, there's nothing in the contract about that. [Laughter] Can the State court say, well, it's against the... it's against the interests of the drafter so it must be there in the contract?",
       "time": "00:27:33.91"
     },
     {
       "turn": 206,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I mean, that seems... this seems to me just as weird--",
       "time": "00:27:47.99"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--to... to pluck out a right to a class action for no other reason than that it is against the interests of the person who drafted the contract. It's weird.",
       "time": "00:27:52.07"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's a big difference-- --What are consolidation arbitration... what do you mean by that? You mean when the same arbitrator has more than one case involving the same issue?",
       "time": "00:28:37.67"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When he's been selected for the various issues. I mean he... he's been selected in... in all of the various cases. The parties have agreed to this arbitrator. They just haven't agreed to have them all decided in one proceeding, is that right?",
       "time": "00:28:51.95"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that... that's a long... that's a long way off from compelling somebody who hasn't agreed to this arbitration.",
       "time": "00:29:07.51"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That begs the question. I mean, that precisely begs the question. I mean--",
       "time": "00:29:36.65"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that's what we're debating, whether they... whether they agreed to that or not, and to say that they agreed to it because they agreed to it doesn't get us very far.",
       "time": "00:29:40.78"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, well, why isn't this hostile? It seems to me that is the question.",
       "time": "00:30:01.69"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, wait, let me give you an example. You would agree that the State couldn't interpret silence as follows. The word arbitration in this contract, since it's silent, means that the arbitration will take place at the bottom of a coal mine with no air, okay. We agree, right?",
       "time": "00:30:04.73"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, and what the other side has said is, you know, in respect to one of the parties, this is the same thing. Of course my client would never have agreed to arbitration if he knew that a class action lawyer could find a provision in the contract that nobody thinks really hurt them but, in fact, we didn't live up to, and then obtain $10 million in a judgment before an arbitrator, of which he gets three and the rest is distributed. Now, look, that's what we were trying to get away from. That's why we went to arbitration and not the court. Of course we wouldn't agree to such a thing, and of course reading such a thing into the silence is the same as putting us at the bottom of that coal mine, or at least close enough so you cannot say that it is neutral as to whether or not arbitration is good or bad or likely to occur, or Volt was neutral or pro-arbitration. This State rule is not neutral, it is hostile to it. Now, that's basically their argument, as I understand it, and I'd like to hear the reply.",
       "time": "00:30:22.35"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could they... could they then have a State law that says, and the party that invokes the arbitration in the contract will receive from the other party a bonus of about $100,000 for having done a good thing? See, that's equally ridiculous as to my example in the coal mine, and all I've done is make sure that the arbitration... it's not... it's not... you see, it satisfies your test.",
       "time": "00:32:25.30"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They love arbitration. Oh, but forget my ridiculous example. Go ahead with your... with your... with your explanation.",
       "time": "00:33:02.78"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, I've got that. Then do you think... the other question that's bothering me... that was one, and there's one other, is that we have the words in the contract here, and the words are, the dispute, any claim, including what the contract means, or the validity of the arbitration clause, et cetera, shall be resolved by binding arbitration, by one arbitrator, selected by us, with consent of you, okay.",
       "time": "00:33:20.65"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's the phrase.",
       "time": "00:33:48.11"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, there obviously is a disagreement as to the meaning of that phrase. Well, why shouldn't that be arbitrated?",
       "time": "00:33:49.14"
     },
@@ -1461,19 +1465,19 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Then what we should do in this case is say, forget what the North Carolina Supreme Court says--",
       "time": "00:33:55.49"
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--South Carolina.",
       "time": "00:34:00.86"
     },
     {
       "turn": 238,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "South Carolina, sorry. I got it right the first time... South Carolina Supreme Court. Forget what they say. The question is, what did the parties mean, and therefore send it back to the arbitrator for that determination, not influenced by the South Carolina opinion in front of us. Now, is that the correct resolution, then?",
       "time": "00:34:01.04"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:34:22.78"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought the first case was a case where the South Carolina Supreme Court, Bazzle or one of them was... the South Carolina Supreme Court said what it meant, not the arbitrator. The second case, which was in front of the arbitrator, was the arbitrator being influenced by what the South Carolina Supreme Court had said.",
       "time": "00:34:33.24"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then it's the other, it's Lackey the Supreme Court--",
       "time": "00:34:56.02"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "00:34:58.84"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Not instruction, but... but was he not guided or influenced in some way by the Supreme Court decision?",
       "time": "00:35:17.43"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:35:30.16"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That was in... that was in Lackey. In Bazzle, did the arbitrator, after the, what I'll call referral from the State trial court, did the arbitrator then say, as an... as an independent matter, I ratify, I confirm, I... I agree that the contract should be interpreted this way, or does it... or did he just say, I am following the order of the court?",
       "time": "00:35:59.15"
     },
@@ -1569,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait, wait, wait. Why... why... what issue was placed before him when they moved to decertify him?",
       "time": "00:36:38.56"
     },
@@ -1581,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The issue of whether he would be in... in violation of the order of the South Carolina Supreme Court?",
       "time": "00:36:44.81"
     },
@@ -1593,7 +1597,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No.",
       "time": "00:36:53.87"
     },
@@ -1605,7 +1609,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm sure they did, so... but my impression is they appointed in Bazzle, the district court appointed a class, or certified it.",
       "time": "00:37:27.32"
     },
@@ -1617,7 +1621,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, it was after that that they go to the arbitrator in Lackey, and now what they're telling us is, the arbitrator in Lackey, knowing that the district court had appointed the class in Bazzle, then appointed the class in Lackey, and what they say, I take it, is well, that's not independent, he just thought that's what he's supposed to do.",
       "time": "00:37:34.07"
     },
@@ -1629,7 +1633,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any history, Ms. Pillard, of this in South Carolina, or is this the first time? Have there been class proceedings before arbitrators in the past?",
       "time": "00:38:29.90"
     },
@@ -1641,7 +1645,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Pillard, when... when a class action is instituted, it seems to me it amounts to an interpretation not just of... of these contracts that were in front of this arbitrator, but also of the other contracts that have been brought into this arbitration, and what I find it difficult to see is how any interpretation of one of those other contracts would... would allow them to be brought into this from the standpoint not of this company... this company at least selected this arbitrator for these cases, and you could say, well, they didn't select him for the other cases, which may be a good point, but let's talk about the customers, the plaintiffs. They didn't select this arbitrator for any case, not even... not even for their own case. They have had foisted upon them not some Federal district judge who has, you know, the... the army behind him, but... but some arbitrator that, you know... who knows who, that they... they never selected at all. How can you possibly draw them into this... how can you possibly say that that contract is reasonably interpreted to allow them to be brought into this... into this arbitration?",
       "time": "00:38:57.90"
     },
@@ -1653,7 +1657,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's deceptive. They... they are summoned in by the power of the Government, not by... not by their... their contractual commitment to be summoned in. Even if there were no contract they could be made part of a class action, so to say that you can do it when the Government is coercing it, and therefore it's a perfectly reasonable interpretation of a contract, doesn't make sense to me.",
       "time": "00:40:54.40"
     },
@@ -1665,7 +1669,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Here, the only basis for getting... for getting these plaintiffs into this court, or into this arbitral court is their voluntary agreement, and their voluntary agreement gave them the right to select an arbitrator, and they have been deprived of that right entirely.",
       "time": "00:41:19.22"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but Green Tree didn't appoint the arbitrator for that purpose. Green Tree appointed the arbitrator for X, Y, and Z.",
       "time": "00:41:56.68"
     },
@@ -1689,13 +1693,13 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Wait, wait--",
       "time": "00:42:29.32"
     },
     {
       "turn": 275,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Could the... could the arbitrator have said, I'm... I'm going to include in... in this class some people who don't have an arbitration contract at all?",
       "time": "00:42:29.63"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and why is that?",
       "time": "00:42:39.33"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because the... Green Tree did not consent to that.",
       "time": "00:42:41.71"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The hypothesis is, the consent must be bilateral, and here it wasn't.",
       "time": "00:42:57.16"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right, but what--",
       "time": "00:43:22.88"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Yes.",
       "time": "00:43:30.72"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, they were on notice that somebody wanted a class action, but it seems to me, number 1, they were not on notice that South Carolina law would provide a... a class arbitration because, as you said, it hadn't occurred before, and the only thing that they definitely consented to was an arbitrator for this case, and in a situation in which there was no existing State law that put them on notice that they were in jeopardy of this result, they're saying there are some things we... I think they're saying there are some things we... we agree that have to be filled in later about the terms of the arbitration. But with no history to indicate that the request for class... or class treatment would be granted and would be possible under South Carolina law, we surely did not consent, we certainly did not take the risk that we consented, that we were consenting to arbitration for all of these other people, and if you doubt that, Mr. Phillips says, just step back and... and bear this in mind. Without judicial review, would we have rolled the dice for $27 million on one arbitrator? What is... what is your answer to that, that it, in effect, it is just too implausible to draw this conclusion out of the limited consent that they gave?",
       "time": "00:43:35.86"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, no question about it. It's a question of what they plausibly consented to.",
       "time": "00:45:15.32"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's the point of his argument.",
       "time": "00:45:18.44"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if they had been in California they would have done that, but were... were, you know, were they on notice that they had better guard against that jeopardy in South Carolina?",
       "time": "00:45:36.90"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Consolidations aren't class actions. I mean, those are quite different.",
       "time": "00:45:55.30"
     },
@@ -1827,19 +1831,19 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, they're saying this isn't natural evolution, this is creationism, and--",
       "time": "00:46:36.43"
     },
     {
       "turn": 298,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:46:39.89"
     },
     {
       "turn": 299,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--don't... don't they have a... don't they have a point that there is a distinction when the difference gets to be that great?",
       "time": "00:46:40.63"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, but it says the terms have to be... I mean, it doesn't... it says in the statute you have to enforce the arbitration that they wrote, and here... now, it is... this point is bothering me, because I'm not sure what your answer to this was. I do see the phrase, shall be resolved by binding arbitration, by one arbitrator selected by us, with consent of you. Now, the opt-out can be, consent of you. I get that. If they don't opt out, they consent, but what about the phrase, by one arbitrator selected by us? We've come around, we've been talking about that nonstop, but I... I don't have a clear answer to that, because what seems absolutely clear in the case of Justice Scalia and me, and he's never been in this courtroom, or in the arbitrator room or anywhere, you know, I didn't select that arbitrator. I selected you for a different case. Now... now, how do we... how do we square that with the words, an arbitrator selected by me, if I'm Green Tree?",
       "time": "00:46:53.58"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if they said right at that point we don't want this as a class action, then they win?",
       "time": "00:48:05.51"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, okay.",
       "time": "00:48:12.31"
     },
@@ -1887,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, I see, but--",
       "time": "00:48:33.80"
     },
@@ -1899,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If they had had a--",
       "time": "00:48:35.26"
     },
@@ -1911,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If they had had enough foresight, could they have told the arbitrator, we are selecting you, but for this suit only. You may not have a class action. We are not consenting. Could they have said that up front?",
       "time": "00:48:39.21"
     },
@@ -1923,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I... I notice the... none... none of your answers to these questions, including... you had several answers for Justice Souter. None of your answers said, well, you know, that's a very interesting theory, Mr. Justice, but this is a State law matter, it's not for you. I... I haven't heard that.",
       "time": "00:49:05.47"
     },
@@ -1935,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose a... suppose the State law said, not only do we interpret silence to mean you can have it in a class format, but that if any arbitration clause... any arbitration contract excludes class action we will hold that against our public policy and unenforceable?",
       "time": "00:49:42.98"
     },
@@ -1947,7 +1951,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, the... the Supreme Court would explain, we love arbitration, that's why we're not going to let anybody make it a smaller arbitration, so that's... so we're not being hostile to arbitration.",
       "time": "00:50:16.12"
     },
@@ -1959,7 +1963,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's your authority that... that it has to be... you... you seem to... to be positing some kind of a... of an intent requirement on the part of the State. It has to have it in for arbitration. Why isn't the Federal Arbitration Act more reasonably interpreted as directed at those State laws that... that are destructive of arbitration, that... that are... are hostile not in the sense of any... of any mental intent, but that in their operation make it difficult for parties to enter into arbitration agreements, and if that's what it means, a law that interprets a... an arbitration agreement fantastically, you know, down at the bottom of the coal mine, or, you know, you... you have to pay so many million dollars win or lose, or, I think, you... you have to subject yourself to... to class actions, is a law that is hostile to arbitration, that is... it is... it is antagonistic to the ability of parties to decide between themselves how, when, and where and to what extent they will have an arbitrator decide matters for them?",
       "time": "00:51:08.00"
     },
@@ -1971,7 +1975,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this, if you have another moment: Does this case have any future significance, because isn't it fairly clear that all the arbitration agreements in the future will prohibit class actions?",
       "time": "00:54:07.23"
     },
@@ -1983,7 +1987,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there a risk that if we just did what you said, they write in no class actions, a court says this is a contract of adhesion, and that provision's oppressive, and so we strike it?",
       "time": "00:55:32.61"
     },
@@ -1995,7 +1999,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You really think that they could allow a waiver of judicial review and disallow a waiver of class actions? That would... that would boggle my mind. And you think that wouldn't display hostility?",
       "time": "00:56:10.75"
     },
@@ -2007,7 +2011,7 @@
     },
     {
       "turn": 327,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Pillard. Mr. Phillips, you have 4 minutes remaining.",
       "time": "00:56:24.91"
     },
@@ -2019,7 +2023,7 @@
     },
     {
       "turn": 329,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Phillips. The case is submitted.",
       "time": "00:59:26.87"
     }

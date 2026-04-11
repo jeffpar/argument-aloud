@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1605/19770420a_75-1605.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "HERBERT J. MILLER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "NATHAN LEWIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "WADE H. MCCREE, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROBERT E. HERZSTEIN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in 75-1605, Nixon against the Administrator of General Services Administration. Mr. Miller, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, subject to the regulations which the Administrators shall issue.",
       "time": "00:04:17.77"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miller, at this point, you are just factually describing the effect of the Congressional legislation, right?",
       "time": "00:04:28.82"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are the regulations in the material has been submitted to us, Mr. Miller?",
       "time": "00:04:55.19"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Insofar as that is a separation-of-powers argument, Mr. Miller, the act applies only to former President Nixon. There is no reason to think that Congress is going to pass an act that is generally applicable to Presidents in the future, is there?",
       "time": "00:09:37.15"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So there would be time enough, I take it, to confront anything Congress does in response to that report when it does it.",
       "time": "00:10:25.75"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But there is not any impairment of any presently conducted Executive function by the act, where there was in Myers’ or Humphrey’s Executive.",
       "time": "00:11:27.60"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, would you still object to this act if on its face it simply says -- and maybe this one does -- that anything that would threaten the Executive privilege or anything that would threaten to reveal the kinds of papers that might inhibit free and open discussion between the President and his aides will be destroyed or that they will never be made public?",
       "time": "00:12:14.73"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not the records, but that they will be sorted out. Surely you do not say that every piece of paper out of this entire straw stack of papers is privileged.",
       "time": "00:12:50.38"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let's assume, then, you could divide them into two parts and without any idea of what the relative volume of each part might be; but assume that they had been divided into two parts, and one part is privileged; and suppose the act said once you get them divided into two parts and you know what the privileged information is, that will not be made public. Will that satisfy you or not, your separation-of-powers argument?",
       "time": "00:13:06.55"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if things are intermixed, somebody is going to have to review them and divide them.",
       "time": "00:13:49.67"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, why doesn't it go to your separation-of-powers argument that not only are some things privileged, but only the President should decide which are, or the former President?",
       "time": "00:14:08.57"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is anything contemplated under this act necessarily going to prevent the former President from examining these papers and giving his opinion as to which are privileged?",
       "time": "00:14:36.42"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Suppose you had a Congressional Committee thinking about legislating about this subject, and it subpoenaed some of these papers. Do you think those objections on the part of the Executive branch, even assuming it was an incumbent President, would just be uniformly sustained?",
       "time": "00:16:29.78"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Have not Presidents all the way back to President Washington declined to give to Congress as distinguished from the courts, declined to give to Congress certain papers under the doctrine of Executive privilege?",
       "time": "00:17:25.36"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you would be making the same argument and are making it with respect to a subpoena directed to our conference notes.",
       "time": "00:18:12.12"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would not suggest, would you, that this stands on the same footing as if Congress had decided to take five-and-a-half years of your papers, you being a private citizen.",
       "time": "00:21:22.51"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does this act now authorize any other Government officials who wants to look at any part of this collection of papers give him the right to do so?",
       "time": "00:22:09.90"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even if anyone who was halfway fair-minded would concede that this is a purely private piece of paper, he may see it?",
       "time": "00:22:37.19"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what does that mean? How can something purely private and personal be of lawful Government use?",
       "time": "00:22:57.89"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Doesn't the statute say \"subject to the regulations\"?",
       "time": "00:23:15.97"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think it does.",
       "time": "00:23:19.78"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And they are not in the record before us.",
       "time": "00:23:33.13"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, those have been adopted, and those are not the ones that were rejected by Congress?",
       "time": "00:23:40.08"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right, so they are not rejected, so they must be in the Federal Registry.",
       "time": "00:23:46.99"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the regulations permitting access by the Government officials, do they have restrictions in them?",
       "time": "00:24:12.12"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does Mr. Nixon or his representatives get notice any time any Government official wants to look at any part of it or not?",
       "time": "00:24:34.58"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So if some other Department of the Government wanted to for some supposedly lawful purpose examine some of the papers, Mr. Nixon would have notice of it?",
       "time": "00:25:12.11"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the act contain any penalties for disclosure by any employee of the many employees who would have access to this?",
       "time": "00:25:40.63"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Ah, of course.",
       "time": "00:25:54.61"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do the regulations deal with the question of impermissible disclosure? Suppose some clerk or any one of the many people dealing with this screening process makes a Xerox copy and sells it to someone. Do you say that there is no penalty at all on that?",
       "time": "00:26:43.21"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But no criminal penalty.",
       "time": "00:27:34.44"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miller, before you sit down, could I ask one question? Is there any issue presented with respect to the materials that Mr. Nixon took out of the Government custody? A footnote in the Government's brief points out that some materials are in his custody, and I would think Section 101(b)(1) may read on those materials. Is there any issue with respect to that?",
       "time": "00:27:45.12"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is what I really wanted to ask. There has been no attempt to enforce 101(b)(1) yet.",
       "time": "00:28:18.30"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record tell us why there has been no effort to enforce that section?",
       "time": "00:28:54.05"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lewin?",
       "time": "00:29:11.70"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the analogy here, Mr. Lewin, is a former Justice of this Court comes in and objects to a law that Congress has passed, and all the present Justices say, \"We don't see any problem with it\".",
       "time": "00:31:27.60"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am a little puzzled by your repeated reference to the judicial area, the communications between law clerks and Justices and judges. What about communications as among the Justices and judges themselves? Would you think they are a lesser or greater privilege?",
       "time": "00:34:50.09"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Previous Presidents have received substantial tax benefits by virtue of claimed ownership, have they not, of their papers?",
       "time": "00:36:15.92"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does it bear on your bill-of-attainder arguments?",
       "time": "00:36:42.22"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Solicitor General?",
       "time": "00:39:37.26"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Solicitor General, I think that the question as you put it, you could mean the entire act, is that the question, or is it legitimate to ask whether any section of it is facially unconstitutional?",
       "time": "00:40:37.94"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, I am not sure this bear directly; but do you think Congress can enact a statute impounding the papers of Federal judges generally or judges of one particular category or level, circuit judges, Supreme Court justices, or a particular Supreme Court or other judge or Justice?",
       "time": "00:44:25.52"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What kind of a proceeding would be necessary to make that determination? Presumably, your response indicates there would first be a finding or a determination. By what process would the Congress make that? I don't assume you mean it would be just to see Nixon and the Legislative Branch.",
       "time": "00:45:15.97"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General McCree, do you think this case would stand on any different footing if a Congressional statute had been directed at Presidential papers that were located in Key Biscayne rather than the White House, where presumably the Government did not own the building they were located in, but the papers might be of the same general caliber?",
       "time": "00:46:32.14"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it necessary for you to sustain your proposition for us to find that the Government, in fact, owns the papers in question?",
       "time": "00:47:12.83"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You would not carry that over to papers in the hands of a private individual, I take it.",
       "time": "00:48:10.55"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Solicitor General, you do have to reach the question now of private papers. You mentioned only public papers and Congress’ power over public papers. Now, apparently no one suggested all the papers that have been seized here are public papers.",
       "time": "00:48:26.68"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And let's just assume that as this Court read this statute, the statute would empower; they empower the regulator to withhold papers that anyone in his right mind would say are private papers. Would you suggest that then that statute is unconstitutional on its face to that extent?",
       "time": "00:48:51.90"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you know that that has been done already. That has been done already, and the only question is, is there some adequate procedure to sort them out and return private papers?",
       "time": "00:49:24.69"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Now, I will make my question very specific. I would like to know where in the criteria that the regulator must use in preparing his regulations, where in those criteria is any assurance given that purely private papers will be returned to Mr. Nixon? And even more precisely, suppose that someone like a regulator claims that this piece of paper, even though purely private, is of general historical interest. Do you think those two categories are mutually exclusive?",
       "time": "00:49:56.63"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just finish the provision.",
       "time": "00:51:14.16"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, now, suppose Mr. Nixon has prepared a diary every day and put down exactly what he did, and let's suppose that someone thought that was a purely personal account. Now, I can just imagine that someone might think it nevertheless is of general historical significance.",
       "time": "00:51:19.52"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, so you would agree, then, that 104 must be construed to sooner or later return to Mr. Nixon what we might call purely private papers.",
       "time": "00:52:22.58"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Can you imagine any diary, thinking of Mr. Truman’s diary, which it was reported was a result of being dictated every evening after the day’s work, can you conceive of any such material that would not be of general historical interest?",
       "time": "00:52:38.35"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Archivists and historians, like journalists, think that everything is historical.",
       "time": "00:53:07.74"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The seizure has taken place, for want of a better …",
       "time": "00:54:13.13"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And I take it from your answer to the Chief Justice’s question that Congress could immediately upon the retirement of Chief Justice Warren from this Court have passed a statute similar sequestering all the papers that he had in this building.",
       "time": "00:54:30.65"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why would it have to set up reasons for so doing?",
       "time": "00:55:06.90"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, are you saying you have emphasized the danger of destruction as an important justification, as I understand it, for this kind of legislation. Are we to assume that Congress has made a finding of fact that there was a danger of destruction and that Mr. Nixon wan as unreliable custodian; and, if so, does that have any bearing on the bill of attainder?",
       "time": "00:55:35.86"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that in your brief, Mr. Solicitor General, or not?",
       "time": "00:56:17.10"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then, excuse me. I have to ask for a citation on that.",
       "time": "00:56:24.53"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did that reference concern the problem of immediate destruction, or was that talking about destruction at a future date?",
       "time": "00:57:10.00"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Certainly, that agreement did not contemplate the immediate destruction of any of these materials.",
       "time": "00:57:37.14"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In fact, it would seem to me that perhaps -- sole access; but you are saying this statute may be justified because of the danger of destruction, and it seems to me that agreement prevented the very danger that you are describing for a limited period of time and therefore would have permitted a careful deliberation of an appropriate statute applying to all Presidents.",
       "time": "00:57:43.84"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, isn't that a statement of fact that would apply to every employee of the United States Government, from the President down to the lowliest doorkeeper, that it affords the opportunity? Is that a finding of apprehension?",
       "time": "00:58:30.90"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did Congress recite that factor?",
       "time": "00:59:03.04"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, I do not know whether we can take judicial notice of the biographical writings of former Presidents or other public officials; but if we can, it is quite clear from what Mr. Lyndon Johnson wrote and what Harry Truman wrote that when they left the White House, they had with their own resources, plus the resources furnished by acts of Congress, a completely private screening under the exclusive control of the former President of all the papers to separate the personal from the truly public or even some of the historical matters. And the biographical material of former Justices of this Court indicates that is generally the process they follow. Do you see a difference exist between having that screening process under the sole control of the individual and the process provided by Congress; and, if so, whether there are any constitutional implications in the difference?",
       "time": "00:59:20.81"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, before you move on, do you have any idea approximately as to how many archivists, secretaries, lawyers and other staff personnel have or will have access to these documents? I think Mr. Miller mentioned 100 archivists. Would it be 100?",
       "time": "01:02:00.64"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "That number was identified in connection with the archivists. A good many other personnel would see the papers, and I ask you a question that may sound frivolous; but do you think if 100 people know anything of great interest in the city of Washington that it will remain a secret?",
       "time": "01:02:48.54"
     },
@@ -883,13 +887,13 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You are probably right.",
       "time": "01:03:12.24"
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, depending on the paper’s case, so to speak. That is not two, but it's very few.",
       "time": "01:03:13.56"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, may I return for a moment to the question? I did not really follow through enough on it about the question of danger of destruction. I suppose there is always a possibility of destruction; if that is enough, why, then that would justify legislation of this kind with respect to any retiring official. But we to take it that the view the Government is that the House Committee and the legislation is predicated on a finding that there was some abnormal danger of destruction that does not always exists with respect to any retiring official?",
       "time": "01:04:13.24"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Solicitor General, I want to be sure you get the full import of my question. I assume you could find support for the view that there is such a finding. What I wanted to know is what the Government’s position is, because if you say the legislature made such a finding, that may undermine your position on the bill-of-attainder point. It seems to me you must take a position one way or the other, and the position must be relevant to two arguments that your opponents make. I am just curious on what your position is.",
       "time": "01:05:02.09"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, my question is, does the Government suggest there was such a finding?",
       "time": "01:05:33.59"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Can there be a violation of a protected interest by the impact of such a finding on a person’s reputation?",
       "time": "01:05:56.44"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And would you take the view that this finding that you described has had no impact on this man’s reputation?",
       "time": "01:06:07.51"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then why is it not so?",
       "time": "01:06:16.42"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General McCree, the National Government is, of course, one of delegated powers, I suppose. Which delegated power was Congress exercising, do you think, under its powers under Article I when it passed this legislation?",
       "time": "01:09:32.77"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would the power to preserve Government property depend on a finding by this Court that it was Government property?",
       "time": "01:10:00.39"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General McCree, you mentioned national defense as one of the justifications for the act. Would you elaborate on that a bit?",
       "time": "01:10:25.93"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there one word in the record anywhere that suggests any danger that a former President of United States would destroy a record related to national defense?",
       "time": "01:11:10.03"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are not representing to this Court that there was any danger known to your office, also as far as the record is concerned known to the Congress, that documents pertaining to national defense would have been destroyed.",
       "time": "01:11:27.18"
     },
@@ -1033,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Excuse me for interrupting you. How many Agencies and Departments are there in the Executive Branch, Mr. Solicitor General?",
       "time": "01:12:36.72"
     },
@@ -1045,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suspect you are right. And there are a couple of million people in the Executive Branch, I think. But put that aside for the moment. I have another question I would like to ask. If you were a foreign diplomat and this Act is sustained, would you feel as free to divulge State secrets to the President of United States as you would have felt prior to the enactment to this statute?",
       "time": "01:12:50.02"
     },
@@ -1057,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There will be at least several hundred people reading or listening to what the Ambassador of this country or that country said to the President of the United States. Do you really think that that invasion would be kept confidential?",
       "time": "01:13:46.91"
     },
@@ -1069,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But this is after this former President that you hypothesize has gone through the process of selecting and segregating, which each of the former Presidents, according to his own account, has done.",
       "time": "01:14:26.50"
     },
@@ -1081,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Solicitor General.",
       "time": "01:15:06.86"
     },
@@ -1093,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Herzstein.",
       "time": "01:15:20.13"
     },
@@ -1105,13 +1109,13 @@
     },
     {
       "turn": 178,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But as a result of this legislation, there has been almost a three-year delay so far in his getting possession of what are entirely personal property, personally confidential documents and property. The delay is not over yet.",
       "time": "01:16:54.62"
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Historical interest never will be given.",
       "time": "01:17:15.20"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could you give us a capsule summary of the difference between what you have just referred to as Nixon’s personal records which will be returned and the matter which will not be returned?",
       "time": "01:19:00.17"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though the Dictabelt was paid for out of House White appropriations.",
       "time": "01:19:24.41"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I want to be sure about that concession, because this is certainly is of historical interest.",
       "time": "01:19:53.68"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is this concession shared by the Solicitor General, do you think?",
       "time": "01:20:02.72"
     },
@@ -1171,13 +1175,13 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "About the fact that the paper belongs to the Government and so forth that we do not believe that makes a document a Government document; but beyond that, if the Court does --",
       "time": "01:20:08.24"
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the Dictabelts representing his daily diary?",
       "time": "01:20:21.58"
     },
@@ -1189,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is there any problem right this very minute of picking those up and giving them back to him?",
       "time": "01:20:30.62"
     },
@@ -1201,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how has that stymied the issuance of regulations, Mr. Solicitor General?",
       "time": "01:20:56.36"
     },
@@ -1213,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that would not have prevented, would it, Mr. Solicitor General, for the development of regulations, the proposal and publication of all the regulations that were contemplated, would it, unless they have already done that and contemplate no other regulations?",
       "time": "01:21:21.01"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there are not any 104 regulations, though, are there?",
       "time": "01:22:38.49"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you know what the present status is of the preparation of regulations for 104?",
       "time": "01:22:51.57"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you suggest that the Act becomes more suspect the longer it goes on without any provision whatsoever for implementing, sorting out and return?",
       "time": "01:23:14.27"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I know that is what you keep saying. But every now and then, you say that the Congress has disapproved the regulations. So apparently, the litigation did not hold up the preparation of the regulations. What has held it up, if the Congress had not disapproved them, they would long since has been issued. How could the litigation have held them up?",
       "time": "01:23:34.70"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I will ask you again. Suppose that goes on for ten years. Does the Act become more suspect or not?",
       "time": "01:24:07.18"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there is nothing in Section 103 to authorize the return of the private diaries to Mr. Nixon.",
       "time": "01:24:14.02"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But I suppose the scheme of the statute is that before any private material is returned, some third party must read the material to be sure it is private.",
       "time": "01:24:31.83"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Herzstein, can I ask one other question about the vast quantity of material? Some of that material was Watergate-related, I suppose, and that was that material which was most likely to be destroyed, I suppose, if we were to read the Congressional material. Is there any evidence of a danger of destruction of anything other than Watergate-related material?",
       "time": "01:25:26.86"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any such evidence respecting anything except material related to Watergate?",
       "time": "01:26:02.83"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do we know it is a small fragment that is personal?",
       "time": "01:27:56.21"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, his claim of Executive privilege, by which I take it you mean his separation-of-powers claim, basically is not premised at all upon the fact that these are personal papers, but almost the opposite:  that they are Presidential official papers.",
       "time": "01:28:24.80"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, not necessarily founder, but at least it would impair the protection of separation of powers as found in our Constitution.",
       "time": "01:28:51.69"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you share the view that Congress could constitutionally provide that on the termination of office of any Federal judge or a Justice that all of his papers then located in any public building or under his control relating to his tenure of office could be impounded until the archivists had decided which were the personal items and which were those relating to the decision-making process?",
       "time": "01:29:58.32"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So are you suggesting that we limit ourselves to the briefs when we reach a decision on the case and the record?",
       "time": "01:31:58.10"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean that these oral arguments are useless?",
       "time": "01:32:15.23"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not necessarily.",
       "time": "01:32:23.21"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The tape recording is not necessarily part of any public record.",
       "time": "01:32:28.27"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I just wanted to be sure you were not denigrating the oral arguments.",
       "time": "01:32:34.08"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you. Mr. Miller, do you have anything further? You have about nine or ten minutes left.",
       "time": "01:32:43.66"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "By the way, how does anybody know how many there are?",
       "time": "01:33:09.64"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where does it come from? Whose estimate is that?",
       "time": "01:33:16.58"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miller, have you made any effort to get the personal papers back?",
       "time": "01:34:04.74"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, my question was, did you ask specifically, not all the documents, but that the personal documents be given to him?",
       "time": "01:34:41.77"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This was not under this Act, was it?",
       "time": "01:35:04.71"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, during this, have you ever asked since this Act was passed? Have you ever asked that the personal property be returned?",
       "time": "01:35:08.70"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then, doesn't that cut into your argument by saying that all of this has involved personal property?",
       "time": "01:35:22.62"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All of the documents.",
       "time": "01:35:47.61"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But did you ever specifically say you want the Dictabelts back? Did you ever say that?",
       "time": "01:35:51.33"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did you ever say, \"We want the personal documents, then we will litigate the others\"?",
       "time": "01:36:01.69"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your complaint alleged that?",
       "time": "01:36:16.59"
     },
@@ -1591,13 +1595,13 @@
     },
     {
       "turn": 259,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I will go look at it.",
       "time": "01:36:21.70"
     },
     {
       "turn": 260,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of course, it would be inconsistent in a way for you to ask for anything less than all of them, because one of your constitutional complaints is that you do not want Government agents, dozens or maybe a hundred, rummaging through these things. That is one of your constitutional challenges.",
       "time": "01:36:24.14"
     },
@@ -1609,13 +1613,13 @@
     },
     {
       "turn": 262,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To decide what is personal or what is not.",
       "time": "01:36:44.46"
     },
     {
       "turn": 263,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is precisely why you asked for your own man to go in there and pick them out?",
       "time": "01:36:46.16"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you believe the Court would have given them that, despite this Act?.",
       "time": "01:37:01.08"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, you do not think the Court could enjoin that part of the statute.",
       "time": "01:37:07.86"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not until the sorting-out process has been completed.",
       "time": "01:37:12.52"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miller, I think Mr. Herzstein suggested that of the 42 million total, there are about 200,000 or less that would qualify as personal documents. Is that right?",
       "time": "01:37:42.91"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you agree with that?",
       "time": "01:37:59.35"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You think there are more than 200,000?",
       "time": "01:38:01.36"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the category of the Dictabelts and other personal letters and things?",
       "time": "01:38:04.58"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what does the record suggest?",
       "time": "01:38:12.55"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And recorded those, also?",
       "time": "01:38:44.28"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you think if it suggests anything, the records shows as to how many would fall into what you would define as personal as against what otherwise would be official?",
       "time": "01:39:05.48"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Incidentally, do the 42 million include, as Brother Rehnquist suggested earlier … what about papers or whatever they may constitute at San Clemente or in Florida? Do these 42 million items include any of those, or are we talking only about White House?",
       "time": "01:39:43.46"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, has that been done?",
       "time": "01:40:25.15"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I suggest that the 42 million are only White House-originated documents, then.",
       "time": "01:40:38.13"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miller, before you sit down, I would like to ask you the same question I asked your opponent. Do you construe the legislative history as being tantamount to a finding that Mr. Nixon was an unreliable custodian?",
       "time": "01:42:36.19"
     },
@@ -1795,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:43:07.41"
     }

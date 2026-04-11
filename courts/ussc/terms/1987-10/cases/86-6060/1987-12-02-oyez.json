@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-6060/19871202a_86-6060.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID I. BRUCK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Bruck, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It did not cite Francis?",
       "time": "00:04:43.03"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Bruck, if the South Carolina Supreme Court does not discriminate against Federal claims, does this Court have authority to tell that Court what retroactivity law to apply in a State habeas proceeding to you suppose?",
       "time": "00:06:40.44"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if this Court were to adopt the Harlan view? Would you lose?",
       "time": "00:09:23.88"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because there was not a new decision, is that it?",
       "time": "00:09:42.86"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if we disagree with you on that, do you lose?",
       "time": "00:09:49.16"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "As we have already jettisoned a considerable part of it on the other side on direct appeal.",
       "time": "00:10:01.74"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Francis certainly changed an awful lot of things that had been regularly going on.",
       "time": "00:10:30.82"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "An awful lot of people didn't understand what bedrock due process was before Francis.",
       "time": "00:10:40.18"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if the Supreme Court of South Carolina had said in connection with its own State habeas that we're not going to entertain any challenges that go to jury instructions. That's just the kind of thing that we're not going to consider on collateral attack and we don't care whether they're State challenges or Federal challenges. And the Supreme Court of South Carolina had decided this case on that basis. Do you think that you would have a Federal question to preserve here?",
       "time": "00:11:10.13"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I realize that.",
       "time": "00:11:42.05"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but it would mean in their own State collateral review, they would not have to decide any claim. Federal or State, based on a jury instruction.",
       "time": "00:11:58.11"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I realize that is not what they did. So a State can circumscribe in some respects the kind of claims it's going to consider on collateral review. Of course some answer to that question may be indicated by the fact that we chiefly relied on Francis.",
       "time": "00:12:12.87"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that what we did in this case?",
       "time": "00:12:36.87"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the Patterson case? I mean, certainly that indicated that Mullaney should not be construed as broadly as it might have been. In fact, it cut back rather sharply on Mullaney. So it wasn't just one great big progress onward and upward as you would suggest.",
       "time": "00:15:52.54"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say that Francis... any Francis-type case would be foreshadowed by Sandstrom?",
       "time": "00:17:41.08"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Court said in Francis that such inferences, permissive inferences do not necessarily implicate the concerns of Sandstrom.",
       "time": "00:18:04.26"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why has the case been discussed in the South Carolina Courts as if it's the retroactivity of Francis v. Franklin rather than the retroactivity of Sandstrom?",
       "time": "00:18:27.38"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think that's probably true. But why should we get into doing harmless error analysis here?",
       "time": "00:21:37.75"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, why should we, you know, if we agree with you on the rest, why shouldn't we just remand and give them a chance to determine whether they think it was harmless or not?",
       "time": "00:21:44.47"
     },
@@ -279,703 +279,703 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bruck. We'll hear now from you, Mr. Zelenka.",
       "time": "00:22:31.37"
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Mr. Chief Justice, and may it please the Court. We submit that the question before this Court is whether a State Court has the ability in collateral review proceedings to establish its own procedures and develop how it is going to review new case law precedent arising out of its own Court and other courts. We submit that in this situation, the retroactive application is not compelled, either constitutionally or otherwise, in the Yates decision. We contend that it was simply a determination by the South Carolina Supreme Court of the limits of the type of review it would give in State habeas proceedings. In that situation, a somewhat unique situation that was presented before this Court, it said it would only look at certain situations and those situations were if the trial court that entered the conviction lacked subject matter jurisdiction over that situation, and secondly if the criminal conduct involved in the case was not subject to criminal sanction.",
       "time": "00:22:35.00"
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Zelenka, explain to me why the Court chose not to consider Francis v. Franklin on the remand?",
       "time": "00:23:40.28"
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It would appear that they did decide that essentially on the facts by that one sentence that they had when they held that this charge was similar to the charge addressed in State v. Elmore and similar to the charges addressed in Francis v. Franklin. However, I would submit that--",
       "time": "00:23:51.59"
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What does that mean? I don't understand. What do you think they decided with regard to Francis v. Franklin?",
       "time": "00:24:09.13"
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--What I think they decided was the limitations of the type of relief and the type of review they would give in State habeas corpus proceedings in its original jurisdiction.",
       "time": "00:24:15.45"
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is it a decision just not to consider Federal claims?",
       "time": "00:24:26.64"
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, it's a decision only to consider those claims that hold that the trial court's jurisdiction was null and void or that the particular conduct involved was not subject to criminal sanctions in the case. If any decision falls outside of those decisions, then it will not consider those retroactively in its original jurisdiction in these matters. There is a State post-conviction relief proceeding that Mr. Yates proceeded to apply on that does provide certain relief in constitutional cases. And it would provide relief on constitutional issues, if those issues were not raised or could not have been raised in the direct appeal. Mr. Bruck has argued somewhat convincingly, I would submit, that in favorem vitae review applies in this case and in any capital case in South Carolina. But a close reading of those cases would reveal that they're talking about the direct appeal situation where they have a much broader review. There is no case in South Carolina that sets out the proposition that in favorem vitae review does exist in State collateral proceedings either under the Uniform Post-Conviction Relief Act, or under the habeas procedures in its original writ. We cited the case of Tyler v. State which says that it is not a substitute for an appeal. So when the Court had this matter before it, they had a situation that was not raised on direct appeal, was not objected to on direct appeal in a case that occurred two years after the Sandstrom v. Montana decision came down, which the petitioner argues set the bedrock precedent for this case. Subsequent to the appeal in this decision, the South Carolina Supreme Court did hold that under a very similar charge to the charge in this case, that they held as a matter of State law that it violated the Constitution.",
       "time": "00:24:31.48"
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you're right, Mr. Zelenka, why does the Supreme Court's opinion in this case discuss retroactivity so elaborately?",
       "time": "00:26:33.49"
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It discussed retroactivity to the extent that they considered the retroactivity of State v. Elmore and whether State v. Elmore was essentially a decision that applied new law or applied something that could have been presented previously to it under more timely procedures.",
       "time": "00:26:42.94"
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean didn't they also consider whether Francis v. Franklin should be applied retroactively?",
       "time": "00:27:00.66"
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I think implicitly in that decision has to come from the Supreme Court's decision that they held that it did not apply retroactively to this decision.",
       "time": "00:27:07.50"
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a holding really on Federal constitutional law, isn't it?",
       "time": "00:27:17.10"
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It's a holding on Federal constitutional law to the extent that they looked at whether those procedures, or that issue, that claim could be presented to it at that time. And they held it could not under their own State procedural law because it did not hold that particular criminal conduct to have divested the trial court of jurisdiction or held a criminal conduct to be not--",
       "time": "00:27:22.01"
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you're saying when they're talking about retroactivity, they're saying that only if a new decision divests the Court of jurisdiction or makes the conduct not criminal will the Supreme Court of South Carolina consider it?",
       "time": "00:27:48.24"
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--Only in those two situations, according to this decision, they would consider it. But if it's in any other situation, the retroactivity issue will not be considered unless it was properly presented in a State post-conviction relief format or had a reason as to why it was not previously presented under State law. Now, the South Carolina Supreme Court allows in State post-conviction relief that issues that were presented or asserted in direct appeal cannot be reasserted in State post-conviction relief or State habeas corpus proceedings. Now, that is the same situation that would apply here. This case and these issues as presented by Mr. Bruck could have been presented on direct appeal. Furthermore, he had the opportunity under our State Post-Conviction Relief Act to reflect as to why, if they weren't presented on direct appeal, why they weren't presented. For example, a Sixth Amendment denial. It could have been presented that way, if he chose to present it that way.",
       "time": "00:28:04.33"
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Let me be direct about it. Do you feel that the Supreme Court of your State complied with the mandate of this Court?",
       "time": "00:29:11.06"
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I think it complied with a mandate of this Court--",
       "time": "00:29:20.92"
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Implicitly?",
       "time": "00:29:22.62"
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--to the extent that they looked at the Francis v. Franklin issue under the procedures that it had established upon review of situations that were presented to it, and to whether those particular issues could be presented in a habeas corpus format.",
       "time": "00:29:23.90"
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, this is the first time it decided it, though?",
       "time": "00:29:42.25"
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "This is actually one of the first--",
       "time": "00:29:45.63"
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It decided to adopt the Harlan view both ways.",
       "time": "00:29:47.83"
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--This is at that time one of the first two cases that they adopted the Harlan view, they adopted it also +/-",
       "time": "00:29:51.85"
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "For their own procedures?",
       "time": "00:29:58.34"
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "For their own procedures. And they clearly state throughout this decision that they're looking at the retroactivity of State Court decisions.",
       "time": "00:29:59.76"
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But of course, did they think that this case, that Francis made new law, or what was their case, the Elmore case?",
       "time": "00:30:09.56"
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Elmore case occurred before Francis v. Franklin, after Sandstrom. They never made a decision within the Yates decision, whether Francis applied new law or not. What they implicitly held we think is that Francis did not fall under one of the two categories that they would look at a situation, divesting the trial court of jurisdiction of the conviction or the situation where the conduct alleged here was not subject to criminal sanctions.",
       "time": "00:30:25.92"
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it that Elmore was decided after the trial in this case?",
       "time": "00:30:56.59"
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Elmore was decided after the trial in this case, but before the State post-conviction relief review, and a Woods case was held subsequent and during the State post-conviction relief review and then he petitioned at that third stage while the State post-conviction relief review was pending on appeal to ask this Court in its original jurisdiction to look at the State v. Elmore case and apply that retroactively. We would submit that that unique situation that he was looking for. In fact, in his petition itself he is saying we are seeking the ability to argue the applicability of State v. Elmore and State v. Woods to this factual situation. The South Carolina Supreme Court denied both times to apply it to this situation. He's asserting that there is in favorem vitae review in the South Carolina decisions at any stage during the proceedings. We would submit that the Yates decision itself clearly stands for the proposition that under South Carolina law, in favorem vitae review does not exist at all proceedings because they acknowledge in this case that the jury charges in State v. Elmore were similar to those that were found in violation... excuse me... that the jury charges in this case were similar to those found in violation in State v. Elmore.",
       "time": "00:31:02.70"
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question on the sequence of events. State against Elmore was decided in 1983. Now, that's before Francis against Franklin?",
       "time": "00:32:26.00"
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Yes, sir.",
       "time": "00:32:36.21"
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that case had an instruction identical with Francis against Franklin, I mean, for all purposes, this Court assumed that it was the same, did it not, your State Supreme Court?",
       "time": "00:32:37.39"
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Similar to it.",
       "time": "00:32:46.15"
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that when they held the instruction bad in the Elmore case, they were not relying on Franklin, because it hadn't been decided?",
       "time": "00:32:47.31"
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, sir.",
       "time": "00:32:53.75"
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So they must have been relying on Sandstrom against Montana, is that right?",
       "time": "00:32:54.40"
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, they could have been relying on Sandstrom v. Montana. They did not say it in their decision. Or they could have been relying on their own State Constitution.",
       "time": "00:32:57.79"
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the Elmore case cite any Federal precedent in it? I haven't read it, I have to confess.",
       "time": "00:33:06.64"
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, it does not.",
       "time": "00:33:15.00"
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It did not. I see.",
       "time": "00:33:15.97"
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "There was a case that preceded that, State v. Madison, where they held there was a jury charge somewhat similar to the jury charge in this particular case. They found that it was not violative of the Constitution, but then they held in Madison a similar charge that should have been given.",
       "time": "00:33:17.12"
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Has your State Supreme Court ever cited and followed Sandstrom against Montana?",
       "time": "00:33:35.00"
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Have they ever cited and followed Sandstrom? They've cited it and they've cited Francis in a recent decision.",
       "time": "00:33:41.40"
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I meant Sandstrom against Montana. Have they ever cited and followed Sandstrom against Montana, do you know?",
       "time": "00:33:47.74"
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "They have... to tell you the truth, I cannot recall specifically a case that has cited the Sandstrom situation. We have relied essentially on State law decisions of State v. Elmore, State v. Lewellyn, which stand for very similar concepts of the Sandstrom case. And they've relied on those. But in a recent case, State v. Patrick, they did acknowledge that the Francis situation applied to that.",
       "time": "00:33:52.96"
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Zelenka, I don't entirely understand what the South Carolina Court is doing here. If we do not have a retroactivity case in front of us, if I think this is not a retroactivity case, then would the South Carolina Supreme Court's determination that this does not come within one of the only two categories that we entertained review in, would that be wrong?",
       "time": "00:34:17.41"
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, it would not.",
       "time": "00:34:41.52"
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't the limitation to those two categories only apply in retroactivity cases?",
       "time": "00:34:43.56"
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, not necessarily. It would apply in any situation if the individual--",
       "time": "00:34:48.63"
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any collateral?",
       "time": "00:34:52.41"
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--claimed that he was not indicted, that the Court did not have jurisdiction over him, or a situation where he was charged with criminal conduct that subsequently was determined not to be criminal conduct.",
       "time": "00:34:53.15"
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And those are the only bases on which you can collaterally attack a judgment on habeas in South Carolina?",
       "time": "00:35:06.84"
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, sir. In State habeas under this decision, that would be it, but under collateral review, they have much broader abilities to do challenges under Sixth Amendment violations and similar violations in the Uniform Post-Conviction Relief Act.",
       "time": "00:35:13.58"
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what you're saying. Why is this decision different from all others?",
       "time": "00:35:28.19"
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Because this decision fall in a different procedural mode than the normal collateral review that's done in South Carolina. It did not fall within the Uniform Post-Conviction Relief Act, which sets out the ability to do challenges under the United States Constitution, generally. It is... the Uniform Post-Conviction Relief Act is more analogous to 28 U.S.C. 2254 than the State habeas proceeding that he went in and he asked to apply in the original jurisdiction of the Court.",
       "time": "00:35:32.04"
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you say under this procedure, the only things he could have raised were those two categories?",
       "time": "00:36:05.18"
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "We think that's what this decision stands for, yes, sir.",
       "time": "00:36:10.76"
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whether it's a change in the law or not.",
       "time": "00:36:15.57"
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Whether it's a change in the law or not. Those matters should necessarily then be brought under the Uniform Post-Conviction Relief Act.",
       "time": "00:36:21.05"
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then are you also saying, assume you prevail in this Court on the theory that you espouse, that this particular petitioner should go back to South Carolina and invoke the Uniform Post-Conviction Relief Act before he would have exhausted his State remedies?",
       "time": "00:36:27.62"
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The problem with his attempt to invoke the Uniform Post-Conviction Relief Act is that he is probably procedurally barred because South Carolina has, under Rule 50 of the Supreme Court Rules, a successive application.",
       "time": "00:36:42.63"
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you're saying that is not actually an available remedy at this time?",
       "time": "00:36:56.64"
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That would not be an available remedy.",
       "time": "00:37:00.35"
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it also was not an available remedy at the time of the decision we're reviewing now?",
       "time": "00:37:01.55"
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It was an available remedy to the extent that the application for post-conviction relief was pending when Elmore was decided. I mean, he could have sought the Sandstrom issue under Elmore. Now, Francis v. Franklin had not yet been decided, so under the Francis issue, it would not be available.",
       "time": "00:37:08.45"
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But are you telling us... I just want to be sure I understand you... are you telling us that the way you read this decision that they in effect are saying, you've pursued the wrong remedy and you should have pursued the Uniform Post-Conviction Relief Act?",
       "time": "00:37:29.05"
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No. I think what we're saying is, you don't have that remedy available to you under the State habeas corpus proceedings. I think that's all they're saying. I don't think they're saying--",
       "time": "00:37:42.71"
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And where in the opinion do you find them saying that?",
       "time": "00:37:53.03"
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--The only part of the opinion that I would assert that I find them saying that is in their conclusion in which they state that collateral attack of a criminal conviction... and this is at the Joint Appendix, page 34, the top of the page, collateral attack of a criminal conviction--",
       "time": "00:37:56.60"
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What page, please?",
       "time": "00:38:12.91"
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--Page 34 of the Joint Appendix. Collateral attack of a criminal conviction on the basis of legal precedent that developed after the conviction became final must be reserved for those cases in which the trial court's action was without jurisdiction or as void because the defendant's conduct is not subject to criminal sanctions.",
       "time": "00:38:13.94"
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's retroactivity, and I asked you whether this decision would apply whether or not the claim was based on retroactivity or not. This is retroactivity talk. Legal precedent that developed after the conviction became final. Now, I'm saying, what if I believe that the claim here is not based on legal precedent that developed after the conviction became final? This decision wouldn't bar it from being brought.",
       "time": "00:38:32.36"
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It would not bar it from being brought under the Uniform Post-Conviction Relief Act, if he could show a reason why he did not or could not raise that at the time of the original action.",
       "time": "00:38:59.54"
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's fine, but it's a different point. It seems to me that what this decision says, if I don't believe that this case is one involving new law, then this decision's wrong. Isn't that right?",
       "time": "00:39:11.77"
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No. Because they're looking at any type of legal precedent, any case that comes down. What I think the South Carolina Supreme Court is saying that every time a new decision comes out, that does not automatically allow an individual to come to the Court to enter the Court to kill the finality that existed on that conviction at that time.",
       "time": "00:39:28.53"
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is not a new decision. There's no new decision he's relying on. Imagine I think that he's relying on you know, Sandstrom, all the way back. It's been clear for years and years. If that's what I think then this decision's wrong?",
       "time": "00:39:49.81"
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "If that's what you think, then this decision is wrong to the extent that it would apply to the Francis situation.",
       "time": "00:40:05.15"
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So if we think that Francis was just a plain open and shut application of Sandstrom, we reverse?",
       "time": "00:40:12.14"
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Not necessarily, because there are significant procedural bars in this case. It would most appropriately then be a remand to determine whether bars existed.",
       "time": "00:40:31.97"
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, all right. But nevertheless, the decision was wrong.",
       "time": "00:40:44.19"
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, I wouldn't say that the decision--",
       "time": "00:40:49.36"
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought that's what you said in answer to Justice Scalia.",
       "time": "00:40:50.91"
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--The decision was correct to the... he determined that the decision was wrong to the extent that it pointed to Francis and whether Francis was new law. I would submit that the question is that the judgment was correct because they denied it in this situation because they were not going to open up the Courts to a situation that could have been presented, a claim that could have been presented previously. They determined that there was no reason for the opening up of the judgment in this case.",
       "time": "00:40:55.50"
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's a different ground, though. If we remand, they can decide that this is excessive application or that he's procedurally barred or something else. But that's not the basis that this decision rests on. It would be strange... I guess we've made mistakes before, but if we vacate and remand for reconsideration in light of Sandstrom, there must have been some federal issue presented to us. In light of Francis, there must have been some federal issue presented to us, namely the issue of this instruction, and I suppose that it had been represented to us that the issue had been raised on direct appeal in the State Courts. Was it?",
       "time": "00:41:25.19"
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It was not raised on direct appeal in the State Courts and it was not raised in the Uniform Application of Post-Conviction Relief. A petition in the original jurisdiction of the Court was made that requested the South Carolina Supreme Court to apply the principles of State v. Elmore and State v. Woods to this case, while that case was pending.",
       "time": "00:42:08.82"
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is the opinion of the South Carolina Supreme Court dated December 22, 1982, the per curiam that appears, begins on page 10 of the Joint Appendix? Is that the opinion of the Supreme Court of South Carolina which we vacated or remanded?",
       "time": "00:42:30.38"
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, it is not. The opinion that was vacated is on page 27.",
       "time": "00:42:47.66"
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was that on collateral?",
       "time": "00:42:59.98"
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Yes, that was on State habeas corpus, and all it said was we have considered the petition for the writ of habeas corpus and conclude that it should be denied.",
       "time": "00:43:01.38"
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was denial without opinion.",
       "time": "00:43:14.29"
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It was denial without an opinion.",
       "time": "00:43:15.91"
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, did the writ of habeas corpus raise the--",
       "time": "00:43:17.01"
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Okay, the original writ requested reconsideration in light of State v. Elmore and State v. Woods, because those decisions came out after the direct appeal in State v. Yates, the decision you were initially pointing to. Now, while that decision was pending before the South Carolina Supreme Court, Francis came out and he petitioned to supplement. And shortly after his petition to supplement, this decision came down.",
       "time": "00:43:21.23"
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, a good answer to the remand would have been, this is procedurally barred.",
       "time": "00:43:50.33"
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That's correct. And that is one position that we presented to the South Carolina Supreme Court.",
       "time": "00:43:56.59"
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that is not the way it wrote.",
       "time": "00:44:01.27"
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "We submit they didn't need to address that issue.",
       "time": "00:44:03.07"
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I also point out, if I read this correctly, the Order on page 27 doesn't just deny the petition for habeas corpus but it also denies the petition seeking review of the denial of the application for post-conviction relief.",
       "time": "00:44:06.51"
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That's correct.",
       "time": "00:44:19.93"
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So apparently, your opponent pursued both remedies.",
       "time": "00:44:20.30"
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "He pursued both remedies before and that was on appeal.",
       "time": "00:44:22.64"
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before we remanded it?",
       "time": "00:44:26.59"
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Before you remanded it.",
       "time": "00:44:28.05"
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But our remand was in a case that both invoked the post-conviction relief statute and the writ of habeas corpus. Is that not correct?",
       "time": "00:44:28.87"
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It was our understanding from the remand and the particular request within the particular petition that he was seeking the writ of certiorari only under the writ of habeas corpus.",
       "time": "00:44:38.39"
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because in the order at least, he was seeking review of applied to both, that much is clear.",
       "time": "00:44:51.47"
     },
     {
       "turn": 148,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That would be correct, yes.",
       "time": "00:44:56.54"
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you think he bifurcated it in effect and only wanted the relief from half of it?",
       "time": "00:44:57.52"
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That would--",
       "time": "00:45:02.51"
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did he proceed pro se here, or did he have counsel?",
       "time": "00:45:03.01"
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--He had the same individual counsel he has here today representing him, along with a member of the Appellate Defense Commission of South Carolina in the post-conviction relief appeal. And he also had counsel in the State post-conviction relief proceedings when he raised a Sixth Amendment challenge based upon a closing argument of a solicitor that was similar to the Thompson v. Aiken argument and the South Carolina Supreme Court implicitly rejected that with a denial of the certiorari petition done pursuant to Rule 50 of the South Carolina Supreme Court rules. We would submit that the South Carolina Courts have the ability to fashion the types of relief that it is going to give and fashion the types of procedures that it's going to give in those situations, as long as it does not discriminate in those claims that are presented to it. ,-- In this situation, we submit that the South Carolina Court established its own common law and that they were not going to look at the issues as presented in Elmore similar to the issues as presented in this case in its original jurisdiction. Further, we would submit that the South Carolina Court--",
       "time": "00:45:06.06"
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Under the theory that they were retroactive?",
       "time": "00:46:27.97"
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--On the theory that they were retroactive. But in addition, we would submit that because it was a sense of a procedural bar because of the situation in Elmore that if it was a Sandstrom issue as he urged in that particular case that that issue could have been raised previously.",
       "time": "00:46:31.07"
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where is that?",
       "time": "00:46:50.32"
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It's not within the decision. That was within his argument that he made before the South Carolina Supreme Court. We would further submit that the jury charges in this particular case did not violate Francis v. Franklin in that they did not, when closely viewed, shift any burden of proof on any of the particular elements of the crime. It was merely first a definition of the sense of malice that it is the doing of an unlawful act without just cause or excuse, and second that malice is implied or presumed from use of a deadly weapon is really no presumption at all because it was followed immediately by the sentence that said, when all the facts and circumstances are presented surrounding the use of the weapon, that presumption is removed, and ultimately is for the jury to determine under all the facts and circumstances of the case whether in fact malice existed in the heart and mind of the killer. We would further submit that this case does present a situation where there was harmless error. Now while we understand that the proceedings that are before the Court does not mandate this Court to determine harmless error, we think that if the State of South Carolina and the South Carolina Supreme Court was in error in this particular order, that a remand would be appropriate for the Court to determine the issue of harmless of error. But we think the facts and circumstances of this case, as we have briefed, support a conclusion that any error was harmless beyond a reasonable doubt. Thank you.",
       "time": "00:46:51.18"
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Zelenka. Mr. Bruck, you have nine minutes remaining.",
       "time": "00:48:29.26"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you one question if I may. Just glancing through the opinion of the Supreme Court of South Carolina on direct appeal in 1982, it gives no intimation that any challenge to this jury instruction was made on direct appeal. Is that correct?",
       "time": "00:48:34.30"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What business was there raising it in the proceeding in this case? Wasn't that it was an original habeas?",
       "time": "00:48:59.50"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In the Supreme Court of South Carolina?",
       "time": "00:49:11.07"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What was raised in that State collateral proceeding?",
       "time": "00:49:29.40"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When was the Sandstrom Francis instruction issue first raised anywhere in the South Carolina courts?",
       "time": "00:49:43.86"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I take it that the suggestion is that that claim was procedurally barred?",
       "time": "00:49:59.32"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I suppose that if there had been a procedural bar, the opinion in this case, they wouldn't have needed to go to all the trouble of writing an opinion in this case. They could have just said, procedurally barred.",
       "time": "00:50:26.64"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what about what it says up here that this kind of State habeas proceeding is limited to the two little circumstances that are mentioned by Mr. Zelenka?",
       "time": "00:51:53.84"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On page 34 of the Joint Appendix if I'm reading where I think Justice O'Connor was referring to, it says, collateral attack of a criminal conviction on the basis of legal precedent that developed after the conviction became final must be reserved for those cases in which the trial court's action was without jurisdiction, or is void because the defendant's conduct is not subject to criminal sanction. Now, that's the majority opinion of the Supreme Court of South Carolina.",
       "time": "00:52:24.63"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that the law in South Carolina has changed since March, March 29, September 29, 1986, when this opinion issued?",
       "time": "00:53:14.46"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would it be cognizable in this form of State habeas proceeding do you think?",
       "time": "00:53:53.94"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Despite its language saying it wouldn't be?",
       "time": "00:54:00.80"
     },
@@ -1131,13 +1131,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bruck. The case is submitted.",
       "time": "00:56:06.19"
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:56:10.63"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/93-1504/19941206a_93-1504.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY W. WARREN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "BRENT M. ROSENTHAL",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument this morning in Number 93-1504, the Celotex Corporation v. Bennie Edwards. Mr. Warren.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Warren, would you explain how the proceeding on the bond will affect the bankruptcy estate? What are the ways in which it will? The money Northbrook has to pay is outside the bankruptcy estate, of course, so how will it affect the bankruptcy estate?",
       "time": "00:02:42.34"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So what was pledged are funds that otherwise would be in the general bankruptcy estate.",
       "time": "00:03:33.85"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Warren, the estate would get back that property pledged, I assume, only if there's some invalidity in the pledge, is that--",
       "time": "00:03:56.45"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is there thought to be some invalidity in it?",
       "time": "00:04:06.66"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those claims seeking to bring back those... the judgment has already been rendered with regard to those claims.",
       "time": "00:04:53.97"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Warren, didn't you say what was infected was the collateral, not the judgment itself?",
       "time": "00:05:49.84"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So what would be the basis for setting aside the transfer from Celotex to Northbrook to secure the appeal bonds?",
       "time": "00:05:56.61"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you attacking those as preferences, or fraudulent, or... what's the basis for attacking that transfer?",
       "time": "00:06:25.85"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is it for the indirect benefit of the Edwardses? If the bond had not been posted, the Edwardses would have executed--",
       "time": "00:06:58.32"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and the money would have been gone. So how does it benefit the Edwardses? It seems to me it was entirely for the benefit of Celotex, to enable it not to have to pay the judgment.",
       "time": "00:07:05.33"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not concerned with the insolvent status, I give you that, but what conceivable basis is there for arguing that it was not for the benefit of Celotex, which is a necessary condition to say that, you know, that somehow this thing could be called back?",
       "time": "00:07:54.15"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, please help me. I really don't understand this. Isn't it the case that despite Celotex's insolvency the judgment could have been executed upon?",
       "time": "00:08:44.28"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Absent the posting of the bond.",
       "time": "00:08:57.69"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Warren, could you help me just with this one very preliminary question? It seems to me you're arguing the merits of the bankruptcy court's injunction, and I thought your basic position was that even if the injunction was erroneously entered, you should still prevail.",
       "time": "00:09:16.57"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me the thrust of your argument is we shouldn't be deciding that, either.",
       "time": "00:09:42.52"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your position is that if the Edwardses thought the bankruptcy court was wrong, they should appeal to the eleventh... the district court in the Eleventh Circuit, not take it up in the Fifth Circuit.",
       "time": "00:10:04.96"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "On that point, I want to ask, was Northbrook subject to the stay order? Did the stay order run against Northbrook--",
       "time": "00:10:23.36"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Specifically?",
       "time": "00:10:31.86"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it comes down to which is the proper circuit, ultimately, to resolve this legal question of whether the appeal bond can be thrown back for the benefit of all the creditors. It's just that... it's a question of whether it's the Eleventh Circuit or the Fifth Circuit that's going to make that ruling.",
       "time": "00:11:41.00"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And would that bar another circuit from reexamining this order if there were... because there's colorable jurisdiction to issue it? Suppose the assertion was that there was a patent jurisdictional defect. I don't think that assertion is made here, but suppose it were, would that bar the Fifth Circuit from making this inquiry?",
       "time": "00:12:21.81"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So is your position here that there is no patent defect, that there is at least colorable jurisdiction, and that that's the end of the matter?",
       "time": "00:13:04.74"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Warren, at this point, mustn't we decide more than colorable, because at least in the forum where the appeal bond was lodged, that's a mechanical procedure, ordinarily. You called it... you said everyone agreed that in the Fifth Circuit there was a collateral attack on the bankruptcy court's stay order, but in fact what there was was a motion under the Federal rules to realize the judgment against the appeal bond. It wasn't a separate proceeding collaterally attacking the stay in the bankruptcy court, so it's not like a little jurisdiction. The question is, does the bankruptcy court have subject matter jurisdiction? It either does or it doesn't.",
       "time": "00:13:31.39"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you're relying on 105 for that?",
       "time": "00:14:24.01"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So we have to make a detailed inquiry, or the Fifth Circuit is entitled to make a detailed inquiry, into the jurisdiction under 1334?",
       "time": "00:14:31.70"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're saying that jurisdiction existed if there was a colorable claim that the property could come into the estate, and this is where I find I have difficulty. You're saying it is a colorable claim so long as the property used to belong to the bankrupt.",
       "time": "00:14:56.75"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying that even without... without any assertion of facts that would somehow demonstrate that there's a real possibility that the property could be included within the bankruptcy estate, even without that, it is still related to--",
       "time": "00:15:15.62"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It doesn't say, might be related to. It says, related to.",
       "time": "00:15:54.16"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't it reasonable to interpret that to mean that there must be some facts that would give rise to a colorable claim that the money can be recovered by the bankrupt estate?",
       "time": "00:15:57.50"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And what are they here?",
       "time": "00:16:07.67"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Warren, I don't understand why that claim would be affected one way or another by whether the bonding company pays out on the bond.",
       "time": "00:16:26.90"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't... I guess I have the same question. Isn't your claim broader than that? Even if there were no attack on these bonds, isn't it your position that the bankruptcy court would still have jurisdiction to enter an injunction against realizing on the bond?",
       "time": "00:16:35.16"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that the only-- --But how-- --I'm sorry. Go ahead. No, I was going to say, the only jurisdictionally relevant fact that you have to establish is that, if in fact the Edwardses realized on the bond, there would be a consequence to the bankruptcy estate, i.e., the bonding company would then presumably realize on its collateral. That's all you have to show, isn't it?",
       "time": "00:16:59.62"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, if the respondents had just executed on their judgment, that would not have been anything that would be covered by the stay, I take it, of the bankruptcy court?",
       "time": "00:17:28.02"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what would have been the situation had there been no supersedeas bond?",
       "time": "00:18:12.98"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would have precluded any execution of the judgment.",
       "time": "00:18:27.29"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the bond was put up-- --And the bond-- --before there was any bankruptcies.",
       "time": "00:18:30.78"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The bond was then obtained prior to the filing of bankruptcy, to enable the respondents to go ahead and... and obtain their money on the basis of the supersedeas bond.",
       "time": "00:18:34.16"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, do you say the test for whether it is related to the bankruptcy proceeding is the test employed by the Third Circuit in Pacor v. Higgins?",
       "time": "00:19:07.28"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do all the courts of appeal apply that same test, or is there some diversity--",
       "time": "00:19:21.64"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--among the circuits?",
       "time": "00:19:28.30"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the only conceivable effect here is if Celotex can establish that its transfer of the collateral to Northbrook was a fraudulent transfer?",
       "time": "00:19:52.33"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How did the Edwardses get away from this, then? Supposing that they had actually been... the bond had paid them off, paid off their judgment, could the bankruptcy court still come after them?",
       "time": "00:20:28.07"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Warren, if the automatic stay in bankruptcy didn't occur until after that judgment was rendered, and is there any precedent for saying when somebody has a good judgment, and the judgment is paid before the bankruptcy petition is filed, but yet the bankruptcy estate can go back and get that court judgment, can set aside that court judgment? I don't know--",
       "time": "00:20:55.30"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Preferential transfer that consists of a payment of a judgment? Do you know any case where a payment of a judgment has been set aside?",
       "time": "00:21:35.18"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Warren, let me ask you this hypothetical. Suppose... suppose there's a piece of property that Celotex sold 10 years ago, and it sold it with a condition subsequent, that if a certain event occurred, the property would revert to Celotex. There is now pending a lawsuit between two third parties who have nothing to do with Celotex or Northbrook or anybody else, involving ownership of this property. Could the bankruptcy court stay that proceeding on the theory that since there was this reversionary provision, although there's no reason whatever to believe that the event which would produce the reversion has occurred... no reason whatever to believe that... nonetheless, it is related to the bankruptcy? Could that be stayed?",
       "time": "00:22:06.85"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So related to just means, what, it means somehow the bankrupt's property is involved?",
       "time": "00:22:54.85"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Conceivable regardless of reality? I mean, you can make up facts--",
       "time": "00:23:02.00"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, that's one reason it couldn't have any conceivable effect. Another reason it couldn't have conceivable effect is that there is no way in the world that the claim which would bring it back into the State could be vindicated, so that if I feel that way about whether there was consideration given for the posting of this security, whether not having to pay it immediately is adequate consideration, I have brought this case parallel with the hypothetical I just gave you.",
       "time": "00:23:23.99"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Unless it is patently frivolous.",
       "time": "00:23:59.82"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why isn't it patently frivolous here if there is... was, indeed, equivalent value given for the posting of the security?",
       "time": "00:24:07.65"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you're saying that that determination, or the determination of your position, simply cannot be made without a full trial on the merits, and therefore there's no opportunity to come under the frivolousness rule in this case.",
       "time": "00:24:32.62"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does that position of yours turn in any respect on the fact that Northbrook was itself bound by the order of the bankruptcy court?",
       "time": "00:24:56.82"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If Northbrook had not been caught in the middle, would your position be different?",
       "time": "00:25:11.25"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is to say--",
       "time": "00:25:19.40"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That is to say, suppose Northbrook had not been bound by the order because there was no personal jurisdiction over it, or it had no knowledge of the order. I'm just trying to find out whether or not Northbrook's position before the bankruptcy court is the linchpin of your argument.",
       "time": "00:25:21.19"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it is bound--",
       "time": "00:25:45.89"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in its view, by the order that the bankruptcy court issued.",
       "time": "00:25:47.00"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it takes the position, and you take the position on its behalf, that if that order is to be revised or amended or suspended as to Northbrook, it has to be the issuing court that does that.",
       "time": "00:25:51.41"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I do have one question about the status of what you call the avoidance action, where there were motions for summary judgment pending as of last March. Have those been disposed of?",
       "time": "00:26:09.09"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Warren. Mr. Rosenthal, we'll hear from you.",
       "time": "00:26:40.20"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rosenthal, did you ever file a motion in the Florida Bankruptcy Court seeking relief from the injunction?",
       "time": "00:27:20.20"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why didn't you follow that procedure on behalf of these respondents?",
       "time": "00:27:43.81"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did it have no jurisdiction to do that as to Northbrook?",
       "time": "00:28:00.91"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you deny, Mr. Rosenthal, that the claim that your opponent has made that if, in fact, the Edwardses realize on the bond, the bonding company is going to go against the collateral, the collateral is going to affect the value of the bankruptcy estate. Do you... is there a flaw in at least that sequence of reasoning?",
       "time": "00:28:10.01"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but that's not the argument. I mean, that's a different argument, but the argument that's being made here is that the proceeding against the bond, if allowed to run its course, and it's successful, as presumably it would be, would affect the value of the bankruptcy estate?",
       "time": "00:28:45.18"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, why do you... what's the misstep? You admit the bond is subject to collateral--",
       "time": "00:29:06.35"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--and the collateral is in the bankruptcy estate.",
       "time": "00:29:14.30"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. What's wrong with his reasoning?",
       "time": "00:29:16.57"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, he isn't claiming that you are seeking the collateral. All he's claiming is that the proceedings against the collateral will affect the value of the bankruptcy estate, and he is saying that therefore the... in effect the status of the collateral and any threat to it is a matter which is related to the Chapter 11 proceeding, and that's all that's necessary for jurisdiction under 1334(b).",
       "time": "00:29:24.48"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, this is more than... you're quite right about your statement of the test, but isn't this a little bit stronger than merely conceivable?",
       "time": "00:30:01.93"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If you go against the collateral, the collateral isn't going to be there, and they have priority. The collateral isn't going to be there in the general bankruptcy estate.",
       "time": "00:30:09.44"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, presumably Northbrook is not going to open its veins and bleed to death. I mean, it's reasonable to suppose that Northbrook is going to want to realize on its collateral, isn't it?",
       "time": "00:30:22.25"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "There's nothing frivolous about that assumption, is there?",
       "time": "00:30:31.79"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that may be a good argument in front of the court that decides what should be done, as to whether there should be an injunction or not, but I don't see that that goes to jurisdiction. The question on jurisdiction is, is it related, and of course it's related, because it's going to affect the bankruptcy estate. At least, that's his argument.",
       "time": "00:30:43.74"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Rosenthal--",
       "time": "00:31:43.61"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--isn't it a little abstract to say these claims are not related to the bankruptcy? Isn't it in fact the case that these personal injury claims are what drove Celotex and companies similarly situated into bankruptcy, so it's quite... I can understand the abstract categorization that you're making, and is it not possible that if Celotex didn't think it had a shot at defeating the punitive recoveries, it might have gone into bankruptcy earlier when faced with these hundreds of claims?",
       "time": "00:31:45.00"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which is a good argument on the merits of whether there should be an injunction, but I don't see why it is significant with respect to jurisdiction.",
       "time": "00:32:51.18"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not... you don't take a merits... I guess what I'm hearing from you is a kind of a merits first approach to jurisdiction. If you lose on the merits, there's no jurisdiction, but the words, related to, in a jurisdictional statute, have generally been given a very broad meaning.",
       "time": "00:33:03.82"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you can argue in the bankruptcy court that the stay shouldn't have issued. You can appeal to the district court or the court of appeals that supervises the bankruptcy court. I mean, it's not as if the bankruptcy court makes a wrong decision you're just permanently stuck with it.",
       "time": "00:34:05.72"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, Congress shouldn't have worded it as related to. I mean, you know, I think your argument is basically you don't like the breadth of jurisdiction conveyed... conferred by Congress.",
       "time": "00:34:33.71"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But nonetheless, if Northbrook goes against Celotex as a result of your collecting on the bond because of the collateral that Celotex... that could diminish the Celotex bankruptcy estate, could it not?",
       "time": "00:35:44.55"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Rosenthal, what would have happened if, after the district court judgment, an appeal bond is put up, and while the appeal is pending, the Chapter 11 had been filed, what would have been the situation of the Edwardses then?",
       "time": "00:36:19.78"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a rather elementary question? I must confess my ignorance about some of this. Your clients are not parties to the injunction, is that right?",
       "time": "00:37:04.66"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it arguable that they're in contempt of court in Tampa?",
       "time": "00:37:15.75"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Have any contempt proceedings been brought against them?",
       "time": "00:37:20.47"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How about contempt proceedings against the bonding company?",
       "time": "00:37:23.31"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the procedure, proceeding there which is testing the validity of the injunction as applied to them?",
       "time": "00:37:30.11"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If any.",
       "time": "00:37:36.76"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:38:08.83"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But again, you would agree that if the injunction is ultimately upheld... say if the Fifth Circuit decision stands, too, don't you run some risk of being held in contempt of court ultimately and punished for that?",
       "time": "00:38:33.20"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you're willing to take that risk, in effect.",
       "time": "00:38:43.67"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Rosenthal, isn't that unseemly in the Federal system this should go... be settled in one place or another and then to have the risk of contempt because the Edwardses are resisting the authority of the courts within the Eleventh Circuit, to say that what has happened in Fifth Circuit is okay but that can be checked later on through contempt proceedings... for the smooth functioning of a Federal system, shouldn't it be clear that either you're right or Mr. Warren is right about the authority of the courts within the Eleventh Circuit?",
       "time": "00:39:04.92"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Would you agree that if the Fifth Circuit was wrong about the jurisdiction of the bankruptcy court, however wrong the bankruptcy court may have been on the merits of granting the stay, if they were wrong about the jurisdiction, the authority of the bankruptcy court to issue its stay, that would include all the personal injury people who already had judgments, then this gets sorted out in the Eleventh Circuit and not in the Fifth Circuit? The question is, was there authority in the bankruptcy court in Florida, in the district court in Florida.",
       "time": "00:40:52.94"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Warren, if I hear you correctly, you are not arguing that there is no possibility... no realistic possibility, no argument, that Northbrook cannot be prevented from executing a bond collateral. You acknowledge that there may be a basis, after you collect from Northbrook, for saying that Northbrook has no right to--",
       "time": "00:41:47.34"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But you haven't made it.",
       "time": "00:42:23.63"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You just argue on the basis of lack of relationship, not the fact that there may not be some plausible basis for thinking that Northbrook can't use the collateral.",
       "time": "00:42:29.50"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But would you not agree, at least as a matter of jurisdiction, the bankruptcy court would at least have jurisdiction to enjoin Northbrook from trying to realize on the collateral?",
       "time": "00:42:46.63"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:42:55.88"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So then Northbrook would be under conflicting obligations-- --No, because they can-- --if the Fifth Circuit standpoint-- --They can pay the judgment without... and lose on both cause.",
       "time": "00:42:56.93"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:43:08.19"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You can pay... am I wrong in thinking that the Edwardses have realized on the appeal bond, that you've gotten paid, or you haven't?",
       "time": "00:43:15.91"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But under the Fifth Circuit judgment you could.",
       "time": "00:43:28.20"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you... what... why are you not... this is some voluntary understanding?",
       "time": "00:43:31.85"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you don't collect.",
       "time": "00:43:45.83"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Rosenthal, on rehearing, the Court of Appeals for the Fifth Circuit, in its amendment to the opinion, its last couple of sentences say, \"Thus, we have not held that the bankruptcy court in Florida was necessarily wrong, we have only concluded that the district court, over which we do have appellate jurisdiction, was right. \" Do you defend that analysis of the matter?",
       "time": "00:43:48.88"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's accurate enough to say that the Fifth Circuit is not saying that the bankruptcy court was wrong.",
       "time": "00:44:54.37"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is only saying that the Texas court was right.",
       "time": "00:44:59.29"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let him who can read conclude that therefore the other court was wrong.",
       "time": "00:45:05.04"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does that court have jurisdiction? I mean, supposing a court with conceded jurisdiction, say a Federal court with diversity jurisdiction under the statute, issues an injunction which does not comply with Rule 65, and that judgment simply becomes final without any appeal, could the object of the... the person who is constrained by the injunction challenge that collaterally because it violated Rule 65?",
       "time": "00:46:11.93"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in other words, you're saying that if a court does not comply with Rule 65, that deprives it of jurisdiction?",
       "time": "00:46:45.32"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That would be an extraordinary departure from our cases.",
       "time": "00:46:53.84"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why don't you answer my question.",
       "time": "00:47:03.95"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but supposing the bankruptcy court has before it a controversy that is not at all patently frivolous... that is, it concededly relates to the bankruptcy... and issues an injunction which doesn't comply with Rule 65, does that mean it can't rely on the subject matter of the controversy before it to sustain jurisdiction, just because the injunction didn't comply with Rule 65?",
       "time": "00:47:24.86"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but don't our cases say that if an injunction's issued in violation of Rule 65 you don't collaterally attack it, you go back to the court that issued the injunction and say, this was wrong because you didn't comply with Rule 65?",
       "time": "00:48:25.84"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you're splitting those apart? You're saying one is no jurisdiction, the other is, I would say patently frivolous?",
       "time": "00:48:53.16"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in other words, an order that is patently frivolous, in your view, and whatever... you haven't defined that... could be collaterally attacked even though the court which entered that order unquestionably had jurisdiction. That's an extraordinary doctrine.",
       "time": "00:49:07.26"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What case is it based on?",
       "time": "00:49:22.34"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying, I take it, that a bankruptcy court that unquestionably has jurisdiction over the parties before it does not have to be obeyed by the district court who is entertaining the case of United States v. Nixon should that court happen to issue an injunction relating to that case, which has no conceivable relationship, even though the court has jurisdiction over the parties?",
       "time": "00:49:31.28"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not trying to trick you. [Laughter] What I don't understand, though, about your position, is this. If it had been your contention that there's no way in which Northbrook would not be entitled to retain the collateral after it pays the bond, then... then I might go along with you, but you are not making that argument. You are perfectly willing to entertain the possibility that Northbrook will pay the bond and then get left high and dry at the other end of the transaction by not being able to retain its collateral. It seems to me that the whole purpose of this provision that enables the bankruptcy court to have jurisdiction over all proceedings related to cases is to prevent just that kind of thing from happening, to prevent inconsistent determinations by courts with respect to the same matter.",
       "time": "00:49:57.43"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why is the answer clearly yes? It's a transfer. The collateral was transferred within the preference period, or it could be attacked as fraudulent of other creditors. I don't understand why that's so clear. The transfer of the collateral, which I take it was... these are claims that Celotex had against its own insurer?",
       "time": "00:51:19.63"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was what the collateral was, and if the transfer occurred within the preference period or could otherwise be... could be characterized as fraudulent, then why isn't that a valid claim?",
       "time": "00:51:40.79"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought Mr. Warren said that's exactly what the situation was, that they were attacking the transfer from Celotex to the insurer as either preferential or fraudulent.",
       "time": "00:52:00.86"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I asked you earlier whether you were making any of those arguments that in fact there's no colorable basis for saying that Northbrook doesn't own this collateral, and you said no, that's not the argument you're making.",
       "time": "00:52:46.39"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does Northbrook agree with you? This is a stakeholder that says, I don't care who gets paid, I don't want to have to pay twice. So we're hearing from you to say that they don't have any problem, Northbrook--",
       "time": "00:53:21.72"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--That's quite different from saying they haven't got a colorable basis for the claim, that there is no... in the bankruptcy court there's no colorable basis to set aside the transfer to the insurer.",
       "time": "00:53:47.34"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rosenthal. Mr. Warren, you have 2 minutes remaining.",
       "time": "00:54:27.34"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It hasn't preserved the status quo. The status quo is that every... that this money was gone. The status quo is that once the security was posted, the case was lost on appeal, that money was gone, and it seems to me it's saying no, the money isn't gone. I don't call that recaining the status quo.",
       "time": "00:55:01.48"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And the collateral has not gone.",
       "time": "00:55:51.21"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is gone unless there's some colorable basis for getting it back.",
       "time": "00:56:00.15"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Warren--",
       "time": "00:56:37.53"
     },
@@ -1619,13 +1623,13 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--your time has expired. The case is submitted.",
       "time": "00:56:39.33"
     },
     {
       "turn": 264,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:56:42.56"
     }

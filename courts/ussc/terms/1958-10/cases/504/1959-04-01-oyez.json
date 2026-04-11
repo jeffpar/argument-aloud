@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/504/19590401a_504.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "J. LEE RANKIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH L. RAUH, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 504, Charles Allen Taylor, Petitioner, versus Neil McElroy et al. Mr. Solicitor General, you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you mind -- be good enough to read me that letter out of the (Voice Overlap) --",
       "time": "00:02:11.54"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is in response to the letter you've read from the -- the general counsel.",
       "time": "00:02:19.75"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:02:23.95"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And now you said -- what was the first of those reversing the earlier findings?",
       "time": "00:03:06.86"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What's the result of expunging?",
       "time": "00:03:23.82"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I -- I suppose reversing the finding is a little different from asking affirmative findings, isn't it?",
       "time": "00:03:53.07"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But as I understand the Government's position is that none of the action reverses anything in the way findings merely expunges that fact.",
       "time": "00:04:08.34"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Mr. Solicitor, suppose he wants to be able through his skills, to get a promotion to a higher -- how unreasonable or whatever you call that here, and then -- but he would have to have top secret classification with this data then bu used, would that occur -- could that occur?",
       "time": "00:04:20.11"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Solicitor, I'm -- I'm not suggesting about -- about what I'm about to put to you, if there is any impropriety or out of the witness about this -- about this (Inaudible) enlightened correspondents.",
       "time": "00:05:06.44"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I do suggest that since it's before the Court, it might be just as well to put in writing the reply you've orally made to Mr. Rauh's (Inaudible). Could it be -- I mean the doctrine, it didn't say they're merely resting on pleading words. What you've just said.",
       "time": "00:05:18.43"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "General, may I ask you this question. You said that it would not be used if there was a further screening of this man, do you mean under your proceedings, it -- it could not -- could not be used or do you mean as a matter of grace in the department and as a matter of fairness that the present incumbents of the office would not use it.",
       "time": "00:05:41.34"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Well, I think that's just -- that -- that's a problem that bothers me. I imagine you did -- Justice Clark when he asked the -- the question. Is the mere expunging of the -- of the records tantamount to -- to a finding on the subject one way or the other? Isn't it -- isn't it just loose there, isn't it just in limbo and -- and couldn't the -- couldn't that information against this man become available again from a standpoint of -- of your procedures?",
       "time": "00:06:19.40"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is there -- what is there in -- in your procedure that are in the statute or in any manner that says that -- that when -- when this disposition is made of a case if we put this -- is not -- the finding hasn't been reversed, everything has just been expunged from the record except the documents on which he was originally found to be not consistent with the security of the country. What is there to prevent that from being used again?",
       "time": "00:06:59.71"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I think one of the -- one of the things that bothers me in this case is that -- that one of the hearings before the Board, they found that he was a member of the Communist Party at a certain -- certain time and he was expelled for that reason. Then he asked for a hearing before the Board and -- no, after that hearing rather, they took his testimony to the effect that he was not a member at that particular time that he was actually anti-communist in his approach to problems. And they then supplemented the record and using the same records that they have found he was a communist. They found that he wasn't a communist because he had been expelled before that time. Now what -- what would prevent the same thing from happening here in another circumstance?",
       "time": "00:07:56.89"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:09:06.75"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And that was abandoned in all defense industry?",
       "time": "00:13:36.37"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your position is that (Inaudible) the security in this case that the Government has tried to discharge about (Inaudible)",
       "time": "00:14:43.88"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That case is there?",
       "time": "00:15:08.43"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. General, here, you have not only that kind of a witness. I understood you to say that one of them -- one of the witnesses was of that character, but you also have five casual witnesses who were neighbors or perhaps business associates or someone -- or someone else. They might have been people with -- with a motive. They might have been people that malice against the man. And as to those -- as to those, why wouldn't he have a right to be confronted by them if my neighbor accuses me of anything else, anything else but this and they're going to put me in jail and they're going to take away my livelihood. I have the right to be confronted by the witness. Now, why wouldn't a neighbor in those circumstances be just as much required to confront the person whom he accuses and subject himself to cross-examination? I think it's not just as simple as that one undercover man that you speak of.",
       "time": "00:17:36.41"
     },
@@ -283,13 +287,13 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Solicitor --",
       "time": "00:19:51.15"
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "What you're saying in effect as I take it that the due process is satisfied if the (Inaudible)",
       "time": "00:19:52.38"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:20:08.77"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean, can you go so far as decide that this man is charged, couldn't ask for a hearing, (Inaudible) had the Government have done that?",
       "time": "00:20:15.87"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So that you're implicit in your position that due process requires some kind of a hearing. The question is what -- is that it?",
       "time": "00:20:37.46"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Government couldn't deny a right to come before the agency to say that you're (Inaudible). Expose myself to (Inaudible)",
       "time": "00:21:00.60"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But it can deny his right (Inaudible)",
       "time": "00:21:16.20"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that require some selected judgments if witnesses can be produced (Inaudible)?",
       "time": "00:21:55.62"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:22:04.37"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Solicitor, I noticed that there's monetary substitution, Section 26, currently is available only to the contract of employee as to whom a final determination is favorable. Does Taylor fit with that category?",
       "time": "00:23:11.59"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rauh.",
       "time": "00:23:59.96"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Rauh, aren't you using a little bit two concepts and perhaps misunderstanding what I understood the Solicitor to say. He said these findings are wiped out. He wasn't suggesting that this evidence had been taken out and burned and thrown in a waste basket or the garbage can but that the findings based on the evidence had been wiped out.",
       "time": "00:28:04.09"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's why I (Voice Overlap) --",
       "time": "00:28:29.05"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose this Court reversed it.Supposing the key of your argument on the lowest level of your argument (Inaudible) lowest level of quality of your argument that the law speak about -- suppose it reversed it, what judgment would you get that would do other than saying that that the determinations of the departments are vacated, what else would you get?",
       "time": "00:28:52.02"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They never -- they never can reconsider his clearance or not clear it?",
       "time": "00:29:20.80"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I thought it was declaratory judgment.So there's no injunctive relief.",
       "time": "00:29:27.91"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And what would be the injunction against him that he should never be getting inquired into?",
       "time": "00:29:36.02"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We might not decide if there's no authorization for the program and yet reversed the case.",
       "time": "00:29:57.55"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The program is a big term. It doesn't mean that everything is null and void.",
       "time": "00:30:05.42"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But they could use the materials as lead to other things, could they?",
       "time": "00:30:36.33"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But he would even if we reverse --",
       "time": "00:30:46.21"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- so far as -- unless there is a decency of respect which must be attributed to a member of the cabinet that he is going to do in effect by circumvention what the court said he shouldn't do.",
       "time": "00:30:50.26"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing that in the next case (Inaudible)",
       "time": "00:31:52.66"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing that in the next case, the merits of what you're arguing here were decided in favor of (Inaudible)",
       "time": "00:32:02.84"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask whether when there is a clearance, are there affirmative findings?",
       "time": "00:33:56.05"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean, they say that isn't -- must there be?",
       "time": "00:34:01.91"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's what you have read but I'm asking you what the practice is.",
       "time": "00:34:07.07"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What do they say?",
       "time": "00:34:19.96"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't mean here. What are they --",
       "time": "00:34:24.20"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I asked the Solicitor General a question on this line yesterday and I understood him to say that he -- that you referred to on page 27 covers findings by the Board not by the Secretary. And that the findings of the Secretary are governed by C on page 30 that does not require the same specific requirement of Board findings.",
       "time": "00:34:42.21"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He's addressing the Board, isn't he? Because here, he's addressing the Board.",
       "time": "00:35:30.28"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He's not doing what the Board --",
       "time": "00:35:37.12"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And therefore the point as the question that (Inaudible) why did Justice Douglas has put to you becomes relevant if it is not the practice of the Secretary to make affirmative findings if we are to reject to what the Board does. You are not actually here to do what is normally done.",
       "time": "00:35:39.11"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does your question of non -- was your position if it is not moot get down to this that after the most solemn and responsible representation by the government through the Solicitor General speaking for the Secretary of Defense that this is wiped out and that there will not be a reuse of these materials, it's not to be accepted by the Court. Is that what it gets down to?",
       "time": "00:36:16.01"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm saying that in this case, we have the representation of the Government to the responsibility of the Solicitor General speaking on behalf of the Secretary of Defense, stating the general rule applied to this case and isn't the fact that it isn't moot only if he must reject those representations.",
       "time": "00:36:43.65"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well I thought it was.",
       "time": "00:37:12.99"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Before you sit down. I'd like to ask you one question on the merit. I noticed that at least in the indices of both your brief and the Government's brief. There's no reference to the Nugent case. Is that because that involves FBI's?",
       "time": "00:40:14.56"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There's no reference in your brief.",
       "time": "00:40:35.99"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think because -- because in that case it involved undisclosed confidential information of FBI's? Is that the distinction?",
       "time": "00:40:38.71"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's what I'm inviting you to make.",
       "time": "00:40:52.08"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's not my favorite case as you know.",
       "time": "00:40:59.04"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't think they were in the Nugent case.",
       "time": "00:41:33.35"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What are the -- what are the other distinctions?",
       "time": "00:41:39.16"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, doesn't that apply to current conscientious objectives or are we still in war?",
       "time": "00:41:49.91"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no. I'm merely suggesting that that case is a decision of the Court. I happened to dissent. But that isn't enough of a ground for me to reject, it doesn't say it doesn't exist. That decision is not expunged in any sense.",
       "time": "00:42:12.34"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The consequences there are almost as serious as here aren't they? A man goes to jail.",
       "time": "00:43:08.04"
     },

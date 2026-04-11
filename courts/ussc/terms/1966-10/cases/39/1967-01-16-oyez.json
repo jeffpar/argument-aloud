@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/39/19670116a_39.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "GERHARD A. GESSELL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "NATHAN LEWIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 39, Abbott Laboratories et al., Petitioners versus John W. Gardner, Secretary of Health Education Welfare et al. Mr. Gessell.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They asked for a declaratory judgment, didn't they?",
       "time": "00:02:00.13"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Reprehensible, Mr. Gessell?",
       "time": "00:03:41.60"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And Judge Friendly saw no real distinction between your case and his case, did he?",
       "time": "00:11:24.14"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you agree and Judge Friendly agrees, I think counsel in the next case don't entirely agree.",
       "time": "00:11:55.25"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What do you -- how do you draw the line Mr. Gessell between administrative actions that are reviewable on injunction and administrative actions where you have to wait until summing -- the actions taken by the agency, what's the -- how would you define it as theoretical or general manner?",
       "time": "00:12:30.58"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you apply it only in the cases where there has been rule making?",
       "time": "00:13:05.10"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, how --",
       "time": "00:13:12.82"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, let's go to another field. Let's suppose the Securities and Exchange Commission adopts a rule that affects the securities industry or rule let's say regulating brokers in some way or other, is it your theory that when that rule making process is completed, the brokers may bring an injunctive action and that the Court have jurisdiction to entertain that and that the brokerage companies have standing to maintain it and that the controversy is right without waiting for the SEC to take action against a particular company?",
       "time": "00:13:25.90"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- that is now -- that is a novel position --",
       "time": "00:14:17.44"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Isn't that an administrative law?",
       "time": "00:14:20.50"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, tell me --",
       "time": "00:14:23.45"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, tell me what supports it? I mean to say, isn't that contrary to the assumptions on which lawyers in courts and legislatures have here before proceeded in the field of administrative law?",
       "time": "00:14:23.82"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No --",
       "time": "00:15:24.54"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes. But now, let's -- let me take this with you again looking forward and you're thinking of all many of those cases. But I suppose that when you come to test, let's suppose that to get in the proceeding on the merits here, you get beyond the purely semantic question of whether on its face the statute supported what the Commission had did here, and you get to a question of reasonableness, and that is raised by your complaint here, isn't it?",
       "time": "00:15:27.26"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Or do you mean --",
       "time": "00:16:07.58"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you want --",
       "time": "00:16:19.50"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You raise the question of the reasonableness of the regulation? I thought you did.",
       "time": "00:16:22.75"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I am not asking what you consider, do you so allege?",
       "time": "00:16:32.44"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright. Now, in order to evaluate that allegation, wouldn't it be necessary to consider the specific impact of the regulation upon specific products and specific industry problems and may -- may not that be the difference between this case and the cases to which you referred?",
       "time": "00:16:35.98"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You mean the Commissioner concedes --",
       "time": "00:17:16.58"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- that this is --",
       "time": "00:17:18.83"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that's kind of extraordinary isn't it that Commissioner would concede that his own regulation is confusing?",
       "time": "00:17:25.36"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gessell, you may continue your argument.",
       "time": "00:23:47.91"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What is --",
       "time": "00:24:51.26"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What is the definition of drug in the Act?",
       "time": "00:24:52.13"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "This has nothing to do with the label that appears upon the bottle that you get at the drugstore and the filling of prescription?",
       "time": "00:25:34.11"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But prescription is used technically -- do you mean that, which is prescribed by a physician --",
       "time": "00:25:53.80"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- don't you?",
       "time": "00:25:58.09"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Not drugs that are sold on the shelves of --",
       "time": "00:26:01.47"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:26:06.20"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's what I was getting.",
       "time": "00:26:07.58"
     },
@@ -427,13 +431,13 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gessell, I take it that there's no question with what -- even if you lose this case, but you can get judicial review to the validity of this regulation under the statute, just a question of when I take it --",
       "time": "00:26:09.33"
     },
     {
       "turn": 66,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Or do you get into criminal cases?",
       "time": "00:26:25.09"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You'd be making -- you'd still be here and making the same argument that there were no criminal enforcement procedures?",
       "time": "00:27:02.60"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but you would be here now -- or in this thing?",
       "time": "00:27:20.98"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they have the -- they haven't done that yet.",
       "time": "00:27:27.63"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how do you --",
       "time": "00:27:38.31"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How do you explain the Congress saying you may have pre-enforcement review in regulations under A, B, C, and D or whatever it was and one of the statutes listed is not this one?",
       "time": "00:27:39.95"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know. But they didn't need those provisions at all if you could get to the general matter, it has to be enforcement review. This would mean, we needed that to specify that the enforcement review could be had, and if that was a general matter -- it was available.",
       "time": "00:28:02.62"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Maybe, I don't know what the --",
       "time": "00:28:32.30"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't remember the specific --",
       "time": "00:28:34.86"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought Congress did say that there could be pre-enforcement review upon any sort of the regulation under a certain section?",
       "time": "00:28:38.34"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Direct -- direct review?",
       "time": "00:28:50.30"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But without that provision in the Act, do you say that -- that under those sections you could go right in the District Court?",
       "time": "00:29:22.88"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may.",
       "time": "00:29:54.12"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Lewin.",
       "time": "00:29:58.09"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, either that in some fashion -- you're not implying, are you, that there's any question of vagueness or uncertainty about what these regulations require?",
       "time": "00:31:21.83"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Are you?",
       "time": "00:31:30.23"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Very clear?",
       "time": "00:31:31.11"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it's a very precise fact.",
       "time": "00:31:39.28"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's interesting --",
       "time": "00:31:40.60"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- on how we have to change their way of doing business, isn't it?",
       "time": "00:31:41.93"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Very precise, ascertainable, no argument about what these regulations mean and they're precise and narrow.",
       "time": "00:31:45.58"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's just every time the word appears (Voice Overlap), it must have to appear in the other form.",
       "time": "00:31:51.99"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Nor do they claim error?",
       "time": "00:32:03.31"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They don't claim that (Voice Overlap) --",
       "time": "00:32:05.13"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:32:35.02"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But some of the area of your argument, I'd like to hear what possible harm is there in getting the thing decided now, not harm in due course.",
       "time": "00:32:35.59"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you mean precisely about rightness?",
       "time": "00:33:15.73"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you put that together with having the same meaning, hypothetical or future those words have the same meaning?",
       "time": "00:34:03.92"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought you used them that way.",
       "time": "00:34:13.51"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you think that the case or controversy?",
       "time": "00:34:21.65"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's.",
       "time": "00:34:32.77"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Voice Overlap) District Court in its declaratory judgment action could the exercise of discretion and not to entertain.",
       "time": "00:34:34.28"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you take this case as alleging that at this stage now that this is permitted to go on, at this stage he is already liable to suffer irreparable injury or that that's not the case?",
       "time": "00:35:50.15"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose it's true?",
       "time": "00:36:13.26"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that would --",
       "time": "00:36:48.82"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- make him suffer irreparable injury?",
       "time": "00:36:49.80"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean --",
       "time": "00:37:11.20"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean he doesn't have to make any preparation?",
       "time": "00:37:11.59"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could they be prosecuted criminally?",
       "time": "00:37:25.97"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But why? Don't they not have a right to consider it?",
       "time": "00:37:30.58"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What we theoretically might occur if that's the law.",
       "time": "00:37:34.64"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they went?",
       "time": "00:38:34.86"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they went?",
       "time": "00:38:36.31"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They went into trial?",
       "time": "00:38:37.55"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And happened to win, supposed they hadn't won?",
       "time": "00:38:39.14"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then they had made a mistake in not trying to stop it before, wouldn't they?",
       "time": "00:38:44.69"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, they could of course under the young doctrine if they had gone that far?",
       "time": "00:39:09.86"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "On the civil side, how about the remedies that the administration would have against a drug company, on the civil side.",
       "time": "00:39:16.60"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What is seizure in chaos (ph)?",
       "time": "00:39:31.67"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they don't have to do that, do they?",
       "time": "00:40:37.35"
     },
@@ -1033,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "These are the same remedies that are applicable generally under the Food and Drug Act --",
       "time": "00:40:41.03"
     },
@@ -1045,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- are they not?",
       "time": "00:40:45.99"
     },
@@ -1057,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, has there been a successful injunction suit under the other applications of those remedies under Food and Drug Act in a decision of Court of Appeals or this Court supporting an injunction brought by drug company against the provisions under other parts of Food and Drug Act?",
       "time": "00:40:47.24"
     },
@@ -1069,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, I'm talking of -- as I remember that -- then, let me ask you this I have forgotten. Does Food and Drug Administration have a rule making jurisdiction with respect to deleterious substances in drugs?",
       "time": "00:41:22.45"
     },
@@ -1081,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, and they have issued rules, have they not?",
       "time": "00:41:37.94"
     },
@@ -1093,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, is there any precedent for an injunctive proceeding brought by a drug company to enjoin the enforcement of those rules?",
       "time": "00:41:41.09"
     },
@@ -1105,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And those remedies being the same as the remedies here, is that right? That is --",
       "time": "00:41:59.09"
     },
@@ -1117,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- to say seizure?",
       "time": "00:42:03.69"
     },
@@ -1129,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- or injunction or criminal prosecution?",
       "time": "00:42:07.63"
     },
@@ -1141,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand that. Now, is there any way -- the question I was trying to get at with Mr. Gessell is this, if this Court should hold that the injunctive remedy is available in the present case, would it also follow or would it not that an injunctive remedy is available in other cases under the Food and Drug Administration. For example, suppose Food and Drug Administration decides that the inclusion of certain type of ingredient and the certain type of Drug may result in great injury to the population, maybe poisonous or cause all sorts of damage. And somebody brings an injunctions suit to enjoin the enforcement of that, is that case the same as the case we have before us or is it different? If we hold in the present case that an injunctive proceeding lies, does it follow that where Food and Drug says you cannot get out a drug and call it so and so if it contains such and such an ingredient, that injunctive proceeding wouldn't be in that case, we're just trying perhaps not very well --",
       "time": "00:42:36.78"
     },
@@ -1153,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- as I have asked with Mr. Gessell.",
       "time": "00:43:58.01"
     },
@@ -1165,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Lewin, are there in this record the labels of drugs that would be affected here?",
       "time": "00:45:58.03"
     },
@@ -1177,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there in this record copies of advertisements that would be affected here?",
       "time": "00:46:05.91"
     },
@@ -1189,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that is it fair to say that in the sense what is being -- what petitioners are seeking to have the Court's rule on is a there's a question which can I use this without invading his abstract in the sense that they're asking us to rule that the secretary's construction of the statute is unjustified as an abstract matter and that we allow -- we do no take into account whether in view of actual examples, actual factual record, the construction -- the Secretary's construction of the statute as within the area of rational judgment that some people urge is a factor in construing the propriety of the exercise of delegated power.",
       "time": "00:46:11.85"
     },
@@ -1201,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, is it your objection then that they could file proper cause at this juncture, under some circumstances to get the relief they asked but that the facts here led -- were not sufficient, is that it?",
       "time": "00:47:19.04"
     },
@@ -1213,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I understood the allegation was that they adopted this and they did raise a present controversy because they claim, may not be equal to the Young ex parte, Young allegations. But they claim to something approaching ex parte young allegations, do they not?",
       "time": "00:47:46.55"
     },
@@ -1225,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I said --",
       "time": "00:48:11.57"
     },
@@ -1237,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I --",
       "time": "00:48:18.10"
     },
@@ -1249,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understood him to charge or maybe not that they do hit them now and that there will be such tremendous expenses and such tremendous change and such tremendous differences that will work irreparable harm. And if ex parte Young does grant relief under those circumstances why isn't a question not formed – a question of degree, if they reached that degree which Young says would make a good change?",
       "time": "00:48:19.01"
     },
@@ -1261,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you not --",
       "time": "00:48:52.75"
     },
@@ -1273,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- take the position that is impossible for them --",
       "time": "00:48:54.02"
     },
@@ -1285,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- under the present situation to file a good claim?",
       "time": "00:48:56.59"
     },
@@ -1297,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To attack this?",
       "time": "00:49:03.72"
     },
@@ -1309,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or there is always in effect criminal offense and they could be put in jail if they violate it.",
       "time": "00:49:10.40"
     },
@@ -1321,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's the difference --",
       "time": "00:49:19.01"
     },
@@ -1333,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's the difference in that in principle in ex parte Young?",
       "time": "00:49:20.19"
     },
@@ -1345,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But if you --",
       "time": "00:49:33.51"
     },
@@ -1357,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) it does, doesn't it?",
       "time": "00:49:35.52"
     },
@@ -1369,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) number of offenses cumulated, piling up time after time.",
       "time": "00:49:39.59"
     },
@@ -1381,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought they had in criminal cases. Now, that you could do something to stop them from having a lot of prosecution, I thought they had in the number of cases, is that wrong?",
       "time": "00:49:52.39"
     },
@@ -1393,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Have they alleged that here?",
       "time": "00:50:27.46"
     },
@@ -1405,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They did not?",
       "time": "00:50:30.89"
     },
@@ -1417,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I think they have a -- how could they have clarified -- what you seem to agree with Justice Fortas, making it more specific?",
       "time": "00:50:32.45"
     },
@@ -1429,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No, well, I'm talking about this complaint.",
       "time": "00:50:46.31"
     },
@@ -1441,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Have you -- do you people say that they have misconstrued the regulations they -- they read it the wrong way?",
       "time": "00:51:09.80"
     },
@@ -1453,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you disclaim any preference to prosecute them if they refuse to do this?",
       "time": "00:51:18.02"
     },
@@ -1465,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I --",
       "time": "00:51:25.25"
     },
@@ -1477,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Until the validity but -- but in the meantime it would've been covering the situation. And as I understand it what they're complaining about is that it entered in part.",
       "time": "00:51:25.93"
     },
@@ -1489,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're saying that they can't get into protection until you first promulgate this particular regulation or see whether or not -- that's -- but nevertheless that they have violated and that that year of the time they could be prosecuted, you do not disclaim purpose to prosecute, do you?",
       "time": "00:51:36.98"
     },
@@ -1501,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Civil forfeitures?",
       "time": "00:52:06.48"
     },
@@ -1513,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) I assume that it's the revision, but the Congress didn't intend to have this kind of an action --",
       "time": "00:52:36.24"
     },
@@ -1525,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- whether it's a case of controversy or whether it's right or anything of that kind. Congress, you say, has pre-empted this kind of a case by its own procedures.",
       "time": "00:52:46.40"
     },
@@ -1537,13 +1541,13 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But Mr. Lewin, this --",
       "time": "00:54:18.76"
     },
     {
       "turn": 251,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The natural tendencies of administrator and I don't see it -- I don't say that's in any disparaging way as to get submission rather than context and that this strategy was designed, I imagine, to get sufficient acceptance?",
       "time": "00:54:19.38"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And, Mr. Lewin, is it fair -- is it fair to say that that is the underlying idea of the Food and Drug Act and that the Act has somewhere in some respects a peculiar place in our regulatory system, that is to say I don't know of hand of any other statute that has -- this prompt seizure power (Inaudible), but isn't that bound in with the purpose of the statute dealing with in their old days that was justified on the grounds you were dealing with dangerous drugs. And they proved that it might be dangerous. And you do now have extra ordinary procedures here because of that, isn't that right?",
       "time": "00:54:38.30"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, of course if you're right on that statutory argument, that ends this case, wouldn't it?",
       "time": "00:56:02.94"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And not suppose anybody would question you, it will be right to -- if there isn't a jurisdictional review at this stage. But apart from that, let me ask you, do you think that the issue in this case is of rightness, (Inaudible) for your time too -- is this case more or less right than one with the Broadcasting or Frozen Food or Storer?",
       "time": "00:56:09.22"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Less right?",
       "time": "00:56:33.23"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:56:41.04"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And it hadn't been applied to it, I don't believe, isn't it?",
       "time": "00:56:50.97"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "They hadn't even been applied to it?",
       "time": "00:56:53.84"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "On what?",
       "time": "00:57:40.63"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Lewin, I think if the petitioners argue that the Congress specified certain pre-enforcement action should take place in the -- pre-enforcement review action to take place in the Court of Appeals but except that for those all other pre-enforcement procedures, or actions, or review should be in the District Court, and you argue that the congressional selection of few to go into Court of Appeals and meant to work to be in the other?",
       "time": "00:59:04.52"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you mean the initial suggestion was that these specified pre-enforcement reviews action should be in the District Court?",
       "time": "01:00:01.82"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But your argument as I take is that if there was general pre-enforcement review procedures available in the District Court, the Congress didn't need to do anything at all.",
       "time": "01:00:30.53"
     },
@@ -1687,13 +1691,13 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless they wanted to expedite certain ones of it?",
       "time": "01:00:43.85"
     },
     {
       "turn": 276,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Always it is clear that the legislative history I thought now that the briefs is quite a scrap, (Inaudible) no judicial review and broad judicial review unless it's compromised.",
       "time": "01:00:47.38"
     },
@@ -1705,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, do you have a broad reservation in the acts of doing that?",
       "time": "01:01:53.30"
     },
@@ -1717,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Gessell.",
       "time": "01:03:10.98"
     },
@@ -1729,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If they do that now, won't they Mr. Gessell, with all kinds of regulations and rulings you're going there with the Food and Drug with the new drug application, then you've got to go through the varying process of getting a clearance on that but so far as I know, nobody is ever here before succeeded in getting an injunction against the enforcement of the class of regulations. Now maybe there's something in the legislative history here or the legislation itself that makes this a special case. But I have two questions if so what is it and the second question is if we rule here that in this situation, an injunction proceeding can be maintained, does it or does it not follow that we're giving the drug companies or anybody else who maybe affected an injunctive remedy in cases where for example, Food and Drug Administration says that you cannot market such and such a drug unless you show on the label and under certain uses it's poisonous to people.",
       "time": "01:03:54.19"
     },
@@ -1741,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, why is this different? That's my question.",
       "time": "01:05:24.00"
     },
@@ -1753,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Do you think it have --",
       "time": "01:05:42.85"
     },
@@ -1765,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You don't have an adversary, evidentiary hearing generally in Food and Drug.",
       "time": "01:05:45.44"
     },
@@ -1777,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that's the legislative hearing.",
       "time": "01:06:01.82"
     },
@@ -1789,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "The legislation had (Voice Overlap) --",
       "time": "01:06:04.46"
     },
@@ -1801,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may explain those two words if you wish.",
       "time": "01:06:20.48"
     },
@@ -1813,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:06:25.79"
     },
@@ -1825,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any question before us, except premature? Is there any question of sufficiency of your complaint to make other case?",
       "time": "01:07:45.02"
     },
@@ -1837,7 +1841,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Precluded the type of action?",
       "time": "01:08:00.58"
     },
@@ -1849,7 +1853,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You couldn't bring the type of --",
       "time": "01:08:02.17"
     },
@@ -1861,7 +1865,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- action at all?",
       "time": "01:08:03.59"
     },
@@ -1873,7 +1877,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's always -- they had always ruled on after now?",
       "time": "01:08:04.93"
     },
@@ -1885,7 +1889,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was that ruling based to any extent on the inadequacy of the complaint, the charge, the kind of case that would make out irreparable damages --",
       "time": "01:08:29.77"
     },
@@ -1897,7 +1901,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and would prevent a challenge?",
       "time": "01:08:39.08"
     },

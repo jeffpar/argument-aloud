@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/87-1190/19881004a_87-1190.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ROY T. ENGLERT, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GLENN E. CASEBEER, III",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning on No. 87-1190, United States against Broce. Mr. Englert, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about the... how, were they sentenced separately for the two conspiracies?",
       "time": "00:04:04.40"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was there some acknowledgement that they might have been sentenced consecutively?",
       "time": "00:04:22.93"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Explicit?",
       "time": "00:04:31.61"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Were these two conspiracies included in that overall one?",
       "time": "00:05:21.57"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Including these two?",
       "time": "00:05:31.13"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "All of these proceedings after the plea agreement and since were under Rule 35?",
       "time": "00:07:00.36"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think that anything that can be brought under Rule 35 can also be brought under Federal habeas?",
       "time": "00:07:23.34"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Englert, can I ask you a question? I know you don't argue this, but is it not theoretically possible, at least, that the one ongoing, complete conspiracy that went on for many, many years was one cries, and that pursuant to that conspiracy, from time to time, the defendants would enter into separate bid-rigging agreements on particular jobs, which could be both pursuant to the overall conspiracy in one sense, but also separate violations of the law in themselves. So that couldn't you, at least theoretically, say that there were two conspiracies even though there was one ongoing conspiracy?",
       "time": "00:09:23.76"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:10:03.71"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. But why couldn't you have, say, a written agreement that for the next 15 years, we'll all agree on bids, and then we'll have a paragraph agreement that says that every time a bid comes up, we'll enter into another written agreement fixing the specific prices on this deal? And wouldn't both of those be separate violations of the antitrust laws? I know you don't argue it, but I just wondered why.",
       "time": "00:10:13.85"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Braverman, you think, is the obstacle to that?",
       "time": "00:10:57.92"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You don't really get to any double jeopardy claim, because on the facts to which the defendant agreed, there was no dud. There were two separate conspiracies.",
       "time": "00:12:39.54"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, isn't there some argument that they didn't agree to those facts at all? Isn't there some argument that he didn't really agree that there were two conspiracies?",
       "time": "00:13:02.45"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You think the indictment was clear enough to make that clear?",
       "time": "00:13:15.69"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Isn't there some argument that it wasn't?",
       "time": "00:13:21.22"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Englert, is it really true that you could say so categorically, in Menna, that there was no factual admission there? Why couldn't you interpret the plea to the second indictment in Menna as admitting the fact that there was no prior trial and punishment for this same offense, just as here you want to interpret it as admitting that there are two separate conspiracies instead of just one?",
       "time": "00:16:34.74"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whether or not it there was a prior trial for the same offense? Surely, that's a fact.",
       "time": "00:17:07.80"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you mean it would be... this case should come out differently if it were undisputed that in fact there was only one conspiracy?",
       "time": "00:17:21.03"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, not at the time. I mean now. You wouldn't assert that if you now admitted there was just one conspiracy that your case is gone. You would still I say, even if there was only one, it's too late to raise that, right?",
       "time": "00:17:31.47"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see why it's any different in Menna. Why can't you regard the plea in Menna as being an admission that there was no prior trial for that offense? It's an admission that's contrary to the fact, to be sure, but it's an admission of fact, isn't it?",
       "time": "00:17:43.60"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but once again, you wouldn't, you wouldn't say... would you say to make a difference in this case, if there was doubt whether there was one conspiracy or two at the time? You admit there was doubt, right?",
       "time": "00:18:39.55"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, but that's a different point from which you've been... from the one that you've been urging on us. It isn't a matter of fact versus no fact. It's a matter of litigable fact, or, you know, plausibly disputed fact, versus not plausibly disputed fact. Is that the line you want us to draw?",
       "time": "00:19:09.38"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just to pursue that... if in Menna there had been an allegation that there had been prior conduct disposed of by an earlier plea and a further assertion that the earlier plea was for a different transaction, or a different occurrence, then there would have been double jeopardy?",
       "time": "00:20:37.50"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But your response to Justice Scalla was that it depends on whether or not it's a dispute matter in taking, in the taking of the plea.",
       "time": "00:21:19.52"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And if there had been any factual allegations of the prior conviction in Menna, there would then... the case would then be like the instant one?",
       "time": "00:21:47.98"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The case would be like the instant one, if there had been factual allegations of what occurred in Menna?",
       "time": "00:22:00.22"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, except when we talk about \"on the face\", we talk about the records that we can look to to the make the determination. And here, in your case, we can look at the record of the later proceeding and see there's only one conspiracy.",
       "time": "00:22:16.64"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You don't raise a double jeopardy issue, at least you don't raise one successfully, before you plead guilty, because... you raise a multiplicity objection.",
       "time": "00:24:40.58"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Jeopardy doesn't attach until either the first witness is sworn or, you know, whatever, on a court trial.",
       "time": "00:24:49.68"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well. Mr. Casebeer, we'll now hear from you.",
       "time": "00:25:17.78"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How do you pronounce your client's name?",
       "time": "00:25:22.80"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Broce?",
       "time": "00:25:25.59"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Casebeer, sir, when you talk about the Government's own statement, do you mean their statement in this Court, or in the indictment, or in the official statement for sentencing? At what point?",
       "time": "00:27:08.13"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "For sentencing?",
       "time": "00:27:17.38"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, an indictment doesn't raise any double jeopardy problems until double jeopardy doesn't attach until you either... until you go to trial, or until you're sentenced.",
       "time": "00:28:04.00"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if you had some difficulty with those indictments, surely the thing to do is not to plead to them, but to contest them.",
       "time": "00:30:23.80"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess they just hadn't heard about the Beachner case. The Beachner case was decided later, was that right?",
       "time": "00:30:56.65"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And at that time, then, the defense counsel thought they ought to take advantage of that and try to get that finding brought forward in this case.",
       "time": "00:31:05.19"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it just seems like the defendants in this case freely elected to forego the opportunity to raise that question.",
       "time": "00:31:28.74"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait. They obviously can't do that. The Government can't do that. But what the Government can do is try to prove that there were 26 separate conspiracies, instead of one. They could have done that, couldn't they?",
       "time": "00:32:22.30"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they gave up their right to do that. That's something of great value that your client got. The Government said, \"We won't try to prove 26. \" \"You plead to two, and that'll be it. \"",
       "time": "00:32:33.75"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But wasn't that the deal? I can't imagine that counsel did not know that you can't split one conspiracy up into 26... that doesn't take a whole lot of imagination. When the Government comes in and says, \"We're going to bring 26 separate counts. \" and your client says, \"My goodness, why 26? \" \"This is one conspiracy? \" It doesn't take a very good lawyer to figure out what's going on.",
       "time": "00:32:50.37"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He had a lawyer, though, didn't he?",
       "time": "00:33:17.08"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There's no claim of ineffective assistance. That wasn't the Tenth Circuit's ruling at all, that there was some sort of ineffective assistance of counsel that would enable him to go back into this thing?",
       "time": "00:33:26.60"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there are lots of rights that can be waived without that sort of Johnson against Zerbest approach, as witness your Fourth Amendment claim. But here, the Government also contends that the defendant, in the plea agreement, simply agreed factually that there were two different conspiracies. So in that view, you never get to the double jeopardy question, because the defendant is bound by what he pleaded to, for which certainly some of our cases hold.",
       "time": "00:34:07.26"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The plea agreement, I take it, is what's on record in the District Court, where you have the indictment and the plea?",
       "time": "00:35:02.31"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose, Counsel, suppose you hadn't pled guilty. Your client hadn't pled guilty and had gone to trial and your claim was there was only one conspiracy; you can't convict us of two conspiracies. And the trial court says, well, I guess I'll have to decide that issue, and the court decides there were two conspiracies. Is that a factual determination?",
       "time": "00:37:42.91"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And suppose the trial court decides that, and you're sentenced for two conspiracies, just like you were here, and then later some other court says there's only one. And then you come back on Federal habeas, or some... ask for relief. Would you be in the same position where you are now?",
       "time": "00:38:12.66"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why not?",
       "time": "00:38:38.84"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would be bound with the... you would be bound by the judge's factual finding?",
       "time": "00:38:52.24"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, if you waived your appeal. Well, you certainly did more than that in your plea agreement. You waived a trial as well as an appeal.",
       "time": "00:38:59.81"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I thought that we had said that the plea agreements at least establish factual guilt. Valid... it's a valid determination of factual guilt.",
       "time": "00:39:11.36"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, one of the facts which you just conceded is whether or not there are two conspiracies.",
       "time": "00:39:25.16"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but if the trial court had determined there were two conspiracies, you could not have collaterally attacked that later.",
       "time": "00:39:36.66"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you waived your appeal.",
       "time": "00:40:05.91"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Knowledge of what?",
       "time": "00:40:16.75"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, on that point, supposing they had entered into a written agreement, that said in essence, for the next 10 years, we will meet whenever a new highway project is announced, and we will agree on the prices for it, and we'll follow certain rules when we do it. And the Government alleges that agreement in Count One of an indictment. Then, pursuant to that agreement, three years later, they do meet on an Oklahoma City project. It's clearly pursuant to the original, but they have to meet separately and they have to figure specific prices. They're indicted on that. Then they do it again in Kansas City, pursuant to the basic agreement. They file three counts: one, the long-term agreement; secondly, the Kansas City project; and thirdly, the Oklahoma City project... three counts. Would you say that indictment is duplicitous, that you have to give the right to strike two counts of that indictment?",
       "time": "00:42:08.45"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they're trying to make as much money out of highway projects as they can.",
       "time": "00:42:59.48"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And for that proposition you rely on Braverman?",
       "time": "00:43:06.93"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which holds that if you have one continuous conspiracy, you can't split it, but you could be indicted for separate objects if the separate objects are themselves criminal offenses.",
       "time": "00:43:10.37"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:43:37.00"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You know, how much relitigation of the factual basis for this case is permitted on Federal habeas? These are things you're supposed to thrash out either in a trial or by a plea agreement.",
       "time": "00:44:56.50"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's not can it be waived. It's a question... if you've got problems with the indictment, if it seems vague to you, if you think no, there's really only one conspiracy, not so many separate ones... do you fight that at the time that you're pleading to the indictment, or do you go ahead and plead guilty and then try to raise it years later?",
       "time": "00:45:15.57"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They didn't have to plead if they were confused by the indictment.",
       "time": "00:45:46.23"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about they felt that maybe the Government could prove 26, if they set their mind to it? Isn't that the much more plausible explanation? I'd rather be found guilty of two than of 26, and that was the deal.",
       "time": "00:46:05.36"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if you win, their lack of discernment has served their client quite well.",
       "time": "00:46:50.53"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What in particular did the Government do to mislead?",
       "time": "00:48:47.72"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that is misleading? That is misleading?",
       "time": "00:50:02.95"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You have here a case where a sizable corporation with paid counsel makes a decision, and you say that they were ill-advised?",
       "time": "00:50:12.95"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Counsel, you say the statute only allows for one prosecution. Suppose all the facts the Government knew, there was a bid in Oklahoma City, and another one in Kansas City, each of which was rigged. They didn't know there was any connection, other then similar parties, and the defendants knew this was part of a long-range plan. They'd been doing it for years and years, every time they had a chance but the Government only knows about two of them. The defendants think, well, we really better not tell them about the long-run thing, because it might be not in our best interest. Could they prosecute the two of them then?",
       "time": "00:50:28.44"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But under the facts I give you, could they be subjected to two prosecutions?",
       "time": "00:51:06.94"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Each of which would prove all the elements, an agreement to fix prices in a particular market, one, Oklahoma City, and another in Kansas City. And just... they don't happen to know about this long-range backdrop. They could go to jail twice, couldn't they?",
       "time": "00:51:16.72"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then why can't they go to jail twice if they go ahead and tell them the rest of the facts?",
       "time": "00:51:29.70"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm suggesting maybe they couldn't be.",
       "time": "00:51:47.80"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because if each of the crimes is an object of a long-run conspiracy, you can't split that long-run conspiracy into different crimes. But each of the objects, if each of the objects that is itself unlawful can be prosecuted separately. That's what Braverman holds.",
       "time": "00:51:52.10"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:52:08.32"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And here, the problem is that you got involved in too many bids. That's why you're subject to prosecution so many times.",
       "time": "00:52:13.20"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure that the two of you mean the same thing by in an object charge. I think Justice Stevens means you can prosecute a separate, individual conspiracy. You don't... that's not what you mean by an object. You mean if the object of the later conspiracy is to murder somebody, you can prosecute the murder, not the conspiracy to murder.",
       "time": "00:52:34.95"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but I'm suggesting the object of a long-run conspiracy can be a particular bid-rigging job, which also has the name conspiracy. But there's no reason why you can't have a long-range agreement, and then pursuant to that agreement enter into separate agreements from time to time as objects of the long-run.",
       "time": "00:52:52.82"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand, but Braverman doesn't say that.",
       "time": "00:53:13.69"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Casebeer. Mr. Englert, you have four minutes remaining.",
       "time": "00:54:52.31"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Nor, frequently people feel that way when they lose.",
       "time": "00:56:47.75"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Englert. The case is submitted.",
       "time": "00:56:53.28"
     }

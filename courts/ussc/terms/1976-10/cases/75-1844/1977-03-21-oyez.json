@@ -3,35 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1844/19770321a_75-1844.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN P. RUPP",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUIS GILDEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Chief Justice Rehnquist: We’ll hear arguments next in 1844, United States against Lovasco. Mr. Rupp, I think you may proceed.",
       "time": "00:00:00.00"
     },
@@ -43,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Who was the Judge, Mr. …",
       "time": "00:06:31.88"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Rupp, at that point, do you feel what you have just said now should be the burden of the defendant?",
       "time": "00:18:33.49"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, isn’t this material that is specifically within the control and knowledge and awareness of the Government?",
       "time": "00:18:41.17"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Rupp, may I follow up on Mr. Justice Blackmun’s question? I wonder if you have given sufficient consideration to your answer that the Government prosecutor would readily take the stand in discovery in connection with such a pre-trial motion. Is that a considered position of the Government or one you just felt was an appropriate answer to a question you might not have thought through?",
       "time": "00:20:15.88"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because that would be a rather dramatic departure from what I understand the normal practice of prosecutors to be if they are asked to testify about their investigation of charges and the like.",
       "time": "00:20:38.72"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In fact, it’s my concern about the undesirability of such discovery and that type of practice that makes me question the wisdom of the test that the Government advances in this particular case.",
       "time": "00:20:56.22"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I must confess that although the words sound persuasive when you give them, I have some difficulty thinking of concrete examples that fit your test. I mean, Government normally, I suppose, wants to convict people it believes are guilty of crimes, and what is the kind of misconduct that might justify saying that --",
       "time": "00:21:42.58"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, supposing a witness, one of the witnesses, is an elderly man. The Government believes he is going to testify falsely to an alibi, falsely. They are satisfied the crime was committed as alleged. If they delayed a couple of months because they thought he might not be available as a witness when he was going be a false witness, would that justify a dismissal of indictment?",
       "time": "00:22:17.79"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I understand you correctly, you think it’s the criminal’s responsibility to insist that he be indicted?",
       "time": "00:24:28.58"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what is it you’re talking about? You said he should get in touch with the prosecutor.",
       "time": "00:24:41.01"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I can’t find anyplace in the Constitution that puts a burden on a man to get indicted.",
       "time": "00:24:52.30"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He doesn’t need to establish his innocence; he is innocent.",
       "time": "00:25:17.73"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He is innocent until he is convicted.",
       "time": "00:25:22.57"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And he is certainly innocent until he is indicted.",
       "time": "00:25:25.33"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yeah, but this Court doesn’t have to overturn any conviction which is achieved by a jury on a charge of tactics such as were made in this case unless it’s satisfied it’s in the interests of justice to do so, too.",
       "time": "00:25:29.34"
     },
@@ -223,13 +227,13 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "But, I don’t …",
       "time": "00:25:43.40"
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any case in this Court that says it’s a responsibility of a person allegedly about to be charged with a crime to get in touch with the U.S. Attorney?",
       "time": "00:25:44.46"
     },
@@ -241,7 +245,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And how would the defendant find out that the Government had that information?",
       "time": "00:26:23.92"
     },
@@ -253,7 +257,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don’t understand it at all, why this responsibility is on the person that’s about to be indicted to come forward and say, ”You know, I am about to be indicted, and I wish you’d hurry up”.",
       "time": "00:26:47.10"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gilden.",
       "time": "00:27:31.57"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 42,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, why should they say anything?",
       "time": "00:29:13.10"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 44,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Under what authority?",
       "time": "00:29:18.81"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Under what authority did the man --",
       "time": "00:29:20.75"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And precisely what language in Marion do you rely on for them to have any duty to speak?",
       "time": "00:29:23.70"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the indictment was not dismissed in Marion, either, was it?",
       "time": "00:29:51.91"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And wasn’t there also language in Marion that talked about tactical advantage to the Government?",
       "time": "00:30:01.30"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So, well, unless the defendant comes in on his motion, and presumably he has the burden of proof on a motion like that, and makes a prima facie case that the Marion requirements are there, why is the burden on the Government to go forward and do anything?",
       "time": "00:30:11.36"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but your position under my understanding of Marion is correct if the case you made out on your burden of proof satisfied all the elements of Marion. But if any of those elements were left in dispute, then the Government could stand mute and quite conceivably properly win the motion.",
       "time": "00:30:58.57"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you say the proof that a witness had died without proof as to what that witness would testify is the proof of actual prejudice?",
       "time": "00:31:40.48"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How much delay does there have to be before a defendant is entitled to dismissal on the basis of actual prejudice?",
       "time": "00:32:29.64"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In other words, there can be great prejudice, let’s assume an alleged bank robbery on one day and the key witness for the defense, whose defense, say, is an alibi, let's say, dies the day after the robbery.",
       "time": "00:32:40.42"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That’s terrible prejudice, and that’s caused by delay.",
       "time": "00:32:57.20"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If I delay, the fact the indictment wasn’t brought on the afternoon of the robbery.",
       "time": "00:33:00.05"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "General delays, Congress has set statutes to limitations, which are presumptively the period during which an indictment need be returned; is that correct?",
       "time": "00:33:09.72"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how much delay?",
       "time": "00:33:33.57"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, reasonable is presumably a statute of limitations, isn’t it?",
       "time": "00:33:40.44"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, it certainly does.",
       "time": "00:33:52.42"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don’t you think that when he did that more than once or twice, that the prosecutors have said, “There’s something going on around here we have been looking to, because that doesn’t happen every day”?",
       "time": "00:34:56.62"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And would the prosecutor say, “We’ve got to take another look at this”?",
       "time": "00:35:08.93"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that’s what they did. They took another look!",
       "time": "00:35:13.39"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When did he start calling?",
       "time": "00:35:19.54"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is we the Government now.",
       "time": "00:35:51.65"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What’s the statute of limitations on this offense?",
       "time": "00:36:03.70"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So that you're quite a bit short of the five years here.",
       "time": "00:36:07.98"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So you have less than a third of the time that Congress has said is the reasonable time in which to bring it. We will resume there at 10:00 in the morning.",
       "time": "00:36:31.81"
     },

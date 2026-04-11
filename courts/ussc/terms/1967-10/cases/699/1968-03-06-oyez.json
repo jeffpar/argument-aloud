@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/699/19680306a_699.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ARTHUR KINOY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILL S. WELLS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "John Earl Cameron et al., appellant, versus Paul Johnson and so forth et al. Mr. Kinoy, you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where is that concession?",
       "time": "00:01:09.11"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Showing the concession?",
       "time": "00:01:26.68"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, Mr. Kinoy, is it also that they could not get the cases tried fairly in the courts of Mississippi?",
       "time": "00:03:15.28"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yeah.",
       "time": "00:03:24.30"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Was there any statement comparable to the statement on page 74 of your brief with respect to the blocking of access to courthouses? It's the first part of the statute here under which these people are prosecuted relates to blocking courthouses and public buildings. The second part of it relates to free use of the streets. The -- what you have referred to as a concession as it appears on page 74 as I read it relates only to blocking the streets. Now, is there anything like that with respect to blocking access to public buildings or courthouses?",
       "time": "00:03:37.12"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what's the significance of the amendment? I didn't catch that.",
       "time": "00:09:28.01"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You say that's vague, is that --",
       "time": "00:09:50.88"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's the exact -- precise word that's used in the Fourth Amendment of the Constitution itself.",
       "time": "00:09:55.54"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's not a question; that's a fact.",
       "time": "00:10:09.41"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's because of other provisions in the Fourth Amendment which states that no warrant shall issue except upon probable cause.",
       "time": "00:11:00.13"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I'm not quite sure I understand the chronology here, Mr. Kinoy. At the time of these arrests, did the statute read as it now does or as it formally did.",
       "time": "00:11:47.31"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well then --",
       "time": "00:12:02.42"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Under -- under what statute would these people be prosecuted?",
       "time": "00:12:04.93"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I guess --",
       "time": "00:12:26.74"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These prosecutions however of your present clients would be under the original statute.",
       "time": "00:12:41.67"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But your injunction asks what? Not only the -- that these prosecutions be enjoined but that all future prosecutions of any kind under the statute be --",
       "time": "00:12:48.32"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, I suppose -- excuse me, Mr. Kinoy, but I suppose it's at least arguable that the insertion of the word “unreasonably” in the 1964 Amendment can really make any substantial difference because there is an element of judgment in the other statutory word whether a particular activity constitutes obstructing or interfering with free ingress or regress.",
       "time": "00:13:49.99"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Sir, you don't really make much point of the existence or the non-existence of the word “unreasonably” in the statute.",
       "time": "00:14:44.77"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is it possible in your judgment to have a statute that prohibits blocking ingress or regress to public buildings or to streets that were not the subject to that infirmity?",
       "time": "00:16:10.78"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "How would you phrase it?",
       "time": "00:16:38.80"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Phrase -- phrase it partly for me.",
       "time": "00:16:46.12"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You don't really mean that word, do you? Reasonable, would you let that go in --",
       "time": "00:17:18.64"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I know, but would you or would you not agree that merely because people are exercising the right of free speech, they do not have a total immunity to block what goes on in the public buildings or even the block access to public buildings?",
       "time": "00:17:43.07"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you or would you not agree?",
       "time": "00:18:06.47"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand you do agree if the federal government somehow -- or the states somehow protected that public building like this one, like the Court is being held from having people come up and block access to it.",
       "time": "00:18:22.31"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So you agree to that?",
       "time": "00:18:44.22"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That you want to say that the officer has the right to decide for himself where there's a problem for them to walk there.",
       "time": "00:19:47.11"
     },
@@ -379,13 +383,13 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Kinoy, excuse me.",
       "time": "00:21:00.70"
     },
     {
       "turn": 58,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you would hold that -- you would say that officers, deputy chairs or policemen and so forth cannot decide for himself whether it's reasonable for them to do it, cannot make any law by telling them they can come in, but he can -- to bar it, but he can make it a law to say you can come in.",
       "time": "00:21:01.49"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it doesn't say that they have the right to -- which the state cannot prevent to march up and down the streets that are dedicated to travelers.",
       "time": "00:21:53.21"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's a different issue.",
       "time": "00:22:08.72"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn't -- perhaps I misunderstand, Mr. Kinoy, but this conduct at the entrance or near the entrance to the courthouse had been going on for several weeks with the, at least implicit if not explicit permission of the --",
       "time": "00:22:14.42"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- local authorities for two months. Then, what caused the change, as I understand it, was the enactment of this statute by the legislature of Mississippi.",
       "time": "00:22:31.10"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And this statute was then read to these people after it was enacted. A copy was sent down to this place and they copied, and this law was read to these people. They were told about it and they were told, “Now, this is illegal. Now, disperse.” Isn't that it? This wasn't something just a change of mind by the police as you replied, was it?",
       "time": "00:22:40.48"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This was the enactment of a law by the legislature of Mississippi, wasn't it?",
       "time": "00:23:02.65"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of making it illegal --",
       "time": "00:23:25.07"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- to block ingress into the courthouse. Until then it had not been illegal. Until then, the police would have been taking the law in their own hands of they had arrested these people for blocking it presumably. After the legislator -- the legislature passed the law, the police told these people about the passage of the law, said it's now illegal, now disperse. Isn't that it?",
       "time": "00:23:26.36"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These -- these are just the offset of police action. This is legislative action --",
       "time": "00:23:48.36"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- of which the enforcement officers told these people, isn't that correct?",
       "time": "00:23:54.24"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I can't find that in the language of the Section 1 of the law that was passed. It simply it's illegal to -- among other things to block egress or ingress in a public building, including a courthouse.",
       "time": "00:24:51.01"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Kinoy, wasn't there some statute in Mississippi prior to the indictment of this one that would have made blocking access to courthouses unlawful?",
       "time": "00:27:32.83"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Do you have those cited in your brief? You can just tell me yes or no. I don't want to --",
       "time": "00:27:48.21"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which court's opinion at Peacock or which Peacock --",
       "time": "00:28:16.91"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Oh, I cited all those charges, yes.",
       "time": "00:28:26.59"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Wells.",
       "time": "00:30:26.55"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is there a parade ordinance in Hattiesburg?",
       "time": "00:36:24.82"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Can anyone parade at anytime he wants, sir?",
       "time": "00:36:51.53"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But if civil rights workers want to parade through the streets and have signs such as they had in this situation, are they free to do it?",
       "time": "00:37:16.59"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The authorities wouldn't interfere in any way?",
       "time": "00:37:31.08"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Any time of the day?",
       "time": "00:37:34.17"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that -- is any of this in the record?",
       "time": "00:37:39.08"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, you are rather objecting to Mr. Smith's speaking of the record. I was just wondering if all of this you've told us is in the record.",
       "time": "00:37:51.63"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, before. I mean what you were saying before about the conditions and --",
       "time": "00:38:03.21"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- how they are free to parade and so forth at any place.",
       "time": "00:38:10.25"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is there any evidence that -- of anybody who was blocked from ingress or regress who could not go in to the courthouse or who could not come out of it without being interfered with?",
       "time": "00:39:34.17"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "At any time.",
       "time": "00:39:50.44"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I remember that testimony and perhaps one may regard it as impressive or not impressive. I also remember -- seem to remember that it said that that is the only evidence in the record.",
       "time": "00:40:06.69"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that so?",
       "time": "00:40:19.50"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that's what I was asking. Is anything like that in the record?",
       "time": "00:41:27.36"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That people could not get in to the front of the courthouse.",
       "time": "00:41:35.73"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There is testimony to that effect?",
       "time": "00:41:42.97"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where is it? Where do we find it?",
       "time": "00:41:45.66"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And after -- but after the barricades were set up and at the time of the arrest, there's no such testimony, is there?",
       "time": "00:43:19.84"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where -- where is this testimony? Can you find this testimony of the Court?",
       "time": "00:43:55.08"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, is that a part of the evidentiary record?",
       "time": "00:46:21.54"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I wonder if this question and answer isn't more column heading. On page 246, I guess it's Mr. Dukes who is testifying and Mr. Wells was asking a question yourself.",
       "time": "00:46:34.29"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "“Now, starting about around April 1st, Mr. Dukes, I believe they were picketing their free will everyday.” Answer, “I believe that's correct.” “Were they in any great large numbers at that time?” Answer, “It would vary, Mr. Wells. They were not in these large numbers, of course. This came on January 22nd, which was several hundred. But it would vary anywhere from 7, 8, 13, 14, 15, and so forth, some grown, some young.” Now, is that the -- was that the extent of the picketing after -- after the police blocked off the way, 6 or 7 or 8 or up to 13, 14, 15, some young and some --",
       "time": "00:46:53.81"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- someone else.",
       "time": "00:47:52.94"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, while that was being done in that -- in that degree, was there any effort on the part of these people to block anyone from the entry or exit from the courthouse, or was there anything done by them that had that effect?",
       "time": "00:47:58.02"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So the last two months or so, there was no interference of any kind with anybody going into that courthouse.",
       "time": "00:48:15.67"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's what we're dealing with --",
       "time": "00:48:27.48"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "00:48:32.38"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many people were there at that time?",
       "time": "00:49:34.95"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in the record that they were obstructing?",
       "time": "00:49:44.13"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, sir.",
       "time": "00:49:50.20"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then what was the necessity of reading the statute to them?",
       "time": "00:49:51.95"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did he tell them that?",
       "time": "00:50:18.11"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then, how many --",
       "time": "00:50:21.26"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did they obstruct any entrances?",
       "time": "00:50:56.09"
     },
@@ -997,13 +1001,13 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is that in the record?",
       "time": "00:50:59.43"
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where is that in the record?",
       "time": "00:51:00.11"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the testimony on it?",
       "time": "00:51:23.74"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How long would you say the walkway was, were prescribed by the authorities for these people to walk around?",
       "time": "00:53:33.85"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where are the pictures?",
       "time": "00:53:54.87"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, perhaps you can help me on this. I find -- I may misunderstand this but I find Mrs. Bricket's testimony very unimpressive that I get the picture correctly or maybe I don't. She said she came out of her office and she had to go on a walk, which was why it's enough for only person at the walk so that you couldn't have two people walking abreast. And there was a picket line there and in order to get to where she was going, she had to fall in line -- fall in behind some of the pickets. Am I wrong about that picture so I read it on 270?",
       "time": "00:54:28.03"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that would get to the --",
       "time": "00:55:17.01"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's at 71.",
       "time": "00:55:33.63"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, let's take what's in the records, if you please.",
       "time": "00:56:30.02"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But that's not my question, whether it would help us understand where this lady was, where the walk is so to help us understand what the layout was.",
       "time": "00:56:40.59"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I mean the -- the several entrances --",
       "time": "00:56:55.17"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, at that point, it says 3.8. Is that a building? I notice north of the line --",
       "time": "00:57:38.77"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, that's the width of the walk.",
       "time": "00:57:49.53"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So what -- I forgot to say it in. What building was she leaving?",
       "time": "00:57:52.97"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:58:03.41"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And what's the entrance she was leaving? That's all.",
       "time": "00:58:08.41"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And she was coming out of that --",
       "time": "00:58:19.50"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that is where it says 6.7 --",
       "time": "00:58:25.18"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where was the picket line?",
       "time": "00:58:33.13"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Has she stepped into the line --",
       "time": "00:58:36.74"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Walked right along that walk 6.7 feet wide?",
       "time": "00:58:44.50"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The line where the march passed that's a point where it says 3.8 --",
       "time": "00:58:48.61"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- and she stepped into the line?",
       "time": "00:58:53.10"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather that's only wide enough for one person at 3.8.",
       "time": "00:58:55.28"
     },
@@ -1279,13 +1283,13 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yeah.",
       "time": "00:59:01.88"
     },
     {
       "turn": 208,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I want you to understand the issues basically for --",
       "time": "00:59:02.84"
     },
@@ -1297,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Which one, the last one?",
       "time": "00:59:26.01"
     },
@@ -1309,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I could just wish you could do that to deal with one square 2283 did this junction.",
       "time": "01:00:18.23"
     },
@@ -1321,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And if it doesn't or if it does that whether or not on the Dombrowski federal court notwithstanding as a jurisdictional injunction, either on the theory of the vagueness of the statute on its face or because there's evidence in the record (Inaudible) for enforcement of the statute.",
       "time": "01:00:25.63"
     },
@@ -1333,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Maybe we can spend all the time and the lower courts can spend all the time trying the issue of guilt or innocence in Federal Court of Equity to determine whether or not any of those legal questions are to justifies on each of this injunction.",
       "time": "01:00:52.20"
     },
@@ -1345,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Before we get to that, is there -- isn't there also the question as to whether -- whether these people did demonstrate in such a manner as to obstruct or interfere with free ingress or egress to or from any public premises? Now, isn't -- isn't that an issue in the case?",
       "time": "01:01:09.01"
     },
@@ -1357,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, but you -- you have put in this record all of these diagrams and you put all these pictures in here for the purpose of showing that there was an unreasonable demonstration. Now, isn't it an issue in this case whether -- whether they did obstruct or in such a manner the ingress or egress tour from -- do you want us to forget about those now?",
       "time": "01:01:54.23"
     },
@@ -1369,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You take the position as I understand it the natural and normal way to try to defend it in this country is where he is in a court charged with the offense and can get a trial by jury that he is entitled to.",
       "time": "01:02:34.03"
     },
@@ -1381,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that you -- we are not here to pass on that question at this time after the guilt or innocence of either one of them.",
       "time": "01:02:48.29"
     },
@@ -1393,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Can I ask you another question?",
       "time": "01:03:02.37"
     },
@@ -1405,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do you know that there's an alleged offense committed?",
       "time": "01:03:04.16"
     },
@@ -1417,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And what are the tradition of your state court in Mississippi with respect to the trial of this case whether you've taken four years to have this case to approve the state courts and then to come up here?",
       "time": "01:03:21.51"
     },
@@ -1429,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How long would it take between the trial court and the Circuit Court?",
       "time": "01:04:01.70"
     },
@@ -1441,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And how long would it -- would it take the Supreme Court of Mississippi to decide this case normally? Now, I'm -- I'm talking about this kind of cases normally.",
       "time": "01:04:13.17"
     },
@@ -1453,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Four months outside, four months from the time of --",
       "time": "01:04:33.69"
     },
@@ -1465,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there a law in Mississippi that forbids the defendants to raise the constitutionality of this statute?",
       "time": "01:04:40.04"
     },
@@ -1477,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In Mississippi courts?",
       "time": "01:04:50.66"
     },
@@ -1489,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now we've been four years -- four years decided whether or not the federal courts have the right to enjoin the prosecution.",
       "time": "01:04:54.82"
     },
@@ -1501,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And in the meantime, the state prosecution will handle the state's stay.",
       "time": "01:05:07.09"
     },
@@ -1513,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does the record also show the part that federal government had in that?",
       "time": "01:06:26.97"
     },
@@ -1525,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We don't know whether this helped or hurt, do we?",
       "time": "01:06:48.43"
     },
@@ -1537,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, did the record show that they continued to picket?",
       "time": "01:07:00.96"
     },
@@ -1549,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And there wasn't an arrest?",
       "time": "01:07:18.86"
     },
@@ -1561,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What about Mr. Kinoy said some seven people were arrested?",
       "time": "01:07:21.97"
     },
@@ -1573,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "For doing what?",
       "time": "01:07:43.82"
     },
@@ -1585,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Obstructing?",
       "time": "01:07:45.70"
     },
@@ -1597,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why is that going to be dismissed?",
       "time": "01:08:14.01"
     },
@@ -1609,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How young were they? As young as one of the little children shown in these pictures --",
       "time": "01:08:59.62"
     },
@@ -1621,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- that you have?",
       "time": "01:09:06.93"
     },
@@ -1633,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There -- there's a little child in --",
       "time": "01:09:08.52"
     },
@@ -1645,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- they were align and --",
       "time": "01:09:12.15"
     },
@@ -1657,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose Mississippi is not responsible for having the little child in line.",
       "time": "01:09:18.25"
     },
@@ -1669,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you a question? Are you familiar with ex parte Young?",
       "time": "01:09:45.07"
     },
@@ -1681,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The case -- our case of ex parte Young where prosecutions were enjoined and this Court sustained them?",
       "time": "01:09:50.35"
     },
@@ -1693,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, it showed that unless an injunction was issued, there would be various harassments such as constantly arresting, increasing the fine from day to day so that it might be within a few weeks, a fine of a million dollars would be imposed, and various things like where the state was about to harass these people to death. And under those circumstances, it was still -- and those circumstances will require -- was held that the state could be enjoined from doing it under they could get it tested in way which did not take all their money away from them and send them to jail for life. Has there been any threat like that in Mississippi in these cases?",
       "time": "01:10:03.34"
     },
@@ -1705,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would take that case is more relevant than Dombrowski.",
       "time": "01:10:55.99"
     },
@@ -1717,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that were the seven that Mr. Kinoy spoke about?",
       "time": "01:11:32.27"
     },
@@ -1729,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "01:11:38.92"
     },
@@ -1741,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What was that seven he told?",
       "time": "01:11:46.66"
     },
@@ -1753,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "01:11:49.77"
     },
@@ -1765,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that on the record?",
       "time": "01:11:56.87"
     },
@@ -1777,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did they obstruct anybody's ability to enter or leave the courthouse in the following occasions?",
       "time": "01:12:10.20"
     },
@@ -1789,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I was wondering a few moments ago when you said you thought this statute was drawn as tightly as it could be done, I was wondering why it couldn't have said that any -- any group of people who mass with the intention of blocking off the ingress and egress from the -- from the courthouse. I'm wondering why -- that couldn't have been said in there.",
       "time": "01:14:59.37"
     },
@@ -1801,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, as I understand it, your record shows that they have parades that blocked the whole street so that people cannot -- cannot get in or out of the -- out of the courthouse and that the sanction that is permitted under this statute --",
       "time": "01:16:13.28"
     },
@@ -1813,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- but those are -- some people go with some signs saying that people in Mississippi are citizens also, that it's selectively enforced.",
       "time": "01:16:28.32"
     },
@@ -1825,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you said -- you told us that there was no regulation on -- on whatsoever, on parades and on anybody and then in numbers that they wanted or for any purpose if they wanted, could parade -- parade throughout the streets of Hattiesburg and this record shows that they do not enforce that even though the streets are blocked so people can't get across to the courthouse.",
       "time": "01:17:21.70"
     },
@@ -1837,7 +1841,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose the parade that had started up and down the streets would have stopped in front of the courthouse and blocked the entrances, would it be barred?",
       "time": "01:18:30.43"
     },
@@ -1849,7 +1853,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And arrest them?",
       "time": "01:18:45.22"
     },
@@ -1861,7 +1865,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What exactly --",
       "time": "01:18:58.19"
     },
@@ -1873,7 +1877,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If the marchers leaves and stop there, he'd arrest them?",
       "time": "01:19:00.18"
     },
@@ -1885,7 +1889,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You're not in complete agreement on that.",
       "time": "01:19:10.18"
     },
@@ -1897,7 +1901,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was a month or so when I was last there.",
       "time": "01:19:26.18"
     },

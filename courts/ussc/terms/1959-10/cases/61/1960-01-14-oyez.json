@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/61/19600114a_61.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL M. FRIEDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "HENRY J. BISON, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "FREDERICK M. ROWE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 61, Federal Trade Commission, Petitioner, versus Henry Broch & Company. Mr. Friedman, you may proceed with your argument.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Bought from what?",
       "time": "00:02:59.54"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:03:02.77"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There's no suggestion that this case is a mere efficient brokerage case.",
       "time": "00:10:10.87"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, in any sense?",
       "time": "00:10:20.30"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not -- I'm not questioning the general proposition. I just want to know if your general proposition may slip this case presented. I just want to know if the contention here is -- if this is a blind of an evasive -- a factually evasive --",
       "time": "00:10:23.79"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Commercially innocent, prior concern.",
       "time": "00:10:44.06"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand (Voice Overlap) --",
       "time": "00:10:50.21"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but I mean commercially it didn't (Inaudible)",
       "time": "00:10:50.97"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In -- in that sense?",
       "time": "00:10:53.76"
     },
@@ -171,13 +175,13 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:10:54.68"
     },
     {
       "turn": 22,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Friedman, I understand also Justice Frankfurter that (Inaudible)",
       "time": "00:10:55.11"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Totally dependent that these facts may lead you and make yourself this far after $1.25 that is $1.30 if this broker would reduce his commission from 5% to 3%.",
       "time": "00:11:07.98"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "You don't think there was any kickback now worth probably to the Canada Company, or I would say device (Inaudible)",
       "time": "00:11:25.31"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Voice Overlap) but not to its own. Not to present it with the broker.",
       "time": "00:11:48.59"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But do you concede that there is (Inaudible)",
       "time": "00:12:09.71"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Not -- not Broch?",
       "time": "00:12:13.72"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) against Canada it must've mean you have it drawn two ways?",
       "time": "00:12:17.04"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- discrimination to be subject to (Inaudible) absence and what go to that section which you don't buy (Inaudible)",
       "time": "00:12:23.42"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible) and if I understand firm, to get down to the -- may this broker give a part from his commission to his (Inaudible) and under the -- without violation of the second, is that right?",
       "time": "00:12:51.37"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well you wouldn't -- it would necessarily result into a price to the extent of this -- if you have production such as these.",
       "time": "00:13:14.84"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "The broker, not the seller?",
       "time": "00:13:43.91"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And assuming his broker is not an agent, hasn't been a defendant here.",
       "time": "00:13:56.31"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:14:02.79"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not questioning any of your legal objections or indications you draw, but you said same as those of a rebate, but you gain out of his own -- he's an independent agent. He's an independent functionary in the -- in the industrial process and his rebates that you call it out of his own pocket, out of his own money.",
       "time": "00:14:19.18"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Without any -- without any conspiratorial or cooperative participation by the seller.",
       "time": "00:14:47.07"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is correct.",
       "time": "00:14:58.15"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is that -- is an insulation and he is the conduit of the seller.",
       "time": "00:14:59.18"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't mean as end result. I -- I wonder, if I get --",
       "time": "00:15:05.21"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- what is the concrete, naked prospect on which legal conclusion is drawn.",
       "time": "00:15:08.03"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:15:13.86"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible) the absolute only pressure the buyer put on anyone here was to pay $1.25 and not $1.30.",
       "time": "00:16:24.61"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And actually the extent of which that five-cent difference is made up was that the vendor absorbed, in effect, half of it than the broker --",
       "time": "00:16:34.04"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- absorbed the half.",
       "time": "00:16:46.67"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the issue is whether that does violence (Voice Overlap) --",
       "time": "00:16:55.22"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible) and you have used -- used whether this was -- the money was passed over to the buyer was why the Canada Food or by the broker that the consequence is the same, did I understand you to say that?",
       "time": "00:16:59.77"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well, in fact, (Inaudible) is dollars in the buyer's option, but it would be positive violation of law would it not, for the seller to make a reduction to this particular buyer and does not sell to him on substantially equal time. But would it be, if this -- the broker out of his own goodness of heart may give -- paid his own money --",
       "time": "00:17:40.58"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- over to the buyer.",
       "time": "00:18:05.33"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "How could this at my point have a half the whole price is there's none?",
       "time": "00:18:19.44"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Before, well -- that -- that's just as you're right here and I -- on these facts would the -- would the buyer, Smucker be guilty of violation of 2 (c)?",
       "time": "00:18:36.66"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Against -- against buyers.",
       "time": "00:19:15.96"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You said brokers.",
       "time": "00:19:19.80"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The buyers -- did the buyers' conduct here be covered by the literal language of the proceeding?",
       "time": "00:19:30.45"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The literal language was a flattering language, I'm not sure.",
       "time": "00:19:42.47"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The purpose is like, what's behind my question to this? You -- you in your argument stated in your brief, and rely very heavily on the literal language of the statute saying that the particular -- particular evils calling the attention of Congress are not the relevant on the language of the statute, literally covers the situation and my question was whether the literal language of the statute didn't also cover the buyer?",
       "time": "00:20:08.44"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:22:17.80"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And (Inaudible) specific to our facts, passage over by the broker himself --",
       "time": "00:22:32.69"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So the buyer and not the seller.",
       "time": "00:22:55.95"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible) to proceed without letting both the parties in this transaction.",
       "time": "00:23:08.10"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "The broker (Inaudible) this and you said the broker in making the sale in this Canada Foods and the market?",
       "time": "00:23:27.51"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:23:55.34"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:26:29.12"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the way there'd be a conflict in it by the views of the seller or by a deduction.",
       "time": "00:26:41.22"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That he accepts 3% instead of the 5%.",
       "time": "00:26:48.51"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing the broker has asked (Inaudible)",
       "time": "00:27:43.95"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And not because of (Inaudible)",
       "time": "00:28:13.37"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:28:48.08"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But what he makes the rate is (Inaudible) adjusted from sale to sale.",
       "time": "00:29:23.52"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:29:51.17"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There's no doubt that Mr. Broch can make his (Inaudible)",
       "time": "00:30:30.25"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You could've and you say that because that would be a pure price discrimination in your view, unless, it was justified under the 2 (a) defenses is that right?",
       "time": "00:30:41.81"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean as sort of a conduit type?",
       "time": "00:31:03.55"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, he gave -- the seller gave this customer a price reduction. There's no doubt about that --",
       "time": "00:31:15.30"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- of price discrimination and the question under 2 (a) would have been whether it was a justifiable price discrimination?",
       "time": "00:31:20.94"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you say that because the -- of the presence who have broker here and the transaction between the seller and the broker that economically, that price discrimination was made feasible or easier for the seller that that brings the transaction under 2 (c).",
       "time": "00:31:28.16"
     },
@@ -825,13 +829,13 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That you may not (Voice Overlap) --",
       "time": "00:32:07.18"
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "We'll have to do some reading in the Act.(Voice Overlap) --",
       "time": "00:32:08.57"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And the statute doesn't serve your purpose, you go the Committee Report, that's the end of the line.",
       "time": "00:32:22.62"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You say in lieu thereof?",
       "time": "00:32:40.75"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Even that, of course, doesn't say directly or indirectly.",
       "time": "00:32:42.45"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But indirectly has different scope and connotations than in lieu thereof.",
       "time": "00:32:46.19"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Indirectly, it doesn't hit this kind of an arrangement.",
       "time": "00:32:52.57"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose they have paid the brokerage (Inaudible)",
       "time": "00:33:04.74"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:33:15.80"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Claim cost justification.",
       "time": "00:33:23.70"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:33:54.49"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You explain it by (Inaudible)",
       "time": "00:33:57.56"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I was saying as (Inaudible) Are you saying that then the (Inaudible)?",
       "time": "00:34:16.66"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Apple concentrate, (Inaudible) so he just passed that on --",
       "time": "00:34:32.39"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- in case -- in case the brokerage -- the brokerage but that would be flowing --",
       "time": "00:34:39.66"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Half of it.",
       "time": "00:35:10.09"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:35:12.84"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Does he use the word, discrimination?",
       "time": "00:35:54.17"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Because you said an open discrimination, does he use the --",
       "time": "00:35:57.04"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Voice Overlap) --",
       "time": "00:36:01.54"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bison.",
       "time": "00:39:08.82"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Do -- any of your people do joint purchasing pooling all their quarters?",
       "time": "00:40:39.79"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Or does -- does the joint purchasing power of your group, is that comparable to the purchasing power of the respondents?",
       "time": "00:41:03.59"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So this is the price that in this case, the buyer was Smucker or some name like that?",
       "time": "00:43:12.97"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was a -- a manufacturer.",
       "time": "00:43:18.83"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Manufacturer of what, apple butter or what?",
       "time": "00:43:23.22"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You've introduced another factor when you said the big buyer will -- will demand.",
       "time": "00:44:10.79"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the actions of this case.",
       "time": "00:44:16.67"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I am not speaking of the small (Voice Overlap) --",
       "time": "00:44:20.04"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the participations of the buyers, that leaves another element.",
       "time": "00:44:22.74"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:45:00.48"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:45:24.57"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Just like Mr. Broch.",
       "time": "00:45:35.98"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rowe.",
       "time": "00:47:09.70"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Rowe (Inaudible)",
       "time": "00:48:44.91"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are those defenses available under 2 (f)?",
       "time": "00:49:42.18"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Rowe, if I may, you said that the conduct here has no relationship to the text of the statute. Do you mean by that to say that it is not covered at all by the literal language of the statute?",
       "time": "00:53:08.07"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's (Voice Overlap) --",
       "time": "00:53:26.04"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I'm accepting for a moment the finding of the Commission, I understood -- I understand that they found that what in fact happened here was that the broker, the respondent, your client, passed along part of his brokerage. Now, accepting for the purposes of the argument that finding, if there was one, would that constitute a violation of the literal words of the -- on Section 2 (c) or wouldn't it not?",
       "time": "00:53:36.24"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Making analysis by it, that's a better word.",
       "time": "00:54:20.26"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In fact, the situation (Inaudible) the effort of the seller's brokerage pays (Inaudible)",
       "time": "00:57:02.47"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Friedman. We'll -- we'll finish this afternoon. We only have short time, I think.",
       "time": "01:00:56.59"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "01:01:04.92"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I thought you would quit --",
       "time": "01:01:11.28"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well -- no, I don't know. I don't want you finish, but you said thank you and offered to sit down. I thought you finished your argument.",
       "time": "01:01:18.85"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "All right we'll go until 4:30 and --",
       "time": "01:01:29.49"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- then we'll recess.",
       "time": "01:01:30.94"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what do you mean by falls (Inaudible)?",
       "time": "01:02:00.24"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now --",
       "time": "01:02:19.50"
     },

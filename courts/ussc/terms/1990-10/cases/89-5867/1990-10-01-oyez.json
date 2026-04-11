@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1990/89-5867/19901001a_89-5867.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JON T. KER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN G. ROBERTS, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now on No. 89-5867, Shirley W. Irwin against the Veteran's Administration. Mr. Ker, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Ker, now... excuse me, let me get my microphone on... it seems to me that the Court in a number of cases has adopted a rule of strict construction where the Government itself has given up its sovereign immunity and permitted suit against itself. Just last term we had a case, U.S. v. Dalm. I don't think you cited--",
       "time": "00:02:18.22"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--But again it relied on the sovereign immunity principle to construe a statute worded like this one as not providing equitable tolling relief. So how do you reconcile those cases?",
       "time": "00:02:53.75"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But, Mr. Ker--",
       "time": "00:04:25.99"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--I thought in Bowen the Court said there was language by which Congress had expressed its clear intention to allow tolling in some cases. Now, that's distinguishable here. There is no such language. There's just a language that says you'll sue within 30 days.",
       "time": "00:04:27.06"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe the Court hasn't been entirely consistent in its cases, but I do suggest that when you look at cases like Mottaz and Soriano and the case last term, U.S. v. Dalm, they just aren't consistent with your theory. Now, I don't know where we ought to be, but it seems to me there's some tension there and we may have to work it out.",
       "time": "00:04:59.36"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Kerr.",
       "time": "00:05:41.51"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Library of Congress v. Shaw, do you cite that in your brief?",
       "time": "00:05:44.31"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that was a case dealing with title VII as I recall, and nonetheless the Court said that when you're dealing with the Government, you don't necessarily draw the same inferences from language as you do in a law that affects only private litigants.",
       "time": "00:05:50.96"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that question in that case was whether they'd waived it and the Court said they haven't by general language. And here you're talking about general language and the argument is here if they waived their immunity to the extent that you are arguing for it here.",
       "time": "00:06:17.30"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "On the other hand, we said in Soriano... and I don't even think Bowen... I don't even think Bowen mentioned Soriano. But we said in Soriano very clearly to permit the application of the doctrine urged by petitioner would impose the tolling of the statute in every time limit consent act passed by the Congress. But Congress was entitled to assume that the... limitation period prescribed meant just that period and no more. I think we sort of have to choose between Soriano and Bowen, don't you think?",
       "time": "00:07:17.74"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are we going to decide this question on the basis of how important we think the particular policy of the statute is, and if we like the policy of that statute, we allow a tolling and if we don't like the policy, we don't. Is that how we suggest we should go?",
       "time": "00:08:05.96"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You really think it's a big difference. It says no suit shall be brought later than 90 days and you think it really shows a different intent if it says, suit must be brought or shall be brought within 90 days? That... that's a distinction that you really think makes it--",
       "time": "00:08:54.66"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It sure is. I mean, we can distinguish the cases that way, but don't you think we ought to get--",
       "time": "00:09:20.29"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--get some sold line of jurisprudence that the lower courts can follow in all of these areas?",
       "time": "00:09:26.54"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So we should choose between Soriano and Bowen [inaudible].",
       "time": "00:09:32.26"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you have a page citation for that, Mr. Ker? If you don't--",
       "time": "00:14:47.70"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Okay. Perhaps you can supply it later.",
       "time": "00:14:53.32"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "479.",
       "time": "00:15:01.34"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, I... I'm not sure this is the right... I don't think this is the right terminology. You're not talking constructive notice. Constructive notice is... real notice was sent to nobody, but... but somehow he got word of it. That... that would be constructive notice. But here the only issue is whether the normal laws of agency are going to apply. Isn't that it? Whether service on your agent will be service on you. It seems strange to me to call that constructive notice.",
       "time": "00:16:26.93"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "xxx. Did... did some agent in your office-- --What... what's unusual about that?",
       "time": "00:17:11.21"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I practiced law for 16 years--",
       "time": "00:17:29.86"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--and it was certainly always my assumption, and I think most of my clients assumed, that when a notice of an opinion or decision came to my office as a lawyer it was... came to me as of that time and it came to the client as of that time.",
       "time": "00:17:32.83"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What specific cases?",
       "time": "00:17:49.04"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Cases from this Court?",
       "time": "00:17:51.68"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Said that a lawyer could leave his office for 3 months and no effect would be given to the receipt of a no... a decision in that office until the lawyer returned?",
       "time": "00:18:21.24"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is... is that the import of those cases?",
       "time": "00:18:32.52"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When did your client receive actual notice in this case?",
       "time": "00:19:14.58"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That question isn't whether it's unduly burdensome on the EEOC. The question is really what the statute means.",
       "time": "00:20:47.59"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think under our system generally that when somebody has an attorney representing them we... we traditionally think that notice furnished the attorney is notice to the litigant?",
       "time": "00:22:58.44"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you relying in... are you saying that whenever any statute or rule says nothing more specific than the phrase \"receipt of notice\" that we should interpret that to mean always that there has to be personal receipt and service upon an agent and not--",
       "time": "00:24:11.38"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, why... why is this different?",
       "time": "00:24:29.34"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where is that? I don't understand why that makes a difference. It says receipt of... notice by the claimant, I assume. Right?",
       "time": "00:24:38.90"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you say whenever a statute says receipt of notice by someone, we should interpret that to mean that that person has to receive it personally and it's not enough to give it to his attorney?",
       "time": "00:24:48.36"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think you can live with that, really?",
       "time": "00:25:03.86"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about title VII. I'm talking about generally. I... we'll talk next about why title VII is any different. But do you think we can live with a rule like that? Statutes that say receipt of notice by X, meaning that X has to personally be given?",
       "time": "00:25:05.93"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx here, at least you could say that service on his attorney isn't enough. It might be that service at his house might be enough even if he wasn't there.",
       "time": "00:25:24.29"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why does it have to mean actual notice by the claimant? Isn't there some way of serving... suppose the actual notice... name a specific person. Can he just leave the country and avoid service of process all the time?",
       "time": "00:25:55.61"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you say that it would never be possible to have... to give notice to the claimant unless he actually receives it.",
       "time": "00:26:22.68"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you've just been saying it all the time.",
       "time": "00:26:32.82"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Haven't you been saying that, actual notice to the claimant?",
       "time": "00:26:37.47"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He gives no designation. He just has an address. They have his address, and they try to... they want to give him notice. They send him registered mail to his address or they go and leave it at his house.",
       "time": "00:26:45.77"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about it?",
       "time": "00:27:03.10"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so it isn't actual notice, is it?",
       "time": "00:27:14.25"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean, actual constructive notice.",
       "time": "00:27:17.83"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Excuse me, is a registered letter a notice?",
       "time": "00:27:20.75"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A registered letter notice?",
       "time": "00:27:26.65"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then you don't read actual notice.",
       "time": "00:27:34.37"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I always thought actual notice was you tell him, not by mail.",
       "time": "00:27:43.04"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "xxx notice by mail.",
       "time": "00:27:50.83"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that's what you mean by actual notice?",
       "time": "00:27:58.98"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Ker. Mr. Roberts, we will hear from you.",
       "time": "00:28:03.53"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Roberts, what do you make of our cases which seem to go really in different directions. The Bowen case, which was unanimous and contains language in it that says statutory time limits are traditionally subject to equitable tolling, and other cases like maybe Soriano and Dalm which point in the other direction, the Library of Congress v. Shaw.",
       "time": "00:29:03.76"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Briefly, briefly. The Court noted that... that language briefly in Bowen and seems to have made up its mind before it got to that point. I read that point as a make-weight.",
       "time": "00:30:25.06"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And rightly so, because way does that cut? It seems to me if you have a statute that specifically provides one means for extending the time period. That is, the Secretary can provide for whatever extension there should be, I would think the principle of inclusio unius est exclusio alterius would say a fortiori... gee, I'm using a lot of Latin today. [Laughter] I would think you would say that even more than usual there's obviously no justification in permitting tolling.",
       "time": "00:30:37.14"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Touche.",
       "time": "00:31:11.36"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx concede that if the Government wasn't involved that the 30-day time limit is jurisdictional?",
       "time": "00:31:42.63"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Both cases held are not jurisdictional.",
       "time": "00:32:13.95"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, the same words mean different things--",
       "time": "00:32:18.42"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--except for 30 days?",
       "time": "00:32:26.33"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know.",
       "time": "00:32:33.19"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but now come back to the question which I asked you and which you have not answered to my knowledge. What do you make of the language in Bowen when it says that statutory time limits traditionally are subject to equitable tolling?",
       "time": "00:32:48.93"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that language was used in a case involving waiver of sovereign immunity.",
       "time": "00:33:22.30"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:33:30.41"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, provided for tolling by someone else, by the Secretary. And if... if you were going to use absolute jurisdictional limitation you'd have to say Congress said what it said and no more can be allowed. But we allowed more.",
       "time": "00:33:46.55"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Seems right to me.",
       "time": "00:34:05.55"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in cases like Soriano and Mottaz you can point to the fact that the statute said something like suit shall be barred if not brought within so many days. There was something more than the mere time limit set for it here.",
       "time": "00:34:24.12"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your regulations, I understand it, provide for extending the 30-day period if the time falls... if the 30th day is on a Sunday?",
       "time": "00:35:23.67"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, why not incorporate the normal rules about equitable tolling?",
       "time": "00:35:44.46"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Roberts, with respect to Justice Kennedy's question, isn't there a statute on calculation of time in the general section of the United States code that says it? Isn't there a statute that says when... when--",
       "time": "00:36:37.51"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No, I'm not thinking of the rules. I thought there... well, all right, if you're not aware of it, I--",
       "time": "00:36:55.85"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Roberts, what do you understand to be the general basis for tolling statutes where tolling applies? Is it things like being out of the jurisdiction, being a minor, that sort of thing?",
       "time": "00:37:04.04"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does that principle govern many statutes of limitations, do you think?",
       "time": "00:37:29.73"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, that if, say, to a State tort says you have to bring a claim for personal injury in 2 years after the cause of action occurred. I come into court 2 years and 10 days late and I say, you know, I was sick and I just... I just couldn't get to a lawyer in time and we did the best we could. Is a State court going to say, well, that's tolled for that reason?",
       "time": "00:37:49.94"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't think it is either.",
       "time": "00:38:19.38"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The trouble with that argument for me is doesn't it always run into consideration of sovereign immunity? Because whenever you can sue the Government, you've had a sovereign... waiver of sovereign immunity.",
       "time": "00:39:26.60"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't it true, of course, in the franchised export case involving the Postal Service we took just the opposite view. He said... we quoted some cases back from the thirties, '39 and '40, saying we always construe sovereign immunity very broadly because that's Congress' power. We've gone kind of back and forth in the issue, haven't we?",
       "time": "00:41:15.30"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The Court was much more liberal 50 years ago I guess is the answer. [Laughter]",
       "time": "00:41:33.68"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the EEOC... do you think this time limit could be waived? I guess not.",
       "time": "00:41:53.50"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It has to be done by the Congress.",
       "time": "00:42:05.92"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would have happened if somebody in the lawyer's office got in touch with the EEOC and asked them... told them that he was over in Vietnam?",
       "time": "00:44:20.47"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what happens.",
       "time": "00:44:46.57"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That applies to claimants. Does it refer to attorneys or just claimants?",
       "time": "00:45:01.36"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I suppose it's nowhere in the record. Can you tell me how often the claimants are not represented by attorneys?",
       "time": "00:45:26.38"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is this a later stage?",
       "time": "00:45:41.93"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Roberts, did you raise this point in your brief in opposition?",
       "time": "00:47:17.95"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The real point is we should reach the questions we... I... like Justice O'Connor, I'm getting mixed by this. [Laughter] I think your real point is we should not address the questions presented by the cert. petition.",
       "time": "00:47:27.39"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, sometimes we said when a respondent doesn't raise a question like this, we... we'll leave that open on remand or something and go ahead and address what decided on... raised by the cert. petition.",
       "time": "00:47:53.45"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it your contention that you're justified in... you know the language in Oklahoma City against Tull--",
       "time": "00:49:09.29"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--[inaudible] the new rules that if you don't... unless it's jurisdictional... if you don't raise it in your opposition to certiorari we're entitled to disregard it. Do you contend this is jurisdictional?",
       "time": "00:49:14.68"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It doesn't go to this Court's jurisdiction, does it?",
       "time": "00:49:47.29"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx dismissed right on down to the district court?",
       "time": "00:50:14.45"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, the district court should not have entertained it.",
       "time": "00:50:32.31"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We've really been ill served by the Government in this case if... if that is the proper disposition because we've invested a great deal of time and effort in looking into and examining the questions presented by the petitions for certiorari. Did not the Government have the opportunity and didn't raise it in the district court?",
       "time": "00:50:36.56"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about in the court of appeals?",
       "time": "00:50:56.59"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do we have jurisdiction to decide this jurisdictional point?",
       "time": "00:51:24.97"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't 5 U.S.C. section... I've sent for the book but it's not here yet... section 557 or something like that say that you don't have to name the individual. You can just name the United States? I'm imagining a lot of codes sections this afternoon I suppose.",
       "time": "00:51:29.16"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought the APA waiver of sovereign immunity--",
       "time": "00:51:49.11"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Roberts, could I ask you a question going to the second issue in the case, whether the service is sufficient when made on the lawyer rather than on the claimant personally, and ask you whether... if the United States had had a claim... one of the problems is we've got really a lawsuit starting as opposed to an administrative proceeding up to there. And if the United States had had a claim against this individual that had to be served, the suit had to be started within a short period, could they have... and they couldn't find him, could they have gotten adequate service by serving his lawyer?",
       "time": "00:52:20.19"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When it's commencing the lawsuit, then the party himself... which lends a little support to the notion that this is a kind... a little more important than just the normal notice of a deposition or something like that.",
       "time": "00:53:00.76"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, his litigation hasn't even started yet. If he didn't file in time, there's never been any litigation.",
       "time": "00:53:16.57"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:53:29.73"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that... is that in the rules somewhere?",
       "time": "00:53:51.64"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but is that... does the EEOC say how it's supposed to give notice?",
       "time": "00:53:59.74"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know that's what it does, but is that written down somewhere that that's what they must do?",
       "time": "00:54:09.54"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then everybody should be familiar with the fact that notice to the attorney is notice to the claimant, is that right?",
       "time": "00:54:17.63"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't rightly what it says, is it?",
       "time": "00:54:24.53"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it doesn't say at all that that... they can just send the notice to the attorney?",
       "time": "00:54:34.52"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, what if the... what if the general... that seems to say that... say that we will not expect notice to the attorney to be notice to the claimant.",
       "time": "00:54:43.39"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it says you have to send notice to the... to the claimant.",
       "time": "00:54:57.71"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but it wouldn't comply with their own rules if they just sent a notice to the attorney.",
       "time": "00:55:02.10"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:55:09.54"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't understand that. Supposing he had been terminated, but he just forgot to notify the EEOC and the lawyer's... they've had a total falling out and the lawyer's not going to forward anything because he didn't pay his bill or something like that. It's still jurisdictional. That's the end of the ball game. They... in your view they serve the discharged attorney and that takes care of everything.",
       "time": "00:55:27.06"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's correct, isn't it?",
       "time": "00:55:47.83"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm assuming the attorney was properly retained at the outset, then the proceeding drags along for 9 or 10 months and the client gets dissatisfied and fires him but does not tell the EEOC. So, the appearance is still sitting in your files. But nevertheless, under your view, they can serve the discharged attorney within the 30-day period and the attorney can tear it up and throw it away and the time is right.",
       "time": "00:55:53.67"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why not?",
       "time": "00:56:17.57"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then how can it be jurisdictional?",
       "time": "00:56:21.54"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, he could have saved his case by just saying, well, I'm sorry I fired that lawyer.",
       "time": "00:56:41.17"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As to whether it was true or not, but then there would have been jurisdiction to go through that proceeding and decide.",
       "time": "00:56:48.18"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Under the EEOC's own rules, serving the lawyer is no substitute for serving the party.",
       "time": "00:56:54.33"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it isn't. They can't under their own rule omit serving the party, giving notice to the party. They say give it to both of them. They can't... they can't, under their own rule, omit sending the notice to the party.",
       "time": "00:57:04.70"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Roberts. Mr. Ker, you have 2 minutes remaining.",
       "time": "00:57:22.10"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx just notify the attorney, but the rule... their own rule says--",
       "time": "00:57:50.19"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Is that the EEOC regulation you're reading?",
       "time": "00:57:59.60"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alone?",
       "time": "00:58:11.66"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's standard in the law that if you give it to my agent, you give it to me. I mean, agency is sort of an underlying background of every law, isn't it?",
       "time": "00:58:20.77"
     },
@@ -1559,13 +1563,13 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Ker. The case is submitted.",
       "time": "00:58:58.11"
     },
     {
       "turn": 254,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tommorow at ten o'clock.",
       "time": "00:59:01.01"
     }

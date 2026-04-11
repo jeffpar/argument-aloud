@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/98-9537/20000328a_98-9537.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "SARAH H. BOHR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 98-9537, Juatassa Sims v. Apfel.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought the forms contain spaces in which you're supposed to state the reason for your appeal.",
       "time": "00:02:05.69"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:02:19.32"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, this claimant was represented by counsel.",
       "time": "00:02:49.25"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "At every stage, no? Now, the point you're making now, that there's no warning, I suppose would have some force in a case where you're dealing with a layman. But where you're dealing with a lawyer who knows the usual rule in administrative cases that you have... indeed, any case, judicial or administrative, that you have to have complained about what you're appealing, and if you don't specify what it is, you abandon it. Isn't that the usual rule throughout the law?",
       "time": "00:02:52.18"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But--",
       "time": "00:03:55.82"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--that doesn't help you I don't think, Ms. Bohr, because we're talking here about whether you have to raise it before the Appeals Council. Granted, you can take anything that happened before, before the Appeals Council. We're talking about whether you can take something that you didn't take to the Appeals Council to the Federal court.",
       "time": "00:03:57.40"
     },
@@ -131,13 +135,13 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So why don't you have to--",
       "time": "00:04:15.55"
     },
     {
       "turn": 16,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Were you the counsel below--",
       "time": "00:04:17.86"
     },
@@ -149,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Ms. Bohr, at the Appeals Council level?",
       "time": "00:04:23.62"
     },
@@ -161,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why wouldn't it be helpful to raise issues that the claimant thinks are important before the Appeals Council?",
       "time": "00:04:25.57"
     },
@@ -173,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It just strikes me as rather odd that the claimant wouldn't want to raise them.",
       "time": "00:04:34.58"
     },
@@ -185,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Some, but apparently never claimed that the administrative law judge should have ordered a consultative examination. That was never raised--",
       "time": "00:04:47.73"
     },
@@ -197,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--anywhere down the line until the district court, was it?",
       "time": "00:04:59.47"
     },
@@ -209,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where does it say it doesn't? I mean, the normal hornbook administrative law is just the same as for a district court and a court of appeals. If you don't raise an issue, you lose it. Now, there can be exceptions to that, but I mean, unless there's something that says there's an exception, I don't know why we'd assume there was one.",
       "time": "00:05:17.55"
     },
@@ -221,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, it's not an agency follows it. To my knowledge, that is the uniform practice of the United States courts. You raise an issue, or you lose it, with exceptions. With exceptions.",
       "time": "00:05:37.98"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm just saying I never saw a case that didn't follow that rule, and then what they usually argue about is whether there's an exception, and there are many. So I just wondered what there was here that would say... there may be many things that would take you out of what I'd call the hornbook rule, or maybe I'm wrong about the hornbook rule. I'm just saying, I thought that's what it was.",
       "time": "00:05:55.05"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, why? That's exactly what I... I'm glad... thank you for getting into this, because that's... why does the fact that it's informal make a difference? I mean, I would have thought it's all the more reason to bring up the things, or it's at least no less of a reason, so why does that make a difference?",
       "time": "00:07:30.92"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, all that could say, let's bring it up.",
       "time": "00:07:50.79"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We'll actually get the lawyers out of the--",
       "time": "00:07:52.89"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I absolutely agree with you that there is that difference. And now what my question is, is why should that make a difference in terms of whether you'd have to bring it up or not?",
       "time": "00:08:05.62"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, they can change that. They can change that. I mean--",
       "time": "00:08:25.17"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I know they haven't, but what you're driving us to is to say that although SSA has been very... very liberal in saying, you don't have to mention whatever your claim is, we'll look at it, and if there's anything that's wrong we'll correct it. They may well be willing to do that internally, but if we now tell them that if you adopt this approach, they are going to be able to come to the courts and reverse you for something that you didn't see, and that the claimant before you didn't bring to your attention, they're going to say, now, wait a minute. Maybe we ought to require people to set forth the reasons that they're complaining. In other words, I don't think it makes sense to punish the Social Security Administration by rendering their decisions more reviewable than the decisions of other agencies simply because they've decided to be more generous to the claimants. I don't see that it follows.",
       "time": "00:08:27.14"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree that they don't have to raise issues. They don't have to raise issues. The Appeals Council is willing to consider issues that are not raised. But that's quite a separate question from whether, if you don't raise it and the Appeals Council doesn't see it, you can then haul the Appeals Council into court. That's a separate question, and I don't see why it makes sense to say that because they're generous, they should be more readily suable in district court than other agencies.",
       "time": "00:09:38.11"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And if it went just to the ALJ and then directly to court, as Congress... that has been proposed, to cut out this Appeals Council altogether. If it went from the ALJ to the court, then you would agree that you would have to raise in the district court any issue in order to get it on appeal?",
       "time": "00:10:12.89"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You spend about... the Appeals Council is the fourth rung or the third rung within the agency?",
       "time": "00:10:56.74"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Bohr, it's also very... it's to help the agency I think, to let them correct a mistake, and it will be much easier for them to correct it if it's called to their attention than if it's not, if they're simply bypassed and it's raised for the first time in court.",
       "time": "00:11:54.49"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it has set up... it has set up a system like this.",
       "time": "00:12:15.86"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the--",
       "time": "00:12:22.86"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, but review... but provide... review in the Appeals Council is plenary. Don't... nothing here suggests that they're treating it otherwise. They're not saying, as I understand it, that you must have raised an issue before you get to the Appeals Council in order to get it... in order to bring it to the Appeals Council. What they're saying is, you have to have raised it in the Appeals Council before you can go into court.",
       "time": "00:12:25.40"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It says in the notice that they gave you, I take it, you have a right... not you, but your client, if you do not agree with the ALJ's decision, you may file an appeal with the Appeals Council. If you do not appeal, and the council does not review the ALJ's decision on its own, you will not have a right to court review.",
       "time": "00:13:10.01"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So a lawyer receives that. Now, when a lawyer receives that, I think that lawyer would know, I better appeal it if I want to go to court, and if a lawyer... you know, had a... a lawyer who knows the basic ground rules I think might also think, I better raise the issues.",
       "time": "00:13:29.32"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What--",
       "time": "00:14:06.52"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What is the point of requiring you to go to the Appeals Council, as you concede they do, if you don't have to raise issues there that you later want to take to court?",
       "time": "00:14:10.20"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So are you saying, Ms. Bohr, that if the agency were simply to adopt a rule that you must exhaust your issues before the Appeals Council in order to raise them in court, that would suffice?",
       "time": "00:14:35.13"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well now, I asked you a rather specific question. I think it can be answered yes or no and then explain if you want to.",
       "time": "00:14:54.71"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What does representation mean in drawing that line?",
       "time": "00:15:31.07"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you know how it works out in practice before the Social Security Administration, before the Appeals Council? What percentage of the people are represented by counsel, what percentage by lay representatives, what percentage pro se? Do we have any information about that?",
       "time": "00:15:42.57"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But do we know what position the agency is taking with respect to who is a representative that will be held to this rule? Is it only counsel? In other words, is the agency saying, well, for people who are represented by a parent, a best friend, we don't apply this rule?",
       "time": "00:16:45.22"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Only when they are represented by counsel, counsel meaning--",
       "time": "00:17:06.15"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I'm not sure they have to make that exception for anybody, lawyers representing or mothers representing. I mean, you do not have any basis for objecting to a decision that you've gotten and asking... you know, saying it's wrong, and therefore reverse it, unless you have some reason why it was wrong in mind. I mean, you don't have to be a lawyer... a rocket scientist or even a lawyer to know that when you're complaining about a decision you must have some reason for complaining about it. Why can't any layman grasp that simple fact, and then there's a line on the back, you know, the decision below was wrong because, you know, three lines.",
       "time": "00:17:26.90"
     },
@@ -533,13 +537,13 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... I mean, my goodness, is this really something that--",
       "time": "00:18:10.99"
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--In that connection, could I ask just a factual question? Am I correct in understanding that the claimant does not have to raise the issue before the ALJ?",
       "time": "00:18:14.19"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would seem to me the most consistent system, to follow Justice Scalia's thought, would be one that... because what's being reviewed when you get to court is the ALJ's decision.",
       "time": "00:18:27.30"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if the ALJ commits an error that wasn't even talked about in the ALJ proceeding, if the claimant is smart enough to raise it before the Appeals Council, the ALJ can be reversed.",
       "time": "00:19:16.92"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where is the principal record made? Is there... there's a record made of the ALJ's proceeding, is there?",
       "time": "00:19:39.06"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what is... what record is made of the Appeals Council proceeding?",
       "time": "00:19:46.24"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And yet that's where we have the procedural regularity, before the Appeals Council.",
       "time": "00:19:53.91"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you a little more detail on that, Ms. Bohr. When you want to take a case from the ALJ to the Appeals Council, you have to file some sort of piece of paper, I assume, don't you?",
       "time": "00:20:02.31"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And then, do you get a decision from the Appeals Council?",
       "time": "00:20:20.76"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Of what?",
       "time": "00:20:36.39"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, okay... now, what if the Appeals Council grants your... grants you review, and rules in your favor? Obviously they don't send this out.",
       "time": "00:21:04.69"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So this is like--",
       "time": "00:21:27.73"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--This is like certiorari denied.",
       "time": "00:21:30.64"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the certiorari... if there's been a denial, can you go back to the Appeals Council and ask them to reconsider, or raise any new points? Is there--",
       "time": "00:21:35.50"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--What's the time frame?",
       "time": "00:22:08.39"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, can you ask for reopening after it's gone to the district court?",
       "time": "00:22:16.76"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if the attorney is prepared to go to district court at that point, having received a... an unfavorable ruling, what would be wrong with just saying he has to exhaust by asking the Appeals Council to raise any specific thing that's been left out?",
       "time": "00:22:40.61"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm saying, assuming we think there's an exhaustion rule, since there's already a 4-year period to ask the agency to relook at it, the attorney, before he goes to the district court, says, well, I want to give the Appeals Council first crack at this, so he just reopens and says, I want you to consider A, B, and C, which you might not have considered earlier in my three line letter.",
       "time": "00:23:10.09"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the Appeals Council already has an exhaustion concept about his own reopening, doesn't it, based on what you've just described?",
       "time": "00:23:49.95"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's--",
       "time": "00:24:03.49"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--So now it sounds, as I said, that there is an exhaustion concept that the Appeals Council itself applies, at least for reopening, based on what you've just said.",
       "time": "00:24:09.32"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you told me that there's no reopening unless they've overlooked something that you have raised, and I said, that sounds to me like exhaustion in the present system that the Appeals Council already follows.",
       "time": "00:24:27.13"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think it's up to the agency what rules of exhaustion the courts apply? I mean, you know... or is it up to the courts?",
       "time": "00:25:49.76"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can an agency--",
       "time": "00:26:01.70"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I know, but suppose... the ICC's gone, happily, but let's pick one of the other agencies. Suppose some other agency adopts a rule and says, we think that courts really need not require that issues be presented to us before courts decide them, and hence we advise everybody who practices before us that you need not raise issues before us first. You can go to district court, or to the court of appeals, regardless of whether the issue was raised before us. Do you think the courts would be bound by that?",
       "time": "00:26:08.43"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. That's what I'm asking.",
       "time": "00:26:56.10"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:26:58.40"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--what does it tell you?",
       "time": "00:26:59.60"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think... I look at the prudential considerations, and what I say is, it's none of the agency's business.",
       "time": "00:27:01.74"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That whether... you know, what we require in order to bring a case before the courts is up to the courts, not up to the agency.",
       "time": "00:27:07.69"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. Bohr. Mr. Stewart, we'll hear from you.",
       "time": "00:27:57.68"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But counsel for the other side says the agency doesn't want its best shot. The agency itself doesn't care.",
       "time": "00:28:46.93"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Mr. Stewart, the agency itself has determined that the Appeals Council is not going to be used in a certain number of cases, isn't that so?",
       "time": "00:30:08.95"
     },
@@ -923,13 +927,13 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Is this--",
       "time": "00:30:42.64"
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--How long has that been going on, and how large is this experiment of displacing the Appeals Council?",
       "time": "00:30:43.24"
     },
@@ -941,13 +945,13 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But now--",
       "time": "00:31:07.90"
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is the experiment... is it directed to eliminate the requirement of going to the Appeals Council at all, or just to eliminating the requirement that you raise issues before the Appeals Council?",
       "time": "00:31:08.24"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, on the experiment, just to... in that experiment, must they raise the issues before the ALJ as a predicate to raising them in court?",
       "time": "00:31:26.19"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm not asking what we said in Richard. What are they doing in the experiments?",
       "time": "00:31:52.22"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There's no exhaustion requirement before the ALJ.",
       "time": "00:31:59.77"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "This is... I don't understand this. I may be missing something fundamental. I thought the rule was you do have to raise your claims before the ALJ.",
       "time": "00:32:15.74"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Unless you fall within some kind of exception. For example, you're making a claim on an interpretation of law that the ALJ wouldn't have the power to resolve.",
       "time": "00:32:22.50"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Obviously you can't raise a claim before the ALJ that the ALJ made a mistake, but you have to raise the claim before the ALJ that the evidence entitles me to a victory, and then you say he made a mistake, because he thought it entitled me to a defeat.",
       "time": "00:32:42.39"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The basic rule... I mean, I've seen... it seems to me from my own experience, which might not be typical, is there are thousands and thousands of claims where people come into Federal court, and what they say, basically, is I did have a bad back, I did have in combination with my physical, other physical disabilities and mental, sometimes mental problems, sufficient to overcome the grid, and they should have done it on the grid, or they should have done it in some other way, hundreds of cases like that. Now, I thought... or thousands, and I thought in all of those cases the basic claim of evidence and so forth had to be raised before the ALJ.",
       "time": "00:33:13.86"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're, of course, telling us something dramatically different from what your opponent said. I... maybe you're right. You certainly both know a lot more about it than I do. But she told us in response to a specific question by me that in the Appeals Council there was no exhaustion requirement whatsoever, she could raise anything she wanted to, and you're saying that's wrong.",
       "time": "00:34:09.50"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There's no waiver in the Appeals Council?",
       "time": "00:34:29.43"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All right. So suppose you have issue A, that was not raised before the ALJ, but was raised before the Appeals Council. Can that issue be raised in the district court, in your view?",
       "time": "00:34:31.81"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Say the Appeals Council does discuss it.",
       "time": "00:34:43.86"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So there's no waiver rule applied to the ALJ. The waiver rule applies only at the Appeals Council level and, as I understand it, only in some cases, not all?",
       "time": "00:34:56.12"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask another question. Does it make a difference whether the claimant was represented or not?",
       "time": "00:35:28.74"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And represented by whom?",
       "time": "00:35:42.43"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By anyone.",
       "time": "00:35:45.74"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask just one last question, and I'll leave you alone. Why don't they spell out a regulation spelling all this out so everybody knows exactly what the rules are?",
       "time": "00:36:00.62"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Not tell district courts, Mr. Stewart, but lots of agencies have appeal instructions. At every stage, they say, if you want to appeal, this is what you must do, and spell out the details, not directed at all to what the district court is going to find later, but just the audience for these instructions of the people who are governed by the system, and surely there are agencies... I would imagine the Department of Justice encourages agencies to do that, to clarify for the people the steps they must take in order to appeal.",
       "time": "00:36:27.88"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but it's so odd that the agency that wants to take the position that the issues should be at least mentioned in writing the Appeals Council seeking review... I mean, it could do that without specifying what happens at the district court level... and say, as a claimant, you should set out the issues that you want the council to review, otherwise it won't review them.",
       "time": "00:37:24.38"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, that could be done, couldn't it?",
       "time": "00:37:53.90"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the agency could say, and we have a different rule if you're not represented. But to have this vague understanding is quite peculiar.",
       "time": "00:37:55.80"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why can't you... in the form that you have, it says, I request that the Appeals Council review the administrative law judge's action on the above claim because. Now, why couldn't you just put, parenthesis, please list all your reasons, for if you don't, you may find... you may find... that you can't raise them later in a court review?",
       "time": "00:38:26.08"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And moreover on the next page, not on... they didn't do that, but the next page it happens to say, we estimate it will take you about 10 minutes to complete this form, so I imagine that somebody reading that might think, gee, I don't... I have a million reasons why the ALJ was wrong. Minimum, my lawyer just says list the top five, but I certainly can't do it in 5 minutes.",
       "time": "00:38:51.17"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "10 minutes.",
       "time": "00:39:12.91"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well-- --Well, let me ask this. Is it true that the Appeals Council reviews the whole record for any conceivable error, whether or not it's been listed by the claimant?",
       "time": "00:39:52.52"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So a claimant could submit an appeal without specifying any grounds, and theoretically the Appeals Council will look at the whole record.",
       "time": "00:40:14.06"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, but Mr. Stewart, doesn't the Appeals... don't the regs in effect warrant that the Appeals Council will look at everything? I'm not suggesting this is dispositive. I'm looking on the reg on page 8 of the appendix of the blue brief, 404-976. The Appeals Council may limit the issues it considers if it notifies you and the other parties of the issues it will review, which suggests to me that unless the Appeals Council negates issues, it is, in fact, warranting that it will look at everything, so that when you come to apply the pressed or passed upon rule, it's fair to say, well, they passed upon absolutely everything that they didn't specifically exclude.",
       "time": "00:40:28.34"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How do I know that? I certainly don't know my way through these regs.",
       "time": "00:41:28.70"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It says, it is entitled, that section, Procedures Before Appeals Council on Review.",
       "time": "00:41:47.64"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's obviously referring to what happens after review has been granted and review is being conducted.",
       "time": "00:41:56.85"
     },
@@ -1307,13 +1311,13 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So--",
       "time": "00:42:02.24"
     },
     {
       "turn": 212,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Before... during the review, at least the Eighth Circuit reported, and was this inaccurate, the Appeals Council routinely considers arguments not specifically raised by the claimants before it, a product of its duty to review an ALJ's decision in an informal, nonadversary manner.",
       "time": "00:42:02.71"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if it does, isn't it somewhat deceptive for the... if this is routine, as the Eighth Circuit thought it was, and then claimant comes along, or her coworkers have told her, well, that's how they handle it--",
       "time": "00:42:34.74"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and then the agency says no, not for you?",
       "time": "00:42:50.77"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So we had... this business about distinguishing between represented and unrepresented people, that's a matter of grace within the agency now? They have no legislation and no regulation that spells that out.",
       "time": "00:43:21.31"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You--",
       "time": "00:43:54.35"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Oh, I don't think that follows at all. It seems to me an advocate can perform a useful function as an advocate even though the same issues would be considered by the judge in any event.",
       "time": "00:44:19.74"
     },
@@ -1385,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask if possibly a part of the motivation for treating claimants represented by lawyers less favorably than those on their own is to discourage lawyers from appearing? Because if I remember correctly, years ago there was a fee limit on what the lawyers could collect, wasn't there?",
       "time": "00:44:50.90"
     },
@@ -1397,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that still in effect?",
       "time": "00:45:07.14"
     },
@@ -1409,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is that limit?",
       "time": "00:45:14.84"
     },
@@ -1421,19 +1425,19 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:45:22.22"
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It used to be $10 when I practiced. [Laughter] And you couldn't get a percentage, either.",
       "time": "00:45:23.04"
     },
     {
       "turn": 232,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I asked... I--",
       "time": "00:45:29.27"
     },
@@ -1445,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I assume that because you're here-- --He does have an incentive not to have a lawyer, because you're better off without a lawyer when you get to court.",
       "time": "00:45:47.17"
     },
@@ -1457,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What percentage of cases do they in fact review? Do you have any idea?",
       "time": "00:46:25.08"
     },
@@ -1469,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I assume that because you're here we can presume that the... this rule would be helpful to the agency? I mean, if they have 140,000 appeals a year, it seems to me that maybe some of these reviewing officials have said, you know, I don't want any more papers. I don't want elaborate attorney presentations, or--",
       "time": "00:47:03.92"
     },
@@ -1481,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--How am I to assess that? Is that something I can just guess?",
       "time": "00:47:29.02"
     },
@@ -1493,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Now--",
       "time": "00:47:43.50"
     },
@@ -1505,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--You indicated toward the outset of your remarks that there are some issues that the district court will hear that the ALJ could not hear.",
       "time": "00:47:58.13"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you give me an example?",
       "time": "00:48:07.19"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, that's always true with--",
       "time": "00:48:40.18"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--a court proceeding. You don't know what the error is until the decision comes down.",
       "time": "00:48:43.16"
     },
@@ -1553,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought as far as exhaustion is concerned nobody's ever... I mean, the point you just made has nothing to do with exhaustion. As Justice Kennedy just said, in a district court, we look to see whether he presented the basic arguments pro and con in respect to the district judge. We don't... the fact that we couldn't know what the district judge's decision would be at the time has nothing to do with the issue.",
       "time": "00:49:02.61"
     },
@@ -1565,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The kind of thing I think you would say normally you don't have to present to the ALJ, is a claim that, for example, this regulation that you're following is contrary to the statute, or the... a statute is contrary to the Constitution, something that there would be a principle within the agency that he's not supposed to make that decision. That's my understanding, so--",
       "time": "00:49:26.03"
     },
@@ -1577,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I have one other question. In normal exhaustion principles, where there is an agency exhaustion requirement, and there's a failure to exhaust, and you're in the district court reviewing the agency's action, or the court of appeals reviewing the agency action, if there's a failure to exhaust, does the Article III court then have the discretion to send it back so that you have the opportunity to exhaust, or is there always a waiver, or is there--",
       "time": "00:50:09.03"
     },
@@ -1589,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a great deal written about this?",
       "time": "00:50:42.20"
     },
@@ -1601,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But suppose you had a good reason. I mean, I thought there was an awful lot of discretion in this area, such that it's exactly the same as when a case comes up to a court of appeals from the district court. Maybe there's a reason why she didn't raise it, in which case you could send it back, or maybe even excuse it. And here, where she's pushing... your opponent is pushing the following reason. Go read the forms and read the 10 minutes and so forth, and note the nature of the Appeals Council, and a lawyer might reasonably think I don't have to. There wasn't good notice about what I was supposed to do.",
       "time": "00:51:15.18"
     },
@@ -1613,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but you have the same scenario in the Seventh Circuit, and when it reached the Seventh Circuit they overruled their previous cases, unanimously, en banc.",
       "time": "00:52:31.07"
     },
@@ -1625,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No. They just thought the whole rule was not authorized by any regulation or anything else, and it didn't make any sense. That's basically what they said.",
       "time": "00:52:48.78"
     },
@@ -1637,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:52:59.53"
     },
@@ -1649,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And also, from the experience in the courts, that is, in a number of these cases there are hassles in the district court about whether you in fact raised the issue, because you've got only these three lines on the form. In fact, in this very case, wasn't one of the issues the Fifth Circuit said hadn't been raised debated between the parties as to whether it was raised or not raised?",
       "time": "00:53:03.11"
     },
@@ -1661,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, and in fact didn't it happen in... well, both the Eighth Circuit and the Seventh Circuit case said in the end the claimant lost on the merits, and the court thought it was not worthwhile hassling over whether it was waived or not, since it had no merit in any event.",
       "time": "00:53:49.83"
     },
@@ -1673,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you may get rid of the Appeals Council altogether, because there must be some... well, you set up the experiment and 10 States don't have it. Is there also any consideration in the agency about revising the form so that people will know what they're expected to do?",
       "time": "00:54:35.13"
     },
@@ -1685,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Committed to whom?",
       "time": "00:55:17.93"
     },
@@ -1697,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, I mean, this agency says... this Court says, agency, just do what you're doing. Why would the agency be motivated to change?",
       "time": "00:55:22.26"
     },
@@ -1709,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then there's no reason to wait on the court to make that decision.",
       "time": "00:55:51.12"
     },
@@ -1721,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stewart, one question. Are the members of the Appeals Council lawyers?",
       "time": "00:56:26.80"
     },
@@ -1733,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I hope that in this experiment that they're doing they take into account not only whether more district court cases are filed without the appeal, but also whether uniformity is produced by having all of these appeals go... not get dumped right into Federal court. I always thought the whole advantage of an administrative agency was to assure uniformity of decisionmaking, which--",
       "time": "00:56:31.81"
     },
@@ -1745,7 +1749,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Stewart on the question of uniformity, it's been said that the Appeals Council does not follow case law, that it's... that each case is set up on its own, and they don't follow precedent.",
       "time": "00:57:23.08"
     },
@@ -1757,7 +1761,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Stewart. Ms. Bohr, you have 3 minutes remaining.",
       "time": "00:58:08.54"
     },
@@ -1769,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "My case was a Social Security case. [Laughter]",
       "time": "00:58:21.09"
     },
@@ -1781,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The Government is just thinking how long it takes them to prepare a petition for certiorari, I think. [Laughter]",
       "time": "00:58:54.58"
     },
@@ -1793,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the reason that they... is that if you allow people to avoid exhaustion in several thousand cases every year, and many more, possibly, people will then go in and go to court, and they'll just think of a whole lot of reasons that they never raised before, and the judges are busy, and magistrates are busy, and to have all these new reasons hitting them that nobody's even looked at or thought about is... just adds to the work unnecessarily. That's the traditional reason.",
       "time": "00:59:42.46"
     },
@@ -1805,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because they resolve problems. In 20,000 cases every year they resolve them, and those are 20,000 cases that the courts never see.",
       "time": "01:00:14.14"
     },
@@ -1817,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You know, it's... it is the basic background law, and there's no need for it, but maybe their form isn't good enough in explaining it.",
       "time": "01:00:31.63"
     },
@@ -1829,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does it add anything of the nature of... Mr. Stewart says... it isn't... as I understand it, it doesn't say anything about what's going to happen to you, that you'll be precluded in court, does it--",
       "time": "01:00:51.36"
     },
@@ -1841,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--on the VA form?",
       "time": "01:01:03.07"
     },
@@ -1853,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Bohr.",
       "time": "01:01:11.24"
     },
@@ -1865,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "01:01:12.49"
     }

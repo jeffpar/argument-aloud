@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1979/78-1453/19791126a_78-1453.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "STUART A. SMITH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES W. ERWIN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in United States v. Euge. Mr. Smith, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Smith, Mr. Euge is here on an in forma pauperis basis, isn't he?",
       "time": "00:03:39.19"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what you're arguing is basically a statutory question, isn't it?",
       "time": "00:08:30.29"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly Mara and Dionisio establish that if Congress says so, there is no constitutional objection.",
       "time": "00:08:34.11"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Smith, is your argument then, you are not arguing that the handwriting exemplar is testimony. In fact, I guess it's not testimony under this --",
       "time": "00:09:17.54"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- given the power to take testimony --",
       "time": "00:09:27.09"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't really claim, then, that the literal wording of the statute covers this case?",
       "time": "00:10:41.74"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Smith, does this statute authorize taking fingerprints?",
       "time": "00:15:20.74"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Blood samples?",
       "time": "00:15:25.80"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about blood samples, voice exemplars?",
       "time": "00:15:27.28"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All of those things.",
       "time": "00:15:29.39"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is this power used in connection with preparation of criminal cases or just civil cases?",
       "time": "00:15:42.38"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:15:48.05"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If these exemplars showed that it was the same person who signed his name on all these accounts, it would be pretty clear criminal liability, wouldn't there?",
       "time": "00:16:19.95"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if that was his signature, the only thing left for him to do was plead guilty.",
       "time": "00:16:48.45"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It would be a real waste of time to try him, wouldn't it?",
       "time": "00:16:55.13"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any federal statute or -- well, we'll start with federal. Is there any federal statute that prevents you or me or anyone from having 10 bank accounts in 10 different names, trade names --",
       "time": "00:17:33.32"
     },
@@ -243,13 +243,13 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that by federal statute?",
       "time": "00:18:08.00"
     },
     {
       "turn": 36,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, most people only have one social security number.",
       "time": "00:18:10.78"
     },
@@ -261,25 +261,25 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your answer --",
       "time": "00:19:15.96"
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The Service has a real problem --",
       "time": "00:19:16.10"
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Go ahead.",
       "time": "00:19:18.30"
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Service has a real problem, doesn't it, in the case of kids going to college and working for the summer whose wages are withheld during the time they work, but they don't work a long enough period to be required to pay any tax, and so they're just literally thousands of legitimate --",
       "time": "00:19:18.95"
     },
@@ -291,13 +291,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "My kids have been -- you do an awful lot of paper work --",
       "time": "00:20:09.19"
     },
     {
       "turn": 44,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But it is, I take it from your response to my earlier question that there is no statute which forbids any person from having ten different bank accounts in ten different names?",
       "time": "00:20:17.61"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's not my question. My question is, prompted by Mr. Justice Marshall's point that revealing that you had ten different bank accounts under ten different names is not automatically an admission of any guilt of any crime?",
       "time": "00:20:39.83"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You might do that so that your children --",
       "time": "00:20:57.44"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "-- wasn't a plea of guilty, but at least was a prima facie net worth case, wasn't it?",
       "time": "00:21:18.81"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Let's settle with \"enhance.\" Let's settle with that.",
       "time": "00:21:29.79"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Perhaps he might come in and explain that he just didn't want his wife and his children to know how much money he had in the bank.",
       "time": "00:21:33.89"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And he's here IFP?",
       "time": "00:21:59.28"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Smith, I know you discuss in your brief but I just don't remember, how old is this problem? How long has this problem been a matter of debate between --",
       "time": "00:23:17.75"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Practiced since 1921, suddenly they're requiring or just requesting, do you know?",
       "time": "00:24:08.99"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Have there been enforcement proceedings, do you know?",
       "time": "00:24:16.78"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I have a question, Mr. Smith. I take it from your argument that you are making neither pro nor con out of the change in the one word, \"data,\" to the one word, \"memorandum,\" or vice versa in the 39 to the present code?",
       "time": "00:25:10.44"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is the one you make.",
       "time": "00:25:42.76"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It would be harder to say that exemplars are memoranda than it is to say that they are data?",
       "time": "00:26:40.88"
     },
@@ -459,19 +459,19 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't much of a mistake, is it?",
       "time": "00:27:37.18"
     },
     {
       "turn": 72,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No.",
       "time": "00:27:38.24"
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Fairly minor.",
       "time": "00:27:39.67"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Erwin.",
       "time": "00:27:52.84"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You say there was a hearing?",
       "time": "00:30:18.11"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How much was involved in these side accounts?",
       "time": "00:30:25.72"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How much money is in the side accounts?",
       "time": "00:30:31.50"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And he couldn't afford counsel?",
       "time": "00:30:46.19"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, maybe there is $60,000 in there now.",
       "time": "00:31:00.73"
     },
@@ -555,13 +555,13 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is just as inferable as there is nothing in there at this point.00",
       "time": "00:31:05.30"
     },
     {
       "turn": 88,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was his testimony as to his net worth at the time?",
       "time": "00:31:10.39"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the court nonetheless allowed him to proceed IFP?",
       "time": "00:31:16.34"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you as a member of the bar satisfied that he fulfills the IFP standard?",
       "time": "00:31:37.32"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you agree, as suggested by your brother, that he could be summoned to appear for the purpose of having his picture taken?",
       "time": "00:32:35.20"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't?",
       "time": "00:32:44.08"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He could be summoned to appear and bring with him an existing picture, couldn't he?",
       "time": "00:32:45.63"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You do concede that?",
       "time": "00:32:49.56"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your response to that is in the framework of the Tax Code, I take it?",
       "time": "00:33:04.62"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not generally.",
       "time": "00:33:09.37"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If he is ordered to produce an exemplar in the proceeding by the District Court, where does the compulsion originate? Is not the court acting?",
       "time": "00:33:26.34"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the District Court would have no more power to enforce the summons than the service had to issue the summons.",
       "time": "00:34:04.69"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then why do you say that the District Court could do something that the service could not do?",
       "time": "00:34:13.18"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But that doesn't depend on the Internal Revenue Code.",
       "time": "00:34:31.75"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And we are dealing here specifically with the provisions of 7602, are we not?",
       "time": "00:34:39.65"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do I understand that you that if Congress had provided in that section that the Internal Revenue Service could require the production of handwriting exemplars, you would not be here?",
       "time": "00:34:45.58"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Erwin, I know the government doesn't argue this, but have you considered whether the analogy of the New York Telephone case, whether the all writs act would give the court the power to aid the jurisdiction to order production of this kind of material?",
       "time": "00:35:04.60"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Erwin, supposing that under section 7602 the last sentence of it, and to give such testimony under oath before the Secretary or his delegate at a time and place named in the summons and to produce such books, papers, records or other data and to give such testimony under oath as may be relevant or material to such inquiry. And the Secretary's delegate decides it would be very helpful to us and material and relevant for us to have a statement from you of your net worth on January 1st and your net worth on December 31st, and the man responds \"I don't have any such thing in existence.\" Do you think the Secretary could say, well, give us your best estimate?",
       "time": "00:36:32.06"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't doubt it for a minute if he came within the Fifth Amendment. But do you think it is not authorized by statute?",
       "time": "00:37:35.78"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you would say --",
       "time": "00:37:49.35"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what they are asking for here is to write it out.",
       "time": "00:37:56.49"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say that he could be asked what his net worth was on January 1st and on December 31st, but he could not be asked to write out what his net worth was on January 1st and December 31st?",
       "time": "00:38:08.45"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's make it even more simple. Let's forget about net worth. Suppose he came in and put him under oath and asked his name and he said, whatever it is, Euge, and he said let's have you write it out. Would that be proper on the part of the Service?",
       "time": "00:38:27.38"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It doesn't speak of oral testimony.",
       "time": "00:38:55.15"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It does?",
       "time": "00:39:04.95"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the same line, supposing they asked him for a list of his receipts by month for the past twelve months and a list of expenditures and a profit and loss statement and a balance sheet, none of which he had prepared. Could they do you think say, well, you could tell us all of this orally but we would like you to prepare it in writing so it is much more manageable for us?",
       "time": "00:39:16.88"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if he said in response to the same question that we have been talking about, it is all on a data processing system in my office and I just don't have any recollection of it, and the people in the service say, well, we have no way of getting into your data processing machine, would you just wrote out the summary of the net worth or name or whatever it is as of January 1st and as of January 31st?",
       "time": "00:40:09.01"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that --",
       "time": "00:40:52.69"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He could compel the retrieval of raw data in the computer?",
       "time": "00:40:54.80"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That wasn't my question. I am asking whether he could be compelled to produce the -- or retrieve the raw data.",
       "time": "00:41:14.82"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Erwin, I wanted to ask you about the Bisceglia case. Do you feel there are no implications in that decision that are adverse to your position here? You cite it only twice, once to the dissenting opinion and once to the ensuing curative legislation.",
       "time": "00:42:59.99"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think that if Congress abolished grand juries, that law would be unconstitutional?",
       "time": "00:44:11.95"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Constitution assures every defendant in a federal criminal case that he can't be tried unless he is indicted by a grand jury.",
       "time": "00:44:25.78"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So maybe it wouldn't be constitutional, but nobody could be tried in a federal criminal court.",
       "time": "00:44:44.64"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying that somehow the guarantee that Justice Stewart has commented upon, upon the right of every person to be indicted by a grand jury constitutionalizes the right of the grand jury in a way that favors the government over an act of Congress which authorizes the service to do something. Is that what you mean?",
       "time": "00:45:06.95"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the Second Circuit held that it applied to computer tapes.",
       "time": "00:49:14.40"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Smith, do you have anything further?",
       "time": "00:51:09.38"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think not. Thank you, gentleman, the case is submitted.",
       "time": "00:51:14.40"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2017/16-1495/16-1495_20180220-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "TOBY J. HEYTENS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ELIZABETH B. PRELOGAR",
-        "role": "advocate"
+        "title": "MS."
       },
       {
         "name": "KELSI B. CORKRAN",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 16-1495, the City of Hays versus Vogt. Mr. Heytens.",
       "time": "00:00:00.00"
     },
@@ -59,13 +59,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Heytens --",
       "time": "00:00:49.96"
     },
     {
       "turn": 4,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your -- your first statement, I -- was very well stated. The first reason is because the only thing that double jeopardy -- that the clause applies to is?",
       "time": "00:00:51.12"
     },
@@ -77,7 +77,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It has to be at trial. So, in making that argument, Mr. Heytens, you are recognizing that you are shrinking to almost a vanishing point the possibility of using the Fifth Amendment to block the use against you of incriminating -- the -- you -- you're shrinking the privilege to nothing because there aren't many trials nowadays; upwards of 95 percent of cases are disposed of by plea bargaining. So, by limiting the Fifth Amendment to there must be a trial, there must be a witness at trial, you're saying effectively the Fifth Amendment, which is considered very important, is out of the picture in most criminal cases.",
       "time": "00:01:11.52"
     },
@@ -89,7 +89,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, Mr. Heytens, then if this -- this defendant, based on what you just said, could refuse to answer the question if it had been put to him at the probable cause hearing, say tell us about that episode when you -- you retained the knife, he could say: I won't because that might incriminate me, he could raise the privilege.",
       "time": "00:02:55.36"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But he can't object if prior testimony, a -- a prior statement to that effect, is introduced at the probable cause hearing. He -- he said it before, it can't be introduced. If he gives the testimony, if he gives the statement at the probable cause hearing, that's right, he doesn't have to incriminate himself, but he can't object to the introduce -- introduction of a prior compelled statement.",
       "time": "00:03:18.16"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about a grand jury proceeding?",
       "time": "00:04:16.00"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, can it be prevented?",
       "time": "00:04:20.12"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I -- I've come across Supreme Court cases which refer to a grand jury proceeding as part of a criminal case, and you cannot introduce it in a criminal case. So what I wondered and seemed to be missing is that I haven't found anything that says, you know, you can't attack the grand jury proceeding later, but that's different. So --",
       "time": "00:04:24.84"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- so somebody finds a way, gets an order from a judge, he says I don't want these pieces of paper introduced, they were taken from me in violation of my Fifth Amendment right not to be a witness, and I don't want them brought before the grand jury. I'm rather surprised that that's never come up.",
       "time": "00:04:45.84"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And -- then where are the cases that say that even though the person objected, you can introduce it to the grand jury? I can't find any. And I have found cases that say a grand jury is a criminal proceeding.",
       "time": "00:05:05.28"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Heytens, you also agree now, don't you, that the probable cause hearing is part of the criminal case? That's not at issue here?",
       "time": "00:05:47.04"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. So then, if I just look at the language of the Self-Incrimination Clause, it's \"shall be compelled in any criminal case,\" which we are in now, and -- and there's no issue here about compulsion. Maybe there should be, but there isn't. \"Shall be compelled in any criminal case to be a witness against himself.\" \"To be a witness against himself,\" if I'm just thinking about the natural reading of those terms, it's when my testimony is introduced adverse to my interests in that criminal case. So why isn't that just what we should be asking?",
       "time": "00:05:54.48"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Kind of the obvious interpretation, right?",
       "time": "00:06:31.12"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I don't think Estelle is -- is inconsistent with that because what the Court in Estelle said was that this is actually a neutral determination. And that's understandable when you consider that the victory you win when you're declared incompetent is to continue to be detained as incompetent. So it's -- it's -- it's not like here where it's like: Well, obviously -- obviously, I want to win this so that I can get out of this criminal case.",
       "time": "00:06:59.40"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yes. I mean, you're quite right that there's a -- if you are right that the grand jury is different, and you might be, that there is a kind of anomaly there, but explained, I think, by a kind of historic judgment that grand juries are sacrosanct, that everything has to be secret, that we don't want people poking around in that black box, and none of that is true of just standard probable cause hearings.",
       "time": "00:07:35.36"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry, how -- how is it the same? You -- it's not the same. In a grand jury, there's no adversarial pursuit. There's no judge. There's no defendant's lawyer. There's no anything like the grand jury. So it can't be -- it's an imperfect substitute at best.",
       "time": "00:08:22.64"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I don't -- so back to my first question, I don't know what the answer is in a grand jury proceeding. I do know you can't attack that proceeding at trial, but I don't know whether, as in this case, somebody might, if they were used, bring a 1983 claim on the ground that its constitutional rights have been violated. That's what happened here. And I don't know what would happen if because of the circumstance the defendant went before a judge and said: Judge, keep that piece of paper out of the grand jury proceeding.",
       "time": "00:10:40.08"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So I do think perhaps they should be treated alike, but I don't know what alike is.",
       "time": "00:11:12.28"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:11:25.84"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't know. Maybe you could. I mean, there -- I -- I don't even know where to go to look that up.",
       "time": "00:11:26.56"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I assume you've looked it up.",
       "time": "00:11:32.92"
     },
@@ -305,19 +305,19 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, all right. I see that.",
       "time": "00:11:52.16"
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Who would --",
       "time": "00:11:53.12"
     },
     {
       "turn": 46,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So -- so we have an instance where there is a committee investigating Mr. Smith and Mr. Smith takes the Fifth Amendment 90 -- 94 times and then they compel him to give all kinds of statements and then there's a grand jury and he goes to the judge and says: Judge, keep those statements out.",
       "time": "00:11:53.28"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And Mr. --",
       "time": "00:12:13.24"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:12:16.24"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I understand that. He says they were taken in violation of my Fifth Amendment right. And --",
       "time": "00:12:17.92"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And there we are. Keep them out. Keep them out of the grand jury. Huh. And you're telling me there is -- so this is an important case in more ways than one because what we decide here, I guess, would decide the same thing for the grand jury.",
       "time": "00:12:22.00"
     },
@@ -377,19 +377,19 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm -- I'm sorry, can we --",
       "time": "00:13:52.52"
     },
     {
       "turn": 57,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Mr. Heytens --",
       "time": "00:13:53.20"
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can we step back a second? Your brief notes that the Respondent did not file a motion to suppress his statements or object at the probable cause hearing to their admission. Isn't that a waiver?",
       "time": "00:13:54.08"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you've seen the record.",
       "time": "00:14:23.48"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So --",
       "time": "00:14:27.60"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And wouldn't a ruling by us against you just mean that defendants -- whether it's within 48 hours at a hearing that's being held or a probable cause hearing, et cetera, wouldn't we be putting the onus on defendants to raise a valid objection if they have one then?",
       "time": "00:14:33.08"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that's a matter of -- of -- of law. If you don't object to the admission of a statement, you've waived that objection.",
       "time": "00:15:00.24"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Are you familiar with any cases -- I don't know what the states say about this -- but in federal law that allow a person who thinks that he or she may be under investigation by a grand jury to go to a federal judge and file a motion in limine regarding the evidence that may be presented to the grand jury?",
       "time": "00:15:12.04"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "This would be revolutionary, wouldn't it?",
       "time": "00:15:32.88"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Prelogar.",
       "time": "00:15:40.00"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. -- Ms. Prelogar, I -- I guess that would mean as a conceptual matter, even if not as a practical matter, but as a conceptual matter, that the government could force somebody to testify against himself in such a proceeding?",
       "time": "00:16:16.12"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yeah. So this is why I said maybe not as a practical matter, but as a conceptual matter, you would be saying that the government could, if it chose and if it accepted certain consequences, could force him to testify against himself?",
       "time": "00:16:53.36"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Right.",
       "time": "00:17:09.48"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "How about this? How about if he didn't testify? Could -- could the government draw an inference against him for failing to testify, as the government could, for example, in a civil case?",
       "time": "00:17:14.56"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yeah, I guess my questions are just that it seems odd for something that is understood to be a part of the criminal case, I don't -- I -- I -- I take it that you have no continuing objection to that view either --",
       "time": "00:17:47.44"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So, you know, it just seems odd for something that is -- is clearly part of a criminal case to say: Yes, the government can draw an adverse inference, but don't worry, we won't, it will never come up; and, yes, the government could force him to testify against himself, but don't worry, we would have to give him immunity and we -- and we wouldn't want to do that. It just seems conceptually a difficult position.",
       "time": "00:18:00.08"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry, if you -- if you don't win at the probable cause hearing, that ends the case. So it has a consequence with respect to his innocence or -- or not his innocence, but his being proven guilty or not.",
       "time": "00:18:45.16"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because it ends the case.",
       "time": "00:19:03.64"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It can end it.",
       "time": "00:19:06.44"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it increases the possibility of his being found guilty and punishment imposed?",
       "time": "00:19:19.32"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What -- what about other things? I mean, how does it work? I've -- I've not conducted grand juries, some of my colleagues have, but, I mean, I can imagine all kinds of unconstitutionally seized evidence. It could violate the Fourth Amendment. It could violate the Fifth Amendment's coerced confession. It could violate any one of 15 -- not 15, but, you know, five or six different constitutional prohibitions. And if the prosecutor says I'm going to go and introduce all this stuff before the grand jury, does then a defendant have no remedy whatsoever?",
       "time": "00:19:38.00"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then does that happen all the time, that in grand juries they introduce coerced confessions, they introduce -- this comes as a surprise to me.",
       "time": "00:20:08.44"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, you have the experience.",
       "time": "00:20:17.16"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They introduce illegally seized evidence, they introduce all this constitutionally impermissible evidence.",
       "time": "00:20:19.52"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I just want to know what happens. I guess this is not relevant to what happens, but I -- I -- I can be educated.",
       "time": "00:20:37.72"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it seems like an important point.",
       "time": "00:20:44.00"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Prelogar, suppose we rule against you on this issue. Do you think that had -- that that would have necessary consequences for any other kinds of proceedings?",
       "time": "00:21:44.64"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And how about -- Mr. Heytens spent some time talking about Gerstein hearings. Do you think that this is the same -- identical to Gerstein hearings so that whatever we did here we would have to do there, or do you think a distinction can be drawn between the two? In other words, if you -- if we rule against you, will the government come back the next time and say, Ah, we lose now, or will you have a good argument to make?",
       "time": "00:22:30.44"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Here, it is to -- it is to determine whether there's enough evidence to go to trial. And on the one hand, you're conceding that the evidence couldn't come in at trial, but it can be used to determine whether there's enough evidence to go to trial. That seems strange.",
       "time": "00:23:25.12"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how can you use, to determine whether there's enough evidence to go to trial, evidence that can't come in at trial?",
       "time": "00:23:54.16"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I suppose you don't know at the probable cause hearing whether it's going to be admissible or not because you may not have the defendant's argument, the defendant's side of the case. I mean, that's the whole point about the grand jury proceedings.",
       "time": "00:24:10.08"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Only if it's raised. Only if it's raised.",
       "time": "00:24:46.56"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There's a lot of jurisdictions who already give defendants those rights to do it right at the beginning of the case. Some exercise it. Some don't. A lot don't, because there's a lot of reasons why a defendant doesn't want to do it early on.",
       "time": "00:25:09.72"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Very few of them seem gummed up in the way that you're anticipating this will create a problem.",
       "time": "00:25:27.92"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Corkran.",
       "time": "00:25:58.84"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you seem to assume that in a probable cause hearing the state has gathered all of its evidence, that it's -- that it's done all of its investigation, that it has all of its witnesses in order, but that's just not the way probable cause hearings work.",
       "time": "00:27:23.72"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, but -- but the point is the government might not have readily available the evidence that it ultimately will use.",
       "time": "00:28:01.76"
     },
@@ -809,13 +809,13 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, that's very --",
       "time": "00:28:39.76"
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, right. But the plea will -- the content of the plea agreement will be affected by whether or not the statements are going to be admissible at trial. It's not as if they don't -- the prosecutor doesn't have to worry about that in deciding what plea to offer.",
       "time": "00:28:40.48"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I don't know that that's true. They have -- if they're represented by counsel, counsel can look at it and say: Look, they're never going to be able to use this, so don't plea to that. Maybe they'll offer something else. But the fact that it's going to be resolved in a plea bargain context rather than an actual trial, I just don't see the pertinence of that.",
       "time": "00:29:08.64"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "For -- for reasons that are my own problem, I suddenly see now for the first time that if you win here, if you win, this is a major change because it's pretty hard to see how you can say you can attack the preliminary hearing and you cannot attack the grand jury, and you cannot attack the Estelle hearing or all these different hearings --",
       "time": "00:29:42.16"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- that they've been talking about, so suddenly, whereas you previously haven't done it for whatever set of historical reasons, this will suddenly be subject to a lot of attacks. So that makes me pretty careful.",
       "time": "00:30:01.68"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And for that reason, I looked up whether you objected, because I do not see how the magistrate running the -- the preliminary hearing can know what to do unless somebody tells him that these statements were taken in violation of the Fifth Amendment. One, I don't see where you ever did tell the magistrate that. Two, looking at the transcript of the preliminary hearing, I couldn't find any instance where any of the compelled statements were introduced into the preliminary hearing. So what I would like you to do is to tell me what pages to look at in the preliminary transcript, which I have here, which will show that you did object or at least that some of the compelled statements were used.",
       "time": "00:30:15.88"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It may not be in the record.",
       "time": "00:31:05.36"
     },
@@ -887,13 +887,13 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But if it's not in the --",
       "time": "00:31:07.84"
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that's an important point, isn't it?",
       "time": "00:31:09.28"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of course, it's an important point.",
       "time": "00:31:11.32"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, before we start having an -- an extended exchange about material and something that's not in the record, I -- well, I guess I would just like to point out that it's not in the record. There's a reason we can find things to what's in the record, including how do we know what this is if it's not in the record.",
       "time": "00:31:13.72"
     },
@@ -935,13 +935,13 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How do we know that it's been adequately -- had a chance for people to object to it and all that? It's -- it's not just a passing comment that it's not in the record.",
       "time": "00:31:27.20"
     },
     {
       "turn": 150,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Nor -- nor is actually mine a passing comment because Article III of the Constitution says we are to take real cases and controversies.",
       "time": "00:31:36.00"
     },
@@ -953,13 +953,13 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And to decide a major matter where, in fact, going from what is in the record to an earlier stage of this and discovering if it's true, that there was no instance about which you are complaining, in my mind raises the question as to whether this is, in fact, an appropriate case or controversy for the Court to take.",
       "time": "00:31:43.68"
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And we're supposed to decide whether the cases are controversies according to law. And as far as I'm concerned, coming in and saying I want to know about this thing that's not in the record is no different from somebody else coming off the street and saying: Hey, wait a minute, I know what happened in this case. So --",
       "time": "00:32:09.20"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "-- go ahead and answer it.",
       "time": "00:32:22.44"
     },
@@ -983,13 +983,13 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's a question that you've been presented with. Go ahead and answer it. But I want you to --",
       "time": "00:32:23.40"
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You don't have to answer it. I -- I -- I --",
       "time": "00:32:26.44"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no, feel free. I'm just saying I will discount the answers because it's not something that's in the record.",
       "time": "00:32:27.72"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, this is a very -- this is a very odd case. And it wasn't a case of involving -- it's not a case where you had a right to take an appeal. It's a case where we decided to -- we decided to take it, where the city had a right to take the -- to take an appeal. But let me ask you this: What -- did the -- did the city violate the Fifth Amendment at the time when the officer was questioned?",
       "time": "00:33:02.68"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Then why are you suing the city?",
       "time": "00:33:34.72"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I understand that.",
       "time": "00:33:51.72"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I'm just trying to understand this seems like a very odd case and I'm just trying to understand what's really involved. That's one thing that -- that --",
       "time": "00:33:53.16"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- I don't understand.",
       "time": "00:34:00.48"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "How did they cause the -- the -- what will your theory be as to how they caused this prosecution?",
       "time": "00:34:02.76"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, just so we're clear, the -- I think the concurring opinion in this case did a very good job of pointing out that all of the questions that are being asked, both by Justice Alito and by Justice Breyer, there is a substantial question about whether any of these statements were compelled.",
       "time": "00:35:02.88"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There is a substantial question about whether there was an objection or not. There are lots of questions that the concurrent said still had to be decided, correct?",
       "time": "00:35:23.96"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah. Just --",
       "time": "00:35:50.64"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could I just go back?",
       "time": "00:35:55.32"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There is a circuit split on this. There's three circuits on one side, three circuits on the other -- four now on the other side. Among those four are now the Tenth, the Ninth, the Seventh, and the Second who support your position.",
       "time": "00:35:57.16"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you know whether the works have been gummed up in those circuits?",
       "time": "00:36:14.24"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, unless you can distinguish this from the grand jury --",
       "time": "00:36:52.68"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- it's -- the issue has enormous implications for the reasons that were brought out by Justice Breyer's questions. So how could you distinguish this from the grand jury?",
       "time": "00:36:56.48"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Corkran, suppose that I just did not want to go into the grand jury business, mostly because I think that there is this very long tradition of not cracking them open unless we have to.",
       "time": "00:38:07.56"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And, you know, it might be that there is the same right in the grand jury context, but we've just decided in a wide variety of ways that that right does not get remedied in the same way, as easily, as quickly, as anything, as in other contexts. Would it be -- wouldn't that be correct?",
       "time": "00:38:20.84"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what is your test for determining whether a proceeding is part of the criminal case for these purposes?",
       "time": "00:40:06.04"
     },
@@ -1223,13 +1223,13 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How do you distinguish Estelle?",
       "time": "00:40:34.04"
     },
     {
       "turn": 198,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Does it --",
       "time": "00:40:36.56"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But your answer is, though, but in general, then, the -- the clause does not apply or does apply in a competency hearing?",
       "time": "00:41:51.40"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The evidence -- evidence obtained in violation of the -- the privilege would be admissible in a competency hearing or not?",
       "time": "00:41:59.20"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So what about a Gerstein hearing and a bail hearing?",
       "time": "00:42:39.60"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But I thought you said that the -- that the criminal case begins when the -- when the defendant is -- appears in court and is called upon to answer the charges.",
       "time": "00:43:02.16"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "That's not -- a Gerstein doesn't satisfy that?",
       "time": "00:43:13.88"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah.",
       "time": "00:43:24.64"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Wouldn't it -- in a criminal -- in a federal case, if there's a complaint, wouldn't it begin at the time of the filing of the complaint? Wouldn't that be the beginning of the criminal case?",
       "time": "00:43:39.68"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I'm just not -- I'm not following your answer.",
       "time": "00:44:24.32"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "In a federal case, when a complaint is filed, is that not the beginning of the criminal case, in your view, so that everything that happens after that is part of the criminal case?",
       "time": "00:44:26.88"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "First appearance -- the initial appearance in court, that's part of the -- the criminal case. The bail hearing is part of the criminal case. The -- the competent -- if there's a competency hearing, that's part of the criminal case. It's all part of the criminal case.",
       "time": "00:44:36.40"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Right. If I understand what you're saying -- and maybe I don't -- but it's -- it's a substitute for exactly the proceeding that would take place if the police decided that they needed an arrest warrant, is that right?",
       "time": "00:45:09.92"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And in that proceeding, you would say that the privilege does not apply --",
       "time": "00:45:21.80"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- because the criminal case had not yet commenced --",
       "time": "00:45:27.48"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- before the arrest has been made, is that correct?",
       "time": "00:45:30.04"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is -- is it possible to ask, does -- is this a -- this is a 1983 case?",
       "time": "00:45:48.96"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could we say, in your opinion, before a plaintiff in a 1983 case can bring a claim, that the preliminary hearing consider -- considered matters that were taken in violation of the Fifth Amendment, they must allege in their complaint that they objected before the hearing, for otherwise the magistrate would have no idea what he is supposed to do?",
       "time": "00:45:55.76"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know they haven't. I'm asking.",
       "time": "00:46:25.60"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, then what is the answer to this? There are many, many ways in which a -- a statement by an individual could violate the -- incrimination. In this case, he is asked questions by his superiors in the police department under threat of leaving --",
       "time": "00:46:39.24"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- and they don't know that he considers that to be a violation of the Fifth Amendment.",
       "time": "00:47:00.28"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then those statements go to court in a preliminary hearing, and the magistrate doesn't know that the person considers them to be a violation of the Fifth Amendment. What are the magistrates and the police department supposed to do? They're not necessarily conversant with all the facts of the case, if no one objects.",
       "time": "00:47:07.00"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I don't understand. You -- you talk about it being -- being siloed and not being -- so the idea is you're supposed to pretend that the person didn't say what he said in conducting the investigation?",
       "time": "00:48:50.68"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, so if the person says -- you know, they say you've got to tell me what happened or you'll be fired, and the person says, you know, I buried the body here, he's not supposed to tell anybody?",
       "time": "00:49:15.32"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah.",
       "time": "00:49:33.68"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I just want to make sure I understand. So he's investigating it and said do you have anything to do with this, the disappearance, and the person says, I buried the body next to this barn, the person at that point is supposed to say, okay, I'm going to turn this over to Fred and I'm not going to tell him anything?",
       "time": "00:49:38.68"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:49:58.32"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There's no grant of immunity. There's a -- you've got to tell us or I'm going to fire you. In other words, the same thing here, that it's a compelled statement.",
       "time": "00:50:10.20"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "For the purposes of an ongoing investigation?",
       "time": "00:50:20.64"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, if the employer requires a statement to be made and the employee says that a crime was committed, the employer cannot tell the Police Department?",
       "time": "00:50:52.44"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This is such an odd case because I'm not quite sure that there was a compelled statement at all, if the facts as I've read them -- and I know they're not in the record and I know what the Chief says -- but, first of all, no employer -- his employer didn't compel these statements. He went to his employer because he wanted a different job.",
       "time": "00:51:39.16"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. On the second statement, he went to his chief and said: I'm resigning.",
       "time": "00:52:03.64"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, I had a -- but that's what's going to be litigated below.",
       "time": "00:52:36.64"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I thought he had announced his resignation before there was a request for additional --",
       "time": "00:52:40.28"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That -- I'll take it.",
       "time": "00:52:51.24"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it's still an odd case.",
       "time": "00:52:53.04"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If this case -- if this case goes to trial, you will prove that the officer suffered damage as a result of the probable cause hearing or as a result of having been -- as a result of the admission that he made under alleged -- allegedly under compulsion by the city?",
       "time": "00:53:04.76"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah, but you -- you will prove that the reason why he didn't get the job with the other police department was the probable cause hearing and not the statement that he made?",
       "time": "00:53:40.44"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That has nothing to do with the probable cause hearing. He wanted the probable cause hearing, so how could the statement have hurt him? How can he put -- prove damage?",
       "time": "00:53:59.52"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Four minutes, Mr. Heytens.",
       "time": "00:55:04.36"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:22.64"
     }

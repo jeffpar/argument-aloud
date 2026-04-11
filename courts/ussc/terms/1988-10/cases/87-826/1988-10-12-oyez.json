@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/87-826/19881012a_87-826.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "WALTER A. SMITH, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW L. FREY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 87-826, Goldberg v. Sweet. Mr. Smith, we'll wait just a moment--",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--until some of the people clear out or stop talking. 0.... Very well. You may proceed whenever you're ready, Mr. Smith.",
       "time": "00:00:10.06"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... why is it you say that they levy it on the whole of the... of the service? The initial obstacle I confront is I don't see how this is different from any sales tax, let's say, on a piece of tangible goods that... that is manufactured in a number of other States. The raw materials come from... from Iowa. The manufacturing is done is Ohio, and whatnot. Yet, the whole value that has been added to that item that's sold is taxed by the State that imposes a sales tax. Why can't you say that... that that also taxes activities in other States?",
       "time": "00:01:32.51"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Smith, to get back to Justice Scalia's question, do you think Illinois could have imposed a gross receipts tax on all of the charges charged in Illinois on the call--",
       "time": "00:03:36.47"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--the totality of the charge?",
       "time": "00:03:49.30"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think under our precedents, under sales tax generally, that a tax imposed by Illinois on the totality of the charge would be upheld?",
       "time": "00:03:54.52"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me that everything you have said so far, if you transfer it to our case in D. H. Holmes that we had last year involving the catalogs, means that we were wrong in reaching the decision we reached in the catalog case.",
       "time": "00:04:42.10"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The transaction takes place in part out of state. There is very significant economic activity that's outside the state. And yet, we sustained a tax based wholly on the sales price in the State of, I believe, Mississippi.",
       "time": "00:04:58.62"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but it... it was a use tax based on the value of the catalogs.",
       "time": "00:05:33.61"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, here no call that's not billed to Illinois is taxed. Mr.... is... doesn't the... Illinois taxes any call that's billed there.",
       "time": "00:05:47.62"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it... but it... but... but... and it... and it taxes it even though it happens to be paid in another State.",
       "time": "00:06:02.23"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, a gross receipts tax would not cover a call that is billed to an Illinois number but sent to Washington and is paid there. Is that right?",
       "time": "00:06:11.89"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But it may not--",
       "time": "00:06:30.85"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Of where it's paid.",
       "time": "00:06:33.97"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Has any State, in fact, done that in this case?",
       "time": "00:06:58.33"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Has that... has that been applied to some taxpayer in Illinois?",
       "time": "00:07:13.36"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, certainly the States are going to be entitled to tax this sort of activity in some way. I mean, there isn't any doubt about that, is there?",
       "time": "00:07:49.60"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And so, why isn't the Illinois way a relatively reasonable way to approach it?",
       "time": "00:07:58.46"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Don't forget that Illinois would allow the credit for the Washington tax.",
       "time": "00:08:09.11"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why shouldn't we approve it now if it accomplishes the same result as apportionment?",
       "time": "00:08:50.59"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Smith, I... I don't understand the whole need for apportionment. We've required apportionment where... where what you're taxing is the net income of a... of a unitary business because there if you... if... there's only 100 percent of the net income, and if you allow every... every State to assume a different percentage attributable to that State, you end up taxing more than the whole. But I'm not aware that we've required apportionment where what is being taxed is not a... a single event, but two separate events. For example, we allow one State to impose a sales tax and another State to impose a use tax. We don't... we don't... they're taxing two separate things. One is taxing the sale; the other is taxing the use. And there's no constitutional requirement that... that one give a credit for the other. We've explicitly said that there's no such requirement.",
       "time": "00:11:33.51"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that different from this?",
       "time": "00:12:27.58"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do we have to regard it that way? Why can't we regard the tax as a tax on the placing or receiving of a phone call in... in Illinois, and another State can place a tax on the... on the placing or receiving of a phone call in that State?",
       "time": "00:13:09.07"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's how they measure the tax. Right?",
       "time": "00:13:33.56"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just as in the sales and use tax situation. You tax the value of the thing once when it's sold and another time when it's used. So what?",
       "time": "00:13:44.51"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and here only one jurisdiction is taxing the receipt, and only one jurisdiction will be taxing the placement.",
       "time": "00:14:01.38"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Smith, may... may I interrupt you and ask you a question?",
       "time": "00:14:41.37"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing Illinois charges 5 percent on calls within the State of Illinois, and then it charged 2 and a half percent on all calls going across the State line. The 2 and a half percent would apply to every call received whether or not billed within the State and every call originating within the State. Would that be constitutional in your view?",
       "time": "00:14:44.07"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Many of your arguments would apply to that situation too because the 2 and half percent would be on the entire transaction.",
       "time": "00:15:08.02"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me be sure I... is your view that that tax would be permissible or not?",
       "time": "00:15:31.47"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because the reason I ask is that your opponent argues this is the functional equivalent of that tax because although it's 100 percent taxed, they really only tax half the calls because they tax those that are billed in Illinois and those that are not billed in Illinois are just not taxed at all. So, what's the difference between 50 percent of 100 percent of the calls and 100 percent of 50 percent?",
       "time": "00:15:47.31"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but if they could demonstrate... I don't know whether they could or not... that this resulted in a functional equivalent because the same number of tax dollars would be collected, what's wrong with it in terms of burdening interstate commerce?",
       "time": "00:16:29.29"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That therefore does not follow. It's simply not true that the price of an interstate phone call always varies according to its distance, is it? That's just not--",
       "time": "00:17:59.80"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--[inaudible] true it would be automatically discriminatory. You could say you're discriminating on the basis of distance. But it's not always true. Sometimes a shorter call may cost more than--",
       "time": "00:18:13.72"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Smith, are you suggesting that any State other than, say, Illinois and Washington could tax a call that originates in Illinois, in Chicago, to somebody in Seattle?",
       "time": "00:19:02.10"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's taxing the whole of the call by taxing the whole of half of the calls... roughly half. You have to mix up your callers, but isn't that true, because it doesn't impose any tax on those calls that originate in Illinois and are collect to somebody in Seattle?",
       "time": "00:20:03.26"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's right.",
       "time": "00:20:27.37"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you look at it call by call, it taxes the whole of the call. If you look at the universe of calls, it roughly taxes half of the calls.",
       "time": "00:20:28.36"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's what it did.",
       "time": "00:20:38.93"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't understand why you say it's not what they did. It seems to me that's exactly what the statute does. I mean, there's probably a problem with respect to calls from Chicago to Seattle that are billed to somebody in Atlanta. I understand there's a problem there, but leaving that to one side, isn't that exactly what it did? It taxed just those calls that are paid for... or charged to the number in Illinois, and that's... we can I think make a reasonable assumption that is roughly half the calls. And you say they didn't do that. Now, explain to me why they didn't do that.",
       "time": "00:21:16.72"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, unless you make the further assumption that the average individual phone user originates about the same number of calls he receives.",
       "time": "00:22:43.91"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it's not a... it's not a ridiculous assumption.",
       "time": "00:22:51.85"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In our tax cases, we've talked about a rough approximation being sufficient.",
       "time": "00:22:53.45"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I... I don't even think we require a rough approximation. We... we have... we have cases that... that... that measure the validity of a tax on the basis of whether the thing would be overtaxed if other States adopted the same kind of tax, a reciprocity requirement imagining would the thing be fairly taxed if another State had the same kind of law. But we have never required the other States to have the same kind of law so that in theory, other States could adopt quite different laws and tax the thing quite unfairly. We've never required anything resembling actual equity or even approximate equity in taxation.",
       "time": "00:23:13.27"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Smith. Mr. Frey, we'll hear now from you.",
       "time": "00:25:12.19"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Frey, what about a call from Chicago to Seattle that someone in Florida puts on his Florida credit card... on his Florida--",
       "time": "00:26:35.53"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Charges to the Florida number, but it's--",
       "time": "00:26:45.72"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--It's definitely not taxed.",
       "time": "00:26:48.42"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If an Illinois subscriber makes a call from Florida to Seattle, charges it to his Illinois number.",
       "time": "00:27:04.35"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it doesn't have to be paid by anybody by that address. It could be paid from someplace out of state.",
       "time": "00:27:19.78"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:27:28.30"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "00:33:57.75"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean... you mean the other... if another State... it would just be... what you're saying is it would be double taxation of the same call. Is that it?",
       "time": "00:34:04.94"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, as a... so, with respect to the Washington statute, for example, you think the... if there's a problem, the credit cures it, or is there a problem at all?",
       "time": "00:34:32.01"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's say... let's... let's suppose... just suppose a phone call like that. You think the credit would cure it anyway.",
       "time": "00:34:55.45"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm told the credit provision only applies if the same taxpayer is asked to pay twice. So, it can... it can result in calls being taxed in full by the receiving State and the State of origin if paid by different people.",
       "time": "00:35:36.45"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you leave that, Mr. Frey, they... they... as I understand your opponent, he said, well, but in order to take that position, you have to mix up your taxpayers and lump them all together in a way that Scheiner prohibits.",
       "time": "00:37:29.47"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I would think it would be.",
       "time": "00:37:46.77"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, your opponents don't represent callers. They represent... at least they're people who are operating telephone lines.",
       "time": "00:38:55.12"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well--",
       "time": "00:39:07.18"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yes.",
       "time": "00:39:12.60"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose part of the argument is that the... is that it doesn't make any difference how... what distance the interstate call covers, and the longer it is, the less connection really that Illinois has for it. And the in-state people--",
       "time": "00:39:30.55"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You can only call in-state between the borders of the State.",
       "time": "00:39:52.81"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the carrier says I'm carrying this call from China.",
       "time": "00:40:00.98"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying it's the same price as the ordinary sales tax because a certain portion of the price of any tangible goods has to be attributable to--",
       "time": "00:41:14.79"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--to the transportation of those goods from elsewhere.",
       "time": "00:41:25.09"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, every sales tax has that effect.",
       "time": "00:41:27.22"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Have we ever applied that... that requirement to a sales tax?",
       "time": "00:44:31.64"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If we regarded this as a sales tax, we wouldn't even have to confront that problem.",
       "time": "00:44:44.80"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Assuming what you have just said is true, assuming everybody adopts the same scheme, right, as Illinois? Is... is that... is that a likelihood?",
       "time": "00:49:12.68"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Frey. Mr. Smith, you have four minutes remaining.",
       "time": "00:54:07.92"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's the case that holds that the gross receipts tax must be apportioned?",
       "time": "00:57:51.94"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Smith. The case is submitted.",
       "time": "00:58:35.35"
     }

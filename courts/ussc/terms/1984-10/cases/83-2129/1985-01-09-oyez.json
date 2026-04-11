@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-2129/19850109a_83-2129.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "IRVING BIZAR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MARC P. CHERNO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bizar, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are those the only Circuits?",
       "time": "00:05:30.41"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As the Third Circuit?",
       "time": "00:05:38.77"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the Sixth Circuit is the only... the Sixth Circuit is the only one supporting your position?",
       "time": "00:05:42.97"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see--",
       "time": "00:06:04.06"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The three words you were talking about a moment ago are \"fraudulent\", \"deceptive\" or \"manipulative\"; is that right?",
       "time": "00:08:25.76"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think there is any overlap between \"fraudulent\" and \"deceptive\"?",
       "time": "00:08:33.01"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I was really more interested in trying to find out whether you thought there was any overlap at all between the words \"fraudulent\" and \"deceptive\".",
       "time": "00:09:31.60"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Those mean two distinct different things?",
       "time": "00:09:40.64"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you say \"manipulative\", the third word, does not require any element of deception?",
       "time": "00:10:01.45"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That isn't consistent with our Court's construction of that word in that earlier, what is it, the Santa Fe case. Didn't we define the--",
       "time": "00:10:07.44"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Bizar, at an appropriate time it would be helpful to me if we assume, for a moment, that you are right, that you need something more... there may be cases that don't involve deception, the manipulation word has some meaning. It would be helpful to me if you would explain what elements you think your complaint alleges that satisfy the reading of the statute you propose. I have a little difficulty with why, other than breach of contract and so forth, why you say it violates the statute.",
       "time": "00:13:21.46"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you say that every breach of contract suit was also a violation of 14(e)? I guess arguably there was a breach of contract here. One could claim that.",
       "time": "00:15:20.39"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it essential in your theory that there be a breach of some fiduciary obligation by the inside management, by the existing management?",
       "time": "00:16:32.32"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bizar, wouldn't most of these cases be brought as class actions on behalf of the entire body?",
       "time": "00:21:03.71"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know, but usually somebody gets there first and that's the one that proceeds, isn't it?",
       "time": "00:21:12.32"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's true of any corporate class litigation, isn't it?",
       "time": "00:21:26.08"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are a lot of them that are rather successful, as I remember it.",
       "time": "00:21:28.93"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but aren't these problems that experts like yourself regularly deal with and regularly know what state it's best to proceed in, and it's part of the daily business of bringing these actions?",
       "time": "00:21:53.83"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it your position is that you need not even prove in a case like this that the action complained of artificially affected the market price.",
       "time": "00:22:53.54"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it the Second Circuit in Buffalo Forge has said that manipulative acts reached only transactions that might mislead investors in the making of investment decisions. Do you think you have to prove something like that?",
       "time": "00:23:26.51"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know. But what must you prove?",
       "time": "00:23:44.65"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would that mislead investors?",
       "time": "00:23:53.92"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask on that point about the locked-up price, are you contending the price went up too high or down too low?",
       "time": "00:24:25.05"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Cherno.",
       "time": "00:25:01.15"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When you said \"fraud\" there, that would include misleading investors?",
       "time": "00:33:05.85"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that would be an example of the kind of fraud you are talking about?",
       "time": "00:33:15.89"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean the Court's opinion.",
       "time": "00:33:29.55"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cherno, can I ask you kind of a general question? Your opponent argues that we should start with the plain language of the statute. There are three clauses in it and the words \"fraud\", \"deception\", and \"manipulation\".",
       "time": "00:39:17.25"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he says that if we have added all those words in the word \"manipulation\" must mean something other than fraud or deception. What do you think \"manipulation\" means in this statute?",
       "time": "00:39:28.81"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, would you say that... I'm not an expert on the use of these terms, but he said somehow or other you locked out a white knight or scared him away or did something about a potential white knight. Would that be manipulative?",
       "time": "00:39:52.34"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. We've got to assume it did, I think, under a 12(b)(6) motion.",
       "time": "00:40:08.20"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But assume for the moment that everything was above-board in the sense of full disclosure but the arrangement somehow or other gave special inducements to inside management, which in turn made it implausible for a third party to make an offer to take over the company. Is there any set of facts on which that could ever violate 14(e) without deception?",
       "time": "00:40:31.35"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:40:52.08"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you don't think Congress was at all concerned with that kind of problem in the Williams Act?",
       "time": "00:41:04.47"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it's also fraud, in your view?",
       "time": "00:42:24.42"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you don't think manipulation means something different from fraud?",
       "time": "00:42:28.05"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So this was just a piece of bad draftsmanship in writing the Williams Act in saying \"or\"?",
       "time": "00:42:46.17"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be. That may be, but one wrong... one sloppy job doesn't justify another.",
       "time": "00:42:56.27"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it took a lot of cases to prove that it wasn't, didn't it?",
       "time": "00:43:08.00"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that argument certainly carried the day in 10(b)(5), didn't it?",
       "time": "00:44:02.46"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cherno, can I ask you one more question about... I perhaps should ask your adversary this about your understanding of the theory of the complaint. What do you understand the theory of damages to be... the difference between what they got and what they would have got under the original offer, or the difference between what they got and what a white knight might have offered?",
       "time": "00:52:35.21"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure whether the wrong is withdrawing the first offer or the form of the second offer.",
       "time": "00:53:27.96"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose the law could contemplate a situation in which you had a legal right to withdraw but you might nevertheless withdraw for an improper reason or part of an improper conspiracy.",
       "time": "00:54:03.18"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bizar.",
       "time": "00:54:48.00"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bizar, can I just ask you this one question? Is it your view that the wrong was the withdrawal of the first offer or the making of the second offer?",
       "time": "00:55:31.51"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does it then follow that if we didn't have a first offer but they just come in with the second offer and that's all there was alleged there would be nothing wrong with that?",
       "time": "00:55:43.38"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. And, similarly, if they had just made the first offer and withdrawn it without the second one, there would be nothing wrong with that?",
       "time": "00:55:51.97"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "it's the agreement you say they could have made if they hadn't made the first offer?",
       "time": "00:56:20.92"
     },
@@ -623,13 +623,13 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:57:32.85"
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10:00.",
       "time": "00:57:36.57"
     }

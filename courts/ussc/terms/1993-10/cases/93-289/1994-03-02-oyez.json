@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/93-289/19940302a_93-289.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "DREW S. DAYS, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ARLEN SPECTER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 93-289, John H. Dalton v. Arlen Specter. General Days.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "General Days, I would like to ask you what your position is as to the role of the President in this scheme? I guess the President has to either approve the entire list or reject the entire list. The President isn't authorized to pick and choose.",
       "time": "00:02:25.23"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. Does the President have any obligation to review the proceedings below for irregularity?",
       "time": "00:02:46.96"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could the President do that? Could he decide that there were irregularities in the process and therefore he wouldn't approve?",
       "time": "00:02:55.29"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But in your view, not obligated to review procedurally.",
       "time": "00:03:15.97"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is the Commission subject to the President's direction in any respect? Could he stop the Commission from behaving improperly in developing its recommendations if he wanted to?",
       "time": "00:03:22.39"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Days, the normal presumption is that legislation and its operation will be subject to judicial review. There's no express preclusion in this legislation. Can you summarize for us your argument of why the absence of judicial review is implicit in this scheme?",
       "time": "00:04:26.25"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, might this be different, General Days, if some sort of individual rights in the traditional sense were involved, as they don't seem to be here?",
       "time": "00:05:50.01"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you didn't put it this way, but basically you're saying this is just a pact, a kind of a modus vivendi between the two political branches.",
       "time": "00:06:51.24"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's a different response than the one that you gave earlier, that judicial review is out of the ballpark because of national... because national security is involved because these are military bases. The answer that you're now giving to Justice Souter seems to be that this was a determination between the two branches, that this was a matter for them to determine, perhaps--",
       "time": "00:08:01.59"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Can you conceive of any procedural irregularity so gross as to invalidate the Commission's findings?",
       "time": "00:08:48.38"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So if--",
       "time": "00:09:15.11"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If the Commission issued a report in 1994, which it's not authorized to do.",
       "time": "00:09:16.60"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And the President acted... transmitted the list, that would be a... and the Congress refused to act to upset that determination, those bases could be closed without interference from the courts?",
       "time": "00:09:22.32"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Day, at what point in the process would you say that Congress would have the best opportunity to express its concern about procedural shortcomings that are at issue in this case?",
       "time": "00:10:09.79"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That would be the point at which you'd expect them to react, if at all?",
       "time": "00:10:23.43"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Of course, Mr.--",
       "time": "00:10:28.16"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Senator Specter says they don't have time to do that. His argument, as I understand it, is that if that's what you're banking on, there won't be any procedural review at all, because he says Congress basically cannot act in the time that the statute would allow it to act.",
       "time": "00:10:29.61"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Days, you could say that about any arbitrary or capricious executive action. You could always say if Congress doesn't like it, Congress could have enacted a Joint Resolution of Disapproval, which is the same as a piece of legislation. It has to pass both houses, right?",
       "time": "00:11:07.58"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And be signed by the President.",
       "time": "00:11:21.99"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So why is this any different from any... any other instance of executive arbitrariness? Congress can overturn it by a law if it doesn't like it. I don't find that a very persuasive... it doesn't make me feel better about the arbitrariness in this case.",
       "time": "00:11:23.76"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If there was any.",
       "time": "00:11:38.11"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he doesn't really have to. He's supposed to, but you've told us you can't imagine any... you know, any defect that would be bad enough to allow review. All you say is he's supposed to do it. Let's assume he doesn't do it.",
       "time": "00:12:06.04"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Days, in this statute where Congress may, if it disapproves, pass a joint resolution, would that Joint Resolution of Disapproval have to be signed by the President?",
       "time": "00:12:48.23"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does that go for everything now? I was just wondering about the Federal rules procedure, that get laid on the table of Congress and then they become effective. That wouldn't--",
       "time": "00:13:02.44"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And that everything--",
       "time": "00:13:22.44"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--That everything... that you could no longer have anything, you think, even the Federal rules procedure?",
       "time": "00:13:24.56"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I didn't want to distract you.",
       "time": "00:13:39.49"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Days.",
       "time": "00:13:42.79"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you refresh my recollection on something? What is the status of the bases right now? Was the closing all been held up on all of them?",
       "time": "00:13:45.40"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The court of appeals didn't stay... didn't enter any kind of a--",
       "time": "00:14:24.41"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, they do... for the activity, the actions of the executive and the legislative branches, they don't, for purposes of judicial review, do they?",
       "time": "00:15:14.87"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, you're not... maybe I misunderstood you. You're not arguing that unless the Philadelphia closing goes forward in this case, the closing of every other base on the list is held up too as a result of judicial review?",
       "time": "00:15:27.42"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's not your argument, is it?",
       "time": "00:15:43.41"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, no, I understand that.",
       "time": "00:16:00.96"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But my only point was you're not arguing that if this Court sustains judicial review and if the... an order is entered which will terminate the closure proceedings for Philadelphia, that that's going to affect the closure of every other base that was on the same list with Philadelphia.",
       "time": "00:16:02.62"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But there's no... they're not subject to any challenge. I mean nobody's brought a suit.",
       "time": "00:16:26.75"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't it true also, General Days, that the Commission, in debating the 1993 closings, assumed that the Philadelphia yard was going to be closed, and in... perhaps relied on that in making its decisions as to 1993 closings?",
       "time": "00:16:56.17"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I must confess, I'm... I must say I'm confused. I was under the impression that you had a package situation.",
       "time": "00:17:14.65"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And certainly the President has to take it as a lump and the Congress has to. But you're saying in the case of judicial review, if there is judicial review it can be done on a base-by-base basis.",
       "time": "00:17:19.41"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that nobody accepted--",
       "time": "00:17:34.48"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, I might have thought your argument would have been that if we were to permit judicial review, that one possibility is that the district court would have to throw out the entire list in order to be consistent with the statutory scheme.",
       "time": "00:17:47.85"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or resort to a si prius doctrine and just save the Philadelphia base.",
       "time": "00:18:03.55"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if we can retreat just a minute from that parade of horribles, let's again assume that we find that there is judicial review.",
       "time": "00:18:24.23"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That the APA review applies. What should be the rule if the Commission violates its statutory mandate to hold a public hearing, and we've made this assumption? Can an aggrieved person immediately go to seek judicial review and a judicial order to open the hearings immediately after the Commission makes its determination to close them?",
       "time": "00:18:33.14"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose you want to observe... suppose you want to observe the public hearing?",
       "time": "00:19:12.67"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I ask--",
       "time": "00:19:33.85"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--General Days, I frankly don't see why your case is any stronger than a case in which the same scheme were set up but it did not say at the end that when the President approves it, he sends it, transmits it to the Hill, and the Hill has 45 days to overturn it. Suppose it didn't say that? Suppose it just said the President shall make the decision. He has to take it or leave it when it's submitted to him, and his decision shall not be effective for 45 days... that's all it says, shall not be effective for 45 days. In fact, that's the same result, right? Congress can... could only be able to overturn it by joint resolution.",
       "time": "00:19:41.54"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what do you gain from the fact that this is a scheme in which he formally had to place it before Congress? I don't see how that makes your case for nonreviewability any stronger.",
       "time": "00:20:21.72"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree it's important that the President is involved. I'm not sure it's at all important that Congress is involved. That is to say that what the President does is not simply issue a regulation, the bases shall close, period, effective 45 days from now.",
       "time": "00:21:53.75"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure there's any difference between that and this scheme where it says not just 45 days from now, but within those 45 days I'm leaving it on the floor of Congress.",
       "time": "00:22:07.59"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But why doesn't that cut the other way, General Days, that they noticed that NEPA could slow things down, so they made an exception for it, but they didn't make an across-the-board exception?",
       "time": "00:22:57.85"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it your position with respect to the significance of the express provision for congressional disapproval that it's sort of affirmative evidence that Congress would engage in a review, and hence affirmative evidence, one more bit of evidence for you that that's where the review was to take place and not somewhere else?",
       "time": "00:23:47.38"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, General Days. Senator Specter, we'll hear from you.",
       "time": "00:24:28.52"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Senator Specter, let me just, if I may, interrupt you. When you say null and void, do you mean that if there is a concern about the particular... the Philadelphia base and procedural shortcomings as to that one base, the remedy that the Court would grant would be null and void of the entire package?",
       "time": "00:25:33.45"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then let me ask you, just to be sure I understand the position, you do agree, do you not, that if the President were... found there were procedural shortcomings as to Philadelphia and no other base, he would not have the authority to say I will close everything except the Philadelphia base?",
       "time": "00:25:59.60"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but the point I want to be sure I understand your position on, Senator, is that if I understand you correctly, the Congress could not say because of the procedural violations involving Philadelphia, we will approve the entire package except Philadelphia. They might say we're very unhappy about that, but we think the interest in all the closures outweighs it and we're going to approve the package.",
       "time": "00:26:49.48"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Senator, if Congress-- --But, let me just finish... let me just finish the one thing, and that'll be... I'll leave you alone. But you do agree, then, that neither Congress nor the President could take separate action on a base-by-base basis, but the courts could?",
       "time": "00:27:58.00"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:28:10.97"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Senator, I don't agree with that. Congress can do anything by a joint resolution. If Congress passes a joint resolution, which to be effective has to be signed by the President, it has passed a new statute which would supersede this whole statute anyway. Congress... I agree with you that the President couldn't single out the Philadelphia base, but Congress could by joint resolution.",
       "time": "00:28:23.45"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Anything at all.",
       "time": "00:28:47.97"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wasn't contemplated, but the Base Closure Act calls for a joint resolution and Congress can do anything it wants by a joint resolution so long as it's constitutional?",
       "time": "00:28:54.89"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I think the procedures that Congress would go through for a joint resolution under this Act might be quite different and a good deal speedier than introducing a brand new piece of legislation and having it go through committee.",
       "time": "00:29:44.59"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Senator--",
       "time": "00:30:41.04"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If the President concluded that some of these conditions that you have just described had not been followed by the Commission, did he have the duty to reject the list?",
       "time": "00:30:51.06"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So if you were his legal counsel and these defects had been disclosed to him during the short period of time in which he could either reject or approve the list, you would have said that he had the legal right to submit the list to the Congress, to go ahead with it?",
       "time": "00:31:11.16"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But he... but would you further advise him that he did, in his discretion, have the authority to transmit the list to the Congress?",
       "time": "00:31:43.74"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Not what he ought to do... that he ought to submit the whole list to the Congress?",
       "time": "00:32:03.77"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, then you're saying he acted within his discretion.",
       "time": "00:32:40.22"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But, Senator Specter, he did... did he have an obligation under the statute to review whether procedures were properly employed by the Commission?",
       "time": "00:33:02.07"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you agree with that. And the President did have two options. He could send it on with his approval to the Congress, or he could reject it and send it back to the Commission.",
       "time": "00:33:18.11"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Senator Specter, may I... you've been very clear, I think, on two points. You said there is to be no cherry-picking by the President under this measure, and no cherry-picking by Congress, but there is by the courts. And my question to you is this; suppose Congress, concerned about this picking-off problem, wanted to say and the courts too cannot zero in on the Philadelphia base, on the Rice base, on any base, could that... could Congress have done that, would it have been constitutional, or is your argument fundamentally that the courts must always be able to engage in the cherry-picking business in this kind of a legislative setup?",
       "time": "00:33:57.73"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But let me withdraw the word cherry-picking, because I don't want to make anything in the pejorative sense. You have been very clear that it's an all or nothing deal for the legislature, as it is for the executive, but you say it's never an all or nothing deal for the courts, and it is never because this legislation didn't preclude that, or even if Congress had said, and, courts, you too have no business looking at bases one by one? Suppose Congress had said that, would that have been unconstitutional in your view?",
       "time": "00:35:01.48"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But, Senator, may I interrupt you? It seems to me that what you're saying is the most the court can do is to declare that with respect to this one base there was a procedural irregularity, maybe a very serious one, then send it back somehow into the executive process and say you figure out what to do. And yet the essence of the executive process was that it would proceed on a given timetable on an all, take it or leave it, basis. And I don't see how that relief is consistent with the scheme of the statute.",
       "time": "00:36:41.83"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "With an entirely different package in front of it.",
       "time": "00:37:16.18"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In effect, you're saying the court can say add a new item to this year's package, change the next--",
       "time": "00:37:21.44"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, do it right, but the time for doing it right is passed. And your remedy, in effect, as I understand it, involves a court ordering the Commission to consider a different mix from the mix that the Commission otherwise would derive?",
       "time": "00:37:52.30"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may have time, but I don't think that goes to my question. But let me ask you a different question, which I thought you might get close to in answering Justice Ginsburg's. Assuming that the court finds that with respect to the Philadelphia shipyard there was a significant procedural irregularity. We've got judicial review, that's the conclusion... whatever relief the court gives, whether it were... and you're not asking for it... you tell me if it were to order the closure to... process to be halted, or whether it's some kind of a remand procedure which you've described, why doesn't the scheme of the Act require the court to take the package all or nothing, so that if there's something wrong with Philadelphia, there's something wrong infecting the entire political mix which it was the object of the statute to require both Congress and the President to act on as a package?",
       "time": "00:38:19.91"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So if Philadelphia's tainted, why don't we say that the relief is going to affect all of the others?",
       "time": "00:39:18.08"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the Act... the court also ought to act consistent with the intent of Congress, and the intent of Congress to regard a package as a package is pretty clear, isn't it?",
       "time": "00:39:27.34"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No. The other side of it is basically that the... that this is essentially a political pact between two branches of the Government and the Congress can decide what to do about it if there is a procedural irregularity. That's the alternative.",
       "time": "00:40:06.35"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But, Senator--",
       "time": "00:40:35.10"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But, Senator, that's what confuses me about the answer to the question I asked you earlier. The President has an obligation to obey the law and the Constitution, and yet you postulated that the President, with full knowledge of a procedural irregularity, could submit this list to the Congress. I should have thought if your case is one in which you are vindicating the rule of law, the President had absolute obligation under the hypothesis we put to refuse to transmit a list that was improperly composed.",
       "time": "00:40:42.02"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I just don't see how you can answer the way you did consistently with your whole theory of the case.",
       "time": "00:41:18.08"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but, Senator, those were cases that go to the question of whether the statute authorized judicial review, and as I understand your position, even if the statute said, notwithstanding procedural violations, the courts may not review anything, you're saying that statute would be unconstitutional?",
       "time": "00:42:03.49"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "See, Abbot Laboratories and those cases just are questions of whether the statute authorized judicial review.",
       "time": "00:42:23.32"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Senator Specter, in all the cases that you've given as examples, those were examples where the executive should not have acted. That's the theory of it. But you said something that... in response to Justice Kennedy's question that really concerned me, because it was always my understanding that the Constitution is the highest law for every official in the land, and Congress has an obligation not to approve anything that it believes is inconsistent with the Constitution. The President has an obligation not to go forward with any measure that the President believes is unconstitutional. It isn't a question that while these officers... the Constitution is in the trust of the Court alone, these officers don't have to worry about that because the Constitution is the Court's concern. I'm sure that you really didn't mean to say that, but that's what came across to me in your answer to Justice Kennedy's question.",
       "time": "00:42:32.63"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The President doesn't have to use the same criteria that the Commission used. He could disapprove it for any reason, couldn't he? I mean it's a brand new judgment when it gets to him.",
       "time": "00:44:12.98"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He could just say, I like Philadelphia and I'm not going to close the Philadelphia Navy Yard, no matter what. He could say that if he wants.",
       "time": "00:44:24.99"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:44:36.36"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But he could do that if he wants, can't he?",
       "time": "00:44:37.44"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not realistically, but legally, I mean.",
       "time": "00:44:39.66"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we don't read laws that way. I mean, the fact is that the President had an independent judgment, that whatever the Commission came up with did not govern, and even the criteria it used did not govern. It was entirely the President's call to approve this, and if he didn't want to, to say I don't like it. I don't care how you did it. Maybe you did it right, maybe you did it wrong, I don't like it.",
       "time": "00:45:13.31"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, Senator, as I understand your--",
       "time": "00:45:43.01"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Response to Justice Ginsburg, even if he knew the statute had not been followed and therefore, under your theory, the Constitution had been violated, he would properly have said I've got to approve this package. I think that's what you've said to us.",
       "time": "00:45:44.26"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but you're saying even he were equipped and he had unimpeachable evidence of what you consider to be a plain constitutional violation, you're saying, well, he doesn't have to follow the Constitution, that's for the courts--",
       "time": "00:46:19.50"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, he can't knowingly prosecute somebody that he believes is absolutely innocent, can he? Those are for the courts.",
       "time": "00:46:51.91"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Surely that can't be your position, Senator.",
       "time": "00:47:00.58"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Senator Specter, I think your reliance on Panama Refining may be rather strained. In that case the law... on page 4, that the Court says if the citizens is to be punished for the crime of violating a legislative order or an executive order, the due process requires it shall appear that the order is within the authority of the officer. That's where the... you're going after the citizen to punish him. Here you don't have any question of that sort of an individual right, so I think the claim that Panama Refining supports judicial review here is very difficult to make out.",
       "time": "00:48:03.35"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that's on the very same page that the language I just read to you is. It's in the context of the Government proceeding against an individual and the individual says the order you're charging me with violating wasn't authorized.",
       "time": "00:49:10.71"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "At the instance of someone who was sought to be prosecuted for transporting the hot oil, wasn't--",
       "time": "00:49:39.35"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Sure, but you still got to find somebody who has had a right violated. I mean, there are a lot of... a lot of violations of separation of powers, a lot of things that can be done wrong which we judges have no power to reach unless somebody has been harmed in right.",
       "time": "00:49:56.16"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I don't see where that is here.",
       "time": "00:50:13.28"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but, Senator, it is true that it's a statutory right that they would say is violated. I don't think they agree with your submission that the violation of statutory procedures always also violates the Constitution, which I think is part of your submission.",
       "time": "00:50:29.80"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Senator Specter.",
       "time": "00:52:55.78"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired. General Days, you have 4 minutes remaining.",
       "time": "00:52:57.68"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Days. The case is submitted.",
       "time": "00:55:46.38"
     }

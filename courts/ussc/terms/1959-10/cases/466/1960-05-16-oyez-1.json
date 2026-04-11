@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/466/19600516a_466_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM JOSLIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RALPH MOODY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 466, Larry Dayton Hudson, Petitioner, versus North Carolina. Is the State not represented? Oh, yes.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, sir.",
       "time": "00:00:24.56"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Joslin, you may proceed with your argument.",
       "time": "00:00:26.75"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the -- the defendant who had a lawyer, did he fair better than the two who didn't have lawyers?",
       "time": "00:03:36.45"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you say the State appointed him an attorney in that proceeding?",
       "time": "00:05:12.17"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that authorized by state law?",
       "time": "00:05:24.60"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the criteria for determining whether he needs counsel in that situation?",
       "time": "00:06:05.38"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Financial need?",
       "time": "00:06:23.65"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But does any -- does any defendant who does not have the means have an absolute right under the statute to have a -- have a lawyer appointed for him in that situation?",
       "time": "00:06:27.00"
     },
@@ -155,13 +155,13 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is there --",
       "time": "00:07:16.05"
     },
     {
       "turn": 20,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does all post-conviction proceeding by a constitutional (Voice Overlap) --",
       "time": "00:07:16.08"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This provision made was compensation of counsel in other cases (Inaudible)",
       "time": "00:07:23.50"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would it be fixed by the Court or --",
       "time": "00:07:36.59"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask you, whether I am right in inferring from the statement in -- what's the name of the judge -- judge -- presiding Judge Hall's findings of facts on page 62 of the record, filed by Judge Clark, was he not?",
       "time": "00:07:42.08"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Judge Heman Clark. As I read paragraph 2 or finding 2, am I right in inferring that if Judge Clark had saw fit, he could have appointed counsel in the main trial?",
       "time": "00:08:07.06"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now -- and if that is -- if he confirm that, is that by virtue of a statute or by virtue of a common law in North Carolina?",
       "time": "00:08:28.00"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:08:45.04"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Go on.",
       "time": "00:08:48.65"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's automatic.",
       "time": "00:08:58.64"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are the statute silent about the other cases and the Court merely draws on all decisions in -- in, what we call it, power and so on?",
       "time": "00:09:02.37"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, the North Carolina law follows generally Betts against Brady. Is that you want mean?",
       "time": "00:10:11.89"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In noncapital cases.",
       "time": "00:10:18.69"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you asking us to overrule Betts against Brady?",
       "time": "00:10:25.00"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What did you say, an 18 year-old?",
       "time": "00:11:12.36"
     },
@@ -329,13 +329,13 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Youth.",
       "time": "00:11:15.40"
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap)",
       "time": "00:11:15.62"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, yes. I thought you said mute.",
       "time": "00:11:16.00"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How long before --",
       "time": "00:13:48.34"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- how long before the trial was this man released from the mental hospital?",
       "time": "00:13:49.74"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did it show whether he was released as cured or --",
       "time": "00:14:11.11"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- or what?",
       "time": "00:14:15.52"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How did it happen to get in the record?",
       "time": "00:14:21.19"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Did the Court tell -- tell him that he would not be included -- permit to ask more questions?",
       "time": "00:15:22.72"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "The Court did tell him he might go to -- he didn't ask questions?",
       "time": "00:15:31.98"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Joslin, do you claim any error in the Court's instructions to the jury that could have been objected to and corrected if the petitioner had been presented by a lawyer?",
       "time": "00:16:58.30"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You think the instructions were correct?",
       "time": "00:17:08.18"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there any instruction on the effect of the plea of this man before the -- before the jury?",
       "time": "00:17:14.06"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was he then sentenced or was he sentenced later?",
       "time": "00:18:20.64"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Before the trial ended or afterwards?",
       "time": "00:18:30.46"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Apparently that was another judge (Inaudible)",
       "time": "00:19:50.82"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The fact is that Mr. McGeachy did cross-examine the prosecuting witness, Mr. “Hell” whatever his name was, at great length.",
       "time": "00:22:28.39"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- is it?",
       "time": "00:22:34.54"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Spell. And the general thrust of that cross-examination was to try to show the jury that Mr. Spell had been drugged and that, of course, if he had succeeded, would have or down to the benefit of all the defendants, wouldn't it?",
       "time": "00:22:35.86"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Spell's story generally was that the leading role had been played by the petitioner, is that right?",
       "time": "00:23:23.36"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that his -- and that Cain had the -- had the least prominent role, is that fair to say?",
       "time": "00:23:29.07"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Don't you think it's -- do you think it's too fanciful to argue that a jury might be -- have a more merciful attitude to a fellow who hasn't got a lawyer than a fellow who has? Lawyers aren't the most popular profession (Inaudible) other.",
       "time": "00:27:19.05"
     },
@@ -587,13 +587,13 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I agree with that. I mean, I might agree with you on that. I address myself to your remark that the jury saw that one put out a lawyer and the other put -- it didn't as if their natural impulses would be to favor the fellow who didn't have a lawyer.",
       "time": "00:27:46.85"
     },
     {
       "turn": 92,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Joslin --",
       "time": "00:28:03.71"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- who -- who fixes the sentence, the jury or the judge in your State?",
       "time": "00:28:05.12"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And not the jury.",
       "time": "00:28:13.80"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why not? Many cases have been lost because of the unfair advocacy of the lawyer.",
       "time": "00:32:23.07"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Certainly before jury.",
       "time": "00:32:32.09"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Certainly before jury, a very good induction with such feelings that you can't possibly take this and you can't, a fellow is acquitted, you can't complain that he should have been convicted.",
       "time": "00:32:35.14"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All I'm guessing it's more complicated than -- in saying that it's an issue -- if anybody is allowed to appeal and everybody is allowed to appeal because you can't appeal, you can't appeal, it doesn't follow that -- that if you haven't got a lawyer, you might as well be taken care of.",
       "time": "00:32:48.64"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And once after deciding this case, the fellow can be allowed to defend himself if he wanted to on the theory to defend himself (Inaudible) of defendants.",
       "time": "00:33:08.57"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I follow you. All I'm --",
       "time": "00:33:30.79"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I merely suggest Griffin is an equation to - to transfer around.",
       "time": "00:33:33.08"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Am I right in thinking that you have two passage to your due process argument, namely, that this is a Wade and Mayo situation, a special circumstance situation, number two, that we ought to overrule Betts against Brady and hold that in every felony case, there is an automatic right to appointment of counsel as a matter of due process?",
       "time": "00:34:01.66"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then thirdly, you've got your equal protection argument that you've just made. Is that -- is that the scope of your -- thrust of your argument?",
       "time": "00:34:29.51"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What is a felony under your law?",
       "time": "00:35:18.29"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Up to two years.",
       "time": "00:35:28.58"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Two years or more.",
       "time": "00:35:31.32"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:35:32.42"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You begin in few years.",
       "time": "00:35:34.59"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that all?",
       "time": "00:35:43.40"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All you have to -- all you have to be with here is a felony case but I shouldn't think that's a very satisfactory line of yours in getting two years and getting one year, decides -- states very enormously, what -- how did they find felony, don't they?",
       "time": "00:35:45.13"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Joslin, how many States, if you know, require the appointment of counsel?",
       "time": "00:36:02.12"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your recollection is about 42 though.",
       "time": "00:36:50.79"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Moody.",
       "time": "00:37:07.56"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You mean the specific misconduct on the part of the Court or the prosecuting officials or -- or --",
       "time": "00:38:04.24"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question? What is the general practice in North Carolina where an indigent makes a request for counsel? Is this an unusual thing, what happened here or these judges -- are the judges pretty circumspect about hammering those requests? How does (Voice Overlap)",
       "time": "00:39:18.89"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Almost a matter of course. I would -- well, I -- I'm --",
       "time": "00:39:47.20"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- talking without knowing anything about it.",
       "time": "00:39:50.11"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When -- when did your capital case started? Where is -- when did it get in to your statute as a capital offense? Do you happen to know?",
       "time": "00:40:18.01"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Moody, I wasn't quite clear from what Mr. Joslin said in your post-conviction statute is the appointment of counsel where a charge of violation of constitutional right in conviction of his claim, is that mandatory?",
       "time": "00:40:33.57"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And what's the test? The filing of an affidavit have been (Inaudible)",
       "time": "00:40:59.01"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:41:06.32"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What -- what is the practice in your courts, Mr. Moody? The Court can appoint somebody who's in the courtroom? Is there roster of lawyers? Or is there a legal aid society or whatever it's called in North Carolina?",
       "time": "00:41:19.21"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Most of them are agricultural counties.",
       "time": "00:41:38.43"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Most of your --",
       "time": "00:41:41.43"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They know the bar.",
       "time": "00:41:44.87"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The State compensates these lawyers, Mr. Moody?",
       "time": "00:42:14.49"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The State compensates these appointed lawyers (Voice Overlap) --",
       "time": "00:42:19.03"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:42:24.57"
     },
@@ -1037,13 +1037,13 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:42:27.47"
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In those cases where the trial judge does appoint a lawyer for an indigent defendant, does the county compensate that lawyer to?",
       "time": "00:42:29.17"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In a noncapital case. How about a capital case?",
       "time": "00:42:48.82"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So this --",
       "time": "00:43:06.81"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you have an active legal aid society down there?",
       "time": "00:43:16.20"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was the petitioner given any time to repair his defense after -- after he was denied counsel?",
       "time": "00:45:55.52"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When was he arraigned --",
       "time": "00:46:22.79"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- with relation to the trial.",
       "time": "00:46:25.30"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did he have any opportunity prior to that time to ask for a lawyer?",
       "time": "00:46:36.48"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When was he arrested? What are the dates, Mr. Moody?",
       "time": "00:46:51.02"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When was the trial?",
       "time": "00:47:27.48"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And when was the trial?",
       "time": "00:47:29.79"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there no arraignment before there is -- just explain your practice (Voice Overlap) --",
       "time": "00:47:37.87"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the man is arrested?",
       "time": "00:47:44.31"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Presumably on a charge.",
       "time": "00:47:46.60"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "On a -- on a charge, isn't it?",
       "time": "00:47:49.36"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then he's brought before some tribunal, you said Cumberland County and there -- that -- isn't that an arraignment?",
       "time": "00:47:51.39"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I should think there's an implied charge if -- on the face of things we charge him with this (Voice Overlap) --",
       "time": "00:48:07.79"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- saying.",
       "time": "00:48:12.47"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, evidently you have technical meaning for what arraignment is.",
       "time": "00:48:14.57"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, in the Cumberland court -- I mean, he is brought in by police officers, is he?",
       "time": "00:48:29.84"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And what -- what does the judge say to him? Who says -- do you collect there something too?",
       "time": "00:48:33.97"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is they charged also with some (Voice Overlap) --",
       "time": "00:48:39.91"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And then he asked whether he pleads to that.",
       "time": "00:48:44.88"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just a preliminary hearing?",
       "time": "00:48:57.02"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not -- not technically an arraignment?",
       "time": "00:48:59.31"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Moody, we held in several cases in the federal court that -- and one of them was Johnson against the United States that where a defendant attempts to take an appeal in forma and the District Court certifies that he is not entitled to take his appeal, that under the doctrine of Johnson against Zerbst, the Court was required to appoint an attorney for him. Do you think that would have any relevance here in considering the question on either one of the argument?",
       "time": "00:49:03.76"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To --",
       "time": "00:49:48.84"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To see whether or not with the -- he challenge -- he wants to challenge the certificate. The Court -- the District Court certifies that he does not have any meritorious ground of appeal. And he testifies. He has filed an affidavit. He has no money to get a counsel. And we held that when that one challenges that certification, certification, the aid of counsel unless he insist on being his own must be given him under Johnson versus Zerbst.",
       "time": "00:49:50.02"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was 352 U.S.565 and 566. And we've followed that in several instances with reference to the federal court.",
       "time": "00:50:24.50"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that -- that argument can be made. Of course, the -- the opinion relied on and the case relied on to do that was Johnson against Zerbst, which, as I recall it, was put on constitutional grounds.",
       "time": "00:50:49.27"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:51:06.01"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Counsel was to -- we held that he must be given the counsel, appoint a counsel when he challenged the certification of the judge.",
       "time": "00:51:08.93"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's after trial.",
       "time": "00:51:21.46"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That -- now, you -- you grant one here when there's a constitutional question raised in North Carolina.",
       "time": "00:51:23.42"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your argument there, I assume, is that if North Carolina wants to draw that distinction between, the right to counsel after conviction may -- he seeks to set it aside and yet denied where he's being tried to have a right to do so.",
       "time": "00:51:31.52"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I was just -- I was just wondering if -- if, as a practical lawyer and with practical experience, you would say that it's a normal thing to say that a man needs a lawyer worst when he has challenged his conviction after he's been tried and he does when he's being tried.",
       "time": "00:52:09.41"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You'd have a hard time defending that distinction when I --",
       "time": "00:52:34.42"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whatever effect it might have on the constitutionality.",
       "time": "00:52:38.29"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Moody, one thing that struck me in his petition, his post-conviction petition appearing on page 60 of the record, paragraph VI says that he was tried on two different cases that happened on the same night at the same time 10 miles apart. He was convicted on both of them, which -- which is illegally because a man cannot be in two different places at the same time. But that, I don't think, was -- that allegation wasn't considered or it wasn't treated in the Court's --",
       "time": "00:54:13.72"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- statements.",
       "time": "00:54:44.82"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You don't know what he's driving.",
       "time": "00:54:46.85"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No.(Voice Overlap) --",
       "time": "00:54:50.07"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Moody, do you -- do you really think that any 18-year old boy with a six -- sixth grade education is capable of defending himself in the courtroom against an accusation that may send him to the penitentiary for the better part of his life?",
       "time": "00:54:55.13"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And also depends who the trial judge is.",
       "time": "00:55:18.84"
     },

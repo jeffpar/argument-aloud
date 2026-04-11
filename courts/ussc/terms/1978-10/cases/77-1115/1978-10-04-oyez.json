@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/77-1115/19781004a_77-1115.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "LEONARD M. HENKIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "IRWIN M. STRUM",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "SUZANNE MCGRATTAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Lalli against Lalli. I think you may proceed now, Mr. Henkin.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How old was the --",
       "time": "00:03:29.24"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How old was at the time of his father's death?",
       "time": "00:03:31.90"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Much older than two years old.",
       "time": "00:03:40.08"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In full?",
       "time": "00:04:49.77"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So, it's you position that he supported him entirely as long as he was a minor?",
       "time": "00:05:07.84"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Under New York Law could the decedent have taken care of this child by will?",
       "time": "00:05:15.56"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "He did not do so?",
       "time": "00:05:23.42"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "No, almost die --",
       "time": "00:05:28.52"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I say all of us die.",
       "time": "00:05:32.14"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Did he have will?",
       "time": "00:05:35.09"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How was he killed? Was he killed in accident?",
       "time": "00:05:43.68"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Also name Lalli?",
       "time": "00:05:51.56"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Everybody in this case is named Lalli.",
       "time": "00:05:53.88"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And was that Aileen's son by another man?",
       "time": "00:05:57.75"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is Robert's formal birth certificate in the record?",
       "time": "00:06:05.78"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is there a reason why it wasn't?",
       "time": "00:06:12.42"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Getting back a minute to -- was it born in New York?",
       "time": "00:06:39.10"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you can't find a birth certificate in New York?",
       "time": "00:06:44.53"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, obviously he had a birth certificate, if he was born in New York.",
       "time": "00:06:52.38"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did anybody look for one?",
       "time": "00:06:59.62"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He was born?",
       "time": "00:07:11.70"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He was born?",
       "time": "00:07:14.59"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Henkin, I think in your brief, you don't site Labine against Vincent?",
       "time": "00:07:25.53"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "On the ground what, that its --",
       "time": "00:07:33.97"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Then you think that the Trimble against Gordon really overruled Vincent against Labine?",
       "time": "00:08:22.46"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Although, it didn't say so on so many words.",
       "time": "00:08:28.77"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Can I ask you one more question and I'll stop. What are we talking about here is totally irrelevant but were talking much money or about very little as was the case in the Trimble case?",
       "time": "00:08:38.21"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that the main asset of the estate?",
       "time": "00:09:12.25"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, I understand. But what are the assets of the estate, what's --",
       "time": "00:09:19.74"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes. Is this tort claim the principal asset --",
       "time": "00:09:24.58"
     },
@@ -419,13 +419,13 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "$100,000.00 property.",
       "time": "00:09:30.33"
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of tangible assets plus this tort claim?",
       "time": "00:09:32.98"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Plus this tort claim?",
       "time": "00:09:36.67"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thanks.",
       "time": "00:09:43.84"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is the microphone functioning? No? Will you check on it please? We will give you a time out Mr. Henkin without charging you for the time. You maybe seated if you like Mr. Henkin now. You maybe seated until they get to the correction here. Mr. Wong, I think what we'll do is take a brief recess until you can find the mechanical problem here. [Recess] Now, you may proceed Mr. Henkin, I think we're functioning again.",
       "time": "00:10:27.12"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Henkin, before you start. Would you clear up something I had missed in the briefs? You keep -- you mentioned two or three times that Mrs. Lalli, the original respondent is no longer party to the case in effect. Is the case moot?",
       "time": "00:12:37.85"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The case had been settled or anything like that, has it?",
       "time": "00:13:09.64"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you tell me one other thing. I'm not sure I understood you answer to Mr. Justice Blackmun. He asked you if there -- whether there's a lot of money involved or small amount. You answered by saying there's a $100,000.00 bond posted I don't really know how that answers the question. Does that mean there's a lot of money or not much money?",
       "time": "00:13:27.11"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:13:49.06"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. So, you do there is a substantial amount of money?",
       "time": "00:14:02.32"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Henkin, if your client had been illegitimate son, let's say, a father and mother married had one child, under the laws of the intent of succession in New York upon the father's death, does what the mother gets two-thirds and the child one-third?",
       "time": "00:14:36.21"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:14:58.30"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One-half.",
       "time": "00:15:01.71"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "All of them together will get money?",
       "time": "00:15:05.05"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, widow of the deceased.",
       "time": "00:15:23.89"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And under --",
       "time": "00:15:27.48"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see and in that situation, if this had been a legitimate child under the laws of New York, how would the --",
       "time": "00:15:32.42"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- decedent's estates had been shared?",
       "time": "00:15:38.49"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There is another child?",
       "time": "00:15:46.88"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A legitimate child?",
       "time": "00:15:49.35"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "00:15:52.59"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see, one of the two illegitimate children?",
       "time": "00:16:00.75"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your client could have been -- had all the protection you now seek without his parents being married. If he -- if the father, the natural father had complied with the statutory requirements, is that not so?",
       "time": "00:19:14.83"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Henkin you said a moment ago that your -- the father and mother here complied with the New York law and did not marry. Would you explain what you meant by that?",
       "time": "00:20:35.10"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, he would have been guilty of bigamy had a married --",
       "time": "00:20:57.62"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But if he still draw will?",
       "time": "00:22:48.41"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your client also challenged the two-year provision of the New York affiliation law, did it not in the separate attack?",
       "time": "00:23:07.04"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Except you could have challenged the statute on that ground that you did challenge then but wasn't passed on?",
       "time": "00:23:48.59"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well in Trimble wasn't there or hadn't there been a judicial determination --",
       "time": "00:24:27.05"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- prior to the death of the father?",
       "time": "00:24:31.73"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not here?",
       "time": "00:24:35.66"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the fact is if there was a judicial determination in Trimble?",
       "time": "00:24:57.29"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What's mother's -- what's the widow's position in all this --",
       "time": "00:26:51.91"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "She's taken the position that this is not his child, is that not correct?",
       "time": "00:26:56.45"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I say, has not the widow taken the position that your client is not a son of the decedent?",
       "time": "00:27:01.04"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Henkin, I want to be sure I didn't misunderstand you. Do I correctly understand that it's -- you tell us that the decedent could not in fact or in law, have secured a certificate of affiliation during his life time?",
       "time": "00:27:33.33"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:28:01.70"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So that during his lifetime he could not have --",
       "time": "00:28:18.08"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- have a secured an order affiliation?",
       "time": "00:28:21.73"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And is that in your -- is that case in your brief?",
       "time": "00:28:38.73"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Could you give me that citation again.",
       "time": "00:28:42.79"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "49?",
       "time": "00:28:52.95"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:28:58.93"
     },
@@ -929,13 +929,13 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And why was he denied?",
       "time": "00:29:03.22"
     },
     {
       "turn": 149,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Henkin, you --",
       "time": "00:29:03.66"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why was he denied?",
       "time": "00:29:07.07"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean, up until 1976 in New York, it must have been the last thing?",
       "time": "00:29:19.80"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What I mean in, if New York didn't get around to letting children inherent from their father when 1976, wouldn't that make on to the last date to do it?",
       "time": "00:29:31.24"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:29:47.68"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the child or mother can apply, can't they?",
       "time": "00:29:52.19"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So --",
       "time": "00:29:56.09"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so --",
       "time": "00:30:00.52"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your statement is really a very technical one that the father couldn't apply. Certainly, a proceeding could've taken a place in which the father could have admitted it?",
       "time": "00:30:02.10"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, the New York Court of Appeals and its opinion at A-2 in this case says that, “Under our New York statute, the right to inherit depends only on proof that Court of competent jurisdiction is made in order affiliation declaring paternity during the lifetime of the father.” That truly is --",
       "time": "00:30:51.51"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, we're certainly not going -- well we're not going to second guess, let say of, New York Court of Appeals on what New York law is?",
       "time": "00:31:07.44"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Has to be made during the pregnancy of the mother or within two from the birth of a child?",
       "time": "00:31:26.93"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's what the statute says?",
       "time": "00:31:31.97"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the --",
       "time": "00:31:35.36"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean the Court of Appeals doesn't have to advance sheets?",
       "time": "00:31:47.07"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean the Court of Appeal doesn't have the advanced sheets?",
       "time": "00:31:50.96"
     },
@@ -1127,19 +1127,19 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:32:17.07"
     },
     {
       "turn": 182,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right.",
       "time": "00:32:17.71"
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, you do say that order affiliation could've been secured under New York law at the behest of -- somebody other than the natural father during the natural father's lifetime?",
       "time": "00:32:18.52"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is by the mother, the natural mother?",
       "time": "00:32:36.10"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or anybody else, the child?",
       "time": "00:32:41.98"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the -- but you say that as a matter of practical fact the natural mother wouldn't have done it and why was that?",
       "time": "00:32:53.41"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was that -- was she the -- his sister-in-law?",
       "time": "00:33:09.58"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What was she? She -- her name was Lalli too, wasn't it?",
       "time": "00:33:15.98"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:33:21.97"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And where was Mrs. Lalli all this time?",
       "time": "00:33:47.37"
     },
@@ -1235,13 +1235,13 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He had to know. So, the captain's paradise?[Laughter]",
       "time": "00:33:55.86"
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think your time is expired now, Mr. Henkin.",
       "time": "00:34:02.21"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Strum.",
       "time": "00:34:04.69"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The Court of Appeals has never read it out of the statute, do they?",
       "time": "00:34:59.80"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In this case, they just ignored it?",
       "time": "00:35:04.38"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is it reasonable to assume that the two-year limit was placed by the legislature or probably placed there by the legislature, so that the facts could be ascertained while there were people around who could test the fact?",
       "time": "00:36:38.94"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does the acquiesce of the Court of Appeals or the apparent acquiesce of the Court of Appeals in this interpretation by its constituent courts, mean the same thing or should it mean the same thing to us as a holding of the highest court of the state construing the statute?",
       "time": "00:37:18.19"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but should it be equated?",
       "time": "00:37:43.97"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But in any event there was no order of affiliation until it's any --",
       "time": "00:37:54.41"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "During the lifetime of the father?",
       "time": "00:37:58.66"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or ever?",
       "time": "00:38:01.53"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "1976, we were told.",
       "time": "00:38:09.66"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is 4-1.2 went into effect in 1967?",
       "time": "00:38:29.93"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:38:33.68"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, I know.",
       "time": "00:38:35.54"
     },
@@ -1409,13 +1409,13 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "We would --",
       "time": "00:38:37.02"
     },
     {
       "turn": 229,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or if he sought counsel, counsel might have advised him that since the two-year period had expired, it was no use?",
       "time": "00:38:37.85"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, under that if you're talking about the statutory scheme, I suppose under the statute, if there was a Court order prior to the death of the father, obtained on the petition of either the son or mother it would be -- it would satisfy the statute whether or not the father was around, could be found, or participated in the hearing?",
       "time": "00:39:11.66"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They could go to Court and say the father had disappeared and still --",
       "time": "00:39:34.13"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright. But nevertheless, he need --",
       "time": "00:39:40.19"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He didn't need to be available to give evidence or anything?",
       "time": "00:39:43.41"
     },
@@ -1475,13 +1475,13 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Strum, if I --",
       "time": "00:39:46.64"
     },
     {
       "turn": 240,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what's wrong then with the day after the father dies, what's wrong with determining the inheritance?",
       "time": "00:39:47.33"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How do we say that this statute is constitutional and not unconstitutional because the two-year provision will never be enforced, Is that what you want us to say?",
       "time": "00:40:13.44"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it would -- we only have to talk about that statute?",
       "time": "00:40:33.95"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We don't have to mention it?",
       "time": "00:40:39.09"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You want us to just ignore the statute?",
       "time": "00:41:03.40"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm saying about the statute?",
       "time": "00:41:09.69"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can we mention the statute and ignore a part of it?",
       "time": "00:41:14.07"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You're saying in this case -- we say that this case which involves a 28-year-old man is not bound by the two-year old provision?",
       "time": "00:41:23.21"
     },
@@ -1577,13 +1577,13 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't know what I think of somebody wrote that?",
       "time": "00:41:35.03"
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, is it true that the Courts in New York have all agreed that the two-year provision is invalid or should, should be ignored?",
       "time": "00:41:38.12"
     },
@@ -1595,19 +1595,19 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, that's what I'm talking about.",
       "time": "00:41:53.35"
     },
     {
       "turn": 260,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And will you give us the citation so we --",
       "time": "00:41:54.26"
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In his brief.",
       "time": "00:41:56.14"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A citation would say that we are ignoring the two-year --",
       "time": "00:41:59.23"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No. Well, that's not what I said. Do you have one that says, “We ignore it?”",
       "time": "00:42:06.92"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right, I didn't think you did. I didn't find it?",
       "time": "00:42:11.97"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are we limited to do that?",
       "time": "00:42:20.32"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Strum if we should disagree with you, I'm not -- don't know with the Court will do, on the issue of whether the requirement of affiliation during the lifetime of father is constitutional. Assume we conclude that to be unconstitutional then we must squarely faced the two-year problem, mustn't we?",
       "time": "00:42:31.53"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then you would can see that the two years statute -- well, I don't understand how you can concede what you in substance do, although not quite in words that the two-year provision is unreasonable because it retreats some illegitimates irrationally in a different way from other illegitimates without a irrational justification. How can you say that and say that the, say five years after birth the father dies and still the child must be barred?",
       "time": "00:42:58.27"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you just --",
       "time": "00:43:31.43"
     },
@@ -1703,13 +1703,13 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you've said, “We should assume that the New York Courts would not enforce it because it's perfectly obvious that it's unreasonable,” that's the substance of what you've said --",
       "time": "00:43:35.11"
     },
     {
       "turn": 278,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You cite in this cases.",
       "time": "00:43:41.91"
     },
@@ -1721,13 +1721,13 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On the bottom --",
       "time": "00:43:43.63"
     },
     {
       "turn": 281,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Let me just quote the Court of Appeals because they have passed it on their own statute and they didn't say a word about the two-year?",
       "time": "00:43:43.66"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why don't we just base our opinion in what they say?",
       "time": "00:43:52.92"
     },
@@ -1751,13 +1751,13 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I see.",
       "time": "00:43:58.04"
     },
     {
       "turn": 286,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The case --",
       "time": "00:43:59.50"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The case is to which you refer are those cited on the bottom page 4 of your briefs. Matter of Thomas --",
       "time": "00:44:03.20"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Matter of Flemm.",
       "time": "00:44:10.84"
     },
@@ -1805,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you already provided two of them and you represent that that's the -- that there are no cases contrary to that that you found?",
       "time": "00:44:18.94"
     },
@@ -1817,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or that -- or that the natural mother and the father have married either before or even after the birth of the illegitimate child?",
       "time": "00:45:21.18"
     },
@@ -1829,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And even though the marriage be void or voidable?",
       "time": "00:45:29.74"
     },
@@ -1841,7 +1841,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You don't have to -- you don't have to have an acknowledgment, you just have to have a marriage, correct?",
       "time": "00:45:42.76"
     },
@@ -1853,7 +1853,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Unlike the Illinois law?",
       "time": "00:45:47.64"
     },
@@ -1865,7 +1865,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean in New York somebody is got 56-year old child and they get married at that child is legitimatized?",
       "time": "00:46:04.03"
     },
@@ -1877,7 +1877,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Merely by the marriage?",
       "time": "00:46:12.36"
     },
@@ -1889,7 +1889,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, Mr. Strum. She has to marry the --",
       "time": "00:46:15.64"
     },
@@ -1901,13 +1901,13 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, how do you know? What if she just marries John Smith and --",
       "time": "00:46:19.74"
     },
     {
       "turn": 311,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right, doesn't it?",
       "time": "00:46:22.06"
     },
@@ -1919,13 +1919,13 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:46:28.54"
     },
     {
       "turn": 314,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. -- General Strum, let me question you once more about the state interest that this statute vindicates and we're talking about the requirement that the order be obtained during the lifetime of the father. As I understand that the state interest is giving the father the opportunity to deny parentage?",
       "time": "00:46:29.38"
     },
@@ -1937,7 +1937,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And how's -- oh, what else is there?",
       "time": "00:46:49.59"
     },
@@ -1949,7 +1949,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why? Why, why couldn't you have the normal rule you do on the states that claims to have to be filed within a limited period of time? I don't understand --",
       "time": "00:47:21.02"
     },
@@ -1961,7 +1961,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You do it anyway because don't you occasionally have estates in which people claim to be legitimate children that there is a contest over there?",
       "time": "00:47:31.06"
     },
@@ -1973,7 +1973,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Don't you have to make that claim within a specified period of time?",
       "time": "00:47:41.71"
     },
@@ -1985,7 +1985,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why couldn't the same rule take care of this problem? For what --",
       "time": "00:47:44.45"
     },
@@ -1997,7 +1997,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have that with legitimates too. You have the same things. Let's focus for moment on your -- on your primary interest I gather is that you want to give the father the opportunity to deny parentage?",
       "time": "00:47:58.40"
     },
@@ -2009,7 +2009,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's, that's the real reason for the cut-off. Well, supposing the papers of the father and there is abundant evidence to the fact that he is not just as, sort of someone ambiguous what you have here, but he is repeatedly acknowledged it, written it out many, many times that the person involved is my true and natural son. What is the state interest in giving such a father an opportunity to contradict what he has said repeated, when he said repeatedly to the contrary?",
       "time": "00:48:09.80"
     },
@@ -2021,7 +2021,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Till we make to say in terms of standard of proof. You might require proof beyond all doubt, beyond a unreasonable doubt, something like that. But when you have un-contradicted proof and there are all agreement on the fact, and I know you don't have that here, then, what's the state interest?",
       "time": "00:48:37.16"
     },
@@ -2033,7 +2033,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then, do you not discriminate against some illegitimates?",
       "time": "00:48:54.86"
     },
@@ -2045,7 +2045,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is not a standard of proof. This is saying that no matter how convincing the proof, this is standard of eligibility.",
       "time": "00:49:11.43"
     },
@@ -2057,7 +2057,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's a manner of proof?",
       "time": "00:49:24.67"
     },
@@ -2069,7 +2069,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The sole justification according to you is to protect the right of the father to testify to the contrary when the record makes it clear he has no such desire?",
       "time": "00:50:05.74"
     },
@@ -2081,7 +2081,7 @@
     },
     {
       "turn": 340,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What you're saying perhaps is that New York is not obliged to have a perfect statute, so long as they have a reasonable one?",
       "time": "00:50:32.14"
     },
@@ -2093,7 +2093,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does the state take any position with respect to this claimant that all was to whether he is or is not the natural child of the decedent?",
       "time": "00:50:41.34"
     },
@@ -2105,7 +2105,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So, you're conceding nothing factual here, don't you?",
       "time": "00:51:15.77"
     },
@@ -2117,7 +2117,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it is clear that you're argument would be precisely the same, if you were prepared to concede the facts?",
       "time": "00:51:22.84"
     },
@@ -2129,7 +2129,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We should treat the legal issue as though the facts were tantamount to be in conceded, realizing that they would be challenged later?",
       "time": "00:51:31.51"
     },
@@ -2141,7 +2141,7 @@
     },
     {
       "turn": 350,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentleman. The case is submitted. Your time is expired.",
       "time": "00:51:38.66"
     }

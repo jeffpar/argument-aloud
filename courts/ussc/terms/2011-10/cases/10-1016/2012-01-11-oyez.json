@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2011/10-1016/20120111a_10-1016.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL L. FOREMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN B. HOWARD, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 10-1016, Coleman v. The Court of Appeals of Maryland. Mr. Foreman.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Foreman, I -- I guess the question in this case is what this particular statutory provision has to do with gender discrimination and the history of gender discrimination: Whether Congress was aiming to eradicate gender discrimination through this provision, or whether it was trying to do something else entirely.",
       "time": "00:01:28.16"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where -- where are you reading from, counsel?",
       "time": "00:03:00.72"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, following up on Justice Kagan's question, I have -- I have difficulty seeing how providing 12 weeks of leave for self-care for both men and women affects the incentive of an employer who we will assume has an inclination to discriminate against women based on the possibility that a -- a woman applicant for employment may become pregnant. I -- I just don't see how that would affect the incentives of -- of an employer in that situation.",
       "time": "00:03:54.78"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, (A) is not at issue, right? Okay. So we're just dealing with (D), which concerns a serious health condition. So you have an employer who is willing to discriminate on the basis of gender, and the employer has two applicants for employment, a man and a woman. And the employer says, well, if I hire the man, he might take 12 weeks of leave for a serious medical condition. And if I hire the woman, she might take 12 weeks of leave for a serious medical condition which might be something that either men or women could get, or it also could be a sickness related to pregnancy. So, there still is -- there still would be an incentive for this hypothetical employer to discriminate against the woman.",
       "time": "00:04:46.94"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But how does it do that? That's what I'm -- I understand that and it's a worthy objective. I just don't understand how giving both men and women 12 weeks for self-care affects the incentive.",
       "time": "00:05:40.25"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But women don't get sick less often than men, do they?",
       "time": "00:06:23.91"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So you're just adding something to both sides of the balance and it doesn't affect the employer's incentive. The employer still -- the hypothetical discriminatory employer would still say, well, women are going to be caregivers more often, so I'm -- I'm going to not hire that person.",
       "time": "00:06:27.03"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And that's why (A), (B), and (C) go to the problem, but what does (D) have to do with it? If you assume that both men and women get sick at an approximately equal rate -- maybe you don't assume that -- but if you do, it doesn't seem to factor into the employer's incentives in any way.",
       "time": "00:06:59.17"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Foreman, I think everyone has been trying to get you to focus on the health care sickness leave alone, and in the -- in the portions of the act that this Court upheld, the Congress said there is this close association of women with children; we think it's going to be good for everybody if fathers recognize their responsibility for elderly parents, sick children, sick spouse. So, we -- we can see the rationale for trying to change the stereotype, trying to open up care-giving for both sexes. But you have answered the question that women and men get sick; there's no -- there's no disproportion. So how do you tie that, just that part of the act, where there isn't the obvious association of women with childbearing? So we extend the benefit to men, so they will be associated with child care. There isn't that same link here, is there?",
       "time": "00:08:19.13"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So you are saying -- let me just make sure I understand. You are saying that the -- that Congress is thinking that an employer actually does think that women take more sick leave because women get pregnant. And just as Congress was thinking about the employer who thought women are going to take more family leave, you think Congress was thinking about the employer who thinks women are also going to take more sick leave because of pregnancy?",
       "time": "00:10:02.38"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you have any evidence that Congress in fact was thinking about either of these two things? Is there anything in the record that suggests either of those two theories?",
       "time": "00:11:26.69"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counselor, I -- I take your argument, but if you look at the legislative record, the reports, the findings, et cetera, and the statements repeatedly by many congresspeople, there appears to be -- have been a dual motive for this provision. They were in fact engaged in the question of discrimination against pregnant women. That was recognized in Hibbs, and that's clear. But with respect to this particular provision, they were also concerned about economic effect that -- that happened to everyone, men and women, who became disabled. And so they appear to have had dual motivation. Part of the bill was gender-related, part of the bill seemed to be disability-related. What do -- how do we judge that kind of bill, where Congress may have been expanding the benefits it's giving to people, not solely because of gender discrimination, but because of this desire to address disability discrimination?",
       "time": "00:13:13.79"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, with respect to the Commerce Clause, could I ask you this. If we were to disagree with you on the Fourteenth Amendment and hold that it -- that Congress didn't validly abrogate State sovereign immunity with respect to subsection (D), would your client still be able to seek reinstatement or other injunctive relief?",
       "time": "00:15:51.18"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Here the district court completely dismissed your FMLA claim, not just insofar as you sought damages. I -- I think you also sought reinstatement and other equitable relief, but the district court dismissed it completely.",
       "time": "00:16:55.50"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But you are not contesting that, are you?",
       "time": "00:17:11.59"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because this is for money damages.",
       "time": "00:17:43.09"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because this is for money damages. Ex parte Young was just injunctive relief. The Eleventh Amendment primarily protects the treasury of the State against money damages.",
       "time": "00:17:44.67"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it's not Ex parte Young.",
       "time": "00:17:54.63"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You said in this case. That's basically what I'm asking. If we were to disagree with you on the Fourteenth Amendment, are you asking us -- would we then simply affirm the Fourth Circuit? Or would we have to -- would we have to make some accommodation for the possibility that the dismissal of your claim insofar as you sought injunctive relief may have been improper?",
       "time": "00:18:28.48"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I am trying to be a little bit helpful to you.",
       "time": "00:19:07.60"
     },
@@ -299,13 +299,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Okay.",
       "time": "00:19:14.84"
     },
     {
       "turn": 44,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What relief did you ask for? Damages we know and you have to overcome the Eleventh Amendment. Injunctive relief you don't, but did you ask for it?",
       "time": "00:19:15.16"
     },
@@ -317,13 +317,13 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I thought you did, but maybe I'm reading your complaint more generously than you read it yourself.",
       "time": "00:19:34.29"
     },
     {
       "turn": 47,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I would go with Justice Alito here.",
       "time": "00:19:39.96"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You must have asked for such other and further relief.",
       "time": "00:19:48.15"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, Congress must have thought that giving the woman back her job was an important part. The whole idea is she wasn't supposed to be fired. So I think that the -- the relief, the non-monetary relief, is certainly important.",
       "time": "00:20:50.00"
     },
@@ -359,19 +359,19 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When you--",
       "time": "00:22:32.17"
     },
     {
       "turn": 54,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can I -- I'm sorry.",
       "time": "00:22:32.74"
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--When you say you're concerned about a disincentive to hire women, but the Pregnancy Discrimination Act makes that unlawful, so if an employer decides I don't want to hire women of child-bearing age, that is an out-and-out violation of the Pregnancy Discrimination Act, isn't it?",
       "time": "00:22:33.97"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you are relying on the incentive, the disincentive to hire women of child-bearing age. The law protects the woman of child-bearing age by saying: Employer, you can't refuse to hire her, promote her, and all the rest because of pregnancy.",
       "time": "00:23:05.61"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm just asking you about -- your -- your argument rests on an employer acting unlawfully, you see. He won't hire -- we have to give them medical leave to everyone because otherwise the employer won't hire women. And that's -- the question I'm asking is, you are assuming that the employer will break the law by refusing to hire women that -- of child-bearing age.",
       "time": "00:23:39.52"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But your argument to a large extent depends -- or you say Congress did this because they wanted to eliminate or at least reduce one kind of discrimination against women in the job market.",
       "time": "00:24:32.38"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that -- that discrimination was refusing to hire women of child-bearing age. Well, they couldn't do it out and out because that would be a violation of the law. So is Congress having in mind discrimination that is under -- under the radar screen, that is going to go on even though it's unlawful?",
       "time": "00:24:50.62"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Howard.",
       "time": "00:26:12.27"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Need go no further? I'm sorry?",
       "time": "00:26:40.42"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I could just stop you there, Mr. Howard, for a second. I took from Mr. Foreman something that I hadn't understood from his briefs -- maybe because I just missed it -- which is that he's making a kind of analogous argument, that, just as in the prior provisions of the act, employers thought of women as caregivers and the response of Congress was to provide a gender-neutral leave benefit that had both -- that both women and men were eligible for. So here, employers think of women as needing more medical leave because of pregnancy, and the response of Congress is to provide gender-neutral sick leave. So what is your response to that argument?",
       "time": "00:27:24.60"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But, there certainly was -- there was certainly much conversation and testimony that, whether they in fact took the same amount of leave time or not, that women who were pregnant or were perceived as capable of getting pregnant were hired less frequently because subjectively the employers thought that they were more likely to take the time. So, frankly, for years there was questions about whether law firms were hiring young -- not hiring young women because they feared they would leave in the middle of a big case or something else. We all know those stories, so it is sort of common knowledge in many ways, but there was plenty of testimony related to that. So assume that that was Congress's perception, because it was supported by the record or as much of the record as Hibbs recognized as adequate. Where does that leave your argument?",
       "time": "00:28:55.04"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They couldn't -- the Pregnancy Discrimination Act says you have to treat pregnancy like any other disability. So if they are not giving anybody any leave for anything, they don't have to give any leave; not 12 weeks, not 1 day. And that's what -- that's the gap that this legislation fills, essentially. Yes, you do have to provide leave for women who have disabling conditions, including pregnancy, but then you have to give that to the men as well. You can't reserve that for the one sex. So it was the gap in the Pregnancy Discrimination Act that this -- this was referring to.",
       "time": "00:31:28.13"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Assume for the sake of argument that for the applicants for particular provisions -- particular positions, I should say -- where the applicants are typically of a certain age, men tend to take less sick leave than women, because women also take sick leave for pregnancy-related illnesses. So giving everybody 12 weeks eliminates the possibility that women who will be taking -- want to take additional -- want to take more sick leave will be fired because they exceed the amount of sick leave allowed by the employer for everybody. Now, isn't that connected to eliminating discrimination in employment?",
       "time": "00:32:55.60"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I don't think -- I have difficulty with the incentives argument either, honestly, either as the (D) or as to (C). But I'm just talking about an argument based on consequences. If an employer says you get 2 weeks of sick leave, period, after that if you can't come back you are fired, that may, at least for applicants within a certain age range, that may have a much more severe or a more severe impact on women than on men.",
       "time": "00:34:35.27"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What would the answer to that be, that that's not intentional discrimination?",
       "time": "00:35:14.43"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why are you separating the four things. I mean, I have heard it seems to me three separate rationales. One, the easiest, is in (D) itself, sometimes a woman could have a miscarriage and of course she has to stay home. And that isn't covered by (A), (B), or (C), so we cover it in (D), you know. And then we put the men in too because we don't want to make this incentive just to not hire women. That's one. The second one was the one Justice Ginsburg brought up, that there is a gap in the pregnancy law which won't work unless you have to give people some medical leave. So here it is, (D). And the third one, which I think was related to what Justice Alito just said, is when -- you have to read it together to understand the third one. You get weeks altogether, all right? Now, that means once you put in (D) this act will have less of a bad effect. The bad effect of the act is if you protect the women then the employers say, well, we're not going to hire women, perfect. We have to give them 12 leaves, we'd have to give the men -- terrible, it's a terrible disincentive. But then they worked out how to lessen the disincentive. And the way you do that, you say 12 weeks overall. Now look what happens. A woman wants to take, say, 12 weeks to look after her family, and she gets separately sick, 4 more weeks. But how many does she get? Answer: 12, right? 12. You could answer, 12. Now let's think of the man. Let's think of the man. The man would like to look after the family, say, for 6 weeks. And he gets sick 4 weeks. How many weeks have we got?",
       "time": "00:35:46.24"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "10. Thank you. [Laughter] All right.",
       "time": "00:37:34.68"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Perfect. So now the employer is sitting -- and it will work with other numbers. I don't rely on those. [Laughter] But now look what happens. Without this act, he's got a woman who is going to be out of there -- I mean, with the act -- unless we put in four -- unless we put in the fourth part of it, we have a woman who is gone for 12 weeks, and a man who is gone maybe for 6 but maybe for zero, okay? Maybe for 6. With the act, the woman is gone for 12, the man is gone for 10. You see? And so the comparison there -- and it will work with whatever numbers you want -- the comparison there is very different. And the comparison doesn't, doesn't totally erase the problem with the woman, but it may reduce it to a size where the Act itself will no longer act as such a disincentive to hiring a woman. Now, we have three different rationales. All of them are related to a serious problem, which is the problem of discrimination against women because the employers think they will be home more, and so you see the conclusion I am drawing? Yeah, okay. So where are we?",
       "time": "00:37:38.30"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The idea is it's part of one package. I think that's what Justice Breyer was getting at. But just suppose that Congress wanted to improve conditions for the -- in the job market for women, which I think it's fair to say was the motivating force behind this act, and they also wanted to protect families so that sick children, sick spouses are attended to. Now, what leave policy would say, okay, to do that we will have leave when a spouse is sick, a child is sick, a parent is sick, but not when the worker herself is sick? Without -- it's all part of one package which is designed to increase job security for women and increase protection for their families. So, I don't think you can slice off (D) from the other three.",
       "time": "00:39:35.66"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, it doesn't have to, of course. But the whole point of the question that I was asking was, sure, what helps you by doing it separately is it helps your case. But if we look at what Congress was trying to do, they were trying to do it as a whole. That's my point that-I want you to answer. And they are trying to do it as a whole because, no matter what numbers I use, if I look at it without (D) -- is it (D)? Yeah, (D). If I look at it without (D), the ratio will disfavor the woman. And if I look at it with (D), suddenly the ratio from the point of view of the employer of the disadvantage of hiring a woman over -- over hiring a man, it goes way down. And that helps women. And that is why I think, reading this and listening, a major reason why they put in (D) as part of the other, because working with that 12-week limitation, and the whole rest of the statute, we now have a statute that doesn't defeat itself. We now have a statute that actually can achieve the end of leading employers to not discriminate against women. Not perfectly, but there's a big improvement. And that's the -- that's the argument I'm making. You have to read it as a whole to see that. And that's what I -- I wonder if there's an answer to that. Of course, I'm at the moment thinking there isn't an answer to it, but I ask the question because I want to hear what you say.",
       "time": "00:41:40.98"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what if Congress had added three additional subsections here, and said that an employer has to provide 12 weeks of unpaid leave so that an employee can go to a health spa; 12 weeks of unpaid leave so that the employee can travel; 12 weeks of unpaid leave so that the employee can take an educational course. Now, those could be taken advantage of by either men and women. It makes both men and women increasingly unattractive as employees and therefore reduces any special disincentive that might have been created by (A), (B), and (C). Now on that same logic, would those be -- would those be provisions that further the elimination of discrimination based on gender?",
       "time": "00:43:36.70"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I thought Justice Alito was trying to help you.",
       "time": "00:44:48.36"
     },
@@ -611,13 +611,13 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He's absolutely right. And that's why this health spa thing, (D), this is -- in fact has two independent reasons that all -- the miscarriage reason and the Pregnancy Act reason, and so it isn't just saying go to a health spa. But I mean, I don't want to put arguments in your mouth, which I just have, which you wouldn't like there anyway, because -- but I would appreciate your going on with this discussion in respect to what Justice Alito and I have been talking about, and I would be interested in what you say.",
       "time": "00:44:53.35"
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm working from a different proposition than you are in response to this question. I don't think that the actual amount of time that men and women take is relevant. The question is: What is the employer's perception, and did Congress have a valid basis, as Justice Kagan pointed out earlier, to believe that employers thought women took more time.",
       "time": "00:45:25.82"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, if the State of Maryland thinks this is good social policy, why is it asserting its sovereign immunity?",
       "time": "00:47:38.33"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You can waive. Can't you waive your Eleventh Amendment immunity?",
       "time": "00:48:04.22"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you can provide this, the kind of relief that's sought here without waiving your immunity, right? It's a matter of legislation.",
       "time": "00:48:12.53"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Can I just get back to the discussion before about how (D) relates to the others?",
       "time": "00:48:20.28"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Who do you think benefits most from subsection (E), men or women? That's the one about armed services obligations at the time the law was passed?",
       "time": "00:48:27.22"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was that -- that wasn't part of the original act, was it?",
       "time": "00:49:01.39"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it was -- that was -- the concern was a discrete concern for veterans.",
       "time": "00:49:06.22"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It wasn't part of the package that was the Family and Medical Leave Act.",
       "time": "00:49:13.73"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And -- and Mr. Howard, I -- I do think that the point about the package is that if you look at (D) alone, you abstract it from everything else, you have a good point, that it seems to be related to economic security, which is not a section 5 issue; that it seems to be related to discrimination against sick people, which would also put us in a different legal universe. But when you look at (D) as passed at the same moment on the basis of the same record as (A), (B), and (C), with the overwhelming purpose of Congress being to protect women from discrimination in the workplace because of unfair stereotypical gender -- views about what women do as workers, then (D) assumes a different kind of aura. And you can talk about a-number of theories for that, but I guess I would just ask for your reaction to that, that (D) is just part of a package which was about telling employers, get rid of your old stereotypes, don't act on your old stereotypes, employ women.",
       "time": "00:49:24.82"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There's some focus in the legislative history particularly on the -- the family that has a single parent -- much more often a woman, not a man -- and the devastating impact on that family of the woman getting sick, the sole breadwinner getting sick. So that was certainly a -- a problem for families with -- with only one breadwinner. And Congress was focusing on those women and wanting to have job security for them. That wasn't the only group of women, but certainly that -- that affected this act as it came out, didn't it?",
       "time": "00:53:00.77"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The legislative record here?",
       "time": "00:54:04.22"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that a closed record? Is that a closed record, the way a record of a case is?",
       "time": "00:54:13.73"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I just find it a strange expression to talk about \"in the record\", when what you're talking about is the legislative history.",
       "time": "00:54:29.11"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the question of how Congress would do it if they -- if they provided only for the woman who was the single head of the family, then that would be vulnerable under Equal Protection because they didn't provide it for men.",
       "time": "00:55:18.49"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But (D) is a remedy for the problem. I think there's really not much disagreement about the problem, that there is gender discrimination in the job market.",
       "time": "00:56:00.44"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then the question is how do we remedy that?",
       "time": "00:56:10.74"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can finish your sentence.",
       "time": "00:56:26.44"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Foreman, you have 4 minutes remaining.",
       "time": "00:56:52.69"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do you think it would be--",
       "time": "00:58:14.83"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Do you think it would be -- how -- how would this case come out if we were dealing with -- with from subsection (E)? Do you think that should be treated separately than the prior ones?",
       "time": "00:58:17.68"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If -- if we think that you should look at these provisions separately, where with respect to (D) -- and I'm looking at one of our prior precedents -- has Congress unequivocally declared its intent to abrogate sovereign immunity?",
       "time": "00:58:50.57"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--unequivocally. Not on the basis of implications from -- from how the other provisions work. But if you do look at (D), is there anyplace where Congress unequivocally declared its intent to abrogate State sovereign immunity?",
       "time": "00:59:04.89"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but your -- your -- the answer you gave to my request depends entirely on the conclusion that (D) is linked to (A), (B), and (C). Because otherwise, you don't have the argument that it's precisely relief with respect to a discrimination under the Fourteenth Amendment.",
       "time": "01:00:04.33"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:58.36"
     }

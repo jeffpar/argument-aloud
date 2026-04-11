@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-430/19830301r_81-430.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL P. BIEBEL, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JAMES W. REILLEY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Biebel, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you argue this before the Illinois Courts, Mr. Biebel?",
       "time": "00:05:04.23"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And not the exclusionary rule question?",
       "time": "00:05:20.86"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In general while you are talking about what happened to Lowe, the brief of your opponent suggests that the Constitution of Illinois has an exclusionary rule and that this case was decided on the basis of it. That might come first, logically.",
       "time": "00:05:44.99"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That was even before Wolf in Colorado, wasn't it?",
       "time": "00:06:13.05"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And certainly long before Mapp?",
       "time": "00:06:17.52"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's the first time you mentioned Draper. All your remarks up to this point have been Aguilar and Spinelli. Have you unhooked from Draper?",
       "time": "00:09:47.36"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you contend, Mr. Biebel, that you can look at any circumstances after the warrant issued?",
       "time": "00:10:17.80"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, then, in this case the fact that the car came back to Chicago after the warrant was issued was not relevant.",
       "time": "00:10:35.42"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but, you didn't know it till it got back to Chicago--",
       "time": "00:10:48.52"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yeah.",
       "time": "00:10:51.22"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All you knew was that it left Florida, actually.",
       "time": "00:10:53.94"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, whatever information the police obtained after the warrant was issued you do not ask us to consider, that's all I'm asking.",
       "time": "00:11:00.83"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But, whose mistake are we looking at here, the magistrate's or the police?",
       "time": "00:11:36.25"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And do you contend that the Court, if it reaches the question here of the good faith exception, should focus in on some good faith exception of the magistrate?",
       "time": "00:12:01.66"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if... if that's your position I'm surprised that you answered Justice Steven's question the way you did. If you're talking about totality of the circumstances, reasonable basis, I would think that a far less sweeping change then you're urging would simply be to say that the police may consider, after developing facts, that when... between the time of the issuance of the warrant and the search or seizure that might not have been available to the magistrate.",
       "time": "00:12:44.16"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Counsel, if the purpose of the exclusionary rule was, as you suggested earlier in your remarks, deterrence of improper police conduct, then how does application of a good faith exception to a magistrate's decision in issuing the warrant further the deterrence of the police?",
       "time": "00:15:30.47"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Haven't a number of cases added another factor, as seen by a policeman in light of his experience, not in the light of the judge's experience.",
       "time": "00:18:35.80"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what do you do with the Nathanson case in which the officer was confident that there was probable cause, but the magistrate disagreed... I mean the magistrate, based on what the officer's conclusions was enough. Would you... are you asking us to reexamine that case?",
       "time": "00:19:00.00"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By... by the police officer?",
       "time": "00:19:21.05"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And, to this day, we presumedly believe he had probable cause.",
       "time": "00:19:23.04"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're not contending, in other words, that the good faith of the police officer is enough?",
       "time": "00:19:32.06"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was there any inquiry under that aspect in the Court below?",
       "time": "00:20:48.47"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Solicitor General.",
       "time": "00:24:50.33"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Solicitor General, let me just ask one question. Your brief doesn't cite the Nathanson case.",
       "time": "00:27:44.27"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How do you put that into your scheme of things.",
       "time": "00:27:49.74"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I must confess, I'm not clear. Do you say we should overrule the Nathanson case or follow it?",
       "time": "00:28:37.59"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though there was... I don't quite understand why.",
       "time": "00:28:46.87"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because there was no misconduct, no negligence or willfulness there.",
       "time": "00:28:51.85"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words we should overrule the case?",
       "time": "00:29:10.25"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If the same facts arose again we should decide it differently.",
       "time": "00:29:17.25"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What happened in Nathanson? Did the police officer go to a magistrate and the magistrate turned him down?",
       "time": "00:29:20.76"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then they did get the warrant in the Nathanson case. They did get a warrant? Yes. Mr. Lee, what happens under your approach in this case to improper determinations, even flagrant ones, by the magistrate?",
       "time": "00:29:29.99"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Determinations that are completely wrong and unsupportable. Now under your view, it would be perfectly all right for the police officer to take such a warrant and follow it.",
       "time": "00:29:53.59"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So there is a secondary interest in making sure the government itself isn't involved in wrongdoing.",
       "time": "00:30:37.18"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Lee, are there any statistics showing by what percentage of times a magistrate turns down a request for a search warrant?",
       "time": "00:34:23.06"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you can't just blame Mapp, you have to blame all of those Illinois cases.",
       "time": "00:36:03.41"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That were decided before Mapp, don't you?",
       "time": "00:36:11.43"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "General, how can you deter the policeman? What other method do you have?",
       "time": "00:37:01.43"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Can you name one that was ever used, ever?",
       "time": "00:37:10.62"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Solicitor General, you're talking entirely, as I understand your argument, about deterrence effect on the police. Is there any mechanism or do you think there should be to deter magistrates from violating the explicit words of the Fourth Amendment, no warrant shall issue expect on probable cause. What deterrent should be applied?",
       "time": "00:38:25.58"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you think the magistrate's decision is not supported by probable cause, should the judge then set aside the warrant.",
       "time": "00:38:50.28"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I thought your whole argument is that even though there is no probable cause here the warrant should stand.",
       "time": "00:39:01.76"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's going a little too fast for me, Mr. Solicitor General. Whose reasonable belief are we talking about?",
       "time": "00:39:40.46"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I am talking about this case.",
       "time": "00:39:53.07"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, assume for a moment... what is your position. Was there or was there not probable cause for the warrant?",
       "time": "00:40:10.15"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then how do we reach all these other issues?",
       "time": "00:40:18.34"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, now, let me ask it this way. Assuming there was not probable cause arguendo for the warrant, would you say that the magistrate's action was nevertheless proper?",
       "time": "00:40:49.29"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then, you're saying that it's proper for a magistrate to issue a warrant on less than probable cause.",
       "time": "00:40:59.15"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "For a magistrate to issue a warrant on less than probable cause.",
       "time": "00:41:08.67"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand you said that. But if you also assume because the case is being reargued and all, that there was not probable cause for the warrant. Under that assumption did the magistrate act properly or improperly?",
       "time": "00:41:22.74"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then there's another step for the policeman to take. The policeman has the warrant in his hand. He is not a lawyer.",
       "time": "00:41:38.34"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It was presumptively valid at that time, was it not?",
       "time": "00:41:47.38"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let's be sure I understand. You're saying that whenever a warrant issues, the police officer's justification is justified in going forward with the search.",
       "time": "00:41:55.63"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that... that's all this has been in the hypothesis if you've got a warrant. What, if any, would be a situation in which the officer should not execute the warrant?",
       "time": "00:42:12.18"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you clearly are overruling the Nathanson case. That is clear.",
       "time": "00:42:27.60"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Reilley--",
       "time": "00:45:38.46"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why didn't the Court decide it on that ground exclusively, then?",
       "time": "00:46:12.98"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you agree, Mr. Reilley, that a warrant once issued on the question for this is presumptively valid?",
       "time": "00:51:01.50"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't there a certain, at least partial irony in your position, Mr. Reilley? The law is supposed to encourage police officers to go and get a warrant rather than simply go ahead on probable cause without... what they think is probable cause without a warrant. And, yet, under the rule that you're advocating and I think many of the court's decisions undoubtedly support you the... if a police officer goes and gets a warrant he has to put in black and white once and for all his view of what facts amounts to a probable cause. And it's very easy to simply review it as the moment it was presented to the magistrate. But if he simply goes out on a basis of probable cause, it's a much more fluid situation where he can come into court two weeks later and testify what he thought was probable cause, and perhaps put a better face on the evidence that he has.",
       "time": "01:01:43.95"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In your experience have you ever known of a magistrate to refuse a request for a search warrant?",
       "time": "01:03:53.67"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does it happen often in Illinois?",
       "time": "01:04:01.27"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you remember what sort of rate of acceptance you had--",
       "time": "01:04:08.26"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--To what extent did the subsequent events bear out the accuracy of the anonymous letter?",
       "time": "01:05:42.47"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Reilley?",
       "time": "01:07:22.22"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "This case involves police reliance on a search warrant. What would you think of a case where the police relied on the validity of a statute that subsequently was held invalid?",
       "time": "01:07:24.29"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Entirely different.",
       "time": "01:07:42.15"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would you... would you think it appropriate to modify the exclusionary rule when police do rely on a statute subsequently held unconstitutional?",
       "time": "01:07:56.44"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In Stone against Powell, the Ninth Circuit Court of Appeals, a habeas case, invalidated the arrest of an individual, I think it was in another state, perhaps Arizona, where the warrant subject to the ordinance upon which the policeman had acted subsequently was declared invalid. So I take it you would agree that the Ninth Circuit Court of Appeals made an error in that case.",
       "time": "01:08:39.60"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Right.",
       "time": "01:09:15.81"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, thank you. Mr. Solicitor General, excuse me, Mr. Attorney General, there is only one minute remaining. Do you wish to make any use of that?",
       "time": "01:20:15.35"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentleman. The case is submitted.",
       "time": "01:22:04.06"
     }
