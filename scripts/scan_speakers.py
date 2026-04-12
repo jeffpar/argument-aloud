@@ -17,6 +17,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 
 REPO_ROOT   = Path(__file__).resolve().parent.parent
@@ -71,20 +72,20 @@ def main() -> None:
     ap.add_argument("last_name",  help="Speaker's last name (case-insensitive)")
     ap.add_argument("--term", default=None, metavar="TERM",
                     help="Limit search to a single term (e.g. 1990-10)")
+    ap.add_argument("--official", action="store_true",
+                    help="Search official speaker/advocate metadata only; "
+                         "print term, case, and date for each appearance "
+                         "not within 7 days of a previous one")
     args = ap.parse_args()
 
     first = args.first_name.strip()
     last  = args.last_name.strip()
 
-    # Build a pattern that matches either "First Last" or "Last, First" or
-    # just "Last" preceded by a title word — the latter catches transcript
-    # headers like "MR. JARRETT" or "MS. JARRETT".
+    # Build a pattern that matches "First Last" or "Last, First".
     pattern = re.compile(
         rf'\b{re.escape(first)}\s+{re.escape(last)}\b'
         rf'|'
-        rf'\b{re.escape(last)},\s*{re.escape(first)}\b'
-        rf'|'
-        rf'\b(?:MR\.|MRS\.|MS\.|MISS|GENERAL)\s+{re.escape(last)}\b',
+        rf'\b{re.escape(last)},\s*{re.escape(first)}\b',
         re.IGNORECASE,
     )
 
@@ -97,7 +98,72 @@ def main() -> None:
         print(f"No term directories found (filter: {args.term!r})", file=sys.stderr)
         sys.exit(1)
 
-    hits = 0
+    if args.official:
+        last_up   = last.upper()
+        first_up  = first.upper()
+        last_date_by_case: dict[str, date] = {}
+        hits = 0
+        for term_dir in term_dirs:
+            cases_file = term_dir / "cases.json"
+            if not cases_file.exists():
+                continue
+            try:
+                cases = json.loads(cases_file.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                print(f"WARNING: could not parse {cases_file}: {exc}", file=sys.stderr)
+                continue
+            for case in cases:
+                number     = case.get("number") or case.get("id") or ""
+                case_label = case_folder_number(number) if number else "(unknown)"
+                case_dir   = term_dir / "cases" / case_label
+                case_key   = f"{term_dir.name}/{case_label}"
+                for audio in case.get("audio", []):
+                    audio_date_str = audio.get("date", "")
+                    # Check advocates list on the audio object
+                    advocates = [a.upper() for a in audio.get("advocates", [])]
+                    found = any(
+                        re.search(rf'\b{re.escape(last_up)}\b', a) and
+                        re.search(rf'\b{re.escape(first_up)}\b', a)
+                        for a in advocates
+                    )
+                    # Check speakers array inside an existing transcript JSON
+                    if not found:
+                        text_href = audio.get("text_href")
+                        if text_href:
+                            jp = case_dir / text_href
+                            if jp.exists():
+                                try:
+                                    tdata = json.loads(jp.read_text(encoding="utf-8"))
+                                    existing = [
+                                        s.get("name", "").upper()
+                                        for s in tdata.get("media", {}).get("speakers", [])
+                                    ]
+                                    found = any(
+                                        re.search(rf'\b{re.escape(last_up)}\b', n) and
+                                        re.search(rf'\b{re.escape(first_up)}\b', n)
+                                        for n in existing
+                                    )
+                                except (json.JSONDecodeError, OSError):
+                                    pass
+                    if not found:
+                        continue
+                    # Deduplicate: skip if same case and within 7 days of a
+                    # previous match for that case.
+                    try:
+                        adate = date.fromisoformat(audio_date_str)
+                    except ValueError:
+                        adate = None
+                    prev = last_date_by_case.get(case_key)
+                    if adate and prev and abs((adate - prev).days) <= 7:
+                        continue
+                    if adate:
+                        last_date_by_case[case_key] = adate
+                    print(f"{term_dir.name}  {case_label}  {audio_date_str}")
+                    hits += 1
+        print(f"\n{hits} appearance{'s' if hits != 1 else ''} for '{first} {last}'")
+        return
+
+
     for term_dir in term_dirs:
         cases_file = term_dir / "cases.json"
         if not cases_file.exists():

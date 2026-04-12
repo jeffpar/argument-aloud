@@ -300,8 +300,10 @@ def main() -> None:
                 media = transcript.get("media", {})
                 speakers = media.get("speakers", [])
 
+                _JUSTICE_TITLES = {"JUSTICE", "CHIEF JUSTICE"}
                 for speaker in speakers:
-                    if speaker.get("role") != "advocate":
+                    speaker_title = speaker.get("title", "")
+                    if not speaker_title or speaker_title in _JUSTICE_TITLES:
                         continue
                     _record_advocate(speaker.get("name", ""))
 
