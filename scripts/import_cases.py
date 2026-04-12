@@ -222,7 +222,7 @@ TERMINATOR_PATTERNS = [
 CONTENT_LINE_RE = re.compile(r'^\s{0,3}(\d{1,2})\s{2,}(.+)')
 
 SPEAKER_RE = re.compile(
-    r'^((?:CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|GENERAL|GEN\.)'
+    r'^((?:CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)'
     r'\s+[A-Z][A-Z\.]+(?:\s+[A-Z][A-Z\.]+)*):\s*(.*)',
     re.DOTALL,
 )
