@@ -79,6 +79,7 @@ _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT        = Path(__file__).resolve().parent.parent
 SPEAKERMAP_PATH  = Path(__file__).parent / 'old' / 'speakermap.txt'
+_JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
 BASE_URL         = 'https://www.supremecourt.gov'
 
 # ── Docket number map ─────────────────────────────────────────────────────────
@@ -216,6 +217,47 @@ _APPEARANCES_NAME_RE = re.compile(
 _SUFFIX_WORDS = frozenset({'JR', 'SR', 'II', 'III', 'IV'})
 
 
+def _build_justice_last_name_map() -> dict[str, str]:
+    """Return {LAST_NAME_UPPER: canonical_name_upper} from justices.json."""
+    if not _JUSTICES_PATH.exists():
+        return {}
+    data: dict = json.loads(_JUSTICES_PATH.read_text(encoding='utf-8'))
+    result: dict[str, str] = {}
+    for canonical in data:
+        u = canonical.upper()
+        words = u.split()
+        last = words[-1]
+        if last in _SUFFIX_WORDS and len(words) > 1:
+            last = words[-2]
+        result.setdefault(last, u)
+    return result
+
+
+_JUSTICE_LAST_NAME_MAP: dict[str, str] = _build_justice_last_name_map()
+
+
+# Matches an advocate title prefix that may appear at the start of a name
+# (either in the transcript token or in the APPEARANCES section).
+_ADVOCATE_TITLE_PREFIX_RE = re.compile(
+    r'^(MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)$',
+)
+
+
+def _strip_title_prefix(name: str) -> tuple[str, str]:
+    """Strip a leading advocate-title prefix from a name.
+
+    Returns (stripped_name, normalised_title) where the title is empty if
+    no recognised prefix was found.  'GEN.' is normalised to 'GENERAL'.
+    """
+    m = _ADVOCATE_TITLE_PREFIX_RE.match(name)
+    if not m:
+        return name, ''
+    t = m.group(1)
+    if t == 'GEN.':
+        t = 'GENERAL'
+    return m.group(2), t
+
+
 def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
     """Return {DISPLAY_NAME_UPPER: (canonical_full_name, title)}.
 
@@ -303,16 +345,47 @@ def _resolve_speaker(raw_name: str,
     # Justices first
     if raw_upper in justice_map:
         return justice_map[raw_upper]
-    # Advocates: extract title prefix + last word (last name)
+    # Advocates: extract title prefix + remainder of name
     m = re.match(
-        r'^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(\S+)',
+        r'^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)',
         raw_upper,
     )
     if m:
         title = m.group(1)
-        last  = m.group(2).rstrip('.,')
-        full  = appearances.get(last, raw_name)
+        if title == 'GEN.':
+            title = 'GENERAL'
+        rest  = m.group(2).strip()
+        words = rest.split()
+        last  = words[-1].rstrip('.,') 
+        if last in _SUFFIX_WORDS and len(words) > 1:
+            last = words[-2].rstrip('.,') 
+        if title in ('CHIEF JUSTICE', 'JUSTICE'):
+            # Only treat as a justice if the last name is in justices.json.
+            if last in _JUSTICE_LAST_NAME_MAP:
+                return _JUSTICE_LAST_NAME_MAP[last], title
+            # Not a real justice — fall back to advocate resolution.
+            title = ''
+        # Advocate: look up full name via appearances section.
+        full = appearances.get(last, rest)
+        # Appearances may contain a title prefix (e.g. 'GENERAL ELIZABETH B. PRELOGAR').
+        # Strip it and merge into title.
+        stripped, extra = _strip_title_prefix(full)
+        if extra:
+            full = stripped
+            if title and extra != title:
+                title = f'{title},{extra}'
+            elif not title:
+                title = extra
         return full, title
+    # No title prefix — if it's a bare last name, look it up in appearances.
+    bare = raw_upper.rstrip('.,')  
+    if ' ' not in bare:
+        full = appearances.get(bare)
+        if full:
+            stripped, extra = _strip_title_prefix(full)
+            if extra:
+                full = stripped
+            return full, extra
     return raw_name, ''
 
 
