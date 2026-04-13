@@ -4,19 +4,24 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-    python3 scripts/import_cases.py TERM [--docket]
+    python3 scripts/import_cases.py TERM [CASE] [--docket]
 
 Examples:
     python3 scripts/import_cases.py 2025-10
     python3 scripts/import_cases.py 2024-10 --docket
+    python3 scripts/import_cases.py 2010-10 09-5801
 
 Flags:
     --docket   Fetch docket pages from supremecourt.gov to populate
                questions_href and files.json proceedings entries.
 
-The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
-page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
-fetched automatically.
+The term must be in YYYY-10 format. The optional CASE argument restricts
+processing to a single case number (e.g. 09-5801); in that mode network
+scraping is skipped and the existing transcript JSON is re-generated.
+
+The corresponding supremecourt.gov listing page
+(https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
+fetched automatically when running without a CASE filter.
 
 Output:
     courts/ussc/terms/YYYY-10/cases.json
@@ -72,8 +77,9 @@ ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 _TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|-?Orig\.?|A\d+)?)\.?\s+(.+)$', re.IGNORECASE)
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-BASE_URL  = 'https://www.supremecourt.gov'
+REPO_ROOT        = Path(__file__).resolve().parent.parent
+SPEAKERMAP_PATH  = Path(__file__).parent / 'old' / 'speakermap.txt'
+BASE_URL         = 'https://www.supremecourt.gov'
 
 # ── Docket number map ─────────────────────────────────────────────────────────
 
@@ -200,6 +206,116 @@ def _case_folder(number: str) -> str:
     return number.split(',')[0].strip()
 
 
+# ── Speaker name resolution ───────────────────────────────────────────────────
+
+# Matches each content line produced by pdftotext -layout (re-used below).
+_APPEARANCES_NAME_RE = re.compile(
+    r'^([A-Z][A-Z\'\.\-]+(?:\s+[A-Z][A-Z\'\.\-]+){1,}'  # FIRST [MIDDLE] LAST
+    r'(?:,\s*(?:JR|SR|II|III|IV)\.?)?)[\s,]',             # optional , JR.
+)
+_SUFFIX_WORDS = frozenset({'JR', 'SR', 'II', 'III', 'IV'})
+
+
+def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
+    """Return {DISPLAY_NAME_UPPER: (canonical_full_name, title)}.
+
+    Built from the JUSTICE: lines in speakermap.txt.  Handles the term-based
+    conditional entries for Rehnquist (< 1986-10 / >= 1986-10).
+    """
+    result: dict[str, tuple[str, str]] = {}
+    if not SPEAKERMAP_PATH.exists():
+        return result
+    cond_re = re.compile(r'^(.+?)\s*(<|>=)\s*(\d{4}-\d{2})\s*$')
+    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or ':' not in line or '->' not in line:
+            continue
+        kind_full, display = line.rsplit('->', 1)
+        kind, full_raw = kind_full.split(':', 1)
+        if kind.strip().upper() != 'JUSTICE':
+            continue
+        full_raw = full_raw.strip()
+        display  = display.strip()
+        # Handle term-conditional entries
+        cond_m = cond_re.match(full_raw)
+        if cond_m:
+            full_name = cond_m.group(1).strip()
+            op        = cond_m.group(2)
+            cond_term = cond_m.group(3)
+            if term:
+                if op == '<'  and not (term < cond_term):
+                    continue
+                if op == '>=' and not (term >= cond_term):
+                    continue
+        else:
+            full_name = full_raw
+        title = 'CHIEF JUSTICE' if display.startswith('CHIEF JUSTICE') else 'JUSTICE'
+        result[display.upper()] = (full_name, title)
+    return result
+
+
+def parse_appearances(raw_text: str) -> dict[str, str]:
+    """Parse the APPEARANCES section of a pdftotext transcript.
+
+    Returns {LAST_NAME_UPPER: FULL_NAME_UPPER} for each listed advocate.
+    """
+    in_appearances = False
+    names: list[str] = []
+
+    for line in raw_text.split('\n'):
+        m = CONTENT_LINE_RE.match(line)
+        if not m:
+            continue
+        content = m.group(2).strip()
+        if re.match(r'^APPEARANCES:?$', content):
+            in_appearances = True
+            continue
+        if not in_appearances:
+            continue
+        if content in ('C O N T E N T S', 'P R O C E E D I N G S'):
+            break
+        nm = _APPEARANCES_NAME_RE.match(content)
+        if nm:
+            names.append(nm.group(1).strip())
+
+    result: dict[str, str] = {}
+    for name in names:
+        name_upper = name.upper()
+        parts = [p.strip('.,') for p in name_upper.split()]
+        last = parts[-1]
+        if last in _SUFFIX_WORDS and len(parts) > 1:
+            last = parts[-2]
+        result[last] = name_upper
+    return result
+
+
+def _resolve_speaker(raw_name: str,
+                     appearances: dict[str, str],
+                     justice_map: dict[str, tuple[str, str]]) -> tuple[str, str]:
+    """Map a raw transcript speaker token to (canonical_full_name, title).
+
+    Justice names (CHIEF JUSTICE X / JUSTICE X) are looked up in justice_map
+    to get the full canonical name.  Advocate names (MR. X / MS. X / etc.) are
+    resolved via the APPEARANCES section map using the last name.
+    Falls back to the raw name and empty title when no match is found.
+    """
+    raw_upper = raw_name.upper().strip()
+    # Justices first
+    if raw_upper in justice_map:
+        return justice_map[raw_upper]
+    # Advocates: extract title prefix + last word (last name)
+    m = re.match(
+        r'^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(\S+)',
+        raw_upper,
+    )
+    if m:
+        title = m.group(1)
+        last  = m.group(2).rstrip('.,')
+        full  = appearances.get(last, raw_name)
+        return full, title
+    return raw_name, ''
+
+
 # ── Transcript extraction ────────────────────────────────────────────────────
 
 SKIP_PATTERNS = [
@@ -228,28 +344,58 @@ SPEAKER_RE = re.compile(
 )
 
 
-def _build_transcript_envelope(turns: list, audio_href: str = '') -> dict:
-    """Wrap a list of turn dicts in the transcript envelope format."""
-    speaker_names = list(dict.fromkeys(t['name'] for t in turns))  # stable-unique
+def _build_transcript_envelope(turns: list, audio_href: str = '',
+                                speakers: list | None = None) -> dict:
+    """Wrap a list of turn dicts in the transcript envelope format.
+
+    If *speakers* is provided it should be a list of ``{"name": ..., "title": ...}``
+    dicts already resolved to canonical form.  Otherwise the speaker list is
+    derived from the turn names with no title information (legacy path used by
+    migrate_transcripts).
+    """
+    if speakers is None:
+        speaker_names = list(dict.fromkeys(t['name'] for t in turns))  # stable-unique
+        speakers = [{'name': n} for n in speaker_names]
     return {
         'media': {
             'url':      audio_href,
-            'speakers': [{'name': n} for n in speaker_names],
+            'speakers': speakers,
         },
         'turns': turns,
     }
 
 
-def extract_transcript_pdf(pdf_path: Path, output_path: Path, audio_href: str = '') -> list:
-    """Run pdftotext on pdf_path, parse speaker turns, write output_path as JSON."""
+# Path under which pre-computed pdftotext output is cached.
+# Layout: courts/ussc/transcripts/text/{YEAR}/{CASE}_{DATE}.txt
+_TEXT_CACHE_DIR = REPO_ROOT / 'courts' / 'ussc' / 'transcripts' / 'text'
+
+
+def _cached_text_path(case_number: str, date: str, term: str) -> Path:
+    """Return the cached pdftotext .txt path for a given case/date/term."""
+    year = term.split('-')[0]  # '2010-10' → '2010'
+    filename = f'{_case_folder(case_number)}_{date}.txt'
+    return _TEXT_CACHE_DIR / year / filename
+
+
+def _pdf_to_text(pdf_path: Path) -> str:
+    """Run pdftotext -layout on *pdf_path* and return the raw text."""
     result = subprocess.run(
         ['pdftotext', '-layout', str(pdf_path), '-'],
         capture_output=True, text=True, check=True,
     )
+    return result.stdout
+
+
+def _parse_raw_text(raw_text: str, output_path: Path,
+                    audio_href: str = '', term: str = '') -> list:
+    """Parse the raw pdftotext output, write output_path as JSON, return turns."""
+    # Pre-pass: build name-resolution tables.
+    appearances  = parse_appearances(raw_text)
+    justice_map  = _load_justice_map(term)
 
     tokens = []
 
-    for line in result.stdout.split('\n'):
+    for line in raw_text.split('\n'):
         m = CONTENT_LINE_RE.match(line)
         if not m:
             continue
@@ -287,16 +433,51 @@ def extract_transcript_pdf(pdf_path: Path, output_path: Path, audio_href: str = 
         if text:
             turns.append({'name': current_speaker, 'text': text})
 
-    # Assign 1-based "turn" IDs (key placed first for readability)
+    # Resolve each raw speaker token to a canonical (full_name, title) pair.
+    raw_to_resolved: dict[str, tuple[str, str]] = {}
+    for turn in turns:
+        raw = turn['name']
+        if raw not in raw_to_resolved:
+            raw_to_resolved[raw] = _resolve_speaker(raw, appearances, justice_map)
+
+    # Rename turn names to canonical full names.
+    for turn in turns:
+        turn['name'] = raw_to_resolved[turn['name']][0]
+
+    # Assign 1-based "turn" IDs (key placed first for readability).
     turns = [{'turn': i + 1, **turn} for i, turn in enumerate(turns)]
 
-    envelope = _build_transcript_envelope(turns, audio_href)
+    # Build speakers list in first-appearance order, de-duplicated by full name.
+    seen_full: dict[str, str] = {}  # full_name → title, insertion-ordered
+    for raw_name, (full_name, title) in raw_to_resolved.items():
+        if full_name not in seen_full:
+            seen_full[full_name] = title
+    speakers = [{'name': n, 'title': t} for n, t in seen_full.items()]
+
+    if appearances:
+        print(f'    APPEARANCES: {", ".join(appearances.values())}')
+
+    envelope = _build_transcript_envelope(turns, audio_href, speakers)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
         json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
         encoding='utf-8',
     )
     return turns
+
+
+def extract_transcript_pdf(pdf_path: Path, output_path: Path,
+                            audio_href: str = '', term: str = '') -> list:
+    """Run pdftotext on pdf_path, parse speaker turns, write output_path as JSON.
+
+    Speaker names are resolved to canonical form:
+    - Justices → full name from speakermap.txt (e.g. ``JOHN G. ROBERTS, JR.``)
+      with title ``CHIEF JUSTICE`` or ``JUSTICE``.
+    - Advocates → full name from the APPEARANCES section of the transcript
+      (e.g. ``STEVEN F. HUBACHEK``) with title from the in-text prefix
+      (``MR.``, ``MS.``, ``GENERAL``, etc.).
+    """
+    return _parse_raw_text(_pdf_to_text(pdf_path), output_path, audio_href, term)
 
 
 # ── Listing page parser ───────────────────────────────────────────────────────
@@ -618,7 +799,11 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
 
     # Build a lookup from case number → scraped case (with detail_url).
     scraped_by_num = {c['number']: c for c in new_cases}
-    existing_numbers = {c['number'] for c in existing}
+    # Expand consolidated numbers so "10-238,10-239" covers both "10-238" and "10-239".
+    existing_numbers: set[str] = set()
+    for c in existing:
+        for part in c['number'].split(','):
+            existing_numbers.add(part.strip())
 
     modified = False
     added = []
@@ -736,9 +921,17 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
                 files = []
 
             existing_hrefs = {f['href'] for f in files if 'href' in f}
+            # transcript_href values are already on audio objects; don't duplicate them.
+            audio_transcript_hrefs = {
+                a.get('transcript_href')
+                for a in case.get('audio', [])
+                if a.get('transcript_href')
+            }
             next_file_id = max((f.get('file', 0) for f in files), default=0) + 1
             added = 0
             for p in proceedings:
+                if p['href'] in audio_transcript_hrefs:
+                    continue   # already recorded as transcript_href on an audio object
                 if p['href'] not in existing_hrefs:
                     entry = {'file': next_file_id, 'title': p['title'], 'date': p['date'], 'href': p['href']}
                     if p.get('type'):
@@ -768,14 +961,27 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
 # ── Step 3: Generate missing transcripts ─────────────────────────────────────
 
 
-def generate_missing_transcripts(cases_path: Path) -> None:
+def generate_missing_transcripts(cases_path: Path,
+                                  case_filter: str | None = None,
+                                  force: bool = False) -> None:
     """For each argument with a transcript_href and no YYYY-MM-DD.json yet,
-    download the PDF, extract turns, write the JSON, and update text_href."""
+    download the PDF, extract turns, write the JSON, and update text_href.
+
+    If *case_filter* is set (a case number string), only that case is processed
+    and any existing transcript JSON for it is overwritten (useful for testing).
+    If *force* is True, all transcripts are reparsed even if they already exist.
+    """
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    term     = cases_path.parent.name  # e.g. "2010-10"
     modified = False
 
     for case in existing:
+        if case_filter and case['number'] != case_filter:
+            continue
+
         for arg in case.get('audio', []):
+            if arg.get('source', 'ussc') != 'ussc':
+                continue   # only extract from USSC transcripts
             pdf_url = arg.get('transcript_href')
             date    = arg.get('date')
             if not pdf_url or not date:
@@ -788,26 +994,40 @@ def generate_missing_transcripts(cases_path: Path) -> None:
             case_dir       = cases_path.parent / 'cases' / _case_folder(case['number'])
             transcript_out = case_dir / f'{date}.json'
 
-            if transcript_out.exists():
+            # Skip if already generated, unless overwrite is requested.
+            if transcript_out.exists() and not case_filter and not force:
                 continue
 
             print(f'  Extracting {case["number"]} ({date}) ...', end=' ', flush=True)
 
-            tmp_path = None
+            # Use cached pdftotext output when available to avoid re-downloading.
+            cached_txt = _cached_text_path(case['number'], date, term)
+            audio_href = arg.get('audio_href', '')
+            tmp_path   = None
             try:
-                with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
-                    tmp_path = Path(tmp.name)
+                if cached_txt.exists():
+                    print('(cached) ', end='', flush=True)
+                    raw_text = cached_txt.read_text(encoding='utf-8', errors='replace')
+                    turns    = _parse_raw_text(raw_text, transcript_out,
+                                               audio_href, term)
+                else:
+                    with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                        tmp_path = Path(tmp.name)
+                    download_file(pdf_url, tmp_path)
+                    raw_text = _pdf_to_text(tmp_path)
+                    # Save to cache so future runs skip the download.
+                    cached_txt.parent.mkdir(parents=True, exist_ok=True)
+                    cached_txt.write_text(raw_text, encoding='utf-8')
+                    turns = _parse_raw_text(raw_text, transcript_out,
+                                            audio_href, term)
+                    time.sleep(0.3)
 
-                download_file(pdf_url, tmp_path)
-                audio_href = arg.get('audio_href', '')
-                turns = extract_transcript_pdf(tmp_path, transcript_out, audio_href)
                 print(f'{len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
 
                 if not arg.get('text_href'):
                     arg['text_href'] = f'{date}.json'
                     modified = True
 
-                time.sleep(0.3)
             except subprocess.CalledProcessError as exc:
                 print(f'ERROR (pdftotext): {exc.stderr.strip()}')
             except Exception as exc:
@@ -933,57 +1153,6 @@ def clean_files_json(cases_path: Path) -> None:
         print('  Nothing to clean.')
 
 
-# ── Step 5b: Add transcript PDF entries to files.json ───────────────────────
-
-
-def add_transcript_entries(cases_path: Path) -> None:
-    """For each argument that has a transcript_href, ensure files.json contains
-    an entry with type='transcript' linking to the PDF transcript."""
-    existing = json.loads(cases_path.read_text(encoding='utf-8'))
-    total_added = 0
-
-    for case in existing:
-        number = case['number']
-        for arg in case.get('audio', []):
-            pdf_url = arg.get('transcript_href')
-            date    = arg.get('date')
-            if not pdf_url or not date:
-                continue
-
-            case_dir   = cases_path.parent / 'cases' / _case_folder(number)
-            files_path = case_dir / 'files.json'
-            case_dir.mkdir(parents=True, exist_ok=True)
-
-            files = []
-            if files_path.exists():
-                files = json.loads(files_path.read_text(encoding='utf-8'))
-
-            # Skip if a transcript entry for this PDF already exists.
-            if any(f.get('type') == 'transcript' and f.get('href') == pdf_url for f in files):
-                continue
-
-            dt = datetime.fromisoformat(date)
-            title = f'Transcript of Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
-            next_file_id = max((f.get('file', 0) for f in files), default=0) + 1
-            files.append({
-                'file':  next_file_id,
-                'type':  'transcript',
-                'title': title,
-                'date':  date,
-                'href':  pdf_url,
-            })
-            files_path.write_text(
-                json.dumps(files, indent=2, ensure_ascii=False) + '\n',
-                encoding='utf-8',
-            )
-            total_added += 1
-
-    if total_added:
-        print(f'  Added transcript entries to {total_added} files.json file(s).')
-    else:
-        print('  All transcript entries already present.')
-
-
 # ── Step 6: Extract questions presented ──────────────────────────────────────
 
 # Marks the start of the questions block.
@@ -1072,7 +1241,7 @@ def extract_questions(cases_path: Path) -> None:
 def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
     """Match PDF transcripts from the supremecourt.gov listing page to cases in
     cases.json.  For each ussc audio entry lacking transcript_href, set it from
-    the listing; also add a type='transcript' entry to files.json.
+    the listing.
     Cases present on the listing but missing from cases.json are created."""
 
     url = _transcript_listing_url(year_str)
@@ -1093,29 +1262,6 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     cases_modified = False
 
-    def _add_to_files(case: dict, row: dict) -> None:
-        """Add a type='transcript' entry to this case's files.json if not present."""
-        pdf_url    = row['pdf_url']
-        dt_str     = row['date']
-        case_dir   = cases_path.parent / 'cases' / _case_folder(case['number'])
-        files_path = case_dir / 'files.json'
-        case_dir.mkdir(parents=True, exist_ok=True)
-        files = json.loads(files_path.read_text(encoding='utf-8')) if files_path.exists() else []
-        if any(f.get('href') == pdf_url for f in files):
-            return  # already present
-        try:
-            dt    = datetime.fromisoformat(dt_str)
-            title = f'Transcript of Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
-        except ValueError:
-            title = f'Transcript of Oral Argument on {dt_str}'
-        next_id = max((f.get('file', 0) for f in files), default=0) + 1
-        files.append({'file': next_id, 'type': 'transcript',
-                      'title': title, 'date': dt_str, 'href': pdf_url})
-        files_path.write_text(
-            json.dumps(files, indent=2, ensure_ascii=False) + '\n',
-            encoding='utf-8',
-        )
-
     # Pass 1: match existing cases
     matched_rows: set[tuple[str, str]] = set()  # (number, date) pairs handled
     for case in existing:
@@ -1134,9 +1280,10 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
         for row in rows:
             key = (row['number'], row['date'])
             matched_rows.add(key)
-            _add_to_files(case, row)
-            # Assign transcript_href to any audio entry with a matching date
+            # Assign transcript_href to any ussc audio entry with a matching date
             for arg in case.get('audio', []):
+                if arg.get('source', 'ussc') != 'ussc':
+                    continue   # never modify oyez/nara objects
                 if arg.get('type') not in (None, 'argument', 'reargument'):
                     continue
                 if arg.get('transcript_href'):
@@ -1203,20 +1350,36 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     fetch_docket = '--docket' in sys.argv
+    force_reparse = '--reparse' in sys.argv
 
-    if len(args) != 1:
+    if len(args) < 1 or len(args) > 2:
         print(__doc__)
         sys.exit(1)
 
-    term = args[0].strip()
+    term        = args[0].strip()
+    case_filter = args[1].strip() if len(args) > 1 else None
+
     m = re.fullmatch(r'(\d{4})-10', term)
     if not m:
         print(f'Error: expected a term in YYYY-10 format (e.g. 2025-10), got {term!r}')
         sys.exit(1)
 
     year_str   = m.group(1)
-    url        = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
+
+    # ── Single-case mode ─────────────────────────────────────────────────────
+    if case_filter:
+        print(f'Single-case mode: {term} / {case_filter}')
+        if not cases_path.exists():
+            print(f'Error: {cases_path} does not exist. Run without a case filter first.')
+            sys.exit(1)
+        print()
+        print(f'Re-generating transcript for {case_filter} ...')
+        generate_missing_transcripts(cases_path, case_filter=case_filter)
+        return
+
+    # ── Full-term mode ───────────────────────────────────────────────────────
+    url = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
 
     try:
         scraped = fetch_cases_from_url(url)
@@ -1240,9 +1403,11 @@ def main():
 
     # Step 3: generate missing transcript JSON files
     print()
-    print('Checking for missing transcripts ...')
-    generate_missing_transcripts(cases_path)
-
+    if force_reparse:
+        print('Reparsing all transcripts (--reparse) ...')
+    else:
+        print('Checking for missing transcripts ...')
+    generate_missing_transcripts(cases_path, force=force_reparse)
     # Step 3b: migrate old-format transcripts to envelope format
     print()
     print('Migrating old-format transcripts ...')
@@ -1264,11 +1429,6 @@ def main():
     print()
     print('Cleaning up files.json entries ...')
     clean_files_json(cases_path)
-
-    # Step 5b: add transcript PDF entries to files.json
-    print()
-    print('Adding transcript entries to files.json ...')
-    add_transcript_entries(cases_path)
 
     # Step 6: extract questions presented from PDF
     print()
