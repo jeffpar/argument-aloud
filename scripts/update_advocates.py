@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Builds/updates courts/ussc/people/advocates.json from transcript files.
+"""Builds/updates courts/ussc/people/advocates.json (index) and
+courts/ussc/people/advocates/{id}.json (per-advocate case lists) from
+transcript files.
 
 For every case in every cases.json under courts/ussc/terms/, follows each
 audio entry's text_href to its transcript file, extracts speakers whose role
@@ -14,24 +16,28 @@ These are processed identically to transcript speakers and are subject to
 the same 7-day deduplication window. If a transcript is later added for
 the same audio, duplicate entries will be suppressed automatically.
 
-The output is an array of people objects:
-  {
-    "name":  "JOHN DOE",
-    "cases": [                  # sorted chronologically by argument date
-      {
-        "title":    "Roe v. Wade",
-        "term":     "1971-10",
-        "number":   "70-18",
-        "argument": "1971-12-13",  # date of the audio object argued
-        "decision": "1973-01-22",  # omitted if no decision date yet
-        "audio":    1              # 1-based index in date-sorted audio list
-      },
-      ...
-    ]
-  }
+Output structure
+----------------
+courts/ussc/people/advocates.json  — index array:
+  [
+    { "id": "john_doe", "name": "JOHN DOE", "total_cases": 3 },
+    ...
+  ]
 
-If advocates.json already exists, existing IDs are preserved and new
-advocates/cases are merged in.
+courts/ussc/people/advocates/{id}.json  — per-advocate cases array:
+  [
+    {
+      "title":    "Roe v. Wade",
+      "term":     "1971-10",
+      "number":   "70-18",
+      "argument": "1971-12-13",
+      "decision": "1973-01-22",  # omitted if no decision date yet
+      "audio":    1              # 1-based index in date-sorted audio list
+    },
+    ...
+  ]
+
+If the output files already exist, new advocates/cases are merged in.
 
 Usage:
     python3 scripts/update_advocates.py
@@ -41,6 +47,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 from datetime import date as Date, timedelta
 from pathlib import Path
 
@@ -50,9 +57,42 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "advocates.json"
+ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
+# ---------------------------------------------------------------------------
+# Advocate ID
+# ---------------------------------------------------------------------------
+
+_PUNCT_RE = re.compile(r"[^\w\s]")
+
+
+def make_advocate_id(name: str) -> str:
+    """Derive a stable file-system-safe ID from an advocate's name.
+
+    Steps: normalise Unicode (NFD → strip combining marks), lower-case,
+    strip punctuation (keep letters/digits/spaces/underscores), collapse
+    whitespace, replace spaces with underscores.
+
+    Examples
+    --------
+    'JOHN DOE'              -> 'john_doe'
+    'A. ANNE-MARIE CÔTÉ'    -> 'a_anne-marie_cote'  (hyphens kept as words)
+    'JOHN DOE, JR.'         -> 'john_doe_jr'
+    """
+    # Decompose accented letters and drop the combining diacritical marks.
+    nfd = unicodedata.normalize('NFD', name)
+    ascii_name = ''.join(ch for ch in nfd if unicodedata.category(ch) != 'Mn')
+    lower = ascii_name.lower()
+    # Remove punctuation except hyphens (they separate name parts).
+    no_punct = re.sub(r"[^\w\s-]", "", lower)
+    # Collapse whitespace / hyphens / underscores into single underscores.
+    slug = re.sub(r"[\s\-_]+", "_", no_punct).strip('_')
+    return slug
+
+
+# ---------------------------------------------------------------------------
 # Suffix normalisation patterns
 _SUFFIX_JR_SR_RE = re.compile(r',?\s+(JR|SR)\.?\s*$', re.IGNORECASE)
 _SUFFIX_ROMAN_RE = re.compile(r',?\s+(II|III|IV)\s*$', re.IGNORECASE)
@@ -141,34 +181,35 @@ def case_folder_number(number_str: str) -> str:
 
 
 def load_existing() -> dict[str, dict]:
-    """Load existing advocates.json, keyed by normalised name (upper-case)."""
+    """Load existing advocate ids/names, keyed by normalised name (upper-case).
+
+    Only id and name are loaded — cases are always rebuilt from the term
+    directories so that additions, updates, and removals in cases.json are
+    reflected accurately.  Details and highlights are preserved separately
+    at write time by reading the existing per-advocate file.
+    """
     if not OUTPUT_FILE.exists():
         return {}
     with OUTPUT_FILE.open(encoding="utf-8") as fh:
-        data = json.load(fh)
-    # Migrate legacy "date" field to "argument" in-place; normalise name suffixes.
-    for entry in data:
-        for case in entry.get("cases", []):
-            if "date" in case and "argument" not in case:
-                case["argument"] = case.pop("date")
-        normalised = normalize_name_suffix(entry["name"])
-        if normalised != entry["name"]:
-            print(f"  Normalised existing name: {entry['name']!r} -> {normalised!r}")
-            entry["name"] = normalised
-    return {entry["name"].upper(): entry for entry in data}
+        index = json.load(fh)
+
+    result: dict[str, dict] = {}
+    for entry in index:
+        name = entry["name"]
+        # Normalise name suffixes.
+        normalised = normalize_name_suffix(name)
+        if normalised != name:
+            print(f"  Normalised existing name: {name!r} -> {normalised!r}")
+            name = normalised
+
+        adv_id = entry.get("id") or make_advocate_id(name)
+        result[name.upper()] = {"id": adv_id, "name": name, "cases": []}
+    return result
 
 
 def next_id(existing: dict[str, dict]) -> int:
     """Return the next available NNNN integer after all existing IDs."""
-    if not existing:
-        return 1
-    nums = []
-    for entry in existing.values():
-        try:
-            nums.append(int(entry["id"].split("-")[1]))
-        except (IndexError, ValueError, KeyError):
-            pass
-    return max(nums, default=0) + 1
+    return 0  # no longer used; kept for migration compatibility
 
 
 def make_id(n: int) -> str:
@@ -189,20 +230,17 @@ def main() -> None:
         print(f"No term directories found under {TERMS_DIR}", file=sys.stderr)
         sys.exit(1)
 
-    # advocates[name_upper] = {"id": ..., "name": ..., "cases": [...]}
+    # advocates[name_upper] = {"id": ..., "name": ..., "cases": []}
+    # Cases are rebuilt from scratch each run; details/highlights are preserved at write time.
     advocates: dict[str, dict] = load_existing()
     counter = next_id(advocates)  # retained for migration only, not written
 
-    # Track recorded dates per (name, title, term, number) so we can skip
-    # any new date that falls within 7 days of an already-recorded date for
-    # the same advocate+case (multi-day arguments treated as one appearance).
+    # Ensure the per-advocate output directory exists.
+    ADVOCATES_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Track argument dates per (name, title, term, number) to skip duplicate
+    # appearances within 7 days (multi-day arguments treated as one entry).
     recorded_dates: dict[tuple[str, str, str, str], list[Date]] = {}
-    for entry in advocates.values():
-        for case in entry["cases"]:
-            key = (entry["name"].upper(), case["title"], case["term"], case["number"])
-            arg_date = case.get("argument") or case.get("date", "")
-            if arg_date:
-                recorded_dates.setdefault(key, []).append(Date.fromisoformat(arg_date))
 
     for term_dir in term_dirs:
         term = term_dir.name
@@ -251,7 +289,8 @@ def main() -> None:
                         return
                     recorded_dates.setdefault(case_key, []).append(new_dt)
                     if name_key not in advocates:
-                        advocates[name_key] = {"name": name, "cases": []}
+                        adv_id = make_advocate_id(name)
+                        advocates[name_key] = {"id": adv_id, "name": name, "cases": []}
                     advocates[name_key]["cases"].append({
                         "title":    title,
                         "term":     term,
@@ -307,21 +346,54 @@ def main() -> None:
                         continue
                     _record_advocate(speaker.get("name", ""))
 
-    # Sort each advocate's cases chronologically by argument date
+    # Sort each advocate's cases by argument date, most recent first
     for entry in advocates.values():
-        entry["cases"].sort(key=lambda c: c.get("argument", c.get("date", "")))
+        entry["cases"].sort(key=lambda c: c.get("argument", c.get("date", "")), reverse=True)
 
     # Build output list sorted by name
     output = sorted(advocates.values(), key=lambda e: e["name"])
 
+    # Write per-advocate case files.
+    for entry in output:
+        adv_id = entry.get("id") or make_advocate_id(entry["name"])
+        case_file = ADVOCATES_DIR / f"{adv_id}.json"
+        # Preserve existing details/highlights if the file already exists.
+        existing_details = {}
+        existing_highlights = []
+        if case_file.exists():
+            try:
+                raw = json.loads(case_file.read_text(encoding="utf-8"))
+                if isinstance(raw, dict):
+                    existing_details = raw.get("details", {})
+                    existing_highlights = raw.get("highlights", [])
+            except json.JSONDecodeError:
+                pass
+        envelope = {
+            "details": existing_details,
+            "highlights": existing_highlights,
+            "cases": entry["cases"],
+        }
+        case_file.write_text(
+            json.dumps(envelope, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+    # Write the index (name + id + total_cases only — no cases array).
+    index = [
+        {"id": e.get("id") or make_advocate_id(e["name"]),
+         "name": e["name"],
+         "total_cases": len(e["cases"])}
+        for e in output
+    ]
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_FILE.open("w", encoding="utf-8") as fh:
-        json.dump(output, fh, indent=2, ensure_ascii=False)
+        json.dump(index, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
 
     print(
-        f"Wrote {len(output)} advocates "
-        f"to {OUTPUT_FILE.relative_to(REPO_ROOT)}"
+        f"Wrote {len(output)} advocates to "
+        f"{OUTPUT_FILE.relative_to(REPO_ROOT)} "
+        f"and {ADVOCATES_DIR.relative_to(REPO_ROOT)}/"
     )
 
 

@@ -220,19 +220,21 @@ async function fetchTermCases(term) {
 
 // Called when nav search opens: loads all not-yet-built term case lists.
 // ── URL param helper ─────────────────────────────────────────────────────────
-// Rebuilds URLSearchParams so that 'collection' (if present) is always first.
+// Rebuilds URLSearchParams so that 'collection' is always first, and 'entry' or 'id' is second.
 function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
   // Apply deletes first.
   deletes.forEach(k => url.searchParams.delete(k));
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // Ensure 'collection' is first and 'entry' is second (if present).
+  // Ensure 'collection' is first, then 'entry' or 'id' (if present), then the rest.
   const coll = url.searchParams.get('collection');
   if (coll) {
     const entry = url.searchParams.get('entry');
-    const rest = [...url.searchParams.entries()].filter(([k]) => k !== 'collection' && k !== 'entry');
-    const reordered = [['collection', coll], ...(entry != null ? [['entry', entry]] : []), ...rest];
+    const id    = url.searchParams.get('id');
+    const rest = [...url.searchParams.entries()].filter(([k]) => k !== 'collection' && k !== 'entry' && k !== 'id');
+    const second = entry != null ? [['entry', entry]] : (id != null ? [['id', id]] : []);
+    const reordered = [['collection', coll], ...second, ...rest];
     url.search = new URLSearchParams(reordered).toString();
   }
   return url;
@@ -898,6 +900,7 @@ function buildNav() {
   // Wrap all decades in a top-level "Terms" collapsible group.
   const termsLi = document.createElement('li');
   termsLi.className = 'terms-group';
+  termsLi.dataset.section = 'terms';
   const termsHeader = document.createElement('div');
   termsHeader.className = 'terms-header';
   const termsTog = document.createElement('span');
@@ -1067,9 +1070,7 @@ function buildCollectionsNav() {
   function _doSectionBuild() {
     if (_sectionBuilt) return;
     _sectionBuilt = true;
-    // Sort by collection path so 1.json < 2.json < … regardless of order.
-    const sorted = [...COLLECTIONS].sort((a, b) => a.collection < b.collection ? -1 : a.collection > b.collection ? 1 : 0);
-    for (const collEntry of sorted) {
+    for (const collEntry of COLLECTIONS) {
       buildCollectionItem(sectionUl, collEntry);
     }
   }
@@ -1121,15 +1122,21 @@ function buildCollectionItem(sectionUl, collEntry) {
         const res = await fetch(collEntry.collection, { cache: 'reload' });
         if (!res.ok) return;
         let groups = await res.json();
+        // Detect split-advocate format: {id, name, total_cases} with no embedded cases array.
+        const isSplitFormat = groups.length > 0 && groups[0].id !== undefined
+          && typeof groups[0].total_cases === 'number' && !Array.isArray(groups[0].cases);
         if (collEntry.sort) {
           const sortKeys = collEntry.sort.split(',').map(spec => {
             const [keyPath, order] = spec.trim().split(':');
-            return { keyPath: keyPath.trim(), descending: order === 'descending' };
+            // For split format, 'cases.length' maps to the pre-computed 'total_cases' field.
+            const resolved = (isSplitFormat && keyPath.trim() === 'cases.length') ? 'total_cases' : keyPath.trim();
+            return { keyPath: resolved, descending: order === 'descending' };
           });
           const getVal = (obj, keyPath) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
           // Keys like "cases[].argument" sort the nested cases array on each group.
+          // Skip for split format (cases are not yet loaded).
           const groupKeys = sortKeys.filter(k => !k.keyPath.startsWith('cases[].'));
-          const caseKeys  = sortKeys.filter(k =>  k.keyPath.startsWith('cases[].'));
+          const caseKeys  = isSplitFormat ? [] : sortKeys.filter(k => k.keyPath.startsWith('cases[].'));
           if (caseKeys.length) {
             const caseGetVal = (obj, keyPath) => getVal(obj, keyPath.slice('cases[].'.length));
             for (const group of groups) {
@@ -1178,7 +1185,88 @@ function buildCollectionItem(sectionUl, collEntry) {
   sectionUl.appendChild(collLi);
 }
 
+function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
+  const caseKey = caseRef.term + '/' + caseRef.number;
+  const ci = document.createElement('li');
+  ci.className = 'case-item';
+  ci.dataset.caseKey = caseKey;
+
+  const header = document.createElement('div');
+  header.className = 'case-header';
+
+  const titleSpan = document.createElement('span');
+  titleSpan.className = 'case-title-nav';
+  titleSpan.textContent = caseRef.title;
+  titleSpan.title = argumentTooltip(caseRef.term, caseRef);
+
+  header.appendChild(titleSpan);
+
+  // Speaker icon — if collection case has audio
+  if (caseRef.audio) {
+    const speakerIcon = document.createElement('span');
+    speakerIcon.className = 'case-decided-icon case-audio-icon';
+    speakerIcon.textContent = '\u266b';
+    speakerIcon.title = 'Oral argument audio available';
+    header.appendChild(speakerIcon);
+  }
+
+  // Scales icon — if case has a decision; placeholder (invisible) if audio but no decision
+  if (caseRef.audio || caseRef.decision) {
+    const icon = document.createElement('span');
+    icon.className = 'case-decided-icon';
+    icon.textContent = '\u2696';
+    if (caseRef.decision) {
+      icon.title = 'Opinion issued';
+      ci.classList.add('decided');
+    } else {
+      icon.style.opacity = '0';
+      icon.style.pointerEvents = 'none';
+    }
+    header.appendChild(icon);
+  }
+
+  titleSpan.addEventListener('click', async (e) => {
+    const fromRestore = !!e.fromRestore;
+    const cases = await fetchTermCases(caseRef.term);
+    const caseEntry = cases.find(c => c.number === caseRef.number ||
+      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)));
+    if (!caseEntry) {
+      console.warn('[collections] case not found in cases.json:', caseRef);
+      return;
+    }
+    // caseRef.audio is a 1-based index into the date-sorted audio list.
+    // Convert to 0-based for loadCase; fall back to 0 if not a valid number.
+    const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio - 1 : 0;
+    const audioIdx = fromRestore
+      ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
+      : defaultAudioIdx;
+    if (!fromRestore) {
+      const entryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };
+      const deleteOther = groupId != null ? ['entry'] : ['id'];
+      const url = buildUrlParams(
+        {
+          collection: collId,
+          ...entryOrId,
+          term: caseRef.term,
+          case: caseRef.number,
+          ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
+        },
+        [...deleteOther, ...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
+      );
+      history.replaceState(null, '', url);
+    }
+    loadCase(caseRef.term, caseEntry, audioIdx);
+  });
+
+  ci.appendChild(header);
+  return ci;
+}
+
 function _populateCollectionGroups(collUl, groups, collEntry, collId) {
+  // Base path for per-advocate JSON files (split format): collectionDir/collId/
+  const collBase = collEntry.collection.slice(0, collEntry.collection.lastIndexOf('/'));
+  const splitBase = collBase + '/' + collId + '/';
+
   for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
     const group = groups[groupIdx];
     const entryNumber = groupIdx + 1; // 1-based index within the collection
@@ -1186,6 +1274,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     const groupLi = document.createElement('li');
     groupLi.className = 'month-group';
     groupLi.dataset.entryIdx = String(entryNumber);
+    if (group.id != null) groupLi.dataset.entryId = group.id;
 
     const groupHeader = document.createElement('div');
     groupHeader.className = 'month-header';
@@ -1200,100 +1289,58 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
     const groupCount = document.createElement('span');
     groupCount.className = 'term-case-count';
-    const n = (group.cases || []).length;
+    // Split format carries total_cases; embedded format uses cases.length.
+    const n = group.total_cases !== undefined ? group.total_cases : (group.cases || []).length;
     groupCount.textContent = '(' + n + '\u00a0case' + (n === 1 ? '' : 's') + ')';
 
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupName);
     groupHeader.appendChild(groupCount);
-    groupHeader.addEventListener('click', () => {
-      groupLi.classList.toggle('open');
-      if (groupLi.classList.contains('open')) {
-        const url = buildUrlParams(
-          { collection: collId, entry: entryNumber },
-          ['term', 'case', 'audio', 'file', 'turn'],
-        );
-        history.replaceState(null, '', url);
-      }
-    });
 
     const groupUl = document.createElement('ul');
     groupUl.className = 'month-case-list';
 
-    for (const caseRef of group.cases || []) {
-      const caseKey = caseRef.term + '/' + caseRef.number;
-
-      const ci = document.createElement('li');
-      ci.className = 'case-item';
-      ci.dataset.caseKey = caseKey;
-
-      const header = document.createElement('div');
-      header.className = 'case-header';
-
-      const titleSpan = document.createElement('span');
-      titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = caseRef.title;
-      titleSpan.title = argumentTooltip(caseRef.term, caseRef);
-
-      header.appendChild(titleSpan);
-
-      // Speaker icon — if collection case has audio
-      if (caseRef.audio) {
-        const speakerIcon = document.createElement('span');
-        speakerIcon.className = 'case-decided-icon case-audio-icon';
-        speakerIcon.textContent = '\u266b';
-        speakerIcon.title = 'Oral argument audio available';
-        header.appendChild(speakerIcon);
+    // For split-format groups (id + total_cases, no embedded cases), lazy-load
+    // the per-advocate cases file the first time the group is expanded.
+    let _casesLoaded = false;
+    const _ensureGroupCases = async () => {
+      if (!group.id || _casesLoaded) return;
+      _casesLoaded = true;
+      try {
+        const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
+        if (r.ok) {
+          const advocateData = await r.json();
+          // Support both new envelope format {details, highlights, cases} and legacy bare array.
+          const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
+          for (const caseRef of advocateCases) {
+            groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id));
+          }
+        }
+      } catch (err) {
+        console.warn('[collections] advocate cases fetch failed:', group.id, err);
       }
+    };
+    groupLi._ensureCases = _ensureGroupCases;
 
-      // Scales icon — if case has a decision; placeholder (invisible) if audio but no decision
-      if (caseRef.audio || caseRef.decision) {
-        const icon = document.createElement('span');
-        icon.className = 'case-decided-icon';
-        icon.textContent = '\u2696';
-        if (caseRef.decision) {
-          icon.title = 'Opinion issued';
-          ci.classList.add('decided');
-        } else {
-          icon.style.opacity = '0';
-          icon.style.pointerEvents = 'none';
-        }
-        header.appendChild(icon);
+    groupHeader.addEventListener('click', async () => {
+      groupLi.classList.toggle('open');
+      if (groupLi.classList.contains('open')) {
+        const entryOrId = group.id != null ? { id: group.id } : { entry: entryNumber };
+        const deleteOther = group.id != null ? ['entry'] : ['id'];
+        const url = buildUrlParams(
+          { collection: collId, ...entryOrId },
+          [...deleteOther, 'term', 'case', 'audio', 'file', 'turn'],
+        );
+        history.replaceState(null, '', url);
+        await _ensureGroupCases();
       }
+    });
 
-      titleSpan.addEventListener('click', async (e) => {
-        const fromRestore = !!e.fromRestore;
-        const cases = await fetchTermCases(caseRef.term);
-        const caseEntry = cases.find(c => c.number === caseRef.number ||
-          (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)));
-        if (!caseEntry) {
-          console.warn('[collections] case not found in cases.json:', caseRef);
-          return;
-        }
-        // caseRef.audio is a 1-based index into the date-sorted audio list.
-        // Convert to 0-based for loadCase; fall back to 0 if not a valid number.
-        const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio - 1 : 0;
-        const audioIdx = fromRestore
-          ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
-          : defaultAudioIdx;
-        if (!fromRestore) {
-          const url = buildUrlParams(
-            {
-              collection: collId,
-              entry: entryNumber,
-              term: caseRef.term,
-              case: caseRef.number,
-              ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
-            },
-            [...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
-          );
-          history.replaceState(null, '', url);
-        }
-        loadCase(caseRef.term, caseEntry, audioIdx);
-      });
-
-      ci.appendChild(header);
-      groupUl.appendChild(ci);
+    // For non-split format: populate cases immediately from embedded cases array.
+    if (!group.id) {
+      for (const caseRef of group.cases || []) {
+        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber));
+      }
     }
 
     groupLi.appendChild(groupHeader);
@@ -2245,28 +2292,32 @@ function findFileItem(param) {
 
   function runNavSearch(query) {
     const q = query.trim().toLowerCase();
+    const termsSectionEl = document.querySelector('[data-section="terms"]');
+    if (!termsSectionEl) return;
 
     if (!q) {
-      document.querySelectorAll('.case-item').forEach(ci => {
+      termsSectionEl.querySelectorAll('.case-item').forEach(ci => {
         ci.classList.remove('nav-search-match');
         ci.style.display = '';
       });
-      document.querySelectorAll('.term-group, .decade-group, .terms-group').forEach(g => {
+      termsSectionEl.querySelectorAll('.term-group, .decade-group').forEach(g => {
         g.style.display = '';
         g.classList.remove('open');
       });
+      termsSectionEl.style.display = '';
+      termsSectionEl.classList.remove('open');
       // Expand only the groups containing the currently active case
       const activeCase = document.querySelector('.case-item.active');
       if (activeCase) {
         activeCase.closest('.term-group')?.classList.add('open');
         activeCase.closest('.decade-group')?.classList.add('open');
-        activeCase.closest('.terms-group')?.classList.add('open');
+        activeCase.closest('[data-section="terms"]')?.classList.add('open');
         requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
       }
       return;
     }
 
-    document.querySelectorAll('.case-item').forEach(ci => {
+    termsSectionEl.querySelectorAll('.case-item').forEach(ci => {
       const title      = ci.querySelector('.case-title-nav')?.textContent.toLowerCase() || '';
       const caseNumber = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
       const matches    = title.includes(q) || caseNumber.includes(q);
@@ -2276,24 +2327,22 @@ function findFileItem(param) {
       if (matches) {
         ci.closest('.term-group')?.classList.add('open');
         ci.closest('.decade-group')?.classList.add('open');
-        ci.closest('.terms-group')?.classList.add('open');
+        termsSectionEl.classList.add('open');
       }
     });
 
     // Hide term-groups with no matching cases
-    document.querySelectorAll('.term-group').forEach(tg => {
+    termsSectionEl.querySelectorAll('.term-group').forEach(tg => {
       tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
     });
 
     // Hide decade-groups whose term-groups all got filtered out
-    document.querySelectorAll('.decade-group').forEach(dg => {
+    termsSectionEl.querySelectorAll('.decade-group').forEach(dg => {
       dg.style.display = dg.querySelector('.nav-search-match') ? '' : 'none';
     });
 
-    // Hide terms-group if no matches at all
-    document.querySelectorAll('.terms-group').forEach(tg => {
-      tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
-    });
+    // Hide the Terms section entirely if no matches at all
+    termsSectionEl.style.display = termsSectionEl.querySelector('.nav-search-match') ? '' : 'none';
 
     // Scroll first match into view
     const firstMatch = document.querySelector('.nav-search-match');
@@ -2334,13 +2383,14 @@ async function init() {
   const caseParam       = params.get('case');
   const collectionParam = params.get('collection');
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
+  const idParam         = params.get('id') ?? null;
   const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
-  // Entry-only: collection + entry index but no specific case selected.
-  if (collectionParam && entryParam && !termParam && !caseParam && _collectionsSectionLi) {
+  // Entry-only: collection + entry/id but no specific case selected.
+  if (collectionParam && (entryParam || idParam) && !termParam && !caseParam && _collectionsSectionLi) {
     _collectionsSectionLi.classList.add('open');
     await _collectionsSectionLi._ensureBuilt();
     const collLi = _collectionsSectionLi.querySelector(
@@ -2349,9 +2399,12 @@ async function init() {
     if (collLi) {
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
-      const groupLi = collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
+      const groupLi = idParam
+        ? collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`)
+        : collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
       if (groupLi) {
         groupLi.classList.add('open');
+        await groupLi._ensureCases?.();
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
       }
     }
@@ -2367,6 +2420,14 @@ async function init() {
     if (collLi) {
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
+      // For id-based groups (split format), lazy-load the group's cases before looking up the case item.
+      if (idParam) {
+        const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
+        if (groupLi) {
+          groupLi.classList.add('open');
+          await groupLi._ensureCases?.();
+        }
+      }
       const caseKey = CSS.escape(termParam + '/' + caseParam);
       const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
       if (ci) {
