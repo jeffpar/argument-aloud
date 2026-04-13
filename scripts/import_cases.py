@@ -74,7 +74,7 @@ ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
 # Like CASE_RE but also matches '130Orig' (no hyphen) and bare numbers (e.g. '163') as
 # seen on archived transcript listing pages for pre-2000 terms.
-_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|-?Orig\.?|A\d+)?)\.?\s+(.+)$', re.IGNORECASE)
+_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s+(.+)$', re.IGNORECASE)
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT        = Path(__file__).resolve().parent.parent
@@ -611,8 +611,17 @@ class TranscriptListingParser(HTMLParser):
                 date_iso = parse_any_date(date_text)
                 pdf_url  = self._row_hrefs[0] if self._row_hrefs else None
                 if m and date_iso and pdf_url:
+                    number = _normalize_number(m.group(1))
+                    # Detect original-jurisdiction cases misidentified by the listing
+                    # page as "YY-NNN" when the PDF URL basename contains "orig"
+                    # (e.g. url .../06-134orig.pdf but text says "06-134").
+                    # The canonical form strips the year prefix: "134-Orig".
+                    if re.search(r'orig', pdf_url, re.IGNORECASE):
+                        yy_nn = re.match(r'^\d{2}-(\d+)$', number)
+                        if yy_nn:
+                            number = f'{yy_nn.group(1)}-Orig'
                     self.transcripts.append({
-                        'number':  _normalize_number(m.group(1)),
+                        'number':  number,
                         'title':   m.group(2).strip(),
                         'date':    date_iso,
                         'pdf_url': pdf_url,
@@ -790,7 +799,26 @@ def fetch_docket_info(number: str, term_year: str = '') -> dict:
 
 # ── Update cases.json ─────────────────────────────────────────────────────────
 
-def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> None:
+def _load_term_numbers(cases_path: Path) -> set[str]:
+    """Return the set of all individual case numbers (expanded from consolidated)
+    recorded in *cases_path*, or an empty set if the file does not exist."""
+    if not cases_path.exists():
+        return set()
+    try:
+        data = json.loads(cases_path.read_text(encoding='utf-8'))
+    except Exception:
+        return set()
+    numbers: set[str] = set()
+    for c in data:
+        for part in c.get('number', '').split(','):
+            n = part.strip()
+            if n:
+                numbers.add(n)
+    return numbers
+
+
+def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
+                      next_term_numbers: set[str] | None = None) -> None:
     if cases_path.exists():
         existing = json.loads(cases_path.read_text(encoding='utf-8'))
     else:
@@ -809,6 +837,9 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
     added = []
     for case in new_cases:
         if case['number'] in existing_numbers:
+            continue
+        if next_term_numbers and case['number'] in next_term_numbers:
+            print(f'  Skipping {case["number"]} (already in next term)')
             continue
 
         print(f'  Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
@@ -1238,11 +1269,13 @@ def extract_questions(cases_path: Path) -> None:
 
 # ── Step 2b: Import transcript PDFs from supremecourt.gov listing ─────────────
 
-def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
+def import_transcript_pdfs(cases_path: Path, year_str: str,
+                            next_term_numbers: set[str] | None = None) -> None:
     """Match PDF transcripts from the supremecourt.gov listing page to cases in
     cases.json.  For each ussc audio entry lacking transcript_href, set it from
     the listing.
-    Cases present on the listing but missing from cases.json are created."""
+    Cases present on the listing but missing from cases.json are created,
+    unless they already appear in the next term."""
 
     url = _transcript_listing_url(year_str)
     transcripts = fetch_transcripts_from_url(url)
@@ -1318,6 +1351,9 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
     for row in transcripts:
         key = (row['number'], row['date'])
         if key not in matched_rows and row['number'] not in existing_numbers:
+            if next_term_numbers and row['number'] in next_term_numbers:
+                print(f'  Skipping {row["number"]} (already in next term)')
+                continue
             new_by_num.setdefault(row['number'], []).append(row)
 
     for norm, rows in sorted(new_by_num.items()):
@@ -1332,8 +1368,6 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
         existing_numbers.add(norm)
         cases_modified = True
         print(f'  {norm}: new case added with {len(audio_entries)} audio entry(ies)')
-        for row in rows:
-            _add_to_files(new_case, row)
 
     if cases_modified:
         cases_path.write_text(
@@ -1381,6 +1415,13 @@ def main():
     # ── Full-term mode ───────────────────────────────────────────────────────
     url = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
 
+    # Load next term's case numbers so we don't duplicate cases argued late.
+    next_year      = str(int(year_str) + 1)
+    next_term_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / f'{next_year}-10' / 'cases.json'
+    next_term_numbers = _load_term_numbers(next_term_path)
+    if next_term_numbers:
+        print(f'Loaded {len(next_term_numbers)} case number(s) from {next_year}-10 for cross-term dedup.')
+
     try:
         scraped = fetch_cases_from_url(url)
     except Exception as exc:
@@ -1389,7 +1430,7 @@ def main():
 
     if scraped:
         print(f'Found {len(scraped)} case(s) on audio listing page.\n')
-        update_cases_json(cases_path, scraped, year_str)
+        update_cases_json(cases_path, scraped, year_str, next_term_numbers)
     else:
         print('No audio cases found.')
         if not cases_path.exists():
@@ -1399,7 +1440,7 @@ def main():
     # Step 2b: import transcript PDFs from supremecourt.gov listing page
     print()
     print('Importing transcript PDFs from supremecourt.gov listing ...')
-    import_transcript_pdfs(cases_path, year_str)
+    import_transcript_pdfs(cases_path, year_str, next_term_numbers)
 
     # Step 3: generate missing transcript JSON files
     print()
