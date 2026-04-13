@@ -117,6 +117,24 @@ def load_title_map() -> dict[str, str]:
     return result
 
 
+def load_justices() -> dict[str, str]:
+    """Load scripts/justices.json and return a mapping from any known name variant
+    (upper-cased) to the canonical name.
+
+    Both the canonical name and all alternates map to the canonical name.
+    """
+    path = Path(__file__).resolve().parent / 'justices.json'
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding='utf-8'))
+    result: dict[str, str] = {}
+    for canonical, info in data.items():
+        result[canonical.upper()] = canonical
+        for alt in (info.get('alternates') or []):
+            result[alt.upper()] = canonical
+    return result
+
+
 def apply_speaker_map(envelope: dict, speaker_map: dict[str, tuple[str, str | None]],
                       title_map: dict[str, str] | None = None) -> None:
     """Apply advocate title lookups from title_map to the speakers list."""
@@ -127,6 +145,83 @@ def apply_speaker_map(envelope: dict, speaker_map: dict[str, tuple[str, str | No
             title = title_map.get(sp.get('name', ''))
             if title:
                 sp['title'] = title
+
+
+KNOWN_TITLES = frozenset({'MR.', 'MS.', 'MRS.', 'MISS', 'GENERAL'})
+_TITLE_MENTION_RE = re.compile(r'\b(General|Mr\.|Ms\.|Mrs\.|Miss)\s+([A-Z][a-z]+)')
+
+
+def _detect_titles_from_turns(turns: list[dict], speakers: list[dict]) -> None:
+    """Scan turn texts to infer titles for speakers that don't yet have one.
+
+    Recognises: MR., MS., MRS., MISS, GENERAL.
+    Updates speakers in-place; only fills in missing (empty) titles.
+    """
+    last_to_title: dict[str, str] = {}
+    for turn in turns:
+        for m in _TITLE_MENTION_RE.finditer(turn.get('text', '')):
+            title = m.group(1).upper()   # "General"→"GENERAL", "Mr."→"MR.", etc.
+            last = m.group(2).upper()
+            last_to_title.setdefault(last, title)
+    for sp in speakers:
+        if sp.get('title'):
+            continue  # already has a title — leave it alone
+        name = (sp.get('name') or '').upper()
+        if not name:
+            continue
+        last = name.split()[-1]
+        if last in last_to_title:
+            sp['title'] = last_to_title[last]
+
+
+def _title_contains(existing: str, detected: str) -> bool:
+    """Return True if *detected* already appears in a comma-separated title string."""
+    return detected.upper() in {p.strip().upper() for p in existing.split(',')}
+
+
+def _merge_speakers(existing: list[dict], fresh: list[dict]) -> list[dict]:
+    """Merge a freshly-built speakers list into an existing one.
+
+    - Existing speakers keep their position.
+    - An existing speaker's non-empty title is preserved; an empty title is
+      replaced by the fresh title (e.g. from turn-text detection).
+    - Speakers absent from *fresh* (no longer in the transcript) are dropped.
+    - Speakers present in *fresh* but absent from *existing* are appended.
+    """
+    fresh_by_name = {sp['name']: sp for sp in fresh}
+    seen: set[str] = set()
+    result: list[dict] = []
+    for sp in existing:
+        name = sp['name']
+        if name not in fresh_by_name:
+            continue  # no longer in this transcript — drop it
+        merged = dict(sp)
+        if not merged.get('title') and fresh_by_name[name].get('title'):
+            merged['title'] = fresh_by_name[name]['title']
+        result.append(merged)
+        seen.add(name)
+    for sp in fresh:
+        if sp['name'] not in seen:
+            result.append(sp)
+    return result
+
+
+def _merge_envelope_speakers(out_path: Path, envelope: dict) -> None:
+    """If *out_path* already exists, merge its speakers into *envelope* in-place.
+
+    Preserves existing speaker order and non-empty titles; appends any new
+    speakers at the end.
+    """
+    if not out_path.exists():
+        return
+    try:
+        old_data = json.loads(out_path.read_text(encoding='utf-8'))
+        old_speakers = (old_data.get('media') or {}).get('speakers') or []
+    except Exception:
+        return
+    if old_speakers:
+        envelope['media']['speakers'] = _merge_speakers(
+            old_speakers, envelope['media']['speakers'])
 
 
 def fetch_oyez_cases(year: str) -> list[dict]:
@@ -146,9 +241,20 @@ def fetch_oyez_cases(year: str) -> list[dict]:
     return cases
 
 
-def speaker_name(speaker: dict) -> str:
-    """Convert an Oyez speaker object to our all-caps full-name format."""
-    return (speaker.get('name') or speaker.get('last_name') or 'UNKNOWN').upper()
+def speaker_name(speaker: dict, justices: dict[str, str] | None = None) -> str:
+    """Convert an Oyez speaker object to our all-caps full-name format.
+
+    Returns 'UNKNOWN JUSTICE' or 'UNKNOWN SPEAKER' for speakers with no name.
+    If *justices* is provided (from load_justices()), the raw Oyez name is
+    normalised to the canonical name defined in justices.json.
+    """
+    name_raw = speaker.get('name') or speaker.get('last_name') or ''
+    if not name_raw:
+        return 'UNKNOWN JUSTICE' if _is_justice(speaker) else 'UNKNOWN SPEAKER'
+    name = name_raw.upper()
+    if justices:
+        name = justices.get(name, name)
+    return name
 
 
 def _is_justice(speaker: dict) -> bool:
@@ -300,11 +406,14 @@ def _oyez_filename(date_str: str, part: int = 0) -> str:
     return f'{date_str}-oyez{suffix}.json'
 
 
-def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
+def fetch_oyez_transcript(arg_href: str, justices: dict[str, str] | None = None) -> tuple[dict | None, str]:
     """Fetch an Oyez oral argument detail and convert to our envelope format.
 
     Returns (envelope, mp3_url). envelope is None if no transcript data is available.
     mp3_url may be non-empty even when envelope is None.
+
+    If *justices* is provided (from load_justices()), speaker names are
+    normalised to the canonical names defined in justices.json.
     """
     detail = fetch_json(arg_href)
 
@@ -334,7 +443,7 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
             sp = turn.get('speaker') or {}
             sp_id = sp.get('ID', 0)
             if sp_id not in speaker_cache:
-                speaker_cache[sp_id] = speaker_name(sp)
+                speaker_cache[sp_id] = speaker_name(sp, justices)
                 justice_title_cache[sp_id] = _oyez_justice_title(sp)
             name = speaker_cache[sp_id]
 
@@ -354,17 +463,26 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
     if not turns_out:
         return None
 
-    # Ordered speaker list by first appearance
-    # Build a reverse map from name → sp_id for title lookup
-    name_to_id: dict[str, int] = {v: k for k, v in speaker_cache.items()}
+    # Ordered speaker list by first appearance.
+    # Build name→title from speaker_cache so the canonical name is used as key.
+    # When multiple Oyez IDs normalise to the same canonical name, the title from
+    # the first such ID is kept (order of speaker_cache iteration is insertion order).
+    name_to_title: dict[str, str] = {}
+    for sp_id, name in speaker_cache.items():
+        if name not in name_to_title:
+            name_to_title[name] = justice_title_cache.get(sp_id) or ''
     seen_names: set[str] = set()
     speakers: list[dict] = []
     for t in turns_out:
         if t['name'] not in seen_names:
             seen_names.add(t['name'])
-            sp_id = name_to_id.get(t['name'])
-            j_title = (justice_title_cache.get(sp_id) if sp_id is not None else None) or ''
-            speakers.append({'name': t['name'], 'title': j_title})
+            # Update name in the turns entry to canonical form (already done via
+            # speaker_name), then build the speakers entry in first-appearance order
+            # without removing / re-inserting existing entries.
+            speakers.append({'name': t['name'], 'title': name_to_title.get(t['name'], '')})
+
+    # Fill in titles for non-justice speakers by scanning the turn text.
+    _detect_titles_from_turns(turns_out, speakers)
 
     return {
         'media': {
@@ -452,6 +570,7 @@ def main():
     raw_speaker_map = load_speaker_map()
     speaker_map = resolve_speaker_map(raw_speaker_map, term)
     title_map = load_title_map()
+    justices = load_justices()
 
     for number in sorted(oyez_by_num):
         if case_filter and number != case_filter:
@@ -610,7 +729,7 @@ def main():
                 label = f'Part {part_num} ' if use_parts else ''
                 print(f'  {number} ({date_str}) {label}...', end=' ', flush=True)
                 try:
-                    envelope, mp3_url = fetch_oyez_transcript(oyez_arg['href'])
+                    envelope, mp3_url = fetch_oyez_transcript(oyez_arg['href'], justices)
                     if envelope is None:
                         # No transcript, but still record the audio entry if it's new.
                         if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
@@ -631,6 +750,7 @@ def main():
                         continue
 
                     apply_speaker_map(envelope, speaker_map, title_map)
+                    _merge_envelope_speakers(out_path, envelope)
                     case_dir.mkdir(parents=True, exist_ok=True)
                     out_path.write_text(
                         json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
@@ -720,7 +840,7 @@ def main():
                     label = f'Part {part_num} ' if use_parts else ''
                     print(f'  {number} opinion ({date_str}) {label}...', end=' ', flush=True)
                     try:
-                        envelope, mp3_url = fetch_oyez_transcript(oyez_opinion['href'])
+                        envelope, mp3_url = fetch_oyez_transcript(oyez_opinion['href'], justices)
                         if envelope is None:
                             # No transcript, but still record the audio entry if it's new.
                             if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
@@ -740,6 +860,7 @@ def main():
                             continue
 
                         apply_speaker_map(envelope, speaker_map, title_map)
+                        _merge_envelope_speakers(out_path, envelope)
                         case_dir.mkdir(parents=True, exist_ok=True)
                         out_path.write_text(
                             json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
