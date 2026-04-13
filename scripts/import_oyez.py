@@ -93,22 +93,40 @@ def resolve_speaker_map(entries: list[tuple[str, str | None, str | None, str, st
     return result
 
 
-def apply_speaker_map(envelope: dict, speaker_map: dict[str, tuple[str, str | None]]) -> None:
-    """Apply speaker name remappings in-place to a transcript envelope."""
-    for sp in (envelope.get('media') or {}).get('speakers') or []:
-        name, role = sp.get('name', ''), sp.get('role', '')
-        if not role and 'JUSTICE' in name.upper():
-            sp['role'] = 'justice'
+def load_title_map() -> dict[str, str]:
+    """Load TITLE:NAME -> TITLE_VALUE entries from speakermap.txt.
+
+    Returns a dict mapping uppercased full name to title string (e.g. 'MR.', 'MS.', 'GENERAL').
+    """
+    path = Path(__file__).resolve().parent / 'old' / 'speakermap.txt'
+    result: dict[str, str] = {}
+    if not path.exists():
+        return result
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
             continue
-        entry = speaker_map.get(name)
-        if entry is not None:
-            new_name, role_filter = entry
-            if role_filter is None or role == role_filter:
-                sp['name'] = new_name
-    for turn in envelope.get('turns') or []:
-        entry = speaker_map.get(turn.get('name', ''))
-        if entry is not None:
-            turn['name'] = entry[0]
+        if not line.upper().startswith('TITLE:'):
+            continue
+        parts = line.split('->', 1)
+        if len(parts) == 2:
+            name = parts[0][len('TITLE:'):].strip().upper()
+            title = parts[1].strip().upper()
+            if name and title:
+                result[name] = title
+    return result
+
+
+def apply_speaker_map(envelope: dict, speaker_map: dict[str, tuple[str, str | None]],
+                      title_map: dict[str, str] | None = None) -> None:
+    """Apply advocate title lookups from title_map to the speakers list."""
+    if not title_map:
+        return
+    for sp in (envelope.get('media') or {}).get('speakers') or []:
+        if not sp.get('title'):
+            title = title_map.get(sp.get('name', ''))
+            if title:
+                sp['title'] = title
 
 
 def fetch_oyez_cases(year: str) -> list[dict]:
@@ -129,21 +147,8 @@ def fetch_oyez_cases(year: str) -> list[dict]:
 
 
 def speaker_name(speaker: dict) -> str:
-    """Convert an Oyez speaker object to our all-caps name format."""
-    last = (speaker.get('last_name') or '').upper()
-    roles = speaker.get('roles') or []
-    for role in roles:
-        if not role:
-            continue
-        if role.get('date_end') != 0:
-            continue  # no longer serving
-        title = role.get('role_title', '')
-        if 'Chief Justice' in title:
-            return f'CHIEF JUSTICE {last}'
-        if 'Justice' in title or role.get('type') == 'scotus_justice':
-            return f'JUSTICE {last}'
-    # Non-justice (advocate, etc.): uppercase full name
-    return (speaker.get('name') or last or 'UNKNOWN').upper()
+    """Convert an Oyez speaker object to our all-caps full-name format."""
+    return (speaker.get('name') or speaker.get('last_name') or 'UNKNOWN').upper()
 
 
 def _is_justice(speaker: dict) -> bool:
@@ -152,6 +157,21 @@ def _is_justice(speaker: dict) -> bool:
         if role and role.get('type') == 'scotus_justice':
             return True
     return False
+
+
+def _oyez_justice_title(speaker: dict) -> str | None:
+    """Return 'CHIEF JUSTICE' or 'JUSTICE' if speaker was ever a SCOTUS justice, else None.
+
+    Unlike speaker_name(), this checks all roles (including past/retired justices).
+    """
+    for role in speaker.get('roles') or []:
+        if not role:
+            continue
+        if role.get('type') == 'scotus_justice':
+            if 'Chief Justice' in role.get('role_title', ''):
+                return 'CHIEF JUSTICE'
+            return 'JUSTICE'
+    return None
 
 
 def format_time(seconds: float) -> str:
@@ -181,16 +201,16 @@ def _oyez_arg_type(title: str) -> str:
     return 'argument'
 
 
-def _needs_role_refresh(path: Path) -> bool:
-    """Return True if the file has no speakers with a 'role' attribute.
+def _needs_format_refresh(path: Path) -> bool:
+    """Return True if the file uses the old speaker format (role= instead of title=).
 
-    Used to trigger a re-download for transcripts imported before role
-    tagging was added.
+    Used to trigger a re-download for transcripts imported before the
+    full-name + title speaker format was adopted.
     """
     try:
         data = json.loads(path.read_text(encoding='utf-8'))
         speakers = (data.get('media') or {}).get('speakers') or []
-        return not any(s.get('role') for s in speakers)
+        return any(s.get('role') for s in speakers)
     except Exception:
         return False
 
@@ -300,8 +320,8 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
         return None, mp3_url
 
     sections = transcript.get('sections') or []
-    speaker_cache: dict[int, str] = {}  # Oyez ID → formatted name
-    justice_cache: dict[int, bool] = {}  # Oyez ID → is scotus_justice
+    speaker_cache: dict[int, str] = {}       # Oyez ID → full uppercase name
+    justice_title_cache: dict[int, str | None] = {}  # Oyez ID → 'CHIEF JUSTICE'/'JUSTICE'/None
     turns_out: list[dict] = []
     turn_num = 0
 
@@ -315,7 +335,7 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
             sp_id = sp.get('ID', 0)
             if sp_id not in speaker_cache:
                 speaker_cache[sp_id] = speaker_name(sp)
-                justice_cache[sp_id] = _is_justice(sp)
+                justice_title_cache[sp_id] = _oyez_justice_title(sp)
             name = speaker_cache[sp_id]
 
             blocks = turn.get('text_blocks') or []
@@ -335,7 +355,7 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
         return None
 
     # Ordered speaker list by first appearance
-    # Build a reverse map from name → sp_id for role lookup
+    # Build a reverse map from name → sp_id for title lookup
     name_to_id: dict[str, int] = {v: k for k, v in speaker_cache.items()}
     seen_names: set[str] = set()
     speakers: list[dict] = []
@@ -343,12 +363,8 @@ def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
         if t['name'] not in seen_names:
             seen_names.add(t['name'])
             sp_id = name_to_id.get(t['name'])
-            entry: dict = {'name': t['name']}
-            if sp_id is not None and justice_cache.get(sp_id):
-                entry['role'] = 'justice'
-            else:
-                entry['role'] = 'advocate'
-            speakers.append(entry)
+            j_title = (justice_title_cache.get(sp_id) if sp_id is not None else None) or ''
+            speakers.append({'name': t['name'], 'title': j_title})
 
     return {
         'media': {
@@ -435,6 +451,7 @@ def main():
     cases_modified = False
     raw_speaker_map = load_speaker_map()
     speaker_map = resolve_speaker_map(raw_speaker_map, term)
+    title_map = load_title_map()
 
     for number in sorted(oyez_by_num):
         if case_filter and number != case_filter:
@@ -586,7 +603,7 @@ def main():
                 out_name = _oyez_filename(date_str, part_num)
                 out_path = case_dir / out_name
 
-                if out_name in existing_oyez_filenames and not _needs_role_refresh(out_path):
+                if out_name in existing_oyez_filenames and not _needs_format_refresh(out_path):
                     skipped += 1
                     continue
 
@@ -613,7 +630,7 @@ def main():
                             print('no transcript data')
                         continue
 
-                    apply_speaker_map(envelope, speaker_map)
+                    apply_speaker_map(envelope, speaker_map, title_map)
                     case_dir.mkdir(parents=True, exist_ok=True)
                     out_path.write_text(
                         json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
@@ -693,10 +710,10 @@ def main():
                     out_name = _oyez_filename(date_str, part_num)
                     out_path = case_dir / out_name
 
-                    if out_name in existing_oyez_filenames and not _needs_role_refresh(out_path):
+                    if out_name in existing_oyez_filenames and not _needs_format_refresh(out_path):
                         skipped += 1
                         continue
-                    if out_path.exists() and not _needs_role_refresh(out_path):
+                    if out_path.exists() and not _needs_format_refresh(out_path):
                         skipped += 1
                         continue
 
@@ -722,7 +739,7 @@ def main():
                                 print('no transcript data')
                             continue
 
-                        apply_speaker_map(envelope, speaker_map)
+                        apply_speaker_map(envelope, speaker_map, title_map)
                         case_dir.mkdir(parents=True, exist_ok=True)
                         out_path.write_text(
                             json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
