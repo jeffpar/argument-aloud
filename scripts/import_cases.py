@@ -1018,15 +1018,17 @@ def generate_missing_transcripts(cases_path: Path,
             if not pdf_url or not date:
                 continue
 
-            # Skip archived (pre-2000) transcripts — OCR quality is too poor.
+            # Skip archived-format transcripts only when no cached text exists;
+            # if a cached .txt file is present we can parse without downloading.
             if '/pdfs/transcripts/' in pdf_url:
-                continue
+                if not _cached_text_path(case['number'], date, term).exists():
+                    continue
 
             case_dir       = cases_path.parent / 'cases' / _case_folder(case['number'])
             transcript_out = case_dir / f'{date}.json'
 
-            # Skip if already generated, unless overwrite is requested.
-            if transcript_out.exists() and not case_filter and not force:
+            # Skip if already generated and text_href is recorded, unless overwrite is requested.
+            if transcript_out.exists() and arg.get('text_href') and not case_filter and not force:
                 continue
 
             print(f'  Extracting {case["number"]} ({date}) ...', end=' ', flush=True)
@@ -1313,32 +1315,60 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         for row in rows:
             key = (row['number'], row['date'])
             matched_rows.add(key)
-            # Assign transcript_href to any ussc audio entry with a matching date
+            # Assign transcript_href to any ussc audio entry with a matching date.
+            assigned = False
             for arg in case.get('audio', []):
                 if arg.get('source', 'ussc') != 'ussc':
                     continue   # never modify oyez/nara objects
                 if arg.get('type') not in (None, 'argument', 'reargument'):
                     continue
-                if arg.get('transcript_href'):
-                    continue
                 arg_date = arg.get('date', '')
-                if arg_date == row['date'] or (not arg_date and len(rows) == 1):
-                    # Insert transcript_href after audio_href, or after date if absent.
-                    insert_after = 'audio_href' if 'audio_href' in arg else 'date'
-                    new_arg: dict = {}
-                    inserted = False
-                    for k, v in arg.items():
-                        new_arg[k] = v
-                        if not inserted and k == insert_after:
-                            new_arg['transcript_href'] = row['pdf_url']
-                            inserted = True
-                    if not inserted:
+                if not (arg_date == row['date'] or (not arg_date and len(rows) == 1)):
+                    continue
+                # A ussc audio object for this date already exists.
+                assigned = True
+                if arg.get('transcript_href'):
+                    break   # already has a transcript_href — nothing to do
+                # Insert transcript_href after audio_href, or after date if absent.
+                insert_after = 'audio_href' if 'audio_href' in arg else 'date'
+                new_arg: dict = {}
+                inserted = False
+                for k, v in arg.items():
+                    new_arg[k] = v
+                    if not inserted and k == insert_after:
                         new_arg['transcript_href'] = row['pdf_url']
-                    arg.clear()
-                    arg.update(new_arg)
+                        inserted = True
+                if not inserted:
+                    new_arg['transcript_href'] = row['pdf_url']
+                arg.clear()
+                arg.update(new_arg)
+                cases_modified = True
+                print(f'  {case["number"]} ({row["date"]}): transcript_href added')
+                break
+
+            # No ussc audio object existed for this date — create one without audio_href.
+            if not assigned:
+                audio_list: list = case.setdefault('audio', [])
+                # Guard against duplicates (e.g. from a previous partial run).
+                already = any(
+                    a.get('source', 'ussc') == 'ussc'
+                    and a.get('date') == row['date']
+                    and a.get('transcript_href') == row['pdf_url']
+                    for a in audio_list
+                )
+                if not already:
+                    try:
+                        dt    = datetime.fromisoformat(row['date'])
+                        title = f'Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
+                    except ValueError:
+                        title = f'Oral Argument on {row["date"]}'
+                    new_audio: dict = {'source': 'ussc', 'type': 'argument',
+                                       'title': title, 'date': row['date'],
+                                       'transcript_href': row['pdf_url']}
+                    audio_list.append(new_audio)
+                    case['audio'] = sorted(audio_list, key=lambda a: a.get('date') or '')
                     cases_modified = True
-                    print(f'  {case["number"]} ({row["date"]}): transcript_href added')
-                    break  # assign to first matching USSC entry only
+                    print(f'  {case["number"]} ({row["date"]}): created transcript-only audio object')
 
     # Pass 2: create new cases for unmatched transcripts
     # Include all components of multi-number cases so e.g. "00-832" is recognised
