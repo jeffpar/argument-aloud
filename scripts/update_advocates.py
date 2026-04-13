@@ -203,6 +203,8 @@ def load_existing() -> dict[str, dict]:
             name = normalised
 
         adv_id = entry.get("id") or make_advocate_id(name)
+        # Collapse internal whitespace (guards against previously mis-stored names).
+        name = ' '.join(name.split())
         result[name.upper()] = {"id": adv_id, "name": name, "cases": []}
     return result
 
@@ -275,7 +277,8 @@ def main() -> None:
 
                 def _record_advocate(raw_name: str) -> None:
                     """Add a case entry for raw_name under this audio object."""
-                    name = raw_name.strip()
+                    # Collapse internal whitespace so "CARTER G.   PHILLIPS" == "CARTER G. PHILLIPS".
+                    name = ' '.join(raw_name.split())
                     if not name or not audio_date:
                         return
                     name_key = name.upper()
@@ -350,8 +353,37 @@ def main() -> None:
     for entry in advocates.values():
         entry["cases"].sort(key=lambda c: c.get("argument", c.get("date", "")), reverse=True)
 
+    # Drop advocates that have no cases in the current scan (removed/renamed).
+    removed = [e for e in advocates.values() if not e["cases"]]
+    for entry in removed:
+        adv_id = entry.get("id") or make_advocate_id(entry["name"])
+        orphan = ADVOCATES_DIR / f"{adv_id}.json"
+        if orphan.exists():
+            orphan.unlink()
+            print(f"  Removed orphaned advocate file: {orphan.relative_to(REPO_ROOT)}")
+
     # Build output list sorted by name
-    output = sorted(advocates.values(), key=lambda e: e["name"])
+    output = sorted(
+        (e for e in advocates.values() if e["cases"]),
+        key=lambda e: e["name"],
+    )
+
+    # Skip one-word names (e.g. "PHILLIPS") — they are almost always incomplete
+    # matches from transcripts that only recorded a bare last name.  Remove any
+    # previously generated files and print a report so they can be investigated.
+    skipped = [e for e in output if len(e["name"].split()) == 1]
+    output  = [e for e in output if len(e["name"].split()) > 1]
+    if skipped:
+        print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches):")
+        for entry in skipped:
+            adv_id = entry.get("id") or make_advocate_id(entry["name"])
+            stale = ADVOCATES_DIR / f"{adv_id}.json"
+            if stale.exists():
+                stale.unlink()
+                print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s)")
+            else:
+                print(f"  {entry['name']}  —  {len(entry['cases'])} case(s)")
+        print()
 
     # Write per-advocate case files.
     for entry in output:

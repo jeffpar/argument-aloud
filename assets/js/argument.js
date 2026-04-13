@@ -227,14 +227,18 @@ function buildUrlParams(updates, deletes = []) {
   deletes.forEach(k => url.searchParams.delete(k));
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // Ensure 'collection' is first, then 'entry' or 'id' (if present), then the rest.
+  // Ensure 'collection' is first, then 'entry'/'id', then 'highlight' (if present), then the rest.
   const coll = url.searchParams.get('collection');
   if (coll) {
-    const entry = url.searchParams.get('entry');
-    const id    = url.searchParams.get('id');
-    const rest = [...url.searchParams.entries()].filter(([k]) => k !== 'collection' && k !== 'entry' && k !== 'id');
-    const second = entry != null ? [['entry', entry]] : (id != null ? [['id', id]] : []);
-    const reordered = [['collection', coll], ...second, ...rest];
+    const entry     = url.searchParams.get('entry');
+    const id        = url.searchParams.get('id');
+    const highlight = url.searchParams.get('highlight');
+    const rest = [...url.searchParams.entries()].filter(
+      ([k]) => k !== 'collection' && k !== 'entry' && k !== 'id' && k !== 'highlight'
+    );
+    const second  = entry != null ? [['entry', entry]] : (id != null ? [['id', id]] : []);
+    const third   = highlight != null ? [['highlight', highlight]] : [];
+    const reordered = [['collection', coll], ...second, ...third, ...rest];
     url.search = new URLSearchParams(reordered).toString();
   }
   return url;
@@ -1185,6 +1189,109 @@ function buildCollectionItem(sectionUl, collEntry) {
   sectionUl.appendChild(collLi);
 }
 
+function _buildHighlightItem(highlight, highlightIdx) {
+  const ci = document.createElement('li');
+  ci.className = 'case-item highlight-item';
+  ci.dataset.highlightIdx = String(highlightIdx);
+
+  const header = document.createElement('div');
+  header.className = 'case-header';
+
+  const titleSpan = document.createElement('span');
+  titleSpan.className = 'case-title-nav';
+  titleSpan.textContent = highlight.title;
+  if (highlight.date) titleSpan.title = highlight.date;
+  header.appendChild(titleSpan);
+
+  // Star icon to distinguish highlights from normal cases
+  const starIcon = document.createElement('span');
+  starIcon.className = 'case-decided-icon case-highlight-icon';
+  starIcon.textContent = '\u2605';
+  starIcon.title = 'Highlight';
+  header.appendChild(starIcon);
+
+  titleSpan.addEventListener('click', async (e) => {
+    const fromRestore = !!e.fromRestore;
+    document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
+    ci.classList.add('active');
+    if (!fromRestore) {
+      const groupLi = ci.closest('.month-group');
+      const collLi  = ci.closest('.term-group[data-collection-url]');
+      const collId  = collLi?.dataset.collectionUrl?.split('/').pop().replace('.json', '');
+      const groupId = groupLi?.dataset.entryId ?? null;
+      const entryIdx = groupLi?.dataset.entryIdx ?? null;
+      const entryOrId = groupId != null ? { id: groupId } : (entryIdx != null ? { entry: entryIdx } : {});
+      const deleteOther = groupId != null ? ['entry'] : ['id'];
+      const url = buildUrlParams(
+        { ...(collId ? { collection: collId } : {}), ...entryOrId, highlight: highlightIdx + 1 },
+        [...deleteOther, 'term', 'case', 'audio', 'file', 'turn'],
+      );
+      history.replaceState(null, '', url);
+    }
+    await loadHighlight(highlight);
+  });
+
+  ci.appendChild(header);
+  return ci;
+}
+
+async function loadHighlight(highlight) {
+  // Reset UI to a minimal "case" view
+  document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
+  document.getElementById('transcript-viewer').classList.add('no-transcript');
+  document.getElementById('audio-select').hidden = true;
+  const decisionLabel = document.getElementById('decision-date-label');
+  if (highlight.date) {
+    decisionLabel.textContent = new Date(highlight.date + 'T00:00:00').toLocaleDateString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+    });
+    decisionLabel.removeAttribute('href');
+    decisionLabel.removeAttribute('target');
+    decisionLabel.removeAttribute('rel');
+    decisionLabel.hidden = false;
+  } else {
+    decisionLabel.hidden = true;
+  }
+  document.getElementById('case-questions').hidden = true;
+  document.getElementById('case-questions').textContent = '';
+
+  // Set title (plain text — no term link needed)
+  const span = document.getElementById('case-title-label');
+  span.innerHTML = '';
+  const titleText = document.createElement('span');
+  titleText.className = 'case-title-link';
+  titleText.textContent = highlight.title;
+  span.appendChild(titleText);
+
+  document.title = highlight.title + ' | Argument Aloud';
+  document.getElementById('topbar-term').textContent = '';
+
+  playerSection.hidden = true;
+  audioControls.hidden = true;
+  emptyState.style.display = 'none';
+  activeTurnIdx = -1;
+
+  // Build a synthetic audio entry reusing loadAudioEntry machinery
+  const syntheticArg = {
+    audio_href: highlight.audio_href,
+    date: highlight.date || null,
+  };
+
+  playerSection.hidden = false;
+  audioControls.hidden = false;
+
+  _currentAudioList = [syntheticArg];
+  _currentBasePath  = '/';
+  _currentOpinionHref = null;
+
+  await loadAudioEntry(syntheticArg, '/');
+
+  if (isMobile()) {
+    playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    setMobileNavVisible(false);
+  }
+}
+
 function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
   const caseKey = caseRef.term + '/' + caseRef.number;
   const ci = document.createElement('li');
@@ -1251,7 +1358,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
           case: caseRef.number,
           ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
         },
-        [...deleteOther, ...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
+        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
       );
       history.replaceState(null, '', url);
     }
@@ -1310,8 +1417,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
         if (r.ok) {
           const advocateData = await r.json();
-          // Support both new envelope format {details, highlights, cases} and legacy bare array.
+          const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
           const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
+          for (const [hlIdx, hl] of highlights.entries()) {
+            groupUl.appendChild(_buildHighlightItem(hl, hlIdx));
+          }
           for (const caseRef of advocateCases) {
             groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id));
           }
@@ -1329,7 +1439,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         const deleteOther = group.id != null ? ['entry'] : ['id'];
         const url = buildUrlParams(
           { collection: collId, ...entryOrId },
-          [...deleteOther, 'term', 'case', 'audio', 'file', 'turn'],
+          [...deleteOther, 'highlight', 'term', 'case', 'audio', 'file', 'turn'],
         );
         history.replaceState(null, '', url);
         await _ensureGroupCases();
@@ -2384,11 +2494,36 @@ async function init() {
   const collectionParam = params.get('collection');
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const idParam         = params.get('id') ?? null;
+  const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
   const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
+  // Highlight: collection + id + highlight index
+  if (collectionParam && idParam && highlightParam != null && !termParam && !caseParam && _collectionsSectionLi) {
+    _collectionsSectionLi.classList.add('open');
+    await _collectionsSectionLi._ensureBuilt();
+    const collLi = _collectionsSectionLi.querySelector(
+      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+    );
+    if (collLi) {
+      collLi.classList.add('open');
+      await collLi._ensureBuilt?.();
+      const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
+      if (groupLi) {
+        groupLi.classList.add('open');
+        await groupLi._ensureCases?.();
+        const hlEl = groupLi.querySelector(`.highlight-item[data-highlight-idx="${highlightParam}"]`);
+        if (hlEl) {
+          if (!isMobile()) requestAnimationFrame(() => hlEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
+          hlEl.querySelector('.case-title-nav')?.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+        }
+      }
+    }
+    return;
+  }
+
   // Entry-only: collection + entry/id but no specific case selected.
   if (collectionParam && (entryParam || idParam) && !termParam && !caseParam && _collectionsSectionLi) {
     _collectionsSectionLi.classList.add('open');

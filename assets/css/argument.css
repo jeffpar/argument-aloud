@@ -448,6 +448,16 @@ body {
   margin-top: 3px;
 }
 
+.case-decided-icon.case-highlight-icon {
+  font-size: 13px;
+  margin-top: 2px;
+  color: #c8a000;
+}
+
+.case-item.active > .case-header .case-highlight-icon {
+  color: #e8c040;
+}
+
 .case-item.active > .case-header .case-decided-icon {
   color: #aaa;
 }
