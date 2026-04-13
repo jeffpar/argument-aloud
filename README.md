@@ -8,4 +8,4 @@
 
 ## Issues
 
- 1. On https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998, the transcript for "Reno v. Bossier Parish School Bd. (No. 98-405)" cannot be downloaded; the URL is listed as https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf
+ 1. The transcript for "[Reno v. Bossier Parish School Bd. (No. 98-405)](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998)" cannot be downloaded; the URL is listed as https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf
