@@ -1341,9 +1341,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       console.warn('[collections] case not found in cases.json:', caseRef);
       return;
     }
-    // caseRef.audio is a 1-based index into the date-sorted audio list.
-    // Convert to 0-based for loadCase; fall back to 0 if not a valid number.
-    const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio - 1 : 0;
+    // caseRef.audio is a 1-based index into the full audio array.
+    const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio : 0;
     const audioIdx = fromRestore
       ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
       : defaultAudioIdx;
@@ -1356,7 +1355,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
           ...entryOrId,
           term: caseRef.term,
           case: caseRef.number,
-          ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
+          ...(audioIdx > 0 ? { audio: audioIdx } : {}),
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
       );
@@ -1721,12 +1720,17 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   emptyState.style.display = 'none';
   activeTurnIdx = -1;
 
-  // Build audio select dropdown
+  // Build the full date-sorted audio list; sortedAudio entries are references to
+  // the same objects, so indexOf comparisons work for 1-based position lookups.
+  const allAudio = [...caseEntry.audio].sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+
+  // Build audio select dropdown.
+  // Each option's value = 1-based position of the entry in allAudio (the full list).
   const audioSelect = document.getElementById('audio-select');
   audioSelect.innerHTML = '';
-  sortedAudio.forEach((a, i) => {
+  sortedAudio.forEach((a) => {
     const opt = document.createElement('option');
-    opt.value = i;
+    opt.value = allAudio.indexOf(a) + 1;
     opt.textContent = audioEntryLabel(a);
     audioSelect.appendChild(opt);
   });
@@ -1737,13 +1741,19 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     sentinelOpt.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '') + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
     audioSelect.appendChild(sentinelOpt);
   }
-  // Clamp audioIdx to valid range
-  const resolvedAudioIdx = (Number.isInteger(audioIdx) && audioIdx >= 0 && audioIdx < sortedAudio.length)
-    ? audioIdx : 0;
-  audioSelect.value = String(resolvedAudioIdx);
+  // Resolve audioIdx (1-based into allAudio, or 0 = default) to a dropdown option value.
+  // If the requested entry was filtered out of the dropdown, fall back to the first option.
+  const _dropdownValues = [...audioSelect.options]
+    .map(o => o.value)
+    .filter(v => v !== 'opinion')
+    .map(v => parseInt(v, 10));
+  const resolvedOptionValue = (audioIdx >= 1 && _dropdownValues.includes(audioIdx))
+    ? audioIdx
+    : (_dropdownValues[0] ?? 1);
+  audioSelect.value = String(resolvedOptionValue);
 
-  // Store context for dropdown change events
-  _currentAudioList = sortedAudio;
+  // Store the full sorted list; the dropdown change handler indexes into it by 1-based value.
+  _currentAudioList = allAudio;
   _currentBasePath  = basePath;
 
   // Update case title
@@ -1820,7 +1830,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
 
   playerSection.hidden = false;
   audioControls.hidden = false;
-  await loadAudioEntry(sortedAudio[resolvedAudioIdx], basePath);
+  await loadAudioEntry(allAudio[resolvedOptionValue - 1], basePath);
 
   if (isMobile()) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -1913,14 +1923,14 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     }
     return;
   }
-  const idx = parseInt(e.target.value, 10);
-  if (_currentAudioList[idx] && _currentBasePath) {
+  const val = parseInt(e.target.value, 10); // 1-based index into full audio array
+  if (_currentAudioList[val - 1] && _currentBasePath) {
     const url = new URL(location.href);
-    url.searchParams.set('audio', idx + 1); // 1-based
+    url.searchParams.set('audio', val);
     url.searchParams.delete('turn');
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
-    await loadAudioEntry(_currentAudioList[idx], _currentBasePath);
+    await loadAudioEntry(_currentAudioList[val - 1], _currentBasePath);
   }
 });
 
@@ -2495,7 +2505,7 @@ async function init() {
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
-  const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
+  const audioParam = params.get('audio') != null ? Math.max(1, parseInt(params.get('audio'), 10)) : null; // 1-based index into full audio array
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 

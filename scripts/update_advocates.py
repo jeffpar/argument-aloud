@@ -272,6 +272,59 @@ def main() -> None:
             audio_sorted_pos = {orig_i: sorted_i + 1
                                 for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
 
+            # Pre-load advocate names per audio entry so that when multiple
+            # entries on the same date all contain the same advocate, we can
+            # record the best entry's position (aligned preferred).
+            _JUSTICE_TITLES_PRE = {"JUSTICE", "CHIEF JUSTICE"}
+            _audio_entry_advocates: dict[int, set[str]] = {}
+            for _pre_idx, _pre_audio in enumerate(audio_entries):
+                _names: set[str] = set()
+                for _raw in _pre_audio.get("advocates", []):
+                    _n = ' '.join(normalize_name_suffix(_raw.strip()).split())
+                    if _n:
+                        _names.add(_n.upper())
+                _pre_text = _pre_audio.get("text_href")
+                if _pre_text:
+                    _pre_path = term_dir / "cases" / folder_num / _pre_text
+                    if _pre_path.exists():
+                        try:
+                            _pre_t = json.loads(
+                                _pre_path.read_text(encoding="utf-8")
+                            )
+                            for _sp in _pre_t.get("media", {}).get("speakers", []):
+                                if _sp.get("title", "") not in _JUSTICE_TITLES_PRE:
+                                    _n = ' '.join(normalize_name_suffix(
+                                        _sp.get("name", "")).split())
+                                    if _n:
+                                        _names.add(_n.upper())
+                        except Exception:
+                            pass
+                if _names:
+                    _audio_entry_advocates[_pre_idx] = _names
+
+            # For each (date, advocate) that appears in more than one audio
+            # entry on the same date, pick the best position: aligned first.
+            preferred_audio_pos: dict[tuple[str, str], int] = {}
+            _date_to_idxs: dict[str, list[int]] = {}
+            for _i, _a in enumerate(audio_entries):
+                _d = _a.get("date") or case.get("argument", "")
+                _date_to_idxs.setdefault(_d, []).append(_i)
+            for _d, _idxs in _date_to_idxs.items():
+                if len(_idxs) <= 1:
+                    continue
+                _all_advocates: set[str] = set()
+                for _i in _idxs:
+                    _all_advocates |= _audio_entry_advocates.get(_i, set())
+                for _adv in _all_advocates:
+                    _cands = [_i for _i in _idxs
+                              if _adv in _audio_entry_advocates.get(_i, set())]
+                    if len(_cands) <= 1:
+                        continue
+                    _aligned = [_i for _i in _cands
+                                if audio_entries[_i].get("aligned")]
+                    _best = _aligned[0] if _aligned else _cands[0]
+                    preferred_audio_pos[(_d, _adv)] = audio_sorted_pos[_best]
+
             for orig_idx, audio in enumerate(audio_entries):
                 audio_date = audio.get("date") or case.get("argument", "")
 
@@ -300,7 +353,8 @@ def main() -> None:
                         "number":   number,
                         "argument": audio_date,
                         **({"decision": decision} if decision else {}),
-                        "audio":    audio_sorted_pos[orig_idx],
+                        "audio":    preferred_audio_pos.get(
+                            (audio_date, name_key), audio_sorted_pos[orig_idx]),
                     })
 
                 # --- Explicit advocates list (no transcript required) ---
