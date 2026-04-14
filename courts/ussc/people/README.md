@@ -9,3 +9,16 @@ NOTE: The *definitive* source of information about Women Advocates comes from Ma
 ## Issues
 
   - Barbara M. Jarrett is missing from all available Women Advocate data. I stumbled across her in the [transcript](https://www.supremecourt.gov/pdfs/transcripts/1990/89-839_10-10-1990.pdf) for [Case 89-839](https://argumentaloud.org/courts/ussc/?term=1990-10&case=89-839).
+
+  - As noted in the 2007 Journal, on Marh 7, 2008, after Edwin Kneedler argued in No. 06–1204, Republic of the Philippines, et al., Petitioners v. Jerry S. Pimentel, Temporary Administrator of the Estate of Mariano J. Pimentel: "The Chief Justice said: “Mr. Kneedler, our records reﬂect that you have now presented oral argument before this Court in 100 cases, beginning with your ﬁrst argument in October 1979. You are the ﬁrst to reach this rare milestone this Century. On behalf of the Court, I extend to you our appreciation for the many years of advocacy and service to the Court during your tenure in the Ofﬁce of the Solicitor General. We look forward to hearing from you many more times in the future. Thank you.” Mr. Kneedler said: “Thank you, Mr. Chief Justice. It has been a great honor.”"
+
+  - As noted in the 2021 Journal, on April 27, 2022, after Edwin Kneedler argued in No. 21–429, Oklahoma, Petitioner v. Victor Manuel Castro-Huerta: "The Chief Justice said: “Mr. Kneedler, I note for the record that this is the 150th case in
+which you have presented oral argument before the Court. And on behalf of the Court, I thank you for your skilled advocacy over the years."
+
+  - As noted in the 2024 Journal, on April 23, 2025, after Edwin Kneeler argued in No. 24–7. Diamond Alternative Energy, LLC, et al., Petitioners v. Environmental Protection Agency, the Chief Justice said: “Mr. Kneedler, if I may ask you to rise for a moment. You have just presented your 160th argument before this Court, and I understand it is intended to be your last.
+   “That is the record for modern times. You have carried out your responsibilities with extraordinary care and professionalism, conscious of your role not only as an advocate but also an offcer of this Court. On a personal note, if I may, I recall that on two occasions you and I argued on the same side here, me representing a private client and you the United States. We lost each of those cases. I'm sure it was my fault. Mr. Kneedler, thank you for your outstanding service to Court and Country.”
+
+  - As per our records, No. 06–1204 does appear to be his 100th argument. However, No. 21–429 would seem to be his 151st argument, not his 150th -- *unless* we take the Chief Justice's words *literally* when he says it was "the 150th case in
+which you have presented oral argument", suggesting he is now counting cases rather than arguments, because between Kneedler's 100th and 150th arguments, he argued and reargued in Sessions v. Dimaya (No. 15-1498). Also, after this 150th case, there were only 8 more arguments by Edwin Kneedler, so how the Court arrives at 160 arguments is still an open question.
+
+  - In any case, there is no question that Edwin Kneedler argued at least 159 times, which is 2 more than Lawrence Wallace's previous record of 157 arguments.
