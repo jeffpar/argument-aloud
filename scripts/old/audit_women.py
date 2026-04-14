@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-audit_women.py
+audit_women.py [term]
 
 Audit "Women Advocates Through October Term 2024.csv" against case transcripts.
 
@@ -14,12 +14,22 @@ Prints:
               Advocate: <advocate name>
   NO MATCH: <date> | <CSV case name>
               Advocate: <advocate name>
+
+When run without a term filter, also prints an argument-count summary showing
+any advocates for whom not all expected arguments were found.
+
+Usage:
+    python3 scripts/old/audit_women.py            # all terms
+    python3 scripts/old/audit_women.py 2024-10    # single term (no count check)
 """
 
+import argparse
 import csv
 import json
 import os
 import re
+import sys
+from collections import defaultdict
 from difflib import SequenceMatcher
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -60,6 +70,43 @@ def parse_date_range(date_str):
             return [f"{yr}-{mo:02d}-{int(day):02d}"]
 
     return []
+
+
+def parse_advocate_name(raw):
+    """
+    Split an advocate name from the CSV into (base_name, arg_number).
+
+    The optional trailing "(N)" suffix indicates this is the advocate's Nth
+    argument before the Court.  The first argument has no suffix (N=1).
+    Role qualifiers after a comma (e.g. ", Ass't Attorney General") are stripped.
+    Smart/curly apostrophes are normalised to straight ones.
+
+    Returns (base_name_upper, n) where base_name_upper is uppercase.
+
+    Examples:
+        "Beatrice Rosenberg (10)"             → ("BEATRICE ROSENBERG", 10)
+        "Belva Ann Lockwood"                  → ("BELVA ANN LOCKWOOD", 1)
+        "Annette Abbott Adams, Ass't AG"      → ("ANNETTE ABBOTT ADAMS", 1)
+        "Mabel Walker Willebrandt (2)"        → ("MABEL WALKER WILLEBRANDT", 2)
+    """
+    name = raw.replace('\u2018', "'").replace('\u2019', "'")
+    m = re.search(r'\s*\((\d+)\)\s*$', name)
+    if m:
+        n = int(m.group(1))
+        name = name[:m.start()]
+    else:
+        n = 1
+    name = re.sub(r',.*$', '', name)
+    return name.strip().upper(), n
+
+
+def normalize_advocate(raw):
+    """
+    Return the uppercase base name for speaker-list lookup.
+    (Delegates to parse_advocate_name, discards the arg number.)
+    """
+    base, _ = parse_advocate_name(raw)
+    return base
 
 
 def extract_case_numbers(csv_name):
@@ -164,20 +211,6 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
     return False
 
 
-def normalize_advocate(name):
-    """
-    Normalize an advocate name for comparison with transcript speaker names:
-      - Replace smart/curly apostrophes with straight apostrophe.
-      - Strip trailing "(N)" argument-count suffix.
-      - Strip role qualifier after a comma (e.g., ", Ass't Attorney General").
-      - Uppercase and strip whitespace.
-    """
-    name = name.replace('\u2018', "'").replace('\u2019', "'")
-    name = re.sub(r'\s*\(\d+\)\s*$', '', name)
-    name = re.sub(r',.*$', '', name)
-    return name.strip().upper()
-
-
 def get_speakers(term, case_num, text_href):
     """
     Return the speakers list from a transcript file, or None if unavailable.
@@ -198,6 +231,16 @@ def get_speakers(term, case_num, text_href):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Audit women advocates CSV against case transcript data.'
+    )
+    parser.add_argument(
+        'term', nargs='?', default=None,
+        help='Limit to a single term (e.g. 2024-10). Omit to scan all terms.',
+    )
+    args = parser.parse_args()
+    single_term = args.term
+
     # Load and sort CSV rows by first parsed date
     with open(CSV_PATH, newline='', encoding='utf-8') as f:
         rows = list(csv.DictReader(f))
@@ -214,8 +257,18 @@ def main():
         for d in parse_date_range(row['Argument Date']):
             by_date.setdefault(d, []).append(row)
 
-    # Walk all terms
+    # Per-advocate case-found tracking: (base_name, arg_num) -> bool
+    # Used at the end to verify all N arguments were found (all-terms mode only).
+    case_found: dict[tuple[str, int], bool] = {}
+    for row in rows:
+        key = parse_advocate_name(row['Advocate Name'])  # (base, n)
+        case_found.setdefault(key, False)
+
+    # Walk all terms (or just the requested one)
     for term in sorted(os.listdir(TERMS_DIR)):
+        if single_term and term != single_term:
+            continue
+
         cases_path = os.path.join(TERMS_DIR, term, 'cases.json')
         if not os.path.isfile(cases_path):
             continue
@@ -248,7 +301,11 @@ def main():
                     ):
                         continue
 
-                    # Case matched — check advocate in transcript speakers
+                    # Mark as found for the N-count check
+                    adv_key = parse_advocate_name(entry['Advocate Name'])
+                    case_found[adv_key] = True
+
+                    # Check advocate in transcript speakers
                     advocate = entry['Advocate Name']
                     norm_advocate = normalize_advocate(advocate)
 
@@ -271,6 +328,31 @@ def main():
                     else:
                         print(f"NO MATCH: {audio_date} | {csv_name}")
                         print(f"  Advocate: {advocate}")
+
+    # ── Argument-count summary (all-terms mode only) ──────────────────────
+    if single_term:
+        return
+
+    # Group by base_name, collect {arg_num: found} mapping
+    by_advocate: dict[str, dict[int, bool]] = defaultdict(dict)
+    for (base, n), found in case_found.items():
+        by_advocate[base][n] = found
+
+    issues: list[str] = []
+    for base in sorted(by_advocate):
+        args_map = by_advocate[base]
+        max_n = max(args_map)
+        missing = [n for n in range(1, max_n + 1) if not args_map.get(n, False)]
+        if missing:
+            issues.append(f"  {base}: missing arg(s) {missing} of {max_n}")
+
+    print()
+    print("=== Argument Count Summary ===")
+    if issues:
+        for line in issues:
+            print(line)
+    else:
+        print("  All advocates: argument counts verified OK.")
 
 
 if __name__ == '__main__':
