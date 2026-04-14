@@ -26,6 +26,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 from collections import defaultdict
 from datetime import date, timedelta
 from difflib import SequenceMatcher
@@ -36,6 +37,27 @@ CSV_PATH = os.path.join(
     'Women Advocates Through October Term 2024.csv'
 )
 TERMS_DIR = os.path.join(BASE_DIR, 'courts', 'ussc', 'terms')
+_ALIASES_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'name_aliases.txt')
+
+
+def _load_name_aliases(path):
+    """Load name_aliases.txt and return {old_upper: new_upper}."""
+    aliases = {}
+    if not os.path.exists(path):
+        return aliases
+    with open(path, encoding='utf-8') as fh:
+        for line in fh:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            if ' <- ' not in line:
+                continue
+            new, old = line.split(' <- ', 1)
+            aliases[old.strip().upper()] = new.strip().upper()
+    return aliases
+
+
+NAME_ALIASES = _load_name_aliases(_ALIASES_FILE)
 
 MONTHS = {
     'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
@@ -88,6 +110,8 @@ def parse_advocate_name(raw):
         "Mabel Walker Willebrandt (2)"        → ("MABEL WALKER WILLEBRANDT", 2)
     """
     name = raw.replace('\u2018', "'").replace('\u2019', "'")
+    # Strip "(formerly <name>)" annotation before any other parsing.
+    name = re.sub(r'\s*\(formerly\s+[^)]+\)', '', name, flags=re.IGNORECASE)
     m = re.search(r'\s*\((\d+)\)\s*$', name)
     if m:
         n = int(m.group(1))
@@ -98,13 +122,21 @@ def parse_advocate_name(raw):
     return name.strip().upper(), n
 
 
+def ascii_fold(s: str) -> str:
+    """Strip diacritics: 'Méndez' -> 'Mendez'."""
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', s)
+        if unicodedata.category(c) != 'Mn'
+    )
+
+
 def normalize_advocate(raw):
     """
     Return the uppercase base name for speaker-list lookup.
     (Delegates to parse_advocate_name, discards the arg number.)
     """
     base, _ = parse_advocate_name(raw)
-    return base
+    return ascii_fold(base)
 
 
 def extract_case_numbers(csv_name):
@@ -193,6 +225,23 @@ def strip_role(party: str) -> str:
     return party.split(',')[0].strip()
 
 
+_US_ABBREV_RE = re.compile(r'\bU\.?\s*S\.(?=\s|,|\)|$)', re.I)
+
+
+def normalize_title_text(s: str) -> str:
+    """Expand common abbreviations before title comparison."""
+    return _US_ABBREV_RE.sub('United States', s)
+
+
+# Government role indicators: when a respondent contains one of these, the CSV
+# may substitute the department/agency name instead of the official's name.
+_GOV_ROLE_RE = re.compile(
+    r'\b(sec\.|secretary|att\'y|attorney|gen\.|general|commissioner|comm\.|'
+    r'director|administrator|supt\.|superintendent|governor|president|minister)\b',
+    re.I,
+)
+
+
 def titles_match(csv_title, case_title, threshold=0.6):
     """
     Compare two case titles. For 'X v. Y' titles, both the petitioner and
@@ -201,10 +250,17 @@ def titles_match(csv_title, case_title, threshold=0.6):
     Role qualifiers after a comma within a party name are stripped before
     comparison so "Garland v. VanDerStok" matches
     "Garland, Att'y Gen. v. VanDerStok".
+
+    When either respondent contains a government-role indicator (Sec., Att'y,
+    Gen., etc.) the respondent match is relaxed — only the petitioner must
+    match. This handles cases where the CSV uses the department name
+    ("Dept of Commerce") while the case file names the official
+    ("Raimondo, Sec. of Comm.").
+
     Falls back to whole-string similarity for non-'v.' titles.
     """
-    a = csv_title.lower().strip()
-    b = case_title.lower().strip()
+    a = normalize_title_text(csv_title).lower().strip()
+    b = normalize_title_text(case_title).lower().strip()
     a_parts = re.split(r'\s+v\.\s+', a, maxsplit=1)
     b_parts = re.split(r'\s+v\.\s+', b, maxsplit=1)
     if len(a_parts) == 2 and len(b_parts) == 2:
@@ -214,7 +270,12 @@ def titles_match(csv_title, case_title, threshold=0.6):
         b_res = strip_role(b_parts[1])
         pet = SequenceMatcher(None, a_pet, b_pet).ratio() >= threshold
         res = SequenceMatcher(None, a_res, b_res).ratio() >= threshold
-        return pet and res
+        if res:
+            return pet and res
+        # Relax respondent check when either side is a named government official
+        if _GOV_ROLE_RE.search(a_parts[1]) or _GOV_ROLE_RE.search(b_parts[1]):
+            return pet
+        return False
     if not a or not b:
         return False
     return SequenceMatcher(None, a, b).ratio() >= threshold
@@ -228,16 +289,54 @@ def speaker_name_matches(speaker_name: str, norm_advocate: str) -> bool:
     a middle name or initial difference (e.g. "AMANDA RICE" vs
     "AMANDA K. RICE") is still considered a match.
     """
-    sp = speaker_name.upper().strip()
-    if sp == norm_advocate:
+    sp = ascii_fold(speaker_name.upper().strip())
+    adv = ascii_fold(norm_advocate)
+    if sp == adv:
         return True
     # First + last token comparison (ignores middle names/initials)
     sp_parts = sp.split()
-    adv_parts = norm_advocate.split()
+    adv_parts = adv.split()
     if len(sp_parts) >= 2 and len(adv_parts) >= 2:
         if sp_parts[0] == adv_parts[0] and sp_parts[-1] == adv_parts[-1]:
             return True
     return False
+
+
+def titles_word_overlap(csv_title, case_title, min_overlap=2):
+    """
+    Return True if the titles share enough significant unabbreviated words.
+
+    Two modes:
+      1. Either the petitioner OR respondent side shares >= min_overlap words.
+      2. BOTH the petitioner AND respondent sides each share >= 1 word.
+         This handles consolidated/related cases where the CSV names a
+         co-petitioner not in the case title (e.g. "American Athletic
+         Conference v. Alston" vs "National Collegiate Athletic Assn. v.
+         Alston" — pet shares "athletic", res shares "alston").
+
+    Unabbreviated = does not end with '.'.  Stop words and short tokens
+    are excluded.
+    """
+    STOP = {'of', 'the', 'in', 'and', 'or', 'for', 'a', 'an', 'v', 'et', 'al'}
+
+    def sig_words(s):
+        return {w.lower() for w in re.split(r'[\s,]+', s)
+                if len(w) > 2 and not w.endswith('.') and w.lower() not in STOP}
+
+    a_norm = normalize_title_text(csv_title)
+    b_norm = normalize_title_text(case_title)
+    a_parts = re.split(r'\s+v\.\s+', a_norm.strip(), maxsplit=1)
+    b_parts = re.split(r'\s+v\.\s+', b_norm.strip(), maxsplit=1)
+    if len(a_parts) == 2 and len(b_parts) == 2:
+        pet_overlap = len(sig_words(a_parts[0]) & sig_words(b_parts[0]))
+        res_overlap = len(sig_words(a_parts[1]) & sig_words(b_parts[1]))
+        if pet_overlap >= min_overlap or res_overlap >= min_overlap:
+            return True
+        if pet_overlap >= 1 and res_overlap >= 1:
+            return True
+        return False
+    # Fallback: whole-string word overlap
+    return len(sig_words(csv_title) & sig_words(case_title)) >= min_overlap
 
 
 def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
@@ -273,6 +372,14 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
         if titles_match(title, case_title):
             return True
 
+    # 4. Word-overlap match: 2+ significant unabbreviated words on either
+    #    side of the "v." in common.  Uses the same cleaned candidates (no
+    #    citation text) to avoid "585 U.S." expanding to "United States" and
+    #    falsely matching any "v. United States" case.
+    for title in candidates:
+        if titles_word_overlap(title, case_title):
+            return True
+
     return False
 
 
@@ -282,7 +389,8 @@ def get_speakers(term, case_num, text_href):
     """
     if not text_href:
         return None
-    path = os.path.join(TERMS_DIR, term, 'cases', case_num, text_href)
+    folder = case_num.split(',')[0].strip()
+    path = os.path.join(TERMS_DIR, term, 'cases', folder, text_href)
     if not os.path.exists(path):
         return None
     try:
@@ -334,9 +442,14 @@ def main():
         help='When a non-feminine honorific warning is triggered, prepend MS. to '
              'the speaker title in the transcript file.',
     )
+    parser.add_argument(
+        '--verbose', action='store_true',
+        help='Print Matched: lines in addition to UNKNOWN: and WARNING: lines.',
+    )
     args = parser.parse_args()
     single_term = args.term
     do_fix = args.fix
+    verbose = args.verbose
 
     # Load and sort CSV rows by first parsed date
     with open(CSV_PATH, newline='', encoding='utf-8') as f:
@@ -417,19 +530,25 @@ def main():
         # Search candidate terms for a case that matches on both date and title.
         # Allow ±1 day tolerance to handle off-by-one errors between the CSV
         # and the audio date (e.g. CSV says Nov 4, audio is dated Nov 5).
+        #
+        # Priority: prefer a case where the advocate IS found in speakers
+        # (speaker_match). If a title matches but the advocate isn't in any
+        # transcript, keep it as title_only_match and keep searching — a
+        # title-only match is only used as a last resort.
         def adjacent_dates(d: str):
-            """Yield d-1, d, d+1 as YYYY-MM-DD strings."""
+            """Yield dates within ±7 days, closest first."""
             dt = date.fromisoformat(d)
-            for delta in (-1, 0, 1):
+            for delta in (0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 7, -7):
                 yield (dt + timedelta(days=delta)).isoformat()
 
-        match_result = None  # (term, case_num, audio_date, found_sp, matched_sp)
+        speaker_match = None    # (term, case_num, csv_date, audio_date, matched_sp, text_href)
+        title_only_match = None  # same tuple, found_sp=False
 
         for search_date in dates:
-            if match_result:
+            if speaker_match:
                 break
             for term in terms_to_search:
-                if match_result:
+                if speaker_match:
                     break
                 for case, abd in term_case_data.get(term, []):
                     # Find any audio date within ±1 day of search_date
@@ -450,8 +569,7 @@ def main():
                     ):
                         continue
 
-                    # Case matched — check advocate in transcript speakers.
-                    case_found[adv_key] = True
+                    # Title matched — check advocate in transcript speakers.
                     audios = abd[audio_date_match]
 
                     found_sp = False
@@ -472,13 +590,25 @@ def main():
                         if found_sp:
                             break
 
-                    match_result = (term, case_num, search_date, audio_date_match, found_sp, matched_sp, matched_text_href)
-                    break  # stop after first matching case
+                    slot = (term, case_num, search_date, audio_date_match,
+                            matched_sp, matched_text_href)
+                    if found_sp:
+                        speaker_match = slot
+                        case_found[adv_key] = True
+                        break  # no need to look further
+                    elif title_only_match is None:
+                        title_only_match = slot  # save first title-only hit, keep searching
+
+        match_result = speaker_match  # prefer speaker match
+        found_sp = match_result is not None
+        if not match_result:
+            match_result = title_only_match  # fall back to title-only
 
         if match_result:
-            term_r, case_num_r, csv_date_r, audio_date_r, found_sp, matched_sp, matched_text_href = match_result
+            term_r, case_num_r, csv_date_r, audio_date_r, matched_sp, matched_text_href = match_result
             if found_sp:
-                print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
+                if verbose:
+                    print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
                 if audio_date_r != csv_date_r:
                     print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
                 title_raw = (matched_sp.get('title') or '').upper()
@@ -490,7 +620,12 @@ def main():
                         try:
                             with open(path, encoding='utf-8') as f:
                                 data = json.load(f)
-                            new_title = ('MS.,' + title_raw.strip()).strip(',')
+                            parts = [t.strip() for t in title_raw.strip().split(',')]
+                            if 'MR.' in parts:
+                                parts = ['MS.' if t == 'MR.' else t for t in parts]
+                            else:
+                                parts = ['MS.'] + parts
+                            new_title = ','.join(p for p in parts if p)
                             for sp in data.get('media', {}).get('speakers', []):
                                 if speaker_name_matches(sp.get('name', ''), norm_advocate):
                                     sp['title'] = new_title

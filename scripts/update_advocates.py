@@ -62,6 +62,34 @@ ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
 # ---------------------------------------------------------------------------
+# Name aliases: loaded from scripts/name_aliases.txt.
+# Maps every previously-used name (upper-case) to the canonical current name
+# (upper-case).  Entries are merged under the canonical name and the old
+# name(s) are stored in a "previously" list on the advocate record.
+# ---------------------------------------------------------------------------
+_ALIASES_FILE = Path(__file__).resolve().parent / "name_aliases.txt"
+
+
+def _load_name_aliases(path: Path) -> dict[str, str]:
+    """Load name_aliases.txt and return {old_upper: new_upper}."""
+    aliases: dict[str, str] = {}
+    if not path.exists():
+        return aliases
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if " <- " not in line:
+                continue
+            new, old = line.split(" <- ", 1)
+            aliases[old.strip().upper()] = new.strip().upper()
+    return aliases
+
+
+NAME_ALIASES: dict[str, str] = _load_name_aliases(_ALIASES_FILE)
+
+# ---------------------------------------------------------------------------
 # Advocate ID
 # ---------------------------------------------------------------------------
 
@@ -205,7 +233,10 @@ def load_existing() -> dict[str, dict]:
         adv_id = make_advocate_id(name)
         # Collapse internal whitespace (guards against previously mis-stored names).
         name = ' '.join(name.split())
-        result[name.upper()] = {"id": adv_id, "name": name, "cases": []}
+        entry_data = {"id": adv_id, "name": name, "cases": []}
+        if entry.get("previously"):
+            entry_data["previously"] = entry["previously"]
+        result[name.upper()] = entry_data
     return result
 
 
@@ -335,6 +366,19 @@ def main() -> None:
                     if not name or not audio_date:
                         return
                     name_key = name.upper()
+                    # Remap alias to canonical name.
+                    canonical_key = NAME_ALIASES.get(name_key)
+                    if canonical_key:
+                        old_display = name
+                        name = ' '.join(canonical_key.split())  # canonical display name
+                        name_key = canonical_key
+                        if name_key not in advocates:
+                            adv_id = make_advocate_id(name)
+                            advocates[name_key] = {"id": adv_id, "name": name, "cases": [], "previously": []}
+                        prev_list = advocates[name_key].setdefault("previously", [])
+                        old_upper = old_display.upper()
+                        if old_upper not in [p.upper() for p in prev_list]:
+                            prev_list.append(old_display.upper())
                     case_key = (name_key, title, term, number)
                     try:
                         new_dt = Date.fromisoformat(audio_date)
@@ -454,11 +498,13 @@ def main() -> None:
                     existing_highlights = raw.get("highlights", [])
             except json.JSONDecodeError:
                 pass
-        envelope = {
+        envelope: dict = {
             "details": existing_details,
             "highlights": existing_highlights,
-            "cases": entry["cases"],
         }
+        if entry.get("previously"):
+            envelope["previously"] = sorted(set(entry["previously"]))
+        envelope["cases"] = entry["cases"]
         case_file.write_text(
             json.dumps(envelope, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
@@ -474,12 +520,16 @@ def main() -> None:
             print(f"  Removed stale advocate file: {orphan.relative_to(REPO_ROOT)}")
 
     # Write the index (name + id + total_cases only — no cases array).
-    index = [
-        {"id": e.get("id") or make_advocate_id(e["name"]),
-         "name": e["name"],
-         "total_cases": len(e["cases"])}
-        for e in output
-    ]
+    index = []
+    for e in output:
+        entry: dict = {
+            "id":          e.get("id") or make_advocate_id(e["name"]),
+            "name":        e["name"],
+            "total_cases": len(e["cases"]),
+        }
+        if e.get("previously"):
+            entry["previously"] = sorted(set(e["previously"]))
+        index.append(entry)
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_FILE.open("w", encoding="utf-8") as fh:
         json.dump(index, fh, indent=2, ensure_ascii=False)
