@@ -9,11 +9,8 @@ if the case name matches, and if so, verify the advocate appears in the
 transcript's speakers array.
 
 Prints:
-  MATCH:    <date> | <CSV case name>
-              Case: <term>/<case number>
-              Advocate: <advocate name>
-  NO MATCH: <date> | <CSV case name>
-              Advocate: <advocate name>
+  Matched: <term>/<case number> <date> <advocate name> <CSV case name>
+  UNKNOWN: <term>/<case number> <date> <advocate name> <CSV case name>
 
 When run without a term filter, also prints an argument-count summary showing
 any advocates for whom not all expected arguments were found.
@@ -30,6 +27,7 @@ import os
 import re
 import sys
 from collections import defaultdict
+from datetime import date, timedelta
 from difflib import SequenceMatcher
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -184,6 +182,64 @@ def names_similar(a, b, threshold=0.6):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 
+def strip_role(party: str) -> str:
+    """
+    Strip role/title qualifiers that follow a comma within a party name.
+
+    e.g. "Garland, Att'y Gen." -> "Garland"
+         "Smith, Secretary of Labor" -> "Smith"
+         "United States" -> "United States"
+    """
+    return party.split(',')[0].strip()
+
+
+def titles_match(csv_title, case_title, threshold=0.6):
+    """
+    Compare two case titles. For 'X v. Y' titles, both the petitioner and
+    respondent must independently meet the similarity threshold — preventing
+    a shared respondent like 'United States' from producing a false match.
+    Role qualifiers after a comma within a party name are stripped before
+    comparison so "Garland v. VanDerStok" matches
+    "Garland, Att'y Gen. v. VanDerStok".
+    Falls back to whole-string similarity for non-'v.' titles.
+    """
+    a = csv_title.lower().strip()
+    b = case_title.lower().strip()
+    a_parts = re.split(r'\s+v\.\s+', a, maxsplit=1)
+    b_parts = re.split(r'\s+v\.\s+', b, maxsplit=1)
+    if len(a_parts) == 2 and len(b_parts) == 2:
+        a_pet = strip_role(a_parts[0])
+        b_pet = strip_role(b_parts[0])
+        a_res = strip_role(a_parts[1])
+        b_res = strip_role(b_parts[1])
+        pet = SequenceMatcher(None, a_pet, b_pet).ratio() >= threshold
+        res = SequenceMatcher(None, a_res, b_res).ratio() >= threshold
+        return pet and res
+    if not a or not b:
+        return False
+    return SequenceMatcher(None, a, b).ratio() >= threshold
+
+
+def speaker_name_matches(speaker_name: str, norm_advocate: str) -> bool:
+    """
+    Return True if speaker_name matches norm_advocate.
+
+    Tries exact match first, then falls back to first+last name only so that
+    a middle name or initial difference (e.g. "AMANDA RICE" vs
+    "AMANDA K. RICE") is still considered a match.
+    """
+    sp = speaker_name.upper().strip()
+    if sp == norm_advocate:
+        return True
+    # First + last token comparison (ignores middle names/initials)
+    sp_parts = sp.split()
+    adv_parts = norm_advocate.split()
+    if len(sp_parts) >= 2 and len(adv_parts) >= 2:
+        if sp_parts[0] == adv_parts[0] and sp_parts[-1] == adv_parts[-1]:
+            return True
+    return False
+
+
 def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
     """
     Return True if the CSV case name matches a case entry using any of:
@@ -203,9 +259,18 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
             if cite == us_cite and yr == decision_year:
                 return True
 
-    # 3. Fuzzy title match on each extracted case title
-    for title in extract_titles(csv_name):
-        if names_similar(title, case_title):
+    # 3. Fuzzy title match on each extracted case title, plus the full CSV
+    #    name stripped of case numbers/citations as a fallback candidate.
+    #    The fallback handles cases like "TikTok, Inc. v. Garland" where the
+    #    comma in the petitioner name trips up the extraction regex.
+    stripped = re.sub(r'\s*\(No[s]?\..*', '', csv_name, flags=re.I)
+    stripped = re.sub(r',?\s*\d+\s+U\.S\..*$', '', stripped)
+    stripped = stripped.strip()
+    candidates = extract_titles(csv_name)
+    if stripped and stripped not in candidates:
+        candidates.append(stripped)
+    for title in candidates:
+        if titles_match(title, case_title):
             return True
 
     return False
@@ -230,6 +295,32 @@ def get_speakers(term, case_num, text_href):
     return None
 
 
+def term_for_date(date_str, sorted_terms):
+    """
+    Return the term whose date range [YYYY-MM-01, (YYYY+1)-MM-01) contains
+    date_str, or None if no term covers that date.
+    """
+    for term in reversed(sorted_terms):
+        m = re.match(r'^(\d{4})-(\d{2})$', term)
+        if not m:
+            continue
+        yr, mo = int(m.group(1)), int(m.group(2))
+        start = f"{yr}-{mo:02d}-01"
+        end = f"{yr + 1}-{mo:02d}-01"
+        if start <= date_str < end:
+            return term
+    return None
+
+
+def next_term_after(term, sorted_terms):
+    """Return the term immediately after `term` in sorted_terms, or None."""
+    try:
+        idx = sorted_terms.index(term)
+        return sorted_terms[idx + 1] if idx + 1 < len(sorted_terms) else None
+    except ValueError:
+        return None
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Audit women advocates CSV against case transcript data.'
@@ -238,8 +329,14 @@ def main():
         'term', nargs='?', default=None,
         help='Limit to a single term (e.g. 2024-10). Omit to scan all terms.',
     )
+    parser.add_argument(
+        '--fix', action='store_true',
+        help='When a non-feminine honorific warning is triggered, prepend MS. to '
+             'the speaker title in the transcript file.',
+    )
     args = parser.parse_args()
     single_term = args.term
+    do_fix = args.fix
 
     # Load and sort CSV rows by first parsed date
     with open(CSV_PATH, newline='', encoding='utf-8') as f:
@@ -251,12 +348,6 @@ def main():
 
     rows.sort(key=first_date)
 
-    # Build date -> [entry, ...] lookup (handles date ranges)
-    by_date: dict[str, list] = {}
-    for row in rows:
-        for d in parse_date_range(row['Argument Date']):
-            by_date.setdefault(d, []).append(row)
-
     # Per-advocate case-found tracking: (base_name, arg_num) -> bool
     # Used at the end to verify all N arguments were found (all-terms mode only).
     case_found: dict[tuple[str, int], bool] = {}
@@ -264,70 +355,159 @@ def main():
         key = parse_advocate_name(row['Advocate Name'])  # (base, n)
         case_found.setdefault(key, False)
 
-    # Walk all terms (or just the requested one)
-    for term in sorted(os.listdir(TERMS_DIR)):
-        if single_term and term != single_term:
-            continue
-
+    # Load all term/case data upfront; precompute audios_by_date per case.
+    all_terms = sorted(
+        t for t in os.listdir(TERMS_DIR)
+        if os.path.isfile(os.path.join(TERMS_DIR, t, 'cases.json'))
+    )
+    # term_case_data: term -> [(case_dict, audios_by_date), ...]
+    term_case_data: dict[str, list] = {}
+    for term in all_terms:
         cases_path = os.path.join(TERMS_DIR, term, 'cases.json')
-        if not os.path.isfile(cases_path):
-            continue
-
         try:
             with open(cases_path, encoding='utf-8') as f:
                 cases = json.load(f)
         except Exception:
             continue
-
+        entries = []
         for case in cases:
-            case_num = case.get('number', '')
-            case_title = case.get('title', '')
-            us_cite = case.get('usCite', '')
-            decision = case.get('decision', '')
-            decision_year = decision[:4] if decision else ''
-
+            abd: dict[str, list] = {}
             for audio in case.get('audio', []):
-                audio_date = audio.get('date', '')
-                text_href = audio.get('text_href', '')
+                d = audio.get('date', '')
+                if d:
+                    abd.setdefault(d, []).append(audio)
+            entries.append((case, abd))
+        term_case_data[term] = entries
 
-                if not audio_date or audio_date not in by_date:
-                    continue
+    FEMININE_TITLES = {'MS.', 'MRS.', 'MISS'}
 
-                for entry in by_date[audio_date]:
-                    csv_name = entry['Case Name']
+    # Process each CSV row: exhaust all candidate terms before deciding
+    # Matched vs UNKNOWN so no row is reported prematurely.
+    for entry in rows:
+        dates = parse_date_range(entry['Argument Date'])
+        if not dates:
+            continue
+
+        primary_date = dates[0]
+        advocate = entry['Advocate Name']
+        csv_name = entry['Case Name']
+        norm_advocate = normalize_advocate(advocate)
+        adv_key = parse_advocate_name(advocate)
+
+        # Determine which terms to search for this row's argument date.
+        # Always try the natural term + next term (cases can be filed a term
+        # later than expected).
+        natural = term_for_date(primary_date, all_terms)
+        if single_term:
+            # In single-term mode only process rows whose date falls in that term.
+            if natural != single_term:
+                continue
+            own_next = next_term_after(single_term, all_terms)
+            terms_to_search = [
+                t for t in [single_term, own_next] if t and t in term_case_data
+            ]
+        else:
+            if not natural:
+                continue
+            next_t = next_term_after(natural, all_terms)
+            terms_to_search = [
+                t for t in [natural, next_t] if t and t in term_case_data
+            ]
+
+        # Search candidate terms for a case that matches on both date and title.
+        # Allow ±1 day tolerance to handle off-by-one errors between the CSV
+        # and the audio date (e.g. CSV says Nov 4, audio is dated Nov 5).
+        def adjacent_dates(d: str):
+            """Yield d-1, d, d+1 as YYYY-MM-DD strings."""
+            dt = date.fromisoformat(d)
+            for delta in (-1, 0, 1):
+                yield (dt + timedelta(days=delta)).isoformat()
+
+        match_result = None  # (term, case_num, audio_date, found_sp, matched_sp)
+
+        for search_date in dates:
+            if match_result:
+                break
+            for term in terms_to_search:
+                if match_result:
+                    break
+                for case, abd in term_case_data.get(term, []):
+                    # Find any audio date within ±1 day of search_date
+                    audio_date_hit = next(
+                        (d for d in adjacent_dates(search_date) if d in abd), None
+                    )
+                    if audio_date_hit is None:
+                        continue
+                    audio_date_match = audio_date_hit
+                    case_num = case.get('number', '')
+                    case_title = case.get('title', '')
+                    us_cite = case.get('usCite', '')
+                    decision = case.get('decision', '')
+                    decision_year = decision[:4] if decision else ''
 
                     if not is_case_match(
                         csv_name, case_title, case_num, us_cite, decision_year
                     ):
                         continue
 
-                    # Mark as found for the N-count check
-                    adv_key = parse_advocate_name(entry['Advocate Name'])
+                    # Case matched — check advocate in transcript speakers.
                     case_found[adv_key] = True
+                    audios = abd[audio_date_match]
 
-                    # Check advocate in transcript speakers
-                    advocate = entry['Advocate Name']
-                    norm_advocate = normalize_advocate(advocate)
+                    found_sp = False
+                    matched_sp = None
+                    matched_text_href = None
+                    for audio in audios:
+                        text_href = audio.get('text_href', '')
+                        speakers = get_speakers(
+                            term, case_num, text_href
+                        )
+                        if speakers is not None:
+                            for sp in speakers:
+                                if speaker_name_matches(sp.get('name', ''), norm_advocate):
+                                    found_sp = True
+                                    matched_sp = sp
+                                    matched_text_href = text_href
+                                    break
+                        if found_sp:
+                            break
 
-                    speakers = get_speakers(term, case_num, text_href)
+                    match_result = (term, case_num, search_date, audio_date_match, found_sp, matched_sp, matched_text_href)
+                    break  # stop after first matching case
 
-                    if speakers is None:
-                        print(f"NO MATCH: {audio_date} | {csv_name}")
-                        print(f"  (no transcript)  Advocate: {advocate}")
-                        continue
-
-                    found = any(
-                        sp.get('name', '').upper().strip() == norm_advocate
-                        for sp in speakers
-                    )
-
-                    if found:
-                        print(f"MATCH: {audio_date} | {csv_name}")
-                        print(f"  Case: {term}/{case_num}")
-                        print(f"  Advocate: {advocate}")
-                    else:
-                        print(f"NO MATCH: {audio_date} | {csv_name}")
-                        print(f"  Advocate: {advocate}")
+        if match_result:
+            term_r, case_num_r, csv_date_r, audio_date_r, found_sp, matched_sp, matched_text_href = match_result
+            if found_sp:
+                print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
+                if audio_date_r != csv_date_r:
+                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
+                title_raw = (matched_sp.get('title') or '').upper()
+                title_parts = {t.strip() for t in title_raw.split(',')}
+                if not title_parts & FEMININE_TITLES:
+                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — title is {title_raw.strip()!r}, not a feminine honorific")
+                    if do_fix and matched_text_href:
+                        path = os.path.join(TERMS_DIR, term_r, 'cases', case_num_r, matched_text_href)
+                        try:
+                            with open(path, encoding='utf-8') as f:
+                                data = json.load(f)
+                            new_title = ('MS.,' + title_raw.strip()).strip(',')
+                            for sp in data.get('media', {}).get('speakers', []):
+                                if speaker_name_matches(sp.get('name', ''), norm_advocate):
+                                    sp['title'] = new_title
+                                    break
+                            with open(path, 'w', encoding='utf-8') as f:
+                                json.dump(data, f, indent=2, ensure_ascii=False)
+                                f.write('\n')
+                            print(f"  FIXED: set title to {new_title!r} in {path}")
+                        except Exception as e:
+                            print(f"  FIX FAILED: {e}")
+            else:
+                print(f"UNKNOWN: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
+                if audio_date_r != csv_date_r:
+                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
+        elif terms_to_search:
+            # No matching case found after exhausting all candidate terms.
+            print(f"UNKNOWN: {natural}/? {primary_date} {advocate}; {csv_name}")
 
     # ── Argument-count summary (all-terms mode only) ──────────────────────
     if single_term:
