@@ -202,7 +202,7 @@ def load_existing() -> dict[str, dict]:
             print(f"  Normalised existing name: {name!r} -> {normalised!r}")
             name = normalised
 
-        adv_id = entry.get("id") or make_advocate_id(name)
+        adv_id = make_advocate_id(name)
         # Collapse internal whitespace (guards against previously mis-stored names).
         name = ' '.join(name.split())
         result[name.upper()] = {"id": adv_id, "name": name, "cases": []}
@@ -463,6 +463,15 @@ def main() -> None:
             json.dumps(envelope, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
         )
+
+    # Remove any advocate files not referenced by the current output (handles
+    # files orphaned when a name variant is removed from transcripts but the
+    # stale file was never cleaned up by a previous run).
+    known_ids = {e.get("id") or make_advocate_id(e["name"]) for e in output}
+    for orphan in sorted(ADVOCATES_DIR.glob("*.json")):
+        if orphan.stem not in known_ids:
+            orphan.unlink()
+            print(f"  Removed stale advocate file: {orphan.relative_to(REPO_ROOT)}")
 
     # Write the index (name + id + total_cases only — no cases array).
     index = [
