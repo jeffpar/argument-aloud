@@ -1271,10 +1271,13 @@ async function loadHighlight(highlight) {
   emptyState.style.display = 'none';
   activeTurnIdx = -1;
 
-  // Build a synthetic audio entry reusing loadAudioEntry machinery
+  // Build a synthetic audio entry reusing loadAudioEntry machinery.
+  // Set text_href if the highlight has one; set noTranscriptProbe to suppress
+  // the automatic oyez fallback fetch when there is no designated transcript.
   const syntheticArg = {
     audio_href: highlight.audio_href,
     date: highlight.date || null,
+    ...(highlight.text_href ? { text_href: highlight.text_href } : { noTranscriptProbe: true }),
   };
 
   playerSection.hidden = false;
@@ -1496,7 +1499,7 @@ async function loadAudioEntry(arg, basePath) {
     // try fetching an Oyez fallback file (only relevant for NARA audio entries
     // without a dedicated text_href). If a text_href is already specified,
     // that's the designated transcript — don't probe for another.
-    if (!turns.some(t => t.time != null) && arg.date && !arg.text_href) {
+    if (!turns.some(t => t.time != null) && arg.date && !arg.text_href && !arg.noTranscriptProbe) {
       const oyezUrl = basePath + arg.date + '-oyez.json';
       try {
         const oyezRes = await fetch(oyezUrl);
@@ -1735,10 +1738,15 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     audioSelect.appendChild(opt);
   });
   // Append sentinel option linking to the opinion, if available.
-  if (caseEntry.opinion_href && caseEntry.dateDecision) {
+  if (caseEntry.opinion_href && (caseEntry.dateDecision || caseEntry.decision)) {
+    const _months = ['January','February','March','April','May','June',
+                     'July','August','September','October','November','December'];
+    const _decisionLabel = caseEntry.dateDecision
+      ? caseEntry.dateDecision.replace(/^\w+,\s*/, '')
+      : (() => { const [y, m, d] = caseEntry.decision.split('-'); return (_months[parseInt(m,10)-1] || m) + '\u00a0' + parseInt(d,10) + ',\u00a0' + y; })();
     const sentinelOpt = document.createElement('option');
     sentinelOpt.value = 'opinion';
-    sentinelOpt.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '') + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
+    sentinelOpt.textContent = 'Decision on\u00a0' + _decisionLabel + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
     audioSelect.appendChild(sentinelOpt);
   }
   // Resolve audioIdx (1-based into allAudio, or 0 = default) to a dropdown option value.
