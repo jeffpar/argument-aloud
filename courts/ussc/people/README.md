@@ -12,6 +12,8 @@ NOTE: The *definitive* source of information about Women Advocates comes from Ma
 
   - As noted in the 2007 Journal, on March 7, 2008, after Edwin Kneedler argued in No. 06–1204, Republic of the Philippines, et al., Petitioners v. Jerry S. Pimentel, Temporary Administrator of the Estate of Mariano J. Pimentel: The Chief Justice said: “Mr. Kneedler, our records reﬂect that you have now presented oral argument before this Court in 100 cases, beginning with your ﬁrst argument in October 1979. You are the ﬁrst to reach this rare milestone this Century. On behalf of the Court, I extend to you our appreciation for the many years of advocacy and service to the Court during your tenure in the Ofﬁce of the Solicitor General. We look forward to hearing from you many more times in the future. Thank you.” Mr. Kneedler said: “Thank you, Mr. Chief Justice. It has been a great honor.”
 
+  - NOTE: The 1979 Journal indicates that Edwin Smiley Kneedler's first argument that term was in No. 78-990. United States v. Bailey, on November 7, 1979 -- not "in October 1979" as the Chief Justice asserted.
+
   - As noted in the 2021 Journal, on April 27, 2022, after Edwin Kneedler argued in No. 21–429, Oklahoma, Petitioner v. Victor Manuel Castro-Huerta: The Chief Justice said: “Mr. Kneedler, I note for the record that this is the 150th case in
 which you have presented oral argument before the Court. And on behalf of the Court, I thank you for your skilled advocacy over the years."
 
