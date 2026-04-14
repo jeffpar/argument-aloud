@@ -1300,6 +1300,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
   const ci = document.createElement('li');
   ci.className = 'case-item';
   ci.dataset.caseKey = caseKey;
+  if (Number.isInteger(caseRef.audio) && caseRef.audio >= 1)
+    ci.dataset.audioIdx = String(caseRef.audio);
 
   const header = document.createElement('div');
   header.className = 'case-header';
@@ -1709,13 +1711,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     return filtered;
   })();
 
-  // Update nav
-  document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
-  const _activeKeys = [caseKey];
-  if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
-    _activeKeys.push(term + '/' + caseEntry.number);
-  _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
-    .forEach(el => el.classList.add('active')));
+  // Update nav — deferred until after resolvedOptionValue is computed below.
 
   // Reset transcript area
   playerSection.hidden = true;
@@ -1759,6 +1755,19 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     ? audioIdx
     : (_dropdownValues[0] ?? 1);
   audioSelect.value = String(resolvedOptionValue);
+
+  // Update nav highlight now that resolvedOptionValue is known.
+  document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
+  const _activeKeys = [caseKey];
+  if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
+    _activeKeys.push(term + '/' + caseEntry.number);
+  _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
+    .forEach(el => {
+      // Collection items with a specific audio index: only highlight when it matches.
+      if (el.dataset.audioIdx !== undefined &&
+          String(resolvedOptionValue) !== el.dataset.audioIdx) return;
+      el.classList.add('active');
+    }));
 
   // Store the full sorted list; the dropdown change handler indexes into it by 1-based value.
   _currentAudioList = allAudio;
