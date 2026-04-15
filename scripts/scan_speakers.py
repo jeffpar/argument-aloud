@@ -130,7 +130,7 @@ def main() -> None:
                     if not found:
                         text_href = audio.get("text_href")
                         if text_href:
-                            jp = case_dir / text_href
+                            jp = term_dir / "cases" / text_href
                             if jp.exists():
                                 try:
                                     tdata = json.loads(jp.read_text(encoding="utf-8"))
@@ -164,6 +164,7 @@ def main() -> None:
         return
 
 
+    hits = 0
     for term_dir in term_dirs:
         cases_file = term_dir / "cases.json"
         if not cases_file.exists():
@@ -195,7 +196,7 @@ def main() -> None:
                 text_href = audio.get("text_href")
                 if not text_href:
                     continue
-                jp = case_dir / text_href
+                jp = term_dir / "cases" / text_href
                 if not jp.exists():
                     continue
                 try:
@@ -229,7 +230,7 @@ def main() -> None:
                 if pattern.search(content):
                     text_href = audio.get("text_href")
                     json_path = (
-                        case_dir / text_href
+                        term_dir / "cases" / text_href
                         if text_href else None
                     )
 

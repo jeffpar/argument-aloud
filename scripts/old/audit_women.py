@@ -414,11 +414,11 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
 def get_speakers(term, case_num, text_href):
     """
     Return the speakers list from a transcript file, or None if unavailable.
+    text_href is relative to the term's cases/ directory (e.g. "05-908/2006-12-04-oyez.json").
     """
     if not text_href:
         return None
-    folder = case_num.split(',')[0].strip()
-    path = os.path.join(TERMS_DIR, term, 'cases', folder, text_href)
+    path = os.path.join(TERMS_DIR, term, 'cases', text_href)
     if not os.path.exists(path):
         return None
     try:
@@ -644,8 +644,7 @@ def main():
                 if not title_parts & FEMININE_TITLES:
                     print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — title is {title_raw.strip()!r}, not a feminine honorific")
                     if do_fix and matched_text_href:
-                        folder = case_num_r.split(',')[0].strip()
-                        path = os.path.join(TERMS_DIR, term_r, 'cases', folder, matched_text_href)
+                        path = os.path.join(TERMS_DIR, term_r, 'cases', matched_text_href)
                         try:
                             with open(path, encoding='utf-8') as f:
                                 data = json.load(f)
