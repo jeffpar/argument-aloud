@@ -327,27 +327,47 @@ def _turns_are_aligned(data: dict | list) -> bool:
     return any(t.get('time') for t in turns)
 
 
-def _audio_title(type_val: str, date_str: str, part: int = 0) -> str:
+def _audio_title(type_val: str, date_str: str, part: int = 0, case_num: str = '') -> str:
     """Return a display title for an audio entry.
 
     When part > 0, inserts 'Part N' before 'on'.
+    When case_num is set (consolidated cases), inserts 'in No. N' before 'on'.
 
     Examples:
         'Oral Argument on January 12, 2025'
         'Oral Argument Part 1 on January 12, 2025'
-        'Opinion Announcement Part 2 on June 27, 2025'
+        'Oral Argument in No. 05-380 on November 8, 2006'
+        'Opinion Announcement in No. 05-1382 on April 18, 2007'
     """
     try:
         dt = datetime.strptime(date_str, '%Y-%m-%d')
         date_label = f'{dt.strftime("%B")} {dt.day}, {dt.year}'
     except (ValueError, TypeError):
         date_label = date_str or '?'
-    part_str = f' Part {part}' if part else ''
+    part_str    = f' Part {part}'      if part     else ''
+    case_str    = f' in No. {case_num}' if case_num else ''
     if type_val == 'reargument':
-        return f'Oral Reargument{part_str} on {date_label}'
+        return f'Oral Reargument{case_str}{part_str} on {date_label}'
     if type_val == 'opinion':
-        return f'Opinion Announcement{part_str} on {date_label}'
-    return f'Oral Argument{part_str} on {date_label}'
+        return f'Opinion Announcement{part_str} on {date_label}'  # no case_str for opinions
+    return f'Oral Argument{case_str}{part_str} on {date_label}'
+
+
+def _case_num_from_href(text_href: str, audio_href: str = '') -> str:
+    """Extract the case-folder number from a folder-prefixed text_href.
+
+    For a text_href like '05-1382/2006-11-08-oyez.json', returns '05-1382'.
+    Falls back to extracting the case number from an Oyez audio_href URL
+    (e.g. '.../case_data/2006/05-1382/...' → '05-1382').
+    Returns '' if the number cannot be determined.
+    """
+    if text_href and '/' in text_href:
+        return text_href.split('/')[0]
+    if audio_href:
+        m = re.search(r'/case_data/\d+/([^/]+)/', audio_href)
+        if m:
+            return m.group(1)
+    return ''
 
 
 def _parse_unix_date(ts) -> str | None:
@@ -355,7 +375,7 @@ def _parse_unix_date(ts) -> str | None:
     if not ts:
         return None
     try:
-        return datetime.utcfromtimestamp(int(ts)).strftime('%Y-%m-%d')
+        return datetime.fromtimestamp(int(ts), datetime.UTC).strftime('%Y-%m-%d')
     except (ValueError, OSError, OverflowError):
         return None
 
@@ -545,6 +565,15 @@ def main():
         return s
 
     our_by_num = {_normalize_case_num(c['number']): c for c in our_cases}
+    # Also index consolidated cases (comma-separated numbers) by each component
+    # number, but only when that component has no separate case entry of its own.
+    for _c in our_cases:
+        _parts = _c['number'].split(',')
+        if len(_parts) > 1:
+            for _n in _parts:
+                _nn = _normalize_case_num(_n.strip())
+                if _nn not in our_by_num:
+                    our_by_num[_nn] = _c
 
     print(f'Fetching Oyez case list for {year_str} term ...')
     oyez_cases = fetch_oyez_cases(year_str)
@@ -582,6 +611,15 @@ def main():
         # already tracked in cases.json, and backfill any on-disk files that
         # aren't yet recorded.
         local_case = our_by_num.get(number)
+        # Detect consolidated cases (number is a component of a multi-number entry).
+        _local_number      = (local_case.get('number', '') if local_case is not None else '')
+        is_consolidated    = ',' in _local_number
+        if is_consolidated:
+            _comps = [_normalize_case_num(n.strip()) for n in _local_number.split(',')]
+            _oyez_comps = [cn for cn in _comps if cn in oyez_by_num]
+            case_num_for_title = number if len(_oyez_comps) > 1 else ''
+        else:
+            case_num_for_title = ''
         if local_case is not None:
             existing_oyez_filenames: set[str] = set()
             for a in local_case.get('audio', []):
@@ -602,13 +640,18 @@ def main():
                         existing_oyez_filenames.add(a['audio_href'])
                     # Backfill title on oyez entries that lack one.
                     if not a.get('title'):
-                        a['title'] = _audio_title(a.get('type', 'argument'), a.get('date', ''))
+                        _cn = _case_num_from_href(a.get('text_href', ''), a.get('audio_href', ''))
+                        a['title'] = _audio_title(
+                            a.get('type', 'argument'), a.get('date', ''),
+                            case_num=_cn if is_consolidated else '',
+                        )
                         cases_modified = True
 
             # Backfill any *-oyez.json files on disk not yet tracked in cases.json.
             if case_dir.is_dir():
                 for oyez_path in sorted(case_dir.glob('*-oyez.json')):
-                    if oyez_path.name in existing_oyez_filenames:
+                    _oyez_href = number + '/' + oyez_path.name
+                    if _oyez_href in existing_oyez_filenames:
                         continue
                     m = re.match(r'^(\d{4}-\d{2}-\d{2})-oyez\.json$', oyez_path.name)
                     if not m:
@@ -626,15 +669,15 @@ def main():
                     new_arg = {
                         'source':     'oyez',
                         'type':       type_val,
-                        'title':      _audio_title(type_val, date_str),
+                        'title':      _audio_title(type_val, date_str, case_num=case_num_for_title),
                         'date':       date_str,
                         'audio_href': audio_href,
-                        'text_href':  oyez_path.name,
+                        'text_href':  _oyez_href,
                     }
                     if _turns_are_aligned(data):
                         new_arg['aligned'] = True
                     local_case.setdefault('audio', []).append(new_arg)
-                    existing_oyez_filenames.add(oyez_path.name)
+                    existing_oyez_filenames.add(_oyez_href)
                     cases_modified = True
         else:
             existing_oyez_filenames = set()
@@ -709,20 +752,22 @@ def main():
                     print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
                     for a in local_case.get('audio', []):
                         if (a.get('source') == 'oyez' and a.get('date') == date_str
-                                and a.get('text_href') == unnumbered.name):
-                            a['text_href'] = part1_path.name
-                            a['title'] = _audio_title(a.get('type', 'argument'), date_str, 1)
-                            existing_oyez_filenames.discard(unnumbered.name)
-                            existing_oyez_filenames.add(part1_path.name)
+                                and a.get('text_href') == number + '/' + unnumbered.name):
+                            a['text_href'] = number + '/' + part1_path.name
+                            a['title'] = _audio_title(a.get('type', 'argument'), date_str, 1,
+                                                       case_num_for_title)
+                            existing_oyez_filenames.discard(number + '/' + unnumbered.name)
+                            existing_oyez_filenames.add(number + '/' + part1_path.name)
                             cases_modified = True
                             break
 
             for part_idx, oyez_arg in enumerate(parts, start=1):
-                part_num = part_idx if use_parts else 0
-                out_name = _oyez_filename(date_str, part_num)
-                out_path = case_dir / out_name
+                part_num  = part_idx if use_parts else 0
+                out_fname = _oyez_filename(date_str, part_num)
+                out_path  = case_dir / out_fname
+                out_href  = number + '/' + out_fname
 
-                if out_name in existing_oyez_filenames and not _needs_format_refresh(out_path):
+                if out_href in existing_oyez_filenames and not _needs_format_refresh(out_path):
                     skipped += 1
                     continue
 
@@ -732,12 +777,12 @@ def main():
                     envelope, mp3_url = fetch_oyez_transcript(oyez_arg['href'], justices)
                     if envelope is None:
                         # No transcript, but still record the audio entry if it's new.
-                        if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
+                        if mp3_url and mp3_url not in existing_oyez_filenames and out_href not in existing_oyez_filenames:
                             type_val = _oyez_arg_type(oyez_arg.get('title', ''))
                             new_arg = {
                                 'source':     'oyez',
                                 'type':       type_val,
-                                'title':      _audio_title(type_val, date_str, part_num),
+                                'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                                 'date':       date_str,
                                 'audio_href': mp3_url,
                             }
@@ -763,21 +808,21 @@ def main():
                     print(f'{len(envelope["turns"])} turns -> {rel}')
                     downloaded += 1
 
-                    if out_name not in existing_oyez_filenames:
+                    if out_href not in existing_oyez_filenames:
                         audio_href = (envelope.get('media') or {}).get('url', '')
                         type_val = _oyez_arg_type(oyez_arg.get('title', ''))
                         new_arg = {
                             'source':     'oyez',
                             'type':       type_val,
-                            'title':      _audio_title(type_val, date_str, part_num),
+                            'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                             'date':       date_str,
                             'audio_href': audio_href,
-                            'text_href':  out_name,
+                            'text_href':  out_href,
                         }
                         if _turns_are_aligned(envelope):
                             new_arg['aligned'] = True
                         local_case.setdefault('audio', []).append(new_arg)
-                        existing_oyez_filenames.add(out_name)
+                        existing_oyez_filenames.add(out_href)
                         cases_modified = True
 
                     time.sleep(0.3)
@@ -787,6 +832,7 @@ def main():
 
         # ── Opinion announcements ─────────────────────────────────────────────
         if local_case is not None:
+            _has_unique = any(a.get('unique') for a in local_case.get('audio', []))
             # Group by date to detect multi-part opinions on the same day.
             opinions_by_date: dict[str, list] = {}
             for oyez_opinion in (detail.get('opinion_announcement') or []):
@@ -808,7 +854,9 @@ def main():
             for date_str, parts in opinions_by_date.items():
                 use_parts = len(parts) > 1
 
-                # Rename existing unnumbered file to '-1' when multi-part detected.
+                if _has_unique:
+                    skipped += len(parts)
+                    continue
                 if use_parts:
                     unnumbered = case_dir / _oyez_filename(date_str)
                     part1_path = case_dir / _oyez_filename(date_str, 1)
@@ -817,20 +865,22 @@ def main():
                         print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
                         for a in local_case.get('audio', []):
                             if (a.get('source') == 'oyez' and a.get('date') == date_str
-                                    and a.get('text_href') == unnumbered.name):
-                                a['text_href'] = part1_path.name
-                                a['title'] = _audio_title('opinion', date_str, 1)
-                                existing_oyez_filenames.discard(unnumbered.name)
-                                existing_oyez_filenames.add(part1_path.name)
+                                    and a.get('text_href') == number + '/' + unnumbered.name):
+                                a['text_href'] = number + '/' + part1_path.name
+                                a['title'] = _audio_title('opinion', date_str, 1,
+                                                           case_num_for_title)
+                                existing_oyez_filenames.discard(number + '/' + unnumbered.name)
+                                existing_oyez_filenames.add(number + '/' + part1_path.name)
                                 cases_modified = True
                                 break
 
                 for part_idx, oyez_opinion in enumerate(parts, start=1):
-                    part_num = part_idx if use_parts else 0
-                    out_name = _oyez_filename(date_str, part_num)
-                    out_path = case_dir / out_name
+                    part_num  = part_idx if use_parts else 0
+                    out_fname = _oyez_filename(date_str, part_num)
+                    out_path  = case_dir / out_fname
+                    out_href  = number + '/' + out_fname
 
-                    if out_name in existing_oyez_filenames and not _needs_format_refresh(out_path):
+                    if out_href in existing_oyez_filenames and not _needs_format_refresh(out_path):
                         skipped += 1
                         continue
                     if out_path.exists() and not _needs_format_refresh(out_path):
@@ -843,11 +893,11 @@ def main():
                         envelope, mp3_url = fetch_oyez_transcript(oyez_opinion['href'], justices)
                         if envelope is None:
                             # No transcript, but still record the audio entry if it's new.
-                            if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
+                            if mp3_url and mp3_url not in existing_oyez_filenames and out_href not in existing_oyez_filenames:
                                 new_entry = {
                                     'source':     'oyez',
                                     'type':       'opinion',
-                                    'title':      _audio_title('opinion', date_str, part_num),
+                                    'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                     'date':       date_str,
                                     'audio_href': mp3_url,
                                 }
@@ -873,26 +923,257 @@ def main():
                         print(f'{len(envelope["turns"])} turns -> {rel}')
                         downloaded += 1
 
-                        if out_name not in existing_oyez_filenames:
+                        if out_href not in existing_oyez_filenames:
                             audio_href = (envelope.get('media') or {}).get('url', '')
                             new_entry = {
                                 'source':     'oyez',
                                 'type':       'opinion',
-                                'title':      _audio_title('opinion', date_str, part_num),
+                                'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                 'date':       date_str,
                                 'audio_href': audio_href,
-                                'text_href':  out_name,
+                                'text_href':  out_href,
                             }
                             if _turns_are_aligned(envelope):
                                 new_entry['aligned'] = True
                             local_case.setdefault('audio', []).append(new_entry)
-                            existing_oyez_filenames.add(out_name)
+                            existing_oyez_filenames.add(out_href)
                             cases_modified = True
 
                         time.sleep(0.3)
                     except Exception as exc:
                         print(f'ERROR: {exc}')
                         errors += 1
+
+    # ── Supplementary pass: consolidated cases ────────────────────────────────
+    # For cases that combine multiple docket numbers, ensure audio from ALL
+    # component numbers is present in the consolidated case entry.  The main
+    # loop only maps a component number to the consolidated case when that
+    # component has no separate case entry of its own; this pass handles the
+    # remaining components (those that do have their own entries) and also
+    # backfills " in No. N" titles on all existing audio entries.
+    for local_case in our_cases:
+        local_number = local_case.get('number', '')
+        if ',' not in local_number:
+            continue
+        component_nums = [_normalize_case_num(n.strip()) for n in local_number.split(',')]
+        # Only disambiguate with " in No. N" when multiple components have Oyez data.
+        oyez_component_nums = [cn for cn in component_nums if cn in oyez_by_num]
+        use_case_nums = len(oyez_component_nums) > 1
+
+        # ── Fix text_href folder vs audio_href case number mismatches ──────────
+        # If audio_href implies case number B but text_href is stored under folder
+        # A, move the file from A/ to B/ and update text_href.
+        _cases_dir = cases_path.parent / 'cases'
+        for a in local_case.get('audio', []):
+            if a.get('source') != 'oyez':
+                continue
+            th = a.get('text_href', '')
+            if not th or '/' not in th:
+                continue
+            folder_num, fname = th.split('/', 1)
+            cn_audio = _case_num_from_href('', a.get('audio_href', ''))
+            if cn_audio and cn_audio != folder_num and cn_audio in component_nums:
+                src_path = _cases_dir / folder_num / fname
+                dest_dir = _cases_dir / cn_audio
+                dest_path = dest_dir / fname
+                # Validate: the file's media.url must match the stored audio_href
+                # before we move it.  If they differ, the file belongs to a
+                # different component and should stay where it is.
+                audio_href_val = a.get('audio_href', '')
+                if src_path.exists() and audio_href_val:
+                    try:
+                        _fd = json.loads(src_path.read_text(encoding='utf-8'))
+                        file_url = (_fd.get('media') or {}).get('url', '')
+                    except Exception:
+                        file_url = ''
+                    if file_url and file_url != audio_href_val:
+                        print(f'  WARNING: {th} media.url ≠ audio_href — skipping refile')
+                        continue
+                if src_path.exists():
+                    dest_dir.mkdir(parents=True, exist_ok=True)
+                    src_path.rename(dest_path)
+                    print(f'  {local_number}: moved {folder_num}/{fname} → {cn_audio}/{fname}')
+                    # Remove source folder if now empty
+                    src_folder = _cases_dir / folder_num
+                    try:
+                        if src_folder.is_dir() and not any(src_folder.iterdir()):
+                            src_folder.rmdir()
+                    except Exception:
+                        pass
+                a['text_href'] = cn_audio + '/' + fname
+                cases_modified = True
+
+        # ── Backfill " in No. N" on every existing non-opinion audio entry ──────
+        # Only when multiple components have Oyez data (otherwise titles are unambiguous).
+        for a in local_case.get('audio', []):
+            if a.get('type') == 'opinion':
+                continue  # opinions don't get a case number in the title
+            has_case_num = ' in No.' in (a.get('title') or '')
+            cn = _case_num_from_href(a.get('text_href', ''), a.get('audio_href', ''))
+            if not (cn and cn in component_nums):
+                continue
+            type_v = a.get('type', 'argument')
+            date_v = a.get('date', '')
+            part_m = re.search(r'Part (\d+)', a.get('title') or '')
+            part_n = int(part_m.group(1)) if part_m else 0
+            if use_case_nums and not has_case_num:
+                a['title'] = _audio_title(type_v, date_v, part_n, cn)
+                cases_modified = True
+            elif not use_case_nums and has_case_num:
+                # Strip previously added " in No. N"
+                a['title'] = _audio_title(type_v, date_v, part_n, '')
+                cases_modified = True
+
+        # ── Add missing audio from each component number ───────────────────────
+        for comp_num in component_nums:
+            oyez_case = oyez_by_num.get(comp_num)
+            if not oyez_case:
+                continue
+            if case_filter and comp_num != case_filter and local_number != case_filter:
+                continue
+
+            comp_dir = cases_path.parent / 'cases' / comp_num
+
+            # Existing oyez hrefs already recorded for this component number
+            # (by text_href folder OR by audio_href containing the case number).
+            existing_comp: set[str] = {
+                a['text_href']
+                for a in local_case.get('audio', [])
+                if a.get('source') == 'oyez' and a.get('text_href', '').startswith(comp_num + '/')
+            }
+            # All existing oyez audio_hrefs (for dedup when we know the mp3 URL).
+            existing_oyez_audio_hrefs: set[str] = {
+                a.get('audio_href', '')
+                for a in local_case.get('audio', [])
+                if a.get('source') == 'oyez' and a.get('audio_href')
+            }
+            existing_comp_mp3s: set[str] = {
+                a.get('audio_href', '')
+                for a in local_case.get('audio', [])
+                if a.get('source') == 'oyez' and not a.get('text_href')
+                and a.get('audio_href')
+            }
+
+            try:
+                detail = fetch_json(oyez_case['href'])
+                time.sleep(0.2)
+            except Exception as exc:
+                print(f'  {local_number} / {comp_num}: ERROR fetching: {exc}')
+                errors += 1
+                continue
+
+            for section_key, base_type in [
+                ('oral_argument_audio', 'argument'),
+                ('opinion_announcement', 'opinion'),
+            ]:
+                arg_list = detail.get(section_key) or []
+                comp_by_date: dict[str, list] = {}
+                for oyez_arg in arg_list:
+                    if not oyez_arg or oyez_arg.get('unavailable'):
+                        continue
+                    date_str = parse_oyez_date(oyez_arg.get('title', ''))
+                    if date_str:
+                        comp_by_date.setdefault(date_str, []).append(oyez_arg)
+
+                for date_str, parts in comp_by_date.items():
+                    use_parts = len(parts) > 1
+                    for part_idx, oyez_arg in enumerate(parts, start=1):
+                        part_num  = part_idx if use_parts else 0
+                        out_fname = _oyez_filename(date_str, part_num)
+                        out_href  = comp_num + '/' + out_fname
+                        out_path  = comp_dir / out_fname
+                        type_val  = (base_type if base_type == 'opinion'
+                                     else _oyez_arg_type(oyez_arg.get('title', '')))
+
+                        if type_val == 'opinion' and any(
+                                a.get('unique') for a in local_case.get('audio', [])):
+                            skipped += 1
+                            continue
+
+                        if (out_href in existing_comp and out_path.exists()
+                                and not _needs_format_refresh(out_path)):
+                            skipped += 1
+                            continue
+
+                        label = f'Part {part_num} ' if use_parts else ''
+                        print(f'  {local_number} / {comp_num} ({date_str}) {label}...',
+                              end=' ', flush=True)
+                        try:
+                            if out_path.exists() and not _needs_format_refresh(out_path):
+                                # Already on disk (processed for the separate case) —
+                                # just add a reference without re-downloading.
+                                try:
+                                    _d    = json.loads(out_path.read_text(encoding='utf-8'))
+                                    mp3   = (_d.get('media') or {}).get('url', '')
+                                    algnd = _turns_are_aligned(_d)
+                                except Exception:
+                                    mp3 = algnd = ''
+                                # Skip if the same mp3 is already tracked under a
+                                # different entry (e.g. the other component number).
+                                if mp3 and mp3 in existing_oyez_audio_hrefs:
+                                    skipped += 1
+                                    print('already tracked \u2014 skipped')
+                                    continue
+                                print('already on disk \u2014 adding reference')
+                            else:
+                                envelope, mp3 = fetch_oyez_transcript(oyez_arg['href'], justices)
+                                if envelope is None:
+                                    if mp3 and mp3 not in existing_comp_mp3s:
+                                        new_entry = {
+                                            'source':     'oyez',
+                                            'type':       type_val,
+                                            'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
+                                            'date':       date_str,
+                                            'audio_href': mp3,
+                                        }
+                                        local_case.setdefault('audio', []).append(new_entry)
+                                        existing_comp_mp3s.add(mp3)
+                                        cases_modified = True
+                                        print('no transcript \u2014 audio entry added')
+                                    else:
+                                        print('no transcript data')
+                                    continue
+                                apply_speaker_map(envelope, speaker_map, title_map)
+                                _merge_envelope_speakers(out_path, envelope)
+                                comp_dir.mkdir(parents=True, exist_ok=True)
+                                out_path.write_text(
+                                    json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
+                                    encoding='utf-8',
+                                )
+                                mp3   = (envelope.get('media') or {}).get('url', '')
+                                algnd = _turns_are_aligned(envelope)
+                                try:
+                                    rel = out_path.relative_to(REPO_ROOT)
+                                except ValueError:
+                                    rel = out_path
+                                print(f'{len(envelope["turns"])} turns -> {rel}')
+                                downloaded += 1
+                                time.sleep(0.3)
+                                # After downloading: skip if this mp3 is already
+                                # tracked under a different entry.
+                                if mp3 and mp3 in existing_oyez_audio_hrefs:
+                                    skipped += 1
+                                    print('already tracked — skipped')
+                                    continue
+
+                            new_entry: dict = {
+                                'source':     'oyez',
+                                'type':       type_val,
+                                'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
+                                'date':       date_str,
+                                'audio_href': mp3,
+                                'text_href':  out_href,
+                            }
+                            if algnd:
+                                new_entry['aligned'] = True
+                            local_case.setdefault('audio', []).append(new_entry)
+                            existing_comp.add(out_href)
+                            if mp3:
+                                existing_oyez_audio_hrefs.add(mp3)
+                            cases_modified = True
+                        except Exception as exc:
+                            print(f'ERROR: {exc}')
+                            errors += 1
 
     if cases_modified:
         cases_path.write_text(
