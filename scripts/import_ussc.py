@@ -207,6 +207,44 @@ def _case_folder(number: str) -> str:
     return number.split(',')[0].strip()
 
 
+# Matches the case number embedded in a SCOTUS transcript PDF URL.
+# e.g. .../argument_transcripts/2006/05-380.pdf  or  .../pdfs/transcripts/2006/141orig.pdf
+_USSC_HREF_NUM_RE = re.compile(
+    r'/(?:argument_transcripts|transcripts)/\d+/([^/]+)\.pdf', re.IGNORECASE
+)
+
+
+def _ussc_case_num_from_href(transcript_href: str = '', text_href: str = '') -> str:
+    """Extract the component case-folder number from a USSC transcript_href URL
+    or a folder-prefixed text_href.
+
+    For a text_href like '05-380/2006-11-08.json', returns '05-380'.
+    Falls back to extracting the case number from a supremecourt.gov transcript
+    URL (.../argument_transcripts/YYYY/05-380.pdf → '05-380').
+    Returns '' if undetermined.
+    """
+    if text_href and '/' in text_href:
+        return text_href.split('/')[0]
+    if transcript_href:
+        m = _USSC_HREF_NUM_RE.search(transcript_href)
+        if m:
+            return _normalize_number(m.group(1))
+    return ''
+
+
+def _ussc_audio_title(type_val: str, date_str: str, case_num: str = '') -> str:
+    """Build a human-readable title for a USSC oral-argument audio entry."""
+    try:
+        dt         = datetime.fromisoformat(date_str)
+        date_label = f'{dt.strftime("%B")} {dt.day}, {dt.year}'
+    except (ValueError, TypeError):
+        date_label = date_str or '?'
+    case_str = f' in No. {case_num}' if case_num else ''
+    if type_val == 'reargument':
+        return f'Oral Reargument{case_str} on {date_label}'
+    return f'Oral Argument{case_str} on {date_label}'
+
+
 # ── Speaker name resolution ───────────────────────────────────────────────────
 
 # Matches each content line produced by pdftotext -layout (re-used below).
@@ -1099,23 +1137,32 @@ def generate_missing_transcripts(cases_path: Path,
             if not pdf_url or not date:
                 continue
 
+            # Determine which component folder this transcript belongs to.
+            # Use the folder prefix from an existing text_href if present;
+            # otherwise extract the case number from the transcript PDF URL.
+            _existing_th  = arg.get('text_href', '')
+            component_num = _ussc_case_num_from_href(pdf_url, _existing_th)
+            _case_norms   = [_normalize_number(n.strip()) for n in case['number'].split(',')]
+            if not component_num or component_num not in _case_norms:
+                component_num = _case_folder(case['number'])
+
             # Skip archived-format transcripts only when no cached text exists;
             # if a cached .txt file is present we can parse without downloading.
             if '/pdfs/transcripts/' in pdf_url:
-                if not _cached_text_path(case['number'], date, term).exists():
+                if not _cached_text_path(component_num, date, term).exists():
                     continue
 
-            case_dir       = cases_path.parent / 'cases' / _case_folder(case['number'])
+            case_dir       = cases_path.parent / 'cases' / component_num
             transcript_out = case_dir / f'{date}.json'
 
             # Skip if already generated and text_href is recorded, unless overwrite is requested.
-            if transcript_out.exists() and arg.get('text_href') and not case_filter and not force:
+            if transcript_out.exists() and _existing_th and not case_filter and not force:
                 continue
 
             print(f'  Extracting {case["number"]} ({date}) ...', end=' ', flush=True)
 
             # Use cached pdftotext output when available to avoid re-downloading.
-            cached_txt = _cached_text_path(case['number'], date, term)
+            cached_txt = _cached_text_path(component_num, date, term)
             audio_href = arg.get('audio_href', '')
             tmp_path   = None
             try:
@@ -1138,8 +1185,9 @@ def generate_missing_transcripts(cases_path: Path,
 
                 print(f'{len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
 
-                if not arg.get('text_href'):
-                    arg['text_href'] = f'{date}.json'
+                new_text_href = f'{component_num}/{date}.json'
+                if arg.get('text_href') != new_text_href:
+                    arg['text_href'] = new_text_href
                     modified = True
 
             except subprocess.CalledProcessError as exc:
@@ -1149,6 +1197,45 @@ def generate_missing_transcripts(cases_path: Path,
             finally:
                 if tmp_path and tmp_path.exists():
                     tmp_path.unlink()
+
+    # ── Supplementary pass: backfill/strip "in No. N" for consolidated cases ──
+    # Only add the case number to the title when multiple component numbers each
+    # have a USSC transcript (so the titles are actually ambiguous without it).
+    for case in existing:
+        if case_filter and case['number'] != case_filter:
+            continue
+        if ',' not in case.get('number', ''):
+            continue
+        comps = [_normalize_number(n.strip()) for n in case['number'].split(',')]
+        # Count distinct component numbers that have USSC argument transcripts.
+        ussc_comp_nums: set[str] = set()
+        for a in case.get('audio', []):
+            if a.get('source', 'ussc') != 'ussc':
+                continue
+            if a.get('type') not in (None, 'argument', 'reargument'):
+                continue
+            cn = _ussc_case_num_from_href(a.get('transcript_href', ''), a.get('text_href', ''))
+            if cn and cn in comps:
+                ussc_comp_nums.add(cn)
+        use_case_nums = len(ussc_comp_nums) > 1
+        for a in case.get('audio', []):
+            if a.get('source', 'ussc') != 'ussc':
+                continue
+            if a.get('type') not in (None, 'argument', 'reargument'):
+                continue
+            title = a.get('title') or ''
+            has_case_num = ' in No.' in title
+            cn = _ussc_case_num_from_href(a.get('transcript_href', ''), a.get('text_href', ''))
+            if not (cn and cn in comps):
+                continue
+            type_v = a.get('type') or 'argument'
+            date_v = a.get('date', '')
+            if use_case_nums and not has_case_num:
+                a['title'] = _ussc_audio_title(type_v, date_v, cn)
+                modified = True
+            elif not use_case_nums and has_case_num:
+                a['title'] = _ussc_audio_title(type_v, date_v, '')
+                modified = True
 
     if modified:
         cases_path.write_text(
@@ -1398,6 +1485,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
             matched_rows.add(key)
             # Assign transcript_href to any ussc audio entry with a matching date.
             assigned = False
+            row_comp = _normalize_number(row['number'])
             for arg in case.get('audio', []):
                 if arg.get('source', 'ussc') != 'ussc':
                     continue   # never modify oyez/nara objects
@@ -1406,7 +1494,15 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                 arg_date = arg.get('date', '')
                 if not (arg_date == row['date'] or (not arg_date and len(rows) == 1)):
                     continue
-                # A ussc audio object for this date already exists.
+                # For consolidated cases, also verify component number alignment:
+                # an existing audio object whose transcript_href (or text_href)
+                # belongs to a *different* component should not absorb this row.
+                if len(case_norms) > 1:
+                    existing_comp = _ussc_case_num_from_href(
+                        arg.get('transcript_href', ''), arg.get('text_href', ''))
+                    if existing_comp and existing_comp != row_comp:
+                        continue  # this entry belongs to a different component
+                # A ussc audio object for this date+component already exists.
                 assigned = True
                 if arg.get('transcript_href'):
                     break   # already has a transcript_href — nothing to do
@@ -1438,11 +1534,14 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                     for a in audio_list
                 )
                 if not already:
-                    try:
-                        dt    = datetime.fromisoformat(row['date'])
-                        title = f'Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
-                    except ValueError:
-                        title = f'Oral Argument on {row["date"]}'
+                    # Use "in No. N" only when multiple components have transcripts.
+                    _ussc_comps_with_transcripts = {
+                        cn for cn in case_norms if by_number.get(cn)
+                    }
+                    _case_num_for_title = (
+                        row['number'] if len(_ussc_comps_with_transcripts) > 1 else ''
+                    )
+                    title = _ussc_audio_title('argument', row['date'], _case_num_for_title)
                     new_audio: dict = {'source': 'ussc', 'type': 'argument',
                                        'title': title, 'date': row['date'],
                                        'transcript_href': row['pdf_url']}
