@@ -597,13 +597,25 @@ def main():
                     ):
                         continue
 
-                    # Title matched — check advocate in transcript speakers.
+                    # Title matched — check advocate in transcript speakers or
+                    # the explicit advocates list on the audio object.
                     audios = abd[audio_date_match]
 
                     found_sp = False
                     matched_sp = None
                     matched_text_href = None
                     for audio in audios:
+                        # Check explicit advocates list first (works even without
+                        # a transcript file).
+                        for raw_adv in audio.get('advocates', []):
+                            if speaker_name_matches(raw_adv.strip(), norm_advocate):
+                                found_sp = True
+                                matched_sp = {'name': raw_adv.strip(), 'title': 'MS.'}
+                                matched_text_href = audio.get('text_href', '')
+                                break
+                        if found_sp:
+                            break
+                        # Fall back to transcript speakers array.
                         text_href = audio.get('text_href', '')
                         speakers = get_speakers(
                             term, case_num, text_href
