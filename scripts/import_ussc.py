@@ -69,7 +69,7 @@ from validate_cases import _fetch_opinions, check_opinion_for_case, sync_files_c
 
 
 CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
-DATE_RE  = re.compile(r'^(\d{2})/(\d{2})/(\d{2})$')
+DATE_RE  = re.compile(r'^(\d{1,2})/(\d{1,2})/(\d{2})$')
 ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
 # Like CASE_RE but also matches '130Orig' (no hyphen) and bare numbers (e.g. '163') as
@@ -146,12 +146,12 @@ def download_file(url: str, dest: Path) -> None:
 # ── Date conversion ───────────────────────────────────────────────────────────
 
 def parse_date(date_str: str) -> str | None:
-    """Convert MM/DD/YY to YYYY-MM-DD (assumes 2000s)."""
+    """Convert M/D/YY or MM/DD/YY to YYYY-MM-DD (assumes 2000s)."""
     m = DATE_RE.match(date_str.strip())
     if not m:
         return None
     month, day, year2 = m.group(1), m.group(2), m.group(3)
-    return f'20{year2}-{month}-{day}'
+    return f'20{year2}-{int(month):02d}-{int(day):02d}'
 
 
 DOCKET_DATE_RE = re.compile(r'^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$')
@@ -296,6 +296,8 @@ def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
     return result
 
 
+_APPEARANCES_ESQ_RE = re.compile(r'^(.+?),\s*ESQ\.', re.IGNORECASE)
+
 def parse_appearances(raw_text: str) -> dict[str, str]:
     """Parse the APPEARANCES section of a pdftotext transcript.
 
@@ -316,6 +318,12 @@ def parse_appearances(raw_text: str) -> dict[str, str]:
             continue
         if content in ('C O N T E N T S', 'P R O C E E D I N G S'):
             break
+        # Preferred: extract name as everything before ", ESQ." — handles
+        # mixed-case prefixes like "McALLISTER" that trip up the regex.
+        esq = _APPEARANCES_ESQ_RE.match(content)
+        if esq:
+            names.append(esq.group(1).strip())
+            continue
         nm = _APPEARANCES_NAME_RE.match(content)
         if nm:
             names.append(nm.group(1).strip())
@@ -412,7 +420,7 @@ CONTENT_LINE_RE = re.compile(r'^\s{0,3}(\d{1,2})\s{2,}(.+)')
 
 SPEAKER_RE = re.compile(
     r'^((?:CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)'
-    r'\s+[A-Z][A-Z\.]+(?:\s+[A-Z][A-Z\.]+)*):\s*(.*)',
+    r"\s+[A-Z][A-Za-z'\.]+(?:\s+[A-Z][A-Za-z'\.]+)*):\s*(.*)",
     re.DOTALL,
 )
 
