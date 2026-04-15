@@ -27,7 +27,7 @@ import re
 import sys
 import time
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from validate_cases import sync_files_count
 
@@ -375,7 +375,7 @@ def _parse_unix_date(ts) -> str | None:
     if not ts:
         return None
     try:
-        return datetime.fromtimestamp(int(ts), datetime.UTC).strftime('%Y-%m-%d')
+        return datetime.fromtimestamp(int(ts), timezone.utc).strftime('%Y-%m-%d')
     except (ValueError, OSError, OverflowError):
         return None
 
@@ -833,6 +833,16 @@ def main():
         # ── Opinion announcements ─────────────────────────────────────────────
         if local_case is not None:
             _has_unique = any(a.get('unique') for a in local_case.get('audio', []))
+            # For consolidated cases, track which opinion dates are already covered
+            # by any component so secondary components don't add duplicate entries.
+            _is_secondary = (is_consolidated
+                             and number != _normalize_case_num(
+                                 _local_number.split(',')[0].strip()))
+            _existing_opinion_dates: set[str] = set()
+            if _is_secondary:
+                for _a in local_case.get('audio', []):
+                    if _a.get('type') == 'opinion' and _a.get('date'):
+                        _existing_opinion_dates.add(_a['date'])
             # Group by date to detect multi-part opinions on the same day.
             opinions_by_date: dict[str, list] = {}
             for oyez_opinion in (detail.get('opinion_announcement') or []):
@@ -855,6 +865,11 @@ def main():
                 use_parts = len(parts) > 1
 
                 if _has_unique:
+                    skipped += len(parts)
+                    continue
+                # Secondary component of a consolidated case: skip if the lead
+                # (or any other component) already has an opinion for this date.
+                if _is_secondary and date_str in _existing_opinion_dates:
                     skipped += len(parts)
                     continue
                 if use_parts:
