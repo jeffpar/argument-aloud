@@ -1467,8 +1467,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
 // Load (or switch to) a specific audio entry within the already-set-up case.
 async function loadAudioEntry(arg, basePath) {
+  // text_href values are relative to the term's cases/ directory (one level up
+  // from basePath, which points to the individual case folder).
+  const casesPath = basePath.replace(/[^/]+\/$/, '');
   const transcriptUrl = arg.text_href
-    ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href))
+    ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (casesPath + arg.text_href))
     : null;
   const audioUrl = arg.audio_href
     ? (/^https?:\/\//i.test(arg.audio_href) ? arg.audio_href : (basePath + arg.audio_href))
