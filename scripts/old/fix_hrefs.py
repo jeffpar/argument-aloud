@@ -48,6 +48,7 @@ def main() -> None:
     total_missing   = 0
     total_orphaned  = 0
     total_warned    = 0
+    total_dupes     = 0
     files_written   = 0
 
     for cases_path in sorted(TERMS_DIR.glob('*/cases.json')):
@@ -59,6 +60,7 @@ def main() -> None:
         term_missing  = 0
         term_orphaned = 0
         term_warned   = 0
+        term_dupes    = 0
 
         # ── Pass 1: migrate bare filenames ────────────────────────────────────
         for case in cases:
@@ -127,6 +129,22 @@ def main() -> None:
                     total_orphaned += 1
                     term_orphaned  += 1
 
+        # ── Pass 4: detect duplicate text_href values ──────────────────────────
+        seen: dict[str, str] = {}  # text_href -> first case number that used it
+        for case in cases:
+            number_field = case.get('number', '')
+            for audio in case.get('audio', []):
+                th = audio.get('text_href', '')
+                if not th or th.startswith('http') or '/' not in th:
+                    continue
+                if th in seen:
+                    print(f'  DUPE:    {term}/{number_field}: text_href {th!r} '
+                          f'already used by {seen[th]}')
+                    total_dupes += 1
+                    term_dupes  += 1
+                else:
+                    seen[th] = number_field
+
         # ── Write updated cases.json ───────────────────────────────────────────
         if term_updated and not dry_run:
             cases_path.write_text(
@@ -135,7 +153,7 @@ def main() -> None:
             )
             files_written += 1
 
-        if term_updated or term_warned or term_missing or term_orphaned:
+        if term_updated or term_warned or term_missing or term_orphaned or term_dupes:
             parts = []
             if term_updated:
                 parts.append(f'migrated {term_updated}')
@@ -143,6 +161,8 @@ def main() -> None:
                 parts.append(f'{term_missing} missing')
             if term_orphaned:
                 parts.append(f'{term_orphaned} orphaned')
+            if term_dupes:
+                parts.append(f'{term_dupes} duplicate(s)')
             if term_warned:
                 parts.append(f'{term_warned} unresolvable')
             print(f'{term}: {", ".join(parts)}')
@@ -158,6 +178,8 @@ def main() -> None:
         print(f'{total_missing} text_href(s) point to missing files.')
     if total_orphaned:
         print(f'{total_orphaned} transcript file(s) have no text_href reference.')
+    if total_dupes:
+        print(f'{total_dupes} duplicate text_href value(s) found.')
     if total_warned:
         print(f'{total_warned} bare text_href(s) could not be resolved and were left unchanged.')
 

@@ -185,7 +185,7 @@ def extract_bare_us_citations(csv_name):
     # Match "NNN U.S. NNN" not followed by a space+digit (which would be a
     # page reference) and not already captured with a year by extract_us_citations.
     results = []
-    for vol, page in re.findall(r'(\d+)\s+U\.S\.?\s+(\d+)(?!\s*\(\d{4}\))', csv_name):
+    for vol, page in re.findall(r'(\d+)\s+U\.S\.?\s+(\d+)(?!\d)(?!\s*\(\d{4}\))', csv_name):
         results.append(f"{vol} U.S. {page}")
     return results
 
@@ -634,6 +634,32 @@ def main():
 
         if match_result:
             term_r, case_num_r, csv_date_r, audio_date_r, matched_sp, matched_text_href = match_result
+            # Check for U.S. citation mismatch: if CSV has a citation with both
+            # volume and page numbers, it should match the case's usCite field.
+            # If the CSV citation is followed by a year in parentheses, that
+            # year should also match the year of the case's decision date.
+            _matched_case = next(
+                (_c for _c, _ in term_case_data.get(term_r, [])
+                 if _c.get('number') == case_num_r),
+                None,
+            )
+            if _matched_case is not None:
+                _case_us_cite    = _matched_case.get('usCite', '') or ''
+                _case_decision   = _matched_case.get('decision', '') or ''
+                _case_dec_year   = _case_decision[:4] if _case_decision else ''
+                # Citations with year: check both citation and year.
+                for _cite, _yr in extract_us_citations(csv_name):
+                    if _case_us_cite and _cite != _case_us_cite:
+                        print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}"
+                              f" — CSV citation {_cite!r} does not match case usCite {_case_us_cite!r}")
+                    if _case_dec_year and _yr != _case_dec_year:
+                        print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}"
+                              f" — CSV citation year {_yr!r} does not match case decision year {_case_dec_year!r}")
+                # Bare citations (no year): check citation only.
+                for _cite in extract_bare_us_citations(csv_name):
+                    if _case_us_cite and _cite != _case_us_cite:
+                        print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}"
+                              f" — CSV citation {_cite!r} does not match case usCite {_case_us_cite!r}")
             if found_sp:
                 if verbose:
                     print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
