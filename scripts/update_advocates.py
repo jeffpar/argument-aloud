@@ -316,7 +316,7 @@ def main() -> None:
                         _names.add(_n.upper())
                 _pre_text = _pre_audio.get("text_href")
                 if _pre_text:
-                    _pre_path = term_dir / "cases" / folder_num / _pre_text
+                    _pre_path = term_dir / "cases" / _pre_text
                     if _pre_path.exists():
                         try:
                             _pre_t = json.loads(
@@ -411,7 +411,7 @@ def main() -> None:
                     continue
 
                 transcript_path = (
-                    term_dir / "cases" / folder_num / text_href
+                    term_dir / "cases" / text_href
                 )
                 if not transcript_path.exists():
                     continue

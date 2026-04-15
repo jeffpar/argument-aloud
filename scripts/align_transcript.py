@@ -233,7 +233,7 @@ def _fetch_words(audio_href: str, cache_path: Path, model_name: str) -> list[dic
         tmp_path.unlink(missing_ok=True)
 
 
-def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> bool:
+def _align_argument(arg: dict, cases_dir: Path, model_name: str, purge: bool) -> bool:
     """Align a single argument's transcript file in-place.
 
     Returns True if the transcript has complete timestamps (either already
@@ -248,10 +248,12 @@ def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> 
               file=sys.stderr)
         return False
 
-    transcript_path = case_dir / text_href
+    transcript_path = cases_dir / text_href
     if not transcript_path.exists():
         print(f"[align] {transcript_path} not found — skipped.", file=sys.stderr)
         return False
+
+    case_dir = transcript_path.parent  # cases/<number>/
 
     turns = json.loads(transcript_path.read_text(encoding="utf-8"))
 
@@ -409,10 +411,11 @@ def main() -> None:
     case_dir = term_dir / 'cases' / args.case
     if not case_dir.is_dir():
         sys.exit(f"Error: case directory not found: {case_dir}")
+    cases_dir = case_dir.parent
 
     cases_modified = False
     for arg in audio:
-        was_aligned = _align_argument(arg, case_dir, args.model, args.purge)
+        was_aligned = _align_argument(arg, cases_dir, args.model, args.purge)
         if was_aligned and not arg.get('aligned'):
             arg['aligned'] = True
             cases_modified = True
