@@ -175,6 +175,21 @@ def extract_us_citations(csv_name):
     ]
 
 
+def extract_bare_us_citations(csv_name):
+    """
+    Extract bare U.S. Reports citations (no year) from a CSV Case Name field.
+
+    Matches patterns like "555 U.S. 379" that lack a parenthesised year.
+    Returns list of citation strings, e.g. ["555 U.S. 379"].
+    """
+    # Match "NNN U.S. NNN" not followed by a space+digit (which would be a
+    # page reference) and not already captured with a year by extract_us_citations.
+    results = []
+    for vol, page in re.findall(r'(\d+)\s+U\.S\.?\s+(\d+)(?!\s*\(\d{4}\))', csv_name):
+        results.append(f"{vol} U.S. {page}")
+    return results
+
+
 def extract_titles(csv_name):
     """
     Extract all individual case titles from a CSV Case Name field.
@@ -288,10 +303,17 @@ def speaker_name_matches(speaker_name: str, norm_advocate: str) -> bool:
     Tries exact match first, then falls back to first+last name only so that
     a middle name or initial difference (e.g. "AMANDA RICE" vs
     "AMANDA K. RICE") is still considered a match.
+    Also resolves the transcript speaker name through NAME_ALIASES so that an
+    old name in a transcript (e.g. "ANN O'CONNELL ADAMS") matches the CSV's
+    canonical name (e.g. "ANN O'CONNELL").
     """
     sp = ascii_fold(speaker_name.upper().strip())
     adv = ascii_fold(norm_advocate)
     if sp == adv:
+        return True
+    # Resolve old transcript name via alias table.
+    canonical = NAME_ALIASES.get(sp)
+    if canonical and ascii_fold(canonical) == adv:
         return True
     # First + last token comparison (ignores middle names/initials)
     sp_parts = sp.split()
@@ -352,10 +374,16 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
         if case_num in csv_nums:
             return True
 
-    # 2. U.S. citation match
+    # 2. U.S. citation match (with year)
     if us_cite and decision_year:
         for cite, yr in extract_us_citations(csv_name):
             if cite == us_cite and yr == decision_year:
+                return True
+
+    # 2b. Bare U.S. citation match (no year in CSV, compare directly to usCite)
+    if us_cite:
+        for cite in extract_bare_us_citations(csv_name):
+            if cite == us_cite:
                 return True
 
     # 3. Fuzzy title match on each extracted case title, plus the full CSV
@@ -610,13 +638,14 @@ def main():
                 if verbose:
                     print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
                 if audio_date_r != csv_date_r:
-                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
+                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
                 title_raw = (matched_sp.get('title') or '').upper()
                 title_parts = {t.strip() for t in title_raw.split(',')}
                 if not title_parts & FEMININE_TITLES:
                     print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — title is {title_raw.strip()!r}, not a feminine honorific")
                     if do_fix and matched_text_href:
-                        path = os.path.join(TERMS_DIR, term_r, 'cases', case_num_r, matched_text_href)
+                        folder = case_num_r.split(',')[0].strip()
+                        path = os.path.join(TERMS_DIR, term_r, 'cases', folder, matched_text_href)
                         try:
                             with open(path, encoding='utf-8') as f:
                                 data = json.load(f)
@@ -639,7 +668,7 @@ def main():
             else:
                 print(f"UNKNOWN: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
                 if audio_date_r != csv_date_r:
-                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
+                    print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
         elif terms_to_search:
             # No matching case found after exhausting all candidate terms.
             print(f"UNKNOWN: {natural}/? {primary_date} {advocate}; {csv_name}")
