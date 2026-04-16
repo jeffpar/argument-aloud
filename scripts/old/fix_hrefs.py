@@ -49,6 +49,7 @@ def main() -> None:
     total_orphaned  = 0
     total_warned    = 0
     total_dupes     = 0
+    total_stripped  = 0
     files_written   = 0
 
     for cases_path in sorted(TERMS_DIR.glob('*/cases.json')):
@@ -61,6 +62,7 @@ def main() -> None:
         term_orphaned = 0
         term_warned   = 0
         term_dupes    = 0
+        term_stripped = 0
 
         # ── Pass 1: migrate bare filenames ────────────────────────────────────
         for case in cases:
@@ -145,18 +147,46 @@ def main() -> None:
                 else:
                     seen[th] = number_field
 
+        # ── Pass 5: strip transcript_href from oyez objects when the same URL
+        #    is already owned by a ussc object in the same case ────────────────
+        term_stripped = 0
+        for case in cases:
+            number_field = case.get('number', '')
+            ussc_transcript_hrefs: set[str] = set()
+            for audio in case.get('audio', []):
+                if audio.get('source', 'ussc') == 'ussc':
+                    th = audio.get('transcript_href', '')
+                    if th:
+                        ussc_transcript_hrefs.add(th)
+            if not ussc_transcript_hrefs:
+                continue
+            for audio in case.get('audio', []):
+                if audio.get('source') != 'oyez':
+                    continue
+                th = audio.get('transcript_href', '')
+                if th and th in ussc_transcript_hrefs:
+                    if dry_run:
+                        print(f'  STRIP transcript_href {term}/{number_field} '
+                              f'[oyez {audio.get("date","?")}]: {th!r}')
+                    else:
+                        del audio['transcript_href']
+                    term_stripped  += 1
+                    total_stripped += 1
+
         # ── Write updated cases.json ───────────────────────────────────────────
-        if term_updated and not dry_run:
+        if (term_updated or term_stripped) and not dry_run:
             cases_path.write_text(
                 json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
                 encoding='utf-8',
             )
             files_written += 1
 
-        if term_updated or term_warned or term_missing or term_orphaned or term_dupes:
+        if term_updated or term_warned or term_missing or term_orphaned or term_dupes or term_stripped:
             parts = []
             if term_updated:
                 parts.append(f'migrated {term_updated}')
+            if term_stripped:
+                parts.append(f'stripped {term_stripped} oyez transcript_href(s)')
             if term_missing:
                 parts.append(f'{term_missing} missing')
             if term_orphaned:
@@ -172,8 +202,12 @@ def main() -> None:
     print()
     if dry_run:
         print(f'Would migrate {total_updated} text_href(s).')
+        if total_stripped:
+            print(f'Would strip transcript_href from {total_stripped} oyez audio object(s).')
     else:
         print(f'Migrated {total_updated} text_href(s) in {files_written} cases.json file(s).')
+        if total_stripped:
+            print(f'Stripped transcript_href from {total_stripped} oyez audio object(s).')
     if total_missing:
         print(f'{total_missing} text_href(s) point to missing files.')
     if total_orphaned:

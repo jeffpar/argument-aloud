@@ -386,17 +386,6 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
             if cite == us_cite:
                 return True
 
-    # Disqualify: if the CSV contains a U.S. citation (volume + page) AND the
-    # case has a non-empty usCite that matches none of them, block title/word-
-    # overlap matching so that a case with a clearly different citation cannot
-    # be chosen over the correct one.
-    _csv_cites = (
-        [c for c, _ in extract_us_citations(csv_name)]
-        + extract_bare_us_citations(csv_name)
-    )
-    if _csv_cites and us_cite and not any(c == us_cite for c in _csv_cites):
-        return False
-
     # 3. Fuzzy title match on each extracted case title, plus the full CSV
     #    name stripped of case numbers/citations as a fallback candidate.
     #    The fallback handles cases like "TikTok, Inc. v. Garland" where the
