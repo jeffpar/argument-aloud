@@ -31,13 +31,13 @@ from collections import defaultdict
 from datetime import date, timedelta
 from difflib import SequenceMatcher
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_PATH = os.path.join(
-    BASE_DIR, 'data', 'courts', 'ussc',
+    BASE_DIR, 'data', 'misc',
     'Women Advocates Through October Term 2024.csv'
 )
 TERMS_DIR = os.path.join(BASE_DIR, 'courts', 'ussc', 'terms')
-_ALIASES_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'name_aliases.txt')
+_ALIASES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'name_aliases.txt')
 
 
 def _load_name_aliases(path):
