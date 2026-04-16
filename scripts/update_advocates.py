@@ -303,6 +303,18 @@ def main() -> None:
             audio_sorted_pos = {orig_i: sorted_i + 1
                                 for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
 
+            # For terms <= 1999-10 the ussc transcripts come from scanned
+            # documents with potentially inferior OCR; prefer oyez transcripts
+            # when both sources cover the same argument date.
+            is_early_term = (term <= "1999-10")
+            oyez_dates: set[str] = set()
+            if is_early_term:
+                for _a in audio_entries:
+                    if _a.get("source") == "oyez":
+                        _d = _a.get("date") or case.get("argument", "")
+                        if _d:
+                            oyez_dates.add(_d)
+
             # Pre-load advocate names per audio entry so that when multiple
             # entries on the same date all contain the same advocate, we can
             # record the best entry's position (aligned preferred).
@@ -315,7 +327,13 @@ def main() -> None:
                     if _n:
                         _names.add(_n.upper())
                 _pre_text = _pre_audio.get("text_href")
-                if _pre_text:
+                _pre_date = _pre_audio.get("date") or case.get("argument", "")
+                _skip_ussc_pre = (
+                    is_early_term
+                    and _pre_audio.get("source") == "ussc"
+                    and _pre_date in oyez_dates
+                )
+                if _pre_text and not _skip_ussc_pre:
                     _pre_path = term_dir / "cases" / _pre_text
                     if _pre_path.exists():
                         try:
@@ -407,7 +425,12 @@ def main() -> None:
 
                 # --- Transcript-based speakers ---
                 text_href = audio.get("text_href")
-                if not text_href or not audio_date:
+                skip_ussc_transcript = (
+                    is_early_term
+                    and audio.get("source") == "ussc"
+                    and audio_date in oyez_dates
+                )
+                if not text_href or not audio_date or skip_ussc_transcript:
                     continue
 
                 transcript_path = (
