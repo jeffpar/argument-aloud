@@ -254,6 +254,36 @@ _APPEARANCES_NAME_RE = re.compile(
 )
 _SUFFIX_WORDS = frozenset({'JR', 'SR', 'II', 'III', 'IV'})
 
+# Matches a trailing suffix that is not yet preceded by ", " (needs normalisation).
+# Covers: "JOHN DOE JR." / "JOHN DOE JR" / "JOHN DOE, JR" / "JOHN DOE II" etc.
+_SUFFIX_NORM_RE = re.compile(
+    r'^(.+?)(?:,\s*|\s+)(JR\.|SR\.|JR|SR|II|III|IV)\s*$',
+    re.IGNORECASE,
+)
+
+
+def _normalize_name_suffix(name: str) -> str:
+    """Ensure generation suffixes are separated by ", " and consistently cased.
+
+    Examples
+    --------
+    'JOHN DOE JR'    -> 'JOHN DOE, JR.'
+    'JOHN DOE JR.'   -> 'JOHN DOE, JR.'
+    'JOHN DOE, JR'   -> 'JOHN DOE, JR.'
+    'JOHN DOE, SR.'  -> 'JOHN DOE, SR.'  (unchanged)
+    'JOHN DOE II'    -> 'JOHN DOE, II'
+    'JOHN DOE, III'  -> 'JOHN DOE, III'  (unchanged)
+    """
+    m = _SUFFIX_NORM_RE.match(name)
+    if not m:
+        return name
+    base   = m.group(1).strip()
+    suffix = m.group(2).upper().rstrip('.')
+    # JR and SR get a trailing period; Roman numerals do not.
+    if suffix in ('JR', 'SR'):
+        suffix += '.'
+    return f'{base}, {suffix}'
+
 
 def _build_justice_last_name_map() -> dict[str, str]:
     """Return {LAST_NAME_UPPER: canonical_name_upper} from justices.json."""
@@ -370,6 +400,13 @@ def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
 
 _APPEARANCES_ESQ_RE = re.compile(r'^(.+?)(?:,\s*|\s+)(?:ESQUIRE|ESQ\.)', re.IGNORECASE)
 
+# Strip argument-header prefixes that sometimes appear in the APPEARANCES section
+# of old transcripts (e.g. "ORAL ARGUMENT OF JOHN DOE" → "JOHN DOE").
+_APPEARANCES_HEADER_PREFIX_RE = re.compile(
+    r'^(?:ORAL\s+)?(?:ARGUMENT|REBUTTAL\s+ARGUMENT)\s+(?:OF|BY)\s+',
+    re.IGNORECASE,
+)
+
 # First names that are overwhelmingly female — used to disambiguate advocates
 # who share a last name when the transcript token has MR. vs MS./MRS./MISS.
 _FEMALE_FIRST_NAMES = frozenset({
@@ -469,6 +506,10 @@ def parse_appearances(raw_text: str) -> dict[str, list[str]]:
     result: dict[str, list[str]] = {}
     for name in names:
         name_upper = name.upper()
+        # Strip argument-header prefixes (e.g. "ORAL ARGUMENT OF JOHN DOE" → "JOHN DOE").
+        name_upper = _APPEARANCES_HEADER_PREFIX_RE.sub('', name_upper).strip()
+        if not name_upper:
+            continue
         parts = [p.strip('.,') for p in name_upper.split()]
         last = parts[-1]
         if last in _SUFFIX_WORDS and len(parts) > 1:
@@ -722,6 +763,14 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     if _RENAME_SPEAKER_MAP:
         for turn in turns:
             turn['name'] = _RENAME_SPEAKER_MAP.get(turn['name'], turn['name'])
+
+    # Normalise generation suffixes ("JR" → ", JR.", "II" → ", II", etc.).
+    for turn in turns:
+        turn['name'] = _normalize_name_suffix(turn['name'])
+    raw_to_resolved = {
+        raw: (_normalize_name_suffix(full), title)
+        for raw, (full, title) in raw_to_resolved.items()
+    }
 
     # Assign 1-based "turn" IDs (key placed first for readability).
     turns = [{'turn': i + 1, **turn} for i, turn in enumerate(turns)]
