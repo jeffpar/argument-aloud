@@ -249,8 +249,8 @@ def _ussc_audio_title(type_val: str, date_str: str, case_num: str = '') -> str:
 
 # Matches each content line produced by pdftotext -layout (re-used below).
 _APPEARANCES_NAME_RE = re.compile(
-    r'^([A-Z][A-Z\'\.\-]+(?:\s+[A-Z][A-Z\'\.\-]+){1,}'  # FIRST [MIDDLE] LAST
-    r'(?:,\s*(?:JR|SR|II|III|IV)\.?)?)[\s,]',             # optional , JR.
+    r'^([A-Z][A-Za-z\'\.\-]+(?:\s+[A-Z][A-Za-z\'\.\-]+){1,}'  # FIRST [MIDDLE] LAST (allows McX)
+    r'(?:,\s*(?:JR|SR|II|III|IV)\.?)?)[\s,]',                   # optional , JR.
 )
 _SUFFIX_WORDS = frozenset({'JR', 'SR', 'II', 'III', 'IV'})
 
@@ -272,6 +272,40 @@ def _build_justice_last_name_map() -> dict[str, str]:
 
 
 _JUSTICE_LAST_NAME_MAP: dict[str, str] = _build_justice_last_name_map()
+
+
+def _load_typo_speaker_map() -> dict[str, str]:
+    """Return {RAW_TOKEN_UPPER: CORRECTED_NAME_UPPER} from TYPO: lines in speakermap.txt."""
+    result: dict[str, str] = {}
+    if not SPEAKERMAP_PATH.exists():
+        return result
+    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line.upper().startswith('TYPO:') or '->' not in line:
+            continue
+        raw_tok, corrected = line[5:].rsplit('->', 1)
+        result[raw_tok.strip().upper()] = corrected.strip().upper()
+    return result
+
+
+_TYPO_SPEAKER_MAP: dict[str, str] = _load_typo_speaker_map()
+
+
+def _load_rename_speaker_map() -> dict[str, str]:
+    """Return {OLD_NAME_UPPER: NEW_NAME_UPPER} from RENAME: lines in speakermap.txt."""
+    result: dict[str, str] = {}
+    if not SPEAKERMAP_PATH.exists():
+        return result
+    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line.upper().startswith('RENAME:') or '->' not in line:
+            continue
+        old_name, new_name = line[7:].rsplit('->', 1)
+        result[old_name.strip().upper()] = new_name.strip().upper()
+    return result
+
+
+_RENAME_SPEAKER_MAP: dict[str, str] = _load_rename_speaker_map()
 
 
 # Matches an advocate title prefix that may appear at the start of a name
@@ -334,27 +368,93 @@ def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
     return result
 
 
-_APPEARANCES_ESQ_RE = re.compile(r'^(.+?),\s*ESQ\.', re.IGNORECASE)
+_APPEARANCES_ESQ_RE = re.compile(r'^(.+?),\s*(?:ESQUIRE|ESQ\.)', re.IGNORECASE)
 
-def parse_appearances(raw_text: str) -> dict[str, str]:
+# First names that are overwhelmingly female — used to disambiguate advocates
+# who share a last name when the transcript token has MR. vs MS./MRS./MISS.
+_FEMALE_FIRST_NAMES = frozenset({
+    'ABIGAIL', 'ADRIENNE', 'AILEEN', 'AIMEE', 'ALEXIS', 'ALICE', 'ALICIA',
+    'ALISON', 'ALLISON', 'ALYSSA', 'AMANDA', 'AMBER', 'AMY', 'ANDREA',
+    'ANGELA', 'ANN', 'ANNA', 'ANNE', 'ANNETTE', 'ARIEL', 'ASHLEY',
+    'AUDREY', 'AUTUMN', 'BARBARA', 'BETTY', 'BEVERLY', 'BRENDA', 'BRIANNA',
+    'BRITTANY', 'BROOKE', 'CANDICE', 'CAROL', 'CARLY', 'CAROL', 'CAROLYN',
+    'CASSANDRA', 'CECILIA', 'CHARLOTTE', 'CHELSEA', 'CHERYL', 'CHRISTY',
+    'CINDY', 'CLAIRE', 'CLAUDIA', 'COLLEEN', 'CONSTANCE', 'COURTNEY',
+    'CRYSTAL', 'CYNTHIA', 'DANA', 'DAWN', 'DEBORAH', 'DEBRA', 'DENISE',
+    'DIANA', 'DIANE', 'DONNA', 'DOROTHY', 'ELENA', 'ELEANOR', 'ELIZABETH',
+    'EMILY', 'EMMA', 'ERIN', 'EVA', 'FAITH', 'FELICIA', 'FLORENCE',
+    'FRANCES', 'GLORIA', 'GRACE', 'HANNAH', 'HEATHER', 'HELEN', 'HOLLY',
+    'HOPE', 'IRENE', 'IVY', 'JACKIE', 'JACQUELINE', 'JADE', 'JANET',
+    'JASMINE', 'JEAN', 'JENNIFER', 'JESSICA', 'JOANNA', 'JOANNE', 'JOY',
+    'JOYCE', 'JUDITH', 'JULIA', 'JULIE', 'JUNE', 'JUSTINE', 'KAREN',
+    'KATHERINE', 'KATHLEEN', 'KATHRYN', 'KATRINA', 'KELLY', 'KIMBERLY',
+    'KRISTIN', 'LACEY', 'LAURA', 'LAURIE', 'LEAH', 'LEILA', 'LENA',
+    'LESLIE', 'LILY', 'LINDA', 'LISA', 'LORENA', 'LORI', 'LORRAINE',
+    'LUCY', 'LYDIA', 'MACKENZIE', 'MADELINE', 'MARGARET', 'MARIA', 'MARIE',
+    'MARTHA', 'MARY', 'MAYA', 'MEGAN', 'MELISSA', 'MICHELLE', 'MILA',
+    'MIRANDA', 'MOLLY', 'MONIQUE', 'NAOMI', 'NATALIE', 'NANCY', 'NINA',
+    'NORA', 'NORMA', 'OLIVIA', 'PAIGE', 'PAMELA', 'PATRICIA', 'PEGGY',
+    'PHYLLIS', 'RACHEL', 'REBECCA', 'REBEKAH', 'RENEE', 'RHONDA', 'ROBIN',
+    'ROSA', 'ROSE', 'ROSEMARY', 'RUTH', 'SAMANTHA', 'SANDRA', 'SARA',
+    'SARAH', 'SHARON', 'SHEILA', 'SHELLEY', 'SIERRA', 'SONYA', 'SOPHIA',
+    'STACEY', 'STACY', 'STELLA', 'STEPHANIE', 'SUMMER', 'SUSAN', 'SYLVIA',
+    'TAMARA', 'TAMMY', 'TANYA', 'TARA', 'TERESA', 'THERESA', 'TIFFANY',
+    'TINA', 'TRACY', 'VANESSA', 'VERONICA', 'VIOLET', 'VIRGINIA', 'VIVIAN',
+    'WANDA', 'WENDY', 'WHITNEY', 'YVONNE', 'ZOE',
+})
+
+
+def _pick_candidate(candidates: list[str], title: str) -> str:
+    """Pick the best name from a list of candidates sharing the same last name.
+
+    Uses the transcript title token (MS./MRS./MISS → female; MR. → male) and
+    the first word of each candidate's name to disambiguate.  Falls back to
+    the first candidate (i.e., the first-listed in APPEARANCES) when no
+    confident match is found.
+    """
+    if len(candidates) == 1:
+        return candidates[0]
+    is_female = title in ('MS.', 'MRS.', 'MISS')
+    is_male   = title == 'MR.'
+    for cand in candidates:
+        # Strip any leading title prefix (e.g. 'GENERAL') to reach the first name.
+        stripped, _ = _strip_title_prefix(cand)
+        first = stripped.split()[0]
+        if is_female and first in _FEMALE_FIRST_NAMES:
+            return cand
+        if is_male and first not in _FEMALE_FIRST_NAMES:
+            return cand
+    return candidates[0]
+
+_APPEARANCES_LINE_RE = re.compile(r'^\s*\d{1,2}\s{2,}(.+)')
+
+def parse_appearances(raw_text: str) -> dict[str, list[str]]:
     """Parse the APPEARANCES section of a pdftotext transcript.
 
-    Returns {LAST_NAME_UPPER: FULL_NAME_UPPER} for each listed advocate.
+    Returns {LAST_NAME_UPPER: [FULL_NAME_UPPER, ...]} for each listed advocate.
+    Multiple advocates sharing a last name are stored as a list in appearance
+    order so ``_pick_candidate`` can disambiguate by title.
+
+    Uses a permissive line regex (any leading whitespace before the line
+    number) because some transcript pages have 4+ spaces of indentation
+    that the main CONTENT_LINE_RE (0–3 spaces) would not match.
     """
     in_appearances = False
     names: list[str] = []
 
     for line in raw_text.split('\n'):
-        m = CONTENT_LINE_RE.match(line)
+        m = _APPEARANCES_LINE_RE.match(line)
         if not m:
             continue
-        content = m.group(2).strip()
+        content = m.group(1).strip()
         if re.match(r'^APPEARANCES:?$', content):
             in_appearances = True
             continue
         if not in_appearances:
             continue
-        if content in ('C O N T E N T S', 'P R O C E E D I N G S'):
+        # Stop at CONTENTS or PROCEEDINGS (may appear with or without spaces
+        # between letters depending on pdftotext layout mode).
+        if content.replace(' ', '').startswith(('CONTENTS', 'PROCEEDINGS')):
             break
         # Preferred: extract name as everything before ", ESQ." — handles
         # mixed-case prefixes like "McALLISTER" that trip up the regex.
@@ -366,19 +466,19 @@ def parse_appearances(raw_text: str) -> dict[str, str]:
         if nm:
             names.append(nm.group(1).strip())
 
-    result: dict[str, str] = {}
+    result: dict[str, list[str]] = {}
     for name in names:
         name_upper = name.upper()
         parts = [p.strip('.,') for p in name_upper.split()]
         last = parts[-1]
         if last in _SUFFIX_WORDS and len(parts) > 1:
             last = parts[-2]
-        result[last] = name_upper
+        result.setdefault(last, []).append(name_upper)
     return result
 
 
 def _resolve_speaker(raw_name: str,
-                     appearances: dict[str, str],
+                     appearances: dict[str, list[str]],
                      justice_map: dict[str, tuple[str, str]]) -> tuple[str, str]:
     """Map a raw transcript speaker token to (canonical_full_name, title).
 
@@ -388,6 +488,9 @@ def _resolve_speaker(raw_name: str,
     Falls back to the raw name and empty title when no match is found.
     """
     raw_upper = raw_name.upper().strip()
+    # Anonymous justice token used in pre-2004 USSC transcripts
+    if raw_upper in ('QUESTION', 'Q'):
+        return 'UNKNOWN JUSTICE', 'JUSTICE'
     # Justices first
     if raw_upper in justice_map:
         return justice_map[raw_upper]
@@ -409,10 +512,24 @@ def _resolve_speaker(raw_name: str,
             # Only treat as a justice if the last name is in justices.json.
             if last in _JUSTICE_LAST_NAME_MAP:
                 return _JUSTICE_LAST_NAME_MAP[last], title
+            # Check TYPO: entries from speakermap.txt (e.g. 'JUSTICE GORUSCH').
+            corrected = _TYPO_SPEAKER_MAP.get(raw_upper)
+            if corrected:
+                cm = re.match(r'^(CHIEF JUSTICE|JUSTICE)\s+(.+)', corrected)
+                c_title = cm.group(1) if cm else title
+                c_name  = cm.group(2) if cm else corrected
+                c_words = c_name.split()
+                c_last  = c_words[-1].rstrip('.,')
+                if c_last in _SUFFIX_WORDS and len(c_words) > 1:
+                    c_last = c_words[-2].rstrip('.,')
+                if c_last in _JUSTICE_LAST_NAME_MAP:
+                    return _JUSTICE_LAST_NAME_MAP[c_last], c_title
+                return c_name, c_title
             # Not a real justice — fall back to advocate resolution.
             title = ''
         # Advocate: look up full name via appearances section.
-        full = appearances.get(last, rest)
+        candidates = appearances.get(last)
+        full = _pick_candidate(candidates, title) if candidates else rest
         # Appearances may contain a title prefix (e.g. 'GENERAL ELIZABETH B. PRELOGAR').
         # Strip it and merge into title.
         stripped, extra = _strip_title_prefix(full)
@@ -426,7 +543,8 @@ def _resolve_speaker(raw_name: str,
     # No title prefix — if it's a bare last name, look it up in appearances.
     bare = raw_upper.rstrip('.,')  
     if ' ' not in bare:
-        full = appearances.get(bare)
+        candidates = appearances.get(bare)
+        full = candidates[0] if candidates else None
         if full:
             stripped, extra = _strip_title_prefix(full)
             if extra:
@@ -458,7 +576,8 @@ CONTENT_LINE_RE = re.compile(r'^\s{0,3}(\d{1,2})\s{2,}(.+)')
 
 SPEAKER_RE = re.compile(
     r'^((?:CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)'
-    r"\s+[A-Z][A-Za-z'\.]+(?:\s+[A-Z][A-Za-z'\.]+)*):\s*(.*)",
+    r"\s+[A-Z][A-Za-z'\.]+(?:\s+[A-Z][A-Za-z'\.]+)*"
+    r'|QUESTION|Q):\s*(.*)',
     re.DOTALL,
 )
 
@@ -496,6 +615,35 @@ def _cached_text_path(case_number: str, date: str, term: str) -> Path:
     return _TEXT_CACHE_DIR / year / filename
 
 
+def _merge_speaker_titles(new_speakers: list,
+                           existing_speakers: list,
+                           label: str = '') -> list:
+    """Carry over manually corrected titles from an existing speakers list.
+
+    For each speaker in *new_speakers* whose name also appears in
+    *existing_speakers* with a different title, the existing title wins.
+    Warns about any existing speaker whose title contains 'MS.' but whose
+    name cannot be matched in *new_speakers*, so gender corrections are
+    never silently dropped.
+    """
+    existing_by_name = {s['name']: s.get('title', '') for s in existing_speakers}
+    result = []
+    for sp in new_speakers:
+        ex_title = existing_by_name.get(sp['name'])
+        if ex_title is not None and ex_title != sp.get('title', ''):
+            result.append({'name': sp['name'], 'title': ex_title})
+        else:
+            result.append(sp)
+    new_names = {s['name'] for s in new_speakers}
+    for sp in existing_speakers:
+        if 'MS.' in sp.get('title', '') and sp['name'] not in new_names:
+            prefix = f'{label}: ' if label else ''
+            print(f'    WARNING: {prefix}existing MS. speaker '
+                  f'"{sp["name"]}" (title: "{sp["title"]}") '
+                  f'not found in reparsed transcript')
+    return result
+
+
 def _pdf_to_text(pdf_path: Path) -> str:
     """Run pdftotext -layout on *pdf_path* and return the raw text."""
     result = subprocess.run(
@@ -506,7 +654,8 @@ def _pdf_to_text(pdf_path: Path) -> str:
 
 
 def _parse_raw_text(raw_text: str, output_path: Path,
-                    audio_href: str = '', term: str = '') -> list:
+                    audio_href: str = '', term: str = '',
+                    existing_speakers: list | None = None) -> list:
     """Parse the raw pdftotext output, write output_path as JSON, return turns."""
     # Pre-pass: build name-resolution tables.
     appearances  = parse_appearances(raw_text)
@@ -557,11 +706,18 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     for turn in turns:
         raw = turn['name']
         if raw not in raw_to_resolved:
-            raw_to_resolved[raw] = _resolve_speaker(raw, appearances, justice_map)
+            name, title = _resolve_speaker(raw, appearances, justice_map)
+            name = ' '.join(name.upper().split())
+            raw_to_resolved[raw] = (name, title)
 
     # Rename turn names to canonical full names.
     for turn in turns:
         turn['name'] = raw_to_resolved[turn['name']][0]
+
+    # Apply RENAME: corrections from speakermap.txt (e.g. COLLEEN SINZDAK → COLLEEN R. SINZDAK).
+    if _RENAME_SPEAKER_MAP:
+        for turn in turns:
+            turn['name'] = _RENAME_SPEAKER_MAP.get(turn['name'], turn['name'])
 
     # Assign 1-based "turn" IDs (key placed first for readability).
     turns = [{'turn': i + 1, **turn} for i, turn in enumerate(turns)]
@@ -569,12 +725,14 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     # Build speakers list in first-appearance order, de-duplicated by full name.
     seen_full: dict[str, str] = {}  # full_name → title, insertion-ordered
     for raw_name, (full_name, title) in raw_to_resolved.items():
-        if full_name not in seen_full:
-            seen_full[full_name] = title
+        renamed = _RENAME_SPEAKER_MAP.get(full_name, full_name)
+        if renamed not in seen_full:
+            seen_full[renamed] = title
     speakers = [{'name': n, 'title': t} for n, t in seen_full.items()]
 
-    if appearances:
-        print(f'    APPEARANCES: {", ".join(appearances.values())}')
+    if existing_speakers:
+        speakers = _merge_speaker_titles(
+            speakers, existing_speakers, output_path.name)
 
     envelope = _build_transcript_envelope(turns, audio_href, speakers)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1159,18 +1317,28 @@ def generate_missing_transcripts(cases_path: Path,
             if transcript_out.exists() and _existing_th and not case_filter and not force:
                 continue
 
-            print(f'  Extracting {case["number"]} ({date}) ...', end=' ', flush=True)
+            print(f'  Extracting {case["number"]} ({date})', end='', flush=True)
+
+            # Preserve any manually corrected titles from an existing transcript.
+            _existing_speakers: list | None = None
+            if transcript_out.exists():
+                try:
+                    _ex = json.loads(transcript_out.read_text(encoding='utf-8'))
+                    _existing_speakers = _ex.get('media', {}).get('speakers') or None
+                except Exception:
+                    pass
 
             # Use cached pdftotext output when available to avoid re-downloading.
             cached_txt = _cached_text_path(component_num, date, term)
             audio_href = arg.get('audio_href', '')
             tmp_path   = None
+            cache_tag  = ''
             try:
                 if cached_txt.exists():
-                    print('(cached) ', end='', flush=True)
-                    raw_text = cached_txt.read_text(encoding='utf-8', errors='replace')
-                    turns    = _parse_raw_text(raw_text, transcript_out,
-                                               audio_href, term)
+                    cache_tag = ' (cached)'
+                    raw_text  = cached_txt.read_text(encoding='utf-8', errors='replace')
+                    turns     = _parse_raw_text(raw_text, transcript_out,
+                                                audio_href, term, _existing_speakers)
                 else:
                     with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
                         tmp_path = Path(tmp.name)
@@ -1180,10 +1348,10 @@ def generate_missing_transcripts(cases_path: Path,
                     cached_txt.parent.mkdir(parents=True, exist_ok=True)
                     cached_txt.write_text(raw_text, encoding='utf-8')
                     turns = _parse_raw_text(raw_text, transcript_out,
-                                            audio_href, term)
+                                            audio_href, term, _existing_speakers)
                     time.sleep(0.3)
 
-                print(f'{len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
+                print(f'{cache_tag}: {len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
 
                 new_text_href = f'{component_num}/{date}.json'
                 if arg.get('text_href') != new_text_href:
