@@ -315,9 +315,13 @@ def speaker_name_matches(speaker_name: str, norm_advocate: str) -> bool:
     canonical = NAME_ALIASES.get(sp)
     if canonical and ascii_fold(canonical) == adv:
         return True
-    # First + last token comparison (ignores middle names/initials)
+    # Space-collapsed comparison: "DE ANGELIS" == "DEANGELIS"
     sp_parts = sp.split()
     adv_parts = adv.split()
+    if ''.join(sp_parts) == ''.join(adv_parts):
+        return True
+
+    # First + last token comparison (ignores middle names/initials)
     if len(sp_parts) >= 2 and len(adv_parts) >= 2:
         if sp_parts[0] == adv_parts[0] and sp_parts[-1] == adv_parts[-1]:
             return True
@@ -516,6 +520,8 @@ def main():
         for case in cases:
             abd: dict[str, list] = {}
             for audio in case.get('audio', []):
+                if audio.get('type', 'argument') not in ('argument', 'reargument'):
+                    continue
                 d = audio.get('date', '')
                 if d:
                     abd.setdefault(d, []).append(audio)
