@@ -368,7 +368,7 @@ def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
     return result
 
 
-_APPEARANCES_ESQ_RE = re.compile(r'^(.+?),\s*(?:ESQUIRE|ESQ\.)', re.IGNORECASE)
+_APPEARANCES_ESQ_RE = re.compile(r'^(.+?)(?:,\s*|\s+)(?:ESQUIRE|ESQ\.)', re.IGNORECASE)
 
 # First names that are overwhelmingly female — used to disambiguate advocates
 # who share a last name when the transcript token has MR. vs MS./MRS./MISS.
@@ -656,7 +656,11 @@ def _pdf_to_text(pdf_path: Path) -> str:
 def _parse_raw_text(raw_text: str, output_path: Path,
                     audio_href: str = '', term: str = '',
                     existing_speakers: list | None = None) -> list:
-    """Parse the raw pdftotext output, write output_path as JSON, return turns."""
+    """Parse the raw pdftotext output, write output_path as JSON, return turns.
+
+    Returns an empty list if the transcript produced no turns (and no speakers),
+    and does NOT write output_path in that case (caller should handle cleanup).
+    """
     # Pre-pass: build name-resolution tables.
     appearances  = parse_appearances(raw_text)
     justice_map  = _load_justice_map(term)
@@ -733,6 +737,11 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     if existing_speakers:
         speakers = _merge_speaker_titles(
             speakers, existing_speakers, output_path.name)
+
+    # If both turns and speakers are empty, there is nothing useful to write.
+    # Return an empty list without creating the file.
+    if not turns and not speakers:
+        return []
 
     envelope = _build_transcript_envelope(turns, audio_href, speakers)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1284,7 +1293,9 @@ def generate_missing_transcripts(cases_path: Path,
     modified = False
 
     for case in existing:
-        if case_filter and case['number'] != case_filter:
+        if 'number' not in case:
+            continue   # skip cases without a docket number (e.g. Oyez-only entries)
+        if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
             continue
 
         for arg in case.get('audio', []):
@@ -1353,6 +1364,16 @@ def generate_missing_transcripts(cases_path: Path,
 
                 print(f'{cache_tag}: {len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
 
+                if not turns:
+                    # Empty transcript — remove any stale file and clear text_href.
+                    if transcript_out.exists():
+                        transcript_out.unlink()
+                        print(f'  Deleted empty transcript: {transcript_out.relative_to(REPO_ROOT)}')
+                    if arg.get('text_href'):
+                        del arg['text_href']
+                        modified = True
+                    continue
+
                 new_text_href = f'{component_num}/{date}.json'
                 if arg.get('text_href') != new_text_href:
                     arg['text_href'] = new_text_href
@@ -1370,7 +1391,9 @@ def generate_missing_transcripts(cases_path: Path,
     # Only add the case number to the title when multiple component numbers each
     # have a USSC transcript (so the titles are actually ambiguous without it).
     for case in existing:
-        if case_filter and case['number'] != case_filter:
+        if 'number' not in case:
+            continue   # skip cases without a docket number (e.g. Oyez-only entries)
+        if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
             continue
         if ',' not in case.get('number', ''):
             continue
@@ -1424,12 +1447,16 @@ def migrate_transcripts(cases_path: Path) -> None:
     # Build a lookup of audio_href by (number, date) so we can populate media.url.
     audio_map: dict[tuple, str] = {}
     for case in existing:
+        if 'number' not in case:
+            continue
         for arg in case.get('audio', []):
             key = (case['number'], arg.get('date', ''))
             audio_map[key] = arg.get('audio_href', '')
 
     total = 0
     for case in existing:
+        if 'number' not in case:
+            continue
         number = case['number']
         case_dir = cases_path.parent / 'cases' / _case_folder(number)
         for arg in case.get('audio', []):
@@ -1636,6 +1663,8 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     # Pass 1: match existing cases
     matched_rows: set[tuple[str, str]] = set()  # (number, date) pairs handled
     for case in existing:
+        if 'number' not in case:
+            continue   # skip cases without a docket number (e.g. Oyez-only entries)
         # For consolidated cases (e.g. "00-832,00-843") check each component.
         case_norms = [_normalize_number(n) for n in case['number'].split(',')]
         seen_row_keys: set[tuple] = set()
@@ -1723,6 +1752,8 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     # as already present when "00-832,00-843" exists.
     existing_numbers: set[str] = set()
     for c in existing:
+        if 'number' not in c:
+            continue
         for n in c['number'].split(','):
             existing_numbers.add(_normalize_number(n.strip()))
     new_by_num: dict[str, list[dict]] = {}
@@ -1859,6 +1890,8 @@ def main():
     print('Checking for slip opinions ...')
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     for case in existing:
+        if 'number' not in case:
+            continue
         files_path = cases_path.parent / 'cases' / _case_folder(case['number']) / 'files.json'
         if files_path.exists():
             check_opinion_for_case(files_path, case['number'], term)
