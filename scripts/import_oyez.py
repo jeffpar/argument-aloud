@@ -98,7 +98,7 @@ def load_title_map() -> dict[str, str]:
 
     Returns a dict mapping uppercased full name to title string (e.g. 'MR.', 'MS.', 'GENERAL').
     """
-    path = Path(__file__).resolve().parent / 'old' / 'speakermap.txt'
+    path = Path(__file__).resolve().parent / 'speakermap.txt'
     result: dict[str, str] = {}
     if not path.exists():
         return result

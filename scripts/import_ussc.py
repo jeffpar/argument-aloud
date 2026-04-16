@@ -78,7 +78,7 @@ _TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s+(.+)$
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT        = Path(__file__).resolve().parent.parent
-SPEAKERMAP_PATH  = Path(__file__).parent / 'old' / 'speakermap.txt'
+SPEAKERMAP_PATH  = Path(__file__).parent / 'speakermap.txt'
 _JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
 BASE_URL         = 'https://www.supremecourt.gov'
 
