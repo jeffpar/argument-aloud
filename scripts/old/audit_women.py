@@ -386,6 +386,17 @@ def is_case_match(csv_name, case_title, case_num, us_cite, decision_year):
             if cite == us_cite:
                 return True
 
+    # Disqualify: if the CSV contains a U.S. citation (volume + page) AND the
+    # case has a non-empty usCite that matches none of them, block title/word-
+    # overlap matching so that a case with a clearly different citation cannot
+    # be chosen over the correct one.
+    _csv_cites = (
+        [c for c, _ in extract_us_citations(csv_name)]
+        + extract_bare_us_citations(csv_name)
+    )
+    if _csv_cites and us_cite and not any(c == us_cite for c in _csv_cites):
+        return False
+
     # 3. Fuzzy title match on each extracted case title, plus the full CSV
     #    name stripped of case numbers/citations as a fallback candidate.
     #    The fallback handles cases like "TikTok, Inc. v. Garland" where the
@@ -493,6 +504,8 @@ def main():
     # Used at the end to verify all N arguments were found (all-terms mode only).
     case_found: dict[tuple[str, int], bool] = {}
     for row in rows:
+        if str(row.get('Advocate No.', '')).strip() == '-1':
+            continue
         key = parse_advocate_name(row['Advocate Name'])  # (base, n)
         case_found.setdefault(key, False)
 
@@ -525,6 +538,8 @@ def main():
     # Process each CSV row: exhaust all candidate terms before deciding
     # Matched vs UNKNOWN so no row is reported prematurely.
     for entry in rows:
+        if str(entry.get('Advocate No.', '')).strip() == '-1':
+            continue
         dates = parse_date_range(entry['Argument Date'])
         if not dates:
             continue
