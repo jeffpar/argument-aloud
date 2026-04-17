@@ -909,9 +909,12 @@ def main():
                     if audio_date_hit is None:
                         if abd:
                             continue
-                        case_arg = case.get('argument', '')
+                        case_arg = ','.join(filter(None, [
+                            case.get('argument', ''),
+                            case.get('reargument', ''),
+                        ]))
                         if case_arg:
-                            adj = adjacent_dates(search_date)
+                            adj = set(adjacent_dates(search_date))
                             if not any(d.strip() in adj for d in case_arg.split(',')):
                                 continue
                     case_num = case.get('number', '')
@@ -1131,9 +1134,12 @@ def main():
                     if audio_date_hit is None:
                         if abd:
                             continue
-                        case_arg = case.get('argument', '')
+                        case_arg = ','.join(filter(None, [
+                            case.get('argument', ''),
+                            case.get('reargument', ''),
+                        ]))
                         if case_arg:
-                            adj = adjacent_dates(primary_date)
+                            adj = set(adjacent_dates(primary_date))
                             if not any(d.strip() in adj for d in case_arg.split(',')):
                                 continue
                     if not is_case_match(
