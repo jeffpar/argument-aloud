@@ -31,8 +31,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from validate_cases import sync_files_count
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-OYEZ_API  = 'https://api.oyez.org'
+REPO_ROOT      = Path(__file__).resolve().parent.parent
+OYEZ_API       = 'https://api.oyez.org'
+_SPEAKERS_PATH = Path(__file__).resolve().parent / 'speakers.json'
 
 
 def fetch_json(url: str) -> object:
@@ -45,38 +46,18 @@ _SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
 
 
 def load_speaker_map() -> list[tuple[str, str | None, str | None, str, str | None]]:
-    """Load scripts/speakermap.txt → list of (base_name, op, constraint_term, new_name, role_filter).
+    """Load scripts/speakers.json → list of (base_name, op, constraint_term, new_name, role_filter).
 
-    LHS entries may carry a role prefix:
-      JUSTICE:NAME -> NEW        (applies only when speaker role == 'justice')
-    LHS entries may also carry a term constraint:
-      NAME < YYYY-MM -> NEW      (applies only when term < YYYY-MM)
-      NAME >= YYYY-MM -> NEW     (applies only when term >= YYYY-MM)
-    Unconstrained entries always apply.
+    Only the 'typos' and 'rename' sections are emitted as unconditional entries.
     """
-    path = Path(__file__).resolve().parent / 'speakermap.txt'
-    if not path.exists():
+    if not _SPEAKERS_PATH.exists():
         return []
+    data: dict = json.loads(_SPEAKERS_PATH.read_text(encoding='utf-8'))
     result: list[tuple[str, str | None, str | None, str, str | None]] = []
-    for line in path.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        parts = line.split('->', 1)
-        if len(parts) == 2:
-            lhs, new = parts[0].strip(), parts[1].strip()
-            if not lhs or not new:
-                continue
-            if lhs.upper().startswith('JUSTICE:'):
-                role_filter: str | None = 'justice'
-                lhs = lhs[len('JUSTICE:'):].strip()
-            else:
-                role_filter = None
-            m = _SPEAKERMAP_CONSTRAINT_RE.match(lhs)
-            if m:
-                result.append((m.group(1), m.group(2), m.group(3), new, role_filter))
-            else:
-                result.append((lhs, None, None, new, role_filter))
+    for raw, corrected in (data.get('typos') or {}).items():
+        result.append((raw.upper(), None, None, corrected.upper(), None))
+    for old, new in (data.get('rename') or {}).items():
+        result.append((old.upper(), None, None, new.upper(), None))
     return result
 
 
@@ -94,27 +75,14 @@ def resolve_speaker_map(entries: list[tuple[str, str | None, str | None, str, st
 
 
 def load_title_map() -> dict[str, str]:
-    """Load TITLE:NAME -> TITLE_VALUE entries from speakermap.txt.
+    """Load the 'title' section from speakers.json.
 
     Returns a dict mapping uppercased full name to title string (e.g. 'MR.', 'MS.', 'GENERAL').
     """
-    path = Path(__file__).resolve().parent / 'speakermap.txt'
-    result: dict[str, str] = {}
-    if not path.exists():
-        return result
-    for line in path.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        if not line.upper().startswith('TITLE:'):
-            continue
-        parts = line.split('->', 1)
-        if len(parts) == 2:
-            name = parts[0][len('TITLE:'):].strip().upper()
-            title = parts[1].strip().upper()
-            if name and title:
-                result[name] = title
-    return result
+    if not _SPEAKERS_PATH.exists():
+        return {}
+    data: dict = json.loads(_SPEAKERS_PATH.read_text(encoding='utf-8'))
+    return {k.upper(): v.upper() for k, v in (data.get('title') or {}).items()}
 
 
 def load_justices() -> dict[str, str]:

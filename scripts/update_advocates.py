@@ -62,32 +62,26 @@ ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
 # ---------------------------------------------------------------------------
-# Name aliases: loaded from scripts/name_aliases.txt.
+# Name aliases: loaded from scripts/speakers.json ('alias' section).
 # Maps every previously-used name (upper-case) to the canonical current name
 # (upper-case).  Entries are merged under the canonical name and the old
 # name(s) are stored in a "previously" list on the advocate record.
 # ---------------------------------------------------------------------------
-_ALIASES_FILE = Path(__file__).resolve().parent / "name_aliases.txt"
+_SPEAKERS_FILE = Path(__file__).resolve().parent / "speakers.json"
 
 
 def _load_name_aliases(path: Path) -> dict[str, str]:
-    """Load name_aliases.txt and return {old_upper: new_upper}."""
+    """Load the 'alias' section of speakers.json and return {old_upper: new_upper}."""
     aliases: dict[str, str] = {}
     if not path.exists():
         return aliases
-    with path.open(encoding="utf-8") as fh:
-        for line in fh:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            if " <- " not in line:
-                continue
-            new, old = line.split(" <- ", 1)
-            aliases[old.strip().upper()] = new.strip().upper()
+    data: dict = json.loads(path.read_text(encoding="utf-8"))
+    for old, new in (data.get("alias") or {}).items():
+        aliases[old.strip().upper()] = new.strip().upper()
     return aliases
 
 
-NAME_ALIASES: dict[str, str] = _load_name_aliases(_ALIASES_FILE)
+NAME_ALIASES: dict[str, str] = _load_name_aliases(_SPEAKERS_FILE)
 
 # ---------------------------------------------------------------------------
 # Advocate ID

@@ -78,7 +78,7 @@ _TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s+(.+)$
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT        = Path(__file__).resolve().parent.parent
-SPEAKERMAP_PATH  = Path(__file__).parent / 'speakermap.txt'
+_SPEAKERS_PATH   = Path(__file__).parent / 'speakers.json'
 _JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
 BASE_URL         = 'https://www.supremecourt.gov'
 
@@ -286,56 +286,56 @@ def _normalize_name_suffix(name: str) -> str:
 
 
 def _build_justice_last_name_map() -> dict[str, str]:
-    """Return {LAST_NAME_UPPER: canonical_name_upper} from justices.json."""
+    """Return {LAST_NAME_UPPER: canonical_name_upper} from justices.json.
+
+    Indexes last-name tokens from both canonical names and their alternates so
+    that typo'd forms (e.g. 'GORUSCH') resolve to the correct canonical name.
+    """
     if not _JUSTICES_PATH.exists():
         return {}
     data: dict = json.loads(_JUSTICES_PATH.read_text(encoding='utf-8'))
     result: dict[str, str] = {}
-    for canonical in data:
+    for canonical, entry in data.items():
         u = canonical.upper()
         words = u.split()
         last = words[-1]
         if last in _SUFFIX_WORDS and len(words) > 1:
             last = words[-2]
         result.setdefault(last, u)
+        # Also index the last-name token of each alternate so typo'd last names
+        # (e.g. 'GORUSCH', 'GINSBERG') resolve without a separate TYPO: entry.
+        for alt in entry.get('alternates') or []:
+            a = alt.upper()
+            aw = a.split()
+            al = aw[-1]
+            if al in _SUFFIX_WORDS and len(aw) > 1:
+                al = aw[-2]
+            result.setdefault(al, u)
     return result
+
+
+def _build_justice_canonical_set() -> frozenset[str]:
+    """Return a frozenset of all canonical justice names (upper-case) from justices.json."""
+    if not _JUSTICES_PATH.exists():
+        return frozenset()
+    data: dict = json.loads(_JUSTICES_PATH.read_text(encoding='utf-8'))
+    return frozenset(c.upper() for c in data)
 
 
 _JUSTICE_LAST_NAME_MAP: dict[str, str] = _build_justice_last_name_map()
+_JUSTICE_CANONICAL_SET: frozenset[str] = _build_justice_canonical_set()
 
 
-def _load_typo_speaker_map() -> dict[str, str]:
-    """Return {RAW_TOKEN_UPPER: CORRECTED_NAME_UPPER} from TYPO: lines in speakermap.txt."""
-    result: dict[str, str] = {}
-    if not SPEAKERMAP_PATH.exists():
-        return result
-    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line.upper().startswith('TYPO:') or '->' not in line:
-            continue
-        raw_tok, corrected = line[5:].rsplit('->', 1)
-        result[raw_tok.strip().upper()] = corrected.strip().upper()
-    return result
+def _load_speakers_section(section: str) -> dict[str, str]:
+    """Return {KEY_UPPER: VALUE_UPPER} for one section of speakers.json."""
+    if not _SPEAKERS_PATH.exists():
+        return {}
+    data: dict = json.loads(_SPEAKERS_PATH.read_text(encoding='utf-8'))
+    return {k.upper(): v.upper() for k, v in (data.get(section) or {}).items()}
 
 
-_TYPO_SPEAKER_MAP: dict[str, str] = _load_typo_speaker_map()
-
-
-def _load_rename_speaker_map() -> dict[str, str]:
-    """Return {OLD_NAME_UPPER: NEW_NAME_UPPER} from RENAME: lines in speakermap.txt."""
-    result: dict[str, str] = {}
-    if not SPEAKERMAP_PATH.exists():
-        return result
-    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line.upper().startswith('RENAME:') or '->' not in line:
-            continue
-        old_name, new_name = line[7:].rsplit('->', 1)
-        result[old_name.strip().upper()] = new_name.strip().upper()
-    return result
-
-
-_RENAME_SPEAKER_MAP: dict[str, str] = _load_rename_speaker_map()
+_TYPO_SPEAKER_MAP:   dict[str, str] = _load_speakers_section('typos')
+_RENAME_SPEAKER_MAP: dict[str, str] = _load_speakers_section('rename')
 
 
 # Matches an advocate title prefix that may appear at the start of a name
@@ -358,44 +358,6 @@ def _strip_title_prefix(name: str) -> tuple[str, str]:
     if t == 'GEN.':
         t = 'GENERAL'
     return m.group(2), t
-
-
-def _load_justice_map(term: str = '') -> dict[str, tuple[str, str]]:
-    """Return {DISPLAY_NAME_UPPER: (canonical_full_name, title)}.
-
-    Built from the JUSTICE: lines in speakermap.txt.  Handles the term-based
-    conditional entries for Rehnquist (< 1986-10 / >= 1986-10).
-    """
-    result: dict[str, tuple[str, str]] = {}
-    if not SPEAKERMAP_PATH.exists():
-        return result
-    cond_re = re.compile(r'^(.+?)\s*(<|>=)\s*(\d{4}-\d{2})\s*$')
-    for line in SPEAKERMAP_PATH.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line or ':' not in line or '->' not in line:
-            continue
-        kind_full, display = line.rsplit('->', 1)
-        kind, full_raw = kind_full.split(':', 1)
-        if kind.strip().upper() != 'JUSTICE':
-            continue
-        full_raw = full_raw.strip()
-        display  = display.strip()
-        # Handle term-conditional entries
-        cond_m = cond_re.match(full_raw)
-        if cond_m:
-            full_name = cond_m.group(1).strip()
-            op        = cond_m.group(2)
-            cond_term = cond_m.group(3)
-            if term:
-                if op == '<'  and not (term < cond_term):
-                    continue
-                if op == '>=' and not (term >= cond_term):
-                    continue
-        else:
-            full_name = full_raw
-        title = 'CHIEF JUSTICE' if display.startswith('CHIEF JUSTICE') else 'JUSTICE'
-        result[display.upper()] = (full_name, title)
-    return result
 
 
 _APPEARANCES_ESQ_RE = re.compile(r'^(.+?)(?:,\s*|\s+)(?:ESQUIRE|ESQ\.)', re.IGNORECASE)
@@ -519,22 +481,22 @@ def parse_appearances(raw_text: str) -> dict[str, list[str]]:
 
 
 def _resolve_speaker(raw_name: str,
-                     appearances: dict[str, list[str]],
-                     justice_map: dict[str, tuple[str, str]]) -> tuple[str, str]:
+                     appearances: dict[str, list[str]]) -> tuple[str, str]:
     """Map a raw transcript speaker token to (canonical_full_name, title).
 
-    Justice names (CHIEF JUSTICE X / JUSTICE X) are looked up in justice_map
-    to get the full canonical name.  Advocate names (MR. X / MS. X / etc.) are
-    resolved via the APPEARANCES section map using the last name.
+    Justice names (CHIEF JUSTICE X / JUSTICE X) are looked up via
+    _JUSTICE_LAST_NAME_MAP (built from justices.json canonical names and
+    alternates).  Advocate names (MR. X / MS. X / etc.) are resolved via the
+    APPEARANCES section map using the last name.
     Falls back to the raw name and empty title when no match is found.
     """
     raw_upper = raw_name.upper().strip()
     # Anonymous justice token used in pre-2004 USSC transcripts
     if raw_upper in ('QUESTION', 'Q'):
         return 'UNKNOWN JUSTICE', 'JUSTICE'
-    # Justices first
-    if raw_upper in justice_map:
-        return justice_map[raw_upper]
+    # Bare canonical justice name (no title prefix) — return as-is with JUSTICE title.
+    if raw_upper in _JUSTICE_CANONICAL_SET:
+        return raw_upper, 'JUSTICE'
     # Advocates: extract title prefix + remainder of name
     m = re.match(
         r'^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)',
@@ -553,7 +515,7 @@ def _resolve_speaker(raw_name: str,
             # Only treat as a justice if the last name is in justices.json.
             if last in _JUSTICE_LAST_NAME_MAP:
                 return _JUSTICE_LAST_NAME_MAP[last], title
-            # Check TYPO: entries from speakermap.txt (e.g. 'JUSTICE GORUSCH').
+            # Check typos from speakers.json (e.g. 'JUSTICE GORUSCH').
             corrected = _TYPO_SPEAKER_MAP.get(raw_upper)
             if corrected:
                 cm = re.match(r'^(CHIEF JUSTICE|JUSTICE)\s+(.+)', corrected)
@@ -704,7 +666,6 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     """
     # Pre-pass: build name-resolution tables.
     appearances  = parse_appearances(raw_text)
-    justice_map  = _load_justice_map(term)
 
     tokens = []
 
@@ -751,7 +712,7 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     for turn in turns:
         raw = turn['name']
         if raw not in raw_to_resolved:
-            name, title = _resolve_speaker(raw, appearances, justice_map)
+            name, title = _resolve_speaker(raw, appearances)
             name = ' '.join(name.upper().split())
             raw_to_resolved[raw] = (name, title)
 
@@ -759,7 +720,7 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     for turn in turns:
         turn['name'] = raw_to_resolved[turn['name']][0]
 
-    # Apply RENAME: corrections from speakermap.txt (e.g. COLLEEN SINZDAK → COLLEEN R. SINZDAK).
+    # Apply rename corrections from speakers.json (e.g. COLLEEN SINZDAK → COLLEEN R. SINZDAK).
     if _RENAME_SPEAKER_MAP:
         for turn in turns:
             turn['name'] = _RENAME_SPEAKER_MAP.get(turn['name'], turn['name'])
@@ -806,7 +767,7 @@ def extract_transcript_pdf(pdf_path: Path, output_path: Path,
     """Run pdftotext on pdf_path, parse speaker turns, write output_path as JSON.
 
     Speaker names are resolved to canonical form:
-    - Justices → full name from speakermap.txt (e.g. ``JOHN G. ROBERTS, JR.``)
+    - Justices → full name from justices.json (e.g. ``JOHN G. ROBERTS, JR.``)
       with title ``CHIEF JUSTICE`` or ``JUSTICE``.
     - Advocates → full name from the APPEARANCES section of the transcript
       (e.g. ``STEVEN F. HUBACHEK``) with title from the in-text prefix

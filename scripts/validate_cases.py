@@ -593,53 +593,47 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
 
 # ── Speaker map cleanup ───────────────────────────────────────────────────────
 
+_SPEAKERS_PATH = Path(__file__).resolve().parent / 'speakers.json'
 _SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
 
 
-def load_speaker_map() -> list[tuple[str, str | None, str | None, str, str | None, str | None]]:
-    """Load scripts/speakermap.txt -> list of (base_name, op, constraint_term, new_name, role_filter, new_role).
+def _build_justice_rename_entries() -> list[tuple]:
+    """Return speaker-map entries derived from justices.json for renaming
+    formal/alternate justice names to their canonical form.
 
-    LHS entries may carry a role prefix:
-      JUSTICE:NAME -> NEW        (applies only when speaker role == 'justice')
-    LHS entries may also carry a term constraint:
-      NAME < YYYY-MM -> NEW      (applies only when term < YYYY-MM)
-      NAME >= YYYY-MM -> NEW     (applies only when term >= YYYY-MM)
-    Unconstrained entries always apply.
-
-    RHS entries may carry a role prefix:
-      ADVOCATE:NAME              (changes the matched speaker's role to 'advocate'
-                                  and their name to NAME)
-    Entries are ordered; the first matching entry for each speaker wins.
+    Each entry has the shape expected by apply_speaker_map_to_case:
+      (base_name, op, constraint_term, new_name, role_filter, new_role)
+    where role_filter='justice' ensures only speakers with that role are renamed.
     """
-    path = Path(__file__).resolve().parent / 'speakermap.txt'
+    path = Path(__file__).resolve().parent / 'justices.json'
     if not path.exists():
         return []
+    data: dict = json.loads(path.read_text(encoding='utf-8'))
+    entries: list[tuple] = []
+    for canonical, info in data.items():
+        u = canonical.upper()
+        for alt in info.get('alternates') or []:
+            a = alt.upper()
+            if a != u:
+                entries.append((a, None, None, u, 'justice', None))
+    return entries
+
+
+
+def load_speaker_map() -> list[tuple[str, str | None, str | None, str, str | None, str | None]]:
+    """Load scripts/speakers.json -> list of (base_name, op, constraint_term, new_name, role_filter, new_role).
+
+    Emits unconditional entries from the 'typos' and 'rename' sections.
+    Entries are ordered; the first matching entry for each speaker wins.
+    """
+    if not _SPEAKERS_PATH.exists():
+        return []
+    data: dict = json.loads(_SPEAKERS_PATH.read_text(encoding='utf-8'))
     result: list[tuple[str, str | None, str | None, str, str | None, str | None]] = []
-    for line in path.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        parts = line.split('->', 1)
-        if len(parts) == 2:
-            lhs, rhs = parts[0].strip(), parts[1].strip()
-            if not lhs or not rhs:
-                continue
-            if lhs.upper().startswith('JUSTICE:'):
-                role_filter: str | None = 'justice'
-                lhs = lhs[len('JUSTICE:'):].strip()
-            else:
-                role_filter = None
-            if rhs.upper().startswith('ADVOCATE:'):
-                new_role: str | None = 'advocate'
-                new_name = rhs[len('ADVOCATE:'):].strip()
-            else:
-                new_role = None
-                new_name = rhs
-            m = _SPEAKERMAP_CONSTRAINT_RE.match(lhs)
-            if m:
-                result.append((m.group(1), m.group(2), m.group(3), new_name, role_filter, new_role))
-            else:
-                result.append((lhs, None, None, new_name, role_filter, new_role))
+    for raw, corrected in (data.get('typos') or {}).items():
+        result.append((raw.upper(), None, None, corrected.upper(), None, None))
+    for old, new in (data.get('rename') or {}).items():
+        result.append((old.upper(), None, None, new.upper(), None, None))
     return result
 
 
@@ -649,8 +643,7 @@ def filter_speaker_map(
 ) -> list[tuple[str, str | None, str | None, str, str | None, str | None]]:
     """Return an ordered list of entries applicable to the given term string.
 
-    Preserves the order from speakermap.txt so that the first matching entry
-    for each speaker wins when mappings are applied.
+    Preserves entry order so that the first matching entry for each speaker wins.
     """
     result = []
     for entry in entries:
@@ -1713,10 +1706,11 @@ def main() -> None:
             check_case_hrefs(cases_path, term, opinions_only)
 
     raw_speaker_map = load_speaker_map()
+    justice_entries = _build_justice_rename_entries()
 
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls, opinions_only)
-        apply_speaker_map_to_case(term_dir / 'cases' / args[1], filter_speaker_map(raw_speaker_map, term))
+        apply_speaker_map_to_case(term_dir / 'cases' / args[1], justice_entries + filter_speaker_map(raw_speaker_map, term))
     else:
         cases_dir = term_dir / 'cases'
         case_dirs = sorted(d for d in cases_dir.iterdir() if d.is_dir()) if cases_dir.is_dir() else []
@@ -1724,7 +1718,7 @@ def main() -> None:
             if verbose:
                 print(f'NOTICE: {term}: no case directories found')
             return
-        speaker_map = filter_speaker_map(raw_speaker_map, term)
+        speaker_map = justice_entries + filter_speaker_map(raw_speaker_map, term)
         for d in case_dirs:
             validate_case(term_dir, d.name, check_urls, opinions_only)
             apply_speaker_map_to_case(d, speaker_map)
