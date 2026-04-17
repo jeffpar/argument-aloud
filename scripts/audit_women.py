@@ -856,10 +856,13 @@ def main():
             if natural != single_term:
                 continue
             terms_to_search = [single_term] if single_term in term_case_data else []
+            next_t = next_term_after(single_term, all_terms)
+            next_next_t = next_term_after(next_t, all_terms) if next_t else None
         else:
             if not natural:
                 continue
             next_t = next_term_after(natural, all_terms)
+            next_next_t = next_term_after(next_t, all_terms) if next_t else None
             terms_to_search = [
                 t for t in [natural, next_t] if t and t in term_case_data
             ]
@@ -881,10 +884,11 @@ def main():
         # Slots: (term, case_num, csv_date, audio_date, matched_sp, text_href,
         #         has_transcript, audio_exists)
         speaker_citation_match = None  # found advocate + strong id (num/cite)
-        speaker_match = None           # found advocate + fuzzy title only
         audio_citation_match = None    # no advocate found + strong id + has audio
-        citation_match = None          # no-audio, matched via case number or direct citation
-        title_only_match = None        # matched via fuzzy title only (weakest)
+        citation_match = None          # strong id + no audio
+        # Note: fuzzy-title-only slots (speaker_match, title_only_match) have
+        # been removed.  Title similarity is used only as a filter inside
+        # is_case_match; it is never sufficient to accept a match on its own.
 
         for search_date in dates:
             if speaker_citation_match:
@@ -906,8 +910,10 @@ def main():
                         if abd:
                             continue
                         case_arg = case.get('argument', '')
-                        if case_arg and case_arg not in adjacent_dates(search_date):
-                            continue
+                        if case_arg:
+                            adj = adjacent_dates(search_date)
+                            if not any(d.strip() in adj for d in case_arg.split(',')):
+                                continue
                     case_num = case.get('number', '')
                     case_title = case.get('title', '')
                     us_cite = case.get('usCite', '')
@@ -926,25 +932,24 @@ def main():
                                 None, None, False, False)
                         # Case-number or direct-citation match is stronger than
                         # a fuzzy word-overlap match and must take priority.
+                        # When the CSV carries a U.S. citation, that citation is
+                        # the primary identifier: a case-number match alone is
+                        # not "strong" if the citation points to a different case.
                         _csv_nums = extract_case_numbers(csv_name)
-                        _is_strong = (
+                        _csv_cites = extract_us_citations(csv_name)
+                        _csv_bare  = extract_bare_us_citations(csv_name)
+                        _csv_has_cite = bool(_csv_cites or _csv_bare)
+                        _cite_matches = us_cite and (
+                            any(c == us_cite for c, _yr in _csv_cites)
+                            or any(c == us_cite for c in _csv_bare)
+                        )
+                        _is_strong = bool(_cite_matches) or (
                             bool(_csv_nums) and case_num in _csv_nums
-                        ) or (
-                            us_cite and (
-                                any(c == us_cite and yr == decision_year
-                                    for c, yr in extract_us_citations(csv_name))
-                                or any(c == us_cite
-                                       for c in extract_bare_us_citations(csv_name))
-                            )
+                            and not _csv_has_cite
                         )
                         if _is_strong and citation_match is None:
                             citation_match = slot
-                        elif title_only_match is None and case_arg:
-                            # Only accept a fuzzy-title match when the case has
-                            # a known argument date (already validated above).
-                            # Without a date anchor, title similarity alone is
-                            # too unreliable (e.g. "Klinger" ≈ "Grainger").
-                            title_only_match = slot
+                        # fuzzy-title-only: skip — no strong id, no match
                         continue
 
                     # Title matched — check advocate in transcript speakers or
@@ -985,38 +990,42 @@ def main():
                     slot = (term, case_num, search_date, audio_date_match,
                             matched_sp, matched_text_href, has_transcript, True)
                     # Compute strength for this match regardless of speaker presence.
-                    _csv_nums = extract_case_numbers(csv_name)
-                    _is_strong = (
+                    # When the CSV carries a U.S. citation, that citation is the
+                    # primary identifier: a case-number match alone is not "strong"
+                    # if the citation points to a different case.
+                    _csv_nums  = extract_case_numbers(csv_name)
+                    _csv_cites = extract_us_citations(csv_name)
+                    _csv_bare  = extract_bare_us_citations(csv_name)
+                    _csv_has_cite = bool(_csv_cites or _csv_bare)
+                    _cite_matches = us_cite and (
+                        any(cc == us_cite for cc, _yr in _csv_cites)
+                        or any(cc == us_cite for cc in _csv_bare)
+                    )
+                    _is_strong = bool(_cite_matches) or (
                         bool(_csv_nums) and case_num in _csv_nums
-                    ) or (
-                        us_cite and (
-                            any(cc == us_cite and yr == decision_year
-                                for cc, yr in extract_us_citations(csv_name))
-                            or any(cc == us_cite
-                                   for cc in extract_bare_us_citations(csv_name))
-                        )
+                        and not _csv_has_cite
                     )
                     if found_sp:
                         if _is_strong:
                             speaker_citation_match = slot
                             case_found[adv_key] = True
                             break  # definitive: strong id + confirmed advocate
-                        elif speaker_match is None:
-                            speaker_match = slot
-                            case_found[adv_key] = True
-                            # keep searching — a strong-id match may follow
+                        # fuzzy-title-only speaker match: skip — no strong id
                     else:
                         # No speaker found — classify by match strength.
                         if _is_strong and audio_citation_match is None:
                             audio_citation_match = slot
-                        elif title_only_match is None:
-                            title_only_match = slot  # fuzzy-only, keep searching
+                        # fuzzy-title-only: skip
 
-        match_result = speaker_citation_match or speaker_match
-        found_sp = match_result is not None
-        if not match_result:
-            # Priority: strong id with audio > strong id without audio > fuzzy title
-            match_result = audio_citation_match or citation_match or title_only_match
+        # Priority order — strong identifiers (citation/case number) always win.
+        # Fuzzy title is used only as a candidate filter, never as a match reason.
+        #   1. speaker_citation_match — strong id + confirmed advocate (definitive)
+        #   2. audio_citation_match   — strong id + has audio near date
+        #   3. citation_match         — strong id + no audio
+        match_result = (speaker_citation_match
+                        or audio_citation_match
+                        or citation_match)
+        found_sp = match_result is not None and match_result is speaker_citation_match
 
         if match_result:
             term_r, case_num_r, csv_date_r, audio_date_r, matched_sp, matched_text_href, has_transcript, audio_exists = match_result
@@ -1108,6 +1117,70 @@ def main():
                     print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
         elif terms_to_search:
             # No matching case found after exhausting all candidate terms.
+            # Before trying dates.csv, check up to 2 terms ahead (reargument / late filing).
+            for _lookahead_t in [next_t, next_next_t]:
+                if match_result is not None:
+                    break
+                if not (_lookahead_t and _lookahead_t in term_case_data
+                        and _lookahead_t not in terms_to_search):
+                    continue
+                for case, abd in term_case_data.get(_lookahead_t, []):
+                    audio_date_hit = next(
+                        (d for d in adjacent_dates(primary_date) if d in abd), None
+                    )
+                    if audio_date_hit is None:
+                        if abd:
+                            continue
+                        case_arg = case.get('argument', '')
+                        if case_arg:
+                            adj = adjacent_dates(primary_date)
+                            if not any(d.strip() in adj for d in case_arg.split(',')):
+                                continue
+                    if not is_case_match(
+                        csv_name, case.get('title', ''), case.get('number', ''),
+                        case.get('usCite', ''), (case.get('decision', '') or '')[:4]
+                    ):
+                        continue
+                    _csv_nums  = extract_case_numbers(csv_name)
+                    _csv_cites = extract_us_citations(csv_name)
+                    _csv_bare  = extract_bare_us_citations(csv_name)
+                    _csv_has_cite = bool(_csv_cites or _csv_bare)
+                    _cite_ok = case.get('usCite', '') and (
+                        any(c == case.get('usCite') for c, _ in _csv_cites)
+                        or any(c == case.get('usCite') for c in _csv_bare)
+                    )
+                    _is_strong = bool(_cite_ok) or (
+                        bool(_csv_nums) and case.get('number', '') in _csv_nums
+                        and not _csv_has_cite
+                    )
+                    _ad = audio_date_hit or primary_date
+                    _audio_ex = audio_date_hit is not None
+                    if _is_strong:
+                        match_result = (_lookahead_t, case.get('number', ''), primary_date,
+                                        _ad, None, None,
+                                        any(a.get('text_href') for a in abd.get(_ad, [])),
+                                        _audio_ex)
+                        break
+            # If next-term search found something, write it and move on.
+            if match_result is not None:
+                term_r, case_num_r, csv_date_r, audio_date_r, _sp, _th, has_transcript, audio_exists = match_result
+                if not has_transcript:
+                    adv_name = parse_advocate_name(advocate)[0]
+                    mem_case, mem_abd = next(
+                        ((c, a) for c, a in term_case_data.get(term_r, [])
+                         if c.get('number') == case_num_r or c.get('id') == case_num_r),
+                        (None, None),
+                    )
+                    if mem_case is not None:
+                        wrote = _add_advocate_to_case(
+                            term_r, mem_case, mem_abd, audio_date_r,
+                            adv_name, audio_exists,
+                        )
+                        if wrote:
+                            case_found[adv_key] = True
+                if verbose:
+                    print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
+                continue
             # Try to resolve via dates.csv using the usCite + argument date.
             working_term = single_term if single_term else natural
             dates_row = _find_dates_csv_row(csv_name, dates)
