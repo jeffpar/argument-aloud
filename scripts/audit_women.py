@@ -982,7 +982,7 @@ def main():
                         for raw_adv in audio.get('advocates', []):
                             if speaker_name_matches(_adv_name(raw_adv).strip(), norm_advocate):
                                 found_sp = True
-                                matched_sp = {'name': raw_adv.strip(), 'title': 'MS.'}
+                                matched_sp = {'name': _adv_name(raw_adv).strip(), 'title': 'MS.'}
                                 matched_text_href = audio.get('text_href', '')
                                 break
                         if found_sp:
