@@ -20,6 +20,9 @@ Checks and fixes performed:
   - Duplicate oyez transcript_href: when a ussc audio object has a
     transcript_href that also appears on an oyez audio object in the same case,
     removes the transcript_href from the oyez object.
+  - Flat advocates arrays: migrates each audio object's "advocates" array from
+    plain strings to {"name": …, "title": "MR."/"MS."} objects, inferring the
+    title from the first name.
 
 Usage:
     python3 scripts/old/fix_cases.py                      # all terms
@@ -247,6 +250,56 @@ def check_duplicate_text_hrefs(term: str, cases: list[dict]) -> int:
     return dupes
 
 
+# ---------------------------------------------------------------------------
+# Advocates migration
+# ---------------------------------------------------------------------------
+
+_MASC_FIRST_NAMES = {
+    'PAUL', 'MICHAEL', 'DONALD', 'LAWRENCE', 'EDWIN', 'CHRISTOPHER',
+    'MARK', 'WILLIAM', 'JACK', 'CHARLES', 'MILTON',
+}
+
+
+def _advocate_default_title(name: str) -> str:
+    """Return 'MR.' if the first name is in the masculine list, else 'MS.'."""
+    first = name.strip().split()[0].upper() if name.strip() else ''
+    return 'MR.' if first in _MASC_FIRST_NAMES else 'MS.'
+
+
+def fix_advocates(term: str, cases: list[dict], dry_run: bool) -> int:
+    """Migrate flat advocates string arrays to [{name, title}] objects.
+
+    Skips entries that are already dicts.  Returns number of audio objects changed.
+    """
+    changed = 0
+    for case in cases:
+        number_field = case.get('number', case.get('id', '?'))
+        for audio in case.get('audio', []):
+            raw = audio.get('advocates')
+            if not isinstance(raw, list) or not raw:
+                continue
+            # Check if any entry is still a plain string.
+            if not any(isinstance(a, str) for a in raw):
+                continue
+            new_advs = []
+            for entry in raw:
+                if isinstance(entry, str):
+                    new_advs.append({
+                        'name': entry,
+                        'title': _advocate_default_title(entry),
+                    })
+                else:
+                    new_advs.append(entry)
+            if dry_run:
+                print(f'  MIGRATE advocates {term}/{number_field} '
+                      f'[{audio.get("date", "?")}]: '
+                      f'{len([a for a in raw if isinstance(a, str)])} string(s)')
+            else:
+                audio['advocates'] = new_advs
+            changed += 1
+    return changed
+
+
 def fix_oyez_transcript_hrefs(
     term: str, cases: list[dict], dry_run: bool
 ) -> int:
@@ -289,9 +342,10 @@ def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
     if not cases:
         return 0, 0, 0
 
-    dup_count   = check_duplicates(term, cases)
-    votes_fixed = fix_votes(term, cases, dry_run)
-    id_moved    = fix_id_position(term, cases, dry_run)
+    dup_count        = check_duplicates(term, cases)
+    votes_fixed      = fix_votes(term, cases, dry_run)
+    id_moved         = fix_id_position(term, cases, dry_run)
+    advocates_fixed  = fix_advocates(term, cases, dry_run)
 
     cases_dir = TERMS_DIR / term / 'cases'
     href_updated, href_warned = fix_text_hrefs(term, cases, cases_dir, dry_run)
@@ -300,13 +354,13 @@ def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
     href_dupes    = check_duplicate_text_hrefs(term, cases)
     href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run)
 
-    if (votes_fixed or id_moved or href_updated or href_stripped) and not dry_run:
+    if (votes_fixed or id_moved or advocates_fixed or href_updated or href_stripped) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
-    return (dup_count, votes_fixed, id_moved,
+    return (dup_count, votes_fixed, id_moved, advocates_fixed,
             href_updated, href_warned, href_missing,
             href_orphaned, href_dupes, href_stripped)
 
@@ -335,22 +389,24 @@ def main() -> None:
     if dry_run:
         print('(dry run — no files will be written)\n')
 
-    total_dups            = 0
-    terms_with_dups       = 0
-    total_votes_fixed     = 0
-    terms_with_votes      = 0
-    total_id_moved        = 0
-    terms_with_id         = 0
-    total_href_updated    = 0
-    total_href_warned     = 0
-    total_href_missing    = 0
-    total_href_orphaned   = 0
-    total_href_dupes      = 0
-    total_href_stripped   = 0
-    terms_with_href_fixes = 0
+    total_dups              = 0
+    terms_with_dups         = 0
+    total_votes_fixed       = 0
+    terms_with_votes        = 0
+    total_id_moved          = 0
+    terms_with_id           = 0
+    total_advocates_fixed   = 0
+    terms_with_advocates    = 0
+    total_href_updated      = 0
+    total_href_warned       = 0
+    total_href_missing      = 0
+    total_href_orphaned     = 0
+    total_href_dupes        = 0
+    total_href_stripped     = 0
+    terms_with_href_fixes   = 0
 
     for term in terms_to_check:
-        (dup_count, votes_fixed, id_moved,
+        (dup_count, votes_fixed, id_moved, advocates_fixed,
          href_updated, href_warned, href_missing,
          href_orphaned, href_dupes, href_stripped) = process_term(term, dry_run)
 
@@ -363,6 +419,9 @@ def main() -> None:
         if id_moved:
             total_id_moved += id_moved
             terms_with_id  += 1
+        if advocates_fixed:
+            total_advocates_fixed += advocates_fixed
+            terms_with_advocates  += 1
 
         href_any = href_updated + href_warned + href_missing + href_orphaned + href_dupes + href_stripped
         if href_any:
@@ -392,6 +451,12 @@ def main() -> None:
         verb = 'Would move' if dry_run else 'Moved'
         print(f'ID position: {verb} "id" in {total_id_moved} case(s) across {terms_with_id} term(s).')
 
+    if total_advocates_fixed == 0:
+        print('No flat advocates arrays found.')
+    else:
+        verb = 'Would migrate' if dry_run else 'Migrated'
+        print(f'Advocates: {verb} {total_advocates_fixed} audio object(s) across {terms_with_advocates} term(s).')
+
     if total_href_updated:
         verb = 'Would migrate' if dry_run else 'Migrated'
         print(f'text_href: {verb} {total_href_updated} bare filename(s).')
@@ -407,7 +472,7 @@ def main() -> None:
         verb = 'Would strip' if dry_run else 'Stripped'
         print(f'transcript_href: {verb} duplicate from {total_href_stripped} oyez audio object(s).')
 
-    if not any([total_dups, total_votes_fixed, total_id_moved,
+    if not any([total_dups, total_votes_fixed, total_id_moved, total_advocates_fixed,
                 total_href_updated, total_href_warned, total_href_missing,
                 total_href_orphaned, total_href_dupes, total_href_stripped]):
         print('No issues found.')
