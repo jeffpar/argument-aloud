@@ -554,8 +554,8 @@ def _add_advocate_to_case(
                 modified = False
                 for entry in misc_entries:
                     advs = entry.setdefault('advocates', [])
-                    if advocate_name not in advs:
-                        advs.append(advocate_name)
+                    if not any(_adv_name(a) == advocate_name for a in advs):
+                        advs.append(_adv_obj(advocate_name))
                         modified = True
                 if not modified:
                     return False
@@ -565,9 +565,9 @@ def _add_advocate_to_case(
                 audio_exists = False  # unexpected — fall through to create
             else:
                 advocates = matched.setdefault('advocates', [])
-                if advocate_name in advocates:
+                if any(_adv_name(a) == advocate_name for a in advocates):
                     return False  # already present
-                advocates.append(advocate_name)
+                advocates.append(_adv_obj(advocate_name))
 
     if not audio_exists:
         new_audio = {
@@ -575,7 +575,7 @@ def _add_advocate_to_case(
             'type': 'argument',
             'title': _format_argument_title(audio_date),
             'date': audio_date,
-            'advocates': [advocate_name],
+            'advocates': [_adv_obj(advocate_name)],
         }
         disk_audio_list.append(new_audio)
         disk_case['audio'] = sorted(disk_audio_list, key=lambda a: a.get('date', ''))
@@ -595,14 +595,14 @@ def _add_advocate_to_case(
             for mem_audio in case.get('audio', []):
                 if mem_audio.get('source') == 'misc':
                     mem_adv = mem_audio.setdefault('advocates', [])
-                    if advocate_name not in mem_adv:
-                        mem_adv.append(advocate_name)
+                    if not any(_adv_name(a) == advocate_name for a in mem_adv):
+                        mem_adv.append(_adv_obj(advocate_name))
         else:
             for mem_audio in case.get('audio', []):
                 if mem_audio.get('date') == audio_date:
                     mem_adv = mem_audio.setdefault('advocates', [])
-                    if advocate_name not in mem_adv:
-                        mem_adv.append(advocate_name)
+                    if not any(_adv_name(a) == advocate_name for a in mem_adv):
+                        mem_adv.append(_adv_obj(advocate_name))
                     break
     else:
         assert new_audio is not None
@@ -615,7 +615,19 @@ def _add_advocate_to_case(
     return True
 
 
-def _build_opinion_href(us_cite: str) -> str:
+def _adv_obj(name: str) -> dict:
+    """Return a new advocate object with name and title=MS. (all CSV entries are women)."""
+    return {'name': name, 'title': 'MS.'}
+
+
+def _adv_name(entry) -> str:
+    """Return the name string from either a plain string or a {name, title} dict."""
+    if isinstance(entry, dict):
+        return entry.get('name', '')
+    return str(entry)
+
+
+
     """Build the LOC opinion PDF URL from a U.S. cite like '343 U.S. 922'."""
     m = re.match(r'(\d+)\s+U\.S\.\s+(\d+)', us_cite)
     if not m:
@@ -968,7 +980,7 @@ def main():
                         # Check explicit advocates list first (works even without
                         # a transcript file).
                         for raw_adv in audio.get('advocates', []):
-                            if speaker_name_matches(raw_adv.strip(), norm_advocate):
+                            if speaker_name_matches(_adv_name(raw_adv).strip(), norm_advocate):
                                 found_sp = True
                                 matched_sp = {'name': raw_adv.strip(), 'title': 'MS.'}
                                 matched_text_href = audio.get('text_href', '')

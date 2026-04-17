@@ -120,7 +120,10 @@ def main() -> None:
                 for audio in case.get("audio", []):
                     audio_date_str = audio.get("date", "")
                     # Check advocates list on the audio object
-                    advocates = [a.upper() for a in audio.get("advocates", [])]
+                    advocates = [
+                        (a['name'] if isinstance(a, dict) else a).upper()
+                        for a in audio.get("advocates", [])
+                    ]
                     found = any(
                         re.search(rf'\b{re.escape(last_up)}\b', a) and
                         re.search(rf'\b{re.escape(first_up)}\b', a)
@@ -188,7 +191,10 @@ def main() -> None:
             already_known = False
             for audio in case.get("audio", []):
                 # Check advocates list on the audio object itself
-                advocates = [a.upper() for a in audio.get("advocates", [])]
+                advocates = [
+                    (a['name'] if isinstance(a, dict) else a).upper()
+                    for a in audio.get("advocates", [])
+                ]
                 if any(re.search(rf'\b{re.escape(last_up)}\b', a) for a in advocates):
                     already_known = True
                     break

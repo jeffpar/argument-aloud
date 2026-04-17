@@ -7,10 +7,10 @@ For every case in every cases.json under courts/ussc/terms/, follows each
 audio entry's text_href to its transcript file, extracts speakers whose role
 is "advocate", and records which case/date they appeared in.
 
-Audio entries may also include an "advocates" array of name strings to
-explicitly credit advocates when no transcript is available:
+Audio entries may also include an "advocates" array of {name, title} objects
+to explicitly credit advocates when no transcript is available:
 
-    { "date": "1972-10-11", "advocates": ["JOHN DOE", "JANE ROE"] }
+    { "date": "1972-10-11", "advocates": [{"name": "JOHN DOE", "title": "MR."}, ...] }
 
 These are processed identically to transcript speakers and are subject to
 the same 7-day deduplication window. If a transcript is later added for
@@ -317,7 +317,8 @@ def main() -> None:
             for _pre_idx, _pre_audio in enumerate(audio_entries):
                 _names: set[str] = set()
                 for _raw in _pre_audio.get("advocates", []):
-                    _n = ' '.join(normalize_name_suffix(_raw.strip()).split())
+                    _raw_name = _raw['name'] if isinstance(_raw, dict) else _raw
+                    _n = ' '.join(normalize_name_suffix(_raw_name.strip()).split())
                     if _n:
                         _names.add(_n.upper())
                 _pre_text = _pre_audio.get("text_href")
@@ -414,7 +415,8 @@ def main() -> None:
                     })
 
                 # --- Explicit advocates list (no transcript required) ---
-                for raw_name in audio.get("advocates", []):
+                for raw_entry in audio.get("advocates", []):
+                    raw_name = raw_entry['name'] if isinstance(raw_entry, dict) else raw_entry
                     _record_advocate(normalize_name_suffix(raw_name.strip()))
 
                 # --- Transcript-based speakers ---
