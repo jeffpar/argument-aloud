@@ -56,10 +56,22 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
-OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "advocates.json"
+OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "all_advocates.json"
+WOMEN_OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "women_advocates.json"
 ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
+
+# ---------------------------------------------------------------------------
+# Feminine-title detection (for women_advocates.json)
+# ---------------------------------------------------------------------------
+_FEMININE_TITLE_PARTS = ("MS.", "MRS.", "MISS")
+
+
+def is_feminine_title(title: str) -> bool:
+    """Return True if *title* contains a feminine honorific (MS., MRS., MISS)."""
+    upper = title.upper()
+    return any(part in upper for part in _FEMININE_TITLE_PARTS)
 
 # ---------------------------------------------------------------------------
 # Name aliases: loaded from scripts/speakers.json ('alias' section).
@@ -248,6 +260,8 @@ def make_id(n: int) -> str:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    verbose = '--verbose' in sys.argv or '-v' in sys.argv
+
     # Collect all terms (subdirectories of TERMS_DIR)
     term_dirs = sorted(
         p for p in TERMS_DIR.iterdir() if p.is_dir()
@@ -268,6 +282,13 @@ def main() -> None:
     # Track argument dates per (name, title, term, number) to skip duplicate
     # appearances within 7 days (multi-day arguments treated as one entry).
     recorded_dates: dict[tuple[str, str, str, str], list[Date]] = {}
+
+    # Track which advocates appeared with a feminine title (MS., MRS., MISS).
+    # case_feminine_seen: (name_key, case_title, term, number) -> True if any
+    #   appearance used a feminine title (updated even for deduplicated entries).
+    # name_feminine: name_key -> True if the advocate ever used a feminine title.
+    case_feminine_seen: dict[tuple, bool] = {}
+    name_feminine: dict[str, bool] = {}
 
     for term_dir in term_dirs:
         term = term_dir.name
@@ -372,7 +393,7 @@ def main() -> None:
             for orig_idx, audio in enumerate(audio_entries):
                 audio_date = audio.get("date") or case.get("argument", "")
 
-                def _record_advocate(raw_name: str) -> None:
+                def _record_advocate(raw_name: str, advocate_title: str = "") -> None:
                     """Add a case entry for raw_name under this audio object."""
                     # Collapse internal whitespace so "CARTER G.   PHILLIPS" == "CARTER G. PHILLIPS".
                     name = ' '.join(raw_name.split())
@@ -393,6 +414,15 @@ def main() -> None:
                         if old_upper not in [p.upper() for p in prev_list]:
                             prev_list.append(old_display.upper())
                     case_key = (name_key, title, term, number)
+                    # Track feminine title status even for deduplicated appearances
+                    # so a later feminine-titled appearance can qualify a case.
+                    _is_fem = is_feminine_title(advocate_title)
+                    if _is_fem:
+                        case_feminine_seen[case_key] = True
+                        name_feminine[name_key] = True
+                    else:
+                        case_feminine_seen.setdefault(case_key, False)
+                        name_feminine.setdefault(name_key, False)
                     try:
                         new_dt = Date.fromisoformat(audio_date)
                     except ValueError:
@@ -417,7 +447,8 @@ def main() -> None:
                 # --- Explicit advocates list (no transcript required) ---
                 for raw_entry in audio.get("advocates", []):
                     raw_name = raw_entry['name'] if isinstance(raw_entry, dict) else raw_entry
-                    _record_advocate(normalize_name_suffix(raw_name.strip()))
+                    raw_title = raw_entry.get('title', '') if isinstance(raw_entry, dict) else ''
+                    _record_advocate(normalize_name_suffix(raw_name.strip()), raw_title)
 
                 # --- Transcript-based speakers ---
                 text_href = audio.get("text_href")
@@ -464,7 +495,7 @@ def main() -> None:
                     speaker_title = speaker.get("title", "")
                     if not speaker_title or speaker_title in _JUSTICE_TITLES:
                         continue
-                    _record_advocate(speaker.get("name", ""))
+                    _record_advocate(speaker.get("name", ""), speaker_title)
 
     # Sort each advocate's cases by argument date, most recent first
     for entry in advocates.values():
@@ -491,16 +522,25 @@ def main() -> None:
     skipped = [e for e in output if len(e["name"].split()) == 1]
     output  = [e for e in output if len(e["name"].split()) > 1]
     if skipped:
-        print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches):")
-        for entry in skipped:
-            adv_id = entry.get("id") or make_advocate_id(entry["name"])
-            stale = ADVOCATES_DIR / f"{adv_id}.json"
-            if stale.exists():
-                stale.unlink()
-                print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s)")
-            else:
-                print(f"  {entry['name']}  —  {len(entry['cases'])} case(s)")
-        print()
+        if verbose:
+            print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches):")
+            for entry in skipped:
+                adv_id = entry.get("id") or make_advocate_id(entry["name"])
+                stale = ADVOCATES_DIR / f"{adv_id}.json"
+                if stale.exists():
+                    stale.unlink()
+                    print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s)")
+                else:
+                    print(f"  {entry['name']}  —  {len(entry['cases'])} case(s)")
+            print()
+        else:
+            # Still remove stale files; just don't print each one.
+            for entry in skipped:
+                adv_id = entry.get("id") or make_advocate_id(entry["name"])
+                stale = ADVOCATES_DIR / f"{adv_id}.json"
+                if stale.exists():
+                    stale.unlink()
+            print(f"Skipped {len(skipped)} one-word advocate name(s) (use --verbose to list them)")
 
     # Write per-advocate case files.
     for entry in output:
@@ -559,6 +599,50 @@ def main() -> None:
         f"{OUTPUT_FILE.relative_to(REPO_ROOT)} "
         f"and {ADVOCATES_DIR.relative_to(REPO_ROOT)}/"
     )
+
+    # -----------------------------------------------------------------------
+    # Write women_advocates.json — same format/sort as advocates.json but
+    # restricted to advocates who appeared with a feminine title (MS., MRS.,
+    # MISS) in at least one case.  All cases are counted regardless of title.
+    # -----------------------------------------------------------------------
+    women_index = [
+        entry for entry in index
+        if name_feminine.get(entry["name"].upper(), False)
+    ]
+    with WOMEN_OUTPUT_FILE.open("w", encoding="utf-8") as fh:
+        json.dump(women_index, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    print(
+        f"Wrote {len(women_index)} women advocates to "
+        f"{WOMEN_OUTPUT_FILE.relative_to(REPO_ROOT)}"
+    )
+
+    # -----------------------------------------------------------------------
+    # Report: women advocates whose individual cases never had a feminine title.
+    # These are cases counted for a qualifying advocate where neither the
+    # transcript speakers nor the audio advocates array showed MS./MRS./MISS.
+    # -----------------------------------------------------------------------
+    failed: dict[str, list] = {}
+    for name_upper, entry in advocates.items():
+        if not name_feminine.get(name_upper, False):
+            continue  # not a woman advocate
+        if len(entry["name"].split()) <= 1:
+            continue  # skipped as one-word name
+        bad_cases = [
+            c for c in entry["cases"]
+            if not case_feminine_seen.get((name_upper, c["title"], c["term"], c["number"]), False)
+        ]
+        if bad_cases:
+            failed[entry["name"]] = bad_cases
+    if failed:
+        print(
+            f"\nWomen advocates with cases not meeting feminine-title criteria "
+            f"({len(failed)} advocate(s)):"
+        )
+        for adv_name in sorted(failed):
+            print(f"  {adv_name}:")
+            for c in failed[adv_name]:
+                print(f"    {c['term']}  {c['title']}  [{c['argument']}]")
 
 
 if __name__ == "__main__":
