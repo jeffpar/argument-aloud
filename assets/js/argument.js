@@ -1374,9 +1374,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
 }
 
 function _populateCollectionGroups(collUl, groups, collEntry, collId) {
-  // Base path for per-advocate JSON files (split format): collectionDir/collId/
+  // Base path for per-advocate JSON files (split format): collectionDir/folder/
+  // Uses collEntry.folder if specified, otherwise falls back to collId.
   const collBase = collEntry.collection.slice(0, collEntry.collection.lastIndexOf('/'));
-  const splitBase = collBase + '/' + collId + '/';
+  const splitBase = collBase + '/' + (collEntry.folder || collId) + '/';
 
   for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
     const group = groups[groupIdx];
