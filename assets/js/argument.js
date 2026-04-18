@@ -384,9 +384,11 @@ function collapseDocViewer() {
   panel.classList.add('collapsed');
   panel.offsetHeight; // force reflow
   panel.style.height = '30px';
-  panel.addEventListener('transitionend', () => {
+  panel.addEventListener('transitionend', function onCollapseEnd(e) {
+    if (e.target !== panel || e.propertyName !== 'height') return;
+    panel.removeEventListener('transitionend', onCollapseEnd);
     panel.style.height = '';
-  }, { once: true });
+  });
   activeBottomLinkText = null;
 }
 
@@ -403,10 +405,12 @@ function hideDocViewerFully() {
     panel.style.height = panel.offsetHeight + 'px';
     panel.offsetHeight; // force reflow
     panel.style.height = '0px';
-    panel.addEventListener('transitionend', () => {
+    panel.addEventListener('transitionend', function onHideEnd(e) {
+      if (e.target !== panel || e.propertyName !== 'height') return;
+      panel.removeEventListener('transitionend', onHideEnd);
       panel.hidden = true;
       panel.style.height = '';
-    }, { once: true });
+    });
   }
   activeBottomLinkText = null;
 }
@@ -1313,6 +1317,16 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
 
   header.appendChild(titleSpan);
 
+  // Cache the fetched caseEntry so all click handlers share one fetch per case.
+  let _caseEntryCache = null;
+  async function _fetchCaseEntry() {
+    if (_caseEntryCache) return _caseEntryCache;
+    const cases = await fetchTermCases(caseRef.term);
+    _caseEntryCache = cases.find(c => c.number === caseRef.number ||
+      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number))) ?? null;
+    return _caseEntryCache;
+  }
+
   // Speaker icon — if collection case has audio
   if (caseRef.audio) {
     const speakerIcon = document.createElement('span');
@@ -1329,7 +1343,26 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     icon.textContent = '\u2696';
     if (caseRef.decision) {
       icon.title = 'Opinion issued';
+      icon.style.cursor = 'pointer';
       ci.classList.add('decided');
+      icon.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const caseEntry = await _fetchCaseEntry();
+        if (!caseEntry?.opinion_href) return;
+        const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseRef.title };
+        if (caseRef.audio) {
+          // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
+          if (!ci.classList.contains('active')) {
+            const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio : 0;
+            await loadCase(caseRef.term, caseEntry, defaultAudioIdx);
+          }
+          document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+          showDocViewer(opinionFile, { autoScroll: true });
+        } else {
+          // No audio: load case in no-audio mode so opinion opens full-height.
+          loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
+        }
+      });
     } else {
       icon.style.opacity = '0';
       icon.style.pointerEvents = 'none';
@@ -1339,9 +1372,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
 
   titleSpan.addEventListener('click', async (e) => {
     const fromRestore = !!e.fromRestore;
-    const cases = await fetchTermCases(caseRef.term);
-    const caseEntry = cases.find(c => c.number === caseRef.number ||
-      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)));
+    const caseEntry = await _fetchCaseEntry();
     if (!caseEntry) {
       console.warn('[collections] case not found in cases.json:', caseRef);
       return;
@@ -1366,7 +1397,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       );
       history.replaceState(null, '', url);
     }
-    loadCase(caseRef.term, caseEntry, audioIdx);
+    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !caseRef.audio });
   });
 
   ci.appendChild(header);
@@ -1565,7 +1596,7 @@ async function loadAudioEntry(arg, basePath) {
   }
 }
 
-async function loadCase(term, caseEntry, audioIdx = 0) {
+async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
@@ -1573,7 +1604,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   document.getElementById('topbar-term').textContent = termDisplayName(term);
 
   // ── No-audio path: display opinion in document viewer ──────────────────────
-  if (!caseEntry.audio?.length) {
+  if (!caseEntry.audio?.length || forceNoAudio) {
     // Update nav highlight
     document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
     const _navKeys = [caseKey];
