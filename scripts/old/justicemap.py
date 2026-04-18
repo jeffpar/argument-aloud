@@ -31,7 +31,7 @@ from pathlib import Path
 REPO_ROOT       = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR       = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 JUSTICEMAP      = Path(__file__).resolve().parent / 'justicemap.md'
-COLLECTION_PATH = REPO_ROOT / 'courts' / 'ussc' / 'collections' / '1.json'
+COLLECTION_PATH = REPO_ROOT / 'courts' / 'ussc' / 'people' / 'justice_advocates.json'
 
 _HEADING_RE    = re.compile(r'^## ((?:CHIEF )?JUSTICE .+)$')
 _OYEZ_URL_RE   = re.compile(r'https://www\.oyez\.org/cases/(\d{4})/([^\s\)]+)')

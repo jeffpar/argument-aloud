@@ -43,6 +43,7 @@ Usage:
     python3 scripts/update_advocates.py
 """
 
+import csv
 import json
 import os
 import re
@@ -58,6 +59,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "all_advocates.json"
 WOMEN_OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "women_advocates.json"
+WOMEN_CSV_FILE = REPO_ROOT / "data" / "misc" / "women_advocates.csv"
 ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
@@ -290,6 +292,9 @@ def main() -> None:
     case_feminine_seen: dict[tuple, bool] = {}
     name_feminine: dict[str, bool] = {}
 
+    # Citation string keyed by (title, term, number) for CSV generation.
+    case_citation: dict[tuple, str] = {}
+
     for term_dir in term_dirs:
         term = term_dir.name
         cases_file = term_dir / "cases.json"
@@ -310,6 +315,16 @@ def main() -> None:
             audio_entries = case.get("audio", [])
             decision = case.get("decision") or None
 
+            us_cite = case.get("usCite", "")
+            cite_year = (decision or "")[:4]
+            if us_cite and cite_year:
+                _citation = f"{us_cite} ({cite_year})"
+            elif us_cite:
+                _citation = us_cite
+            else:
+                _citation = ""
+            case_citation[(title, term, number)] = _citation
+
             # Pre-compute 1-based sorted position for each audio entry.
             audio_sorted = sorted(
                 enumerate(audio_entries),
@@ -317,6 +332,9 @@ def main() -> None:
             )
             audio_sorted_pos = {orig_i: sorted_i + 1
                                 for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
+            # Reverse map: 1-based sorted position -> audio entry (for audio_href check).
+            sorted_pos_to_audio = {sorted_i + 1: audio_entries[orig_i]
+                                   for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
 
             # For terms <= 1999-10 the ussc transcripts come from scanned
             # documents with potentially inferior OCR; prefer oyez transcripts
@@ -434,15 +452,20 @@ def main() -> None:
                     if name_key not in advocates:
                         adv_id = make_advocate_id(name)
                         advocates[name_key] = {"id": adv_id, "name": name, "cases": []}
-                    advocates[name_key]["cases"].append({
+                    _resolved_pos = preferred_audio_pos.get(
+                        (audio_date, name_key), audio_sorted_pos[orig_idx])
+                    _resolved_audio = sorted_pos_to_audio.get(_resolved_pos, audio)
+                    _case_entry: dict = {
                         "title":    title,
                         "term":     term,
                         "number":   number,
                         "argument": audio_date,
-                        **({"decision": decision} if decision else {}),
-                        "audio":    preferred_audio_pos.get(
-                            (audio_date, name_key), audio_sorted_pos[orig_idx]),
-                    })
+                    }
+                    if decision:
+                        _case_entry["decision"] = decision
+                    if _resolved_audio.get("audio_href"):
+                        _case_entry["audio"] = _resolved_pos
+                    advocates[name_key]["cases"].append(_case_entry)
 
                 # --- Explicit advocates list (no transcript required) ---
                 for raw_entry in audio.get("advocates", []):
@@ -615,6 +638,41 @@ def main() -> None:
     print(
         f"Wrote {len(women_index)} women advocates to "
         f"{WOMEN_OUTPUT_FILE.relative_to(REPO_ROOT)}"
+    )
+
+    # -----------------------------------------------------------------------
+    # Write women_advocates.csv — one row per argument per woman advocate.
+    # -----------------------------------------------------------------------
+    women_rows: list[tuple] = []
+    for name_upper, entry in advocates.items():
+        if not name_feminine.get(name_upper, False):
+            continue
+        if len(entry["name"].split()) <= 1:
+            continue
+        adv_name = entry["name"]
+        # Sort ascending by argument date to assign 1-based argument numbers.
+        sorted_cases = sorted(entry["cases"], key=lambda c: c.get("argument", ""))
+        for arg_num, c in enumerate(sorted_cases, start=1):
+            citation = case_citation.get((c["title"], c["term"], c["number"]), "")
+            women_rows.append((
+                adv_name,
+                arg_num,
+                c.get("argument", ""),
+                c["number"],
+                c["title"],
+                citation,
+            ))
+    # Sort by advocate name, then argument date.
+    women_rows.sort(key=lambda r: (r[0], r[2]))
+    WOMEN_CSV_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with WOMEN_CSV_FILE.open("w", encoding="utf-8", newline="") as fh:
+        writer = csv.writer(fh)
+        writer.writerow(["Advocate Name", "Advocate Argument Number",
+                         "Argument Date", "Case Number", "Case Title", "Citation"])
+        writer.writerows(women_rows)
+    print(
+        f"Wrote {len(women_rows)} rows to "
+        f"{WOMEN_CSV_FILE.relative_to(REPO_ROOT)}"
     )
 
     # -----------------------------------------------------------------------
