@@ -49,6 +49,7 @@ import os
 import re
 import sys
 import unicodedata
+from collections import defaultdict
 from datetime import date as Date, timedelta
 from pathlib import Path
 
@@ -263,6 +264,7 @@ def make_id(n: int) -> str:
 
 def main() -> None:
     verbose = '--verbose' in sys.argv or '-v' in sys.argv
+    show_women = '--women' in sys.argv
 
     # Collect all terms (subdirectories of TERMS_DIR)
     term_dirs = sorted(
@@ -284,6 +286,9 @@ def main() -> None:
     # Track argument dates per (name, title, term, number) to skip duplicate
     # appearances within 7 days (multi-day arguments treated as one entry).
     recorded_dates: dict[tuple[str, str, str, str], list[Date]] = {}
+
+    # Track ALL appearance dates (including deduped ones) for CSV multi-date output.
+    all_appearance_dates: dict[tuple[str, str, str, str], set[Date]] = {}
 
     # Track which advocates appeared with a feminine title (MS., MRS., MISS).
     # case_feminine_seen: (name_key, case_title, term, number) -> True if any
@@ -343,7 +348,7 @@ def main() -> None:
             oyez_dates: set[str] = set()
             if is_early_term:
                 for _a in audio_entries:
-                    if _a.get("source") == "oyez":
+                    if _a.get("source") == "oyez" and _a.get("text_href"):
                         _d = _a.get("date") or case.get("argument", "")
                         if _d:
                             oyez_dates.add(_d)
@@ -445,6 +450,8 @@ def main() -> None:
                         new_dt = Date.fromisoformat(audio_date)
                     except ValueError:
                         return
+                    # Always record in all_appearance_dates, even if deduped.
+                    all_appearance_dates.setdefault(case_key, set()).add(new_dt)
                     prior = recorded_dates.get(case_key, [])
                     if any(abs((new_dt - d).days) <= 7 for d in prior):
                         return
@@ -545,16 +552,48 @@ def main() -> None:
     skipped = [e for e in output if len(e["name"].split()) == 1]
     output  = [e for e in output if len(e["name"].split()) > 1]
     if skipped:
+        # Build a (last_name_upper, argument_date) set from multi-word women
+        # advocates (already in `output`) so we can suppress one-word names
+        # that are just transcript-only partial matches for a known woman.
+        multi_word_women_dates: set[tuple[str, str]] = set()
+        for _e in output:
+            if name_feminine.get(_e["name"].upper(), False):
+                _last = _e["name"].upper().split()[-1]
+                for _c in _e["cases"]:
+                    multi_word_women_dates.add((_last, _c.get("argument", "")))
+
+        def _is_shadow_woman(entry: dict) -> bool:
+            """True if this one-word feminine name is covered by a known multi-word woman advocate."""
+            name_up = entry["name"].upper()
+            return any(
+                (name_up, c.get("argument", "")) in multi_word_women_dates
+                for c in entry["cases"]
+            )
+
+        skipped_women = [
+            e for e in skipped
+            if name_feminine.get(e["name"].upper(), False) and not _is_shadow_woman(e)
+        ]
+        women_suffix = f", {len(skipped_women)} possibly women" if skipped_women else ""
         if verbose:
-            print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches):")
+            print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches{women_suffix}):")
             for entry in skipped:
                 adv_id = entry.get("id") or make_advocate_id(entry["name"])
                 stale = ADVOCATES_DIR / f"{adv_id}.json"
+                is_fem = name_feminine.get(entry["name"].upper(), False) and not _is_shadow_woman(entry)
+                fem_tag = "  [possibly woman]" if is_fem else ""
                 if stale.exists():
                     stale.unlink()
-                    print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s)")
+                    print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s){fem_tag}")
                 else:
-                    print(f"  {entry['name']}  —  {len(entry['cases'])} case(s)")
+                    print(f"  {entry['name']}  —  {len(entry['cases'])} case(s){fem_tag}")
+                if show_women and is_fem:
+                    name_upper = entry["name"].upper()
+                    for c in sorted(entry["cases"], key=lambda c: c.get("argument", "")):
+                        case_key = (name_upper, c["title"], c["term"], c["number"])
+                        fem_case = case_feminine_seen.get(case_key, False)
+                        marker = " *" if fem_case else ""
+                        print(f"      {c['term']}  {c['number']}{marker}")
             print()
         else:
             # Still remove stale files; just don't print each one.
@@ -563,7 +602,7 @@ def main() -> None:
                 stale = ADVOCATES_DIR / f"{adv_id}.json"
                 if stale.exists():
                     stale.unlink()
-            print(f"Skipped {len(skipped)} one-word advocate name(s) (use --verbose to list them)")
+            print(f"Skipped {len(skipped)} one-word advocate name(s){women_suffix} (use --verbose to list them)")
 
     # Write per-advocate case files.
     for entry in output:
@@ -654,21 +693,203 @@ def main() -> None:
         sorted_cases = sorted(entry["cases"], key=lambda c: c.get("argument", ""))
         for arg_num, c in enumerate(sorted_cases, start=1):
             citation = case_citation.get((c["title"], c["term"], c["number"]), "")
+            audio_idx = c.get("audio")
+            url = f"https://argumentaloud.org/courts/ussc/?term={c['term']}&case={c['number'].replace(',', '%2C')}"
+            if audio_idx:
+                url += f"&audio={audio_idx}"
+            # Collect all argument dates for this advocate+case that are within
+            # 7 days of this entry's anchor date (same cluster only).
+            case_key = (name_upper, c["title"], c["term"], c["number"])
+            try:
+                anchor_dt = Date.fromisoformat(c.get("argument", ""))
+                all_dates = sorted(
+                    d.isoformat()
+                    for d in all_appearance_dates.get(case_key, set())
+                    if abs((d - anchor_dt).days) <= 7
+                )
+            except ValueError:
+                all_dates = []
+            arg_date = ",".join(all_dates) if all_dates else c.get("argument", "")
             women_rows.append((
                 adv_name,
                 arg_num,
-                c.get("argument", ""),
+                arg_date,
+                c["term"],
                 c["number"],
                 c["title"],
                 citation,
+                url,
             ))
     # Sort by advocate name, then argument date.
     women_rows.sort(key=lambda r: (r[0], r[2]))
+
+    # -----------------------------------------------------------------------
+    # Cross-check against reference CSV "Women Advocates Through October Term 2024.csv"
+    # -----------------------------------------------------------------------
+    REF_CSV = REPO_ROOT / "data" / "misc" / "Women Advocates Through October Term 2024.csv"
+    _ORDINAL_RE = re.compile(r'\s*\(\d+\)\s*$')
+    _MONTH_ABBR_MAP = {
+        'jan': '01', 'feb': '02', 'mar': '03', 'apr': '04',
+        'may': '05', 'jun': '06', 'jul': '07', 'aug': '08',
+        'sep': '09', 'oct': '10', 'nov': '11', 'dec': '12',
+    }
+
+    def _month_num(token: str) -> str:
+        """Return 2-digit month number from a full or abbreviated month name, or ''."""
+        key = token.lower().rstrip('.').strip()[:3]
+        return _MONTH_ABBR_MAP.get(key, '')
+
+    def _ref_dates_to_iso_set(date_str: str) -> set[str]:
+        """Parse a reference CSV 'Argument Date' into a set of ISO 'YYYY-MM-DD' strings.
+
+        Handles:
+          - Simple:           "April 16, 2008"  / "Apr. 16, 2008"
+          - Same-month range: "Apr. 17-18, 1963"
+          - Comma days:       "Feb. 4,7, 1955"
+          - Cross-month:      "Feb. 29-Mar.1, 1956"  / "Apr. 9-10, 1947"
+        """
+        date_str = date_str.strip()
+        if not date_str:
+            return set()
+
+        # Extract the 4-digit year (always at the end after the last comma/space).
+        year_m = re.search(r'\b(\d{4})\s*$', date_str)
+        if not year_m:
+            return set()
+        year = year_m.group(1)
+        # Work on the part before the year.
+        body = date_str[:year_m.start()].strip().rstrip(',').strip()
+
+        results: set[str] = set()
+
+        # Cross-month range: "Feb. 29-Mar.1"  or  "Feb 29 - Mar 1"
+        cross = re.match(
+            r'([A-Za-z]+\.?)\s*(\d+)\s*-\s*([A-Za-z]+\.?)\s*(\d+)$', body)
+        if cross:
+            m1 = _month_num(cross.group(1))
+            d1 = cross.group(2).zfill(2)
+            m2 = _month_num(cross.group(3))
+            d2 = cross.group(4).zfill(2)
+            if m1:
+                results.add(f"{year}-{m1}-{d1}")
+            if m2:
+                results.add(f"{year}-{m2}-{d2}")
+            return results
+
+        # Same-month prefix: extract month token then remaining day specs.
+        month_m = re.match(r'([A-Za-z]+\.?)\s+([\d,\s-]+)$', body)
+        if month_m:
+            month = _month_num(month_m.group(1))
+            if month:
+                days_str = month_m.group(2)
+                # Split on commas and hyphens to get individual day numbers.
+                for tok in re.split(r'[,\-]+', days_str):
+                    tok = tok.strip()
+                    if tok.isdigit():
+                        results.add(f"{year}-{month}-{tok.zfill(2)}")
+                if results:
+                    return results
+
+        # Fallback: try plain "Month D" or "Month DD".
+        plain = re.match(r'([A-Za-z]+\.?)\s+(\d+)$', body)
+        if plain:
+            month = _month_num(plain.group(1))
+            if month:
+                results.add(f"{year}-{month}-{plain.group(2).zfill(2)}")
+
+        return results
+
+    def _normalize_name(name: str) -> str:
+        """Normalize a name for comparison: unaccent and standardize apostrophes."""
+        # Normalize curly/typographic apostrophes to straight apostrophe.
+        name = name.replace('\u2019', "'").replace('\u2018', "'")
+        # Strip diacritics by NFD decomposition + remove combining marks.
+        nfd = unicodedata.normalize('NFD', name)
+        return ''.join(ch for ch in nfd if unicodedata.category(ch) != 'Mn')
+
+    def _name_parts(name: str) -> tuple[str, str]:
+        """Return (first_upper, last_upper) from a display name.
+
+        Strips ordinal suffixes '(2)', '(3)', etc. and comma qualifiers
+        like ', MI Ass't Attorney General' before splitting.
+        Normalizes accents and apostrophes for consistent comparison.
+        """
+        name = _ORDINAL_RE.sub('', name).strip()
+        # Drop anything after the first comma (qualifier text).
+        name = name.split(',')[0].strip()
+        name = _normalize_name(name)
+        words = name.split()
+        if not words:
+            return ('', '')
+        return (words[0].upper(), words[-1].upper())
+
+    if REF_CSV.exists():
+        # Build lookup: (first_upper, last_upper) -> list of (iso_dates_set, row)
+        ref_rows: list[dict] = []
+        with REF_CSV.open(encoding='utf-8-sig', newline='') as fh:
+            reader = csv.DictReader(fh)
+            for row in reader:
+                # Skip invalid/disputed records (Advocate No. == -1).
+                if row.get('Advocate No.', '').strip() == '-1':
+                    continue
+                iso_set = _ref_dates_to_iso_set(row.get('Argument Date', ''))
+                first, last = _name_parts(row.get('Advocate Name', ''))
+                ref_rows.append({**row, '_iso_set': iso_set, '_first': first, '_last': last})
+
+        # name_lookup: (first_upper, last_upper) -> list of ref rows
+        ref_name_lookup: dict[tuple, list] = defaultdict(list)
+        for r in ref_rows:
+            if r['_iso_set']:
+                ref_name_lookup[(r['_first'], r['_last'])].append(r)
+
+        ref_matched: set[int] = set()  # indices into ref_rows
+
+        # Match and replace advocate names in women_rows.
+        updated_rows = []
+        our_unmatched: list[tuple] = []
+        for row in women_rows:
+            adv_name, arg_num, arg_date, term, case_num, title, citation, url = row
+            first, last = _name_parts(adv_name)
+            candidates = ref_name_lookup.get((first, last), [])
+            our_dates = set(arg_date.split(','))
+            # All reference rows for this advocate whose date set intersects ours.
+            date_matches = [r for r in candidates if any(d in r['_iso_set'] for d in our_dates)]
+            matched_ref = date_matches[0] if date_matches else None
+            if matched_ref:
+                # Mark every matching reference row (consolidated case variants) as matched.
+                for r in date_matches:
+                    ref_matched.add(id(r))
+                # Replace with mixed-case name from reference (strip ordinal suffix).
+                canonical = _ORDINAL_RE.sub('', matched_ref['Advocate Name']).split(',')[0].strip()
+                updated_rows.append((canonical, arg_num, arg_date, term, case_num, title, citation, url))
+            else:
+                updated_rows.append(row)
+                # Only flag unmatched if the term is within the reference coverage (<= 2024-10).
+                if term <= '2024-10':
+                    our_unmatched.append(row)
+        women_rows = updated_rows
+
+        ref_unmatched = [r for r in ref_rows if id(r) not in ref_matched and r['_iso_set']]
+
+        if our_unmatched:
+            print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
+            for row in sorted(our_unmatched, key=lambda r: (r[0], r[2])):
+                print(f"  {row[0]}  {row[2]}  {row[4]}  {row[5]}")
+
+        if ref_unmatched:
+            print(f"\nReference CSV records not matched in our data ({len(ref_unmatched)}):")
+            for r in ref_unmatched:
+                print(f"  {r['Advocate Name']}  {r.get('Argument Date', '')}  {r.get('Case Name', '')}")
+    else:
+        print(f"  NOTE: Reference CSV not found, skipping cross-check: {REF_CSV.relative_to(REPO_ROOT)}")
+
     WOMEN_CSV_FILE.parent.mkdir(parents=True, exist_ok=True)
     with WOMEN_CSV_FILE.open("w", encoding="utf-8", newline="") as fh:
-        writer = csv.writer(fh)
+        # QUOTE_NONNUMERIC quotes every string field, ensuring Term and Case
+        # Number are always quoted and not misread as numeric expressions.
+        writer = csv.writer(fh, quoting=csv.QUOTE_NONNUMERIC)
         writer.writerow(["Advocate Name", "Advocate Argument Number",
-                         "Argument Date", "Case Number", "Case Title", "Citation"])
+                         "Argument Date", "Term", "Case Number", "Case Title", "Citation", "URL"])
         writer.writerows(women_rows)
     print(
         f"Wrote {len(women_rows)} rows to "
