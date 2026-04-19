@@ -317,7 +317,7 @@ def main() -> None:
             number_raw = case.get("number", "")
             number = number_raw  # keep original (e.g. "18,53") for output
             folder_num = case_folder_number(number_raw)
-            audio_entries = case.get("audio", [])
+            audio_entries = case.get("events", [])
             decision = case.get("decision") or None
 
             us_cite = case.get("usCite", "")

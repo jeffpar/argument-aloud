@@ -25,9 +25,9 @@ Checks and fixes performed:
     title from the first name.
 
 Usage:
-    python3 scripts/old/fix_cases.py                      # all terms
-    python3 scripts/old/fix_cases.py 2007-10              # single term
-    python3 scripts/old/fix_cases.py 2000-10 2010-10      # range (inclusive)
+    python3 scripts/fix_cases.py                      # all terms
+    python3 scripts/fix_cases.py 2007-10              # single term
+    python3 scripts/fix_cases.py 2000-10 2010-10      # range (inclusive)
 
     --dry-run   Report what would be changed without writing files.
 """
@@ -159,7 +159,7 @@ def fix_text_hrefs(
     for case in cases:
         number_field = case.get('number', '')
         numbers = [n.strip() for n in number_field.split(',') if n.strip()]
-        for audio in case.get('audio', []):
+        for audio in case.get('events', []):
             th = audio.get('text_href', '')
             if not th or th.startswith('http') or '/' in th:
                 continue
@@ -189,7 +189,7 @@ def check_missing_text_hrefs(
     missing = 0
     for case in cases:
         number_field = case.get('number', '')
-        for audio in case.get('audio', []):
+        for audio in case.get('events', []):
             th = audio.get('text_href', '')
             if not th or th.startswith('http') or '/' not in th:
                 continue
@@ -210,7 +210,7 @@ def check_orphaned_transcripts(
     referenced: set[str] = {
         audio.get('text_href', '')
         for case in cases
-        for audio in case.get('audio', [])
+        for audio in case.get('events', [])
         if audio.get('text_href', '') and '/' in audio.get('text_href', '')
         and not audio.get('text_href', '').startswith('http')
     }
@@ -237,7 +237,7 @@ def check_duplicate_text_hrefs(term: str, cases: list[dict]) -> int:
     dupes = 0
     for case in cases:
         number_field = case.get('number', '')
-        for audio in case.get('audio', []):
+        for audio in case.get('events', []):
             th = audio.get('text_href', '')
             if not th or th.startswith('http') or '/' not in th:
                 continue
@@ -274,7 +274,7 @@ def fix_advocates(term: str, cases: list[dict], dry_run: bool) -> int:
     changed = 0
     for case in cases:
         number_field = case.get('number', case.get('id', '?'))
-        for audio in case.get('audio', []):
+        for audio in case.get('events', []):
             raw = audio.get('advocates')
             if not isinstance(raw, list) or not raw:
                 continue
@@ -313,12 +313,12 @@ def fix_oyez_transcript_hrefs(
         number_field = case.get('number', '')
         ussc_hrefs: set[str] = {
             audio['transcript_href']
-            for audio in case.get('audio', [])
+            for audio in case.get('events', [])
             if audio.get('source', 'ussc') == 'ussc' and audio.get('transcript_href')
         }
         if not ussc_hrefs:
             continue
-        for audio in case.get('audio', []):
+        for audio in case.get('events', []):
             if audio.get('source') != 'oyez':
                 continue
             th = audio.get('transcript_href', '')
@@ -332,6 +332,20 @@ def fix_oyez_transcript_hrefs(
     return stripped
 
 
+def rename_audio_to_events(term: str, cases: list[dict], dry_run: bool) -> int:
+    """Rename the top-level 'audio' key to 'events' in every case object.
+
+    Returns the number of cases updated.
+    """
+    changed = 0
+    for case in cases:
+        if 'audio' in case:
+            if not dry_run:
+                case['events'] = case.pop('audio')
+            changed += 1
+    return changed
+
+
 def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
     """Process one term.  Returns (duplicate_count, cases_with_votes_fixed, cases_with_id_moved)."""
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
@@ -343,6 +357,7 @@ def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
         return 0, 0, 0
 
     dup_count        = check_duplicates(term, cases)
+    audio_renamed    = rename_audio_to_events(term, cases, dry_run)
     votes_fixed      = fix_votes(term, cases, dry_run)
     id_moved         = fix_id_position(term, cases, dry_run)
     advocates_fixed  = fix_advocates(term, cases, dry_run)
@@ -354,13 +369,13 @@ def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
     href_dupes    = check_duplicate_text_hrefs(term, cases)
     href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run)
 
-    if (votes_fixed or id_moved or advocates_fixed or href_updated or href_stripped) and not dry_run:
+    if (audio_renamed or votes_fixed or id_moved or advocates_fixed or href_updated or href_stripped) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
-    return (dup_count, votes_fixed, id_moved, advocates_fixed,
+    return (dup_count, audio_renamed, votes_fixed, id_moved, advocates_fixed,
             href_updated, href_warned, href_missing,
             href_orphaned, href_dupes, href_stripped)
 
@@ -391,6 +406,8 @@ def main() -> None:
 
     total_dups              = 0
     terms_with_dups         = 0
+    total_audio_renamed     = 0
+    terms_with_renamed      = 0
     total_votes_fixed       = 0
     terms_with_votes        = 0
     total_id_moved          = 0
@@ -406,13 +423,16 @@ def main() -> None:
     terms_with_href_fixes   = 0
 
     for term in terms_to_check:
-        (dup_count, votes_fixed, id_moved, advocates_fixed,
+        (dup_count, audio_renamed, votes_fixed, id_moved, advocates_fixed,
          href_updated, href_warned, href_missing,
          href_orphaned, href_dupes, href_stripped) = process_term(term, dry_run)
 
         if dup_count:
             total_dups      += dup_count
             terms_with_dups += 1
+        if audio_renamed:
+            total_audio_renamed += audio_renamed
+            terms_with_renamed  += 1
         if votes_fixed:
             total_votes_fixed += votes_fixed
             terms_with_votes  += 1
@@ -438,6 +458,12 @@ def main() -> None:
         print('No duplicate docket numbers found.')
     else:
         print(f'Duplicates: {total_dups} docket number(s) across {terms_with_dups} term(s).')
+
+    if total_audio_renamed == 0:
+        print('No "audio" keys to rename (already "events" or absent).')
+    else:
+        verb = 'Would rename' if dry_run else 'Renamed'
+        print(f'audio→events: {verb} {total_audio_renamed} case(s) across {terms_with_renamed} term(s).')
 
     if total_votes_fixed == 0:
         print('No old-format votes found.')
@@ -472,9 +498,10 @@ def main() -> None:
         verb = 'Would strip' if dry_run else 'Stripped'
         print(f'transcript_href: {verb} duplicate from {total_href_stripped} oyez audio object(s).')
 
-    if not any([total_dups, total_votes_fixed, total_id_moved, total_advocates_fixed,
-                total_href_updated, total_href_warned, total_href_missing,
-                total_href_orphaned, total_href_dupes, total_href_stripped]):
+    if not any([total_dups, total_audio_renamed, total_votes_fixed, total_id_moved,
+                total_advocates_fixed, total_href_updated, total_href_warned,
+                total_href_missing, total_href_orphaned, total_href_dupes,
+                total_href_stripped]):
         print('No issues found.')
 
 

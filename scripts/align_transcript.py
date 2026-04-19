@@ -404,7 +404,7 @@ def main() -> None:
     if case is None:
         sys.exit(f"Error: case {args.case!r} not found in {cases_json}")
 
-    audio = case.get("audio", [])
+    audio = case.get("events", [])
     if not audio:
         sys.exit(f"Error: case {args.case!r} has no audio listed.")
 

@@ -187,7 +187,7 @@ def main(verbose: bool = False, download: bool = False) -> None:
 
         for case in cases:
             number = case.get("number", "?")
-            for audio in case.get("audio", []):
+            for audio in case.get("events", []):
                 href = audio.get("transcript_href")
                 if not href:
                     continue
