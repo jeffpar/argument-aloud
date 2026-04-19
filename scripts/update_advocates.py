@@ -713,7 +713,7 @@ def main() -> None:
             audio_idx = c.get("audio")
             url = f"https://argumentaloud.org/courts/ussc/?term={c['term']}&case={c['number'].replace(',', '%2C')}"
             if audio_idx:
-                url += f"&audio={audio_idx}"
+                url += f"&event={audio_idx}"
             # Collect all argument dates for this advocate+case that are within
             # 7 days of this entry's anchor date (same cluster only).
             case_key = (name_upper, c["title"], c["term"], c["number"])
