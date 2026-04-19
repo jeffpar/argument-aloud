@@ -397,6 +397,17 @@ def main() -> None:
             for _i, _a in enumerate(audio_entries):
                 _d = _a.get("date") or case.get("argument", "")
                 _date_to_idxs.setdefault(_d, []).append(_i)
+            # For dates with multiple entries, compute the best entry overall
+            # (audio_href > aligned > first). Used as fallback when an advocate
+            # only appears in one entry but a better sibling entry exists.
+            _best_pos_for_date: dict[str, int] = {}
+            for _d, _idxs in _date_to_idxs.items():
+                if len(_idxs) <= 1:
+                    continue
+                _with_audio = [_i for _i in _idxs if audio_entries[_i].get("audio_href")]
+                _aligned = [_i for _i in _idxs if audio_entries[_i].get("aligned")]
+                _best_i = (_with_audio + _aligned + _idxs)[0]
+                _best_pos_for_date[_d] = audio_sorted_pos[_best_i]
             for _d, _idxs in _date_to_idxs.items():
                 if len(_idxs) <= 1:
                     continue
@@ -460,7 +471,8 @@ def main() -> None:
                         adv_id = make_advocate_id(name)
                         advocates[name_key] = {"id": adv_id, "name": name, "cases": []}
                     _resolved_pos = preferred_audio_pos.get(
-                        (audio_date, name_key), audio_sorted_pos[orig_idx])
+                        (audio_date, name_key),
+                        _best_pos_for_date.get(audio_date, audio_sorted_pos[orig_idx]))
                     _resolved_audio = sorted_pos_to_audio.get(_resolved_pos, audio)
                     _case_entry: dict = {
                         "title":    title,
@@ -470,8 +482,13 @@ def main() -> None:
                     }
                     if decision:
                         _case_entry["decision"] = decision
-                    if _resolved_audio.get("audio_href"):
+                    if _resolved_audio.get("audio_href") or _resolved_audio.get("transcript_href"):
                         _case_entry["audio"] = _resolved_pos
+                    if _resolved_audio.get("transcript_href"):
+                        _case_entry["transcript"] = True
+                    _file_count = case.get("files", 0)
+                    if _file_count:
+                        _case_entry["files"] = _file_count
                     advocates[name_key]["cases"].append(_case_entry)
 
                 # --- Explicit advocates list (no transcript required) ---

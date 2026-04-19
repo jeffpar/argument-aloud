@@ -648,13 +648,19 @@ function buildTermCases(term, cases, ul) {
         header.appendChild(toggle);
         header.appendChild(titleSpan);
 
-        // ── Speaker icon: shown if this case has oral argument audio ──
-        if (caseEntry.audio?.length) {
+        // ── Speaker icon: shown if this case has playable audio ──
+        if (caseEntry.audio?.some(a => a.audio_href)) {
           const speakerIcon = document.createElement('span');
           speakerIcon.className = 'case-decided-icon case-audio-icon';
           speakerIcon.textContent = '\u266b';
           speakerIcon.title = 'Oral argument audio available';
           header.appendChild(speakerIcon);
+        } else if (caseEntry.audio?.some(a => a.transcript_href)) {
+          const transcriptIcon = document.createElement('span');
+          transcriptIcon.className = 'case-decided-icon case-transcript-icon';
+          transcriptIcon.textContent = '\u270f';
+          transcriptIcon.title = 'Printed transcript available';
+          header.appendChild(transcriptIcon);
         }
 
         // ── Scales icon: shown if this case has an opinion; placeholder if audio-only ──
@@ -1327,13 +1333,19 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     return _caseEntryCache;
   }
 
-  // Speaker icon — if collection case has audio
+  // Speaker/transcript icon — if collection case has audio or transcript-only content
   if (caseRef.audio) {
     const speakerIcon = document.createElement('span');
     speakerIcon.className = 'case-decided-icon case-audio-icon';
     speakerIcon.textContent = '\u266b';
     speakerIcon.title = 'Oral argument audio available';
     header.appendChild(speakerIcon);
+  } else if (caseRef.transcript) {
+    const transcriptIcon = document.createElement('span');
+    transcriptIcon.className = 'case-decided-icon case-transcript-icon';
+    transcriptIcon.textContent = '\u270f';
+    transcriptIcon.title = 'Printed transcript available';
+    header.appendChild(transcriptIcon);
   }
 
   // Scales icon — if case has a decision; placeholder (invisible) if audio but no decision
@@ -1370,6 +1382,50 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     header.appendChild(icon);
   }
 
+  const toggle = document.createElement('span');
+  toggle.className = 'case-toggle';
+  toggle.textContent = '\u25b6';
+  // Only show the toggle when the case has files to reveal (transcript_href entries).
+  if (!caseRef.files) toggle.style.display = 'none';
+  header.insertBefore(toggle, titleSpan);
+
+  const fileUl = document.createElement('ul');
+  fileUl.className = 'file-list';
+  let fileListBuilt = false;
+
+  async function ensureCollFileListBuilt(caseEntry) {
+    if (fileListBuilt) return;
+    fileListBuilt = true;
+    const sortedAudio = [...(caseEntry.audio || [])].sort(
+      (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0,
+    );
+    const seen = new Set();
+    sortedAudio.forEach(a => {
+      if (!a.transcript_href || seen.has(a.transcript_href)) return;
+      seen.add(a.transcript_href);
+      const fi = document.createElement('li');
+      fi.className = 'file-item';
+      fi.dataset.fileHref = a.transcript_href;
+      fi.textContent = 'Transcript of ' + (a.title || '');
+      fi.addEventListener('click', ev => {
+        ev.stopPropagation();
+        document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+        fi.classList.add('active');
+        showDocViewer({ href: a.transcript_href, title: 'Transcript of ' + (a.title || '') }, { autoScroll: true });
+      });
+      fileUl.appendChild(fi);
+    });
+    if (fileUl.children.length === 0) toggle.style.display = 'none';
+  }
+
+  toggle.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    if (ci.classList.toggle('open')) {
+      const caseEntry = await _fetchCaseEntry();
+      if (caseEntry) await ensureCollFileListBuilt(caseEntry);
+    }
+  });
+
   titleSpan.addEventListener('click', async (e) => {
     const fromRestore = !!e.fromRestore;
     const caseEntry = await _fetchCaseEntry();
@@ -1382,6 +1438,19 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     const audioIdx = fromRestore
       ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
       : defaultAudioIdx;
+
+    // Sort the case's audio entries by date (same order as the 1-based index).
+    const sortedAudio = [...(caseEntry.audio || [])].sort(
+      (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0,
+    );
+
+    ci.classList.add('open');
+    await ensureCollFileListBuilt(caseEntry);
+
+    // Determine whether the resolved audio entry has playable audio.
+    const resolvedAudioEntry = (audioIdx >= 1 ? sortedAudio[audioIdx - 1] : null) || sortedAudio[0] || null;
+    const hasPlayableAudio = !!(resolvedAudioEntry?.audio_href);
+
     if (!fromRestore) {
       const entryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };
       const deleteOther = groupId != null ? ['entry'] : ['id'];
@@ -1397,10 +1466,11 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       );
       history.replaceState(null, '', url);
     }
-    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !caseRef.audio });
+    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
   });
 
   ci.appendChild(header);
+  ci.appendChild(fileUl);
   return ci;
 }
 
@@ -1604,7 +1674,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   document.getElementById('topbar-term').textContent = termDisplayName(term);
 
   // ── No-audio path: display opinion in document viewer ──────────────────────
-  if (!caseEntry.audio?.length || forceNoAudio) {
+  // Treat as no-audio when forceNoAudio is set OR when no audio entry has a
+  // playable audio_href (e.g. transcript-only placeholder entries).
+  const hasPlayableAudio = !forceNoAudio && caseEntry.audio?.some(a => a.audio_href);
+  if (!hasPlayableAudio) {
     // Update nav highlight
     document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
     const _navKeys = [caseKey];
