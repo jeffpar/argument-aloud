@@ -38,7 +38,7 @@ CSV_PATH = os.path.join(
 )
 TERMS_DIR = os.path.join(BASE_DIR, 'courts', 'ussc', 'terms')
 _SPEAKERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'speakers.json')
-_DATES_CSV_PATH = os.path.join(BASE_DIR, 'data', 'misc', 'dates.csv')
+_DATES_CSV_PATH = os.path.join(BASE_DIR, 'data', 'misc', 'ussc_dates.csv')
 
 
 def _load_name_aliases(path):
@@ -57,7 +57,7 @@ NAME_ALIASES = _load_name_aliases(_SPEAKERS_FILE)
 
 
 def _load_dates_csv(path):
-    """Load dates.csv into a dict keyed by usCite -> list of row dicts."""
+    """Load ussc_dates.csv into a dict keyed by usCite -> list of row dicts."""
     rows_by_cite: dict[str, list] = {}
     if not os.path.exists(path):
         return rows_by_cite
@@ -542,7 +542,7 @@ def _add_advocate_to_case(
         print(f'  WRITE FAILED ({term}/{case_num}): case not found in cases.json')
         return False
 
-    disk_audio_list: list = disk_case.setdefault('audio', [])
+    disk_audio_list: list = disk_case.setdefault('events', [])
     new_audio: dict | None = None
 
     if audio_exists:
@@ -578,7 +578,7 @@ def _add_advocate_to_case(
             'advocates': [_adv_obj(advocate_name)],
         }
         disk_audio_list.append(new_audio)
-        disk_case['audio'] = sorted(disk_audio_list, key=lambda a: a.get('date', ''))
+        disk_case['events'] = sorted(disk_audio_list, key=lambda a: a.get('date', ''))
 
     # Write updated cases.json.
     try:
@@ -592,13 +592,13 @@ def _add_advocate_to_case(
     # Sync in-memory case dict and abd.
     if audio_exists:
         if all_misc:
-            for mem_audio in case.get('audio', []):
+            for mem_audio in case.get('events', []):
                 if mem_audio.get('source') == 'misc':
                     mem_adv = mem_audio.setdefault('advocates', [])
                     if not any(_adv_name(a) == advocate_name for a in mem_adv):
                         mem_adv.append(_adv_obj(advocate_name))
         else:
-            for mem_audio in case.get('audio', []):
+            for mem_audio in case.get('events', []):
                 if mem_audio.get('date') == audio_date:
                     mem_adv = mem_audio.setdefault('advocates', [])
                     if not any(_adv_name(a) == advocate_name for a in mem_adv):
@@ -607,8 +607,8 @@ def _add_advocate_to_case(
     else:
         assert new_audio is not None
         mem_new = dict(new_audio)
-        case.setdefault('audio', []).append(mem_new)
-        case['audio'] = sorted(case['audio'], key=lambda a: a.get('date', ''))
+        case.setdefault('events', []).append(mem_new)
+        case['events'] = sorted(case['events'], key=lambda a: a.get('date', ''))
         abd.setdefault(audio_date, []).append(mem_new)
 
     print(f'  WROTE: {term}/{case_num} {audio_date}: added advocate {advocate_name!r}')
@@ -642,7 +642,7 @@ def _adv_name(entry) -> str:
 
 def _find_dates_csv_row(csv_name: str, arg_dates: list) -> dict | None:
     """
-    Return the first dates.csv row whose usCite appears in csv_name and whose
+    Return the first ussc_dates.csv row whose usCite appears in csv_name and whose
     dateArgument overlaps with any of arg_dates.  Returns None if not found.
     """
     cite_candidates: set[str] = set()
@@ -669,7 +669,7 @@ def _create_case_from_dates_csv(
     term_case_data: dict,
 ) -> dict | None:
     """
-    Insert a new case entry into cases.json from a dates.csv row.
+    Insert a new case entry into cases.json from a ussc_dates.csv row.
 
     If the case already exists (matched by id or number) the existing dict is
     returned without modification.  On success the in-memory term_case_data is
@@ -721,7 +721,7 @@ def _create_case_from_dates_csv(
     if href:
         new_case['opinion_href'] = href
     if arg_dates:
-        new_case['audio'] = [
+        new_case['events'] = [
             {
                 'source': 'misc',
                 'type': 'argument',
@@ -832,7 +832,7 @@ def main():
         entries = []
         for case in cases:
             abd: dict[str, list] = {}
-            for audio in case.get('audio', []):
+            for audio in case.get('events', []):
                 if audio.get('type', 'argument') not in ('argument', 'reargument'):
                     continue
                 d = audio.get('date', '')
@@ -1132,7 +1132,7 @@ def main():
                     print(f"WARNING: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name} — date mismatch: CSV has {csv_date_r}, audio dated {audio_date_r}")
         elif terms_to_search:
             # No matching case found after exhausting all candidate terms.
-            # Before trying dates.csv, check up to 2 terms ahead (reargument / late filing).
+            # Before trying ussc_dates.csv, check up to 2 terms ahead (reargument / late filing).
             for _lookahead_t in [next_t, next_next_t]:
                 if match_result is not None:
                     break
@@ -1199,7 +1199,7 @@ def main():
                 if verbose:
                     print(f"Matched: {term_r}/{case_num_r} {audio_date_r} {advocate}; {csv_name}")
                 continue
-            # Try to resolve via dates.csv using the usCite + argument date.
+            # Try to resolve via ussc_dates.csv using the usCite + argument date.
             working_term = single_term if single_term else natural
             dates_row = _find_dates_csv_row(csv_name, dates)
             resolved = False
