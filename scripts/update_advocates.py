@@ -728,6 +728,7 @@ def main() -> None:
     # -----------------------------------------------------------------------
     REF_CSV = REPO_ROOT / "data" / "misc" / "Women Advocates Through October Term 2024.csv"
     _ORDINAL_RE = re.compile(r'\s*\(\d+\)\s*$')
+    _FORMERLY_RE = re.compile(r'\s*\(formerly\s+[^)]+\)', re.I)
     _MONTH_ABBR_MAP = {
         'jan': '01', 'feb': '02', 'mar': '03', 'apr': '04',
         'may': '05', 'jun': '06', 'jul': '07', 'aug': '08',
@@ -751,6 +752,9 @@ def main() -> None:
         date_str = date_str.strip()
         if not date_str:
             return set()
+
+        # Strip optional "reargued" prefix (with or without trailing space).
+        date_str = re.sub(r'^reargued\s*', '', date_str, flags=re.I)
 
         # Extract the 4-digit year (always at the end after the last comma/space).
         year_m = re.search(r'\b(\d{4})\s*$', date_str)
@@ -810,11 +814,13 @@ def main() -> None:
     def _name_parts(name: str) -> tuple[str, str]:
         """Return (first_upper, last_upper) from a display name.
 
-        Strips ordinal suffixes '(2)', '(3)', etc. and comma qualifiers
-        like ', MI Ass't Attorney General' before splitting.
+        Strips ordinal suffixes '(2)', '(3)', etc., '(formerly X)' annotations,
+        and comma qualifiers like ', MI Ass't Attorney General' before splitting.
         Normalizes accents and apostrophes for consistent comparison.
         """
         name = _ORDINAL_RE.sub('', name).strip()
+        # Strip "(formerly Name)" annotations before any further processing.
+        name = _FORMERLY_RE.sub('', name).strip()
         # Drop anything after the first comma (qualifier text).
         name = name.split(',')[0].strip()
         name = _normalize_name(name)
@@ -836,11 +842,22 @@ def main() -> None:
                 first, last = _name_parts(row.get('Advocate Name', ''))
                 ref_rows.append({**row, '_iso_set': iso_set, '_first': first, '_last': last})
 
-        # name_lookup: (first_upper, last_upper) -> list of ref rows
+        # name_lookup: (first_upper, last_upper) -> list of ref rows.
+        # Each row is indexed under its parsed name AND under any alias-resolved
+        # canonical name (e.g. "Morgan Goodspeed" -> "Morgan L. Ratner"), so that
+        # our data can find reference rows that predate a name change.
         ref_name_lookup: dict[tuple, list] = defaultdict(list)
         for r in ref_rows:
-            if r['_iso_set']:
-                ref_name_lookup[(r['_first'], r['_last'])].append(r)
+            if not r['_iso_set']:
+                continue
+            ref_name_lookup[(r['_first'], r['_last'])].append(r)
+            # Also register under the alias-resolved canonical name if different.
+            alias_upper = NAME_ALIASES.get(f"{r['_first']} {r['_last']}")
+            if alias_upper:
+                af, al = _name_parts(alias_upper)
+                if (af, al) != (r['_first'], r['_last']):
+                    if r not in ref_name_lookup[(af, al)]:
+                        ref_name_lookup[(af, al)].append(r)
 
         ref_matched: set[int] = set()  # indices into ref_rows
 
@@ -859,8 +876,8 @@ def main() -> None:
                 # Mark every matching reference row (consolidated case variants) as matched.
                 for r in date_matches:
                     ref_matched.add(id(r))
-                # Replace with mixed-case name from reference (strip ordinal suffix).
-                canonical = _ORDINAL_RE.sub('', matched_ref['Advocate Name']).split(',')[0].strip()
+                # Replace with mixed-case name from reference (strip ordinal/formerly suffixes).
+                canonical = _FORMERLY_RE.sub('', _ORDINAL_RE.sub('', matched_ref['Advocate Name'])).split(',')[0].strip()
                 updated_rows.append((canonical, arg_num, arg_date, term, case_num, title, citation, url))
             else:
                 updated_rows.append(row)
