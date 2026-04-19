@@ -603,7 +603,7 @@ function caseTermDate(caseEntry, term) {
   const termStart = `${yearStr}-${monthStr}-01`;
   const nextYear  = String(parseInt(yearStr, 10) + 1);
   const termEnd   = `${nextYear}-${monthStr}-01`;
-  const audio = caseEntry.audio ?? [];
+  const audio = caseEntry.events ?? [];
   const inTerm = audio.find(a =>
     a.type !== 'opinion' && a.date && a.date >= termStart && a.date < termEnd
   );
@@ -614,7 +614,7 @@ function buildTermCases(term, cases, ul) {
   // Include cases with audio, a direct opinion link, or browsable files; skip truly empty cases.
   // Sort alphabetically by title.
   const sortedCases = [...cases]
-    .filter(c => c.audio?.length || c.opinion_href || c.files > 0)
+    .filter(c => c.events?.length || c.opinion_href || c.files > 0)
     .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
 
   sortedCases.forEach(caseEntry => {
@@ -649,13 +649,13 @@ function buildTermCases(term, cases, ul) {
         header.appendChild(titleSpan);
 
         // ── Speaker icon: shown if this case has playable audio ──
-        if (caseEntry.audio?.some(a => a.audio_href)) {
+        if (caseEntry.events?.some(a => a.audio_href)) {
           const speakerIcon = document.createElement('span');
           speakerIcon.className = 'case-decided-icon case-audio-icon';
           speakerIcon.textContent = '\u266b';
           speakerIcon.title = 'Oral argument audio available';
           header.appendChild(speakerIcon);
-        } else if (caseEntry.audio?.some(a => a.transcript_href)) {
+        } else if (caseEntry.events?.some(a => a.transcript_href)) {
           const transcriptIcon = document.createElement('span');
           transcriptIcon.className = 'case-decided-icon case-transcript-icon';
           transcriptIcon.textContent = '\u270f';
@@ -665,7 +665,7 @@ function buildTermCases(term, cases, ul) {
 
         // ── Scales icon: shown if this case has an opinion; placeholder if audio-only ──
         const hasOpinionAudio = !!caseEntry.opinion_href;
-        if (hasOpinionAudio || caseEntry.audio?.length) {
+        if (hasOpinionAudio || caseEntry.events?.length) {
           const icon = document.createElement('span');
           icon.className = 'case-decided-icon';
           icon.textContent = '\u2696';
@@ -676,7 +676,7 @@ function buildTermCases(term, cases, ul) {
             icon.addEventListener('click', e => {
               e.stopPropagation();
               const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
-              if (caseEntry.audio?.length) {
+              if (caseEntry.events?.length) {
                 // Has audio: open the opinion alongside the transcript.
                 document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
                 showDocViewer(opinionFile, { autoScroll: true });
@@ -684,7 +684,7 @@ function buildTermCases(term, cases, ul) {
                 // No audio: full case load — opinion opens full-height.
                 const url = buildUrlParams(
                   { term, case: caseId(caseEntry) },
-                  ['collection', 'audio', 'file', 'turn'],
+                  ['collection', 'event', 'file', 'turn'],
                 );
                 history.replaceState(null, '', url);
                 loadCase(term, caseEntry, 0);
@@ -712,7 +712,7 @@ function buildTermCases(term, cases, ul) {
           // entry, inject a virtual transcript file object at the end of rawFiles.
           {
             const existingHrefs = new Set(rawFiles.map(f => f.href).filter(Boolean));
-            const audioByDate = [...(caseEntry.audio || [])]
+            const audioByDate = [...(caseEntry.events || [])]
               .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
             audioByDate.forEach(a => {
               if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
@@ -748,7 +748,17 @@ function buildTermCases(term, cases, ul) {
           // Group files by type, then sort each group by date ascending
           const groups = {};
           rawFiles.forEach(f => {
-            const key = (f.type || 'other').toLowerCase();
+            let key = (f.type || '').toLowerCase();
+            if (key === 'appellant' || key === 'appellants') key = 'petitioner';
+            else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+            if (!key) {
+              // Infer from title when type is absent
+              const t = (f.title || '').toLowerCase();
+              if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
+              else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
+              else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
+              else key = 'other';
+            }
             if (!groups[key]) groups[key] = [];
             groups[key].push(f);
           });
@@ -805,11 +815,11 @@ function buildTermCases(term, cases, ul) {
                 }
                 // No-audio cases have no transcript pane, so expand the doc viewer full-height.
                 const savedHeight = docViewerOpenHeight;
-                if (!caseEntry.audio?.length) {
+                if (!caseEntry.events?.length) {
                   docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
                 }
                 showDocViewer(f, { autoScroll: true });
-                if (!caseEntry.audio?.length) {
+                if (!caseEntry.events?.length) {
                   docViewerOpenHeight = savedHeight;
                 }
               });
@@ -873,14 +883,14 @@ function buildTermCases(term, cases, ul) {
           if (!fromRestore) {
             const url = buildUrlParams(
               { term, case: caseId(caseEntry) },
-              ['collection', 'audio', 'file', 'turn'],
+              ['collection', 'event', 'file', 'turn'],
             );
             history.replaceState(null, '', url);
           }
           loadCase(term, caseEntry, audioIdx);
           // For no-audio cases, transcriptloaded never fires; restore file selection here,
           // after ensureFilesLoaded() has finished building the file list DOM.
-          if (fileRestore != null && !caseEntry.audio?.length) {
+          if (fileRestore != null && !caseEntry.events?.length) {
             const fileEl = findFileItem(fileRestore);
             if (fileEl) {
               fileEl.closest('.file-type-group')?.classList.add('open');
@@ -1003,14 +1013,14 @@ function buildNav() {
         built = true;
         const cases = await fetchTermCases(term);
         buildTermCases(term, cases, ul);
-        const visible = cases.filter(c => c.audio?.length || c.opinion_href || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
       const ensureCount = async () => {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
-        const visible = cases.filter(c => c.audio?.length || c.opinion_href || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       termLi._ensureBuilt = ensureBuilt;
@@ -1024,7 +1034,7 @@ function buildNav() {
           const url = new URL(location.href);
           url.searchParams.set('term', term);
           url.searchParams.delete('case');
-          url.searchParams.delete('audio');
+          url.searchParams.delete('event');
           url.searchParams.delete('file');
           url.searchParams.delete('turn');
           history.pushState(null, '', url);
@@ -1034,7 +1044,7 @@ function buildNav() {
           const url = new URL(location.href);
           url.searchParams.delete('term');
           url.searchParams.delete('case');
-          url.searchParams.delete('audio');
+          url.searchParams.delete('event');
           url.searchParams.delete('file');
           url.searchParams.delete('turn');
           history.pushState(null, '', url);
@@ -1234,7 +1244,7 @@ function _buildHighlightItem(highlight, highlightIdx) {
       const deleteOther = groupId != null ? ['entry'] : ['id'];
       const url = buildUrlParams(
         { ...(collId ? { collection: collId } : {}), ...entryOrId, highlight: highlightIdx + 1 },
-        [...deleteOther, 'term', 'case', 'audio', 'file', 'turn'],
+        [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
       history.replaceState(null, '', url);
     }
@@ -1385,7 +1395,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
   const toggle = document.createElement('span');
   toggle.className = 'case-toggle';
   toggle.textContent = '\u25b6';
-  // Only show the toggle when the case has files to reveal (transcript_href entries).
+  // Only show the toggle when the case has files or transcripts to reveal.
   if (!caseRef.files) toggle.style.display = 'none';
   header.insertBefore(toggle, titleSpan);
 
@@ -1396,25 +1406,148 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
   async function ensureCollFileListBuilt(caseEntry) {
     if (fileListBuilt) return;
     fileListBuilt = true;
-    const sortedAudio = [...(caseEntry.audio || [])].sort(
-      (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0,
-    );
-    const seen = new Set();
-    sortedAudio.forEach(a => {
-      if (!a.transcript_href || seen.has(a.transcript_href)) return;
-      seen.add(a.transcript_href);
-      const fi = document.createElement('li');
-      fi.className = 'file-item';
-      fi.dataset.fileHref = a.transcript_href;
-      fi.textContent = 'Transcript of ' + (a.title || '');
-      fi.addEventListener('click', ev => {
-        ev.stopPropagation();
-        document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-        fi.classList.add('active');
-        showDocViewer({ href: a.transcript_href, title: 'Transcript of ' + (a.title || '') }, { autoScroll: true });
+    const basePath = '/courts/ussc/terms/' + caseRef.term + '/cases/' + caseDirName(caseEntry) + '/';
+    const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
+
+    // Inject virtual transcript file entries for any event transcript_href not already in files.json.
+    // When the collection case entry specifies a particular argument date, only inject the
+    // transcript for that date — not all transcripts for the case (e.g. a reargument).
+    {
+      const existingHrefs = new Set(rawFiles.map(f => f.href).filter(Boolean));
+      const audioByDate = [...(caseEntry.events || [])]
+        .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+      audioByDate.forEach(a => {
+        if (caseRef.argument && a.date && a.date !== caseRef.argument) return;
+        if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
+          rawFiles.push({
+            type:  'transcript',
+            title: 'Transcript of ' + (a.title || ''),
+            date:  a.date || '',
+            href:  a.transcript_href,
+          });
+          existingHrefs.add(a.transcript_href);
+        }
       });
-      fileUl.appendChild(fi);
+    }
+
+    const TYPE_LABELS = {
+      petitioner: 'Petitioner',
+      respondent: 'Respondent',
+      amicus:     'Amicus',
+      other:      'Other',
+      reference:  'References',
+    };
+    const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference'];
+    const MERGE_AMICUS_OTHER = true;
+
+    const groups = {};
+    rawFiles.forEach(f => {
+      let key = (f.type || '').toLowerCase();
+      if (key === 'appellant' || key === 'appellants') key = 'petitioner';
+      else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+      if (!key) {
+        // Infer from title when type is absent
+        const t = (f.title || '').toLowerCase();
+        if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
+        else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
+        else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
+        else key = 'other';
+      }
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(f);
     });
+    ORDER.forEach(k => {
+      if (!groups[k]) return;
+      if (k === 'reference') {
+        groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+      } else {
+        groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+      }
+    });
+
+    if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
+      groups.other = [...(groups.amicus || []), ...(groups.other || [])];
+      delete groups.amicus;
+    }
+
+    if (groups.transcript?.length) {
+      groups.other = [...(groups.other || []), ...groups.transcript];
+      delete groups.transcript;
+    }
+
+    const effectiveOrder = MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER;
+
+    effectiveOrder.forEach(typeKey => {
+      if (!groups[typeKey] || !groups[typeKey].length) return;
+
+      const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
+
+      function makeFileItem(f) {
+        const fi = document.createElement('li');
+        fi.className = 'file-item';
+        if (f.file != null) fi.dataset.fileId = f.file;
+        if (f.href)        fi.dataset.fileHref = f.href;
+        fi.textContent = f.title;
+        fi.addEventListener('click', e => {
+          e.stopPropagation();
+          document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+          fi.classList.add('active');
+          {
+            const fileKey = f.file != null ? String(f.file)
+              : f.href ? f.href.split('/').pop() : null;
+            if (fileKey) {
+              const url = new URL(location.href);
+              url.searchParams.set('file', fileKey);
+              history.replaceState(null, '', url);
+            }
+          }
+          const savedHeight = docViewerOpenHeight;
+          if (!caseEntry.events?.length) {
+            docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+          }
+          showDocViewer(f, { autoScroll: true });
+          if (!caseEntry.events?.length) {
+            docViewerOpenHeight = savedHeight;
+          }
+        });
+        return fi;
+      }
+
+      if (isSoloOther) {
+        fileUl.appendChild(makeFileItem(groups[typeKey][0]));
+        return;
+      }
+
+      const groupLi = document.createElement('li');
+      groupLi.className = 'file-type-group';
+
+      const typeHeader = document.createElement('div');
+      typeHeader.className = 'file-type-header';
+
+      const typeLabel = document.createElement('span');
+      typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+      const typeTog = document.createElement('span');
+      typeTog.className = 'file-type-toggle';
+      typeTog.textContent = '\u25b6';
+
+      typeHeader.appendChild(typeTog);
+      typeHeader.appendChild(typeLabel);
+      typeHeader.addEventListener('click', e => {
+        e.stopPropagation();
+        groupLi.classList.toggle('open');
+      });
+
+      const itemsUl = document.createElement('ul');
+      itemsUl.className = 'file-type-items';
+
+      groups[typeKey].forEach(f => itemsUl.appendChild(makeFileItem(f)));
+
+      groupLi.appendChild(typeHeader);
+      groupLi.appendChild(itemsUl);
+      fileUl.appendChild(groupLi);
+    });
+
     if (fileUl.children.length === 0) toggle.style.display = 'none';
   }
 
@@ -1440,7 +1573,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       : defaultAudioIdx;
 
     // Sort the case's audio entries by date (same order as the 1-based index).
-    const sortedAudio = [...(caseEntry.audio || [])].sort(
+    const sortedAudio = [...(caseEntry.events || [])].sort(
       (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0,
     );
 
@@ -1460,13 +1593,22 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
           ...entryOrId,
           term: caseRef.term,
           case: caseRef.number,
-          ...(audioIdx > 0 ? { audio: audioIdx } : {}),
+          ...(audioIdx > 0 ? { event: audioIdx } : {}),
         },
-        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
+        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'turn'],
       );
       history.replaceState(null, '', url);
     }
     loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
+    // For no-audio cases, transcriptloaded never fires; restore file selection here.
+    const fileRestore = e.fileRestore ?? null;
+    if (fileRestore != null && !caseEntry.events?.length) {
+      const fileEl = findFileItem(fileRestore);
+      if (fileEl) {
+        fileEl.closest('.file-type-group')?.classList.add('open');
+        fileEl.click();
+      }
+    }
   });
 
   ci.appendChild(header);
@@ -1545,7 +1687,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         const deleteOther = group.id != null ? ['entry'] : ['id'];
         const url = buildUrlParams(
           { collection: collId, ...entryOrId },
-          [...deleteOther, 'highlight', 'term', 'case', 'audio', 'file', 'turn'],
+          [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn'],
         );
         history.replaceState(null, '', url);
         await _ensureGroupCases();
@@ -1676,7 +1818,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // ── No-audio path: display opinion in document viewer ──────────────────────
   // Treat as no-audio when forceNoAudio is set OR when no audio entry has a
   // playable audio_href (e.g. transcript-only placeholder entries).
-  const hasPlayableAudio = !forceNoAudio && caseEntry.audio?.some(a => a.audio_href);
+  const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_href);
   if (!hasPlayableAudio) {
     // Update nav highlight
     document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
@@ -1766,7 +1908,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // breaking ties by preferring 'oyez' > 'ussc' > others.
   const SOURCE_PREF = ['oyez', 'ussc', 'nara'];
   const sourceGroups = new Map(); // source -> {alignedCount, entries[]}
-  for (const a of caseEntry.audio) {
+  for (const a of caseEntry.events) {
     const src = a.source || 'unknown';
     if (!sourceGroups.has(src)) sourceGroups.set(src, { alignedCount: 0, entries: [] });
     const g = sourceGroups.get(src);
@@ -1829,7 +1971,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   // Build the full date-sorted audio list; sortedAudio entries are references to
   // the same objects, so indexOf comparisons work for 1-based position lookups.
-  const allAudio = [...caseEntry.audio].sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+  const allAudio = [...caseEntry.events].sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
 
   // Build audio select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).
@@ -2051,7 +2193,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   const val = parseInt(e.target.value, 10); // 1-based index into full audio array
   if (_currentAudioList[val - 1] && _currentBasePath) {
     const url = new URL(location.href);
-    url.searchParams.set('audio', val);
+    url.searchParams.set('event', val);
     url.searchParams.delete('turn');
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
@@ -2630,7 +2772,7 @@ async function init() {
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
-  const audioParam = params.get('audio') != null ? Math.max(1, parseInt(params.get('audio'), 10)) : null; // 1-based index into full audio array
+  const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into full audio array
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
@@ -2814,7 +2956,7 @@ async function init() {
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), {
           fromRestore: true,
           audioIdx: audioParam ?? 0,
-          fileRestore: (fileParam != null && matchedCase && !matchedCase.audio?.length) ? String(fileParam) : null,
+          fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.length) ? String(fileParam) : null,
         }));
         // For no-audio cases, file restore is handled inside the title click handler
         // (after ensureFilesLoaded). For audio cases it fires on transcriptloaded above.

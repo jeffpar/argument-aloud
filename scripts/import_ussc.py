@@ -1164,7 +1164,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
         scraped = scraped_by_num.get(case['number'])
         if not scraped or not scraped.get('detail_url'):
             continue
-        for arg in case.get('audio', []):
+        for arg in case.get('events', []):
             if arg.get('source', 'ussc') != 'ussc':
                 continue   # only backfill USSC arguments
             if arg.get('transcript_href'):
@@ -1251,7 +1251,7 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
             # transcript_href values are already on audio objects; don't duplicate them.
             audio_transcript_hrefs = {
                 a.get('transcript_href')
-                for a in case.get('audio', [])
+                for a in case.get('events', [])
                 if a.get('transcript_href')
             }
             next_file_id = max((f.get('file', 0) for f in files), default=0) + 1
@@ -1308,7 +1308,7 @@ def generate_missing_transcripts(cases_path: Path,
         if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
             continue
 
-        for arg in case.get('audio', []):
+        for arg in case.get('events', []):
             if arg.get('source', 'ussc') != 'ussc':
                 continue   # only extract from USSC transcripts
             pdf_url = arg.get('transcript_href')
@@ -1410,7 +1410,7 @@ def generate_missing_transcripts(cases_path: Path,
         comps = [_normalize_number(n.strip()) for n in case['number'].split(',')]
         # Count distinct component numbers that have USSC argument transcripts.
         ussc_comp_nums: set[str] = set()
-        for a in case.get('audio', []):
+        for a in case.get('events', []):
             if a.get('source', 'ussc') != 'ussc':
                 continue
             if a.get('type') not in (None, 'argument', 'reargument'):
@@ -1419,7 +1419,7 @@ def generate_missing_transcripts(cases_path: Path,
             if cn and cn in comps:
                 ussc_comp_nums.add(cn)
         use_case_nums = len(ussc_comp_nums) > 1
-        for a in case.get('audio', []):
+        for a in case.get('events', []):
             if a.get('source', 'ussc') != 'ussc':
                 continue
             if a.get('type') not in (None, 'argument', 'reargument'):
@@ -1459,7 +1459,7 @@ def migrate_transcripts(cases_path: Path) -> None:
     for case in existing:
         if 'number' not in case:
             continue
-        for arg in case.get('audio', []):
+        for arg in case.get('events', []):
             key = (case['number'], arg.get('date', ''))
             audio_map[key] = arg.get('audio_href', '')
 
@@ -1469,7 +1469,7 @@ def migrate_transcripts(cases_path: Path) -> None:
             continue
         number = case['number']
         case_dir = cases_path.parent / 'cases' / _case_folder(number)
-        for arg in case.get('audio', []):
+        for arg in case.get('events', []):
             date = arg.get('date', '')
             transcript_path = case_dir / f'{date}.json'
             if not transcript_path.exists():
@@ -1693,7 +1693,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
             # Assign transcript_href to any ussc audio entry with a matching date.
             assigned = False
             row_comp = _normalize_number(row['number'])
-            for arg in case.get('audio', []):
+            for arg in case.get('events', []):
                 if arg.get('source', 'ussc') != 'ussc':
                     continue   # never modify oyez/nara objects
                 if arg.get('type') not in (None, 'argument', 'reargument'):
@@ -1732,7 +1732,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
 
             # No ussc audio object existed for this date — create one without audio_href.
             if not assigned:
-                audio_list: list = case.setdefault('audio', [])
+                audio_list: list = case.setdefault('events', [])
                 # Guard against duplicates (e.g. from a previous partial run).
                 already = any(
                     a.get('source', 'ussc') == 'ussc'
@@ -1753,7 +1753,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                                        'title': title, 'date': row['date'],
                                        'transcript_href': row['pdf_url']}
                     audio_list.append(new_audio)
-                    case['audio'] = sorted(audio_list, key=lambda a: a.get('date') or '')
+                    case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
                     cases_modified = True
                     print(f'  {case["number"]} ({row["date"]}): created transcript-only audio object')
 
@@ -1782,7 +1782,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
              'date': r['date'], 'transcript_href': r['pdf_url']}
             for r in rows
         ]
-        new_case = {'title': title, 'number': norm, 'audio': audio_entries}
+        new_case = {'title': title, 'number': norm, 'events': audio_entries}
         existing.append(new_case)
         existing_numbers.add(norm)
         cases_modified = True

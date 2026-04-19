@@ -590,7 +590,7 @@ def main():
             case_num_for_title = ''
         if local_case is not None:
             existing_oyez_filenames: set[str] = set()
-            for a in local_case.get('audio', []):
+            for a in local_case.get('events', []):
                 src = a.get('source')
                 if not src:
                     href = a.get('audio_href', '').lower()
@@ -644,7 +644,7 @@ def main():
                     }
                     if _turns_are_aligned(data):
                         new_arg['aligned'] = True
-                    local_case.setdefault('audio', []).append(new_arg)
+                    local_case.setdefault('events', []).append(new_arg)
                     existing_oyez_filenames.add(_oyez_href)
                     cases_modified = True
         else:
@@ -718,7 +718,7 @@ def main():
                 if unnumbered.exists() and not part1_path.exists():
                     unnumbered.rename(part1_path)
                     print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
-                    for a in local_case.get('audio', []):
+                    for a in local_case.get('events', []):
                         if (a.get('source') == 'oyez' and a.get('date') == date_str
                                 and a.get('text_href') == number + '/' + unnumbered.name):
                             a['text_href'] = number + '/' + part1_path.name
@@ -754,7 +754,7 @@ def main():
                                 'date':       date_str,
                                 'audio_href': mp3_url,
                             }
-                            local_case.setdefault('audio', []).append(new_arg)
+                            local_case.setdefault('events', []).append(new_arg)
                             existing_oyez_filenames.add(mp3_url)
                             cases_modified = True
                             print('no transcript \u2014 audio entry added')
@@ -789,7 +789,7 @@ def main():
                         }
                         if _turns_are_aligned(envelope):
                             new_arg['aligned'] = True
-                        local_case.setdefault('audio', []).append(new_arg)
+                        local_case.setdefault('events', []).append(new_arg)
                         existing_oyez_filenames.add(out_href)
                         cases_modified = True
 
@@ -800,7 +800,7 @@ def main():
 
         # ── Opinion announcements ─────────────────────────────────────────────
         if local_case is not None:
-            _has_unique = any(a.get('unique') for a in local_case.get('audio', []))
+            _has_unique = any(a.get('unique') for a in local_case.get('events', []))
             # For consolidated cases, track which opinion dates are already covered
             # by any component so secondary components don't add duplicate entries.
             _is_secondary = (is_consolidated
@@ -808,7 +808,7 @@ def main():
                                  _local_number.split(',')[0].strip()))
             _existing_opinion_dates: set[str] = set()
             if _is_secondary:
-                for _a in local_case.get('audio', []):
+                for _a in local_case.get('events', []):
                     if _a.get('type') == 'opinion' and _a.get('date'):
                         _existing_opinion_dates.add(_a['date'])
             # Group by date to detect multi-part opinions on the same day.
@@ -846,7 +846,7 @@ def main():
                     if unnumbered.exists() and not part1_path.exists():
                         unnumbered.rename(part1_path)
                         print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
-                        for a in local_case.get('audio', []):
+                        for a in local_case.get('events', []):
                             if (a.get('source') == 'oyez' and a.get('date') == date_str
                                     and a.get('text_href') == number + '/' + unnumbered.name):
                                 a['text_href'] = number + '/' + part1_path.name
@@ -884,7 +884,7 @@ def main():
                                     'date':       date_str,
                                     'audio_href': mp3_url,
                                 }
-                                local_case.setdefault('audio', []).append(new_entry)
+                                local_case.setdefault('events', []).append(new_entry)
                                 existing_oyez_filenames.add(mp3_url)
                                 cases_modified = True
                                 print('no transcript \u2014 audio entry added')
@@ -918,7 +918,7 @@ def main():
                             }
                             if _turns_are_aligned(envelope):
                                 new_entry['aligned'] = True
-                            local_case.setdefault('audio', []).append(new_entry)
+                            local_case.setdefault('events', []).append(new_entry)
                             existing_oyez_filenames.add(out_href)
                             cases_modified = True
 
@@ -947,7 +947,7 @@ def main():
         # If audio_href implies case number B but text_href is stored under folder
         # A, move the file from A/ to B/ and update text_href.
         _cases_dir = cases_path.parent / 'cases'
-        for a in local_case.get('audio', []):
+        for a in local_case.get('events', []):
             if a.get('source') != 'oyez':
                 continue
             th = a.get('text_href', '')
@@ -988,7 +988,7 @@ def main():
 
         # ── Backfill " in No. N" on every existing non-opinion audio entry ──────
         # Only when multiple components have Oyez data (otherwise titles are unambiguous).
-        for a in local_case.get('audio', []):
+        for a in local_case.get('events', []):
             if a.get('type') == 'opinion':
                 continue  # opinions don't get a case number in the title
             has_case_num = ' in No.' in (a.get('title') or '')
@@ -1021,18 +1021,18 @@ def main():
             # (by text_href folder OR by audio_href containing the case number).
             existing_comp: set[str] = {
                 a['text_href']
-                for a in local_case.get('audio', [])
+                for a in local_case.get('events', [])
                 if a.get('source') == 'oyez' and a.get('text_href', '').startswith(comp_num + '/')
             }
             # All existing oyez audio_hrefs (for dedup when we know the mp3 URL).
             existing_oyez_audio_hrefs: set[str] = {
                 a.get('audio_href', '')
-                for a in local_case.get('audio', [])
+                for a in local_case.get('events', [])
                 if a.get('source') == 'oyez' and a.get('audio_href')
             }
             existing_comp_mp3s: set[str] = {
                 a.get('audio_href', '')
-                for a in local_case.get('audio', [])
+                for a in local_case.get('events', [])
                 if a.get('source') == 'oyez' and not a.get('text_href')
                 and a.get('audio_href')
             }
@@ -1069,7 +1069,7 @@ def main():
                                      else _oyez_arg_type(oyez_arg.get('title', '')))
 
                         if type_val == 'opinion' and any(
-                                a.get('unique') for a in local_case.get('audio', [])):
+                                a.get('unique') for a in local_case.get('events', [])):
                             skipped += 1
                             continue
 
@@ -1109,7 +1109,7 @@ def main():
                                             'date':       date_str,
                                             'audio_href': mp3,
                                         }
-                                        local_case.setdefault('audio', []).append(new_entry)
+                                        local_case.setdefault('events', []).append(new_entry)
                                         existing_comp_mp3s.add(mp3)
                                         cases_modified = True
                                         print('no transcript \u2014 audio entry added')
@@ -1149,7 +1149,7 @@ def main():
                             }
                             if algnd:
                                 new_entry['aligned'] = True
-                            local_case.setdefault('audio', []).append(new_entry)
+                            local_case.setdefault('events', []).append(new_entry)
                             existing_comp.add(out_href)
                             if mp3:
                                 existing_oyez_audio_hrefs.add(mp3)

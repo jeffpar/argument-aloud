@@ -323,7 +323,7 @@ def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: boo
         label = case.get('number') or case.get('id', '?')
         case_dir = term_dir / 'cases' / _case_folder(case.get('number', '') or case.get('id', ''))
         case_modified = False
-        for i, arg in enumerate(case.get('audio', [])):
+        for i, arg in enumerate(case.get('events', [])):
             audio_href = arg.get('audio_href', '')
             if not audio_href:
                 continue
@@ -377,7 +377,7 @@ def normalize_audio_aligned_position(cases_path: Path) -> None:
 
     modified = False
     for case in data:
-        for arg in case.get('audio', []):
+        for arg in case.get('events', []):
             if 'aligned' not in arg:
                 continue
             keys = list(arg.keys())
@@ -466,7 +466,7 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
             continue
 
         label = case.get('number') or case.get('id', '?')
-        audio_list: list[dict] = case.setdefault('audio', [])
+        audio_list: list[dict] = case.setdefault('events', [])
         audio_modified = False
 
         for tf in transcript_file_entries:
@@ -523,7 +523,7 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
                 new_audio['transcript_href'] = tf_href
                 audio_list.append(new_audio)
                 # Re-sort by date.
-                case['audio'] = sorted(audio_list, key=lambda a: a.get('date') or '')
+                case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
                 audio_list = case['audio']
                 print(f'  {label} ({tf_date}): created audio object with transcript_href')
                 audio_modified = True
@@ -1566,7 +1566,7 @@ def check_duplicate_audio_hrefs(term_dir: Path) -> None:
     for case in cases:
         number = case.get('number', '?')
         seen: dict[str, int] = {}   # href -> first index
-        for i, entry in enumerate(case.get('audio', [])):
+        for i, entry in enumerate(case.get('events', [])):
             href = entry.get('audio_href', '')
             if not href:
                 continue

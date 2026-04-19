@@ -117,7 +117,7 @@ def main() -> None:
                 case_label = case_folder_number(number) if number else "(unknown)"
                 case_dir   = term_dir / "cases" / case_label
                 case_key   = f"{term_dir.name}/{case_label}"
-                for audio in case.get("audio", []):
+                for audio in case.get("events", []):
                     audio_date_str = audio.get("date", "")
                     # Check advocates list on the audio object
                     advocates = [
@@ -189,7 +189,7 @@ def main() -> None:
             # the entire case.
             case_dir = term_dir / "cases" / case_label
             already_known = False
-            for audio in case.get("audio", []):
+            for audio in case.get("events", []):
                 # Check advocates list on the audio object itself
                 advocates = [
                     (a['name'] if isinstance(a, dict) else a).upper()
@@ -219,7 +219,7 @@ def main() -> None:
             if already_known:
                 continue
 
-            for audio in case.get("audio", []):
+            for audio in case.get("events", []):
                 transcript_href = audio.get("transcript_href")
                 if not transcript_href:
                     continue
