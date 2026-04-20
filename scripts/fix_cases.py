@@ -4,10 +4,9 @@
 Checks and fixes performed:
   - Duplicate docket numbers: cases whose comma-separated "number" fields share
     an individual docket number within the same term.
-  - Old-format vote objects:  {"id": "…", "name": "…", "majority": true/false}
-    are migrated to                  {"name": "…", "vote": "majority"/"minority"}.
-  - "id" field position: cases whose "id" field exists but is not the first key
-    have it moved to the front of the object.
+  - Key ordering: reorders keys in every case object and every event object
+    within it to match the canonical order.  Unknown case keys are reported
+    during --dry-run so they can be assigned a position.
   - Bare text_href filenames: rewrites each audio entry's text_href from a bare
     filename (e.g. "2006-11-08-oyez.json") to a folder-relative path
     (e.g. "05-380/2006-11-08-oyez.json").
@@ -20,16 +19,14 @@ Checks and fixes performed:
   - Duplicate oyez transcript_href: when a ussc audio object has a
     transcript_href that also appears on an oyez audio object in the same case,
     removes the transcript_href from the oyez object.
-  - Flat advocates arrays: migrates each audio object's "advocates" array from
-    plain strings to {"name": …, "title": "MR."/"MS."} objects, inferring the
-    title from the first name.
 
 Usage:
     python3 scripts/fix_cases.py                      # all terms
     python3 scripts/fix_cases.py 2007-10              # single term
     python3 scripts/fix_cases.py 2000-10 2010-10      # range (inclusive)
 
-    --dry-run   Report what would be changed without writing files.
+    --dry-run      Report what would be changed without writing files.
+    --duplicates   Also check for duplicate docket numbers within each term.
 """
 
 import json
@@ -41,6 +38,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_JSON = REPO_ROOT / 'courts' / 'ussc' / 'terms.json'
 TERMS_DIR  = REPO_ROOT / 'courts' / 'ussc' / 'terms'
+
+# Canonical key order for case objects.  Unknown keys are appended at the end.
+CASE_KEY_ORDER = [
+    'id', 'title', 'number', 'previouslyFiled',
+    'questions', 'questions_href',
+    'argument', 'reargument', 'decision',
+    'volume', 'page', 'usCite', 'dateDecision',
+    'voteMajority', 'voteMinority', 'votes',
+    'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'files',
+]
+
+# Canonical key order for event objects inside a case.
+EVENT_KEY_ORDER = [
+    'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
+    'journal_href', 'audio_href', 'offset', 'transcript_href', 'text_href',
+    'advocates', 'aligned', 'unique', 'note',
+]
 
 # Files inside cases/NUMBER/ that are never transcript envelopes.
 _NON_TRANSCRIPT_NAMES = {'files.json'}
@@ -65,63 +79,59 @@ def split_numbers(raw: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# Vote migration
+# Key ordering
 # ---------------------------------------------------------------------------
 
-def _migrate_vote(vote: dict) -> tuple[dict, bool]:
-    """Convert an old-format vote object to the new format if needed.
+def _reorder(obj: dict, order: list[str]) -> tuple[dict, set[str]]:
+    """Return a copy of *obj* with keys in *order*, unknown keys appended.
 
-    Old:  {"id": "jgroberts", "name": "JOHN ROBERTS", "majority": true}
-    New:  {"name": "JOHN ROBERTS", "vote": "majority"}
-
-    Returns (possibly_updated_vote, was_changed).
+    Also returns the set of unknown key names.
     """
-    if 'majority' not in vote:
-        return vote, False
-    new = {'name': vote['name'], 'vote': 'majority' if vote['majority'] else 'minority'}
-    return new, True
+    known = {k: obj[k] for k in order if k in obj}
+    unknown_keys = set(obj) - set(order)
+    extras = {k: obj[k] for k in obj if k in unknown_keys}
+    return {**known, **extras}, unknown_keys
 
 
-def fix_votes(term: str, cases: list[dict], dry_run: bool) -> int:
-    """Migrate old-format vote objects in *cases*.  Returns number of cases changed."""
-    changed = 0
+def fix_key_order(
+    term: str, cases: list[dict], dry_run: bool
+) -> tuple[int, int, set[str], set[str]]:
+    """Reorder keys in every case object and every event object within it.
+
+    During dry-run, reports any unknown case-level or event-level keys found.
+    Returns (cases_reordered, events_reordered, unknown_case_keys, unknown_event_keys).
+    """
+    cases_changed = 0
+    events_changed = 0
+    unknown_case_keys: set[str] = set()
+    unknown_event_keys: set[str] = set()
+
     for case in cases:
-        new_votes = []
-        case_changed = False
-        for v in case.get('votes') or []:
-            new_v, did_change = _migrate_vote(v)
-            new_votes.append(new_v)
-            if did_change:
-                case_changed = True
-        if case_changed:
-            changed += 1
-            label = f'  {term} {case.get("number", "?")} "{case.get("title", "?")}"'
-            print(f'{label}: migrated {sum(1 for v in new_votes if "vote" in v)} vote(s)')
+        # Reorder events first (in-place so the case dict picks them up)
+        for event in case.get('events', []):
+            new_event, ev_unknown = _reorder(event, EVENT_KEY_ORDER)
+            unknown_event_keys |= ev_unknown
+            if list(new_event.keys()) != list(event.keys()):
+                events_changed += 1
+                if not dry_run:
+                    event.clear()
+                    event.update(new_event)
+
+        # Reorder case
+        new_case, unknown = _reorder(case, CASE_KEY_ORDER)
+        unknown_case_keys |= unknown
+        if list(new_case.keys()) != list(case.keys()):
+            cases_changed += 1
             if not dry_run:
-                case['votes'] = new_votes
-    return changed
+                case.clear()
+                case.update(new_case)
 
+    if dry_run and unknown_case_keys:
+        print(f'  {term}: unknown case keys: {sorted(unknown_case_keys)}')
+    if dry_run and unknown_event_keys:
+        print(f'  {term}: unknown event keys: {sorted(unknown_event_keys)}')
 
-def fix_id_position(term: str, cases: list[dict], dry_run: bool) -> int:
-    """Move 'id' to be the first key in each case object where it isn't already.
-
-    Returns number of cases changed.
-    """
-    changed = 0
-    for case in cases:
-        if 'id' not in case:
-            continue
-        keys = list(case.keys())
-        if keys[0] == 'id':
-            continue
-        changed += 1
-        print(f'  {term} {case.get("number", "?")} "{case.get("title", "?")}": moved "id" to front')
-        if not dry_run:
-            reordered = {'id': case['id']}
-            reordered.update({k: v for k, v in case.items() if k != 'id'})
-            case.clear()
-            case.update(reordered)
-    return changed
+    return cases_changed, events_changed, unknown_case_keys, unknown_event_keys
 
 
 def check_duplicates(term: str, cases: list[dict]) -> int:
@@ -136,7 +146,7 @@ def check_duplicates(term: str, cases: list[dict]) -> int:
     if not duplicates:
         return 0
 
-    print(f'\n{term}: {len(duplicates)} duplicate docket number(s)')
+    print(f'{term}: {len(duplicates)} duplicate docket number(s)')
     for num in sorted(duplicates):
         titles = ', '.join(f'"{c.get("title", "?")}" ({c.get("number", "?")})' for c in duplicates[num])
         print(f'  {num}  →  {titles}')
@@ -250,56 +260,6 @@ def check_duplicate_text_hrefs(term: str, cases: list[dict]) -> int:
     return dupes
 
 
-# ---------------------------------------------------------------------------
-# Advocates migration
-# ---------------------------------------------------------------------------
-
-_MASC_FIRST_NAMES = {
-    'PAUL', 'MICHAEL', 'DONALD', 'LAWRENCE', 'EDWIN', 'CHRISTOPHER',
-    'MARK', 'WILLIAM', 'JACK', 'CHARLES', 'MILTON',
-}
-
-
-def _advocate_default_title(name: str) -> str:
-    """Return 'MR.' if the first name is in the masculine list, else 'MS.'."""
-    first = name.strip().split()[0].upper() if name.strip() else ''
-    return 'MR.' if first in _MASC_FIRST_NAMES else 'MS.'
-
-
-def fix_advocates(term: str, cases: list[dict], dry_run: bool) -> int:
-    """Migrate flat advocates string arrays to [{name, title}] objects.
-
-    Skips entries that are already dicts.  Returns number of audio objects changed.
-    """
-    changed = 0
-    for case in cases:
-        number_field = case.get('number', case.get('id', '?'))
-        for audio in case.get('events', []):
-            raw = audio.get('advocates')
-            if not isinstance(raw, list) or not raw:
-                continue
-            # Check if any entry is still a plain string.
-            if not any(isinstance(a, str) for a in raw):
-                continue
-            new_advs = []
-            for entry in raw:
-                if isinstance(entry, str):
-                    new_advs.append({
-                        'name': entry,
-                        'title': _advocate_default_title(entry),
-                    })
-                else:
-                    new_advs.append(entry)
-            if dry_run:
-                print(f'  MIGRATE advocates {term}/{number_field} '
-                      f'[{audio.get("date", "?")}]: '
-                      f'{len([a for a in raw if isinstance(a, str)])} string(s)')
-            else:
-                audio['advocates'] = new_advs
-            changed += 1
-    return changed
-
-
 def fix_oyez_transcript_hrefs(
     term: str, cases: list[dict], dry_run: bool
 ) -> int:
@@ -332,22 +292,8 @@ def fix_oyez_transcript_hrefs(
     return stripped
 
 
-def rename_audio_to_events(term: str, cases: list[dict], dry_run: bool) -> int:
-    """Rename the top-level 'audio' key to 'events' in every case object.
-
-    Returns the number of cases updated.
-    """
-    changed = 0
-    for case in cases:
-        if 'audio' in case:
-            if not dry_run:
-                case['events'] = case.pop('audio')
-            changed += 1
-    return changed
-
-
-def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
-    """Process one term.  Returns (duplicate_count, cases_with_votes_fixed, cases_with_id_moved)."""
+def process_term(term: str, dry_run: bool, check_dups: bool = False) -> tuple[int, int, int]:
+    """Process one term.  Returns counts of changes and any unknown case keys."""
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
     if not cases_path.exists():
         return 0, 0, 0
@@ -356,34 +302,32 @@ def process_term(term: str, dry_run: bool) -> tuple[int, int, int]:
     if not cases:
         return 0, 0, 0
 
-    dup_count        = check_duplicates(term, cases)
-    audio_renamed    = rename_audio_to_events(term, cases, dry_run)
-    votes_fixed      = fix_votes(term, cases, dry_run)
-    id_moved         = fix_id_position(term, cases, dry_run)
-    advocates_fixed  = fix_advocates(term, cases, dry_run)
+    dup_count        = check_duplicates(term, cases) if check_dups else 0
+    cases_reordered, events_reordered, unknown_keys, unknown_event_keys = fix_key_order(term, cases, dry_run)
 
     cases_dir = TERMS_DIR / term / 'cases'
     href_updated, href_warned = fix_text_hrefs(term, cases, cases_dir, dry_run)
     href_missing  = check_missing_text_hrefs(term, cases, cases_dir)
     href_orphaned = check_orphaned_transcripts(term, cases, cases_dir)
-    href_dupes    = check_duplicate_text_hrefs(term, cases)
+    href_dupes    = check_duplicate_text_hrefs(term, cases) if check_dups else 0
     href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run)
 
-    if (audio_renamed or votes_fixed or id_moved or advocates_fixed or href_updated or href_stripped) and not dry_run:
+    if (cases_reordered or events_reordered or href_updated or href_stripped) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
-    return (dup_count, audio_renamed, votes_fixed, id_moved, advocates_fixed,
+    return (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
             href_updated, href_warned, href_missing,
             href_orphaned, href_dupes, href_stripped)
 
 
 def main() -> None:
     raw_args = sys.argv[1:]
-    dry_run = '--dry-run' in raw_args
-    args = [a for a in raw_args if a != '--dry-run']
+    dry_run    = '--dry-run'    in raw_args
+    check_dups = '--duplicates' in raw_args
+    args = [a for a in raw_args if a not in ('--dry-run', '--duplicates')]
 
     if len(args) > 2:
         print(__doc__)
@@ -406,82 +350,56 @@ def main() -> None:
 
     total_dups              = 0
     terms_with_dups         = 0
-    total_audio_renamed     = 0
-    terms_with_renamed      = 0
-    total_votes_fixed       = 0
-    terms_with_votes        = 0
-    total_id_moved          = 0
-    terms_with_id           = 0
-    total_advocates_fixed   = 0
-    terms_with_advocates    = 0
+    total_cases_reordered   = 0
+    total_events_reordered  = 0
+    all_unknown_case_keys: set[str] = set()
+    all_unknown_event_keys: set[str] = set()
     total_href_updated      = 0
     total_href_warned       = 0
     total_href_missing      = 0
     total_href_orphaned     = 0
     total_href_dupes        = 0
     total_href_stripped     = 0
-    terms_with_href_fixes   = 0
 
     for term in terms_to_check:
-        (dup_count, audio_renamed, votes_fixed, id_moved, advocates_fixed,
+        (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
          href_updated, href_warned, href_missing,
-         href_orphaned, href_dupes, href_stripped) = process_term(term, dry_run)
+         href_orphaned, href_dupes, href_stripped) = process_term(term, dry_run, check_dups)
 
         if dup_count:
             total_dups      += dup_count
             terms_with_dups += 1
-        if audio_renamed:
-            total_audio_renamed += audio_renamed
-            terms_with_renamed  += 1
-        if votes_fixed:
-            total_votes_fixed += votes_fixed
-            terms_with_votes  += 1
-        if id_moved:
-            total_id_moved += id_moved
-            terms_with_id  += 1
-        if advocates_fixed:
-            total_advocates_fixed += advocates_fixed
-            terms_with_advocates  += 1
+        total_cases_reordered  += cases_reordered
+        total_events_reordered += events_reordered
+        all_unknown_case_keys  |= unknown_keys
+        all_unknown_event_keys |= unknown_event_keys
+        total_href_updated  += href_updated
+        total_href_warned   += href_warned
+        total_href_missing  += href_missing
+        total_href_orphaned += href_orphaned
+        total_href_dupes    += href_dupes
+        total_href_stripped += href_stripped
 
-        href_any = href_updated + href_warned + href_missing + href_orphaned + href_dupes + href_stripped
-        if href_any:
-            total_href_updated  += href_updated
-            total_href_warned   += href_warned
-            total_href_missing  += href_missing
-            total_href_orphaned += href_orphaned
-            total_href_dupes    += href_dupes
-            total_href_stripped += href_stripped
-            terms_with_href_fixes += 1
+    if check_dups:
+        if total_dups == 0:
+            print('No duplicate docket numbers found.')
+        else:
+            print(f'Duplicates: {total_dups} docket number(s) across {terms_with_dups} term(s).')
 
-    print()
-    if total_dups == 0:
-        print('No duplicate docket numbers found.')
+    if total_cases_reordered == 0 and total_events_reordered == 0:
+        print('No key-ordering changes needed.')
     else:
-        print(f'Duplicates: {total_dups} docket number(s) across {terms_with_dups} term(s).')
-
-    if total_audio_renamed == 0:
-        print('No "audio" keys to rename (already "events" or absent).')
-    else:
-        verb = 'Would rename' if dry_run else 'Renamed'
-        print(f'audio→events: {verb} {total_audio_renamed} case(s) across {terms_with_renamed} term(s).')
-
-    if total_votes_fixed == 0:
-        print('No old-format votes found.')
-    else:
-        verb = 'Would fix' if dry_run else 'Fixed'
-        print(f'Votes: {verb} {total_votes_fixed} case(s) across {terms_with_votes} term(s).')
-
-    if total_id_moved == 0:
-        print('No misplaced "id" fields found.')
-    else:
-        verb = 'Would move' if dry_run else 'Moved'
-        print(f'ID position: {verb} "id" in {total_id_moved} case(s) across {terms_with_id} term(s).')
-
-    if total_advocates_fixed == 0:
-        print('No flat advocates arrays found.')
-    else:
-        verb = 'Would migrate' if dry_run else 'Migrated'
-        print(f'Advocates: {verb} {total_advocates_fixed} audio object(s) across {terms_with_advocates} term(s).')
+        verb = 'Would reorder' if dry_run else 'Reordered'
+        parts = []
+        if total_cases_reordered:
+            parts.append(f'{total_cases_reordered} case(s)')
+        if total_events_reordered:
+            parts.append(f'{total_events_reordered} event(s)')
+        print(f'Key order: {verb} {" and ".join(parts)}.')
+    if dry_run and all_unknown_case_keys:
+        print(f'Key order: unknown case keys found: {sorted(all_unknown_case_keys)}')
+    if all_unknown_event_keys:
+        print(f'Key order: unknown event keys found: {sorted(all_unknown_event_keys)}')
 
     if total_href_updated:
         verb = 'Would migrate' if dry_run else 'Migrated'
@@ -498,10 +416,9 @@ def main() -> None:
         verb = 'Would strip' if dry_run else 'Stripped'
         print(f'transcript_href: {verb} duplicate from {total_href_stripped} oyez audio object(s).')
 
-    if not any([total_dups, total_audio_renamed, total_votes_fixed, total_id_moved,
-                total_advocates_fixed, total_href_updated, total_href_warned,
-                total_href_missing, total_href_orphaned, total_href_dupes,
-                total_href_stripped]):
+    if not any([total_dups, total_cases_reordered, total_events_reordered,
+                total_href_updated, total_href_warned, total_href_missing,
+                total_href_orphaned, total_href_dupes, total_href_stripped]):
         print('No issues found.')
 
 
