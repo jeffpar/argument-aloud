@@ -30,6 +30,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from validate_cases import sync_files_count
+from schema import reorder_event
 
 REPO_ROOT      = Path(__file__).resolve().parent.parent
 OYEZ_API       = 'https://api.oyez.org'
@@ -634,16 +635,17 @@ def main():
                     type_val = ('opinion'    if 'opinion'    in audio_href.lower()
                                 else 'reargument' if 'reargument' in audio_href.lower()
                                 else 'argument')
-                    new_arg = {
+                    new_arg = reorder_event({
                         'source':     'oyez',
                         'type':       type_val,
-                        'title':      _audio_title(type_val, date_str, case_num=case_num_for_title),
                         'date':       date_str,
+                        'title':      _audio_title(type_val, date_str, case_num=case_num_for_title),
                         'audio_href': audio_href,
                         'text_href':  _oyez_href,
-                    }
-                    if _turns_are_aligned(data):
-                        new_arg['aligned'] = True
+                        'aligned':    True if _turns_are_aligned(data) else None,
+                    })
+                    if new_arg.get('aligned') is None:
+                        del new_arg['aligned']
                     local_case.setdefault('events', []).append(new_arg)
                     existing_oyez_filenames.add(_oyez_href)
                     cases_modified = True
@@ -747,13 +749,13 @@ def main():
                         # No transcript, but still record the audio entry if it's new.
                         if mp3_url and mp3_url not in existing_oyez_filenames and out_href not in existing_oyez_filenames:
                             type_val = _oyez_arg_type(oyez_arg.get('title', ''))
-                            new_arg = {
+                            new_arg = reorder_event({
                                 'source':     'oyez',
                                 'type':       type_val,
-                                'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                                 'date':       date_str,
+                                'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                                 'audio_href': mp3_url,
-                            }
+                            })
                             local_case.setdefault('events', []).append(new_arg)
                             existing_oyez_filenames.add(mp3_url)
                             cases_modified = True
@@ -779,16 +781,17 @@ def main():
                     if out_href not in existing_oyez_filenames:
                         audio_href = (envelope.get('media') or {}).get('url', '')
                         type_val = _oyez_arg_type(oyez_arg.get('title', ''))
-                        new_arg = {
+                        new_arg = reorder_event({
                             'source':     'oyez',
                             'type':       type_val,
-                            'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                             'date':       date_str,
+                            'title':      _audio_title(type_val, date_str, part_num, case_num_for_title),
                             'audio_href': audio_href,
                             'text_href':  out_href,
-                        }
-                        if _turns_are_aligned(envelope):
-                            new_arg['aligned'] = True
+                            'aligned':    True if _turns_are_aligned(envelope) else None,
+                        })
+                        if new_arg.get('aligned') is None:
+                            del new_arg['aligned']
                         local_case.setdefault('events', []).append(new_arg)
                         existing_oyez_filenames.add(out_href)
                         cases_modified = True
@@ -877,13 +880,13 @@ def main():
                         if envelope is None:
                             # No transcript, but still record the audio entry if it's new.
                             if mp3_url and mp3_url not in existing_oyez_filenames and out_href not in existing_oyez_filenames:
-                                new_entry = {
+                                new_entry = reorder_event({
                                     'source':     'oyez',
                                     'type':       'opinion',
-                                    'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                     'date':       date_str,
+                                    'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                     'audio_href': mp3_url,
-                                }
+                                })
                                 local_case.setdefault('events', []).append(new_entry)
                                 existing_oyez_filenames.add(mp3_url)
                                 cases_modified = True
@@ -908,16 +911,17 @@ def main():
 
                         if out_href not in existing_oyez_filenames:
                             audio_href = (envelope.get('media') or {}).get('url', '')
-                            new_entry = {
+                            new_entry = reorder_event({
                                 'source':     'oyez',
                                 'type':       'opinion',
-                                'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                 'date':       date_str,
+                                'title':      _audio_title('opinion', date_str, part_num, case_num_for_title),
                                 'audio_href': audio_href,
                                 'text_href':  out_href,
-                            }
-                            if _turns_are_aligned(envelope):
-                                new_entry['aligned'] = True
+                                'aligned':    True if _turns_are_aligned(envelope) else None,
+                            })
+                            if new_entry.get('aligned') is None:
+                                del new_entry['aligned']
                             local_case.setdefault('events', []).append(new_entry)
                             existing_oyez_filenames.add(out_href)
                             cases_modified = True
@@ -1102,13 +1106,13 @@ def main():
                                 envelope, mp3 = fetch_oyez_transcript(oyez_arg['href'], justices)
                                 if envelope is None:
                                     if mp3 and mp3 not in existing_comp_mp3s:
-                                        new_entry = {
+                                        new_entry = reorder_event({
                                             'source':     'oyez',
                                             'type':       type_val,
-                                            'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
                                             'date':       date_str,
+                                            'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
                                             'audio_href': mp3,
-                                        }
+                                        })
                                         local_case.setdefault('events', []).append(new_entry)
                                         existing_comp_mp3s.add(mp3)
                                         cases_modified = True
@@ -1139,16 +1143,17 @@ def main():
                                     print('already tracked — skipped')
                                     continue
 
-                            new_entry: dict = {
+                            new_entry = reorder_event({
                                 'source':     'oyez',
                                 'type':       type_val,
-                                'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
                                 'date':       date_str,
+                                'title':      _audio_title(type_val, date_str, part_num, comp_num if use_case_nums else ''),
                                 'audio_href': mp3,
                                 'text_href':  out_href,
-                            }
-                            if algnd:
-                                new_entry['aligned'] = True
+                                'aligned':    True if algnd else None,
+                            })
+                            if new_entry.get('aligned') is None:
+                                del new_entry['aligned']
                             local_case.setdefault('events', []).append(new_entry)
                             existing_comp.add(out_href)
                             if mp3:

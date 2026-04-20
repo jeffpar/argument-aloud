@@ -35,26 +35,11 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from schema import CASE_KEY_ORDER, EVENT_KEY_ORDER
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_JSON = REPO_ROOT / 'courts' / 'ussc' / 'terms.json'
 TERMS_DIR  = REPO_ROOT / 'courts' / 'ussc' / 'terms'
-
-# Canonical key order for case objects.  Unknown keys are appended at the end.
-CASE_KEY_ORDER = [
-    'id', 'title', 'number', 'previouslyFiled',
-    'questions', 'questions_href',
-    'argument', 'reargument', 'decision',
-    'volume', 'page', 'usCite', 'dateDecision',
-    'voteMajority', 'voteMinority', 'votes',
-    'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'files',
-]
-
-# Canonical key order for event objects inside a case.
-EVENT_KEY_ORDER = [
-    'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'journal_href', 'audio_href', 'offset', 'transcript_href', 'text_href',
-    'advocates', 'aligned', 'unique', 'note',
-]
 
 # Files inside cases/NUMBER/ that are never transcript envelopes.
 _NON_TRANSCRIPT_NAMES = {'files.json'}

@@ -66,6 +66,7 @@ from pathlib import Path
 # Import opinion helpers from validate_cases (same scripts/ directory).
 sys.path.insert(0, str(Path(__file__).parent))
 from validate_cases import _fetch_opinions, check_opinion_for_case, sync_files_count
+from schema import reorder_event
 
 
 CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
@@ -1749,9 +1750,9 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                         row['number'] if len(_ussc_comps_with_transcripts) > 1 else ''
                     )
                     title = _ussc_audio_title('argument', row['date'], _case_num_for_title)
-                    new_audio: dict = {'source': 'ussc', 'type': 'argument',
-                                       'title': title, 'date': row['date'],
-                                       'transcript_href': row['pdf_url']}
+                    new_audio = reorder_event({'source': 'ussc', 'type': 'argument',
+                                               'date': row['date'], 'title': title,
+                                               'transcript_href': row['pdf_url']})
                     audio_list.append(new_audio)
                     case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
                     cases_modified = True
