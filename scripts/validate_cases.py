@@ -47,6 +47,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+from schema import reorder_event
 
 REPO_ROOT    = Path(__file__).resolve().parent.parent
 SCOTUS_BASE  = 'https://www.supremecourt.gov'
@@ -347,13 +348,16 @@ def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: boo
                     and current_aligned == desired_aligned):
                 continue  # already correct, leave untouched
 
-            # Rebuild with source + type (+ aligned) first, preserving all other keys.
-            new_arg: dict = {'source': source, 'type': type_val}
+            # Rebuild with source + type (+ aligned if set), in canonical order.
+            rebuilt = dict(arg)
+            rebuilt['source'] = source
+            rebuilt['type']   = type_val
             if is_aligned:
-                new_arg['aligned'] = True
-            new_arg.update({k: v for k, v in arg.items()
-                            if k not in ('source', 'type', 'aligned')})
-            case['audio'][i] = new_arg
+                rebuilt['aligned'] = True
+            else:
+                rebuilt.pop('aligned', None)
+            new_arg = reorder_event(rebuilt)
+            case['events'][i] = new_arg
             modified = True
             case_modified = True
 
