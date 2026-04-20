@@ -6,7 +6,7 @@ A lot of research has been done by Marlene Trestman into the history of women ad
 
 More recently, Marlene published an article, "[Women Advocates Before the Supreme Court](https://supremecourthistory.org/oral-arguments/women-advocates-before-the-supreme-court/)". that included a Google Docs spreadsheet named "[Women Advocates Through OT 24](https://docs.google.com/spreadsheets/d/1Qsu5_yl8WABum3OmNqi8wruhWXeC73n9/edit?gid=1826861058#gid=1826861058)", which we have preserved [here](https://github.com/jeffpar/argument-aloud/blob/b48499ee848a389c9d6f1a2274a11c059c3424f1/courts/ussc/people/advocates/Women%20Through%20October%20Term%202024.csv).
 
-In an effort to root out any mistakes and omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, we created a script named [Audit_Women](../../scripts/audit_women.py) that compares all spreadsheet data against to other available data and reports any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running [Audit_Women](../../scripts/audit_women.py), and repeating that process hundreds of times until all the warnings were eliminated.
+In an effort to root out any mistakes and omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, we created a script named [Audit_Women](../../scripts/audit_women.py) that compares all spreadsheet data to other available data and reports any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running [Audit_Women](../../scripts/audit_women.py), and repeating that process hundreds of times until all the warnings were eliminated.
 
 As part of that process, we have produced an updated copy of Marlene's spreadsheet named "[Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv)".  That spreadsheet is no longer being used by this project as part of our [Update_Advocates](../../scripts/update_advocates.py) process, but we felt it was important to return the favor and share all our findings back.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
 
@@ -18,17 +18,15 @@ P.S. When I say "we", I'm casually referring to myself and my AI collaborator, C
 
 All corrections (fixing typos, incorrect dates/citations, etc) that we made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
-One change not reflected below is our decision to record only 23 arguments for [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) rather than the 24 that was noted in the articles above.  Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, we are concerned here with total arguments, not total cases, and sometimes multiple cases are consolidated for argument.
+It's worth noting that [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.  Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, we are more concerned here with total arguments, not total cases, and sometimes multiple cases are consolidated for argument.
 
 Bessie Margolin's arguments in the following 3 cases were consolidated with 4 other cases:
 
-  - Borden v. Borella (No. 688) argument was consolidated with 10 East 40th St. Bldg v. Callus (No. 820)
-  - Aaron v. Ford, Bacon & Davis, Inc. (No. 79) and Creel v. Lone Star Defense Corp. (No. 58) arguments were consolidated with Powell v. United States Cartridge Co. (No. 96)
-  - Waialua Agricultural Co. v. Maneja (No. 358) argument was consolidated with Maneja v. Waialua Agricultural Co. (No. 357)
+  - 10 East 40th St. Bldg v. Callus (No. 820) was consolidated with Borden v. Borella (No. 688)
+  - Powell v. United States Cartridge Co. (No. 96) was consolidated with Aaron v. Ford, Bacon & Davis, Inc. (No. 79) and Creel v. Lone Star Defense Corp. (No. 58)
+  - Maneja v. Waialua Agricultural Co. (No. 357) was conslidated with Waialua Agricultural Co. v. Maneja (No. 358)
 
-If one chose to count No. 688 and No. 820 separately, then one would also need to separate No. 58 and No. 96 from No. 79, and No. 357 from No. 358. For consistency, we count "appearances", not "cases".  So, a single argument, whether it's for 1 or 2 or more cases, counts only once.  The only exception is when 1 or more of those cases must be re-argued at a later date (and in rare situations, re-re-argued): each re-argument also counts as a separate argument/appearance.
-
-This is consistent with how, for example, both we and the Court counted Lawrence G. Wallace's 157 arguments.  There are no doubt many occasions where he argued on behalf of parties in multiple cases (such as [Usery v. Turner Elkhorn Mining Company (Nos. 74-1302, 74-1316)](https://argumentaloud.org/courts/ussc/?collection=all_advocates&id=lawrence_g_wallace&term=1975-10&case=74-1302%2C74-1316&event=1)), but we are not prepared to track that level of detail, and it's not a metric that anyone is interested in.
+These consolidations reduce her total number of cases argued from 27 to 23, but the reason we end up with 24 is due to how the Court ultimately ruled in the first set of cases, writing a separate opinion for each of the consolidated cases, effectively "unconsolidating" them; see [10 East 40th Street Building, Inc. v. Callus (No. 820)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=820) and [Borden Co. v. Borella (No. 688)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=688).
 
 ```
 574c574
