@@ -60,7 +60,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "all_advocates.json"
 WOMEN_OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "women_advocates.json"
-WOMEN_CSV_FILE = REPO_ROOT / "data" / "misc" / "women_advocates.csv"
+WOMEN_CSV_FILE = REPO_ROOT / "data" / "misc" / "ussc_women_advocates.csv"
 ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
@@ -697,7 +697,7 @@ def main() -> None:
     )
 
     # -----------------------------------------------------------------------
-    # Write women_advocates.csv — one row per argument per woman advocate.
+    # Write ussc_women_advocates.csv — one row per argument per woman advocate.
     # -----------------------------------------------------------------------
     women_rows: list[tuple] = []
     for name_upper, entry in advocates.items():
