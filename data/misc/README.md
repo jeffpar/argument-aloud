@@ -10,7 +10,11 @@ In an effort to root out any mistakes and omissions, and to start the process of
 
 As part of that process, we have produced an updated copy of Marlene's spreadsheet named "[Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv)".  That spreadsheet is no longer being used by this project as part of our [Update_Advocates](../../scripts/update_advocates.py) process, but we felt it was important to return the favor and share all our findings back.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
 
-This project doesn't store its data in spreadsheets; all data here is stored as a collection of related JSON files, created and updated with a set of scripts maintained on [GitHub](https://github.com/jeffpar/argument-aloud), and presented through a web interface at [Argument Aloud](https://argumentaloud.org).  However, when we periodically run our [Update_Advocates](../../scripts/update_advocates.py) script, we do also create a spreadsheet named [Women Advocates](women_advocates.csv) that contains much of the same information that Marlene has been tracking in her own spreadsheet.
+This project doesn't store its data in spreadsheets; all data here is stored as a collection of related JSON files, created and updated with a set of scripts maintained on [GitHub](https://github.com/jeffpar/argument-aloud), and presented through a web interface at [Argument Aloud](https://argumentaloud.org).  However, when we periodically run our [Update_Advocates](../../scripts/update_advocates.py) script, we do also generate a new spreadsheet:
+
+  - [USSC Women Advocates](ussc_women_advocates.csv)
+  
+which contains much of the same information as previous spreadsheets, along with any additional women we have since discovered during our updates.
 
 P.S. When I say "we", I'm casually referring to myself and my AI collaborator, Claude.  Claude is not used to directly produce or verify any data maintained here; it is used only to help produce the tools that process the data, along with the UI to present it.  We all know how fallible AI can be, but we also know that humans are not infallible either, so just as our tools here cross-check one set of data against another, Claude and I check each other's work as well.
 
