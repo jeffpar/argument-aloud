@@ -38,7 +38,7 @@ CSV_PATH = os.path.join(
 )
 TERMS_DIR = os.path.join(BASE_DIR, 'courts', 'ussc', 'terms')
 _SPEAKERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'speakers.json')
-_DATES_CSV_PATH = os.path.join(BASE_DIR, 'data', 'misc', 'ussc_dates.csv')
+_DATES_CSV_PATH = os.path.join(BASE_DIR, 'data', 'ld', 'ussc_dates.csv')
 
 
 def _load_name_aliases(path):
