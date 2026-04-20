@@ -22,15 +22,17 @@ P.S. When I say "we", I'm casually referring to myself and my AI collaborator, C
 
 All corrections (fixing typos, incorrect dates/citations, etc) that we made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
-It's worth noting that [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.  Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, we are more concerned here with total arguments, not total cases, and sometimes multiple cases are consolidated for argument.
+It's worth noting that [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.  Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, we are more concerned here with total arguments, not total cases, as sometimes multiple cases are consolidated for argument.
 
-Bessie Margolin's arguments in the following 3 cases were consolidated with 4 other cases:
+Bessie Margolin's arguments in the following 3 cases included 4 other cases:
 
   - 10 East 40th St. Bldg v. Callus (No. 820) was consolidated with Borden v. Borella (No. 688)
   - Powell v. United States Cartridge Co. (No. 96) was consolidated with Aaron v. Ford, Bacon & Davis, Inc. (No. 79) and Creel v. Lone Star Defense Corp. (No. 58)
   - Maneja v. Waialua Agricultural Co. (No. 357) was conslidated with Waialua Agricultural Co. v. Maneja (No. 358)
 
 These consolidations reduce her total number of cases argued from 27 to 23, but the reason we end up with 24 is due to how the Court ultimately ruled in the first set of cases, writing a separate opinion for each of the consolidated cases, effectively "unconsolidating" them; see [10 East 40th Street Building, Inc. v. Callus (No. 820)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=820) and [Borden Co. v. Borella (No. 688)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=688).
+
+For the sake of argument, we believe that "unconsolidating" two cases *after* they were argued as one does not subsequently transform one argument into two.
 
 ```
 574c574
