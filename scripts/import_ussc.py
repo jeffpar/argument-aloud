@@ -67,7 +67,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from validate_cases import _fetch_opinions, _wayback_pdf_url, check_opinion_for_case, sync_files_count, sync_opinion_href_from_files
 from validate_cases import check_url as _check_url
-from schema import reorder_event
+from schema import reorder_event, reorder_case
 
 
 CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
@@ -83,6 +83,10 @@ REPO_ROOT        = Path(__file__).resolve().parent.parent
 _SPEAKERS_PATH   = Path(__file__).parent / 'speakers.json'
 _JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
 BASE_URL         = 'https://www.supremecourt.gov'
+_WAYBACK_CDX_URL = 'https://web.archive.org/cdx/search/cdx'
+# Strips the Wayback timestamp rewrite prefix from href/src attributes so
+# that relative URL resolution works against the original supremecourt.gov base.
+_WAYBACK_REWRITE_RE = re.compile(r'https?://web\.archive\.org/web/\d{14}/')
 
 # ── Docket number map ─────────────────────────────────────────────────────────
 
@@ -137,6 +141,43 @@ def fetch_html(url: str) -> str:
     req = urllib.request.Request(_safe_url(url), headers={'User-Agent': 'Mozilla/5.0'})
     with urllib.request.urlopen(req, timeout=30) as resp:
         return resp.read().decode('utf-8', errors='replace')
+
+
+def _fetch_html_via_wayback(original_url: str, year_str: str) -> str:
+    """Fetch *original_url* via a Wayback Machine snapshot.
+
+    Looks for the earliest snapshot on or after September 1 of the year
+    following the term (i.e. (YYYY+1)-09-01).  That month falls after the
+    term's June recess — so all case data is present — but before October
+    when the page is overwritten with the new term's content.
+
+    Returns HTML with the Wayback timestamp-rewrite prefix stripped so that
+    the ListingParser / TranscriptListingParser can resolve relative hrefs
+    against the original supremecourt.gov base URL.  Raises on failure.
+    """
+    year_int = int(year_str)
+    min_date = f'{year_int + 1}0901'   # September 1 of the following year
+
+    cdx_api = (
+        f'{_WAYBACK_CDX_URL}'
+        f'?url={urllib.parse.quote(original_url, safe="")}'
+        f'&output=json&from={min_date}&limit=5&statuscode=200'
+    )
+    req = urllib.request.Request(cdx_api, headers={'User-Agent': 'Mozilla/5.0'})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        cdx_rows = json.loads(resp.read().decode('utf-8', errors='replace'))
+
+    if len(cdx_rows) < 2:
+        raise ValueError(f'No Wayback snapshot found for {original_url!r} after {min_date}')
+
+    header   = cdx_rows[0]
+    ts_idx   = header.index('timestamp') if 'timestamp' in header else 1
+    snapshot_ts  = cdx_rows[1][ts_idx]
+    snapshot_url = f'https://web.archive.org/web/{snapshot_ts}/{original_url}'
+
+    print(f'  Fetching Wayback snapshot ({snapshot_ts[:8]}) for {original_url} ...')
+    html = fetch_html(snapshot_url)
+    return _WAYBACK_REWRITE_RE.sub('', html)
 
 
 def download_file(url: str, dest: Path) -> None:
@@ -1019,10 +1060,20 @@ class DocketParser(HTMLParser):
 
 # ── Scrape listing page ───────────────────────────────────────────────────────
 
-def fetch_cases_from_url(url: str) -> list[dict]:
-    """Return a list of {number, title, date, detail_url} dicts scraped from the listing page."""
+def fetch_cases_from_url(url: str, year_str: str = '') -> list[dict]:
+    """Return a list of {number, title, date, detail_url} dicts scraped from the listing page.
+
+    Falls back to a Wayback Machine snapshot (from around September of the
+    following year) when *year_str* is supplied and the live page is unavailable.
+    """
     print(f'Fetching {url} ...')
-    html   = fetch_html(url)
+    try:
+        html = fetch_html(url)
+    except Exception as exc:
+        if not year_str:
+            raise
+        print(f'  Live page unavailable ({exc}); trying Wayback Machine ...')
+        html = _fetch_html_via_wayback(url, year_str)
     parser = ListingParser(base_url=url)
     parser.feed(html)
     return parser.cases
@@ -1058,14 +1109,25 @@ def _transcript_listing_url(year_str: str) -> str:
     return f'{BASE_URL}/oral_arguments/argument_transcript/{year_str}'
 
 
-def fetch_transcripts_from_url(url: str) -> list[dict]:
-    """Return [{number, title, date, pdf_url}] scraped from a transcript listing page."""
+def fetch_transcripts_from_url(url: str, year_str: str = '') -> list[dict]:
+    """Return [{number, title, date, pdf_url}] scraped from a transcript listing page.
+
+    Falls back to a Wayback Machine snapshot (from around September of the
+    following year) when *year_str* is supplied and the live page is unavailable.
+    """
     print(f'Fetching transcript listing from {url} ...')
     try:
         html = fetch_html(url)
     except Exception as exc:
-        print(f'  Warning: could not fetch transcript listing: {exc}')
-        return []
+        if not year_str:
+            print(f'  Warning: could not fetch transcript listing: {exc}')
+            return []
+        print(f'  Live page unavailable ({exc}); trying Wayback Machine ...')
+        try:
+            html = _fetch_html_via_wayback(url, year_str)
+        except Exception as wb_exc:
+            print(f'  Warning: Wayback fallback also failed: {wb_exc}')
+            return []
     parser = TranscriptListingParser(base_url=url)
     parser.feed(html)
     return parser.transcripts
@@ -1144,7 +1206,8 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
         arg_urls = fetch_argument_urls(case['detail_url'])
         time.sleep(0.3)   # be polite
 
-        argument = {'source': 'ussc', 'type': 'argument', 'date': case['date']}
+        title    = _ussc_audio_title('argument', case['date'])
+        argument = {'source': 'ussc', 'type': 'argument', 'date': case['date'], 'title': title}
         argument.update(arg_urls)
 
         if arg_urls:
@@ -1189,24 +1252,33 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
         )
         if added:
             print(f'\nAdded {len(added)} case(s) to {cases_path}.')
+            if int(year) >= 2001:
+                print('Fetching docket info for newly added case(s) ...')
+                update_docket_info(cases_path, year, case_numbers=set(added))
     else:
         print(f'No new cases to add to {cases_path}')
 
 
 # ── Step 4: Fetch docket info ────────────────────────────────────────────────────────
 
-def update_docket_info(cases_path: Path, term_year: str = '') -> None:
+def update_docket_info(cases_path: Path, term_year: str = '',
+                       case_numbers: set[str] | None = None) -> None:
     """For each case without questions_href, or whose files.json has no petitioner
     entry, fetch the SCOTUS docket page and:
       - Set questions_href in cases.json
       - Append new Proceedings entries to files.json (deduped by href),
         including Petition links marked with type='petitioner'
+
+    If *case_numbers* is provided, only cases whose number appears in that set
+    are processed (useful when called immediately after adding new cases).
     """
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     cases_modified = False
 
     for case in existing:
         number     = case['number']
+        if case_numbers is not None and number not in case_numbers:
+            continue
         files_path = cases_path.parent / 'cases' / _case_folder(number) / 'files.json'
 
         if case.get('questions_href'):
@@ -1234,7 +1306,11 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
         changed = []
 
         if info.get('questions_href') and not case.get('questions_href'):
-            case['questions_href'] = info['questions_href']
+            reordered = reorder_case(dict(case) | {'questions_href': info['questions_href']})
+            case.clear()
+            case.update(reordered)
+            cases_modified = True
+            changed.append('questions_href')
             cases_modified = True
             changed.append('questions_href')
 
@@ -1620,7 +1696,9 @@ def extract_questions(cases_path: Path) -> None:
             )
             questions = _extract_questions_from_text(result.stdout)
             if questions:
-                case['questions'] = questions
+                reordered = reorder_case(dict(case) | {'questions': questions})
+                case.clear()
+                case.update(reordered)
                 modified = True
                 print(f'{len(questions)} chars')
             else:
@@ -1655,7 +1733,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     unless they already appear in the next term."""
 
     url = _transcript_listing_url(year_str)
-    transcripts = fetch_transcripts_from_url(url)
+    transcripts = fetch_transcripts_from_url(url, year_str)
     if not transcripts:
         print('  No transcripts found on listing page.')
         return
@@ -1780,8 +1858,10 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     for norm, rows in sorted(new_by_num.items()):
         title = rows[0]['title']
         audio_entries = [
-            {'source': 'ussc', 'type': 'argument',
-             'date': r['date'], 'transcript_href': r['pdf_url']}
+            reorder_event({'source': 'ussc', 'type': 'argument',
+                           'date': r['date'],
+                           'title': _ussc_audio_title('argument', r['date']),
+                           'transcript_href': r['pdf_url']})
             for r in rows
         ]
         new_case = {'title': title, 'number': norm, 'events': audio_entries}
@@ -1796,6 +1876,12 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
             encoding='utf-8',
         )
         print('  Updated cases.json.')
+        new_numbers = set(new_by_num.keys())
+        if new_numbers:
+            year_str_int = int(cases_path.parent.name.split('-')[0])
+            if year_str_int >= 2001:
+                print('  Fetching docket info for newly added case(s) ...')
+                update_docket_info(cases_path, str(year_str_int), case_numbers=new_numbers)
     else:
         print('  No changes needed.')
 
@@ -1974,7 +2060,7 @@ def main():
         print(f'Loaded {len(next_term_numbers)} case number(s) from {next_year}-10 for cross-term dedup.')
 
     try:
-        scraped = fetch_cases_from_url(url)
+        scraped = fetch_cases_from_url(url, year_str)
     except Exception as exc:
         print(f'Audio listing page not available ({exc}); will rely on transcript listing.')
         scraped = []
