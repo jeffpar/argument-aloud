@@ -65,7 +65,8 @@ from pathlib import Path
 
 # Import opinion helpers from validate_cases (same scripts/ directory).
 sys.path.insert(0, str(Path(__file__).parent))
-from validate_cases import _fetch_opinions, check_opinion_for_case, sync_files_count
+from validate_cases import _fetch_opinions, _wayback_pdf_url, check_opinion_for_case, sync_files_count, sync_opinion_href_from_files
+from validate_cases import check_url as _check_url
 from schema import reorder_event
 
 
@@ -1155,7 +1156,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
         existing.append({
             'title':     case['title'],
             'number':    case['number'],
-            'audio': [argument],
+            'events': [argument],
         })
         added.append(case['number'])
 
@@ -1799,6 +1800,136 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         print('  No changes needed.')
 
 
+# ── Step 7: Add / update opinion_href ───────────────────────────────────────
+
+
+def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
+    """Check every existing opinion_href in cases.json; replace any that return
+    404 with a working Wayback Machine URL.
+
+    The #page=N fragment (if present) is preserved in the replacement URL.
+    Each unique base PDF URL is probed only once to keep network calls minimal.
+    """
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    cases_modified = False
+
+    # Collect all unique base URLs that need checking.
+    base_urls: set[str] = set()
+    for case in data:
+        href = case.get('opinion_href', '')
+        if href and not href.startswith('https://web.archive.org/'):
+            base_urls.add(href.split('#')[0])
+
+    if not base_urls:
+        print('  No live opinion_href values to verify.')
+        return
+
+    # Probe each base URL once.
+    replacements: dict[str, str] = {}  # base_url -> wayback_url or '' (still live)
+    for base in sorted(base_urls):
+        ok, _ = _check_url(base)
+        if ok:
+            replacements[base] = ''   # still live — nothing to do
+        else:
+            wb = _wayback_pdf_url(base)
+            if wb:
+                print(f'  PDF 404 — upgrading to Wayback: {base}')
+            else:
+                print(f'  PDF 404 — no Wayback snapshot found: {base}')
+            replacements[base] = wb
+
+    # Apply replacements to cases.json.
+    for case in data:
+        href = case.get('opinion_href', '')
+        if not href or href.startswith('https://web.archive.org/'):
+            continue
+        base = href.split('#')[0]
+        frag = href[len(base):]   # '' or '#page=N'
+        wb = replacements.get(base, '')
+        if wb:
+            case['opinion_href'] = wb + frag
+            cases_modified = True
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json: replaced dead opinion_href values.')
+    else:
+        print('  All opinion_href values are reachable.')
+
+
+
+def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
+    """Set or update opinion_href in cases.json for each case with a matching
+    slip opinion.
+
+    For terms 2017-10 onward, opinions are fetched directly from
+    supremecourt.gov.  For earlier terms (down to 2012-10), the Wayback
+    Machine is used as a fallback via _fetch_opinions_via_wayback() —
+    using only snapshots dated at least 12 months after the term start.
+
+    Also updates the corresponding files.json entry (type='opinion') for
+    any case that already has a files.json.
+    """
+    year_2 = term.split('-')[0][-2:]  # '2015-10' → '15'
+    opinions = _fetch_opinions(year_2)
+    if not opinions:
+        print('  No slip opinions found.')
+        return
+
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    cases_modified = False
+
+    for case in data:
+        number = case.get('number', '')
+        if not number:
+            continue
+
+        # For consolidated cases (e.g. '00-832,00-843') check each component.
+        opinion = None
+        for part in number.split(','):
+            opinion = opinions.get(part.strip().lower())
+            if opinion:
+                break
+        if not opinion:
+            continue
+
+        href = opinion['href']
+        if case.get('opinion_href') != href:
+            # Insert opinion_href immediately before 'files', replacing any
+            # existing value so the key stays in the canonical position.
+            new_case: dict = {}
+            inserted = False
+            for k, v in case.items():
+                if k == 'files' and not inserted:
+                    new_case['opinion_href'] = href
+                    inserted = True
+                if k != 'opinion_href':
+                    new_case[k] = v
+            if not inserted:
+                new_case['opinion_href'] = href
+            case.clear()
+            case.update(new_case)
+            cases_modified = True
+            print(f'  {number}: opinion_href → {href}')
+
+        # Also add/update the files.json opinion entry if the file exists.
+        files_path = cases_path.parent / 'cases' / _case_folder(number) / 'files.json'
+        if files_path.exists():
+            check_opinion_for_case(files_path, number, term)
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json with opinion_href entries.')
+    else:
+        print('  opinion_href values already up to date.')
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -1896,16 +2027,11 @@ def main():
     print('Extracting questions presented ...')
     extract_questions(cases_path)
 
-    # Step 7: add slip opinions to files.json
+    # Step 7: add/update opinion_href from slip opinions index
     print()
     print('Checking for slip opinions ...')
-    existing = json.loads(cases_path.read_text(encoding='utf-8'))
-    for case in existing:
-        if 'number' not in case:
-            continue
-        files_path = cases_path.parent / 'cases' / _case_folder(case['number']) / 'files.json'
-        if files_path.exists():
-            check_opinion_for_case(files_path, case['number'], term)
+    upgrade_dead_opinion_hrefs(cases_path)
+    backfill_opinion_hrefs(cases_path, term)
 
     # Sync files counts now that all files.json mutations are done
     sync_files_count(cases_path)
