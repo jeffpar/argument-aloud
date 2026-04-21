@@ -528,7 +528,7 @@ def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: boo
 
             text_href = arg.get('text_href', '')
             is_aligned = bool(
-                text_href and _is_transcript_aligned(case_dir / text_href)
+                text_href and _is_transcript_aligned(term_dir / 'cases' / text_href)
             )
 
             current_aligned = arg.get('aligned')  # True, False, or absent (None)
@@ -718,7 +718,7 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
                 audio_list.append(new_audio)
                 # Re-sort by date.
                 case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
-                audio_list = case['audio']
+                audio_list = case['events']
                 print(f'  {label} ({tf_date}): created audio object with transcript_href')
                 audio_modified = True
 
@@ -1073,7 +1073,7 @@ def check_case_hrefs(cases_path: Path, term: str, opinions_only: bool = False) -
         # audio entries: audio_href and transcript_href
         if not opinions_only:
             _tag = {'audio_href': 'a', 'transcript_href': 't'}
-            for entry in case.get('audio') or []:
+            for entry in case.get('events') or []:
                 for key in ('audio_href', 'transcript_href'):
                     href = entry.get(key, '')
                     if not href or not href.startswith(('http://', 'https://')):
@@ -1323,7 +1323,7 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
         rearg_audio_dates:    list[str] = []
         opinion_audio_dates:  list[str] = []
 
-        for i, audio in enumerate(case.get('audio') or []):
+        for i, audio in enumerate(case.get('events') or []):
             atype = audio.get('type', '')
             date  = audio.get('date', '')
 
@@ -1541,7 +1541,7 @@ def deduplicate_cases(cases_path: Path) -> None:
             return False
         return all(
             not a.get('audio_href') and a.get('transcript_href')
-            for a in c.get('audio', [])
+            for a in c.get('events', [])
         )
 
     # Map each individual number component → index of the first case containing it.
@@ -1590,7 +1590,7 @@ def deduplicate_cases(cases_path: Path) -> None:
             if isinstance(stub_files, list):
                 audio_transcript_hrefs: set[str] = {
                     a['transcript_href']
-                    for a in stub.get('audio', [])
+                    for a in stub.get('events', [])
                     if a.get('transcript_href')
                 }
                 cleaned = [
@@ -1610,8 +1610,8 @@ def deduplicate_cases(cases_path: Path) -> None:
                     print(f'  {stub_num}: cleaned redundant transcript entries from files.json')
 
         # ── Step 2: merge stub audio into complete case ───────────────────────
-        comp_audio: list[dict] = complete.setdefault('audio', [])
-        for stub_audio in stub.get('audio', []):
+        comp_audio: list[dict] = complete.setdefault('events', [])
+        for stub_audio in stub.get('events', []):
             date             = stub_audio.get('date')
             transcript_href  = stub_audio.get('transcript_href')
 
@@ -1672,7 +1672,7 @@ def deduplicate_cases(cases_path: Path) -> None:
                 print(f'  {label} ({date}): appended unique audio entry from stub {stub_num}')
 
         # Re-sort audio by date after any appends.
-        complete['audio'] = sorted(comp_audio, key=lambda a: a.get('date') or '')
+        complete['events'] = sorted(comp_audio, key=lambda a: a.get('date') or '')
 
         # ── Step 3: merge remaining files.json entries ────────────────────────
         if stub_files_path.exists():
@@ -1803,7 +1803,7 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
             # an audio entry has a local text_href (not an external URL).
             has_local_text = any(
                 a.get('text_href') and not a['text_href'].startswith('http')
-                for a in (case.get('audio') or [])
+                for a in (case.get('events') or [])
             )
             has_content = bool(case.get('files')) or has_local_text
             if has_content or verbose:
@@ -1826,10 +1826,10 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
 
         # text_hrefs referenced in audio objects (local files only, not URLs).
         referenced: set[str] = set()
-        for audio in case.get('audio') or []:
+        for audio in case.get('events') or []:
             th = audio.get('text_href', '')
             if th and not th.startswith(('http://', 'https://')):
-                referenced.add(th)
+                referenced.add(Path(th).name)
             # Check that "Part N" in title matches "-N" suffix in filename.
             title_m = _PART_TITLE_RE.search(audio.get('title', ''))
             if title_m and th and not th.startswith(('http://', 'https://')):
