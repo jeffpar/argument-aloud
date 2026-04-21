@@ -55,6 +55,12 @@ SCOTUS_BASE  = 'https://www.supremecourt.gov'
 _OPINIONS_CACHE: dict = {}  # year_2digit -> {docket_lower: {date, name, author, href}}
 _VERBOSE: bool = False
 
+# Wayback Machine CDX search API endpoint and a regex that strips the
+# Wayback timestamp prefix from href attributes so the opinions regex below
+# can match the original supremecourt.gov path unchanged.
+_WAYBACK_CDX_URL   = 'https://web.archive.org/cdx/search/cdx'
+_WAYBACK_PREFIX_RE = re.compile(r'/web/\d{14}/https?://www\.supremecourt\.gov')
+
 _DATE_DEC_PARSE_RE  = re.compile(
     r'^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
     r'(January|February|March|April|May|June|July|August|September|'
@@ -153,6 +159,64 @@ def download_file(url: str, dest: Path) -> None:
 
 # ── Opinions index ────────────────────────────────────────────────────────────
 
+def _wayback_pdf_url(pdf_url: str) -> str:
+    """Return a Wayback Machine URL for *pdf_url*, or '' if none is found.
+
+    Queries the CDX API for any 200-status snapshot of the given URL.
+    """
+    cdx_api = (
+        f'{_WAYBACK_CDX_URL}'
+        f'?url={urllib.parse.quote(pdf_url, safe="")}'
+        f'&output=json&limit=1&statuscode=200&fl=timestamp'
+    )
+    try:
+        req = urllib.request.Request(cdx_api, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            rows = json.loads(resp.read().decode('utf-8', errors='replace'))
+    except Exception:
+        return ''
+    # rows = [['timestamp'], ['20180601123456']] or just [[header]] if empty
+    if len(rows) < 2:
+        return ''
+    ts = rows[1][0]
+    return f'https://web.archive.org/web/{ts}/{pdf_url}'
+
+
+def _fix_dead_opinion_pdf_hrefs(opinions: dict) -> dict:
+    """For opinions whose base PDF URL returns 404, substitute a Wayback URL.
+
+    Many opinions share the same base PDF (e.g. a preliminary-print volume);
+    each unique base URL is checked only once.  The #page=N fragment (if any)
+    is preserved when constructing the Wayback URL.
+    """
+    # Map base_url -> replacement ('' means still live, keep as-is).
+    replacements: dict[str, str] = {}
+    for op in opinions.values():
+        href = op['href']
+        base = href.split('#')[0]
+        if base not in replacements:
+            ok, _ = check_url(base)
+            if ok:
+                replacements[base] = base   # still live
+            else:
+                wb = _wayback_pdf_url(base)
+                if wb:
+                    print(f'    PDF 404 — using Wayback: {base}')
+                replacements[base] = wb     # may be '' if not archived
+
+    result: dict = {}
+    for docket, op in opinions.items():
+        href  = op['href']
+        base  = href.split('#')[0]
+        frag  = href[len(base):]            # '' or '#page=N'
+        new_base = replacements.get(base, base)
+        if new_base and new_base != base:
+            result[docket] = dict(op, href=new_base + frag)
+        else:
+            result[docket] = op
+    return result
+
+
 def _fetch_opinions(year_2digit: str) -> dict:
     """Fetch and parse the SCOTUS slip-opinions index for a 2-digit term year.
 
@@ -167,19 +231,19 @@ def _fetch_opinions(year_2digit: str) -> dict:
     if _VERBOSE:
         print(f'Fetching opinions index: {url}')
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    html = ''
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             html = resp.read().decode('utf-8', errors='replace')
     except Exception as exc:
         print(f'    Warning: could not fetch opinions index: {exc}')
-        _OPINIONS_CACHE[year_2digit] = {}
-        return {}
 
     # Each opinion row: date | docket (white-space:nowrap) | name<a>…</a> | J.
+    # The href may include a #page=N fragment (e.g. preliminaryprint PDFs).
     pattern = re.compile(
         r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
         r'<td[^>]*white-space[^>]*>([^<]+)</td>\s*'
-        r'<td[^>]*><a href=.(/opinions/\S+?\.pdf)[^>]*>([^<]+)</a>'
+        r'<td[^>]*><a href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
         r'.*?<td[^>]*>(\w+)</td>',
         re.DOTALL,
     )
@@ -198,6 +262,18 @@ def _fetch_opinions(year_2digit: str) -> dict:
             'href':   SCOTUS_BASE + href,
         }
 
+    # If the live page yielded no opinions, try the Wayback Machine as a
+    # fallback.  This handles terms 2016-10 and earlier, where supremecourt.gov
+    # no longer serves the slip-opinions index.
+    if not opinions:
+        opinions = _fetch_opinions_via_wayback(year_2digit)
+    else:
+        # The live page may link to PDF files that are themselves no longer
+        # hosted (e.g. superseded preliminary-print volumes).  Check each
+        # unique base PDF URL (fragment stripped) and swap in a Wayback
+        # archive URL for any that return 404.
+        opinions = _fix_dead_opinion_pdf_hrefs(opinions)
+
     _OPINIONS_CACHE[year_2digit] = opinions
     if _VERBOSE:
         full_year = str(2000 + int(year_2digit))
@@ -205,12 +281,126 @@ def _fetch_opinions(year_2digit: str) -> dict:
     return opinions
 
 
+def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
+    """Fetch the SCOTUS slip-opinions index via the Wayback Machine.
+
+    Used as a fallback for terms where the live supremecourt.gov page is no
+    longer available (2016-10 and earlier).  Queries the CDX API for the
+    earliest snapshot at least 12 months after the start of the term (i.e.,
+    October 1 of the following year), then parses it using the same regex
+    as _fetch_opinions().
+
+    Opinion hrefs are returned as original supremecourt.gov URLs
+    (e.g. https://www.supremecourt.gov/opinions/15pdf/…pdf).  These may or
+    may not still be live; validate_cases --checkurls will flag broken ones.
+    """
+    year_int = 2000 + int(year_2digit)
+    # Minimum snapshot date: October 1 of the year *following* the term start,
+    # ensuring all opinions for the term have been issued before the snapshot.
+    min_date     = f'{year_int + 1}1001'
+    opinions_url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
+
+    # Query the CDX API for the first available 200-status snapshot on or after
+    # min_date.
+    cdx_api = (
+        f'{_WAYBACK_CDX_URL}'
+        f'?url={urllib.parse.quote(opinions_url, safe="")}'
+        f'&output=json&from={min_date}&limit=5&statuscode=200'
+    )
+    if _VERBOSE:
+        print(f'  Querying Wayback CDX: {cdx_api}')
+    try:
+        req = urllib.request.Request(cdx_api, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            cdx_rows = json.loads(resp.read().decode('utf-8', errors='replace'))
+    except Exception as exc:
+        print(f'    Warning: Wayback CDX query failed: {exc}')
+        return {}
+
+    # cdx_rows = [[header_cols], [row1_cols], ...]; first row is the header.
+    if len(cdx_rows) < 2:
+        if _VERBOSE:
+            print(f'  No Wayback snapshot found for slipopinion/{year_2digit} after {min_date}.')
+        return {}
+
+    # Locate the 'timestamp' column (usually index 1).
+    header = cdx_rows[0]
+    ts_idx = header.index('timestamp') if 'timestamp' in header else 1
+    snapshot_ts  = cdx_rows[1][ts_idx]
+    snapshot_url = f'https://web.archive.org/web/{snapshot_ts}/{opinions_url}'
+
+    if _VERBOSE:
+        print(f'  Fetching Wayback snapshot: {snapshot_url}')
+    else:
+        print(f'  Fetching Wayback snapshot ({snapshot_ts[:8]}) for slipopinion/{year_2digit} ...')
+    try:
+        req = urllib.request.Request(snapshot_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            html = resp.read().decode('utf-8', errors='replace')
+    except Exception as exc:
+        print(f'    Warning: could not fetch Wayback snapshot {snapshot_url}: {exc}')
+        return {}
+
+    # Wayback rewrites hrefs from "/opinions/…pdf" to
+    # "/web/TIMESTAMP/https://www.supremecourt.gov/opinions/…pdf".
+    # Strip the Wayback prefix so the path-extraction regex works, then
+    # reconstruct hrefs as Wayback URLs so the PDFs are actually reachable
+    # (the original supremecourt.gov paths for old terms return 404).
+    wayback_base = f'https://web.archive.org/web/{snapshot_ts}/https://www.supremecourt.gov'
+    html = _WAYBACK_PREFIX_RE.sub('', html)
+
+    # Post-2016 SCOTUS site layout: docket cell has white-space:nowrap style
+    # and the name cell may have style attributes.
+    _pattern_new = re.compile(
+        r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
+        r'<td[^>]*white-space[^>]*>([^<]+)</td>\s*'
+        r'<td[^>]*><a href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
+        r'.*?<td[^>]*>(\w+)</td>',
+        re.DOTALL,
+    )
+    # Pre-2017 SCOTUS site layout (2012–2016 terms): rows have 7 cells
+    # (R#, Date, Docket, Name, Revised, J., Pt.).  The docket cell uses
+    # text-align:center and the name cell is a bare <td> (no attributes).
+    _pattern_old = re.compile(
+        r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
+        r'<td[^>]*>([^<]+)</td>\s*'
+        r'<td><a[^>]*href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
+        r'.*?<td[^>]*>(\w+)</td>',
+        re.DOTALL,
+    )
+
+    def _parse_opinions(pattern: re.Pattern) -> dict:
+        result: dict = {}
+        for m in pattern.finditer(html):
+            date_raw, docket, href, name, author = (g.strip() for g in m.groups())
+            try:
+                date_iso = datetime.datetime.strptime(date_raw, '%m/%d/%y').strftime('%Y-%m-%d')
+            except ValueError:
+                date_iso = date_raw
+            result[docket.lower()] = {
+                'date':   date_iso,
+                'name':   name,
+                'author': author,
+                'href':   wayback_base + href,
+            }
+        return result
+
+    opinions = _parse_opinions(_pattern_new)
+    if not opinions:
+        opinions = _parse_opinions(_pattern_old)
+
+    print(f'  Found {len(opinions)} opinion(s) via Wayback for {year_int}-10 term.')
+    return opinions
+
+
 def check_opinion_for_case(files_path: Path, case_number: str, term: str,
                            print_header=None) -> None:
     """If a slip opinion exists for this case, add it to files.json."""
-    # supremecourt.gov only maintains slip opinions from the 2018-10 term onward.
+    # Slip opinions via supremecourt.gov are available from 2018-10 onward;
+    # earlier terms are handled via the Wayback Machine fallback in
+    # _fetch_opinions_via_wayback().  Skip only truly ancient terms.
     try:
-        if int(term.split('-')[0]) < 2018:
+        if int(term.split('-')[0]) < 2012:
             return
     except (ValueError, IndexError):
         pass
