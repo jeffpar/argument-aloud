@@ -159,16 +159,20 @@ def download_file(url: str, dest: Path) -> None:
 
 # ── Opinions index ────────────────────────────────────────────────────────────
 
-def _wayback_pdf_url(pdf_url: str) -> str:
+def _wayback_pdf_url(pdf_url: str, max_ts: str = '') -> str:
     """Return a Wayback Machine URL for *pdf_url*, or '' if none is found.
 
     Queries the CDX API for any 200-status snapshot of the given URL.
+    If *max_ts* is given (a 14-digit CDX timestamp string, e.g. '20161001000000'),
+    only snapshots taken before that date are considered.
     """
     cdx_api = (
         f'{_WAYBACK_CDX_URL}'
         f'?url={urllib.parse.quote(pdf_url, safe="")}'
         f'&output=json&limit=1&statuscode=200&fl=timestamp'
     )
+    if max_ts:
+        cdx_api += f'&to={max_ts}'
     try:
         req = urllib.request.Request(cdx_api, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -286,26 +290,27 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
 
     Used as a fallback for terms where the live supremecourt.gov page is no
     longer available (2016-10 and earlier).  Queries the CDX API for the
-    earliest snapshot at least 12 months after the start of the term (i.e.,
-    October 1 of the following year), then parses it using the same regex
-    as _fetch_opinions().
+    earliest snapshot between July 1 and September 30 of the year following
+    the term start — after all opinions have been issued but before the next
+    term begins.
 
     Opinion hrefs are returned as original supremecourt.gov URLs
     (e.g. https://www.supremecourt.gov/opinions/15pdf/…pdf).  These may or
     may not still be live; validate_cases --checkurls will flag broken ones.
     """
     year_int = 2000 + int(year_2digit)
-    # Minimum snapshot date: October 1 of the year *following* the term start,
-    # ensuring all opinions for the term have been issued before the snapshot.
-    min_date     = f'{year_int + 1}1001'
+    # Window: July 1 – September 30 of the year following the term start.
+    # All opinions for a term are typically issued by late June; capping at
+    # September 30 ensures we don't pick up a snapshot from the next term.
+    min_date     = f'{year_int + 1}0701'
+    max_date     = f'{year_int + 1}0930235959'
     opinions_url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
 
-    # Query the CDX API for the first available 200-status snapshot on or after
-    # min_date.
+    # Query the CDX API for the first available 200-status snapshot in the window.
     cdx_api = (
         f'{_WAYBACK_CDX_URL}'
         f'?url={urllib.parse.quote(opinions_url, safe="")}'
-        f'&output=json&from={min_date}&limit=5&statuscode=200'
+        f'&output=json&from={min_date}&to={max_date}&limit=5&statuscode=200'
     )
     if _VERBOSE:
         print(f'  Querying Wayback CDX: {cdx_api}')
@@ -320,7 +325,7 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
     # cdx_rows = [[header_cols], [row1_cols], ...]; first row is the header.
     if len(cdx_rows) < 2:
         if _VERBOSE:
-            print(f'  No Wayback snapshot found for slipopinion/{year_2digit} after {min_date}.')
+            print(f'  No Wayback snapshot found for slipopinion/{year_2digit} in {min_date[:8]}–{max_date[:8]}.')
         return {}
 
     # Locate the 'timestamp' column (usually index 1).
@@ -332,7 +337,7 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
     if _VERBOSE:
         print(f'  Fetching Wayback snapshot: {snapshot_url}')
     else:
-        print(f'  Fetching Wayback snapshot ({snapshot_ts[:8]}) for slipopinion/{year_2digit} ...')
+        print(f'Fetching Wayback snapshot ({snapshot_ts[:8]}) for slipopinion/{year_2digit} ...')
     try:
         req = urllib.request.Request(snapshot_url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=30) as resp:
@@ -389,7 +394,7 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
     if not opinions:
         opinions = _parse_opinions(_pattern_old)
 
-    print(f'  Found {len(opinions)} opinion(s) via Wayback for {year_int}-10 term.')
+    print(f'Found {len(opinions)} opinion(s) via Wayback for {year_int}-10 term.')
     return opinions
 
 
