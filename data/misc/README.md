@@ -14,7 +14,7 @@ Note that this project stores all its data as a collection of JSON files, create
 
   - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/ussc_women_advocates.csv)
   
-That spreadsheet contains data from previous spreadsheets, along with any women who were missing.  As of April 21, 2026, that list of additional women includes:
+That spreadsheet contains data from previous spreadsheets, along with any women advocates discovered since.  As of April 21, 2026, the list of additional women includes:
 
   - [BEATRICE ROSENBERG](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=beatrice_rosenberg) argued on February 3, 1955 in [Lewis v. United States (No. 203)](https://argumentaloud.org/courts/ussc/?term=1954-10&case=203)
   - [HARRIET F. PILPEL](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=harriet_f_pilpel) argued on March 23, 1959 in [Farmers Educational & Cooperative Union of America v. WDAY, Inc. (No. 248)](https://argumentaloud.org/courts/ussc/?term=1958-10&case=248)
@@ -83,7 +83,7 @@ That spreadsheet contains data from previous spreadsheets, along with any women 
 
 All corrections (fixed typos and corrected dates/citations/etc) that were made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
-It's worth noting that the unit of measure here is "argument", not "case", because sometimes multiple cases are consolidated for argument.  And sometimes that can lead to confusion.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
+It's worth noting that the unit of measure here is "argument", not "case", because sometimes multiple cases are consolidated for argument.  Sometimes that leads to confusion.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
 
 Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, [Bessie Margolin's](/courts/ussc/?collection=women_advocates&id=bessie_margolin) arguments in the following 3 cases included 4 *consolidated* cases:
 
@@ -91,7 +91,7 @@ Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Su
   - [Powell v. United States Cartridge Co. (No. 96)](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was consolidated with Aaron v. Ford, Bacon & Davis, Inc. (No. 79) and Creel v. Lone Star Defense Corp. (No. 58)
   - [Maneja v. Waialua Agricultural Co. (No. 357)](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was conslidated with Waialua Agricultural Co. v. Maneja (No. 358)
 
-Those consolidations reduce her argument total from 27 to 23, but the reason we still attribute 24 *cases* to her is due to how the Court ultimately ruled in the first set of cases, writing a separate opinion for each of the consolidated cases, effectively "unconsolidating" them; see [Borden Co. v. Borella (No. 688)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=688) and [10 East 40th Street Building, Inc. v. Callus (No. 820)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=820).
+Those consolidations mean that, for a collection of 27 cases, she argued 23 times.  However, we still attribute 24 *cases* to her, because in the first set of conolidated cases, the Court issued separate opinions, effectively "unconsolidating" them; see [Borden Co. v. Borella (No. 688)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=688) and [10 East 40th Street Building, Inc. v. Callus (No. 820)](https://argumentaloud.org/courts/ussc/?id=bessie_margolin&term=1944-10&case=820).
 
 For the sake of argument, however, "unconsolidating" two cases *after* they were argued as one does not subsequently transform one argument into two.
 
