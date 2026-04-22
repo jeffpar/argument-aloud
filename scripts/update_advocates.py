@@ -262,9 +262,64 @@ def make_id(n: int) -> str:
 # Main
 # ---------------------------------------------------------------------------
 
+def _repair_rename_in_transcripts(renames: dict[str, str]) -> int:
+    """Rename advocate names in all transcript JSON files.
+
+    *renames* maps old_name_upper -> new_name (display case).
+    Returns the number of files modified.
+    """
+    modified = 0
+    for transcript_path in sorted(TERMS_DIR.rglob("cases/*/*.json")):
+        try:
+            data = json.loads(transcript_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if not isinstance(data, dict):
+            continue
+        changed = False
+        # media.speakers
+        for sp in data.get("media", {}).get("speakers", []):
+            old = sp.get("name", "")
+            new = renames.get(old.upper())
+            if new and old != new:
+                sp["name"] = new
+                changed = True
+        # turns
+        for turn in data.get("turns", []):
+            old = turn.get("name", "")
+            new = renames.get(old.upper())
+            if new and old != new:
+                turn["name"] = new
+                changed = True
+        if changed:
+            transcript_path.write_text(
+                json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+            modified += 1
+    return modified
+
+
+def _repair_update_speakers_json(renames: dict[str, str]) -> None:
+    """Add rename mappings (old_upper -> new_upper) to speakers.json aliases."""
+    if not _SPEAKERS_FILE.exists():
+        return
+    data: dict = json.loads(_SPEAKERS_FILE.read_text(encoding="utf-8"))
+    aliases: dict = data.setdefault("alias", {})
+    for old_upper, new_name in renames.items():
+        new_upper = new_name.upper()
+        if old_upper != new_upper:
+            aliases[old_upper] = new_upper
+    _SPEAKERS_FILE.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> None:
     verbose = '--verbose' in sys.argv or '-v' in sys.argv
     show_women = '--women' in sys.argv
+    repair_mode = '--repair' in sys.argv
 
     # Collect all terms (subdirectories of TERMS_DIR)
     term_dirs = sorted(
@@ -869,7 +924,12 @@ def main() -> None:
                 continue
             ref_name_lookup[(r['_first'], r['_last'])].append(r)
             # Also register under the alias-resolved canonical name if different.
-            alias_upper = NAME_ALIASES.get(f"{r['_first']} {r['_last']}")
+            # Try both "FIRST LAST" and the full normalized name as alias keys,
+            # since some aliases span multi-word names (e.g. "ELIZABETH WATKINS
+            # HULEN GRAYSON" -> "ELIZABETH WATKINS HULEN").
+            _ref_full_upper = _normalize_name(r.get('Advocate Name', '')).upper()
+            alias_upper = NAME_ALIASES.get(f"{r['_first']} {r['_last']}") \
+                       or NAME_ALIASES.get(_ref_full_upper)
             if alias_upper:
                 af, al = _name_parts(alias_upper)
                 if (af, al) != (r['_first'], r['_last']):
@@ -903,7 +963,9 @@ def main() -> None:
                     our_unmatched.append(row)
         women_rows = updated_rows
 
-        ref_unmatched = [r for r in ref_rows if id(r) not in ref_matched and r['_iso_set']]
+        ref_unmatched = [r for r in ref_rows if id(r) not in ref_matched and r['_iso_set']
+                         and _normalize_name(_ORDINAL_RE.sub('', r.get('Advocate Name', ''))).upper()
+                             not in NAME_ALIASES]
 
         if our_unmatched:
             print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
@@ -956,6 +1018,100 @@ def main() -> None:
             print(f"  {adv_name}:")
             for c in failed[adv_name]:
                 print(f"    {c['term']}  {c['title']}  [{c['argument']}]")
+
+    # -----------------------------------------------------------------------
+    # Anomaly report: similar advocate names and bare middle initials
+    # -----------------------------------------------------------------------
+    _suffix_strip_re = re.compile(r',.*$')
+
+    def _adv_tokens(name: str) -> list[str]:
+        """Split a display name into tokens, stripping comma-separated suffixes."""
+        return _suffix_strip_re.sub('', name).strip().split()
+
+    # Bare middle initial: a middle token that is a single letter with no period.
+    bare_initial: list[str] = []
+    for entry in advocates.values():
+        tokens = _adv_tokens(entry["name"])
+        if len(tokens) < 3:
+            continue
+        for tok in tokens[1:-1]:
+            if len(tok) == 1 and tok.isalpha():
+                bare_initial.append(entry["name"])
+                break
+
+    # Similar names: advocates sharing the same first name, last name, and
+    # first letter of the first middle token (different full middle names).
+    _sim: dict[tuple[str, str, str], list[str]] = defaultdict(list)
+    for entry in advocates.values():
+        tokens = _adv_tokens(entry["name"])
+        if len(tokens) < 3:
+            continue
+        first = tokens[0].upper()
+        last = tokens[-1].upper()
+        mid_ch = tokens[1][0].upper()
+        if mid_ch.isalpha():
+            _sim[(first, last, mid_ch)].append(entry["name"])
+
+    similar = {k: sorted(v) for k, v in _sim.items() if len(v) > 1}
+
+    if bare_initial or similar:
+        print("\n── Advocate name anomalies ──────────────────────────────────────────────")
+
+    if bare_initial:
+        print(f"\nAdvocates with bare middle initial (no period) ({len(bare_initial)}):")
+        for name in sorted(bare_initial):
+            print(f"  {name}")
+
+    if similar:
+        print(f"\nAdvocates similar by first/last/middle-initial ({len(similar)} group(s)):")
+        for (first, last, mid_ch), names in sorted(similar.items()):
+            print(f"  {first} {mid_ch}. {last}:")
+            for name in names:
+                print(f"    {name}")
+
+    # ── Interactive repair ────────────────────────────────────────────────
+    if repair_mode and similar:
+        all_renames: dict[str, str] = {}  # old_upper -> preferred display name
+        groups_sorted = sorted(similar.items())
+        print(f"\n── Repair mode: {len(groups_sorted)} group(s) to review ─────────────────────")
+        for (first, last, mid_ch), names in groups_sorted:
+            names_sorted = sorted(names)
+            # Prepend the abbreviated form (FIRST M. LAST) as option 1 if it
+            # isn't already one of the existing variants in the group.
+            abbrev = f"{first} {mid_ch}. {last}"
+            abbrev_upper = abbrev.upper()
+            if not any(n.upper() == abbrev_upper for n in names_sorted):
+                options = [abbrev] + names_sorted
+            else:
+                options = names_sorted
+            print(f"\n  {abbrev}:")
+            for i, name in enumerate(options, 1):
+                print(f"    {i}. {name}")
+            while True:
+                try:
+                    raw = input(f"  Preferred name [1-{len(options)}, 0=skip]: ").strip()
+                except EOFError:
+                    raw = "0"
+                if raw == "0":
+                    break
+                if raw.isdigit() and 1 <= int(raw) <= len(options):
+                    preferred = options[int(raw) - 1]
+                    renamed = [name for name in options if name != preferred]
+                    for name in renamed:
+                        all_renames[name.upper()] = preferred
+                    print(f"    → will rename {len(renamed)} name(s) to: {preferred}")
+                    break
+                print(f"    Please enter a number between 0 and {len(options)}.")
+
+        if all_renames:
+            print(f"\nApplying {len(all_renames)} rename(s) to transcript files…")
+            n_files = _repair_rename_in_transcripts(all_renames)
+            print(f"  Modified {n_files} transcript file(s).")
+            _repair_update_speakers_json(all_renames)
+            print(f"  Updated {_SPEAKERS_FILE.relative_to(REPO_ROOT)} with new aliases.")
+            print("  Re-run update_advocates.py (without --repair) to rebuild the index.")
+        else:
+            print("\nNo renames selected; nothing changed.")
 
 
 if __name__ == "__main__":
