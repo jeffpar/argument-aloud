@@ -59,6 +59,7 @@ import tempfile
 import time
 import urllib.parse
 import urllib.request
+from collections import Counter
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -82,6 +83,26 @@ _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 REPO_ROOT        = Path(__file__).resolve().parent.parent
 _SPEAKERS_PATH   = Path(__file__).parent / 'speakers.json'
 _JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
+
+# Set to True by --verbose; controls whether "nothing to do" messages appear.
+VERBOSE: bool = False
+# Set to True whenever a step function actually writes changes; used to
+# suppress the final "Nothing added/updated." summary line.
+_any_changes: bool = False
+
+
+def vprint(*args, **kwargs) -> None:
+    """Print only when VERBOSE mode is active."""
+    if VERBOSE:
+        print(*args, **kwargs)
+
+
+def _report_change(*args, **kwargs) -> None:
+    """Print a change message and mark that changes occurred."""
+    global _any_changes
+    _any_changes = True
+    print(*args, **kwargs)
+
 BASE_URL         = 'https://www.supremecourt.gov'
 _WAYBACK_CDX_URL = 'https://web.archive.org/cdx/search/cdx'
 # Strips the Wayback timestamp rewrite prefix from href/src attributes so
@@ -175,7 +196,7 @@ def _fetch_html_via_wayback(original_url: str, year_str: str) -> str:
     snapshot_ts  = cdx_rows[1][ts_idx]
     snapshot_url = f'https://web.archive.org/web/{snapshot_ts}/{original_url}'
 
-    print(f'  Fetching Wayback snapshot ({snapshot_ts[:8]}) for {original_url} ...')
+    print(f'Fetching Wayback snapshot ({snapshot_ts[:8]}) for {original_url} ...')
     html = fetch_html(snapshot_url)
     return _WAYBACK_REWRITE_RE.sub('', html)
 
@@ -684,7 +705,7 @@ def _merge_speaker_titles(new_speakers: list,
     for sp in existing_speakers:
         if 'MS.' in sp.get('title', '') and sp['name'] not in new_names:
             prefix = f'{label}: ' if label else ''
-            print(f'    WARNING: {prefix}existing MS. speaker '
+            print(f'WARNING: {prefix}existing MS. speaker '
                   f'"{sp["name"]}" (title: "{sp["title"]}") '
                   f'not found in reparsed transcript')
     return result
@@ -1072,7 +1093,7 @@ def fetch_cases_from_url(url: str, year_str: str = '') -> list[dict]:
     except Exception as exc:
         if not year_str:
             raise
-        print(f'  Live page unavailable ({exc}); trying Wayback Machine ...')
+        print(f'Live page unavailable ({exc}); trying Wayback Machine ...')
         html = _fetch_html_via_wayback(url, year_str)
     parser = ListingParser(base_url=url)
     parser.feed(html)
@@ -1090,7 +1111,7 @@ def fetch_argument_urls(detail_url: str) -> dict:
         parser = DetailParser()
         parser.feed(html)
     except Exception as exc:
-        print(f'    Warning: could not fetch detail page {detail_url}: {exc}')
+        print(f'Warning: could not fetch detail page {detail_url}: {exc}')
         return {}
 
     result = {}
@@ -1120,13 +1141,13 @@ def fetch_transcripts_from_url(url: str, year_str: str = '') -> list[dict]:
         html = fetch_html(url)
     except Exception as exc:
         if not year_str:
-            print(f'  Warning: could not fetch transcript listing: {exc}')
+            print(f'Warning: could not fetch transcript listing: {exc}')
             return []
-        print(f'  Live page unavailable ({exc}); trying Wayback Machine ...')
+        print(f'Live page unavailable ({exc}); trying Wayback Machine ...')
         try:
             html = _fetch_html_via_wayback(url, year_str)
         except Exception as wb_exc:
-            print(f'  Warning: Wayback fallback also failed: {wb_exc}')
+            print(f'Warning: Wayback fallback also failed: {wb_exc}')
             return []
     parser = TranscriptListingParser(base_url=url)
     parser.feed(html)
@@ -1149,7 +1170,7 @@ def fetch_docket_info(number: str, term_year: str = '') -> dict:
         parser = DocketParser(page_url=url)
         parser.feed(html)
     except Exception as exc:
-        print(f'    Warning: could not fetch docket for {number}: {exc}')
+        print(f'Warning: could not fetch docket for {number}: {exc}')
         return {}
     return {
         'questions_href': parser.questions_href,
@@ -1177,8 +1198,27 @@ def _load_term_numbers(cases_path: Path) -> set[str]:
     return numbers
 
 
+def _load_later_term_numbers(terms_root: Path, year_str: str,
+                              lookahead: int = 2) -> dict[str, str]:
+    """Return a mapping of case_number → term string for cases already present
+    in any of the *lookahead* terms following YYYY-10.
+
+    Used to avoid adding a new case to the current term when it has already been
+    moved to a later term (e.g. due to a reargument or a delayed decision).
+    """
+    result: dict[str, str] = {}
+    year = int(year_str)
+    for offset in range(1, lookahead + 1):
+        later_term = f'{year + offset}-10'
+        later_path = terms_root / later_term / 'cases.json'
+        for num in _load_term_numbers(later_path):
+            if num not in result:   # first (nearest) later term wins
+                result[num] = later_term
+    return result
+
+
 def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
-                      next_term_numbers: set[str] | None = None) -> None:
+                      later_term_numbers: dict[str, str] | None = None) -> None:
     if cases_path.exists():
         existing = json.loads(cases_path.read_text(encoding='utf-8'))
     else:
@@ -1198,11 +1238,12 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
     for case in new_cases:
         if case['number'] in existing_numbers:
             continue
-        if next_term_numbers and case['number'] in next_term_numbers:
-            print(f'  Skipping {case["number"]} (already in next term)')
+        if later_term_numbers and case['number'] in later_term_numbers:
+            found_term = later_term_numbers[case['number']]
+            print(f'Skipping {case["number"]} (already in {found_term})')
             continue
 
-        print(f'  Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
+        print(f'Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
         arg_urls = fetch_argument_urls(case['detail_url'])
         time.sleep(0.3)   # be polite
 
@@ -1228,13 +1269,34 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
     for case in existing:
         scraped = scraped_by_num.get(case['number'])
         if not scraped or not scraped.get('detail_url'):
+            # For consolidated cases, also try to backfill missing audio_href
+            # by looking up each component number in the scraped data.
+            if ',' in case.get('number', ''):
+                for arg in case.get('events', []):
+                    if arg.get('source', 'ussc') != 'ussc':
+                        continue
+                    if arg.get('audio_href') or not arg.get('transcript_href'):
+                        continue
+                    cn = _ussc_case_num_from_href(arg['transcript_href'])
+                    comp_scraped = scraped_by_num.get(cn) if cn else None
+                    if not comp_scraped or not comp_scraped.get('detail_url'):
+                        continue
+                    print(f'Backfilling audio for {case["number"]} ({cn}, {arg.get("date", "?")}) ...', end=' ', flush=True)
+                    arg_urls = fetch_argument_urls(comp_scraped['detail_url'])
+                    time.sleep(0.3)
+                    if arg_urls.get('audio_href'):
+                        arg['audio_href'] = arg_urls['audio_href']
+                        modified = True
+                        print('audio_href set')
+                    else:
+                        print('no audio found')
             continue
         for arg in case.get('events', []):
             if arg.get('source', 'ussc') != 'ussc':
                 continue   # only backfill USSC arguments
             if arg.get('transcript_href'):
                 continue   # already have supremecourt.gov URLs
-            print(f'  Backfilling URLs for {case["number"]} ({arg.get("date", "?")}) ...', end=' ', flush=True)
+            print(f'Backfilling URLs for {case["number"]} ({arg.get("date", "?")}) ...', end=' ', flush=True)
             arg_urls = fetch_argument_urls(scraped['detail_url'])
             time.sleep(0.3)
             if arg_urls:
@@ -1251,12 +1313,12 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
             encoding='utf-8',
         )
         if added:
-            print(f'\nAdded {len(added)} case(s) to {cases_path}.')
+            _report_change(f'\nAdded {len(added)} case(s) to {cases_path}.')
             if int(year) >= 2001:
                 print('Fetching docket info for newly added case(s) ...')
                 update_docket_info(cases_path, year, case_numbers=set(added))
     else:
-        print(f'No new cases to add to {cases_path}')
+        vprint(f'No new cases to add to {cases_path}')
 
 
 # ── Step 4: Fetch docket info ────────────────────────────────────────────────────────
@@ -1295,7 +1357,7 @@ def update_docket_info(cases_path: Path, term_year: str = '',
             if has_petitioner or not files_path.exists():
                 continue   # already fully processed
 
-        print(f'  Fetching docket for {number} ...', end=' ', flush=True)
+        print(f'Fetching docket for {number} ...', end=' ', flush=True)
         info = fetch_docket_info(number, term_year)
         time.sleep(0.3)
 
@@ -1360,7 +1422,7 @@ def update_docket_info(cases_path: Path, term_year: str = '',
             json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json with questions_href entries.')
+        _report_change('Updated cases.json with questions_href entries.')
 
 
 # ── Step 3: Generate missing transcripts ─────────────────────────────────────
@@ -1380,7 +1442,46 @@ def generate_missing_transcripts(cases_path: Path,
     term     = cases_path.parent.name  # e.g. "2010-10"
     modified = False
 
+    # ── Collision pre-pass ──────────────────────────────────────────────────
+    # When two or more ussc argument events on the same date exist within one
+    # case and would map to the same output file, assign numbered suffixes
+    # (-1.json, -2.json, …) and remove any colliding generic file so the main
+    # loop will re-extract from each event's own transcript PDF.
     for case in existing:
+        if 'number' not in case:
+            continue
+        if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
+            continue
+        folder = _case_folder(case['number'])
+        by_date: dict[str, list] = {}
+        for arg in case.get('events', []):
+            if arg.get('source', 'ussc') != 'ussc':
+                continue
+            if arg.get('type') not in (None, 'argument', 'reargument'):
+                continue
+            if not arg.get('transcript_href') or not arg.get('date'):
+                continue
+            by_date.setdefault(arg['date'], []).append(arg)
+        for date_key, args in by_date.items():
+            if len(args) < 2:
+                continue
+            _deleted: set[Path] = set()
+            for i, arg in enumerate(args, start=1):
+                new_th = f'{folder}/{date_key}-{i}.json'
+                if arg.get('text_href') != new_th:
+                    old_th = arg.get('text_href', '')
+                    if old_th:
+                        old_file = cases_path.parent / 'cases' / old_th
+                        # Remove the old generic (non-numbered) file so the main
+                        # loop is forced to re-extract into the numbered file.
+                        if (old_file not in _deleted
+                                and old_file.exists()
+                                and old_file.name == f'{date_key}.json'):
+                            old_file.unlink()
+                            _deleted.add(old_file)
+                    arg['text_href'] = new_th
+                    modified = True
+
         if 'number' not in case:
             continue   # skip cases without a docket number (e.g. Oyez-only entries)
         if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
@@ -1411,12 +1512,20 @@ def generate_missing_transcripts(cases_path: Path,
 
             case_dir       = cases_path.parent / 'cases' / component_num
             transcript_out = case_dir / f'{date}.json'
+            # Also check whether the file the existing text_href points to exists
+            # (the user may have renamed it from the default date.json name).
+            _th_file = (cases_path.parent / 'cases' / _existing_th) if _existing_th else None
+            # If text_href records a specific (possibly numbered) output path,
+            # write there instead of the default date.json.
+            if _th_file is not None:
+                transcript_out = _th_file
 
             # Skip if already generated and text_href is recorded, unless overwrite is requested.
-            if transcript_out.exists() and _existing_th and not case_filter and not force:
-                continue
+            if _existing_th and not case_filter and not force:
+                if transcript_out.exists() or (_th_file and _th_file.exists()):
+                    continue
 
-            print(f'  Extracting {case["number"]} ({date})', end='', flush=True)
+            print(f'Extracting {case["number"]} ({date})', end='', flush=True)
 
             # Preserve any manually corrected titles from an existing transcript.
             _existing_speakers: list | None = None
@@ -1456,14 +1565,14 @@ def generate_missing_transcripts(cases_path: Path,
                     # Empty transcript — remove any stale file and clear text_href.
                     if transcript_out.exists():
                         transcript_out.unlink()
-                        print(f'  Deleted empty transcript: {transcript_out.relative_to(REPO_ROOT)}')
+                        print(f'Deleted empty transcript: {transcript_out.relative_to(REPO_ROOT)}')
                     if arg.get('text_href'):
                         del arg['text_href']
                         modified = True
                     continue
 
                 new_text_href = f'{component_num}/{date}.json'
-                if arg.get('text_href') != new_text_href:
+                if not arg.get('text_href'):
                     arg['text_href'] = new_text_href
                     modified = True
 
@@ -1486,17 +1595,19 @@ def generate_missing_transcripts(cases_path: Path,
         if ',' not in case.get('number', ''):
             continue
         comps = [_normalize_number(n.strip()) for n in case['number'].split(',')]
-        # Count distinct component numbers that have USSC argument transcripts.
-        ussc_comp_nums: set[str] = set()
+        # Use case numbers in titles when multiple USSC argument events share the
+        # same date — they must each be for a different component, so the titles
+        # would be ambiguous without the case number.  Counting by date is more
+        # reliable than inspecting href paths (text_href folders may be shared).
+        _date_counts: dict[str, int] = {}
         for a in case.get('events', []):
             if a.get('source', 'ussc') != 'ussc':
                 continue
             if a.get('type') not in (None, 'argument', 'reargument'):
                 continue
-            cn = _ussc_case_num_from_href(a.get('transcript_href', ''), a.get('text_href', ''))
-            if cn and cn in comps:
-                ussc_comp_nums.add(cn)
-        use_case_nums = len(ussc_comp_nums) > 1
+            d = a.get('date', '')
+            _date_counts[d] = _date_counts.get(d, 0) + 1
+        use_case_nums = any(v > 1 for v in _date_counts.values())
         for a in case.get('events', []):
             if a.get('source', 'ussc') != 'ussc':
                 continue
@@ -1504,16 +1615,31 @@ def generate_missing_transcripts(cases_path: Path,
                 continue
             title = a.get('title') or ''
             has_case_num = ' in No.' in title
-            cn = _ussc_case_num_from_href(a.get('transcript_href', ''), a.get('text_href', ''))
+            # Prefer transcript_href for component-number extraction; text_href
+            # folders may be shared across components of a consolidated case.
+            cn = _ussc_case_num_from_href(a.get('transcript_href', ''))
+            if not (cn and cn in comps):
+                cn = _ussc_case_num_from_href('', a.get('text_href', ''))
             if not (cn and cn in comps):
                 continue
             type_v = a.get('type') or 'argument'
             date_v = a.get('date', '')
+            # Only rewrite titles that are auto-generated (match our standard pattern).
+            # Preserve any title the user has customised.
+            auto_with    = _ussc_audio_title(type_v, date_v, cn)
+            auto_without = _ussc_audio_title(type_v, date_v, '')
+            # Also treat as auto-generated any title that uses a *different* component
+            # number from this consolidated case (i.e. was auto-generated but wrong).
+            is_auto = (title in (auto_with, auto_without)
+                       or any(title == _ussc_audio_title(type_v, date_v, other_cn)
+                              for other_cn in comps if other_cn != cn))
+            if not is_auto:
+                continue
             if use_case_nums and not has_case_num:
-                a['title'] = _ussc_audio_title(type_v, date_v, cn)
+                a['title'] = auto_with
                 modified = True
             elif not use_case_nums and has_case_num:
-                a['title'] = _ussc_audio_title(type_v, date_v, '')
+                a['title'] = auto_without
                 modified = True
 
     if modified:
@@ -1521,7 +1647,7 @@ def generate_missing_transcripts(cases_path: Path,
             json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json with new text_href entries.')
+        _report_change('Updated cases.json with new text_href entries.')
 
 
 # ── Step 3b: Migrate old-format transcripts ──────────────────────────────────
@@ -1565,13 +1691,13 @@ def migrate_transcripts(cases_path: Path) -> None:
                     rel = transcript_path.relative_to(REPO_ROOT)
                 except ValueError:
                     rel = transcript_path
-                print(f'  Migrated {rel}')
+                print(f'Migrated {rel}')
                 total += 1
 
     if not total:
-        print('  All transcripts already in new format.')
+        vprint('All transcripts already in new format.')
     else:
-        print(f'  Migrated {total} transcript(s).')
+        _report_change(f'  Migrated {total} transcript(s).')
 
 
 # ── Step 5: Clean up files.json ───────────────────────────────────────────────
@@ -1631,10 +1757,10 @@ def clean_files_json(cases_path: Path) -> None:
                 encoding='utf-8',
             )
             total_changed += 1
-            print(f'  Cleaned {files_path.relative_to(REPO_ROOT)}')
+            _report_change(f'  Cleaned {files_path.relative_to(REPO_ROOT)}')
 
     if not total_changed:
-        print('  Nothing to clean.')
+        vprint('Nothing to clean.')
 
 
 # ── Step 6: Extract questions presented ──────────────────────────────────────
@@ -1683,7 +1809,7 @@ def extract_questions(cases_path: Path) -> None:
 
         number = case['number']
         pdf_url = case['questions_href']
-        print(f'  Extracting questions for {number} ...', end=' ', flush=True)
+        print(f'Extracting questions for {number} ...', end=' ', flush=True)
 
         tmp_path = None
         try:
@@ -1717,15 +1843,15 @@ def extract_questions(cases_path: Path) -> None:
             json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json with questions.')
+        _report_change('Updated cases.json with questions.')
     else:
-        print('  Nothing to extract.')
+        vprint('Nothing to extract.')
 
 
 # ── Step 2b: Import transcript PDFs from supremecourt.gov listing ─────────────
 
 def import_transcript_pdfs(cases_path: Path, year_str: str,
-                            next_term_numbers: set[str] | None = None) -> None:
+                            later_term_numbers: dict[str, str] | None = None) -> None:
     """Match PDF transcripts from the supremecourt.gov listing page to cases in
     cases.json.  For each ussc audio entry lacking transcript_href, set it from
     the listing.
@@ -1735,9 +1861,9 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     url = _transcript_listing_url(year_str)
     transcripts = fetch_transcripts_from_url(url, year_str)
     if not transcripts:
-        print('  No transcripts found on listing page.')
+        print('No transcripts found on listing page.')
         return
-    print(f'  Found {len(transcripts)} transcript(s) on listing page.')
+    print(f'Found {len(transcripts)} transcript(s).')
 
     # Build lookup: normalized number -> list of {date, title, pdf_url}
     by_number: dict[str, list[dict]] = {}
@@ -1807,7 +1933,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                 arg.clear()
                 arg.update(new_arg)
                 cases_modified = True
-                print(f'  {case["number"]} ({row["date"]}): transcript_href added')
+                print(f'{case["number"]} ({row["date"]}): transcript_href added')
                 break
 
             # No ussc audio object existed for this date — create one without audio_href.
@@ -1835,7 +1961,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                     audio_list.append(new_audio)
                     case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
                     cases_modified = True
-                    print(f'  {case["number"]} ({row["date"]}): created transcript-only audio object')
+                    print(f'{case["number"]} ({row["date"]}): created transcript-only audio object')
 
     # Pass 2: create new cases for unmatched transcripts
     # Include all components of multi-number cases so e.g. "00-832" is recognised
@@ -1850,8 +1976,9 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     for row in transcripts:
         key = (row['number'], row['date'])
         if key not in matched_rows and row['number'] not in existing_numbers:
-            if next_term_numbers and row['number'] in next_term_numbers:
-                print(f'  Skipping {row["number"]} (already in next term)')
+            if later_term_numbers and row['number'] in later_term_numbers:
+                found_term = later_term_numbers[row['number']]
+                print(f'Skipping {row["number"]} (already in {found_term})')
                 continue
             new_by_num.setdefault(row['number'], []).append(row)
 
@@ -1868,22 +1995,22 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         existing.append(new_case)
         existing_numbers.add(norm)
         cases_modified = True
-        print(f'  {norm}: new case added with {len(audio_entries)} audio entry(ies)')
+        _report_change(f'  {norm}: new case added with {len(audio_entries)} audio entry(ies)')
 
     if cases_modified:
         cases_path.write_text(
             json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('  Updated cases.json.')
+        _report_change('  Updated cases.json.')
         new_numbers = set(new_by_num.keys())
         if new_numbers:
             year_str_int = int(cases_path.parent.name.split('-')[0])
             if year_str_int >= 2001:
-                print('  Fetching docket info for newly added case(s) ...')
+                print('Fetching docket info for newly added case(s) ...')
                 update_docket_info(cases_path, str(year_str_int), case_numbers=new_numbers)
     else:
-        print('  No changes needed.')
+        vprint('No changes needed.')
 
 
 # ── Step 7: Add / update opinion_href ───────────────────────────────────────
@@ -1899,6 +2026,15 @@ def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     cases_modified = False
 
+    # Cap Wayback snapshots to the end of the term (Sept 30 of the following year).
+    # Opinions for a YYYY-10 term run through roughly June of YYYY+1; a snapshot
+    # from after September YYYY+1 may capture a revised or superseded document.
+    try:
+        term_year = int(cases_path.parent.name.split('-')[0])
+        wayback_max_ts = f'{term_year + 1}0930235959'
+    except (ValueError, IndexError):
+        wayback_max_ts = ''
+
     # Collect all unique base URLs that need checking.
     base_urls: set[str] = set()
     for case in data:
@@ -1907,7 +2043,7 @@ def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
             base_urls.add(href.split('#')[0])
 
     if not base_urls:
-        print('  No live opinion_href values to verify.')
+        vprint('No live opinion_href values to verify.')
         return
 
     # Probe each base URL once.
@@ -1917,11 +2053,11 @@ def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
         if ok:
             replacements[base] = ''   # still live — nothing to do
         else:
-            wb = _wayback_pdf_url(base)
+            wb = _wayback_pdf_url(base, wayback_max_ts)
             if wb:
-                print(f'  PDF 404 — upgrading to Wayback: {base}')
+                print(f'PDF 404 — upgrading to Wayback: {base}')
             else:
-                print(f'  PDF 404 — no Wayback snapshot found: {base}')
+                print(f'PDF 404 — no Wayback snapshot found: {base}')
             replacements[base] = wb
 
     # Apply replacements to cases.json.
@@ -1941,9 +2077,9 @@ def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
             json.dumps(data, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json: replaced dead opinion_href values.')
+        _report_change('Updated cases.json: replaced dead opinion_href values.')
     else:
-        print('  All opinion_href values are reachable.')
+        vprint('All opinion_href values are reachable.')
 
 
 
@@ -1962,7 +2098,7 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
     year_2 = term.split('-')[0][-2:]  # '2015-10' → '15'
     opinions = _fetch_opinions(year_2)
     if not opinions:
-        print('  No slip opinions found.')
+        print('No slip opinions found.')
         return
 
     data = json.loads(cases_path.read_text(encoding='utf-8'))
@@ -1983,7 +2119,13 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
             continue
 
         href = opinion['href']
-        if case.get('opinion_href') != href:
+        existing_href = case.get('opinion_href', '')
+        # Don't overwrite an existing Wayback URL — it was chosen deliberately
+        # (either by the user or by upgrade_dead_opinion_hrefs) and is likely a
+        # better snapshot than the one extracted from the index page.
+        if existing_href.startswith('https://web.archive.org/'):
+            continue
+        if existing_href != href:
             # Insert opinion_href immediately before 'files', replacing any
             # existing value so the key stays in the canonical position.
             new_case: dict = {}
@@ -2011,17 +2153,20 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
             json.dumps(data, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json with opinion_href entries.')
+        _report_change('Updated cases.json with opinion_href entries.')
     else:
-        print('  opinion_href values already up to date.')
+        vprint('opinion_href values already up to date.')
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    global VERBOSE, _any_changes
+    _any_changes  = False
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    fetch_docket = '--docket' in sys.argv
+    fetch_docket  = '--docket'  in sys.argv
     force_reparse = '--reparse' in sys.argv
+    VERBOSE       = '--verbose' in sys.argv
 
     if len(args) < 1 or len(args) > 2:
         print(__doc__)
@@ -2052,12 +2197,16 @@ def main():
     # ── Full-term mode ───────────────────────────────────────────────────────
     url = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
 
-    # Load next term's case numbers so we don't duplicate cases argued late.
-    next_year      = str(int(year_str) + 1)
-    next_term_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / f'{next_year}-10' / 'cases.json'
-    next_term_numbers = _load_term_numbers(next_term_path)
-    if next_term_numbers:
-        print(f'Loaded {len(next_term_numbers)} case number(s) from {next_year}-10 for cross-term dedup.')
+    # Load case numbers from the next two terms to avoid duplicating cases that
+    # were moved forward (e.g. due to reargument or delayed decision).
+    terms_root = REPO_ROOT / 'courts' / 'ussc' / 'terms'
+    later_term_numbers = _load_later_term_numbers(terms_root, year_str)
+    if later_term_numbers:
+        by_term: dict[str, int] = {}
+        for num, t in later_term_numbers.items():
+            by_term[t] = by_term.get(t, 0) + 1
+        summary = ', '.join(f'{c} in {t}' for t, c in sorted(by_term.items()))
+        vprint(f'Loaded later-term cases for cross-term dedup: {summary}.')
 
     try:
         scraped = fetch_cases_from_url(url, year_str)
@@ -2066,8 +2215,8 @@ def main():
         scraped = []
 
     if scraped:
-        print(f'Found {len(scraped)} case(s) on audio listing page.\n')
-        update_cases_json(cases_path, scraped, year_str, next_term_numbers)
+        print(f'Found {len(scraped)} case(s).')
+        update_cases_json(cases_path, scraped, year_str, later_term_numbers)
     else:
         print('No audio cases found.')
         if not cases_path.exists():
@@ -2075,52 +2224,48 @@ def main():
             cases_path.write_text('[]\n', encoding='utf-8')
 
     # Step 2b: import transcript PDFs from supremecourt.gov listing page
-    print()
-    print('Importing transcript PDFs from supremecourt.gov listing ...')
-    import_transcript_pdfs(cases_path, year_str, next_term_numbers)
+    vprint('Importing transcript PDFs from supremecourt.gov listing ...')
+    import_transcript_pdfs(cases_path, year_str, later_term_numbers)
 
     # Step 3: generate missing transcript JSON files
-    print()
     if force_reparse:
         print('Reparsing all transcripts (--reparse) ...')
     else:
-        print('Checking for missing transcripts ...')
+        vprint('Checking for missing transcripts ...')
     generate_missing_transcripts(cases_path, force=force_reparse)
+
     # Step 3b: migrate old-format transcripts to envelope format
-    print()
-    print('Migrating old-format transcripts ...')
+    vprint('Migrating old-format transcripts ...')
     migrate_transcripts(cases_path)
 
     # Step 4: fetch docket info (questions_href + files.json proceedings)
     # supremecourt.gov docket only has data from the 2001 term onward.
     # Requires --docket flag to run (network-heavy; run separately as needed).
-    print()
     if not fetch_docket:
-        print('Skipping docket info (pass --docket to enable).')
+        print('Skipping docket check (pass --docket to enable).')
     elif int(year_str) >= 2001:
         print('Fetching docket info for cases without questions_href ...')
         update_docket_info(cases_path, year_str)
     else:
-        print('Skipping docket info (not available before 2001 term).')
+        vprint('Skipping docket check (not available before 2001 term).')
 
     # Step 5: clean up files.json titles and infer missing types
-    print()
-    print('Cleaning up files.json entries ...')
+    vprint('Cleaning up files.json entries ...')
     clean_files_json(cases_path)
 
     # Step 6: extract questions presented from PDF
-    print()
-    print('Extracting questions presented ...')
+    vprint('Extracting questions presented ...')
     extract_questions(cases_path)
 
     # Step 7: add/update opinion_href from slip opinions index
-    print()
-    print('Checking for slip opinions ...')
+    print('Checking opinion references ...')
     upgrade_dead_opinion_hrefs(cases_path)
     backfill_opinion_hrefs(cases_path, term)
 
     # Sync files counts now that all files.json mutations are done
     sync_files_count(cases_path)
+    if not _any_changes:
+        print('Nothing added/updated.')
 
 
 if __name__ == '__main__':
