@@ -538,10 +538,11 @@ def main() -> None:
                     }
                     if decision:
                         _case_entry["decision"] = decision
+                    _same_date_entries = [audio_entries[i] for i in _date_to_idxs.get(audio_date, [])]
+                    if any(e.get("transcript_href") for e in _same_date_entries):
+                        _case_entry["transcript"] = True
                     if _resolved_audio.get("audio_href") or _resolved_audio.get("transcript_href"):
                         _case_entry["audio"] = _resolved_pos
-                    if _resolved_audio.get("transcript_href"):
-                        _case_entry["transcript"] = True
                     _file_count = case.get("files", 0)
                     if _file_count:
                         _case_entry["files"] = _file_count
@@ -1059,18 +1060,50 @@ def main() -> None:
 
     # Similar names: advocates sharing the same first name, last name, and
     # first letter of the first middle token (different full middle names).
+    # Also catches two-token names (FIRST LAST) paired against three-token
+    # names with the same first+last (e.g. AIMEE BROWN vs AIMEE W. BROWN).
     _sim: dict[tuple[str, str, str], list[str]] = defaultdict(list)
+    # Track two-token names by (first, last) so they can be paired later.
+    _two_token: dict[tuple[str, str], list[str]] = defaultdict(list)
     for entry in advocates.values():
         tokens = _adv_tokens(entry["name"])
-        if len(tokens) < 3:
-            continue
-        first = tokens[0].upper()
-        last = tokens[-1].upper()
-        mid_ch = tokens[1][0].upper()
-        if mid_ch.isalpha():
-            _sim[(first, last, mid_ch)].append(entry["name"])
+        if len(tokens) == 2:
+            first = tokens[0].upper()
+            last = tokens[1].upper()
+            _two_token[(first, last)].append(entry["name"])
+        elif len(tokens) >= 3:
+            first = tokens[0].upper()
+            last = tokens[-1].upper()
+            mid_ch = tokens[1][0].upper()
+            if mid_ch.isalpha():
+                _sim[(first, last, mid_ch)].append(entry["name"])
+
+    # Merge two-token names into any sim group that shares their first+last.
+    for (first, last), two_names in _two_token.items():
+        matched_keys = [k for k in _sim if k[0] == first and k[1] == last]
+        if matched_keys:
+            for key in matched_keys:
+                _sim[key].extend(two_names)
+        else:
+            # No three-token group yet — check if there are multiple two-token
+            # entries for the same first+last (unlikely but possible).
+            if len(two_names) > 1:
+                _sim[(first, last, '')].extend(two_names)
 
     similar = {k: sorted(v) for k, v in _sim.items() if len(v) > 1}
+
+    # Drop groups that are already fully resolved by speakers.json aliases:
+    # a group is resolved if every name except exactly one is an alias key
+    # pointing to (or matching) the remaining name.
+    def _group_resolved(names: list[str]) -> bool:
+        for candidate in names:
+            canonical = candidate.upper()
+            others = [n for n in names if n != candidate]
+            if all(NAME_ALIASES.get(n.upper()) == canonical for n in others):
+                return True
+        return False
+
+    similar = {k: v for k, v in similar.items() if not _group_resolved(v)}
 
     if bare_initial or similar:
         print("\n── Advocate name anomalies ──────────────────────────────────────────────")
@@ -1083,7 +1116,8 @@ def main() -> None:
     if similar:
         print(f"\nAdvocates similar by first/last/middle-initial ({len(similar)} group(s)):")
         for (first, last, mid_ch), names in sorted(similar.items()):
-            print(f"  {first} {mid_ch}. {last}:")
+            label = f"{first} {mid_ch}. {last}" if mid_ch else f"{first} {last}"
+            print(f"  {label}:",)
             for name in names:
                 print(f"    {name}")
 
@@ -1096,11 +1130,16 @@ def main() -> None:
             names_sorted = sorted(names)
             # Prepend the abbreviated form (FIRST M. LAST) as option 1 if it
             # isn't already one of the existing variants in the group.
-            abbrev = f"{first} {mid_ch}. {last}"
-            abbrev_upper = abbrev.upper()
-            if not any(n.upper() == abbrev_upper for n in names_sorted):
-                options = [abbrev] + names_sorted
+            # For two-token-only groups (mid_ch==''), there is no abbrev to add.
+            if mid_ch:
+                abbrev = f"{first} {mid_ch}. {last}"
+                abbrev_upper = abbrev.upper()
+                if not any(n.upper() == abbrev_upper for n in names_sorted):
+                    options = [abbrev] + names_sorted
+                else:
+                    options = names_sorted
             else:
+                abbrev = f"{first} {last}"
                 options = names_sorted
             print(f"\n  {abbrev}:")
             for i, name in enumerate(options, 1):
