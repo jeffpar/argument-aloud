@@ -986,15 +986,20 @@ def main() -> None:
                         date_str = first_iso
                     print(f"- [{adv_name}]({adv_url}) argued on {date_str} in "
                           f"[{title} (No. {case_num})]({case_url})")
-            else:
+            elif verbose:
                 print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
                 for row in sorted(our_unmatched, key=lambda r: (r[0], r[2])):
                     print(f"  {row[0]}  {row[2]}  {row[4]}  {row[5]}")
+            else:
+                print(f"Our records not matched in reference CSV: {len(our_unmatched)} (use --verbose to list)")
 
         if ref_unmatched:
-            print(f"\nReference CSV records not matched in our data ({len(ref_unmatched)}):")
-            for r in ref_unmatched:
-                print(f"  {r['Advocate Name']}  {r.get('Argument Date', '')}  {r.get('Case Name', '')}")
+            if verbose:
+                print(f"\nReference CSV records not matched in our data ({len(ref_unmatched)}):")
+                for r in ref_unmatched:
+                    print(f"  {r['Advocate Name']}  {r.get('Argument Date', '')}  {r.get('Case Name', '')}")
+            else:
+                print(f"Reference CSV records not matched in our data: {len(ref_unmatched)} (use --verbose to list)")
     else:
         print(f"  NOTE: Reference CSV not found, skipping cross-check: {REF_CSV.relative_to(REPO_ROOT)}")
 
@@ -1106,20 +1111,26 @@ def main() -> None:
     similar = {k: v for k, v in similar.items() if not _group_resolved(v)}
 
     if bare_initial or similar:
-        print("\n── Advocate name anomalies ──────────────────────────────────────────────")
-
-    if bare_initial:
-        print(f"\nAdvocates with bare middle initial (no period) ({len(bare_initial)}):")
-        for name in sorted(bare_initial):
-            print(f"  {name}")
-
-    if similar:
-        print(f"\nAdvocates similar by first/last/middle-initial ({len(similar)} group(s)):")
-        for (first, last, mid_ch), names in sorted(similar.items()):
-            label = f"{first} {mid_ch}. {last}" if mid_ch else f"{first} {last}"
-            print(f"  {label}:",)
-            for name in names:
-                print(f"    {name}")
+        if verbose:
+            print("\n── Advocate name anomalies ──────────────────────────────────────────────")
+            if bare_initial:
+                print(f"\nAdvocates with bare middle initial (no period) ({len(bare_initial)}):")
+                for name in sorted(bare_initial):
+                    print(f"  {name}")
+            if similar:
+                print(f"\nAdvocates similar by first/last/middle-initial ({len(similar)} group(s)):")
+                for (first, last, mid_ch), names in sorted(similar.items()):
+                    label = f"{first} {mid_ch}. {last}" if mid_ch else f"{first} {last}"
+                    print(f"  {label}:")
+                    for name in names:
+                        print(f"    {name}")
+        else:
+            parts = []
+            if bare_initial:
+                parts.append(f"{len(bare_initial)} bare-initial")
+            if similar:
+                parts.append(f"{len(similar)} similar-name group(s)")
+            print(f"Advocate name anomalies: {', '.join(parts)} (use --verbose to list)")
 
     # ── Interactive repair ────────────────────────────────────────────────
     if repair_mode and similar:
