@@ -292,7 +292,11 @@ def _ussc_case_num_from_href(transcript_href: str = '', text_href: str = '') -> 
     if transcript_href:
         m = _USSC_HREF_NUM_RE.search(transcript_href)
         if m:
-            return _normalize_number(m.group(1))
+            raw = m.group(1)
+            # Strip the random 4-char alphanumeric suffix SCOTUS appends to PDF
+            # filenames (e.g. '13-212_d1o2' → '13-212'; '05-380' unchanged).
+            raw = re.sub(r'_[a-z0-9]{4}$', '', raw, flags=re.IGNORECASE)
+            return _normalize_number(raw)
     return ''
 
 
@@ -1285,7 +1289,15 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
                     arg_urls = fetch_argument_urls(comp_scraped['detail_url'])
                     time.sleep(0.3)
                     if arg_urls.get('audio_href'):
-                        arg['audio_href'] = arg_urls['audio_href']
+                        new_arg: dict = {}
+                        for k, v in arg.items():
+                            new_arg[k] = v
+                            if k == 'title':
+                                new_arg['audio_href'] = arg_urls['audio_href']
+                        if 'audio_href' not in new_arg:
+                            new_arg['audio_href'] = arg_urls['audio_href']
+                        arg.clear()
+                        arg.update(new_arg)
                         modified = True
                         print('audio_href set')
                     else:
@@ -1300,7 +1312,19 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
             arg_urls = fetch_argument_urls(scraped['detail_url'])
             time.sleep(0.3)
             if arg_urls:
-                arg.update(arg_urls)   # overwrites audio_href with SCOTUS copy if present
+                # Insert new keys after 'title' rather than appending.
+                new_arg = {}
+                for k, v in arg.items():
+                    new_arg[k] = v
+                    if k == 'title':
+                        for uk, uv in arg_urls.items():
+                            if uk not in new_arg:
+                                new_arg[uk] = uv
+                for uk, uv in arg_urls.items():
+                    if uk not in new_arg:
+                        new_arg[uk] = uv
+                arg.clear()
+                arg.update(new_arg)
                 modified = True
                 status = 'audio+transcript' if 'transcript_href' in arg_urls else 'audio only'
             else:
@@ -1614,7 +1638,6 @@ def generate_missing_transcripts(cases_path: Path,
             if a.get('type') not in (None, 'argument', 'reargument'):
                 continue
             title = a.get('title') or ''
-            has_case_num = ' in No.' in title
             # Prefer transcript_href for component-number extraction; text_href
             # folders may be shared across components of a consolidated case.
             cn = _ussc_case_num_from_href(a.get('transcript_href', ''))
@@ -1635,10 +1658,10 @@ def generate_missing_transcripts(cases_path: Path,
                               for other_cn in comps if other_cn != cn))
             if not is_auto:
                 continue
-            if use_case_nums and not has_case_num:
+            if use_case_nums and a.get('title') != auto_with:
                 a['title'] = auto_with
                 modified = True
-            elif not use_case_nums and has_case_num:
+            elif not use_case_nums and a.get('title') != auto_without:
                 a['title'] = auto_without
                 modified = True
 
