@@ -320,6 +320,7 @@ def main() -> None:
     verbose = '--verbose' in sys.argv or '-v' in sys.argv
     show_women = '--women' in sys.argv
     repair_mode = '--repair' in sys.argv
+    markdown_mode = '--markdown' in sys.argv
 
     # Collect all terms (subdirectories of TERMS_DIR)
     term_dirs = sorted(
@@ -958,9 +959,7 @@ def main() -> None:
                 updated_rows.append((canonical, arg_num, arg_date, term, case_num, title, citation, url))
             else:
                 updated_rows.append(row)
-                # Only flag unmatched if the term is within the reference coverage (<= 2024-10).
-                if term <= '2024-10':
-                    our_unmatched.append(row)
+                our_unmatched.append(row)
         women_rows = updated_rows
 
         ref_unmatched = [r for r in ref_rows if id(r) not in ref_matched and r['_iso_set']
@@ -968,9 +967,28 @@ def main() -> None:
                              not in NAME_ALIASES]
 
         if our_unmatched:
-            print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
-            for row in sorted(our_unmatched, key=lambda r: (r[0], r[2])):
-                print(f"  {row[0]}  {row[2]}  {row[4]}  {row[5]}")
+            if markdown_mode:
+                print(f"\n### Our records not matched in reference CSV ({len(our_unmatched)})\n")
+                for row in sorted(our_unmatched, key=lambda r: (r[2], r[0])):
+                    adv_name, _arg_num, arg_date, term, case_num, title, _citation, _url = row
+                    adv_id = make_advocate_id(adv_name)
+                    adv_url = (f"https://argumentaloud.org/courts/ussc/"
+                               f"?collection=women_advocates&id={adv_id}")
+                    case_num_url = case_num.replace(',', '%2C')
+                    case_url = (f"https://argumentaloud.org/courts/ussc/"
+                                f"?term={term}&case={case_num_url}")
+                    first_iso = arg_date.split(',')[0]
+                    try:
+                        d = Date.fromisoformat(first_iso)
+                        date_str = f"{d.strftime('%B')} {d.day}, {d.year}"
+                    except ValueError:
+                        date_str = first_iso
+                    print(f"- [{adv_name}]({adv_url}) argued on {date_str} in "
+                          f"[{title} (No. {case_num})]({case_url})")
+            else:
+                print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
+                for row in sorted(our_unmatched, key=lambda r: (r[0], r[2])):
+                    print(f"  {row[0]}  {row[2]}  {row[4]}  {row[5]}")
 
         if ref_unmatched:
             print(f"\nReference CSV records not matched in our data ({len(ref_unmatched)}):")
