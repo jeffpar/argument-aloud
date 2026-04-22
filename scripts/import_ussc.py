@@ -2059,40 +2059,54 @@ def upgrade_dead_opinion_hrefs(cases_path: Path) -> None:
         wayback_max_ts = ''
 
     # Collect all unique base URLs that need checking.
+    # loc.gov URLs are not archived on Wayback; handle them separately below.
     base_urls: set[str] = set()
     for case in data:
         href = case.get('opinion_href', '')
-        if href and not href.startswith('https://web.archive.org/'):
+        if href and not href.startswith('https://web.archive.org/') and 'loc.gov' not in href:
             base_urls.add(href.split('#')[0])
 
     if not base_urls:
         vprint('No live opinion_href values to verify.')
-        return
-
-    # Probe each base URL once.
-    replacements: dict[str, str] = {}  # base_url -> wayback_url or '' (still live)
-    for base in sorted(base_urls):
-        ok, _ = _check_url(base)
-        if ok:
-            replacements[base] = ''   # still live — nothing to do
-        else:
-            wb = _wayback_pdf_url(base, wayback_max_ts)
-            if wb:
-                print(f'PDF 404 — upgrading to Wayback: {base}')
+    else:
+        # Probe each base URL once.
+        replacements: dict[str, str] = {}  # base_url -> wayback_url or '' (still live)
+        for base in sorted(base_urls):
+            ok, _ = _check_url(base)
+            if ok:
+                replacements[base] = ''   # still live — nothing to do
             else:
-                print(f'PDF 404 — no Wayback snapshot found: {base}')
-            replacements[base] = wb
+                wb = _wayback_pdf_url(base, wayback_max_ts)
+                if wb:
+                    print(f'PDF 404 — upgrading to Wayback: {base}')
+                else:
+                    print(f'PDF 404 — no Wayback snapshot found: {base}')
+                replacements[base] = wb
 
-    # Apply replacements to cases.json.
+        # Apply replacements to cases.json.
+        for case in data:
+            href = case.get('opinion_href', '')
+            if not href or href.startswith('https://web.archive.org/'):
+                continue
+            if 'loc.gov' in href:
+                continue
+            base = href.split('#')[0]
+            frag = href[len(base):]   # '' or '#page=N'
+            wb = replacements.get(base, '')
+            if wb:
+                case['opinion_href'] = wb + frag
+                cases_modified = True
+
+    # For loc.gov opinion_hrefs, check liveness; if dead rename to opinion_href_bad.
     for case in data:
         href = case.get('opinion_href', '')
-        if not href or href.startswith('https://web.archive.org/'):
+        if not href or 'loc.gov' not in href:
             continue
-        base = href.split('#')[0]
-        frag = href[len(base):]   # '' or '#page=N'
-        wb = replacements.get(base, '')
-        if wb:
-            case['opinion_href'] = wb + frag
+        ok, _ = _check_url(href.split('#')[0])
+        if not ok:
+            print(f'loc.gov URL invalid — marking as opinion_href_bad: {href}')
+            del case['opinion_href']
+            case['opinion_href_bad'] = href
             cases_modified = True
 
     if cases_modified:
@@ -2147,6 +2161,9 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
         # (either by the user or by upgrade_dead_opinion_hrefs) and is likely a
         # better snapshot than the one extracted from the index page.
         if existing_href.startswith('https://web.archive.org/'):
+            continue
+        # Don't overwrite a case that has been marked as having a bad opinion_href.
+        if case.get('opinion_href_bad'):
             continue
         if existing_href != href:
             # Insert opinion_href immediately before 'files', replacing any
