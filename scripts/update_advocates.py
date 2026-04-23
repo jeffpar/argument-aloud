@@ -321,6 +321,8 @@ def main() -> None:
     show_women = '--women' in sys.argv
     repair_mode = '--repair' in sys.argv
     markdown_mode = '--markdown' in sys.argv
+    singles_mode = '--singles' in sys.argv
+    fix_mode = '--fix' in sys.argv
 
     # Collect all terms (subdirectories of TERMS_DIR)
     term_dirs = sorted(
@@ -355,6 +357,10 @@ def main() -> None:
 
     # Citation string keyed by (title, term, number) for CSV generation.
     case_citation: dict[tuple, str] = {}
+
+    # Track which transcript file(s) produced each single-word speaker name.
+    # Used by --fix to locate and repair offending transcripts.
+    single_name_paths: dict[str, set[Path]] = defaultdict(set)
 
     for term_dir in term_dirs:
         term = term_dir.name
@@ -599,7 +605,10 @@ def main() -> None:
                     speaker_title = speaker.get("title", "")
                     if not speaker_title or speaker_title in _JUSTICE_TITLES:
                         continue
-                    _record_advocate(speaker.get("name", ""), speaker_title)
+                    _sp_raw = speaker.get("name", "").strip()
+                    _record_advocate(_sp_raw, speaker_title)
+                    if _sp_raw and len(_sp_raw.split()) == 1:
+                        single_name_paths[_sp_raw.upper()].add(transcript_path)
 
     # Sort each advocate's cases by argument date, most recent first
     for entry in advocates.values():
@@ -649,25 +658,68 @@ def main() -> None:
             if name_feminine.get(e["name"].upper(), False) and not _is_shadow_woman(e)
         ]
         women_suffix = f", {len(skipped_women)} possibly women" if skipped_women else ""
-        if verbose:
+        if fix_mode:
+            _JT_FIX = {"JUSTICE", "CHIEF JUSTICE"}
+            for _fix_entry in skipped:
+                _fix_name_upper = _fix_entry["name"].upper()
+                for _tpath in sorted(single_name_paths.get(_fix_name_upper, set())):
+                    _case_folder = _tpath.parent
+                    _siblings = [p for p in sorted(_case_folder.glob("*.json")) if p != _tpath]
+                    _candidates: dict[str, str] = {}  # upper -> display-case
+                    for _sib in _siblings:
+                        try:
+                            _sib_data = json.loads(_sib.read_text(encoding="utf-8"))
+                            for _s in _sib_data.get("media", {}).get("speakers", []):
+                                if _s.get("title", "") in _JT_FIX:
+                                    continue
+                                _sname = _s.get("name", "").strip()
+                                if not _sname:
+                                    continue
+                                _sup = _sname.upper()
+                                _words = _sup.split()
+                                if len(_words) > 1 and _words[-1] == _fix_name_upper:
+                                    _candidates[_sup] = _sname
+                        except Exception:
+                            pass
+                    if len(_candidates) == 1:
+                        _full_upper, _full_display = next(iter(_candidates.items()))
+                        try:
+                            _t = json.loads(_tpath.read_text(encoding="utf-8"))
+                            _changed = False
+                            for _s in _t.get("media", {}).get("speakers", []):
+                                if _s.get("name", "").strip().upper() == _fix_name_upper:
+                                    _s["name"] = _full_display
+                                    _changed = True
+                            for _turn in _t.get("turns", []):
+                                if _turn.get("name", "").strip().upper() == _fix_name_upper:
+                                    _turn["name"] = _full_display
+                                    _changed = True
+                            if _changed:
+                                _tpath.write_text(
+                                    json.dumps(_t, indent=2, ensure_ascii=False) + "\n",
+                                    encoding="utf-8",
+                                )
+                                print(f"    Fixed {_tpath.relative_to(REPO_ROOT)}: "
+                                      f"{_fix_entry['name']} \u2192 {_full_display}")
+                        except Exception as _exc:
+                            print(f"    ERROR fixing {_tpath}: {_exc}", file=sys.stderr)
+
+        if verbose or singles_mode:
             print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches{women_suffix}):")
             for entry in skipped:
                 adv_id = entry.get("id") or make_advocate_id(entry["name"])
                 stale = ADVOCATES_DIR / f"{adv_id}.json"
                 is_fem = name_feminine.get(entry["name"].upper(), False) and not _is_shadow_woman(entry)
                 fem_tag = "  [possibly woman]" if is_fem else ""
-                if stale.exists():
+                cases_str = "; ".join(
+                    f"{c['term']}/{c['number']}"
+                    for c in sorted(entry["cases"], key=lambda c: c.get("argument", ""))
+                )
+                if verbose and stale.exists():
                     stale.unlink()
-                    print(f"  {entry['name']}  [{adv_id}.json removed]  —  {len(entry['cases'])} case(s){fem_tag}")
+                    print(f"  {entry['name']} [{adv_id}.json removed]{fem_tag}: {cases_str}")
                 else:
-                    print(f"  {entry['name']}  —  {len(entry['cases'])} case(s){fem_tag}")
-                if show_women and is_fem:
-                    name_upper = entry["name"].upper()
-                    for c in sorted(entry["cases"], key=lambda c: c.get("argument", "")):
-                        case_key = (name_upper, c["title"], c["term"], c["number"])
-                        fem_case = case_feminine_seen.get(case_key, False)
-                        marker = " *" if fem_case else ""
-                        print(f"      {c['term']}  {c['number']}{marker}")
+                    print(f"  {entry['name']}{fem_tag}: {cases_str}")
             print()
         else:
             # Still remove stale files; just don't print each one.
@@ -677,6 +729,10 @@ def main() -> None:
                 if stale.exists():
                     stale.unlink()
             print(f"Skipped {len(skipped)} one-word advocate name(s){women_suffix} (use --verbose to list them)")
+
+    # In --singles mode, output is complete; skip all file writes.
+    if singles_mode:
+        return
 
     # Write per-advocate case files.
     for entry in output:
@@ -968,7 +1024,7 @@ def main() -> None:
                              not in NAME_ALIASES]
 
         if our_unmatched:
-            if markdown_mode:
+            if show_women and markdown_mode:
                 print(f"\n### Our records not matched in reference CSV ({len(our_unmatched)})\n")
                 for row in sorted(our_unmatched, key=lambda r: (r[2], r[0])):
                     adv_name, _arg_num, arg_date, term, case_num, title, _citation, _url = row
@@ -986,12 +1042,12 @@ def main() -> None:
                         date_str = first_iso
                     print(f"- [{adv_name}]({adv_url}) argued on {date_str} in "
                           f"[{title} (No. {case_num})]({case_url})")
-            elif verbose:
+            elif show_women:
                 print(f"\nOur records not matched in reference CSV ({len(our_unmatched)}):")
                 for row in sorted(our_unmatched, key=lambda r: (r[0], r[2])):
                     print(f"  {row[0]}  {row[2]}  {row[4]}  {row[5]}")
             else:
-                print(f"Our records not matched in reference CSV: {len(our_unmatched)} (use --verbose to list)")
+                print(f"Found {len(our_unmatched)} records not matched in reference CSV (use --women to list)")
 
         if ref_unmatched:
             if verbose:

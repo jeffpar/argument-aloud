@@ -878,6 +878,9 @@ function buildTermCases(term, cases, ul) {
           const fromRestore  = !!e.fromRestore;
           const audioIdx     = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
           const fileRestore  = e.fileRestore ?? null;
+          // If this case is already active and the click came from a user (not a
+          // programmatic restore), do nothing — avoid resetting the right pane.
+          if (!fromRestore && ci.classList.contains('active')) return;
           ci.classList.add('open');
           await ensureFilesLoaded();
           if (!fromRestore) {
