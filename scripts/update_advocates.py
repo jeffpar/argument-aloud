@@ -62,6 +62,7 @@ OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "all_advocates.json"
 WOMEN_OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "women_advocates.json"
 WOMEN_CSV_FILE = REPO_ROOT / "data" / "misc" / "ussc_women_advocates.csv"
 ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
+SINGLES_FILE = REPO_ROOT / "scripts" / "singles.txt"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
@@ -705,7 +706,8 @@ def main() -> None:
                             print(f"    ERROR fixing {_tpath}: {_exc}", file=sys.stderr)
 
         if verbose or singles_mode:
-            print(f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches{women_suffix}):")
+            header = f"\nSkipped {len(skipped)} one-word advocate name(s) (likely incomplete matches{women_suffix}):"
+            entry_lines = []
             for entry in skipped:
                 adv_id = entry.get("id") or make_advocate_id(entry["name"])
                 stale = ADVOCATES_DIR / f"{adv_id}.json"
@@ -717,10 +719,18 @@ def main() -> None:
                 )
                 if verbose and stale.exists():
                     stale.unlink()
-                    print(f"  {entry['name']} [{adv_id}.json removed]{fem_tag}: {cases_str}")
+                    entry_lines.append(f"  {entry['name']} [{adv_id}.json removed]{fem_tag}: {cases_str}")
                 else:
-                    print(f"  {entry['name']}{fem_tag}: {cases_str}")
-            print()
+                    entry_lines.append(f"  {entry['name']}{fem_tag}: {cases_str}")
+            if singles_mode:
+                content = header + "\n" + "\n".join(entry_lines) + "\n\n"
+                SINGLES_FILE.write_text(content, encoding="utf-8")
+                print(f"Wrote {len(skipped)} single-name advocate(s) to {SINGLES_FILE.relative_to(REPO_ROOT)}")
+            else:
+                print(header)
+                for line in entry_lines:
+                    print(line)
+                print()
         else:
             # Still remove stale files; just don't print each one.
             for entry in skipped:
@@ -851,7 +861,7 @@ def main() -> None:
                 url,
             ))
     # Sort by advocate name, then argument date.
-    women_rows.sort(key=lambda r: (r[0], r[2]))
+    women_rows.sort(key=lambda r: (r[0].lower(), r[2]))
 
     # -----------------------------------------------------------------------
     # Cross-check against reference CSV "Women Advocates Through October Term 2024.csv"
@@ -1073,7 +1083,22 @@ def main() -> None:
     )
 
     # -----------------------------------------------------------------------
-    # Report: women advocates whose individual cases never had a feminine title.
+    # Duplicate-argument check: warn when the same advocate, argument date,
+    # and case title appear more than once in women_rows.
+    # -----------------------------------------------------------------------
+    _dup_seen: dict[tuple[str, str, str], int] = {}  # (name_lower, date, title_lower) -> first row idx
+    for _row_idx, _row in enumerate(women_rows):
+        _adv_name, _arg_num, _arg_date, _term, _case_num, _title, _citation, _url = _row
+        _dup_key = (_adv_name.lower(), _arg_date, _title.lower())
+        if _dup_key in _dup_seen:
+            print(
+                f"  WARNING: duplicate argument — \"{_adv_name}\" on {_arg_date} "
+                f"in \"{_title}\" (rows {_dup_seen[_dup_key] + 1} and {_row_idx + 1} of CSV)"
+            )
+        else:
+            _dup_seen[_dup_key] = _row_idx
+
+
     # These are cases counted for a qualifying advocate where neither the
     # transcript speakers nor the audio advocates array showed MS./MRS./MISS.
     # -----------------------------------------------------------------------
