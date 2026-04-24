@@ -86,6 +86,9 @@ _JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
 
 # Set to True by --verbose; controls whether "nothing to do" messages appear.
 VERBOSE: bool = False
+# Set to True by --cases; gates creation of new case objects.  Without this
+# flag the scripts may only add new event objects to existing cases.
+ADD_CASES: bool = False
 # Set to True whenever a step function actually writes changes; used to
 # suppress the final "Nothing added/updated." summary line.
 _any_changes: bool = False
@@ -1221,6 +1224,52 @@ def _load_later_term_numbers(terms_root: Path, year_str: str,
     return result
 
 
+# Module-level cache for later-term cases.json data (avoids re-reading the
+# same file when multiple cases from the same later term are encountered).
+_later_term_data_cache: dict[str, list] = {}
+
+
+def _check_previously_filed(current_term: str, case_number: str,
+                            later_term: str, terms_root: Path) -> None:
+    """Verify and fix the 'previouslyFiled' field on a case refiled in a later term.
+
+    Loads *later_term*'s cases.json, finds the entry whose number (or one of
+    its comma-separated components) equals *case_number*, then:
+      - Warns if 'previouslyFiled' is absent.
+      - Fixes 'previouslyFiled' if it is set but lacks the '/<number>' suffix,
+        appending the case_number so it becomes '<term>/<number>'.
+    """
+    later_path = terms_root / later_term / 'cases.json'
+    if later_term not in _later_term_data_cache:
+        if not later_path.exists():
+            return
+        try:
+            _later_term_data_cache[later_term] = json.loads(
+                later_path.read_text(encoding='utf-8'))
+        except Exception:
+            return
+    data = _later_term_data_cache[later_term]
+    for case in data:
+        nums = [n.strip() for n in case.get('number', '').split(',')]
+        if case_number not in nums:
+            continue
+        pf = case.get('previouslyFiled')
+        if not pf:
+            print(f'  WARNING: {case_number} appears in {later_term} '
+                  f'but previouslyFiled is not set on that entry')
+            return
+        if '/' not in str(pf):
+            fixed = f'{pf}/{case_number}'
+            case['previouslyFiled'] = fixed
+            print(f'  Fixed previouslyFiled for {case_number} in {later_term}: '
+                  f'{pf!r} -> {fixed!r}')
+            later_path.write_text(
+                json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+        return
+
+
 def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
                       later_term_numbers: dict[str, str] | None = None) -> None:
     if cases_path.exists():
@@ -1239,12 +1288,18 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
 
     modified = False
     added = []
+    terms_root = cases_path.parent.parent
     for case in new_cases:
         if case['number'] in existing_numbers:
             continue
         if later_term_numbers and case['number'] in later_term_numbers:
             found_term = later_term_numbers[case['number']]
             print(f'Skipping {case["number"]} (already in {found_term})')
+            _check_previously_filed(year, case['number'], found_term, terms_root)
+            continue
+        if not ADD_CASES:
+            print(f'  WARNING: {case["number"]} ({case.get("date", "?")}) is a new case '
+                  f'not in cases.json; pass --cases to add it')
             continue
 
         print(f'Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
@@ -1996,12 +2051,18 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         for n in c['number'].split(','):
             existing_numbers.add(_normalize_number(n.strip()))
     new_by_num: dict[str, list[dict]] = {}
+    terms_root = cases_path.parent.parent
     for row in transcripts:
         key = (row['number'], row['date'])
         if key not in matched_rows and row['number'] not in existing_numbers:
             if later_term_numbers and row['number'] in later_term_numbers:
                 found_term = later_term_numbers[row['number']]
                 print(f'Skipping {row["number"]} (already in {found_term})')
+                _check_previously_filed(year_str, row['number'], found_term, terms_root)
+                continue
+            if not ADD_CASES:
+                print(f'  WARNING: {row["number"]} is a new case '
+                      f'not in cases.json; pass --cases to add it')
                 continue
             new_by_num.setdefault(row['number'], []).append(row)
 
@@ -2201,12 +2262,13 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    global VERBOSE, _any_changes
+    global VERBOSE, _any_changes, ADD_CASES
     _any_changes  = False
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     fetch_docket  = '--docket'  in sys.argv
     force_reparse = '--reparse' in sys.argv
     VERBOSE       = '--verbose' in sys.argv
+    ADD_CASES     = '--cases'   in sys.argv
 
     if len(args) < 1 or len(args) > 2:
         print(__doc__)

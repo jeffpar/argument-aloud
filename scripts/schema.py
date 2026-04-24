@@ -9,7 +9,7 @@ Unknown keys are appended at the end in their original relative order.
 
 # Canonical property order for a case object.
 CASE_KEY_ORDER: list[str] = [
-    'id', 'title', 'number', 'previouslyFiled',
+    'id', 'title', 'number', 'oyez', 'previouslyFiled',
     'questions', 'questions_href',
     'argument', 'reargument', 'decision',
     'volume', 'page', 'usCite', 'dateDecision',

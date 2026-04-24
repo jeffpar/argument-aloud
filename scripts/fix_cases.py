@@ -19,6 +19,21 @@ Checks and fixes performed:
   - Duplicate oyez transcript_href: when a ussc audio object has a
     transcript_href that also appears on an oyez audio object in the same case,
     removes the transcript_href from the oyez object.
+  - Event ordering: within each case, events are sorted by date, then by source
+    so that 'ussc' appears before 'oyez' on the same date.
+  - Case ordering: cases within each cases.json are sorted by their 'argument'
+    date (cases without an 'argument' field are placed at the end).
+  - Argument/reargument dates: ensures dates in each field are unique and in
+    ascending order; removes any date from 'argument' that also appears in
+    'reargument'.
+  - Duplicate audio_href / transcript_href: across all terms in scope, reports
+    any audio_href or transcript_href value that appears in more than one event
+    (showing every term/case/date/source where each duplicate occurs).
+  - Refiled case merging: after processing each term, checks the next two terms
+    for a case with the same title and number.  If found, moves any events
+    absent from the newer case into it (including their text_href files),
+    sets 'previouslyFiled' on the newer case, and removes the case from the
+    older term.
 
 Usage:
     python3 scripts/fix_cases.py                      # all terms
@@ -277,7 +292,314 @@ def fix_oyez_transcript_hrefs(
     return stripped
 
 
-def process_term(term: str, dry_run: bool, check_dups: bool = False) -> tuple[int, int, int]:
+def check_duplicate_media_hrefs(terms_to_check: list[str]) -> int:
+    """Scan audio_href and transcript_href across all terms in *terms_to_check*.
+
+    Reports any URL that appears in more than one event object, together with
+    every term/case/date/source where it was found.
+
+    Returns the total number of duplicate URLs found.
+    """
+    # {field_name: {url: [(term, case_number, date, source), ...]}}
+    seen: dict[str, dict[str, list[tuple[str, str, str, str]]]] = {
+        'audio_href': defaultdict(list),
+        'transcript_href': defaultdict(list),
+    }
+
+    for term in terms_to_check:
+        cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
+        if not cases_path.exists():
+            continue
+        try:
+            cases = json.loads(cases_path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for case in cases:
+            number = case.get('number', '?')
+            for event in case.get('events', []):
+                date   = event.get('date', '')
+                source = event.get('source', '')
+                for field in ('audio_href', 'transcript_href'):
+                    url = event.get(field, '')
+                    if url:
+                        seen[field][url].append((term, number, date, source))
+
+    total_dupes = 0
+    for field, url_map in seen.items():
+        dupes = {url: locs for url, locs in url_map.items() if len(locs) > 1}
+        if not dupes:
+            continue
+        print(f'\nDuplicate {field} ({len(dupes)} URL(s)):')
+        for url in sorted(dupes):
+            locs = dupes[url]
+            print(f'  {url}')
+            for term, number, date, source in locs:
+                label = f'{source} {date}' if date else source
+                print(f'    {term}/{number}  [{label}]')
+            total_dupes += 1
+    return total_dupes
+
+
+# Source priority for same-date event sorting (lower = earlier).
+_SOURCE_ORDER: dict[str, int] = {'ussc': 0, 'nara': 1, 'oyez': 2}
+
+
+def _parse_date_field(value: str) -> list[str]:
+    """Split a comma-separated date field into a list of non-empty date strings."""
+    return [d.strip() for d in value.split(',') if d.strip()]
+
+
+def _join_dates(dates: list[str]) -> str:
+    """Join a list of dates back to a comma-separated string."""
+    return ','.join(dates)
+
+
+def fix_argument_dates(
+    term: str, cases: list[dict], dry_run: bool
+) -> tuple[int, int]:
+    """Validate and fix 'argument' and 'reargument' date fields.
+
+    For each case:
+      1. Deduplicate and sort each date field (ascending).
+      2. Remove any date from 'argument' that also appears in 'reargument'.
+
+    Returns (fixed_count, warned_count) where:
+      - fixed_count: cases where a field was actually changed.
+      - warned_count: cases that were already invalid but not auto-fixable
+        (currently unused — all issues are auto-fixed).
+    """
+    fixed = 0
+    for case in cases:
+        number = case.get('number', '?')
+        changed = False
+        for field in ('argument', 'reargument'):
+            raw = case.get(field)
+            if not raw:
+                continue
+            dates = _parse_date_field(str(raw))
+            # Deduplicate preserving first occurrence, then sort.
+            seen: set[str] = set()
+            unique: list[str] = []
+            for d in dates:
+                if d not in seen:
+                    seen.add(d)
+                    unique.append(d)
+            sorted_dates = sorted(unique)
+            new_val = _join_dates(sorted_dates)
+            if new_val != str(raw):
+                if dry_run:
+                    print(f'  FIX {field} {term}/{number}: {raw!r} -> {new_val!r}')
+                else:
+                    case[field] = new_val
+                changed = True
+
+        # Remove dates from 'argument' that also appear in 'reargument'.
+        arg_raw   = case.get('argument')
+        rearg_raw = case.get('reargument')
+        if arg_raw and rearg_raw:
+            rearg_dates = set(_parse_date_field(str(rearg_raw)))
+            arg_dates   = _parse_date_field(str(case.get('argument', '')))
+            filtered    = [d for d in arg_dates if d not in rearg_dates]
+            if len(filtered) != len(arg_dates):
+                removed = sorted(set(arg_dates) - set(filtered))
+                if dry_run:
+                    print(f'  FIX argument {term}/{number}: removing {removed} '
+                          f'(also in reargument)')
+                if filtered:
+                    new_arg = _join_dates(filtered)
+                else:
+                    new_arg = ''
+                if not dry_run:
+                    if new_arg:
+                        case['argument'] = new_arg
+                    else:
+                        case.pop('argument', None)
+                changed = True
+
+        if changed:
+            fixed += 1
+    return fixed, 0
+
+
+def _event_sort_key(event: dict) -> tuple:
+    """Sort key for events: (date, source_priority, source_name)."""
+    date   = event.get('date') or ''
+    source = event.get('source') or ''
+    return (date, _SOURCE_ORDER.get(source, 99), source)
+
+
+def sort_events(term: str, cases: list[dict], dry_run: bool) -> int:
+    """Sort the events list of each case by date then by source priority.
+
+    Returns the number of cases whose event list was reordered.
+    """
+    changed = 0
+    for case in cases:
+        events = case.get('events')
+        if not events or len(events) < 2:
+            continue
+        sorted_events = sorted(events, key=_event_sort_key)
+        if [id(e) for e in sorted_events] != [id(e) for e in events]:
+            changed += 1
+            if dry_run:
+                number = case.get('number', '?')
+                print(f'  SORT events {term}/{number}')
+            else:
+                events[:] = sorted_events
+    return changed
+
+
+def sort_cases(term: str, cases: list[dict], dry_run: bool) -> int:
+    """Sort cases by their 'argument' date; cases without one go last.
+
+    Returns 1 if the list was reordered, 0 otherwise.
+    """
+    def _case_key(case: dict) -> tuple:
+        arg = case.get('argument') or ''
+        return ('1' if not arg else '0', arg)
+
+    sorted_cases = sorted(cases, key=_case_key)
+    if [id(c) for c in sorted_cases] != [id(c) for c in cases]:
+        if dry_run:
+            print(f'  SORT cases {term}')
+        else:
+            cases[:] = sorted_cases
+        return 1
+    return 0
+
+
+def merge_refiled_cases(
+    term: str,
+    cases: list[dict],
+    all_terms: list[str],
+    dry_run: bool,
+) -> int:
+    """Check the next two terms for cases matching each case in *term* by title
+    and number.  When a match is found:
+
+      - Events in the older case that are absent from the newer case are moved
+        into the newer case (re-sorted in place).
+      - Any text_href files belonging to those events are moved from the older
+        term's cases directory to the newer term's cases directory.
+      - 'previouslyFiled' is set on the newer case (e.g. "2024-10/24-123").
+      - The older case is removed from *cases* (in-place when not dry-run).
+      - The newer term's cases.json is written immediately.
+
+    Returns the number of cases removed from *cases*.
+    """
+    try:
+        term_idx = all_terms.index(term)
+    except ValueError:
+        return 0
+
+    later_terms = all_terms[term_idx + 1 : term_idx + 3]
+    if not later_terms:
+        return 0
+
+    # Load cases from the next two terms; build (title, number) -> (later_term, cases_list, case)
+    later_case_map: dict[tuple[str, str], tuple[str, list[dict], dict]] = {}
+    later_cases_lists: dict[str, list[dict]] = {}
+
+    for lt in later_terms:
+        lpath = TERMS_DIR / lt / 'cases.json'
+        if not lpath.exists():
+            continue
+        try:
+            lcases: list[dict] = json.loads(lpath.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        later_cases_lists[lt] = lcases
+        for lcase in lcases:
+            lkey = (lcase.get('title', ''), lcase.get('number', ''))
+            if lkey[0] and lkey[1] and lkey not in later_case_map:
+                later_case_map[lkey] = (lt, lcases, lcase)
+
+    if not later_case_map:
+        return 0
+
+    def _event_id(ev: dict) -> str:
+        """Unique identifier: audio_href when present, else date|source|type."""
+        ah = ev.get('audio_href', '')
+        return ah if ah else f'{ev.get("date","")}|{ev.get("source","")}|{ev.get("type","")}'
+
+    merged_terms_written: set[str] = set()
+    cases_to_remove: list[dict] = []
+
+    for old_case in cases:
+        title  = old_case.get('title', '')
+        number = old_case.get('number', '')
+        if not title or not number:
+            continue
+        match = later_case_map.get((title, number))
+        if match is None:
+            continue
+        later_term, later_cases_list, new_case = match
+
+        old_events    = old_case.get('events', [])
+        new_event_ids = {_event_id(e) for e in new_case.get('events', [])}
+        events_to_move = [e for e in old_events if _event_id(e) not in new_event_ids]
+
+        print(f'  MERGE {term}/{number} -> {later_term}/{number} '
+              f'({len(events_to_move)} of {len(old_events)} event(s) to move)')
+
+        if not dry_run:
+            old_cases_dir = TERMS_DIR / term / 'cases'
+            new_cases_dir = TERMS_DIR / later_term / 'cases'
+
+            for ev in events_to_move:
+                th = ev.get('text_href', '')
+                if th and not th.startswith('http') and '/' in th:
+                    src = old_cases_dir / th
+                    dst = new_cases_dir / th
+                    if src.exists():
+                        dst.parent.mkdir(parents=True, exist_ok=True)
+                        src.rename(dst)
+                        print(f'    moved file {th}')
+
+            # Merge events into new case and re-sort
+            new_events = new_case.setdefault('events', [])
+            new_events.extend(events_to_move)
+            new_events.sort(key=_event_sort_key)
+
+            # Set previouslyFiled and reorder case keys
+            new_case['previouslyFiled'] = f'{term}/{number}'
+            reordered, _ = _reorder(new_case, CASE_KEY_ORDER)
+            new_case.clear()
+            new_case.update(reordered)
+
+            # Reorder keys on every event in the merged case
+            for ev in new_case.get('events', []):
+                new_ev, _ = _reorder(ev, EVENT_KEY_ORDER)
+                if list(new_ev.keys()) != list(ev.keys()):
+                    ev.clear()
+                    ev.update(new_ev)
+
+            merged_terms_written.add(later_term)
+
+        cases_to_remove.append(old_case)
+
+    if not cases_to_remove:
+        return 0
+
+    if not dry_run:
+        for c in cases_to_remove:
+            cases.remove(c)
+        for lt in merged_terms_written:
+            lpath = TERMS_DIR / lt / 'cases.json'
+            lpath.write_text(
+                json.dumps(later_cases_lists[lt], indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+
+    return len(cases_to_remove)
+
+
+def process_term(
+    term: str,
+    dry_run: bool,
+    check_dups: bool = False,
+    all_terms: list[str] | None = None,
+) -> tuple[int, int, int]:
     """Process one term.  Returns counts of changes and any unknown case keys."""
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
     if not cases_path.exists():
@@ -297,7 +619,14 @@ def process_term(term: str, dry_run: bool, check_dups: bool = False) -> tuple[in
     href_dupes    = check_duplicate_text_hrefs(term, cases) if check_dups else 0
     href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run)
 
-    if (cases_reordered or events_reordered or href_updated or href_stripped) and not dry_run:
+    events_sorted = sort_events(term, cases, dry_run)
+    cases_sorted  = sort_cases(term, cases, dry_run)
+    arg_dates_fixed, _ = fix_argument_dates(term, cases, dry_run)
+    merged_count  = merge_refiled_cases(term, cases, all_terms or [], dry_run)
+
+    if (cases_reordered or events_reordered or href_updated or href_stripped
+            or events_sorted or cases_sorted or arg_dates_fixed
+            or merged_count) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
@@ -305,7 +634,8 @@ def process_term(term: str, dry_run: bool, check_dups: bool = False) -> tuple[in
 
     return (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
             href_updated, href_warned, href_missing,
-            href_orphaned, href_dupes, href_stripped)
+            href_orphaned, href_dupes, href_stripped,
+            events_sorted, cases_sorted, arg_dates_fixed, merged_count)
 
 
 def main() -> None:
@@ -345,11 +675,17 @@ def main() -> None:
     total_href_orphaned     = 0
     total_href_dupes        = 0
     total_href_stripped     = 0
+    total_events_sorted     = 0
+    total_cases_sorted      = 0
+    total_arg_dates_fixed   = 0
+    total_merged            = 0
 
     for term in terms_to_check:
         (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
          href_updated, href_warned, href_missing,
-         href_orphaned, href_dupes, href_stripped) = process_term(term, dry_run, check_dups)
+         href_orphaned, href_dupes, href_stripped,
+         events_sorted, cases_sorted, arg_dates_fixed, merged_count) = process_term(
+            term, dry_run, check_dups, all_terms)
 
         if dup_count:
             total_dups      += dup_count
@@ -364,6 +700,12 @@ def main() -> None:
         total_href_orphaned += href_orphaned
         total_href_dupes    += href_dupes
         total_href_stripped += href_stripped
+        total_events_sorted += events_sorted
+        total_cases_sorted  += cases_sorted
+        total_arg_dates_fixed += arg_dates_fixed
+        total_merged        += merged_count
+
+    total_media_dupes = check_duplicate_media_hrefs(terms_to_check)
 
     if check_dups:
         if total_dups == 0:
@@ -401,9 +743,26 @@ def main() -> None:
         verb = 'Would strip' if dry_run else 'Stripped'
         print(f'transcript_href: {verb} duplicate from {total_href_stripped} oyez audio object(s).')
 
+    if total_events_sorted:
+        verb = 'Would sort' if dry_run else 'Sorted'
+        print(f'Event order: {verb} events in {total_events_sorted} case(s).')
+    if total_cases_sorted:
+        verb = 'Would sort' if dry_run else 'Sorted'
+        print(f'Case order: {verb} cases in {total_cases_sorted} term(s).')
+    if total_arg_dates_fixed:
+        verb = 'Would fix' if dry_run else 'Fixed'
+        print(f'Argument dates: {verb} {total_arg_dates_fixed} case(s).')
+    if total_merged:
+        verb = 'Would merge' if dry_run else 'Merged'
+        print(f'Refiled cases: {verb} {total_merged} case(s) into later term(s).')
+    if total_media_dupes:
+        print(f'Media hrefs: {total_media_dupes} duplicate URL(s) found across scope.')
+
     if not any([total_dups, total_cases_reordered, total_events_reordered,
                 total_href_updated, total_href_warned, total_href_missing,
-                total_href_orphaned, total_href_dupes, total_href_stripped]):
+                total_href_orphaned, total_href_dupes, total_href_stripped,
+                total_events_sorted, total_cases_sorted, total_arg_dates_fixed,
+                total_merged, total_media_dupes]):
         print('No issues found.')
 
 
