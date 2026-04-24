@@ -1525,15 +1525,19 @@ def generate_missing_transcripts(cases_path: Path,
 
     # ── Collision pre-pass ──────────────────────────────────────────────────
     # When two or more ussc argument events on the same date exist within one
-    # case and would map to the same output file, assign numbered suffixes
-    # (-1.json, -2.json, …) and remove any colliding generic file so the main
-    # loop will re-extract from each event's own transcript PDF.
+    # case and would map to the same output file, either:
+    #   (a) assign numbered suffixes (-1.json, -2.json, …) when both transcripts
+    #       share the same component case folder, OR
+    #   (b) route each transcript to its own component folder without any suffix
+    #       when each transcript_href encodes a distinct, valid component number
+    #       (e.g. 13-1074_k4m8.pdf vs 13-1075_ap6c.pdf → 13-1074/ vs 13-1075/).
     for case in existing:
         if 'number' not in case:
             continue
         if case_filter and case_filter not in [n.strip() for n in case['number'].split(',')]:
             continue
         folder = _case_folder(case['number'])
+        _case_norms = [_normalize_number(n.strip()) for n in case['number'].split(',')]
         by_date: dict[str, list] = {}
         for arg in case.get('events', []):
             if arg.get('source', 'ussc') != 'ussc':
@@ -1546,22 +1550,50 @@ def generate_missing_transcripts(cases_path: Path,
         for date_key, args in by_date.items():
             if len(args) < 2:
                 continue
+            # Determine whether each arg maps to a distinct component folder.
+            comp_nums = [
+                _ussc_case_num_from_href(arg.get('transcript_href', ''))
+                for arg in args
+            ]
+            all_distinct = (
+                all(cn and cn in _case_norms for cn in comp_nums)
+                and len(set(comp_nums)) == len(comp_nums)
+            )
             _deleted: set[Path] = set()
-            for i, arg in enumerate(args, start=1):
-                new_th = f'{folder}/{date_key}-{i}.json'
-                if arg.get('text_href') != new_th:
-                    old_th = arg.get('text_href', '')
-                    if old_th:
-                        old_file = cases_path.parent / 'cases' / old_th
-                        # Remove the old generic (non-numbered) file so the main
-                        # loop is forced to re-extract into the numbered file.
-                        if (old_file not in _deleted
-                                and old_file.exists()
-                                and old_file.name == f'{date_key}.json'):
-                            old_file.unlink()
-                            _deleted.add(old_file)
-                    arg['text_href'] = new_th
-                    modified = True
+            if all_distinct:
+                # Each transcript belongs to a different component case folder —
+                # no suffix needed; files naturally avoid collisions.
+                for arg, cn in zip(args, comp_nums):
+                    new_th = f'{cn}/{date_key}.json'
+                    if arg.get('text_href') != new_th:
+                        old_th = arg.get('text_href', '')
+                        if old_th:
+                            old_file = cases_path.parent / 'cases' / old_th
+                            # Remove any old -N suffixed file so the main loop
+                            # re-extracts into the correct unsuffixed path.
+                            if (old_file not in _deleted
+                                    and old_file.exists()):
+                                old_file.unlink()
+                                _deleted.add(old_file)
+                        arg['text_href'] = new_th
+                        modified = True
+            else:
+                # Fallback: same component folder — use numbered suffixes.
+                for i, arg in enumerate(args, start=1):
+                    new_th = f'{folder}/{date_key}-{i}.json'
+                    if arg.get('text_href') != new_th:
+                        old_th = arg.get('text_href', '')
+                        if old_th:
+                            old_file = cases_path.parent / 'cases' / old_th
+                            # Remove the old generic (non-numbered) file so the
+                            # main loop is forced to re-extract into the numbered file.
+                            if (old_file not in _deleted
+                                    and old_file.exists()
+                                    and old_file.name == f'{date_key}.json'):
+                                old_file.unlink()
+                                _deleted.add(old_file)
+                        arg['text_href'] = new_th
+                        modified = True
 
         if 'number' not in case:
             continue   # skip cases without a docket number (e.g. Oyez-only entries)
