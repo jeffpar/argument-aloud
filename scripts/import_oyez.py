@@ -650,10 +650,12 @@ def main():
             return f'{m.group(1)}-Misc'
         return s
 
-    our_by_num = {_normalize_case_num(c['number']): c for c in our_cases}
+    our_by_num = {_normalize_case_num(c['number']): c for c in our_cases if 'number' in c}
     # Also index consolidated cases (comma-separated numbers) by each component
     # number, but only when that component has no separate case entry of its own.
     for _c in our_cases:
+        if 'number' not in _c:
+            continue
         _parts = _c['number'].split(',')
         if len(_parts) > 1:
             for _n in _parts:
