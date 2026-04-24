@@ -612,6 +612,12 @@ def main():
 
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
 
+    # Inclusive start / exclusive end of this term's date range.
+    # e.g. 1956-10 → [1956-10-01, 1957-10-01)
+    _term_month     = term.split('-')[1]
+    term_start      = f'{year_str}-{_term_month}-01'
+    next_term_start = f'{int(year_str) + 1}-{_term_month}-01'
+
     if cases_path.exists():
         our_cases = json.loads(cases_path.read_text(encoding='utf-8'))
     else:
@@ -681,6 +687,10 @@ def main():
     print()
     downloaded = skipped = errors = 0
     cases_modified = False
+    # Later-term cases.json files loaded on demand when we redirect a case.
+    _redir_files: dict[Path, list[dict]] = {}
+    # Snapshot list: (later_cases_path, case_ref, json_snapshot) for each redirect.
+    _redirect_snapshots: list[tuple[Path, dict, str]] = []
     raw_speaker_map = load_speaker_map()
     speaker_map = resolve_speaker_map(raw_speaker_map, term)
     title_map = load_title_map()
@@ -788,21 +798,87 @@ def main():
         if local_case is None:
             if number in later_term_numbers:
                 found_term = later_term_numbers[number]
-                print(f'  {number}: found in {found_term} (refiled) — skipping')
                 _check_previously_filed(term, number, found_term, terms_root)
-                continue
-            if not ADD_CASES:
+                later_cases_path = terms_root / found_term / 'cases.json'
+                if later_cases_path not in _redir_files and later_cases_path.exists():
+                    _redir_files[later_cases_path] = json.loads(
+                        later_cases_path.read_text(encoding='utf-8')
+                    )
+                _later_data = _redir_files.get(later_cases_path, [])
+                _later_local = next(
+                    (c for c in _later_data
+                     if _normalize_case_num(c.get('number', '')) == number),
+                    None,
+                )
+                if _later_local is None:
+                    print(f'  {number}: found in {found_term} — no matching case, skipping')
+                    continue
+                print(f'  {number}: redirecting Oyez events to {found_term}')
+                local_case = _later_local
+                case_dir   = later_cases_path.parent / 'cases' / number
+                _redirect_snapshots.append(
+                    (later_cases_path, _later_local,
+                     json.dumps(_later_local, sort_keys=True))
+                )
+                # Populate existing_oyez_filenames from the later-term case's
+                # events (normally done in the `if local_case is not None:` block
+                # above, which was skipped because local_case was None then).
+                for _ra in local_case.get('events', []):
+                    _rsrc = _ra.get('source')
+                    if not _rsrc:
+                        _rah = _ra.get('audio_href', '').lower()
+                        if 'supremecourt.gov' in _rah:  _rsrc = 'ussc'
+                        elif 'nara' in _rah:            _rsrc = 'nara'
+                        elif 'oyez' in _rah:            _rsrc = 'oyez'
+                    if _rsrc == 'oyez':
+                        _rth = _ra.get('text_href')
+                        if _rth:
+                            existing_oyez_filenames.add(_rth)
+                        elif _ra.get('audio_href'):
+                            existing_oyez_filenames.add(_ra['audio_href'])
+                # Also backfill from disk files in the later term's cases dir.
+                if case_dir.is_dir():
+                    for _rp in sorted(case_dir.glob('*-oyez.json')):
+                        _rh = number + '/' + _rp.name
+                        if _rh in existing_oyez_filenames:
+                            continue
+                        _rm = re.match(r'^(\d{4}-\d{2}-\d{2})-oyez\.json$', _rp.name)
+                        if not _rm:
+                            continue
+                        _rd = _rm.group(1)
+                        try:
+                            _rdata = json.loads(_rp.read_text(encoding='utf-8'))
+                            _rurl  = (_rdata.get('media') or {}).get('url', '')
+                        except Exception:
+                            _rdata, _rurl = {}, ''
+                        _rtype = ('opinion'    if 'opinion'    in _rurl.lower()
+                                  else 'reargument' if 'reargument' in _rurl.lower()
+                                  else 'argument')
+                        _rnew = reorder_event({
+                            'source': 'oyez', 'type': _rtype, 'date': _rd,
+                            'title':  _audio_title(_rtype, _rd),
+                            'audio_href': _rurl, 'text_href': _rh,
+                            'aligned': True if _turns_are_aligned(_rdata) else None,
+                        })
+                        if _rnew.get('aligned') is None:
+                            del _rnew['aligned']
+                        local_case.setdefault('events', []).append(_rnew)
+                        existing_oyez_filenames.add(_rh)
+                        cases_modified = True
+                # Fall through to process events against the later-term case.
+            elif not ADD_CASES:
                 print(f'  WARNING: {number} ({oyez_case.get("name", "")}) is a new case '
                       f'not in cases.json; pass --cases to add it')
                 continue
-            local_case = {
-                'title':     oyez_case['name'],
-                'number':    number,
-                'audio': [],
-            }
-            our_cases.append(local_case)
-            our_by_num[number] = local_case
-            cases_modified = True
+            else:
+                local_case = {
+                    'title':     oyez_case['name'],
+                    'number':    number,
+                    'audio': [],
+                }
+                our_cases.append(local_case)
+                our_by_num[number] = local_case
+                cases_modified = True
 
         # ── Oyez www URL ──────────────────────────────────────────────────────
         # Derive the public oyez.org URL from the API href by swapping the host.
@@ -823,6 +899,11 @@ def main():
 
         # ── Oral arguments ────────────────────────────────────────────────────
         # Group by date to detect multi-part arguments on the same day.
+        # If the case has a decision date, ignore any audio events that fall
+        # after it — these are arguments from a subsequent term that were
+        # manually split into a separate case entry.
+        _decision_date = local_case.get('decision', '') if local_case is not None else ''
+
         args_by_date: dict[str, list] = {}
         for oyez_arg in args_list:
             if oyez_arg.get('unavailable'):
@@ -830,6 +911,9 @@ def main():
             date_str = parse_oyez_date(oyez_arg.get('title', ''))
             if not date_str:
                 print(f'  {number}: cannot parse date from {oyez_arg.get("title")!r} — skipped')
+                continue
+            if _decision_date and date_str > _decision_date:
+                print(f'  {number}: skipping audio on {date_str} (after decision {_decision_date})')
                 continue
             args_by_date.setdefault(date_str, []).append(oyez_arg)
 
@@ -1153,6 +1237,10 @@ def main():
 
             comp_dir = cases_path.parent / 'cases' / comp_num
 
+            # Decision date for this component: use the consolidated case's
+            # decision, which already reflects the earliest decision for the group.
+            _comp_decision = local_case.get('decision', '')
+
             # Existing oyez hrefs already recorded for this component number
             # (by text_href folder OR by audio_href containing the case number).
             existing_comp: set[str] = {
@@ -1181,6 +1269,20 @@ def main():
                 errors += 1
                 continue
 
+            # Skip this component if the Oyez data contains any audio date
+            # outside the current term's range — it has been refiled into a
+            # later term and will be processed when that term is imported.
+            _comp_dates = [
+                parse_oyez_date(_oa.get('title', ''))
+                for section in ('oral_argument_audio', 'opinion_announcement')
+                for _oa in (detail.get(section) or [])
+                if not _oa.get('unavailable')
+            ]
+            if any(d and (d < term_start or d >= next_term_start) for d in _comp_dates):
+                print(f'  {local_number} / {comp_num}: has audio outside term range '
+                      f'({term_start} – {next_term_start}) — skipping component')
+                continue
+
             for section_key, base_type in [
                 ('oral_argument_audio', 'argument'),
                 ('opinion_announcement', 'opinion'),
@@ -1191,8 +1293,13 @@ def main():
                     if not oyez_arg or oyez_arg.get('unavailable'):
                         continue
                     date_str = parse_oyez_date(oyez_arg.get('title', ''))
-                    if date_str:
-                        comp_by_date.setdefault(date_str, []).append(oyez_arg)
+                    if not date_str:
+                        continue
+                    if _comp_decision and date_str > _comp_decision:
+                        print(f'  {local_number} / {comp_num}: skipping audio on '
+                              f'{date_str} (after decision {_comp_decision})')
+                        continue
+                    comp_by_date.setdefault(date_str, []).append(oyez_arg)
 
                 for date_str, parts in comp_by_date.items():
                     use_parts = len(parts) > 1
@@ -1301,6 +1408,15 @@ def main():
             encoding='utf-8',
         )
         print(f'Updated {cases_path.relative_to(REPO_ROOT)}')
+
+    # Write any later-term cases.json files modified during redirect processing.
+    for _rpath, _lcase, _snap in _redirect_snapshots:
+        if json.dumps(_lcase, sort_keys=True) != _snap:
+            _rpath.write_text(
+                json.dumps(_redir_files[_rpath], indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+            print(f'Updated {_rpath.relative_to(REPO_ROOT)} (via redirect)')
 
     sync_files_count(cases_path)
 
