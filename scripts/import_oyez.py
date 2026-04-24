@@ -36,6 +36,10 @@ REPO_ROOT      = Path(__file__).resolve().parent.parent
 OYEZ_API       = 'https://api.oyez.org'
 _SPEAKERS_PATH = Path(__file__).resolve().parent / 'speakers.json'
 
+# Set to True by --cases; gates creation of new case objects.  Without this
+# flag the script may only add new event objects to existing cases.
+ADD_CASES: bool = False
+
 
 def fetch_json(url: str) -> object:
     req = urllib.request.Request(url, headers={'User-Agent': 'import_oyez/1.0'})
@@ -191,6 +195,89 @@ def _merge_envelope_speakers(out_path: Path, envelope: dict) -> None:
     if old_speakers:
         envelope['media']['speakers'] = _merge_speakers(
             old_speakers, envelope['media']['speakers'])
+
+
+def _load_term_numbers(cases_path: Path) -> set[str]:
+    """Return all individual case numbers (incl. consolidated components) from
+    a cases.json file.  Returns an empty set if the file does not exist."""
+    if not cases_path.exists():
+        return set()
+    try:
+        data = json.loads(cases_path.read_text(encoding='utf-8'))
+    except Exception:
+        return set()
+    numbers: set[str] = set()
+    for c in data:
+        for part in c.get('number', '').split(','):
+            n = part.strip()
+            if n:
+                numbers.add(n)
+    return numbers
+
+
+def _load_later_term_numbers(terms_root: Path, year_str: str,
+                              lookahead: int = 2) -> dict[str, str]:
+    """Return a mapping of case_number → term string for cases already present
+    in any of the *lookahead* terms following YYYY-10.
+
+    Used to avoid adding a new case to the current term when it has already been
+    moved to a later term (e.g. due to a reargument or a delayed decision).
+    """
+    result: dict[str, str] = {}
+    year = int(year_str)
+    for offset in range(1, lookahead + 1):
+        later_term = f'{year + offset}-10'
+        later_path = terms_root / later_term / 'cases.json'
+        for num in _load_term_numbers(later_path):
+            if num not in result:   # first (nearest) later term wins
+                result[num] = later_term
+    return result
+
+
+# Module-level cache for later-term cases.json data (avoids re-reading the
+# same file when multiple cases from the same later term are encountered).
+_later_term_data_cache: dict[str, list] = {}
+
+
+def _check_previously_filed(current_term: str, case_number: str,
+                             later_term: str, terms_root: Path) -> None:
+    """Verify and fix the 'previouslyFiled' field on a case refiled in a later term.
+
+    Loads *later_term*'s cases.json, finds the entry whose number (or one of
+    its comma-separated components) equals *case_number*, then:
+      - Warns if 'previouslyFiled' is absent.
+      - Fixes 'previouslyFiled' if it is set but lacks the '/<number>' suffix,
+        appending case_number so it becomes '<term>/<number>'.
+    """
+    later_path = terms_root / later_term / 'cases.json'
+    if later_term not in _later_term_data_cache:
+        if not later_path.exists():
+            return
+        try:
+            _later_term_data_cache[later_term] = json.loads(
+                later_path.read_text(encoding='utf-8'))
+        except Exception:
+            return
+    data = _later_term_data_cache[later_term]
+    for case in data:
+        nums = [n.strip() for n in case.get('number', '').split(',')]
+        if case_number not in nums:
+            continue
+        pf = case.get('previouslyFiled')
+        if not pf:
+            print(f'  WARNING: {case_number} appears in {later_term} '
+                  f'but previouslyFiled is not set on that entry')
+            return
+        if '/' not in str(pf):
+            fixed = f'{pf}/{case_number}'
+            case['previouslyFiled'] = fixed
+            print(f'  Fixed previouslyFiled for {case_number} in {later_term}: '
+                  f'{pf!r} -> {fixed!r}')
+            later_path.write_text(
+                json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+        return
 
 
 def fetch_oyez_cases(year: str) -> list[dict]:
@@ -385,6 +472,25 @@ def _set_decision(case: dict, decision_date: str) -> bool:
     return True
 
 
+def _set_oyez_url(case: dict, url: str) -> bool:
+    """Set case['oyez'] to url, inserting it immediately after 'number'.
+
+    Does nothing if 'oyez' is already present.  Returns True when newly added.
+    """
+    if 'oyez' in case:
+        return False
+    new: dict = {}
+    for k, v in case.items():
+        new[k] = v
+        if k == 'number':
+            new['oyez'] = url
+    if 'oyez' not in new:
+        new['oyez'] = url
+    case.clear()
+    case.update(new)
+    return True
+
+
 def _oyez_filename(date_str: str, part: int = 0) -> str:
     """Return the transcript filename for an Oyez audio entry.
 
@@ -483,12 +589,17 @@ def fetch_oyez_transcript(arg_href: str, justices: dict[str, str] | None = None)
 
 
 def main():
-    if len(sys.argv) not in (2, 3):
+    global ADD_CASES
+    flags    = [a for a in sys.argv[1:] if a.startswith('--')]
+    pos_args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    ADD_CASES = '--cases' in flags
+
+    if len(pos_args) not in (1, 2):
         print(__doc__)
         sys.exit(1)
 
-    arg = sys.argv[1].strip()
-    case_filter = sys.argv[2].strip() if len(sys.argv) == 3 else None
+    arg = pos_args[0].strip()
+    case_filter = pos_args[1].strip() if len(pos_args) == 2 else None
     if re.fullmatch(r'\d{4}', arg):
         year_str = arg
         term = f'{arg}-10'
@@ -543,6 +654,11 @@ def main():
                 _nn = _normalize_case_num(_n.strip())
                 if _nn not in our_by_num:
                     our_by_num[_nn] = _c
+
+    # Load case numbers from the next two terms to avoid duplicating cases that
+    # were moved forward (e.g. due to reargument or a delayed decision).
+    terms_root = cases_path.parent.parent
+    later_term_numbers = _load_later_term_numbers(terms_root, year_str)
 
     print(f'Fetching Oyez case list for {year_str} term ...')
     oyez_cases = fetch_oyez_cases(year_str)
@@ -670,6 +786,15 @@ def main():
 
         # Ensure a local case entry for cases with arguments.
         if local_case is None:
+            if number in later_term_numbers:
+                found_term = later_term_numbers[number]
+                print(f'  {number}: found in {found_term} (refiled) — skipping')
+                _check_previously_filed(term, number, found_term, terms_root)
+                continue
+            if not ADD_CASES:
+                print(f'  WARNING: {number} ({oyez_case.get("name", "")}) is a new case '
+                      f'not in cases.json; pass --cases to add it')
+                continue
             local_case = {
                 'title':     oyez_case['name'],
                 'number':    number,
@@ -677,6 +802,13 @@ def main():
             }
             our_cases.append(local_case)
             our_by_num[number] = local_case
+            cases_modified = True
+
+        # ── Oyez www URL ──────────────────────────────────────────────────────
+        # Derive the public oyez.org URL from the API href by swapping the host.
+        # e.g. https://api.oyez.org/cases/2025/24-1063 → https://www.oyez.org/cases/2025/24-1063
+        _oyez_www = oyez_case.get('href', '').replace('api.oyez.org', 'www.oyez.org', 1)
+        if _oyez_www and _set_oyez_url(local_case, _oyez_www):
             cases_modified = True
 
         # ── Decision date ─────────────────────────────────────────────────────
