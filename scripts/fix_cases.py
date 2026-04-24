@@ -210,12 +210,17 @@ def check_missing_text_hrefs(
     return missing
 
 
+# (term/case label, date, transcript_href)
+_OrphanEntry = tuple[str, str, str]
+
+
 def check_orphaned_transcripts(
     term: str, cases: list[dict], cases_dir: Path
-) -> int:
+) -> list[_OrphanEntry]:
     """Pass 3: report transcript files not referenced by any text_href.
 
-    Returns orphaned_count.
+    Returns a list of (term/case_label, date, transcript_href) tuples.
+    transcript_href is the URL from the best-matching event, or '' if none found.
     """
     referenced: set[str] = {
         audio.get('text_href', '')
@@ -224,7 +229,24 @@ def check_orphaned_transcripts(
         if audio.get('text_href', '') and '/' in audio.get('text_href', '')
         and not audio.get('text_href', '').startswith('http')
     }
-    orphaned = 0
+
+    # Build lookup: (case_folder_prefix, date) → transcript_href from events.
+    # A case folder may be the lead number of a consolidated case, so index
+    # every component number that is a prefix of or equal to the folder name.
+    _event_lookup: dict[tuple[str, str], str] = {}
+    for case in cases:
+        number = case.get('number', '')
+        # All component numbers for this case (handles consolidated cases).
+        components = [n.strip() for n in number.split(',') if n.strip()]
+        for event in case.get('events', []):
+            th = event.get('transcript_href', '')
+            date = event.get('date', '')
+            if not th or not date:
+                continue
+            for comp in components:
+                _event_lookup.setdefault((comp, date), th)
+
+    orphaned: list[_OrphanEntry] = []
     if cases_dir.is_dir():
         for json_file in sorted(cases_dir.glob('*/*.json')):
             if json_file.name in _NON_TRANSCRIPT_NAMES:
@@ -233,8 +255,14 @@ def check_orphaned_transcripts(
                 continue
             rel = json_file.relative_to(cases_dir).as_posix()
             if rel not in referenced:
-                print(f'  ORPHAN:  {term}/{rel}')
-                orphaned += 1
+                case_folder = json_file.parent.name
+                # Date is the stem, possibly with a -N suffix (e.g. 2014-12-10-1).
+                stem = json_file.stem
+                # Strip trailing -N suffix to get the bare date.
+                date = re.sub(r'-\d+$', '', stem)
+                transcript_href = _event_lookup.get((case_folder, date), '')
+                label = f'{term}/{case_folder}'
+                orphaned.append((label, date, transcript_href))
     return orphaned
 
 
@@ -292,13 +320,16 @@ def fix_oyez_transcript_hrefs(
     return stripped
 
 
-def check_duplicate_media_hrefs(terms_to_check: list[str]) -> int:
+# Each entry: (field, url, [(term, case_number, date, source), ...])
+_MediaDupe = tuple[str, str, list[tuple[str, str, str, str]]]
+
+
+def check_duplicate_media_hrefs(terms_to_check: list[str]) -> list[_MediaDupe]:
     """Scan audio_href and transcript_href across all terms in *terms_to_check*.
 
-    Reports any URL that appears in more than one event object, together with
-    every term/case/date/source where it was found.
-
-    Returns the total number of duplicate URLs found.
+    Returns a list of (field, url, locations) tuples for every URL that appears
+    in more than one event object, where each location is
+    (term, case_number, date, source).
     """
     # {field_name: {url: [(term, case_number, date, source), ...]}}
     seen: dict[str, dict[str, list[tuple[str, str, str, str]]]] = {
@@ -324,20 +355,13 @@ def check_duplicate_media_hrefs(terms_to_check: list[str]) -> int:
                     if url:
                         seen[field][url].append((term, number, date, source))
 
-    total_dupes = 0
+    result: list[_MediaDupe] = []
     for field, url_map in seen.items():
-        dupes = {url: locs for url, locs in url_map.items() if len(locs) > 1}
-        if not dupes:
-            continue
-        print(f'\nDuplicate {field} ({len(dupes)} URL(s)):')
-        for url in sorted(dupes):
-            locs = dupes[url]
-            print(f'  {url}')
-            for term, number, date, source in locs:
-                label = f'{source} {date}' if date else source
-                print(f'    {term}/{number}  [{label}]')
-            total_dupes += 1
-    return total_dupes
+        for url in sorted(url_map):
+            locs = url_map[url]
+            if len(locs) > 1:
+                result.append((field, url, locs))
+    return result
 
 
 # Source priority for same-date event sorting (lower = earlier).
@@ -599,6 +623,7 @@ def process_term(
     dry_run: bool,
     check_dups: bool = False,
     all_terms: list[str] | None = None,
+    sort_only: bool = False,
 ) -> tuple[int, int, int]:
     """Process one term.  Returns counts of changes and any unknown case keys."""
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
@@ -609,20 +634,29 @@ def process_term(
     if not cases:
         return 0, 0, 0
 
-    dup_count        = check_duplicates(term, cases) if check_dups else 0
-    cases_reordered, events_reordered, unknown_keys, unknown_event_keys = fix_key_order(term, cases, dry_run)
+    dup_count        = check_duplicates(term, cases) if (check_dups and not sort_only) else 0
+    cases_reordered, events_reordered, unknown_keys, unknown_event_keys = (
+        fix_key_order(term, cases, dry_run) if not sort_only
+        else (0, 0, set(), set())
+    )
 
     cases_dir = TERMS_DIR / term / 'cases'
-    href_updated, href_warned = fix_text_hrefs(term, cases, cases_dir, dry_run)
-    href_missing  = check_missing_text_hrefs(term, cases, cases_dir)
-    href_orphaned = check_orphaned_transcripts(term, cases, cases_dir)
-    href_dupes    = check_duplicate_text_hrefs(term, cases) if check_dups else 0
-    href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run)
+    href_updated, href_warned = (
+        fix_text_hrefs(term, cases, cases_dir, dry_run) if not sort_only
+        else (0, 0)
+    )
+    href_missing  = check_missing_text_hrefs(term, cases, cases_dir) if not sort_only else 0
+    href_orphaned = check_orphaned_transcripts(term, cases, cases_dir) if not sort_only else []
+    for _label, _date, _th in href_orphaned:
+        _detail = f'  {_date}  {_th}' if _th else f'  {_date}'
+        print(f'  ORPHAN:  {_label}{_detail}')
+    href_dupes    = check_duplicate_text_hrefs(term, cases) if (check_dups and not sort_only) else 0
+    href_stripped = fix_oyez_transcript_hrefs(term, cases, dry_run) if not sort_only else 0
 
     events_sorted = sort_events(term, cases, dry_run)
     cases_sorted  = sort_cases(term, cases, dry_run)
-    arg_dates_fixed, _ = fix_argument_dates(term, cases, dry_run)
-    merged_count  = merge_refiled_cases(term, cases, all_terms or [], dry_run)
+    arg_dates_fixed, _ = fix_argument_dates(term, cases, dry_run) if not sort_only else (0, None)
+    merged_count  = merge_refiled_cases(term, cases, all_terms or [], dry_run) if not sort_only else 0
 
     if (cases_reordered or events_reordered or href_updated or href_stripped
             or events_sorted or cases_sorted or arg_dates_fixed
@@ -642,7 +676,8 @@ def main() -> None:
     raw_args = sys.argv[1:]
     dry_run    = '--dry-run'    in raw_args
     check_dups = '--duplicates' in raw_args
-    args = [a for a in raw_args if a not in ('--dry-run', '--duplicates')]
+    sort_only  = '--sortonly'   in raw_args
+    args = [a for a in raw_args if a not in ('--dry-run', '--duplicates', '--sortonly')]
 
     if len(args) > 2:
         print(__doc__)
@@ -672,6 +707,7 @@ def main() -> None:
     total_href_updated      = 0
     total_href_warned       = 0
     total_href_missing      = 0
+    all_href_orphaned: list[_OrphanEntry] = []
     total_href_orphaned     = 0
     total_href_dupes        = 0
     total_href_stripped     = 0
@@ -685,7 +721,7 @@ def main() -> None:
          href_updated, href_warned, href_missing,
          href_orphaned, href_dupes, href_stripped,
          events_sorted, cases_sorted, arg_dates_fixed, merged_count) = process_term(
-            term, dry_run, check_dups, all_terms)
+            term, dry_run, check_dups, all_terms, sort_only)
 
         if dup_count:
             total_dups      += dup_count
@@ -697,7 +733,8 @@ def main() -> None:
         total_href_updated  += href_updated
         total_href_warned   += href_warned
         total_href_missing  += href_missing
-        total_href_orphaned += href_orphaned
+        all_href_orphaned   += href_orphaned
+        total_href_orphaned += len(href_orphaned)
         total_href_dupes    += href_dupes
         total_href_stripped += href_stripped
         total_events_sorted += events_sorted
@@ -705,7 +742,8 @@ def main() -> None:
         total_arg_dates_fixed += arg_dates_fixed
         total_merged        += merged_count
 
-    total_media_dupes = check_duplicate_media_hrefs(terms_to_check)
+    media_dupes = check_duplicate_media_hrefs(terms_to_check) if not sort_only else []
+    total_media_dupes = len(media_dupes)
 
     if check_dups:
         if total_dups == 0:
@@ -737,6 +775,9 @@ def main() -> None:
         print(f'text_href: {total_href_missing} reference(s) point to missing files.')
     if total_href_orphaned:
         print(f'text_href: {total_href_orphaned} transcript file(s) have no reference.')
+        for _label, _date, _th in all_href_orphaned:
+            _detail = f'  {_date}  {_th}' if _th else f'  {_date}'
+            print(f'  {_label}{_detail}')
     if total_href_dupes:
         print(f'text_href: {total_href_dupes} duplicate value(s) found.')
     if total_href_stripped:
@@ -757,6 +798,11 @@ def main() -> None:
         print(f'Refiled cases: {verb} {total_merged} case(s) into later term(s).')
     if total_media_dupes:
         print(f'Media hrefs: {total_media_dupes} duplicate URL(s) found across scope.')
+        for _field, _url, _locs in media_dupes:
+            print(f'  [{_field}] {_url}')
+            for _term, _number, _date, _source in _locs:
+                _label = f'{_source} {_date}' if _date else _source
+                print(f'    {_term}/{_number}  [{_label}]')
 
     if not any([total_dups, total_cases_reordered, total_events_reordered,
                 total_href_updated, total_href_warned, total_href_missing,
