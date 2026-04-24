@@ -89,6 +89,8 @@ VERBOSE: bool = False
 # Set to True by --cases; gates creation of new case objects.  Without this
 # flag the scripts may only add new event objects to existing cases.
 ADD_CASES: bool = False
+# Set to True by --checkurls; enables live URL checks for opinion_href values.
+CHECK_URLS: bool = False
 # Set to True whenever a step function actually writes changes; used to
 # suppress the final "Nothing added/updated." summary line.
 _any_changes: bool = False
@@ -2262,13 +2264,14 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    global VERBOSE, _any_changes, ADD_CASES
+    global VERBOSE, _any_changes, ADD_CASES, CHECK_URLS
     _any_changes  = False
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    fetch_docket  = '--docket'  in sys.argv
-    force_reparse = '--reparse' in sys.argv
-    VERBOSE       = '--verbose' in sys.argv
-    ADD_CASES     = '--cases'   in sys.argv
+    fetch_docket  = '--docket'    in sys.argv
+    force_reparse = '--reparse'   in sys.argv
+    VERBOSE       = '--verbose'   in sys.argv
+    ADD_CASES     = '--cases'     in sys.argv
+    CHECK_URLS    = '--checkurls' in sys.argv
 
     if len(args) < 1 or len(args) > 2:
         print(__doc__)
@@ -2326,8 +2329,10 @@ def main():
             cases_path.write_text('[]\n', encoding='utf-8')
 
     # Step 2b: import transcript PDFs from supremecourt.gov listing page
-    vprint('Importing transcript PDFs from supremecourt.gov listing ...')
-    import_transcript_pdfs(cases_path, year_str, later_term_numbers)
+    # Transcripts are not available before October Term 1968.
+    if year_str >= '1968-10':
+        vprint('Importing transcript PDFs from supremecourt.gov listing ...')
+        import_transcript_pdfs(cases_path, year_str, later_term_numbers)
 
     # Step 3: generate missing transcript JSON files
     if force_reparse:
@@ -2360,9 +2365,13 @@ def main():
     extract_questions(cases_path)
 
     # Step 7: add/update opinion_href from slip opinions index
-    print('Checking opinion references ...')
-    upgrade_dead_opinion_hrefs(cases_path)
-    backfill_opinion_hrefs(cases_path, term)
+    # Both functions require network access (Wayback CDX for old terms).
+    if CHECK_URLS:
+        print('Checking opinion references ...')
+        upgrade_dead_opinion_hrefs(cases_path)
+        backfill_opinion_hrefs(cases_path, term)
+    else:
+        vprint('Skipping opinion references (pass --checkurls to enable).')
 
     # Sync files counts now that all files.json mutations are done
     sync_files_count(cases_path)
