@@ -513,7 +513,7 @@ def fetch_oyez_transcript(arg_href: str, justices: dict[str, str] | None = None)
     detail = fetch_json(arg_href)
 
     # MP3 URL
-    media_files = detail.get('media_file') or []
+    media_files = [f for f in (detail.get('media_file') or []) if f is not None]
     mp3_url = next(
         (f['href'] for f in media_files if f.get('mime') == 'audio/mpeg'),
         '',

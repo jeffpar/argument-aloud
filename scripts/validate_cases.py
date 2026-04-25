@@ -221,15 +221,20 @@ def _fix_dead_opinion_pdf_hrefs(opinions: dict) -> dict:
     return result
 
 
-def _fetch_opinions(year_2digit: str) -> dict:
+def _fetch_opinions(year_2digit: str, check_urls: bool = False) -> dict:
     """Fetch and parse the SCOTUS slip-opinions index for a 2-digit term year.
 
     Returns a dict keyed by lowercase docket number, e.g.
         {'24-539': {'date': '2026-03-31', 'name': 'Chiles v. Salazar',
                     'author': 'NG', 'href': 'https://…/24-539_xxx.pdf'}}
+
+    When *check_urls* is False (the default), PDF URLs from the live page are
+    stored as-is without probing for 404s.  Pass True (i.e. when --checkurls is
+    active) to replace any dead PDF hrefs with Wayback Machine URLs.
     """
-    if year_2digit in _OPINIONS_CACHE:
-        return _OPINIONS_CACHE[year_2digit]
+    cache_key = (year_2digit, check_urls)
+    if cache_key in _OPINIONS_CACHE:
+        return _OPINIONS_CACHE[cache_key]
 
     url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
     if _VERBOSE:
@@ -244,41 +249,57 @@ def _fetch_opinions(year_2digit: str) -> dict:
 
     # Each opinion row: date | docket (white-space:nowrap) | name<a>…</a> | J.
     # The href may include a #page=N fragment (e.g. preliminaryprint PDFs).
+    # "NNN, Orig." docket cells are normalised to "NNN-orig" to match
+    # the format used in cases.json (e.g. "145-Orig" -> key "145-orig").
+    _ORIG_DOCKET_RE = re.compile(r'^(\d+),\s*orig\.?$', re.IGNORECASE)
+    # Some dockets include a parenthetical application number, e.g. "21-588 (21A85)".
+    # Strip the parenthetical to get the base docket used in cases.json.
+    _PAREN_RE = re.compile(r'\s*\([^)]*\)\s*$')
+
     pattern = re.compile(
         r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
         r'<td[^>]*white-space[^>]*>([^<]+)</td>\s*'
         r'<td[^>]*><a href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
-        r'.*?<td[^>]*>(\w+)</td>',
+        r'.*?<td[^>]*>(\w+)</td>'
+        r'(?:\s*<td[^>]*>(?:<[^>]+>)?(\d+ U\.S\.[ \xa0]+\d+)(?:</[^>]+>)?</td>)?',
         re.DOTALL,
     )
 
     opinions: dict = {}
     for m in pattern.finditer(html):
-        date_raw, docket, href, name, author = (g.strip() for g in m.groups())
+        date_raw, docket, href, name, author, cite_raw = (
+            (g or '').strip() for g in m.groups()
+        )
         try:
             date_iso = datetime.datetime.strptime(date_raw, '%m/%d/%y').strftime('%Y-%m-%d')
         except ValueError:
             date_iso = date_raw
-        opinions[docket.lower()] = {
+        docket = _PAREN_RE.sub('', docket)
+        orig_m = _ORIG_DOCKET_RE.match(docket)
+        docket_key = (orig_m.group(1) + '-orig') if orig_m else docket.lower()
+        entry: dict = {
             'date':   date_iso,
             'name':   name,
             'author': author,
             'href':   SCOTUS_BASE + href,
         }
+        if cite_raw:
+            entry['cite'] = cite_raw
+        opinions[docket_key] = entry
 
     # If the live page yielded no opinions, try the Wayback Machine as a
     # fallback.  This handles terms 2016-10 and earlier, where supremecourt.gov
     # no longer serves the slip-opinions index.
     if not opinions:
         opinions = _fetch_opinions_via_wayback(year_2digit)
-    else:
+    elif check_urls:
         # The live page may link to PDF files that are themselves no longer
         # hosted (e.g. superseded preliminary-print volumes).  Check each
         # unique base PDF URL (fragment stripped) and swap in a Wayback
         # archive URL for any that return 404.
         opinions = _fix_dead_opinion_pdf_hrefs(opinions)
 
-    _OPINIONS_CACHE[year_2digit] = opinions
+    _OPINIONS_CACHE[cache_key] = opinions
     if _VERBOSE:
         full_year = str(2000 + int(year_2digit))
         print(f'  Found {len(opinions)} opinion(s) for term year {full_year}.')
@@ -356,11 +377,15 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
 
     # Post-2016 SCOTUS site layout: docket cell has white-space:nowrap style
     # and the name cell may have style attributes.
+    _ORIG_DOCKET_WB = re.compile(r'^(\d+),\s*orig\.?$', re.IGNORECASE)
+    _PAREN_WB = re.compile(r'\s*\([^)]*\)\s*$')
+    _cite_sfx = r'(?:\s*<td[^>]*>(?:<[^>]+>)?(\d+ U\.S\.[ \xa0]+\d+)(?:</[^>]+>)?</td>)?'
+
     _pattern_new = re.compile(
         r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
         r'<td[^>]*white-space[^>]*>([^<]+)</td>\s*'
         r'<td[^>]*><a href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
-        r'.*?<td[^>]*>(\w+)</td>',
+        r'.*?<td[^>]*>(\w+)</td>' + _cite_sfx,
         re.DOTALL,
     )
     # Pre-2017 SCOTUS site layout (2012–2016 terms): rows have 7 cells
@@ -370,24 +395,32 @@ def _fetch_opinions_via_wayback(year_2digit: str) -> dict:
         r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
         r'<td[^>]*>([^<]+)</td>\s*'
         r'<td><a[^>]*href=.(/opinions/[^\s\'">]+)[^>]*>([^<]+)</a>'
-        r'.*?<td[^>]*>(\w+)</td>',
+        r'.*?<td[^>]*>(\w+)</td>' + _cite_sfx,
         re.DOTALL,
     )
 
     def _parse_opinions(pattern: re.Pattern) -> dict:
         result: dict = {}
         for m in pattern.finditer(html):
-            date_raw, docket, href, name, author = (g.strip() for g in m.groups())
+            date_raw, docket, href, name, author, cite_raw = (
+                (g or '').strip() for g in m.groups()
+            )
             try:
                 date_iso = datetime.datetime.strptime(date_raw, '%m/%d/%y').strftime('%Y-%m-%d')
             except ValueError:
                 date_iso = date_raw
-            result[docket.lower()] = {
+            docket = _PAREN_WB.sub('', docket)
+            orig_m = _ORIG_DOCKET_WB.match(docket)
+            docket_key = (orig_m.group(1) + '-orig') if orig_m else docket.lower()
+            entry: dict = {
                 'date':   date_iso,
                 'name':   name,
                 'author': author,
                 'href':   wayback_base + href,
             }
+            if cite_raw:
+                entry['cite'] = cite_raw
+            result[docket_key] = entry
         return result
 
     opinions = _parse_opinions(_pattern_new)

@@ -612,6 +612,70 @@ function caseTermDate(caseEntry, term) {
   return inTerm?.date ?? audio[0]?.date ?? parseDateDecision(caseEntry.dateDecision);
 }
 
+// Returns {fraction, orange} if the case's argument/reargument dates are fully
+// covered by oyez events (qualifying it for a ring around the audio icon), or
+// null if not. fraction = fraction of those events that have audio_href (0–1);
+// orange = true if any audio event is missing an aligned transcript.
+function oyezCircleData(caseEntry) {
+  const dates = [caseEntry.argument, caseEntry.reargument].filter(Boolean);
+  if (!dates.length) return null;
+
+  const oyezEvents = (caseEntry.events || []).filter(
+    e => e.source === 'oyez' && (e.type === 'argument' || e.type === 'reargument'),
+  );
+
+  // Every listed argument/reargument date must be covered by an oyez event.
+  const allCovered = dates.every(d => oyezEvents.some(e => e.date === d));
+  if (!allCovered) return null;
+
+  const relevant = oyezEvents.filter(e => dates.includes(e.date));
+  if (!relevant.length) return null;
+
+  const withAudio = relevant.filter(e => e.audio_href);
+  const fraction = withAudio.length / relevant.length;
+  const orange = withAudio.some(e => !e.aligned);
+  return { fraction, orange };
+}
+
+// Builds the SVG ring icon used when oyezCircleData returns a result.
+function makeAudioRingSvg(fraction, orange) {
+  const size = 20, cx = 10, cy = 10, r = 8.5;
+  const circ = 2 * Math.PI * r;
+  const dash = fraction * circ;
+  const color = orange ? '#E07820' : '#3778A6';
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', size);
+  svg.setAttribute('height', size);
+  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.setAttribute('class', 'case-decided-icon case-audio-icon case-audio-ring');
+  svg.setAttribute('title', 'Oral argument audio available');
+
+  const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  arc.setAttribute('cx', cx);
+  arc.setAttribute('cy', cy);
+  arc.setAttribute('r', r);
+  arc.setAttribute('fill', 'none');
+  arc.setAttribute('stroke', color);
+  arc.setAttribute('stroke-width', '1.5');
+  arc.setAttribute('stroke-linecap', 'round');
+  arc.setAttribute('stroke-dasharray', `${dash} ${circ - dash}`);
+  arc.setAttribute('transform', `rotate(-90 ${cx} ${cy})`);
+
+  const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  label.setAttribute('x', cx);
+  label.setAttribute('y', cy + 0.5);
+  label.setAttribute('text-anchor', 'middle');
+  label.setAttribute('dominant-baseline', 'middle');
+  label.setAttribute('fill', 'currentColor');
+  label.setAttribute('font-size', '11');
+  label.textContent = '\u266b';
+
+  svg.appendChild(arc);
+  svg.appendChild(label);
+  return svg;
+}
+
 function buildTermCases(term, cases, ul) {
   // Include cases with audio, a direct opinion link, or browsable files; skip truly empty cases.
   // Sort alphabetically by title.
@@ -652,11 +716,16 @@ function buildTermCases(term, cases, ul) {
 
         // ── Speaker icon: shown if this case has playable audio ──
         if (caseEntry.events?.some(a => a.audio_href)) {
-          const speakerIcon = document.createElement('span');
-          speakerIcon.className = 'case-decided-icon case-audio-icon';
-          speakerIcon.textContent = '\u266b';
-          speakerIcon.title = 'Oral argument audio available';
-          header.appendChild(speakerIcon);
+          const ring = oyezCircleData(caseEntry);
+          if (ring) {
+            header.appendChild(makeAudioRingSvg(ring.fraction, ring.orange));
+          } else {
+            const speakerIcon = document.createElement('span');
+            speakerIcon.className = 'case-decided-icon case-audio-icon';
+            speakerIcon.textContent = '\u266b';
+            speakerIcon.title = 'Oral argument audio available';
+            header.appendChild(speakerIcon);
+          }
         } else if (caseEntry.events?.some(a => a.transcript_href)) {
           const transcriptIcon = document.createElement('span');
           transcriptIcon.className = 'case-decided-icon case-transcript-icon';
