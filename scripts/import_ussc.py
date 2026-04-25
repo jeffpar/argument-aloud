@@ -720,6 +720,54 @@ def _merge_speaker_titles(new_speakers: list,
     return result
 
 
+def _non_justice_speakers(transcript_path: Path) -> frozenset[tuple[str, str]]:
+    """Return frozenset of (name, title) for non-justice speakers in a transcript file.
+
+    Justice speakers (title in JUSTICE / CHIEF JUSTICE / UNKNOWN JUSTICE) are
+    excluded since those are the same in every transcript for a given argument.
+    """
+    if not transcript_path.exists():
+        return frozenset()
+    try:
+        data = json.loads(transcript_path.read_text(encoding='utf-8'))
+    except Exception:
+        return frozenset()
+    _JUSTICE_TITLES = frozenset({'JUSTICE', 'CHIEF JUSTICE', 'UNKNOWN JUSTICE'})
+    return frozenset(
+        (sp.get('name', ''), sp.get('title', ''))
+        for sp in data.get('media', {}).get('speakers', [])
+        if sp.get('title', '') not in _JUSTICE_TITLES
+    )
+
+
+def _title_is_female(title: str) -> bool:
+    """Return True when the title signals a female advocate (MS./MRS./MISS)."""
+    return 'MS.' in title or 'MRS.' in title or 'MISS' in title
+
+
+def _speakers_subset(
+        ussc_spk: frozenset[tuple[str, str]],
+        oyez_spk: frozenset[tuple[str, str]],
+) -> bool:
+    """Return True when every ussc speaker has a gender-compatible match in oyez.
+
+    Two entries for the same name are gender-compatible when they agree on
+    whether the speaker is female (title contains MS./MRS./MISS).  MR. and
+    no title are both treated as male/neutral and therefore match each other.
+    """
+    oyez_by_name: dict[str, list[str]] = {}
+    for name, title in oyez_spk:
+        oyez_by_name.setdefault(name, []).append(title)
+    for name, title in ussc_spk:
+        candidates = oyez_by_name.get(name)
+        if not candidates:
+            return False
+        ussc_female = _title_is_female(title)
+        if not any(_title_is_female(t) == ussc_female for t in candidates):
+            return False
+    return True
+
+
 def _pdf_to_text(pdf_path: Path) -> str:
     """Run pdftotext -layout on *pdf_path* and return the raw text."""
     result = subprocess.run(
@@ -1603,6 +1651,8 @@ def generate_missing_transcripts(cases_path: Path,
         for arg in case.get('events', []):
             if arg.get('source', 'ussc') != 'ussc':
                 continue   # only extract from USSC transcripts
+            if arg.get('redundant'):
+                continue   # previously found identical to oyez — do not recreate
             pdf_url = arg.get('transcript_href')
             date    = arg.get('date')
             if not pdf_url or not date:
@@ -1760,6 +1810,83 @@ def generate_missing_transcripts(cases_path: Path,
             encoding='utf-8',
         )
         _report_change('Updated cases.json with new text_href entries.')
+
+
+def _ensure_event_transcript(cases_path: Path, case: dict, arg: dict, term: str) -> bool:
+    """Ensure the transcript JSON file and text_href exist for a single ussc event.
+
+    Modifies *arg* in place (sets text_href) but does NOT save cases.json —
+    the caller must save after all events have been processed.
+    Returns True when text_href is set and the corresponding file exists.
+    """
+    if not arg.get('transcript_href') or not arg.get('date'):
+        return False
+    existing_th = arg.get('text_href', '')
+    if existing_th:
+        th_file = cases_path.parent / 'cases' / existing_th
+        if th_file.exists():
+            return True
+    pdf_url       = arg['transcript_href']
+    date          = arg['date']
+    case_norms    = [_normalize_number(n.strip()) for n in case['number'].split(',')]
+    component_num = _ussc_case_num_from_href(pdf_url, existing_th)
+    if not component_num or component_num not in case_norms:
+        component_num = _case_folder(case['number'])
+    # Archived transcripts without a cached text file cannot be extracted here.
+    if '/pdfs/transcripts/' in pdf_url:
+        if not _cached_text_path(component_num, date, term).exists():
+            return False
+    transcript_out = (
+        (cases_path.parent / 'cases' / existing_th)
+        if existing_th
+        else (cases_path.parent / 'cases' / component_num / f'{date}.json')
+    )
+    print(f'  Extracting {case["number"]} ({date})', end='', flush=True)
+    existing_speakers: list | None = None
+    if transcript_out.exists():
+        try:
+            ex = json.loads(transcript_out.read_text(encoding='utf-8'))
+            existing_speakers = ex.get('media', {}).get('speakers') or None
+        except Exception:
+            pass
+    cached_txt = _cached_text_path(component_num, date, term)
+    audio_href  = arg.get('audio_href', '')
+    tmp_path: Path | None = None
+    try:
+        if cached_txt.exists():
+            raw_text = cached_txt.read_text(encoding='utf-8', errors='replace')
+            turns    = _parse_raw_text(raw_text, transcript_out, audio_href, term,
+                                       existing_speakers)
+        else:
+            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                tmp_path = Path(tmp.name)
+            download_file(pdf_url, tmp_path)
+            raw_text = _pdf_to_text(tmp_path)
+            cached_txt.parent.mkdir(parents=True, exist_ok=True)
+            cached_txt.write_text(raw_text, encoding='utf-8')
+            turns = _parse_raw_text(raw_text, transcript_out, audio_href, term,
+                                    existing_speakers)
+            time.sleep(0.3)
+        if not turns:
+            if transcript_out.exists():
+                transcript_out.unlink()
+            if arg.get('text_href'):
+                del arg['text_href']
+            print(' (empty — skipped)')
+            return False
+        print(f': {len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
+        if not arg.get('text_href'):
+            arg['text_href'] = f'{component_num}/{date}.json'
+        return True
+    except subprocess.CalledProcessError as exc:
+        print(f' ERROR (pdftotext): {exc.stderr.strip()}')
+        return False
+    except Exception as exc:
+        print(f' ERROR: {exc}')
+        return False
+    finally:
+        if tmp_path and tmp_path.exists():
+            tmp_path.unlink()
 
 
 # ── Step 3b: Migrate old-format transcripts ──────────────────────────────────
@@ -1962,6 +2089,121 @@ def extract_questions(cases_path: Path) -> None:
 
 # ── Step 2b: Import transcript PDFs from supremecourt.gov listing ─────────────
 
+
+def _find_case_in_later_terms(
+        terms_root: Path,
+        current_year: str,
+        row_norm: str,
+        row_date: str,
+        lookahead: int = 2,
+) -> 'tuple[str, dict, list, Path] | None':
+    """Search up to *lookahead* subsequent terms for a case matching both
+    *row_norm* (docket number) and *row_date* (in argument/reargument fields,
+    or in existing event dates when those fields are not yet set).
+
+    Returns ``(term_str, case_obj, all_cases, cases_path)`` or ``None``.
+    """
+    year = int(current_year)
+    for offset in range(1, lookahead + 1):
+        check_term = f'{year + offset}-10'
+        cp = terms_root / check_term / 'cases.json'
+        if not cp.exists():
+            continue
+        try:
+            cases = json.loads(cp.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for case in cases:
+            if 'number' not in case:
+                continue
+            case_norms = [_normalize_number(n.strip()) for n in case['number'].split(',')]
+            if row_norm not in case_norms:
+                continue
+            # Collect all known argument/reargument dates.
+            arg_dates: set[str] = set()
+            for field in ('argument', 'reargument'):
+                v = case.get(field)
+                if isinstance(v, str):
+                    arg_dates.add(v)
+                elif isinstance(v, list):
+                    arg_dates.update(v)
+            # Fallback to event dates when top-level fields are not yet populated.
+            if not arg_dates:
+                for ev in case.get('events', []):
+                    if ev.get('type') in (None, 'argument', 'reargument') and ev.get('date'):
+                        arg_dates.add(ev['date'])
+            if row_date in arg_dates:
+                return check_term, case, cases, cp
+    return None
+
+
+def _compare_single_ussc_event(
+        cases_path: Path,
+        all_cases: list,
+        case: dict,
+        arg: dict,
+        term: str,
+) -> bool:
+    """Compare non-justice speakers in a ussc transcript with the matching oyez
+    transcript for the same date.
+
+    * Same speaker set → ussc file is redundant: deleted, text_href removed.
+    * Different speaker set → oyez then ussc speakers are printed, user prompted
+      whether to retain the ussc transcript (default: retain).
+
+    Modifies *arg* in place but does NOT save cases.json — caller is responsible.
+    Returns True if *arg* was modified (text_href removed).
+    """
+    ussc_th = arg.get('text_href', '')
+    date    = arg.get('date', '')
+    if not ussc_th or not date:
+        return False
+    # Find a matching oyez event for the same date that also has a transcript.
+    oyez_ev = next(
+        (ev for ev in case.get('events', [])
+         if ev.get('source') == 'oyez'
+         and ev.get('date') == date
+         and ev.get('text_href')),
+        None,
+    )
+    if not oyez_ev:
+        return False
+    ussc_path = cases_path.parent / 'cases' / ussc_th
+    oyez_path = cases_path.parent / 'cases' / oyez_ev['text_href']
+    ussc_spk  = _non_justice_speakers(ussc_path)
+    oyez_spk  = _non_justice_speakers(oyez_path)
+    if not ussc_spk and not oyez_spk:
+        return False
+    if _speakers_subset(ussc_spk, oyez_spk):
+        if ussc_path.exists():
+            ussc_path.unlink()
+        del arg['text_href']
+        arg['redundant'] = True
+        print(f'{case["number"]} ({date}): ussc transcript deleted (redundant with oyez)')
+        return True
+    # Speakers differ — show both sets and ask the user.
+    print(f'\n{case["number"]} ({date}): ussc and oyez non-justice speakers differ:')
+    print('  oyez:')
+    for name, title in sorted(oyez_spk):
+        print(f'    [{title}] {name}' if title else f'    {name}')
+    print('  ussc:')
+    for name, title in sorted(ussc_spk):
+        # Check whether this speaker has a gender-compatible match in oyez.
+        candidates = [t for (n, t) in oyez_spk if n == name]
+        matched = any(_title_is_female(t) == _title_is_female(title) for t in candidates)
+        suffix = ' (matched)' if matched else ''
+        print(f'    [{title}] {name}{suffix}' if title else f'    {name}{suffix}')
+    ans = input('Retain ussc transcript? [Y/n] ').strip().lower()
+    if ans in ('n', 'no'):
+        if ussc_path.exists():
+            ussc_path.unlink()
+        del arg['text_href']
+        arg['redundant'] = True
+        print('  ussc transcript deleted.')
+        return True
+    return False
+
+
 def import_transcript_pdfs(cases_path: Path, year_str: str,
                             later_term_numbers: dict[str, str] | None = None) -> None:
     """Match PDF transcripts from the supremecourt.gov listing page to cases in
@@ -1987,6 +2229,11 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         cases_path.write_text('[]\n', encoding='utf-8')
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     cases_modified = False
+    current_term   = cases_path.parent.name  # e.g. '2025-10'
+    # (cases_path, all_cases, case, arg, term) for each newly matched/created event
+    _newly_matched: list[tuple[Path, list, dict, dict, str]] = []
+    # later-term cases.json files modified this run: Path → (term_str, cases_list)
+    later_modified: dict[Path, tuple[str, list]] = {}
 
     # Pass 1: match existing cases
     matched_rows: set[tuple[str, str]] = set()  # (number, date) pairs handled
@@ -2044,6 +2291,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                     new_arg['transcript_href'] = row['pdf_url']
                 arg.clear()
                 arg.update(new_arg)
+                _newly_matched.append((cases_path, existing, case, arg, current_term))
                 cases_modified = True
                 print(f'{case["number"]} ({row["date"]}): transcript_href added')
                 break
@@ -2072,6 +2320,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                                                'transcript_href': row['pdf_url']})
                     audio_list.append(new_audio)
                     case['events'] = sorted(audio_list, key=lambda a: a.get('date') or '')
+                    _newly_matched.append((cases_path, existing, case, new_audio, current_term))
                     cases_modified = True
                     print(f'{case["number"]} ({row["date"]}): created transcript-only audio object')
 
@@ -2089,6 +2338,53 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
     for row in transcripts:
         key = (row['number'], row['date'])
         if key not in matched_rows and row['number'] not in existing_numbers:
+            row_norm = _normalize_number(row['number'])
+            # Search subsequent terms for a case matching both number and argument date.
+            later_match = _find_case_in_later_terms(
+                terms_root, year_str, row_norm, row['date'])
+            if later_match:
+                lt_str, lt_case, lt_cases, lt_cp = later_match
+                lt_assigned = False
+                for lt_arg in lt_case.get('events', []):
+                    if lt_arg.get('source', 'ussc') != 'ussc':
+                        continue
+                    if lt_arg.get('type') not in (None, 'argument', 'reargument'):
+                        continue
+                    if lt_arg.get('date') != row['date']:
+                        continue
+                    lt_assigned = True
+                    if not lt_arg.get('transcript_href'):
+                        lt_insert = 'audio_href' if 'audio_href' in lt_arg else 'date'
+                        new_lt: dict = {}
+                        _ins = False
+                        for k, v in lt_arg.items():
+                            new_lt[k] = v
+                            if not _ins and k == lt_insert:
+                                new_lt['transcript_href'] = row['pdf_url']
+                                _ins = True
+                        if not _ins:
+                            new_lt['transcript_href'] = row['pdf_url']
+                        lt_arg.clear()
+                        lt_arg.update(new_lt)
+                        later_modified[lt_cp] = (lt_str, lt_cases)
+                        _newly_matched.append((lt_cp, lt_cases, lt_case, lt_arg, lt_str))
+                        print(f'{lt_case["number"]} ({row["date"]}): '
+                              f'transcript_href added in {lt_str}')
+                    break
+                if not lt_assigned:
+                    lt_title = _ussc_audio_title('argument', row['date'])
+                    lt_ev = reorder_event({'source': 'ussc', 'type': 'argument',
+                                           'date': row['date'], 'title': lt_title,
+                                           'transcript_href': row['pdf_url']})
+                    lt_case.setdefault('events', []).append(lt_ev)
+                    lt_case['events'] = sorted(lt_case['events'],
+                                               key=lambda a: a.get('date') or '')
+                    later_modified[lt_cp] = (lt_str, lt_cases)
+                    _newly_matched.append((lt_cp, lt_cases, lt_case, lt_ev, lt_str))
+                    print(f'{lt_case["number"]} ({row["date"]}): '
+                          f'transcript event created in {lt_str}')
+                matched_rows.add(key)
+                continue
             if later_term_numbers and row['number'] in later_term_numbers:
                 found_term = later_term_numbers[row['number']]
                 print(f'Skipping {row["number"]} (already in {found_term})')
@@ -2112,6 +2408,8 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
         new_case = {'title': title, 'number': norm, 'events': audio_entries}
         existing.append(new_case)
         existing_numbers.add(norm)
+        for _new_ev in audio_entries:
+            _newly_matched.append((cases_path, existing, new_case, _new_ev, current_term))
         cases_modified = True
         _report_change(f'  {norm}: new case added with {len(audio_entries)} audio entry(ies)')
 
@@ -2129,6 +2427,95 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                 update_docket_info(cases_path, str(year_str_int), case_numbers=new_numbers)
     else:
         vprint('No changes needed.')
+
+    # Save any later-term cases.json files that were modified.
+    for lt_cp, (lt_str, lt_cases) in later_modified.items():
+        lt_cp.write_text(
+            json.dumps(lt_cases, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        _report_change(f'  Updated {lt_str}/cases.json.')
+        lt_year_int  = int(lt_str.split('-')[0])
+        lt_new_nums  = {c['number'] for (xcp, _, c, _, _) in _newly_matched
+                        if xcp == lt_cp and 'number' in c}
+        if lt_year_int >= 2001 and lt_new_nums:
+            print(f'Fetching docket info for newly added {lt_str} case(s) ...')
+            update_docket_info(lt_cp, str(lt_year_int), case_numbers=lt_new_nums)
+
+    if not _newly_matched:
+        return
+
+    # ── Ensure text_href + compare ussc vs oyez speakers ─────────────────────
+    # For each newly matched or created event ensure the transcript JSON file
+    # exists, then compare non-justice speakers with any oyez transcript for
+    # the same date.  Redundant ussc transcripts are deleted automatically;
+    # differing ones prompt the user.
+    _unique_cps: dict[Path, tuple[list, str]] = {}
+    for (cp, cl, _c, _a, t) in _newly_matched:
+        _unique_cps.setdefault(cp, (cl, t))
+
+    _ensure_changed: set[Path] = set()
+    for (cp, cl, c, a, t) in _newly_matched:
+        if _ensure_event_transcript(cp, c, a, t):
+            _ensure_changed.add(cp)
+    for cp in _ensure_changed:
+        cl, _t = _unique_cps[cp]
+        cp.write_text(json.dumps(cl, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+        _report_change(f'  Updated {cp.parent.name}/cases.json with text_href.')
+
+    _compare_changed: set[Path] = set()
+    for (cp, cl, c, a, t) in _newly_matched:
+        if a.get('text_href') and _compare_single_ussc_event(cp, cl, c, a, t):
+            _compare_changed.add(cp)
+    for cp in _compare_changed:
+        cl, _t = _unique_cps[cp]
+        cp.write_text(json.dumps(cl, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+        _report_change(f'  Updated {cp.parent.name}/cases.json after speaker comparison.')
+
+
+# ── Step 3c: Compare ussc vs oyez speakers ───────────────────────────────────
+
+
+def compare_ussc_oyez_speakers(cases_path: Path,
+                                case_filter: str | None = None) -> None:
+    """For every ussc event that has a text_href (and is not already marked
+    redundant), compare non-justice speakers with any same-date oyez transcript.
+
+    Identical speaker sets → ussc file deleted, event marked ``redundant: true``.
+    Differing speaker sets → both sets printed; user prompted to retain or delete.
+
+    If *case_filter* is set, only that case (or consolidated case containing that
+    number) is processed.
+    """
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    term     = cases_path.parent.name
+    modified = False
+
+    for case in existing:
+        if 'number' not in case:
+            continue
+        if case_filter:
+            case_norms = [_normalize_number(n.strip()) for n in case['number'].split(',')]
+            if _normalize_number(case_filter) not in case_norms:
+                continue
+        for arg in case.get('events', []):
+            if arg.get('source', 'ussc') != 'ussc':
+                continue
+            if arg.get('redundant'):
+                continue   # already handled in a previous run
+            if not arg.get('text_href'):
+                continue
+            if _compare_single_ussc_event(cases_path, existing, case, arg, term):
+                modified = True
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        _report_change('Updated cases.json after ussc/oyez speaker comparison.')
+    else:
+        vprint('No redundant ussc transcripts found.')
 
 
 # ── Step 7: Add / update opinion_href ───────────────────────────────────────
@@ -2329,6 +2716,7 @@ def main():
         print()
         print(f'Re-generating transcript for {case_filter} ...')
         generate_missing_transcripts(cases_path, case_filter=case_filter)
+        compare_ussc_oyez_speakers(cases_path, case_filter=case_filter)
         return
 
     # ── Full-term mode ───────────────────────────────────────────────────────
@@ -2376,6 +2764,10 @@ def main():
     # Step 3b: migrate old-format transcripts to envelope format
     vprint('Migrating old-format transcripts ...')
     migrate_transcripts(cases_path)
+
+    # Step 3c: compare ussc vs oyez speakers; remove redundant ussc transcripts
+    vprint('Comparing ussc vs oyez speakers ...')
+    compare_ussc_oyez_speakers(cases_path)
 
     # Step 4: fetch docket info (questions_href + files.json proceedings)
     # supremecourt.gov docket only has data from the 2001 term onward.

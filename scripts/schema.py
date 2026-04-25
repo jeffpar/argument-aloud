@@ -21,7 +21,7 @@ CASE_KEY_ORDER: list[str] = [
 EVENT_KEY_ORDER: list[str] = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
     'journal_href', 'audio_href', 'offset', 'transcript_href', 'text_href',
-    'advocates', 'aligned', 'unique', 'note',
+    'advocates', 'aligned', 'redundant', 'unique', 'note',
 ]
 
 
