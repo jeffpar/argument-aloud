@@ -91,6 +91,9 @@ VERBOSE: bool = False
 ADD_CASES: bool = False
 # Set to True by --checkurls; enables live URL checks for opinion_href values.
 CHECK_URLS: bool = False
+# Set to True by --prompt; enables interactive prompting when ussc and oyez
+# speaker sets differ.  Without this flag the ussc transcript is retained.
+PROMPT: bool = False
 # Set to True whenever a step function actually writes changes; used to
 # suppress the final "Nothing added/updated." summary line.
 _any_changes: bool = False
@@ -2193,6 +2196,9 @@ def _compare_single_ussc_event(
         matched = any(_title_is_female(t) == _title_is_female(title) for t in candidates)
         suffix = ' (matched)' if matched else ''
         print(f'    [{title}] {name}{suffix}' if title else f'    {name}{suffix}')
+    if not PROMPT:
+        print('  Retaining ussc transcript (pass --prompt to decide interactively).')
+        return False
     ans = input('Retain ussc transcript? [Y/n] ').strip().lower()
     if ans in ('n', 'no'):
         if ussc_path.exists():
@@ -2615,7 +2621,7 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
     any case that already has a files.json.
     """
     year_2 = term.split('-')[0][-2:]  # '2015-10' → '15'
-    opinions = _fetch_opinions(year_2)
+    opinions = _fetch_opinions(year_2, check_urls=CHECK_URLS)
     if not opinions:
         print('No slip opinions found.')
         return
@@ -2638,32 +2644,49 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
             continue
 
         href = opinion['href']
+        cite = opinion.get('cite', '')
         existing_href = case.get('opinion_href', '')
-        # Don't overwrite an existing Wayback URL — it was chosen deliberately
-        # (either by the user or by upgrade_dead_opinion_hrefs) and is likely a
-        # better snapshot than the one extracted from the index page.
-        if existing_href.startswith('https://web.archive.org/'):
+        existing_cite = case.get('usCite', '')
+
+        # Gate opinion_href update: don't overwrite Wayback or bad hrefs.
+        update_href = (
+            not existing_href.startswith('https://web.archive.org/')
+            and not case.get('opinion_href_bad')
+            and existing_href != href
+        )
+        update_cite = bool(cite and existing_cite != cite)
+
+        if not update_href and not update_cite:
             continue
-        # Don't overwrite a case that has been marked as having a bad opinion_href.
-        if case.get('opinion_href_bad'):
-            continue
-        if existing_href != href:
-            # Insert opinion_href immediately before 'files', replacing any
-            # existing value so the key stays in the canonical position.
-            new_case: dict = {}
-            inserted = False
-            for k, v in case.items():
-                if k == 'files' and not inserted:
-                    new_case['opinion_href'] = href
-                    inserted = True
-                if k != 'opinion_href':
-                    new_case[k] = v
-            if not inserted:
+
+        # Rebuild the case dict with opinion_href before 'files' and
+        # usCite before 'events', both in canonical schema order.
+        new_case: dict = {}
+        cite_inserted = False
+        href_inserted = False
+        for k, v in case.items():
+            if k == 'events' and update_cite and not cite_inserted:
+                new_case['usCite'] = cite
+                cite_inserted = True
+            if k == 'files' and update_href and not href_inserted:
                 new_case['opinion_href'] = href
-            case.clear()
-            case.update(new_case)
-            cases_modified = True
+                href_inserted = True
+            if k == 'usCite' and update_cite:
+                continue  # will be re-inserted in canonical position
+            if k == 'opinion_href' and update_href:
+                continue  # will be re-inserted in canonical position
+            new_case[k] = v
+        if update_href and not href_inserted:
+            new_case['opinion_href'] = href
+        if update_cite and not cite_inserted:
+            new_case['usCite'] = cite
+        case.clear()
+        case.update(new_case)
+        cases_modified = True
+        if update_href:
             print(f'  {number}: opinion_href → {href}')
+        if update_cite:
+            print(f'  {number}: usCite → {cite}')
 
         # Also add/update the files.json opinion entry if the file exists.
         files_path = cases_path.parent / 'cases' / _case_folder(number) / 'files.json'
@@ -2683,7 +2706,7 @@ def backfill_opinion_hrefs(cases_path: Path, term: str) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    global VERBOSE, _any_changes, ADD_CASES, CHECK_URLS
+    global VERBOSE, _any_changes, ADD_CASES, CHECK_URLS, PROMPT
     _any_changes  = False
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     fetch_docket  = '--docket'    in sys.argv
@@ -2691,6 +2714,7 @@ def main():
     VERBOSE       = '--verbose'   in sys.argv
     ADD_CASES     = '--cases'     in sys.argv
     CHECK_URLS    = '--checkurls' in sys.argv
+    PROMPT        = '--prompt'    in sys.argv
 
     if len(args) < 1 or len(args) > 2:
         print(__doc__)
@@ -2788,14 +2812,12 @@ def main():
     vprint('Extracting questions presented ...')
     extract_questions(cases_path)
 
-    # Step 7: add/update opinion_href from slip opinions index
-    # Both functions require network access (Wayback CDX for old terms).
+    # Step 7: add/update opinion_href and usCite from slip opinions index
+    print('Updating opinion references ...')
+    backfill_opinion_hrefs(cases_path, term)
+    # URL liveness checks require --checkurls (slow, network-intensive).
     if CHECK_URLS:
-        print('Checking opinion references ...')
         upgrade_dead_opinion_hrefs(cases_path)
-        backfill_opinion_hrefs(cases_path, term)
-    else:
-        vprint('Skipping opinion references (pass --checkurls to enable).')
 
     # Sync files counts now that all files.json mutations are done
     sync_files_count(cases_path)
