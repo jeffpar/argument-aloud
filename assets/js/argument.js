@@ -780,6 +780,20 @@ function buildTermCases(term, cases, ul) {
           filesLoaded = true;
           const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
 
+          // Map transcript href -> preferred view mode from events metadata.
+          const transcriptViewByHref = new Map();
+          (caseEntry.events || []).forEach(a => {
+            if (a?.transcript_href && a?.view) {
+              transcriptViewByHref.set(a.transcript_href, a.view);
+            }
+          });
+
+          // Apply any event-provided transcript view mode to existing files.json entries.
+          rawFiles.forEach(f => {
+            const v = f?.href ? transcriptViewByHref.get(f.href) : null;
+            if (v) f.view = v;
+          });
+
           // For each audio entry whose transcript_href has no corresponding file
           // entry, inject a virtual transcript file object at the end of rawFiles.
           {
@@ -793,6 +807,7 @@ function buildTermCases(term, cases, ul) {
                   title: 'Transcript of ' + (a.title || ''),
                   date:  a.date || '',
                   href:  a.transcript_href,
+                  ...(a.view ? { view: a.view } : {}),
                 });
                 existingHrefs.add(a.transcript_href);
               }
@@ -966,7 +981,7 @@ function buildTermCases(term, cases, ul) {
           if (!fromRestore) {
             const url = buildUrlParams(
               { term, case: caseId(caseEntry) },
-              ['collection', 'event', 'file', 'turn'],
+              ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
             );
             history.replaceState(null, '', url);
           }
@@ -1116,6 +1131,10 @@ function buildNav() {
           // Update URL: set term param, clear case/audio/file/turn params.
           const url = new URL(location.href);
           url.searchParams.set('term', term);
+          url.searchParams.delete('collection');
+          url.searchParams.delete('entry');
+          url.searchParams.delete('id');
+          url.searchParams.delete('highlight');
           url.searchParams.delete('case');
           url.searchParams.delete('event');
           url.searchParams.delete('file');
@@ -1125,6 +1144,10 @@ function buildNav() {
           updateEmptyStateForTerm(null);
           // Term collapsed — remove term param too.
           const url = new URL(location.href);
+          url.searchParams.delete('collection');
+          url.searchParams.delete('entry');
+          url.searchParams.delete('id');
+          url.searchParams.delete('highlight');
           url.searchParams.delete('term');
           url.searchParams.delete('case');
           url.searchParams.delete('event');
@@ -1492,6 +1515,20 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     const basePath = '/courts/ussc/terms/' + caseRef.term + '/cases/' + caseDirName(caseEntry) + '/';
     const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
 
+    // Map transcript href -> preferred view mode from events metadata.
+    const transcriptViewByHref = new Map();
+    (caseEntry.events || []).forEach(a => {
+      if (a?.transcript_href && a?.view) {
+        transcriptViewByHref.set(a.transcript_href, a.view);
+      }
+    });
+
+    // Apply any event-provided transcript view mode to existing files.json entries.
+    rawFiles.forEach(f => {
+      const v = f?.href ? transcriptViewByHref.get(f.href) : null;
+      if (v) f.view = v;
+    });
+
     // Inject virtual transcript file entries for any event transcript_href not already in files.json.
     // When the collection case entry specifies a particular argument date, only inject the
     // transcript for that date — not all transcripts for the case (e.g. a reargument).
@@ -1500,13 +1537,14 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       const audioByDate = [...(caseEntry.events || [])]
         .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
       audioByDate.forEach(a => {
-        if (caseRef.argument && a.date && a.date !== caseRef.argument) return;
+        if (!a.transcript_href && caseRef.argument && a.date && !caseRef.argument.split(',').includes(a.date)) return;
         if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
           rawFiles.push({
             type:  'transcript',
             title: 'Transcript of ' + (a.title || ''),
             date:  a.date || '',
             href:  a.transcript_href,
+            ...(a.view ? { view: a.view } : {}),
           });
           existingHrefs.add(a.transcript_href);
         }
@@ -1892,6 +1930,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
       _navKeys.push(term + '/' + caseEntry.number);
     _navKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
       .forEach(el => el.classList.add('active')));
+    // When switching cases, collapse file lists for every non-active case.
+    document.querySelectorAll('.case-item').forEach(el => {
+      if (!el.classList.contains('active')) el.classList.remove('open');
+    });
 
     // Clear transcript state
     playerSection.hidden = true;
@@ -2091,6 +2133,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
           String(resolvedOptionValue) !== el.dataset.audioIdx) return;
       el.classList.add('active');
     }));
+  // When switching cases, collapse file lists for every non-active case.
+  document.querySelectorAll('.case-item').forEach(el => {
+    if (!el.classList.contains('active')) el.classList.remove('open');
+  });
 
   // Store the full sorted list; the dropdown change handler indexes into it by 1-based value.
   _currentAudioList = allAudio;
