@@ -531,9 +531,11 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 // Picks the first argument/reargument audio entry whose date falls within the
 // term's year window [YYYY-MM-01, (YYYY+1)-MM-01).  Falls back to audio[0].date.
 // Canonical identifier for the URL 'case' param and nav data-case-key.
-// Falls back to 'id' for historical cases that have no docket number.
+// Prefers 'id' (always unique) over 'number' (may collide when a docket
+// number appears more than once in a term, e.g. 9-Orig in 1968-10).
+// The URL restore path handles old ?case=NUMBER links via the number fallback.
 function caseId(caseEntry) {
-  return caseEntry.number || caseEntry.id || '';
+  return caseEntry.id || caseEntry.number || '';
 }
 
 // Directory name for the case on the filesystem — uses number first since
