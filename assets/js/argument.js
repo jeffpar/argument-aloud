@@ -10,6 +10,7 @@ let docViewerOpenHeight = null;  // px height for next animated open (null = use
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
+let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
 
@@ -848,15 +849,46 @@ function buildTermCases(term, cases, ul) {
             delete groups.amicus;
           }
 
-          // Always append transcript entries at the end of Other.
-          if (groups.transcript?.length) {
-            groups.other = [...(groups.other || []), ...groups.transcript];
-            delete groups.transcript;
-          }
+          // Transcript entries are always rendered directly under the case
+          // (outside any collapsible group), after all other groups.
+          const transcriptFiles = groups.transcript || [];
+          delete groups.transcript;
 
           const effectiveOrder = MERGE_AMICUS_OTHER
             ? ORDER.filter(k => k !== 'amicus')
             : ORDER;
+
+          function makeFileItem(f) {
+            const fi = document.createElement('li');
+            fi.className = 'file-item';
+            if (f.file != null) fi.dataset.fileId = f.file;
+            if (f.href)        fi.dataset.fileHref = f.href;
+            fi.textContent = f.title;
+            fi.addEventListener('click', e => {
+              e.stopPropagation();
+              document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+              fi.classList.add('active');
+              {
+                const fileKey = f.file != null ? String(f.file)
+                  : f.href ? f.href.split('/').pop() : null;
+                if (fileKey) {
+                  const url = new URL(location.href);
+                  url.searchParams.set('file', fileKey);
+                  history.replaceState(null, '', url);
+                }
+              }
+              // No-audio cases have no transcript pane, so expand the doc viewer full-height.
+              const savedHeight = docViewerOpenHeight;
+              if (!caseEntry.events?.length) {
+                docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+              }
+              showDocViewer(f, { autoScroll: true });
+              if (!caseEntry.events?.length) {
+                docViewerOpenHeight = savedHeight;
+              }
+            });
+            return fi;
+          }
 
           effectiveOrder.forEach(typeKey => {
             if (!groups[typeKey] || !groups[typeKey].length) return;
@@ -864,38 +896,6 @@ function buildTermCases(term, cases, ul) {
             // When "other" contains only a single file, skip the collapsible
             // group wrapper and render the item directly under the case.
             const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
-
-            function makeFileItem(f) {
-              const fi = document.createElement('li');
-              fi.className = 'file-item';
-              if (f.file != null) fi.dataset.fileId = f.file;
-              if (f.href)        fi.dataset.fileHref = f.href;
-              fi.textContent = f.title;
-              fi.addEventListener('click', e => {
-                e.stopPropagation();
-                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-                fi.classList.add('active');
-                {
-                  const fileKey = f.file != null ? String(f.file)
-                    : f.href ? f.href.split('/').pop() : null;
-                  if (fileKey) {
-                    const url = new URL(location.href);
-                    url.searchParams.set('file', fileKey);
-                    history.replaceState(null, '', url);
-                  }
-                }
-                // No-audio cases have no transcript pane, so expand the doc viewer full-height.
-                const savedHeight = docViewerOpenHeight;
-                if (!caseEntry.events?.length) {
-                  docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-                }
-                showDocViewer(f, { autoScroll: true });
-                if (!caseEntry.events?.length) {
-                  docViewerOpenHeight = savedHeight;
-                }
-              });
-              return fi;
-            }
 
             if (isSoloOther) {
               fileUl.appendChild(makeFileItem(groups[typeKey][0]));
@@ -933,6 +933,7 @@ function buildTermCases(term, cases, ul) {
           });
 
           // Hide the toggle if there are no files to show.
+          transcriptFiles.forEach(f => fileUl.appendChild(makeFileItem(f)));
           if (fileUl.children.length === 0) toggle.style.display = 'none';
         }
 
@@ -950,8 +951,13 @@ function buildTermCases(term, cases, ul) {
           const audioIdx     = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
           const fileRestore  = e.fileRestore ?? null;
           // If this case is already active and the click came from a user (not a
-          // programmatic restore), do nothing — avoid resetting the right pane.
-          if (!fromRestore && ci.classList.contains('active')) return;
+          // programmatic restore), just toggle its sub-list visibility.
+          if (!fromRestore && ci.classList.contains('active')) {
+            if (ci.classList.toggle('open')) {
+              await ensureFilesLoaded();
+            }
+            return;
+          }
           ci.classList.add('open');
           await ensureFilesLoaded();
           if (!fromRestore) {
@@ -1818,27 +1824,6 @@ async function loadAudioEntry(arg, basePath) {
 
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
-    // If the audio entry has no transcript and there's no time-aligned turns,
-    // try fetching an Oyez fallback file (only relevant for NARA audio entries
-    // without a dedicated text_href). If a text_href is already specified,
-    // that's the designated transcript — don't probe for another.
-    if (!turns.some(t => t.time != null) && arg.date && !arg.text_href && !arg.noTranscriptProbe) {
-      const oyezUrl = basePath + arg.date + '-oyez.json';
-      try {
-        const oyezRes = await fetch(oyezUrl);
-        if (oyezRes.ok) {
-          const oyezData = await oyezRes.json();
-          const oyezIsEnvelope = !Array.isArray(oyezData);
-          const oyezTurns = oyezIsEnvelope ? (oyezData.turns ?? []) : oyezData;
-          if (oyezTurns.length) {
-            transcriptData = oyezData;
-            isEnvelope = oyezIsEnvelope;
-            turns = oyezTurns;
-          }
-        }
-      } catch (_) { /* ignore — fall through with empty turns */ }
-    }
-
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
 
     const resolvedAudioUrl = (isEnvelope && transcriptData.media?.url) || audioUrl;
@@ -1976,6 +1961,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
   _currentOpinionHref = caseEntry.opinion_href || null;
+  _currentOyezHref    = caseEntry.oyez || null;
   docViewerOpenHeight = null;
 
   // Pick the best single source: prefer the source with the most aligned entries,
@@ -2069,11 +2055,18 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     sentinelOpt.textContent = 'Decision on\u00a0' + _decisionLabel + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
     audioSelect.appendChild(sentinelOpt);
   }
+  // Append sentinel option linking to the Oyez case page, if available.
+  if (caseEntry.oyez) {
+    const oyezOpt = document.createElement('option');
+    oyezOpt.value = 'oyez-page';
+    oyezOpt.textContent = 'Description from The Oyez Project';
+    audioSelect.appendChild(oyezOpt);
+  }
   // Resolve audioIdx (1-based into allAudio, or 0 = default) to a dropdown option value.
   // If the requested entry was filtered out of the dropdown, fall back to the first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'opinion')
+    .filter(v => v !== 'opinion' && v !== 'oyez-page')
     .map(v => parseInt(v, 10));
   const resolvedOptionValue = (audioIdx >= 1 && _dropdownValues.includes(audioIdx))
     ? audioIdx
@@ -2261,6 +2254,12 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   if (e.target.value === 'opinion') {
     if (_currentOpinionHref) {
       showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' }, { force: true });
+    }
+    return;
+  }
+  if (e.target.value === 'oyez-page') {
+    if (_currentOyezHref) {
+      showDocViewer({ href: _currentOyezHref, title: 'Description from The Oyez Project', view: 'pane' }, { force: true });
     }
     return;
   }
