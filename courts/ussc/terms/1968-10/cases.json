@@ -64,9 +64,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1968-10-23",
-        "title": "Oral Argument on October 23, 1968",
+        "title": "Oral Reargument on October 23, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-9_68-33_68-34_10-23-1968.pdf",
         "text_href": "9/1968-10-23.json"
       },
@@ -81,9 +81,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1968-10-24",
-        "title": "Oral Argument on October 24, 1968",
+        "title": "Oral Reargument on October 24, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-9_68-33_68-34_10-24-1968.pdf"
       },
       {
@@ -104,7 +104,7 @@
     "title": "Alderman v. United States",
     "number": "133,11,197",
     "previouslyFiled": "1967-10/133",
-    "argument": "1968-05-02,1968-10-14",
+    "argument": "1968-05-02",
     "reargument": "1968-10-14",
     "decision": "1969-03-10",
     "volume": "394",
@@ -159,23 +159,23 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1968-10-14",
-        "title": "Oral Argument in No. 11 on October 14, 1968",
+        "title": "Oral Reargument in No. 11 on October 14, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-11_10-14-1968.pdf"
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1968-10-14",
-        "title": "Oral Argument in No. 197 on October 14, 1968",
+        "title": "Oral Reargument in No. 197 on October 14, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-197_10-14-1968.pdf"
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1968-10-14",
-        "title": "Oral Argument in No. 133 on October 14, 1968",
+        "title": "Oral Reargument in No. 133 on October 14, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-133_10-14-1968.pdf"
       },
       {
@@ -274,8 +274,9 @@
   },
   {
     "id": "1968-047",
-    "title": "United States v. Louisiana",
+    "title": "United States v. Louisiana (Louisiana Boundary Case)",
     "number": "9-Orig",
+    "oyez": "https://www.oyez.org/cases/1968/9_orig_1",
     "argument": "1968-10-14,1968-10-15",
     "decision": "1969-03-03",
     "volume": "394",
@@ -323,6 +324,15 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/9_Orig_10-14-1968.pdf"
       },
       {
+        "source": "oyez",
+        "type": "argument",
+        "date": "1968-10-14",
+        "title": "Oral Argument on October 14, 1968",
+        "audio_href": "https://api.oyez.org/sites/default/files/19681014a_9orig.mp3",
+        "text_href": "9-Orig/1968-10-14-oyez.json",
+        "aligned": true
+      },
+      {
         "source": "ussc",
         "type": "argument",
         "date": "1968-10-15",
@@ -331,44 +341,16 @@
         "text_href": "9-Orig/1968-10-15.json"
       },
       {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1968-11-18",
-        "title": "Oral Argument on November 18, 1968",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/9_Orig_11-18-1968.pdf",
-        "text_href": "9-Orig/1968-11-18.json"
-      }
-    ],
-    "opinion_href": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep394/usrep394011/usrep394011.pdf",
-    "files": 0
-  },
-  {
-    "title": "United States v. Louisiana (Louisiana Boundary Case)",
-    "number": "9-orig-1",
-    "oyez": "https://www.oyez.org/cases/1968/9_orig_1",
-    "argument": "1968-10-14,1968-10-15",
-    "decision": "1969-03-03",
-    "dateDecision": "Monday, March 3, 1969",
-    "events": [
-      {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1968-10-14",
-        "title": "Oral Argument on October 14, 1968",
-        "audio_href": "https://api.oyez.org/sites/default/files/19681014a_9orig.mp3",
-        "text_href": "9-orig-1/1968-10-14-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "oyez",
         "type": "argument",
         "date": "1968-10-15",
         "title": "Oral Argument on October 15, 1968",
         "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/9%20ORIG/19681015a_9orig.delivery.mp3",
-        "text_href": "9-orig-1/1968-10-15-oyez.json",
+        "text_href": "9-Orig/1968-10-15-oyez.json",
         "aligned": true
       }
     ],
+    "opinion_href": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep394/usrep394011/usrep394011.pdf",
     "files": 0
   },
   {
@@ -2245,8 +2227,9 @@
   },
   {
     "id": "1968-046",
-    "title": "United States v. Louisiana",
+    "title": "United States v. Louisiana (Texas Boundary Case)",
     "number": "9-Orig",
+    "oyez": "https://www.oyez.org/cases/1968/9_orig_2",
     "argument": "1968-11-18",
     "decision": "1969-03-03",
     "volume": "394",
@@ -2289,25 +2272,19 @@
       {
         "source": "ussc",
         "type": "argument",
-        "date": "1968-10-14",
-        "title": "Oral Argument on October 14, 1968",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/9_Orig_10-14-1968.pdf"
-      },
-      {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1968-10-15",
-        "title": "Oral Argument on October 15, 1968",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/9_Orig_10-15-1968.pdf",
-        "text_href": "9-Orig/1968-10-15.json"
-      },
-      {
-        "source": "ussc",
-        "type": "argument",
         "date": "1968-11-18",
         "title": "Oral Argument on November 18, 1968",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/9_Orig_11-18-1968.pdf",
         "text_href": "9-Orig/1968-11-18.json"
+      },
+      {
+        "source": "oyez",
+        "type": "argument",
+        "date": "1968-11-18",
+        "title": "Oral Argument on November 18, 1968",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/9%20ORIG/19681118a_9orig.delivery.mp3",
+        "text_href": "9-Orig/1968-11-18-oyez.json",
+        "aligned": true
       }
     ],
     "opinion_href": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep394/usrep394001/usrep394001.pdf",
@@ -2453,26 +2430,6 @@
       }
     ],
     "opinion_href": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep394/usrep394147/usrep394147.pdf",
-    "files": 0
-  },
-  {
-    "title": "United States v. Louisiana (Texas Boundary Case)",
-    "number": "9-orig-2",
-    "oyez": "https://www.oyez.org/cases/1968/9_orig_2",
-    "argument": "1968-11-18",
-    "decision": "1969-03-03",
-    "dateDecision": "Monday, March 3, 1969",
-    "events": [
-      {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1968-11-18",
-        "title": "Oral Argument on November 18, 1968",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/9%20ORIG/19681118a_9orig.delivery.mp3",
-        "text_href": "9-orig-2/1968-11-18-oyez.json",
-        "aligned": true
-      }
-    ],
     "files": 0
   },
   {
@@ -3999,9 +3956,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1969-03-24",
-        "title": "Oral Argument on March 24, 1969",
+        "title": "Oral Reargument on March 24, 1969",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1968/68-201_03-24-1969.pdf",
         "text_href": "201/1969-03-24.json"
       },

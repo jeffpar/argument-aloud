@@ -48,6 +48,7 @@ import json
 import re
 import sys
 from collections import defaultdict
+from datetime import date as _date, timedelta as _timedelta
 from pathlib import Path
 
 from schema import CASE_KEY_ORDER, EVENT_KEY_ORDER
@@ -452,11 +453,76 @@ def _event_sort_key(event: dict) -> tuple:
     return (date, _SOURCE_ORDER.get(source, 99), source)
 
 
-def sort_events(term: str, cases: list[dict], dry_run: bool) -> int:
-    """Sort the events list of each case by date then by source priority.
+def fix_event_types(term: str, cases: list[dict], dry_run: bool) -> int:
+    """Check that events on dates listed in case date fields have matching types,
+    and that typed events have their dates recorded in the appropriate case field.
 
-    Returns the number of cases whose event list was reordered.
+    - Events on a date in 'argument'  must have type 'argument'.
+    - Events on a date in 'reargument' must have type 'reargument' and a title
+      starting with 'Oral Reargument' (auto-fixed).
+    - Events on a date in 'decision'  must have type 'opinion' (warn only).
+    - Events of type 'argument', 'reargument', or 'opinion' must have their date
+      recorded in the corresponding case field (warn only).
+
+    Returns the number of events fixed (or that would be fixed in dry-run).
     """
+    fixed = 0
+    for case in cases:
+        number = case.get('number', '?')
+        arg_dates      = set(_parse_date_field(str(case['argument'])))\
+            if case.get('argument') else set()
+        rearg_dates    = set(_parse_date_field(str(case['reargument'])))\
+            if case.get('reargument') else set()
+        decision_dates = set(_parse_date_field(str(case['decision'])))\
+            if case.get('decision') else set()
+
+        for event in case.get('events', []):
+            date  = event.get('date', '')
+            etype = event.get('type') or 'argument'
+            title = event.get('title', '')
+
+            # ── Forward checks: case field date → expected event type ──────────
+            if date in rearg_dates:
+                changed = False
+                if etype != 'reargument':
+                    print(f'  WARN {term}/{number} {date}: type {etype!r} should be reargument')
+                    if not dry_run:
+                        event['type'] = 'reargument'
+                    changed = True
+                if title and not title.startswith('Oral Reargument'):
+                    new_title = 'Oral Reargument' + title[len('Oral Argument'):] \
+                        if title.startswith('Oral Argument') \
+                        else 'Oral Reargument' + title
+                    print(f'  WARN {term}/{number} {date}: {title!r} -> {new_title!r}')
+                    if not dry_run:
+                        event['title'] = new_title
+                    changed = True
+                if changed:
+                    fixed += 1
+            elif date in arg_dates:
+                if etype not in ('argument', 'reargument'):
+                    print(f'  WARN {term}/{number} {date}: event type {etype!r} '
+                          f'on argument date (not auto-fixed)')
+            elif date in decision_dates:
+                if etype != 'opinion':
+                    print(f'  WARN {term}/{number} {date}: event type {etype!r} '
+                          f'on decision date (not auto-fixed)')
+
+            # ── Reverse checks: typed event date → must appear in case field ──
+            if etype in ('argument', 'reargument', 'opinion') and date:
+                if etype == 'argument' and date not in arg_dates:
+                    print(f'  WARN {term}/{number} {date}: argument event '
+                          f'date not in \'argument\' field')
+                elif etype == 'reargument' and date not in rearg_dates:
+                    print(f'  WARN {term}/{number} {date}: reargument event '
+                          f'date not in \'reargument\' field')
+                elif etype == 'opinion' and date not in decision_dates:
+                    print(f'  WARN {term}/{number} {date}: opinion event '
+                          f'date not in \'decision\' field')
+    return fixed
+
+
+def sort_events(term: str, cases: list[dict], dry_run: bool) -> int:
     changed = 0
     for case in cases:
         events = case.get('events')
@@ -490,6 +556,33 @@ def sort_cases(term: str, cases: list[dict], dry_run: bool) -> int:
             cases[:] = sorted_cases
         return 1
     return 0
+
+
+def _term_date_range(term: str, all_terms: list[str]) -> tuple[str, str]:
+    """Return (start_iso, end_iso) for *term*.
+
+    start is the first day of the term's month (e.g. '1967-10-01').
+    end is the day before the next term starts, or 11 months after start
+    if there is no next term in *all_terms*.
+    """
+    year_s, month_s = term.split('-')
+    start = _date(int(year_s), int(month_s), 1)
+    try:
+        idx = all_terms.index(term)
+        if idx + 1 < len(all_terms):
+            ny, nm = all_terms[idx + 1].split('-')
+            end = _date(int(ny), int(nm), 1) - _timedelta(days=1)
+        else:
+            raise IndexError
+    except (ValueError, IndexError):
+        # Fallback: 11 months after start
+        y, m = start.year, start.month
+        m += 11
+        if m > 12:
+            m -= 12
+            y += 1
+        end = _date(y, m, 1) - _timedelta(days=1)
+    return start.isoformat(), end.isoformat()
 
 
 def merge_refiled_cases(
@@ -559,6 +652,17 @@ def merge_refiled_cases(
             continue
         later_term, later_cases_list, new_case = match
 
+        # Only merge if at least one event date in the old case falls within
+        # the later term's date range.  Cases fully resolved in their original
+        # term (argued and decided before the later term starts) should not be
+        # merged even if the same title/number reappears in the later term.
+        lt_start, lt_end = _term_date_range(later_term, all_terms)
+        old_event_dates = [
+            e.get('date', '') for e in old_case.get('events', [])
+            if e.get('date')
+        ]
+        if not any(lt_start <= d <= lt_end for d in old_event_dates):
+            continue
         old_events    = old_case.get('events', [])
         new_event_ids = {_event_id(e) for e in new_case.get('events', [])}
         events_to_move = [e for e in old_events if _event_id(e) not in new_event_ids]
@@ -656,10 +760,11 @@ def process_term(
     events_sorted = sort_events(term, cases, dry_run)
     cases_sorted  = sort_cases(term, cases, dry_run)
     arg_dates_fixed, _ = fix_argument_dates(term, cases, dry_run) if not sort_only else (0, None)
+    event_types_fixed  = fix_event_types(term, cases, dry_run) if not sort_only else 0
     merged_count  = merge_refiled_cases(term, cases, all_terms or [], dry_run) if not sort_only else 0
 
     if (cases_reordered or events_reordered or href_updated or href_stripped
-            or events_sorted or cases_sorted or arg_dates_fixed
+            or events_sorted or cases_sorted or arg_dates_fixed or event_types_fixed
             or merged_count) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
@@ -669,7 +774,7 @@ def process_term(
     return (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
             href_updated, href_warned, href_missing,
             href_orphaned, href_dupes, href_stripped,
-            events_sorted, cases_sorted, arg_dates_fixed, merged_count)
+            events_sorted, cases_sorted, arg_dates_fixed, event_types_fixed, merged_count)
 
 
 def main() -> None:
@@ -714,13 +819,14 @@ def main() -> None:
     total_events_sorted     = 0
     total_cases_sorted      = 0
     total_arg_dates_fixed   = 0
+    total_event_types_fixed = 0
     total_merged            = 0
 
     for term in terms_to_check:
         (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
          href_updated, href_warned, href_missing,
          href_orphaned, href_dupes, href_stripped,
-         events_sorted, cases_sorted, arg_dates_fixed, merged_count) = process_term(
+         events_sorted, cases_sorted, arg_dates_fixed, event_types_fixed, merged_count) = process_term(
             term, dry_run, check_dups, all_terms, sort_only)
 
         if dup_count:
@@ -740,6 +846,7 @@ def main() -> None:
         total_events_sorted += events_sorted
         total_cases_sorted  += cases_sorted
         total_arg_dates_fixed += arg_dates_fixed
+        total_event_types_fixed += event_types_fixed
         total_merged        += merged_count
 
     media_dupes = check_duplicate_media_hrefs(terms_to_check) if not sort_only else []
@@ -793,6 +900,9 @@ def main() -> None:
     if total_arg_dates_fixed:
         verb = 'Would fix' if dry_run else 'Fixed'
         print(f'Argument dates: {verb} {total_arg_dates_fixed} case(s).')
+    if total_event_types_fixed:
+        verb = 'Would fix' if dry_run else 'Fixed'
+        print(f'Event types: {verb} {total_event_types_fixed} event(s).')
     if total_merged:
         verb = 'Would merge' if dry_run else 'Merged'
         print(f'Refiled cases: {verb} {total_merged} case(s) into later term(s).')
@@ -808,7 +918,7 @@ def main() -> None:
                 total_href_updated, total_href_warned, total_href_missing,
                 total_href_orphaned, total_href_dupes, total_href_stripped,
                 total_events_sorted, total_cases_sorted, total_arg_dates_fixed,
-                total_merged, total_media_dupes]):
+                total_event_types_fixed, total_merged, total_media_dupes]):
         print('No issues found.')
 
 
