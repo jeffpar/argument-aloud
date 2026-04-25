@@ -861,6 +861,9 @@ function buildTermCases(term, cases, ul) {
           function makeFileItem(f) {
             const fi = document.createElement('li');
             fi.className = 'file-item';
+            if ((f.title || '').startsWith('Transcript of ')) {
+              fi.classList.add('file-item-transcript');
+            }
             if (f.file != null) fi.dataset.fileId = f.file;
             if (f.href)        fi.dataset.fileHref = f.href;
             fi.textContent = f.title;
@@ -1565,6 +1568,9 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       function makeFileItem(f) {
         const fi = document.createElement('li');
         fi.className = 'file-item';
+        if ((f.title || '').startsWith('Transcript of ')) {
+          fi.classList.add('file-item-transcript');
+        }
         if (f.file != null) fi.dataset.fileId = f.file;
         if (f.href)        fi.dataset.fileHref = f.href;
         fi.textContent = f.title;
