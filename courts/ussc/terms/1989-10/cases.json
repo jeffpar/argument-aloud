@@ -54,16 +54,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1989-03-22",
-        "title": "Oral Argument on March 22, 1989",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/88-192/19890322a_88-192.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1988/88-192_88-325_03-22-1989.pdf",
-        "text_href": "88-192/1989-03-22-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1989-03-22",
@@ -71,10 +61,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1988/88-192_88-325_03-22-1989.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1989-03-22",
+        "title": "Oral Argument on March 22, 1989",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/88-192/19890322a_88-192.delivery.mp3",
+        "text_href": "88-192/1989-03-22-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1989-12-06",
-        "title": "Oral Argument on December 6, 1989",
+        "title": "Oral Reargument on December 6, 1989",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1989/88-192_12-06-1989.pdf",
         "text_href": "88-192/1989-12-06.json"
       },
@@ -152,9 +151,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1989-12-06",
-        "title": "Oral Argument on December 6, 1989",
+        "title": "Oral Reargument on December 6, 1989",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1989/88-325_12-06-1989.pdf",
         "text_href": "88-325/1989-12-06.json"
       },
@@ -9155,8 +9154,7 @@
         "date": "1990-03-28",
         "title": "Oral Argument in No. 89-453 on March 28, 1990",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1989/89-453_03-28-1990.pdf",
-        "redundant": true,
-        "text_href": "89-453/1990-03-28-1.json"
+        "redundant": true
       },
       {
         "source": "ussc",
@@ -9164,8 +9162,7 @@
         "date": "1990-03-28",
         "title": "Oral Argument in No. 89-453 on March 28, 1990",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1989/89-700_03-28-1990.pdf",
-        "redundant": true,
-        "text_href": "89-453/1990-03-28-2.json"
+        "redundant": true
       },
       {
         "source": "oyez",

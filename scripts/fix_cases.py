@@ -191,13 +191,19 @@ def fix_text_hrefs(
 
 
 def check_missing_text_hrefs(
-    term: str, cases: list[dict], cases_dir: Path
+    term: str, cases: list[dict], cases_dir: Path, dry_run: bool = False
 ) -> int:
     """Pass 2: report text_hrefs whose target files are missing on disk.
 
-    Returns missing_count.
+    If an event has ``redundant: true`` and its text_href is missing from disk,
+    the stale text_href is removed automatically (the file was presumably
+    deleted when the event was marked redundant).
+
+    Returns (missing_count, fixed_count).  Auto-fixed redundant entries are
+    not included in missing_count.
     """
     missing = 0
+    fixed = 0
     for case in cases:
         number_field = case.get('number', '')
         for audio in case.get('events', []):
@@ -205,10 +211,20 @@ def check_missing_text_hrefs(
             if not th or th.startswith('http') or '/' not in th:
                 continue
             if not (cases_dir / th).exists():
-                print(f'  MISSING: {term}/{number_field}: text_href {th!r} '
-                      f'does not exist on disk')
-                missing += 1
-    return missing
+                if audio.get('redundant'):
+                    if dry_run:
+                        print(f'  WOULD FIX: {term}/{number_field}: removing stale '
+                              f'text_href {th!r} from redundant event')
+                    else:
+                        print(f'  FIX: {term}/{number_field}: removed stale '
+                              f'text_href {th!r} from redundant event')
+                        del audio['text_href']
+                    fixed += 1
+                else:
+                    print(f'  MISSING: {term}/{number_field}: text_href {th!r} '
+                          f'does not exist on disk')
+                    missing += 1
+    return missing, fixed
 
 
 # (term/case label, date, transcript_href)
@@ -325,6 +341,17 @@ def fix_oyez_transcript_hrefs(
 _MediaDupe = tuple[str, str, list[tuple[str, str, str, str]]]
 
 
+def _dates_are_consecutive(dates: list[str]) -> bool:
+    """Return True if the (already de-duped) dates form a consecutive day sequence."""
+    if len(dates) < 2:
+        return True
+    try:
+        parsed = sorted(_date.fromisoformat(d) for d in dates)
+    except ValueError:
+        return False
+    return all((parsed[i + 1] - parsed[i]).days == 1 for i in range(len(parsed) - 1))
+
+
 def check_duplicate_media_hrefs(terms_to_check: list[str]) -> list[_MediaDupe]:
     """Scan audio_href and transcript_href across all terms in *terms_to_check*.
 
@@ -337,6 +364,8 @@ def check_duplicate_media_hrefs(terms_to_check: list[str]) -> list[_MediaDupe]:
         'audio_href': defaultdict(list),
         'transcript_href': defaultdict(list),
     }
+    # {(term, number): case dict} — for argument/reargument field lookups
+    case_lookup: dict[tuple[str, str], dict] = {}
 
     for term in terms_to_check:
         cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
@@ -348,6 +377,7 @@ def check_duplicate_media_hrefs(terms_to_check: list[str]) -> list[_MediaDupe]:
             continue
         for case in cases:
             number = case.get('number', '?')
+            case_lookup[(term, number)] = case
             for event in case.get('events', []):
                 date   = event.get('date', '')
                 source = event.get('source', '')
@@ -361,6 +391,22 @@ def check_duplicate_media_hrefs(terms_to_check: list[str]) -> list[_MediaDupe]:
         for url in sorted(url_map):
             locs = url_map[url]
             if len(locs) > 1:
+                # Suppress when every occurrence is in the same case, the event
+                # dates are consecutive days, and all those dates appear in the
+                # case's 'argument' or 'reargument' field.  This is legitimate:
+                # a single PDF or audio file can cover a multi-day argument.
+                terms_cases = {(t, n) for t, n, _d, _s in locs}
+                if len(terms_cases) == 1:
+                    (t, n) = next(iter(terms_cases))
+                    event_dates = [d for _t, _n, d, _s in locs if d]
+                    if event_dates and _dates_are_consecutive(event_dates):
+                        case = case_lookup.get((t, n), {})
+                        arg_dates: set[str] = set()
+                        for fld in ('argument', 'reargument'):
+                            raw = case.get(fld, '') or ''
+                            arg_dates.update(d.strip() for d in raw.split(',') if d.strip())
+                        if set(event_dates) <= arg_dates:
+                            continue  # intentional shared URL — not a real duplicate
                 result.append((field, url, locs))
     return result
 
@@ -749,7 +795,7 @@ def process_term(
         fix_text_hrefs(term, cases, cases_dir, dry_run) if not sort_only
         else (0, 0)
     )
-    href_missing  = check_missing_text_hrefs(term, cases, cases_dir) if not sort_only else 0
+    href_missing, href_redundant_fixed = check_missing_text_hrefs(term, cases, cases_dir, dry_run) if not sort_only else (0, 0)
     href_orphaned = check_orphaned_transcripts(term, cases, cases_dir) if not sort_only else []
     for _label, _date, _th in href_orphaned:
         _detail = f'  {_date}  {_th}' if _th else f'  {_date}'
@@ -765,14 +811,14 @@ def process_term(
 
     if (cases_reordered or events_reordered or href_updated or href_stripped
             or events_sorted or cases_sorted or arg_dates_fixed or event_types_fixed
-            or merged_count) and not dry_run:
+            or merged_count or href_redundant_fixed) and not dry_run:
         cases_path.write_text(
             json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
     return (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
-            href_updated, href_warned, href_missing,
+            href_updated, href_warned, href_missing, href_redundant_fixed,
             href_orphaned, href_dupes, href_stripped,
             events_sorted, cases_sorted, arg_dates_fixed, event_types_fixed, merged_count)
 
@@ -809,9 +855,10 @@ def main() -> None:
     total_events_reordered  = 0
     all_unknown_case_keys: set[str] = set()
     all_unknown_event_keys: set[str] = set()
-    total_href_updated      = 0
-    total_href_warned       = 0
-    total_href_missing      = 0
+    total_href_updated         = 0
+    total_href_warned          = 0
+    total_href_missing         = 0
+    total_href_redundant_fixed = 0
     all_href_orphaned: list[_OrphanEntry] = []
     total_href_orphaned     = 0
     total_href_dupes        = 0
@@ -824,7 +871,7 @@ def main() -> None:
 
     for term in terms_to_check:
         (dup_count, cases_reordered, events_reordered, unknown_keys, unknown_event_keys,
-         href_updated, href_warned, href_missing,
+         href_updated, href_warned, href_missing, href_redundant_fixed,
          href_orphaned, href_dupes, href_stripped,
          events_sorted, cases_sorted, arg_dates_fixed, event_types_fixed, merged_count) = process_term(
             term, dry_run, check_dups, all_terms, sort_only)
@@ -836,10 +883,11 @@ def main() -> None:
         total_events_reordered += events_reordered
         all_unknown_case_keys  |= unknown_keys
         all_unknown_event_keys |= unknown_event_keys
-        total_href_updated  += href_updated
-        total_href_warned   += href_warned
-        total_href_missing  += href_missing
-        all_href_orphaned   += href_orphaned
+        total_href_updated         += href_updated
+        total_href_warned          += href_warned
+        total_href_missing         += href_missing
+        total_href_redundant_fixed += href_redundant_fixed
+        all_href_orphaned          += href_orphaned
         total_href_orphaned += len(href_orphaned)
         total_href_dupes    += href_dupes
         total_href_stripped += href_stripped
@@ -878,6 +926,9 @@ def main() -> None:
         print(f'text_href: {verb} {total_href_updated} bare filename(s).')
     if total_href_warned:
         print(f'text_href: {total_href_warned} bare filename(s) could not be resolved.')
+    if total_href_redundant_fixed:
+        verb = 'Would remove' if dry_run else 'Removed'
+        print(f'text_href: {verb} stale text_href from {total_href_redundant_fixed} redundant event(s).')
     if total_href_missing:
         print(f'text_href: {total_href_missing} reference(s) point to missing files.')
     if total_href_orphaned:

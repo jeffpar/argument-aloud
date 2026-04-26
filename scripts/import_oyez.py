@@ -1019,6 +1019,28 @@ def main():
                     print(f'ERROR: {exc}')
                     errors += 1
 
+        # ── Set argument field for newly created cases ────────────────────────
+        # After processing oral-argument audio, back-fill the top-level
+        # "argument" (and "reargument") fields when the case was just created
+        # so it has the same structure as cases imported via import_ussc.py.
+        if local_case is not None and local_case.get('number') and 'argument' not in local_case:
+            _arg_dates = sorted(
+                d for d in args_by_date
+                if all(_oyez_arg_type(a.get('title', '')) == 'argument'
+                       for a in args_by_date[d])
+            )
+            _rearg_dates = sorted(
+                d for d in args_by_date
+                if any(_oyez_arg_type(a.get('title', '')) == 'reargument'
+                       for a in args_by_date[d])
+            )
+            if _arg_dates:
+                local_case['argument'] = ','.join(_arg_dates)
+                cases_modified = True
+            if _rearg_dates:
+                local_case['reargument'] = ','.join(_rearg_dates)
+                cases_modified = True
+
         # ── Opinion announcements ─────────────────────────────────────────────
         if local_case is not None:
             _has_unique = any(a.get('unique') for a in local_case.get('events', []))

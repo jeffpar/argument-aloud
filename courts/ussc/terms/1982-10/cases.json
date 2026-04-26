@@ -53,16 +53,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1982-02-22",
-        "title": "Oral Argument on February 22, 1982",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/80-1832/19820222a_80-1832.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-1832_80-2170_80-2171_02-22-1982.pdf",
-        "text_href": "80-1832/1982-02-22-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1982-02-22",
@@ -70,10 +60,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-1832_80-2170_80-2171_02-22-1982.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1982-02-22",
+        "title": "Oral Argument on February 22, 1982",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/80-1832/19820222a_80-1832.delivery.mp3",
+        "text_href": "80-1832/1982-02-22-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1982-12-07",
-        "title": "Oral Argument on December 7, 1982",
+        "title": "Oral Reargument on December 7, 1982",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1982/80-1832_80-2170_80-2171_12-07-1982.pdf",
         "redundant": true
       },
@@ -100,19 +99,18 @@
     "dateDecision": "Wednesday, July 6, 1983",
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1982-04-19",
-        "title": "Oral Argument on April 19, 1982",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/81-349/81-349_19820419-argument.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/81-349_04-19-1982.pdf"
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1982-04-19",
         "title": "Oral Argument on April 19, 1982",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/81-349_04-19-1982.pdf"
+      },
+      {
+        "source": "oyez",
+        "type": "argument",
+        "date": "1982-04-19",
+        "title": "Oral Argument on April 19, 1982",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/81-349/81-349_19820419-argument.delivery.mp3"
       }
     ],
     "files": 0
@@ -1480,9 +1478,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1983-03-01",
-        "title": "Oral Argument on March 1, 1983",
+        "title": "Oral Reargument on March 1, 1983",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1982/81-430_03-01-1983.pdf",
         "redundant": true
       },

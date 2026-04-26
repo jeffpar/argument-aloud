@@ -50,16 +50,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1985-01-15",
-        "title": "Oral Argument on January 15, 1985",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1807/19850115a_83-1807.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-1807_01-15-1985.pdf",
-        "text_href": "83-1807/1985-01-15-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1985-01-15",
@@ -67,10 +57,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-1807_01-15-1985.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1985-01-15",
+        "title": "Oral Argument on January 15, 1985",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1807/19850115a_83-1807.delivery.mp3",
+        "text_href": "83-1807/1985-01-15-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1985-10-09",
-        "title": "Oral Argument on October 9, 1985",
+        "title": "Oral Reargument on October 9, 1985",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1985/83-1807_10-09-1985.pdf",
         "text_href": "83-1807/1985-10-09.json"
       },

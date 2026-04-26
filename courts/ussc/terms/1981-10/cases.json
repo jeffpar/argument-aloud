@@ -53,16 +53,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1981-03-30",
-        "title": "Oral Argument on March 30, 1981",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-11/19810330a_80-11.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1980/80-11_80-15_03-30-1981.pdf",
-        "text_href": "80-11/1981-03-30-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1981-03-30",
@@ -70,10 +60,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1980/80-11_80-15_03-30-1981.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1981-03-30",
+        "title": "Oral Argument on March 30, 1981",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-11/19810330a_80-11.delivery.mp3",
+        "text_href": "80-11/1981-03-30-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1981-11-04",
-        "title": "Oral Argument on November 4, 1981",
+        "title": "Oral Reargument on November 4, 1981",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-11_80-15_11-04-1981.pdf",
         "text_href": "80-11/1981-11-04.json"
       },
@@ -1686,8 +1685,15 @@
         "date": "1981-11-02",
         "title": "Oral Argument in No. 80-203 on November 2, 1981",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-203_11-02-1981.pdf",
-        "redundant": true,
-        "text_href": "80-203/1981-11-02-2.json"
+        "redundant": true
+      },
+      {
+        "source": "ussc",
+        "type": "argument",
+        "date": "1981-11-02",
+        "title": "Oral Argument in No. 80-757 on November 2, 1981",
+        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-757_80-895_80-936_11-02-1981.pdf",
+        "redundant": true
       },
       {
         "source": "oyez",
@@ -1697,15 +1703,6 @@
         "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/80-203/19811102a_80-203.delivery.mp3",
         "text_href": "80-203/1981-11-02-oyez-1.json",
         "aligned": true
-      },
-      {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1981-11-02",
-        "title": "Oral Argument in No. 80-757 on November 2, 1981",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1981/80-757_80-895_80-936_11-02-1981.pdf",
-        "redundant": true,
-        "text_href": "80-203/1981-11-02-1.json"
       },
       {
         "source": "oyez",

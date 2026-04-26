@@ -53,25 +53,24 @@
     ],
     "events": [
       {
+        "source": "ussc",
+        "type": "argument",
+        "date": "1984-03-19",
+        "title": "Oral Argument on March 19, 1984",
+        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/82-1913_82-1951_03-19-1984.pdf"
+      },
+      {
         "source": "oyez",
         "type": "argument",
         "date": "1984-03-19",
         "title": "Oral Argument on March 19, 1984",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1913/19840319a_82-1913.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/82-1913_82-1951_03-19-1984.pdf"
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1913/19840319a_82-1913.delivery.mp3"
       },
       {
         "source": "ussc",
-        "type": "argument",
-        "date": "1984-03-19",
-        "title": "Oral Argument on March 19, 1984",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/82-1913_82-1951_03-19-1984.pdf"
-      },
-      {
-        "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1984-10-01",
-        "title": "Oral Argument on October 1, 1984",
+        "title": "Oral Reargument on October 1, 1984",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/82-1913_82-1951_10-01-1984.pdf",
         "text_href": "82-1913/1984-10-01.json"
       },
@@ -141,16 +140,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1984-03-21",
-        "title": "Oral Argument on March 21, 1984",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-18/19840321a_83-18.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/83-18_03-21-1984.pdf",
-        "text_href": "83-18/1984-03-21-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1984-03-21",
@@ -158,10 +147,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/83-18_03-21-1984.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1984-03-21",
+        "title": "Oral Argument on March 21, 1984",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-18/19840321a_83-18.delivery.mp3",
+        "text_href": "83-18/1984-03-21-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1984-10-03",
-        "title": "Oral Argument on October 3, 1984",
+        "title": "Oral Reargument on October 3, 1984",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-18_10-03-1984.pdf",
         "text_href": "83-18/1984-10-03.json"
       },
@@ -231,16 +229,6 @@
     ],
     "events": [
       {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1984-03-28",
-        "title": "Oral Argument on March 28, 1984",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-712/19840328a_83-712.delivery.mp3",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/83-712_03-28-1984.pdf",
-        "text_href": "83-712/1984-03-28-oyez.json",
-        "aligned": true
-      },
-      {
         "source": "ussc",
         "type": "argument",
         "date": "1984-03-28",
@@ -248,10 +236,19 @@
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1983/83-712_03-28-1984.pdf"
       },
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "date": "1984-03-28",
+        "title": "Oral Argument on March 28, 1984",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-712/19840328a_83-712.delivery.mp3",
+        "text_href": "83-712/1984-03-28-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "ussc",
+        "type": "reargument",
         "date": "1984-10-02",
-        "title": "Oral Argument on October 2, 1984",
+        "title": "Oral Reargument on October 2, 1984",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-712_10-02-1984.pdf",
         "text_href": "83-712/1984-10-02.json"
       },
@@ -6218,9 +6215,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1985-04-23",
-        "title": "Oral Argument on April 23, 1985",
+        "title": "Oral Reargument on April 23, 1985",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-2161_04-23-1985.pdf",
         "text_href": "83-2161/1985-04-23.json"
       },
@@ -6447,7 +6444,7 @@
     "title": "Massachusetts Mutual Life Insurance Company v. Russell",
     "number": "84-9",
     "oyez": "https://www.oyez.org/cases/1984/84-9",
-    "argument": "1985-01-16,1985-04-24",
+    "argument": "1985-01-16",
     "reargument": "1985-04-24",
     "decision": "1985-06-27",
     "volume": "473",
@@ -6514,9 +6511,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1985-04-24",
-        "title": "Oral Argument on April 24, 1985",
+        "title": "Oral Reargument on April 24, 1985",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/84-9_04-24-1985.pdf",
         "text_href": "84-9/1985-04-24.json"
       }
@@ -7690,9 +7687,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1985-04-22",
-        "title": "Oral Argument on April 22, 1985",
+        "title": "Oral Reargument on April 22, 1985",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/83-1894_04-22-1985.pdf"
       },
       {
@@ -8188,9 +8185,9 @@
       },
       {
         "source": "ussc",
-        "type": "argument",
+        "type": "reargument",
         "date": "1985-04-23",
-        "title": "Oral Argument on April 23, 1985",
+        "title": "Oral Reargument on April 23, 1985",
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1984/84-468_04-23-1985.pdf",
         "text_href": "84-468/1985-04-23.json"
       },
