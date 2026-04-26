@@ -1609,12 +1609,17 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
 
     const totalFiles = rawFiles.length;
     const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
+    // Suppress the group subheading when "Other" is the sole non-empty category:
+    // list its files directly rather than nesting them under a redundant header.
+    const nonEmptyGroupKeys = effectiveOrder.filter(k => groups[k]?.length > 0);
+    const otherIsOnlyGroup = nonEmptyGroupKeys.length === 1 && nonEmptyGroupKeys[0] === 'Other';
 
     effectiveOrder.forEach(typeKey => {
       if (!groups[typeKey] || !groups[typeKey].length) return;
 
-      // Suppress the group header when there is only one file in the entire list.
-      const isSoloOther = totalFiles === 1;
+      // Suppress the group header when there is only one file in the entire list,
+      // or when "Other" is the only non-empty group.
+      const suppressHeader = totalFiles === 1 || otherIsOnlyGroup;
 
       function makeFileItem(f) {
         const fi = document.createElement('li');
@@ -1650,8 +1655,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         return fi;
       }
 
-      if (isSoloOther) {
-        fileUl.appendChild(makeFileItem(groups[typeKey][0]));
+      if (suppressHeader) {
+        groups[typeKey].forEach(f => fileUl.appendChild(makeFileItem(f)));
         return;
       }
 
@@ -1688,7 +1693,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       fileUl.appendChild(groupLi);
     });
 
-    if (fileUl.children.length === 0) toggle.style.display = 'none';
+    // Also hide the toggle when the only available files are transcript entries —
+    // transcript-only cases are not considered "browsable" via the toggle.
+    const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript');
+    if (fileUl.children.length === 0 || !hasNonTranscriptFiles) toggle.style.display = 'none';
   }
 
   toggle.addEventListener('click', async (e) => {

@@ -563,6 +563,10 @@ def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: boo
             # URL-inferred values when the key is absent entirely.
             source   = arg.get('source')   or source
             type_val = arg.get('type')     or inferred_type
+            # Legacy compatibility: older data/scripts used type='misc' for
+            # journal-style events; canonicalize to type='journal'.
+            if type_val == 'misc':
+                type_val = 'journal'
 
             text_href = arg.get('text_href', '')
             is_aligned = bool(

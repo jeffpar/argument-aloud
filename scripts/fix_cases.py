@@ -52,7 +52,7 @@ from collections import defaultdict
 from datetime import date as _date, timedelta as _timedelta
 from pathlib import Path
 
-from schema import CASE_KEY_ORDER, EVENT_KEY_ORDER
+from schema import CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_JSON = REPO_ROOT / 'courts' / 'ussc' / 'terms.json'
@@ -113,7 +113,24 @@ def fix_key_order(
         for event in case.get('events', []):
             new_event, ev_unknown = _reorder(event, EVENT_KEY_ORDER)
             unknown_event_keys |= ev_unknown
-            if list(new_event.keys()) != list(event.keys()):
+
+            advocates_changed = False
+            advocates = new_event.get('advocates')
+            if isinstance(advocates, list):
+                reordered_advocates = []
+                for adv in advocates:
+                    if isinstance(adv, dict):
+                        new_adv, _ = _reorder(adv, ADVOCATE_KEY_ORDER)
+                        reordered_advocates.append(new_adv)
+                        if list(new_adv.keys()) != list(adv.keys()):
+                            advocates_changed = True
+                    else:
+                        reordered_advocates.append(adv)
+                if advocates_changed:
+                    new_event['advocates'] = reordered_advocates
+
+            event_changed = (list(new_event.keys()) != list(event.keys()) or advocates_changed)
+            if event_changed:
                 events_changed += 1
                 if not dry_run:
                     event.clear()
@@ -527,6 +544,15 @@ def fix_event_types(term: str, cases: list[dict], dry_run: bool) -> int:
             date  = event.get('date', '')
             etype = event.get('type') or 'argument'
             title = event.get('title', '')
+
+            # Legacy compatibility: older scripts/data used type='misc' for
+            # journal entries. Canonicalize to type='journal'.
+            if etype == 'misc':
+                print(f'  WARN {term}/{number} {date or "?"}: type {etype!r} should be journal')
+                if not dry_run:
+                    event['type'] = 'journal'
+                etype = 'journal'
+                fixed += 1
 
             # ── Forward checks: case field date → expected event type ──────────
             if date in rearg_dates:

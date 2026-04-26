@@ -6,7 +6,7 @@ Usage:
 
 Outputs:
     courts/ussc/sets/briefs.json
-    courts/ussc/sets/significant.json
+    courts/ussc/sets/noteworthy.json
     courts/ussc/sets/transcripts.json
 """
 
@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
 OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcripts.json"
 HIGHLIGHTS_CSV_PATH = ROOT / "data" / "ld" / "ussc_deck.csv"
-HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "significant.json"
+HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "noteworthy.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
     "https://lonedissent.org/transcripts/pre-1968",
@@ -957,7 +957,7 @@ def build_brief_archive(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build USSC transcripts, briefs, and significant set archives")
+    parser = argparse.ArgumentParser(description="Build USSC transcripts, briefs, and noteworthy set archives")
     parser.add_argument(
         "--dry-run",
         action="store_true",
