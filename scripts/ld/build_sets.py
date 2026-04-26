@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build transcript_archive.json from Lone Dissent transcript listings.
+"""Build transcripts.json from Lone Dissent transcript listings.
 
 Usage:
     python3 scripts/build_sets.py
 
 Output:
-    courts/ussc/sets/transcript_archive.json
+    courts/ussc/sets/transcripts.json
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
-OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcript_archive.json"
+OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcripts.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
     "https://lonedissent.org/transcripts/pre-1968",
@@ -422,7 +422,7 @@ def maybe_add_ld_event(case: dict, src: SourceCase) -> bool:
 
 BRIEFS_SOURCE_URL = "https://lonedissent.org/briefs/featured/"
 BRIEF_SET_NAME = "Briefs (1857-1996)"
-BRIEF_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "brief_archive.json"
+BRIEF_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "briefs.json"
 
 TERM_FROM_URL_RE = re.compile(r"/cases/all/(\d{4}-\d{2})\b")
 YEAR_IN_PARENS_RE = re.compile(r"\((\d{4})\)")
@@ -602,7 +602,7 @@ def build_brief_archive(
 ) -> tuple[int, int, int, set[str]]:
     """Build brief_archive.json, create files.json files, and update cases.
 
-    Existing entries in brief_archive.json are preserved unchanged.
+    Existing entries in briefs.json are preserved unchanged.
     Existing files.json files are not overwritten.
     """
     source_cases = fetch_brief_source_cases()

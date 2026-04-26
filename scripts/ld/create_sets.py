@@ -5,7 +5,7 @@ Usage:
     python3 scripts/ld/create_sets.py
 
 Outputs:
-    courts/ussc/sets/issue_highlights.json  — cases grouped by legalBasis
+    courts/ussc/sets/highlights.json  — cases grouped by legalBasis
 """
 
 import csv
@@ -172,7 +172,7 @@ def main():
         for basis, cases_list in sorted(groups.items())
     ]
 
-    out_path = SETS_DIR / "issue_highlights.json"
+    out_path = SETS_DIR / "highlights.json"
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
         f.write("\n")
