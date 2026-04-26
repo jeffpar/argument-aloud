@@ -71,13 +71,13 @@ from validate_cases import check_url as _check_url
 from schema import reorder_event, reorder_case
 
 
-CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
+CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s*(.+)$', re.IGNORECASE)
 DATE_RE  = re.compile(r'^(\d{1,2})/(\d{1,2})/(\d{2})$')
 ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
 # Like CASE_RE but also matches '130Orig' (no hyphen) and bare numbers (e.g. '163') as
 # seen on archived transcript listing pages for pre-2000 terms.
-_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s+(.+)$', re.IGNORECASE)
+_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s*(.+)$', re.IGNORECASE)
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT        = Path(__file__).resolve().parent.parent
@@ -261,6 +261,36 @@ def parse_archived_date(date_str: str) -> str | None:
 def parse_any_date(date_str: str) -> str | None:
     """Try MM/DD/YY (audio listing) then M/D/YYYY (archived transcript listing)."""
     return parse_date(date_str) or parse_archived_date(date_str)
+
+
+_ANY_DATE_TOKEN_RE = re.compile(r'\d{1,2}/\d{1,2}/(?:\d{4}|\d{2})')
+
+
+def parse_any_dates(date_str: str) -> list[str]:
+    """Return one or more ISO dates parsed from a date cell.
+
+    Supports both single dates and ranges like:
+      - 1/18/1972 - 1/19/1972
+      - 1/18/72 - 1/19/72
+    """
+    raw = (date_str or '').strip()
+    if not raw:
+        return []
+
+    # Fast-path: common single-date cells.
+    single = parse_any_date(raw)
+    if single:
+        return [single]
+
+    # Range / compound cells: parse all date tokens and keep unique order.
+    out: list[str] = []
+    seen: set[str] = set()
+    for token in _ANY_DATE_TOKEN_RE.findall(raw):
+        iso = parse_any_date(token)
+        if iso and iso not in seen:
+            out.append(iso)
+            seen.add(iso)
+    return out
 
 
 def _normalize_number(num: str) -> str:
@@ -946,14 +976,18 @@ class ListingParser(HTMLParser):
             if len(self._row_cells) == 2:
                 case_text, date_text = self._row_cells
                 m        = CASE_RE.match(case_text)
-                date_iso = parse_date(date_text)
-                if m and date_iso:
-                    self.cases.append({
-                        'number':     m.group(1),
-                        'title':      m.group(2).strip(),
-                        'date':       date_iso,
-                        'detail_url': self._row_hrefs[0] if self._row_hrefs else None,
-                    })
+                date_isos = parse_any_dates(date_text)
+                if m and date_isos:
+                    number = _normalize_number(m.group(1))
+                    title = m.group(2).strip()
+                    detail_url = self._row_hrefs[0] if self._row_hrefs else None
+                    for date_iso in date_isos:
+                        self.cases.append({
+                            'number':     number,
+                            'title':      title,
+                            'date':       date_iso,
+                            'detail_url': detail_url,
+                        })
 
     def handle_data(self, data):
         if self._td_depth > 0:
@@ -1028,9 +1062,9 @@ class TranscriptListingParser(HTMLParser):
             if len(self._row_cells) == 2:
                 case_text, date_text = self._row_cells
                 m        = _TRANSCRIPT_CASE_RE.match(case_text)
-                date_iso = parse_any_date(date_text)
+                date_isos = parse_any_dates(date_text)
                 pdf_url  = self._row_hrefs[0] if self._row_hrefs else None
-                if m and date_iso and pdf_url:
+                if m and date_isos and pdf_url:
                     number = _normalize_number(m.group(1))
                     # Detect original-jurisdiction cases misidentified by the listing
                     # page as "YY-NNN" when the PDF URL basename contains "orig"
@@ -1040,12 +1074,14 @@ class TranscriptListingParser(HTMLParser):
                         yy_nn = re.match(r'^\d{2}-(\d+)$', number)
                         if yy_nn:
                             number = f'{yy_nn.group(1)}-Orig'
-                    self.transcripts.append({
-                        'number':  number,
-                        'title':   m.group(2).strip(),
-                        'date':    date_iso,
-                        'pdf_url': pdf_url,
-                    })
+                    title = m.group(2).strip()
+                    for date_iso in date_isos:
+                        self.transcripts.append({
+                            'number':  number,
+                            'title':   title,
+                            'date':    date_iso,
+                            'pdf_url': pdf_url,
+                        })
 
     def handle_data(self, data):
         if self._td_depth > 0:
@@ -1333,6 +1369,11 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
 
     # Build a lookup from case number → scraped case (with detail_url).
     scraped_by_num = {c['number']: c for c in new_cases}
+    # Group scraped rows by number so a single listing row with a date range
+    # (or multiple rows for the same number) can produce multiple events.
+    grouped_new_cases: dict[str, list[dict]] = {}
+    for c in new_cases:
+        grouped_new_cases.setdefault(c['number'], []).append(c)
     # Expand consolidated numbers so "10-238,10-239" covers both "10-238" and "10-239".
     existing_numbers: set[str] = set()
     for c in existing:
@@ -1342,26 +1383,45 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
     modified = False
     added = []
     terms_root = cases_path.parent.parent
-    for case in new_cases:
-        if case['number'] in existing_numbers:
+    for number, rows in grouped_new_cases.items():
+        rows = sorted(rows, key=lambda r: r.get('date') or '')
+        seen_dates: set[str] = set()
+        unique_rows: list[dict] = []
+        for r in rows:
+            d = r.get('date')
+            if d and d in seen_dates:
+                continue
+            if d:
+                seen_dates.add(d)
+            unique_rows.append(r)
+        if not unique_rows:
             continue
-        if later_term_numbers and case['number'] in later_term_numbers:
-            found_term = later_term_numbers[case['number']]
-            print(f'Skipping {case["number"]} (already in {found_term})')
-            _check_previously_filed(year, case['number'], found_term, terms_root)
+
+        sample = unique_rows[0]
+        if number in existing_numbers:
+            continue
+        if later_term_numbers and number in later_term_numbers:
+            found_term = later_term_numbers[number]
+            print(f'Skipping {number} (already in {found_term})')
+            _check_previously_filed(year, number, found_term, terms_root)
             continue
         if not ADD_CASES:
-            print(f'  WARNING: {case["number"]} ({case.get("date", "?")}) is a new case '
+            print(f'  WARNING: {number} ({sample.get("date", "?")}) is a new case '
                   f'not in cases.json; pass --cases to add it')
             continue
 
-        print(f'Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
-        arg_urls = fetch_argument_urls(case['detail_url'])
+        date_label = ','.join(r.get('date', '?') for r in unique_rows)
+        print(f'Adding {number} ({date_label}) ...', end=' ', flush=True)
+        arg_urls = fetch_argument_urls(sample['detail_url'])
         time.sleep(0.3)   # be polite
 
-        title    = _ussc_audio_title('argument', case['date'])
-        argument = {'source': 'ussc', 'type': 'argument', 'date': case['date'], 'title': title}
-        argument.update(arg_urls)
+        events = []
+        for r in unique_rows:
+            title = _ussc_audio_title('argument', r['date'])
+            argument = {'source': 'ussc', 'type': 'argument', 'date': r['date'], 'title': title}
+            argument.update(arg_urls)
+            events.append(argument)
+        events = sorted(events, key=lambda a: a.get('date') or '')
 
         if arg_urls:
             status = 'audio+transcript' if 'transcript_href' in arg_urls else 'audio only'
@@ -1370,11 +1430,12 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str,
         print(status)
 
         existing.append({
-            'title':     case['title'],
-            'number':    case['number'],
-            'events': [argument],
+            'title':     sample['title'],
+            'number':    number,
+            'events': events,
         })
-        added.append(case['number'])
+        existing_numbers.add(number)
+        added.append(number)
 
     # Backfill audio_href / transcript_href for existing cases whose arguments
     # are missing them (e.g. the detail URL had a suffix like _2 on first import).
@@ -2123,11 +2184,15 @@ def _find_case_in_later_terms(
             if row_norm not in case_norms:
                 continue
             # Collect all known argument/reargument dates.
+            # argument/reargument may be a comma-separated string like "1972-01-18,1972-01-19".
             arg_dates: set[str] = set()
             for field in ('argument', 'reargument'):
                 v = case.get(field)
                 if isinstance(v, str):
-                    arg_dates.add(v)
+                    for d in v.split(','):
+                        d = d.strip()
+                        if d:
+                            arg_dates.add(d)
                 elif isinstance(v, list):
                     arg_dates.update(v)
             # Fallback to event dates when top-level fields are not yet populated.
@@ -2378,17 +2443,24 @@ def import_transcript_pdfs(cases_path: Path, year_str: str,
                               f'transcript_href added in {lt_str}')
                     break
                 if not lt_assigned:
-                    lt_title = _ussc_audio_title('argument', row['date'])
-                    lt_ev = reorder_event({'source': 'ussc', 'type': 'argument',
-                                           'date': row['date'], 'title': lt_title,
-                                           'transcript_href': row['pdf_url']})
-                    lt_case.setdefault('events', []).append(lt_ev)
-                    lt_case['events'] = sorted(lt_case['events'],
-                                               key=lambda a: a.get('date') or '')
-                    later_modified[lt_cp] = (lt_str, lt_cases)
-                    _newly_matched.append((lt_cp, lt_cases, lt_case, lt_ev, lt_str))
-                    print(f'{lt_case["number"]} ({row["date"]}): '
-                          f'transcript event created in {lt_str}')
+                    lt_already = any(
+                        a.get('source', 'ussc') == 'ussc'
+                        and a.get('date') == row['date']
+                        and a.get('transcript_href') == row['pdf_url']
+                        for a in lt_case.get('events', [])
+                    )
+                    if not lt_already:
+                        lt_title = _ussc_audio_title('argument', row['date'])
+                        lt_ev = reorder_event({'source': 'ussc', 'type': 'argument',
+                                               'date': row['date'], 'title': lt_title,
+                                               'transcript_href': row['pdf_url']})
+                        lt_case.setdefault('events', []).append(lt_ev)
+                        lt_case['events'] = sorted(lt_case['events'],
+                                                   key=lambda a: a.get('date') or '')
+                        later_modified[lt_cp] = (lt_str, lt_cases)
+                        _newly_matched.append((lt_cp, lt_cases, lt_case, lt_ev, lt_str))
+                        print(f'{lt_case["number"]} ({row["date"]}): '
+                              f'transcript event created in {lt_str}')
                 matched_rows.add(key)
                 continue
             if later_term_numbers and row['number'] in later_term_numbers:

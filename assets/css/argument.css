@@ -350,11 +350,22 @@ body {
 }
 
 .month-name {
+  flex: 1;
+  min-width: 0;
   font-size: 11px;
   font-weight: 700;
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.month-group.open > .month-header > .month-name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .month-case-list {
@@ -420,17 +431,14 @@ body {
   text-overflow: ellipsis;
 }
 
-.case-title-nav.expanded {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
-}
-
 .case-item.active>.case-header .case-title-nav {
   background: #2672b4;
   color: #fff;
   padding: 0 5px;
   margin: 0 -5px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .case-decided-icon {
@@ -509,6 +517,15 @@ body {
   border-radius: 4px;
   transition: background 0.1s;
   user-select: none;
+  min-width: 0;
+}
+
+.file-type-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-type-header:hover {
@@ -519,6 +536,12 @@ body {
   background: #ddeeff;
   color: inherit;
   font-weight: 600;
+}
+
+.file-type-header.active .file-type-label {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .file-type-toggle {

@@ -34,12 +34,19 @@ With --case <caseId>:
   Prints the fully-parsed case object (including justices array) for
   inspection, without running any other checks.
 
+With --add (requires --term YYYY and --case <caseId>):
+    Adds a new case to courts/ussc/terms/YYYY-10/cases.json when missing.
+    New entry omits events, sets files=0, derives opinion_href from LOC when
+    usCite is available, prefers title from data/ld/ussc_citations.csv, and
+    enriches dates from data/ld/ussc_dates.csv.
+
 Usage:
     python3 scripts/scdb/verify_cases.py
     python3 scripts/scdb/verify_cases.py --term 2003
     python3 scripts/scdb/verify_cases.py --term 2003 --update
     python3 scripts/scdb/verify_cases.py --ussc_deck
     python3 scripts/scdb/verify_cases.py --case 1965-001
+    python3 scripts/scdb/verify_cases.py --term 2000 --case 2000-030 --add
 """
 
 import argparse
@@ -59,6 +66,8 @@ from schema import reorder_case
 DATA_DIR = REPO_DIR / "data" / "scdb"
 TERMS_DIR = REPO_DIR / "courts" / "ussc" / "terms"
 USCC_DECK_PATH = REPO_DIR / "data" / "ld" / "ussc_deck.csv"
+LD_CITATIONS_PATH = REPO_DIR / "data" / "ld" / "ussc_citations.csv"
+LD_DATES_PATH = REPO_DIR / "data" / "ld" / "ussc_dates.csv"
 VARS_PATH = DATA_DIR / "vars.json"
 JUSTICES_JSON_PATH = REPO_DIR / "scripts" / "justices.json"
 
@@ -217,6 +226,26 @@ def normalize_date_str(s: str) -> str:
     return dt.strftime('%Y-%m-%d') if dt else s
 
 
+def format_long_date(date_iso: str) -> str:
+    """Format YYYY-MM-DD as 'Weekday, Month Day, Year'."""
+    dt = parse_scdb_date(date_iso)
+    if not dt:
+        return ''
+    return f"{dt.strftime('%A')}, {dt.strftime('%B')} {dt.day}, {dt.year}"
+
+
+def iso_from_long_date(s: str) -> str:
+    """Parse 'Weekday, Month Day, Year' into YYYY-MM-DD; return ''."""
+    raw = (s or '').strip()
+    if not raw:
+        return ''
+    try:
+        dt = datetime.strptime(raw, "%A, %B %d, %Y")
+        return dt.strftime('%Y-%m-%d')
+    except ValueError:
+        return ''
+
+
 def date_list(val) -> list[str]:
     if isinstance(val, list):
         return [normalize_date_str(str(v)) for v in val if str(v).strip()]
@@ -251,6 +280,269 @@ def parse_us_cite(us_cite: str) -> tuple[str, str]:
     if not m:
         return '', ''
     return m.group(1), m.group(2)
+
+
+def load_ld_citation_titles() -> dict[str, str]:
+    """Load preferred case titles keyed by usCite from uusc_citations.csv."""
+    out: dict[str, str] = {}
+    if not LD_CITATIONS_PATH.exists():
+        return out
+    with open(LD_CITATIONS_PATH, newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cite = normalize_cite(row.get('usCite', ''))
+            title = (row.get('caseTitle') or '').strip()
+            if cite and title and cite not in out:
+                out[cite] = title
+    return out
+
+
+def load_ld_dates_by_case_id() -> dict[str, list[dict[str, str]]]:
+    """Load ussc_dates.csv rows grouped by caseId."""
+    out: dict[str, list[dict[str, str]]] = {}
+    if not LD_DATES_PATH.exists():
+        return out
+    with open(LD_DATES_PATH, newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cid = (row.get('caseId') or '').strip()
+            if not cid:
+                continue
+            out.setdefault(cid, []).append(row)
+    return out
+
+
+def _split_csv_dates(raw: str) -> list[str]:
+    out: list[str] = []
+    for part in (raw or '').split(','):
+        d = normalize_date_str(part)
+        if d and d != '0' and d not in out:
+            out.append(d)
+    return out
+
+
+def _merge_dates(primary: str, secondary: str) -> str:
+    vals: list[str] = []
+    for v in _split_csv_dates(primary) + _split_csv_dates(secondary):
+        if v not in vals:
+            vals.append(v)
+    return ','.join(vals)
+
+
+def _argnum(row: dict) -> int:
+    raw = (row.get('argumentNumber') or '').strip()
+    try:
+        return int(raw)
+    except ValueError:
+        return 1
+
+
+def build_case_from_sources(
+    scdb_case: dict,
+    case_id: str,
+    ld_titles: dict[str, str],
+    ld_dates: list[dict[str, str]],
+) -> dict:
+    """Build a new case object from SCDB with LD title/date enrichments."""
+    us_cite = normalize_cite(scdb_case.get('usCite', ''))
+    docket = (scdb_case.get('docket') or '').strip()
+    argument = normalize_date_str(scdb_case.get('dateArgument', ''))
+    reargument = normalize_date_str(scdb_case.get('dateRearg') or scdb_case.get('datreRearg', ''))
+    decision = normalize_date_str(scdb_case.get('dateDecision', ''))
+
+    title = (scdb_case.get('caseName') or '').strip() or case_id
+
+    # LD dates/citations can provide better dates, missing dockets, and usCite.
+    ld_argument_dates: list[str] = []
+    ld_reargument_dates: list[str] = []
+    ld_decision = ''
+    ld_title = ''
+    ld_us_cite = ''
+    ld_docket = ''
+    for row in sorted(ld_dates, key=_argnum):
+        if not ld_title:
+            ld_title = (row.get('caseTitle') or '').strip()
+        if not ld_us_cite:
+            ld_us_cite = normalize_cite(row.get('usCite', ''))
+        if not ld_docket:
+            ld_docket = (row.get('docket') or '').strip()
+        if not ld_decision:
+            cand_dec = normalize_date_str(row.get('dateDecision', ''))
+            if cand_dec and cand_dec != '0':
+                ld_decision = cand_dec
+
+        arg_dates = _split_csv_dates(row.get('dateArgument', ''))
+        if not arg_dates:
+            continue
+        if _argnum(row) <= 1:
+            for d in arg_dates:
+                if d not in ld_argument_dates:
+                    ld_argument_dates.append(d)
+        else:
+            for d in arg_dates:
+                if d not in ld_reargument_dates:
+                    ld_reargument_dates.append(d)
+
+    if not us_cite and ld_us_cite:
+        us_cite = ld_us_cite
+    if (not docket or docket == '0') and ld_docket and ld_docket != '0':
+        docket = ld_docket
+
+    # Preferred title: citations.csv by usCite, else dates.csv title, else SCDB.
+    if us_cite and us_cite in ld_titles:
+        title = ld_titles[us_cite]
+    elif ld_title:
+        title = ld_title
+
+    if ld_argument_dates:
+        ld_arg = ','.join(ld_argument_dates)
+        # Keep whichever side has richer argument date detail.
+        if len(_split_csv_dates(ld_arg)) >= len(_split_csv_dates(argument)):
+            argument = ld_arg
+
+    if ld_reargument_dates:
+        ld_rearg = ','.join(ld_reargument_dates)
+        if len(_split_csv_dates(ld_rearg)) >= len(_split_csv_dates(reargument)):
+            reargument = ld_rearg
+
+    if ld_decision:
+        decision = ld_decision
+
+    maj_votes, min_votes = scdb_majority_counts(scdb_case)
+    votes = scdb_votes_subset(scdb_case)
+
+    case_obj: dict = {
+        'id': case_id,
+        'title': title,
+        'files': 0,
+        'votes': votes,
+    }
+
+    if docket and docket != '0':
+        case_obj['number'] = docket
+    if argument and argument != '0':
+        case_obj['argument'] = argument
+    if reargument and reargument != '0':
+        case_obj['reargument'] = reargument
+    if decision and decision != '0':
+        case_obj['decision'] = decision
+        long_decision = format_long_date(decision)
+        if long_decision:
+            case_obj['dateDecision'] = long_decision
+
+    if maj_votes is not None:
+        case_obj['voteMajority'] = maj_votes
+    if min_votes is not None:
+        case_obj['voteMinority'] = min_votes
+
+    if us_cite:
+        case_obj['usCite'] = us_cite
+        volume, page = parse_us_cite(us_cite)
+        if volume:
+            case_obj['volume'] = volume
+        if page:
+            case_obj['page'] = page
+        href = loc_opinion_href(volume, page)
+        if href:
+            case_obj['opinion_href'] = href
+
+    return reorder_case(case_obj)
+
+
+def first_argument_date(case: dict) -> str:
+    """Return the first argument date (YYYY-MM-DD) or ''."""
+    raw = (case.get('argument') or '').strip()
+    if not raw:
+        return ''
+    return normalize_date_str(raw.split(',', 1)[0])
+
+
+def merge_missing_fields(existing: dict, template: dict) -> bool:
+    """Fill missing fields in existing from template, preserving manual values."""
+    changed = False
+    for k, v in template.items():
+        if _field_present(existing, k):
+            continue
+        existing[k] = v
+        changed = True
+
+    # Keep decision/dateDecision synchronized if one exists and the other is missing.
+    if _field_present(existing, 'decision') and not _field_present(existing, 'dateDecision'):
+        long_decision = format_long_date(normalize_date_str(existing.get('decision', '')))
+        if long_decision:
+            existing['dateDecision'] = long_decision
+            changed = True
+    if _field_present(existing, 'dateDecision') and not _field_present(existing, 'decision'):
+        existing_dec = (existing.get('dateDecision') or '').strip()
+        iso_dec = normalize_date_str(existing_dec)
+        if not SCDB_DATE_RE.fullmatch(iso_dec):
+            iso_dec = iso_from_long_date(existing_dec)
+        if iso_dec:
+            existing['decision'] = iso_dec
+            changed = True
+
+    if changed:
+        new_case = reorder_case(dict(existing))
+        existing.clear()
+        existing.update(new_case)
+    return changed
+
+
+def add_case_to_term(scdb: dict, term_year: str, case_id: str) -> None:
+    """Add a missing case to a term file using SCDB + LD enrichment CSVs."""
+    if not re.fullmatch(r'\d{4}', term_year):
+        sys.exit(f"ERROR: --term expects YYYY, got {term_year!r}")
+
+    cases_path = TERMS_DIR / f"{term_year}-10" / "cases.json"
+    if not cases_path.exists():
+        sys.exit(f"ERROR: term cases file not found: {cases_path}")
+
+    if case_id not in scdb:
+        sys.exit(f"ERROR: caseId {case_id!r} not found in loaded SCDB data")
+
+    try:
+        cases = json.loads(cases_path.read_text(encoding='utf-8'))
+    except Exception as exc:
+        sys.exit(f"ERROR: Could not parse {cases_path}: {exc}")
+
+    ld_titles = load_ld_citation_titles()
+    ld_dates_map = load_ld_dates_by_case_id()
+    new_case = build_case_from_sources(scdb[case_id], case_id, ld_titles, ld_dates_map.get(case_id, []))
+
+    existing = next((c for c in cases if (c.get('id') or '').strip() == case_id), None)
+    if existing is not None:
+        if merge_missing_fields(existing, new_case):
+            cases_path.write_text(json.dumps(cases, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+            print(f"Enriched existing {case_id} in {cases_path.relative_to(REPO_DIR)}")
+            print(json.dumps(existing, indent=2, ensure_ascii=False))
+        else:
+            print(f"No change: {case_id} already exists in {cases_path.relative_to(REPO_DIR)}")
+        return
+
+    number = (new_case.get('number') or '').strip()
+    if number and any((c.get('number') or '').strip() == number for c in cases):
+        print(
+            f"No change: docket {number} already exists in {cases_path.relative_to(REPO_DIR)} "
+            f"(new id would be {case_id})."
+        )
+        return
+
+    new_arg = first_argument_date(new_case)
+    if new_arg:
+        insert_at = len(cases)
+        for i, c in enumerate(cases):
+            cur_arg = first_argument_date(c)
+            if cur_arg and cur_arg > new_arg:
+                insert_at = i
+                break
+        cases.insert(insert_at, new_case)
+    else:
+        cases.append(new_case)
+    cases_path.write_text(json.dumps(cases, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+    rel = cases_path.relative_to(REPO_DIR)
+    print(f"Added {case_id} to {rel}")
+    print(json.dumps(new_case, indent=2, ensure_ascii=False))
 
 
 def scdb_vote_to_our(v: str) -> str:
@@ -308,8 +600,7 @@ def scdb_votes_subset(row: dict) -> list[dict[str, str]]:
         if not name or maj not in ('majority', 'minority'):
             continue
         out.append({'name': name, 'vote': maj})
-    # Normalize ordering for deterministic compare/write.
-    out.sort(key=lambda x: (x['name'], x['vote']))
+    # Keep SCDB justice-row order, which corresponds to listed seniority.
     return out
 
 
@@ -328,6 +619,12 @@ def our_votes_subset(case: dict) -> list[dict[str, str]]:
         if not name or vote not in ('majority', 'minority'):
             continue
         out.append({'name': name, 'vote': vote})
+    return out
+
+
+def normalized_votes_for_compare(votes: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Return a deterministically sorted copy for order-insensitive comparison."""
+    out = list(votes)
     out.sort(key=lambda x: (x['name'], x['vote']))
     return out
 
@@ -601,7 +898,7 @@ def verify_terms(scdb: dict, term_year: str | None = None, update: bool = False,
 
                 scdb_votes = scdb_votes_subset(row)
                 our_votes = our_votes_subset(case)
-                if scdb_votes and our_votes != scdb_votes:
+                if scdb_votes and normalized_votes_for_compare(our_votes) != normalized_votes_for_compare(scdb_votes):
                     msg = f"{prefix}: votes subset mismatch (name+vote)."
                     if verbose:
                         scdb_set = {(v['name'], v['vote']) for v in scdb_votes}
@@ -668,6 +965,11 @@ def main() -> None:
         action="store_true",
         help="Print per-justice details for votes subset mismatches.",
     )
+    parser.add_argument(
+        "--add",
+        action="store_true",
+        help="Add --case into --term cases.json using SCDB+LD data (requires --term and --case).",
+    )
     args = parser.parse_args()
 
     modern_csv, legacy_csv = find_csvs()
@@ -702,7 +1004,11 @@ def main() -> None:
             print(f"  {col}: {val!r}")
     print()
 
-    if args.case:
+    if args.add:
+        if not args.term or not args.case:
+            sys.exit("ERROR: --add requires both --term YYYY and --case CASEID")
+        add_case_to_term(scdb, term_year=args.term, case_id=args.case)
+    elif args.case:
         print_case(scdb, args.case)
     elif args.ussc_deck:
         verify_ussc_deck(scdb)

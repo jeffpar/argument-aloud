@@ -707,10 +707,6 @@ function buildTermCases(term, cases, ul) {
         titleSpan.className = 'case-title-nav';
         titleSpan.textContent = caseEntry.title;
         titleSpan.title = decisionTooltip(term, caseEntry, caseEntry.decision);
-        titleSpan.addEventListener('click', e => {
-          e.stopPropagation();
-          titleSpan.classList.toggle('expanded');
-        });
 
         header.appendChild(toggle);
         header.appendChild(titleSpan);
@@ -838,6 +834,7 @@ function buildTermCases(term, cases, ul) {
             let key = (f.type || '').toLowerCase();
             if (key === 'appellant' || key === 'appellants') key = 'petitioner';
             else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+            else if (key === 'brief' || key === 'briefs') key = '';
             if (!key) {
               // Infer from title when type is absent
               const t = (f.title || '').toLowerCase();
@@ -927,6 +924,7 @@ function buildTermCases(term, cases, ul) {
             typeHeader.className = 'file-type-header';
 
             const typeLabel = document.createElement('span');
+            typeLabel.className = 'file-type-label';
             typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
 
             const typeTog = document.createElement('span');
@@ -937,6 +935,8 @@ function buildTermCases(term, cases, ul) {
             typeHeader.appendChild(typeLabel);
             typeHeader.addEventListener('click', e => {
               e.stopPropagation();
+              document.querySelectorAll('.file-type-header').forEach(el => el.classList.remove('active'));
+              typeHeader.classList.add('active');
               groupLi.classList.toggle('open');
             });
 
@@ -1662,6 +1662,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       typeHeader.className = 'file-type-header';
 
       const typeLabel = document.createElement('span');
+      typeLabel.className = 'file-type-label';
       typeLabel.textContent = typeKey;
 
       const typeTog = document.createElement('span');
@@ -1672,6 +1673,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       typeHeader.appendChild(typeLabel);
       typeHeader.addEventListener('click', e => {
         e.stopPropagation();
+        document.querySelectorAll('.file-type-header').forEach(el => el.classList.remove('active'));
+        typeHeader.classList.add('active');
         groupLi.classList.toggle('open');
       });
 

@@ -1,19 +1,23 @@
 #!/usr/bin/env python3
-"""Build transcripts.json from Lone Dissent transcript listings.
+"""Build USSC set archives from Lone Dissent and deck sources.
 
 Usage:
-    python3 scripts/build_sets.py
+    python3 scripts/ld/build_sets.py [--dry-run]
 
-Output:
+Outputs:
     courts/ussc/sets/transcripts.json
+    courts/ussc/sets/briefs.json
+    courts/ussc/sets/highlights.json
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import urllib.request
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
 from difflib import SequenceMatcher
@@ -25,6 +29,8 @@ from urllib.parse import urljoin
 ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
 OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcripts.json"
+HIGHLIGHTS_CSV_PATH = ROOT / "data" / "ld" / "ussc_deck.csv"
+HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "highlights.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
     "https://lonedissent.org/transcripts/pre-1968",
@@ -597,14 +603,232 @@ def case_folder_name(case: dict) -> str:
     return base.split(",", 1)[0].strip()
 
 
-def audio_index(case: dict) -> int | None:
-    """Return the 1-based index of the first audio entry whose date matches
-    the case's argument or reargument date, or None if no match is found."""
-    dates = {d for d in (case.get("argument"), case.get("reargument")) if d}
+def argument_related_dates(case: dict) -> set[str]:
+    """Return all argument/reargument dates found on a case."""
+    dates: set[str] = set()
+    for key in ("argument", "reargument"):
+        raw = (case.get(key) or "").strip()
+        if not raw:
+            continue
+        for part in raw.split(","):
+            d = part.strip()
+            if d:
+                dates.add(d)
+    return dates
+
+
+def audio_index(case: dict, require_audio_href: bool = False) -> int | None:
+    """Return a 1-based index for the first relevant audio entry.
+
+    Relevant entries are those whose date matches the case's argument/reargument
+    date values. When require_audio_href is True, the entry must also include a
+    non-empty audio link.
+    """
+    dates = argument_related_dates(case)
     for i, ev in enumerate(case.get("audio") or [], start=1):
-        if ev.get("date") in dates:
+        if not isinstance(ev, dict):
+            continue
+        if require_audio_href and not ((ev.get("audio_href") or ev.get("url") or "").strip()):
+            continue
+        if (ev.get("date") or "").strip() in dates:
             return i
     return None
+
+
+UNICODE_ESCAPE_RE = re.compile(r"\\\\u([0-9a-fA-F]{4})")
+ARTICLE_SECTION_PAREN_RE = re.compile(
+    r"^(Article\s+[A-Za-z0-9IVXLC]+,\s*Section\s+[A-Za-z0-9IVXLC]+),\s*Paragraph\s+[A-Za-z0-9IVXLC]+\s*\(([^)]+)\)\s*$",
+    re.IGNORECASE,
+)
+PAREN_DESC_RE = re.compile(r"^(.+?)\s*\(([^)]+)\)\s*$")
+
+
+def extract_year(term_str: str) -> str | None:
+    m = re.search(r"\b(\d{4})\b", (term_str or "").strip())
+    return m.group(1) if m else None
+
+
+def normalize_docket(docket: str) -> str:
+    if not docket:
+        return ""
+    docket = docket.split(",")[0].strip()
+    docket = re.sub(r"^(\d+)\s+ORIG$", r"\1-Orig", docket, flags=re.IGNORECASE)
+    return docket
+
+
+def normalize_for_compare(docket: str) -> str:
+    return normalize_docket(docket).lower()
+
+
+def load_cases_for_year(
+    year: str,
+    term_cases: dict[str, list[dict]],
+    cache: dict[str, list[tuple[str, list[dict]]]],
+) -> list[tuple[str, list[dict]]]:
+    if year in cache:
+        return cache[year]
+    result: list[tuple[str, list[dict]]] = []
+    y = int(year)
+    for y_check in (y - 1, y, y + 1):
+        prefix = f"{y_check}-"
+        for term in sorted(t for t in term_cases.keys() if t.startswith(prefix)):
+            result.append((term, term_cases[term]))
+    cache[year] = result
+    return result
+
+
+def find_case_in_term_list(cases: list[dict], csv_row: dict) -> dict | None:
+    csv_docket_norm = normalize_for_compare(csv_row.get("docket", ""))
+    csv_scdb_ids = {s.strip() for s in (csv_row.get("scdb", "") or "").split(",") if s.strip()}
+
+    for case in cases:
+        case_num = case.get("number", "")
+        if csv_docket_norm and case_num and normalize_for_compare(case_num) == csv_docket_norm:
+            return case
+
+        case_id = case.get("id", "")
+        if csv_scdb_ids and case_id and case_id in csv_scdb_ids:
+            return case
+
+    return None
+
+
+def decode_unicode_escapes(text: str) -> str:
+    return UNICODE_ESCAPE_RE.sub(lambda m: chr(int(m.group(1), 16)), text or "")
+
+
+def title_case_phrase(text: str) -> str:
+    return re.sub(r"[A-Za-z][A-Za-z'-]*", lambda m: m.group(0).capitalize(), text or "")
+
+
+def natural_sort_key(text: str) -> list:
+    return [int(p) if p.isdigit() else p.lower() for p in re.split(r'(\d+)', text)]
+
+
+def format_deck_case_name(row: dict) -> str:
+    petitioner = (row.get("petitioner") or "").strip()
+    respondent = (row.get("respondent") or "").strip()
+    if petitioner and respondent:
+        return f"{petitioner} v. {respondent}"
+    return petitioner or respondent
+
+
+def clean_subset_name(name: str) -> str:
+    s = unescape(name or "")
+    s = decode_unicode_escapes(s)
+    s = s.replace("\\xa0", " ").replace("\\n", " ")
+    s = re.sub(r"\s+", " ", s).strip()
+
+    m = ARTICLE_SECTION_PAREN_RE.match(s)
+    if m:
+        base = re.sub(r"\s+", " ", m.group(1)).strip()
+        desc = title_case_phrase(m.group(2).strip())
+        s = f"{base}: {desc}"
+    else:
+        pm = PAREN_DESC_RE.match(s)
+        if pm:
+            base = pm.group(1).strip()
+            desc = title_case_phrase(pm.group(2).strip())
+            s = f"{base}: {desc}"
+
+    if "," in s and not re.match(r"^Article\b", s, flags=re.IGNORECASE):
+        s = s.split(",", 1)[0].strip()
+
+    return s
+
+
+def build_highlights(
+    term_cases: dict[str, list[dict]],
+    dry_run: bool = False,
+) -> tuple[int, int, list[str], list[str]]:
+    rows = list(csv.DictReader(HIGHLIGHTS_CSV_PATH.open(encoding="utf-8", newline="")))
+    cases_cache: dict[str, list[tuple[str, list[dict]]]] = {}
+    groups: dict[str, list[dict]] = defaultdict(list)
+    skipped: list[str] = []
+    unmatched: list[str] = []
+
+    for row in rows:
+        case_name = format_deck_case_name(row)
+        legal_basis_raw = (row.get("legalBasis") or "").strip()
+        if not legal_basis_raw:
+            legal_basis = "Other"
+        else:
+            legal_basis = clean_subset_name(legal_basis_raw)
+
+        term_str = (row.get("term") or "").strip()
+        year = extract_year(term_str)
+        if not year:
+            skipped.append(
+                f"Row {row.get('index', '?')}: {case_name} - invalid term '{term_str}'"
+            )
+            continue
+
+        case_lists = load_cases_for_year(year, term_cases, cases_cache)
+        if not case_lists:
+            skipped.append(
+                f"Row {row.get('index', '?')}: {case_name} ({year}) - no local term cases"
+            )
+            continue
+
+        matched = None
+        matched_term = ""
+        for term_yyyymm, cases in case_lists:
+            candidate = find_case_in_term_list(cases, row)
+            if candidate:
+                matched = candidate
+                matched_term = term_yyyymm
+                break
+
+        if not matched:
+            detail = (
+                f"Row {row.get('index', '?')}: {case_name} "
+                f"({year}, docket={row.get('docket','')!r}, scdb={row.get('scdb','')!r})"
+            )
+            skipped.append(detail)
+            unmatched.append(detail)
+            continue
+
+        alt_title = (row.get("altTitle") or "").strip()
+        if alt_title:
+            title = alt_title
+        else:
+            title = case_name
+        title = title.replace("\\\\", " ")
+
+        case_obj: dict = {
+            "title": title,
+            "term": matched_term,
+        }
+
+        docket_norm = normalize_docket((row.get("docket") or "").strip())
+        if docket_norm:
+            case_obj["number"] = docket_norm
+
+        argued = first_date((row.get("argued") or "").strip())
+        if argued:
+            case_obj["argument"] = argued
+
+        decided = first_date((row.get("decided") or "").strip())
+        if decided:
+            case_obj["decision"] = decided
+
+        audio_idx = audio_index(matched, require_audio_href=True)
+        if audio_idx is not None:
+            case_obj["audio"] = audio_idx
+
+        if matched.get("files"):
+            case_obj["files"] = matched["files"]
+
+        groups[legal_basis].append(case_obj)
+
+    output = [{"name": basis, "cases": cases_list} for basis, cases_list in sorted(groups.items(), key=lambda kv: natural_sort_key(kv[0]))]
+    total_cases = sum(len(g["cases"]) for g in output)
+
+    if not dry_run:
+        HIGHLIGHTS_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        HIGHLIGHTS_OUT_PATH.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    return len(output), total_cases, skipped, unmatched
 
 
 def build_brief_archive(
@@ -722,7 +946,7 @@ def build_brief_archive(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build USSC transcript and brief set archives")
+    parser = argparse.ArgumentParser(description="Build USSC transcript, brief, and highlights set archives")
     parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -794,6 +1018,12 @@ def main() -> None:
     )
     changed_terms |= brief_changed
 
+    # Build highlights archive from deck CSV.
+    highlights_groups, highlights_cases, highlights_skipped, highlights_unmatched = build_highlights(
+        term_cases,
+        dry_run=dry_run,
+    )
+
     if not dry_run:
         for term in sorted(changed_terms):
             path = term_paths.get(term)
@@ -823,6 +1053,19 @@ def main() -> None:
     if brief_unmatched:
         print("Unmatched brief source case(s):")
         for detail in brief_unmatched:
+            print("  " + detail)
+
+    if dry_run:
+        print(f"\nHighlights: built {highlights_groups} subset(s) with {highlights_cases} case(s)")
+        print(f"[dry-run] Would write {HIGHLIGHTS_OUT_PATH.relative_to(ROOT)}")
+    else:
+        print(f"\nHighlights: built {highlights_groups} subset(s) with {highlights_cases} case(s)")
+        print(f"Wrote {HIGHLIGHTS_OUT_PATH.relative_to(ROOT)}")
+    if highlights_skipped:
+        print(f"Skipped {len(highlights_skipped)} highlight row(s)")
+    if highlights_unmatched:
+        print("Unmatched highlight case(s):")
+        for detail in highlights_unmatched:
             print("  " + detail)
 
     if skipped:
