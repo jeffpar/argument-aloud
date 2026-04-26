@@ -1421,7 +1421,7 @@ async function loadHighlight(highlight) {
   }
 }
 
-function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
+function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categories) {
   const caseKey = caseRef.term + '/' + caseRef.number;
   const ci = document.createElement('li');
   ci.className = 'case-item';
@@ -1445,7 +1445,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
     if (_caseEntryCache) return _caseEntryCache;
     const cases = await fetchTermCases(caseRef.term);
     _caseEntryCache = cases.find(c => c.number === caseRef.number ||
-      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number))) ?? null;
+      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)) ||
+      (!c.number && c.id === caseRef.number)) ?? null;
     return _caseEntryCache;
   }
 
@@ -1551,57 +1552,69 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       });
     }
 
-    const TYPE_LABELS = {
-      petitioner: 'Petitioner',
-      respondent: 'Respondent',
-      amicus:     'Amicus',
-      other:      'Other',
-      reference:  'References',
-    };
-    const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference'];
-    const MERGE_AMICUS_OTHER = true;
+    // Allowed category labels and their render order.
+    const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'Other', 'References'];
+    // Default categories when the collection doesn't specify any.
+    const DEFAULT_CATS = ['Petitioner', 'Respondent', 'Other'];
+    const activeCats = (Array.isArray(categories) && categories.length)
+      ? categories : DEFAULT_CATS;
+    const activeCatSet = new Set(activeCats);
+
+    // Map a file to the best available active category label.
+    function resolveCategory(f) {
+      let sem = (f.type || '').toLowerCase();
+      if (sem === 'appellant' || sem === 'appellants') sem = 'petitioner';
+      else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
+      if (!sem) {
+        // Infer from title when type is absent.
+        const t = (f.title || '').toLowerCase();
+        if (/\bappellants?\b|\bpetitioners?\b/.test(t)) sem = 'petitioner';
+        else if (/\bappellees?\b|\brespondents?\b|\bfor the (united states|government|solicitor general)\b/.test(t)) sem = 'respondent';
+        else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) sem = 'amicus';
+        else if ((f.title || '').startsWith('Transcript of ')) sem = 'transcript';
+        else sem = 'other';
+      }
+      // Preference order per semantic type → category label.
+      const prefs = {
+        petitioner: ['Petitioner', 'Briefs', 'Other'],
+        respondent: ['Respondent', 'Briefs', 'Other'],
+        amicus:     ['Amicus', 'Briefs', 'Other'],
+        brief:      ['Briefs', 'Other'],
+        transcript: ['Transcripts', 'Other'],
+        other:      ['Other'],
+      };
+      const candidates = prefs[sem] || ['Other'];
+      for (const c of candidates) {
+        if (activeCatSet.has(c)) return c;
+      }
+      return activeCats[0];
+    }
 
     const groups = {};
     rawFiles.forEach(f => {
-      let key = (f.type || '').toLowerCase();
-      if (key === 'appellant' || key === 'appellants') key = 'petitioner';
-      else if (key === 'appellee' || key === 'appellees') key = 'respondent';
-      if (!key) {
-        // Infer from title when type is absent
-        const t = (f.title || '').toLowerCase();
-        if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
-        else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
-        else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
-        else key = 'other';
-      }
+      const key = resolveCategory(f);
       if (!groups[key]) groups[key] = [];
       groups[key].push(f);
     });
-    ORDER.forEach(k => {
-      if (!groups[k]) return;
-      if (k === 'reference') {
-        groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+
+    // Sort within each group.
+    activeCats.forEach(label => {
+      if (!groups[label]) return;
+      if (label === 'References') {
+        groups[label].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
       } else {
-        groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+        groups[label].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
       }
     });
 
-    if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
-      groups.other = [...(groups.amicus || []), ...(groups.other || [])];
-      delete groups.amicus;
-    }
-
-    if (groups.transcript?.length) {
-      groups.other = [...(groups.other || []), ...groups.transcript];
-      delete groups.transcript;
-    }
-
-    const effectiveOrder = MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER;
+    const totalFiles = rawFiles.length;
+    const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
 
     effectiveOrder.forEach(typeKey => {
       if (!groups[typeKey] || !groups[typeKey].length) return;
 
-      const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
+      // Suppress the group header when there is only one file in the entire list.
+      const isSoloOther = totalFiles === 1;
 
       function makeFileItem(f) {
         const fi = document.createElement('li');
@@ -1649,7 +1662,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId) {
       typeHeader.className = 'file-type-header';
 
       const typeLabel = document.createElement('span');
-      typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+      typeLabel.textContent = typeKey;
 
       const typeTog = document.createElement('span');
       typeTog.className = 'file-type-toggle';
@@ -1795,7 +1808,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
             groupUl.appendChild(_buildHighlightItem(hl, hlIdx));
           }
           for (const caseRef of advocateCases) {
-            groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id));
+            groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
           }
         }
       } catch (err) {
@@ -1821,7 +1834,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     // For non-split format: populate cases immediately from embedded cases array.
     if (!group.id) {
       for (const caseRef of group.cases || []) {
-        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber));
+        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, undefined, collEntry.categories));
       }
     }
 
