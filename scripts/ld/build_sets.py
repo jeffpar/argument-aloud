@@ -795,6 +795,17 @@ def build_highlights(
             title = case_name
         title = title.replace("\\\\", " ")
 
+        _decided_raw = first_date((row.get("decided") or "").strip())
+        _dec_case = matched.get("decision", "") or ""
+        _dec_date_case = matched.get("dateDecision", "") or ""
+        _decision_year = (
+            _decided_raw[:4]
+            or _dec_case[:4]
+            or (_dec_date_case[-4:] if _dec_date_case else "")
+        )
+        if _decision_year:
+            title = f"{title} ({_decision_year})"
+
         case_obj: dict = {
             "title": title,
             "term": matched_term,
@@ -974,8 +985,13 @@ def main() -> None:
             skipped.append(src)
             continue
 
+        _dec = case.get("decision", "") or ""
+        _dec_date = case.get("dateDecision", "") or ""
+        decision_year = _dec[:4] if _dec else (_dec_date[-4:] if _dec_date else "")
+        base_title = case.get("title", "")
+        case_title = f"{base_title} ({decision_year})" if decision_year else base_title
         entry: dict = {
-            "title": case.get("title", ""),
+            "title": case_title,
             "term": src.term,
             "number": case.get("number") or case.get("id") or "",
             "argument": case.get("argument", ""),
