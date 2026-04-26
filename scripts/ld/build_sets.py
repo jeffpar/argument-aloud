@@ -10,6 +10,7 @@ Output:
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import urllib.request
@@ -596,10 +597,21 @@ def case_folder_name(case: dict) -> str:
     return base.split(",", 1)[0].strip()
 
 
+def audio_index(case: dict) -> int | None:
+    """Return the 1-based index of the first audio entry whose date matches
+    the case's argument or reargument date, or None if no match is found."""
+    dates = {d for d in (case.get("argument"), case.get("reargument")) if d}
+    for i, ev in enumerate(case.get("audio") or [], start=1):
+        if ev.get("date") in dates:
+            return i
+    return None
+
+
 def build_brief_archive(
     term_cases: dict[str, list[dict]],
     term_paths: dict[str, Path],
-) -> tuple[int, int, int, set[str]]:
+    dry_run: bool = False,
+) -> tuple[int, int, int, set[str], list[str]]:
     """Build brief_archive.json, create files.json files, and update cases.
 
     Existing entries in briefs.json are preserved unchanged.
@@ -624,6 +636,7 @@ def build_brief_archive(
     cases_matched = 0
     skipped_count = 0
     changed_terms: set[str] = set()
+    unmatched_cases: list[str] = []
 
     for src in source_cases:
         title = f"{src.name} ({src.year})" if src.year else src.name
@@ -634,12 +647,14 @@ def build_brief_archive(
         if not term:
             print(f"  [briefs] No term hint for {src.name} ({src.us_cite})")
             skipped_count += 1
+            unmatched_cases.append(f"{src.name} ({src.us_cite}) [no term hint]")
             continue
 
         case = find_case_in_term_by_us_cite(src.us_cite, term, term_cases)
         if not case:
             print(f"  [briefs] No match for {src.name} ({src.us_cite}) in term {term}")
             skipped_count += 1
+            unmatched_cases.append(f"{term}: {src.name} ({src.us_cite})")
             continue
 
         cases_matched += 1
@@ -656,6 +671,11 @@ def build_brief_archive(
                 set_case["reargument"] = case["reargument"]
             if "decision" in case:
                 set_case["decision"] = case["decision"]
+            if case.get("files"):
+                set_case["files"] = case["files"]
+            audio_idx = audio_index(case)
+            if audio_idx is not None:
+                set_case["audio"] = audio_idx
             new_set_cases.append(set_case)
 
         folder = case_folder_name(case)
@@ -670,28 +690,51 @@ def build_brief_archive(
                     print(f"  [briefs] Failed to fetch {src.detail_url}: {exc}")
                     files = []
                 if files:
-                    cases_dir.mkdir(parents=True, exist_ok=True)
-                    files_path.write_text(
-                        json.dumps(files, indent=2, ensure_ascii=False) + "\n",
-                        encoding="utf-8",
-                    )
+                    if not dry_run:
+                        cases_dir.mkdir(parents=True, exist_ok=True)
+                        files_path.write_text(
+                            json.dumps(files, indent=2, ensure_ascii=False) + "\n",
+                            encoding="utf-8",
+                        )
                     files_written += 1
                     case["files"] = len(files)
                     changed_terms.add(term)
+            elif case.get("files") is None:
+                # files.json already exists from a prior run; sync the count.
+                try:
+                    existing_files = json.loads(files_path.read_text(encoding="utf-8"))
+                    case["files"] = len(existing_files)
+                    changed_terms.add(term)
+                except Exception:
+                    pass
 
     # Merge existing entries with new ones and write.
     all_set_cases = existing_set_cases + new_set_cases
     output = [{"name": BRIEF_SET_NAME, "cases": all_set_cases}]
-    BRIEF_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    BRIEF_OUT_PATH.write_text(
-        json.dumps(output, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    if not dry_run:
+        BRIEF_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        BRIEF_OUT_PATH.write_text(
+            json.dumps(output, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
 
-    return cases_matched, files_written, skipped_count, changed_terms
+    return cases_matched, files_written, skipped_count, changed_terms, unmatched_cases
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Build USSC transcript and brief set archives")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Compute and report changes without writing any files",
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
+    args = parse_args()
+    dry_run = args.dry_run
+
     source_cases = fetch_source_cases()
     term_cases, term_paths = load_term_cases()
 
@@ -716,6 +759,11 @@ def main() -> None:
         if case.get("reargument"):
             entry["reargument"] = case["reargument"]
         entry["decision"] = case.get("decision", "")
+        if case.get("files"):
+            entry["files"] = case["files"]
+        audio_idx = audio_index(case)
+        if audio_idx is not None:
+            entry["audio"] = audio_idx
         matched.append(entry)
 
         if maybe_add_ld_event(case, src):
@@ -734,30 +782,48 @@ def main() -> None:
         )
     )
 
-    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUT_PATH.write_text(json.dumps(build_output(matched), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if not dry_run:
+        OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        OUT_PATH.write_text(json.dumps(build_output(matched), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # Build brief archive.
-    brief_matched, brief_files, brief_skipped, brief_changed = build_brief_archive(term_cases, term_paths)
+    brief_matched, brief_files, brief_skipped, brief_changed, brief_unmatched = build_brief_archive(
+        term_cases,
+        term_paths,
+        dry_run=dry_run,
+    )
     changed_terms |= brief_changed
 
-    for term in sorted(changed_terms):
-        path = term_paths.get(term)
-        if not path:
-            continue
-        path.write_text(json.dumps(term_cases[term], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if not dry_run:
+        for term in sorted(changed_terms):
+            path = term_paths.get(term)
+            if not path:
+                continue
+            path.write_text(json.dumps(term_cases[term], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"Fetched {len(source_cases)} case listing(s) from {len(SOURCE_URLS)} source page(s)")
     print(f"Matched {len(matched)} case(s)")
-    print(f"Wrote {OUT_PATH.relative_to(ROOT)}")
-    print(f"Added {events_added} ld transcript event(s) across {len(changed_terms)} term file(s)")
+    if dry_run:
+        print(f"[dry-run] Would write {OUT_PATH.relative_to(ROOT)}")
+        print(f"[dry-run] Would add {events_added} ld transcript event(s) across {len(changed_terms)} term file(s)")
+    else:
+        print(f"Wrote {OUT_PATH.relative_to(ROOT)}")
+        print(f"Added {events_added} ld transcript event(s) across {len(changed_terms)} term file(s)")
     if events_skipped_no_arg:
         print(f"Skipped {events_skipped_no_arg} event(s) with no local argument date")
 
-    print(f"\nBrief archive: matched {brief_matched} case(s), wrote {brief_files} files.json file(s)")
-    print(f"Wrote {BRIEF_OUT_PATH.relative_to(ROOT)}")
+    if dry_run:
+        print(f"\nBrief archive: matched {brief_matched} case(s), would write {brief_files} files.json file(s)")
+        print(f"[dry-run] Would write {BRIEF_OUT_PATH.relative_to(ROOT)}")
+    else:
+        print(f"\nBrief archive: matched {brief_matched} case(s), wrote {brief_files} files.json file(s)")
+        print(f"Wrote {BRIEF_OUT_PATH.relative_to(ROOT)}")
     if brief_skipped:
         print(f"Skipped {brief_skipped} brief source case(s) with no local match")
+    if brief_unmatched:
+        print("Unmatched brief source case(s):")
+        for detail in brief_unmatched:
+            print("  " + detail)
 
     if skipped:
         print(f"\nSkipped {len(skipped)} transcript source case(s):")
