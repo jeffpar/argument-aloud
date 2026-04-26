@@ -430,6 +430,9 @@ def _build_justice_canonical_set() -> frozenset[str]:
 
 _JUSTICE_LAST_NAME_MAP: dict[str, str] = _build_justice_last_name_map()
 _JUSTICE_CANONICAL_SET: frozenset[str] = _build_justice_canonical_set()
+# Last-name tokens of all known justices; used to catch badly OCR'd justice
+# names that lack a title and would otherwise block redundancy detection.
+_JUSTICE_LAST_NAMES: frozenset[str] = frozenset(_JUSTICE_LAST_NAME_MAP.keys())
 
 
 def _load_speakers_section(section: str) -> dict[str, str]:
@@ -773,9 +776,109 @@ def _non_justice_speakers(transcript_path: Path) -> frozenset[tuple[str, str]]:
     )
 
 
+_FEMALE_TITLE_TOKENS = frozenset({'MS', 'MRS', 'MISS'})
+
+
 def _title_is_female(title: str) -> bool:
-    """Return True when the title signals a female advocate (MS./MRS./MISS)."""
-    return 'MS.' in title or 'MRS.' in title or 'MISS' in title
+    """Return True when title contains any female honorific token.
+
+    Matching is case-insensitive and tolerant of punctuation so variants like
+    ``MS``, ``MS.``, ``MRS`` and ``MRS.`` are treated equivalently.
+    """
+    tokens = re.findall(r'[A-Z]+', (title or '').upper())
+    return any(tok in _FEMALE_TITLE_TOKENS for tok in tokens)
+
+
+_SPEAKER_MATCH_SUFFIX_RE = re.compile(
+    r'^(.+?)(?:,\s*|\s+)(JR\.?|SR\.?|II|III|IV)\.?\s*$',
+    re.IGNORECASE,
+)
+
+
+def _speaker_name_match_keys(name: str) -> frozenset[str]:
+    """Return speaker-name keys used for transcript speaker matching.
+
+    Includes the exact normalized name and, when present, a variant with a
+    trailing generation suffix removed (JR./SR./II/III/IV).
+    """
+    base = ' '.join((name or '').split())
+    if not base:
+        return frozenset()
+    keys = {base}
+    m = _SPEAKER_MATCH_SUFFIX_RE.match(base)
+    if m:
+        stripped = m.group(1).strip().rstrip(',')
+        if stripped:
+            keys.add(stripped)
+    return frozenset(keys)
+
+
+def _levenshtein(a: str, b: str) -> int:
+    """Return the Levenshtein edit distance between strings *a* and *b*."""
+    if a == b:
+        return 0
+    if len(a) > len(b):
+        a, b = b, a
+    row = list(range(len(a) + 1))
+    for j, cb in enumerate(b, 1):
+        prev = j
+        for i, ca in enumerate(a, 1):
+            cur = row[i - 1] if ca == cb else 1 + min(row[i - 1], row[i], prev)
+            row[i - 1] = prev
+            prev = cur
+        row[len(a)] = prev
+    return row[len(a)]
+
+
+def _name_last_token(name: str) -> str:
+    """Return the last non-suffix alpha token from *name* (upper-cased).
+
+    Used for fuzzy last-name matching against short USSC speaker names.
+    e.g. 'JOHN MCDONALD' -> 'MCDONALD', 'JANE DOE, JR.' -> 'DOE'
+    """
+    tokens = re.findall(r'[A-Z]+', (name or '').upper())
+    while tokens and tokens[-1] in _SUFFIX_WORDS:
+        tokens.pop()
+    return tokens[-1] if tokens else ''
+
+
+def _is_likely_justice_name(name: str, title: str) -> bool:
+    """Return True when *name* looks like a badly OCR'd justice name.
+
+    Only fires for single-word, title-less speakers whose word is within
+    2 edits of a known justice's last name (e.g. 'REHNOJIST' → 'REHNQUIST').
+    Speakers with any title are clearly identified and are not candidates.
+    """
+    if title:
+        return False
+    tokens = re.findall(r'[A-Z]+', (name or '').upper())
+    if len(tokens) != 1:
+        return False
+    word = tokens[0]
+    return any(_levenshtein(word, last) <= 2 for last in _JUSTICE_LAST_NAMES)
+
+
+def _fuzzy_oyez_candidates(
+        name: str,
+        oyez_spk: frozenset[tuple[str, str]],
+) -> list[str]:
+    """Return oyez titles for speakers whose last name fuzzy-matches *name*.
+
+    *name* must be a 1- or 2-word USSC speaker name (suffix tokens excluded).
+    For 1-word names the word itself is the query; for 2-word names the two
+    words are concatenated (e.g. 'MC DONALD' -> 'MCDONALD').  Returns titles
+    of Oyez speakers whose last-name token is within 2 edits of the query.
+    """
+    name_tokens = re.findall(r'[A-Z]+', (name or '').upper())
+    while name_tokens and name_tokens[-1] in _SUFFIX_WORDS:
+        name_tokens.pop()
+    if len(name_tokens) not in (1, 2):
+        return []
+    query = ''.join(name_tokens)
+    return [
+        t for (n, t) in oyez_spk
+        if _levenshtein(query, _name_last_token(n)) <= 2
+    ]
 
 
 def _speakers_subset(
@@ -784,15 +887,27 @@ def _speakers_subset(
 ) -> bool:
     """Return True when every ussc speaker has a gender-compatible match in oyez.
 
-    Two entries for the same name are gender-compatible when they agree on
-    whether the speaker is female (title contains MS./MRS./MISS).  MR. and
-    no title are both treated as male/neutral and therefore match each other.
+    Three tiers of name matching are tried in order:
+    1. Exact / suffix-variant match (JR./SR./II/III/IV stripped).
+    2. Fuzzy last-name match: USSC name is 1 word (bare last name) or 2 words
+       that concatenate into a single token (e.g. 'MC DONALD' -> 'MCDONALD'),
+       and that token is within 2 edits of an Oyez speaker's last name.
+    Gender compatibility (MS./MRS./MISS vs MR./no-title) is enforced at every
+    tier.
     """
     oyez_by_name: dict[str, list[str]] = {}
     for name, title in oyez_spk:
-        oyez_by_name.setdefault(name, []).append(title)
+        for key in _speaker_name_match_keys(name):
+            oyez_by_name.setdefault(key, []).append(title)
     for name, title in ussc_spk:
-        candidates = oyez_by_name.get(name)
+        # Skip title-less single-word names that look like a misread justice.
+        if _is_likely_justice_name(name, title):
+            continue
+        candidates: list[str] = []
+        for key in _speaker_name_match_keys(name):
+            candidates.extend(oyez_by_name.get(key, []))
+        if not candidates:
+            candidates = _fuzzy_oyez_candidates(name, oyez_spk)
         if not candidates:
             return False
         ussc_female = _title_is_female(title)
@@ -2256,8 +2371,15 @@ def _compare_single_ussc_event(
         print(f'    [{title}] {name}' if title else f'    {name}')
     print('  ussc:')
     for name, title in sorted(ussc_spk):
-        # Check whether this speaker has a gender-compatible match in oyez.
-        candidates = [t for (n, t) in oyez_spk if n == name]
+        # Check whether this speaker has a gender-compatible match in oyez
+        # (exact, suffix-variant, or fuzzy last-name match).
+        ussc_keys = _speaker_name_match_keys(name)
+        candidates = [
+            t for (n, t) in oyez_spk
+            if _speaker_name_match_keys(n) & ussc_keys
+        ]
+        if not candidates:
+            candidates = _fuzzy_oyez_candidates(name, oyez_spk)
         matched = any(_title_is_female(t) == _title_is_female(title) for t in candidates)
         suffix = ' (matched)' if matched else ''
         print(f'    [{title}] {name}{suffix}' if title else f'    {name}{suffix}')
@@ -2787,6 +2909,7 @@ def main():
     ADD_CASES     = '--cases'     in sys.argv
     CHECK_URLS    = '--checkurls' in sys.argv
     PROMPT        = '--prompt'    in sys.argv
+    opinions_flag = '--opinions'  in sys.argv
 
     if len(args) < 1 or len(args) > 2:
         print(__doc__)
@@ -2885,11 +3008,14 @@ def main():
     extract_questions(cases_path)
 
     # Step 7: add/update opinion_href and usCite from slip opinions index
-    print('Updating opinion references ...')
-    backfill_opinion_hrefs(cases_path, term)
-    # URL liveness checks require --checkurls (slow, network-intensive).
-    if CHECK_URLS:
-        upgrade_dead_opinion_hrefs(cases_path)
+    if opinions_flag:
+        print('Updating opinion references ...')
+        backfill_opinion_hrefs(cases_path, term)
+        # URL liveness checks require --checkurls (slow, network-intensive).
+        if CHECK_URLS:
+            upgrade_dead_opinion_hrefs(cases_path)
+    else:
+        print('Skipping opinion reference checks (pass --opinions to enable).')
 
     # Sync files counts now that all files.json mutations are done
     sync_files_count(cases_path)
