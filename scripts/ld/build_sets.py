@@ -5,9 +5,9 @@ Usage:
     python3 scripts/ld/build_sets.py [--dry-run]
 
 Outputs:
-    courts/ussc/sets/transcripts.json
     courts/ussc/sets/briefs.json
-    courts/ussc/sets/highlights.json
+    courts/ussc/sets/significant.json
+    courts/ussc/sets/transcripts.json
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
 OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcripts.json"
 HIGHLIGHTS_CSV_PATH = ROOT / "data" / "ld" / "ussc_deck.csv"
-HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "highlights.json"
+HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "significant.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
     "https://lonedissent.org/transcripts/pre-1968",
@@ -957,7 +957,7 @@ def build_brief_archive(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build USSC transcript, brief, and highlights set archives")
+    parser = argparse.ArgumentParser(description="Build USSC transcripts, briefs, and significant set archives")
     parser.add_argument(
         "--dry-run",
         action="store_true",
