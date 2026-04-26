@@ -21,7 +21,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
 OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcript_archive.json"
 SOURCE_URLS = [
@@ -416,6 +416,281 @@ def maybe_add_ld_event(case: dict, src: SourceCase) -> bool:
     return True
 
 
+# ============================================================
+# Brief Archive (https://lonedissent.org/briefs/featured/)
+# ============================================================
+
+BRIEFS_SOURCE_URL = "https://lonedissent.org/briefs/featured/"
+BRIEF_SET_NAME = "Briefs (1857-1996)"
+BRIEF_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "brief_archive.json"
+
+TERM_FROM_URL_RE = re.compile(r"/cases/all/(\d{4}-\d{2})\b")
+YEAR_IN_PARENS_RE = re.compile(r"\((\d{4})\)")
+BRIEF_HOST_RE = re.compile(r"https?://briefs\d*\.lonedissent\.org/", re.IGNORECASE)
+
+
+@dataclass(frozen=True)
+class BriefSourceCase:
+    name: str
+    detail_url: str
+    us_cite: str
+    term_hint: str
+    year: str
+
+
+class LDBriefListParser(HTMLParser):
+    """Parse the Lone Dissent featured briefs listing page."""
+
+    def __init__(self, base_url: str = "") -> None:
+        super().__init__()
+        self.base_url = base_url
+        self.items: list[BriefSourceCase] = []
+        self.in_li = False
+        self.li_links: list[tuple[str, str]] = []
+        self.li_text_parts: list[str] = []
+        self.in_a = False
+        self.a_href = ""
+        self.a_parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attrs_dict = dict(attrs)
+        if tag == "li":
+            self.in_li = True
+            self.li_links = []
+            self.li_text_parts = []
+            return
+        if self.in_li and tag == "a":
+            self.in_a = True
+            self.a_parts = []
+            self.a_href = attrs_dict.get("href") or ""
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a" and self.in_a:
+            self.in_a = False
+            text = clean_link_text("".join(self.a_parts))
+            self.li_links.append((text, self.a_href))
+            self.a_href = ""
+            self.a_parts = []
+            return
+        if tag == "li" and self.in_li:
+            self.in_li = False
+            item = self._build_item()
+            if item:
+                self.items.append(item)
+
+    def handle_data(self, data: str) -> None:
+        if self.in_a:
+            self.a_parts.append(data)
+        elif self.in_li:
+            self.li_text_parts.append(data)
+
+    def _build_item(self) -> "BriefSourceCase | None":
+        if len(self.li_links) < 2:
+            return None
+        name_text, detail_href = self.li_links[0]
+        us_cite_text, cite_href = self.li_links[1]
+        if not name_text or not us_cite_text:
+            return None
+        # Require detail link to point at a brief page.
+        detail_href_str = detail_href or ""
+        if "/briefs/featured/" not in detail_href_str:
+            return None
+        term_hint = ""
+        m = TERM_FROM_URL_RE.search(cite_href or "")
+        if m:
+            term_hint = m.group(1)
+        full_text = "".join(self.li_text_parts)
+        year = ""
+        ym = YEAR_IN_PARENS_RE.search(full_text)
+        if ym:
+            year = ym.group(1)
+        detail_url = urljoin(self.base_url, detail_href_str) if detail_href_str else ""
+        return BriefSourceCase(
+            name=name_text,
+            detail_url=detail_url,
+            us_cite=us_cite_text,
+            term_hint=term_hint,
+            year=year,
+        )
+
+
+class LDBriefDetailParser(HTMLParser):
+    """Parse a Lone Dissent brief detail page to extract the file list."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.files: list[dict] = []
+        self.in_li = False
+        self.in_a = False
+        self.a_href = ""
+        self.a_parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attrs_dict = dict(attrs)
+        if tag == "li":
+            self.in_li = True
+            return
+        if self.in_li and tag == "a":
+            self.in_a = True
+            self.a_parts = []
+            self.a_href = attrs_dict.get("href") or ""
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a" and self.in_a:
+            self.in_a = False
+            text = clean_link_text("".join(self.a_parts))
+            href = (self.a_href or "").strip()
+            if text and href and BRIEF_HOST_RE.match(href):
+                self.files.append({"file": len(self.files) + 1, "title": text, "href": href, "type": "brief"})
+            self.a_href = ""
+            self.a_parts = []
+            return
+        if tag == "li" and self.in_li:
+            self.in_li = False
+
+    def handle_data(self, data: str) -> None:
+        if self.in_a:
+            self.a_parts.append(data)
+
+
+def fetch_brief_files(url: str) -> list[dict]:
+    """Fetch a brief detail page and return the list of file objects."""
+    with urllib.request.urlopen(url) as r:
+        html = r.read().decode("utf-8", errors="replace")
+    parser = LDBriefDetailParser()
+    parser.feed(html)
+    return parser.files
+
+
+def fetch_brief_source_cases() -> list[BriefSourceCase]:
+    """Fetch and deduplicate the featured briefs listing page."""
+    with urllib.request.urlopen(BRIEFS_SOURCE_URL) as r:
+        html = r.read().decode("utf-8", errors="replace")
+    parser = LDBriefListParser(BRIEFS_SOURCE_URL)
+    parser.feed(html)
+    seen: set[tuple[str, str]] = set()
+    result: list[BriefSourceCase] = []
+    for item in parser.items:
+        key = (normalize_title(item.name), item.us_cite)
+        if key not in seen:
+            seen.add(key)
+            result.append(item)
+    return result
+
+
+def find_case_in_term_by_us_cite(
+    us_cite: str,
+    term: str,
+    term_cases: dict[str, list[dict]],
+) -> "dict | None":
+    """Search a specific term's cases.json for a case with a matching usCite."""
+    for case in term_cases.get(term, []):
+        if (case.get("usCite") or "").strip() == us_cite:
+            return case
+    return None
+
+
+def case_folder_name(case: dict) -> str:
+    """Return the subfolder name to use for a case's files directory."""
+    base = (case.get("number") or case.get("id") or "").strip()
+    return base.split(",", 1)[0].strip()
+
+
+def build_brief_archive(
+    term_cases: dict[str, list[dict]],
+    term_paths: dict[str, Path],
+) -> tuple[int, int, int, set[str]]:
+    """Build brief_archive.json, create files.json files, and update cases.
+
+    Existing entries in brief_archive.json are preserved unchanged.
+    Existing files.json files are not overwritten.
+    """
+    source_cases = fetch_brief_source_cases()
+
+    # Load existing set entries so we don't overwrite them.
+    existing_titles: set[str] = set()
+    existing_set_cases: list[dict] = []
+    if BRIEF_OUT_PATH.exists():
+        try:
+            existing_data = json.loads(BRIEF_OUT_PATH.read_text(encoding="utf-8"))
+            if isinstance(existing_data, list) and existing_data:
+                existing_set_cases = existing_data[0].get("cases", [])
+                existing_titles = {c.get("title", "") for c in existing_set_cases}
+        except Exception:
+            pass
+
+    new_set_cases: list[dict] = []
+    files_written = 0
+    cases_matched = 0
+    skipped_count = 0
+    changed_terms: set[str] = set()
+
+    for src in source_cases:
+        title = f"{src.name} ({src.year})" if src.year else src.name
+
+        # Look in the term identified by the Lone Dissent URL (the term that
+        # encompasses the case's decision year).
+        term = src.term_hint
+        if not term:
+            print(f"  [briefs] No term hint for {src.name} ({src.us_cite})")
+            skipped_count += 1
+            continue
+
+        case = find_case_in_term_by_us_cite(src.us_cite, term, term_cases)
+        if not case:
+            print(f"  [briefs] No match for {src.name} ({src.us_cite}) in term {term}")
+            skipped_count += 1
+            continue
+
+        cases_matched += 1
+
+        # Only add new entries; preserve existing ones exactly as-is.
+        if title not in existing_titles:
+            set_case: dict = {"title": title, "term": term}
+            number_val = case.get("number") or case.get("id") or ""
+            if number_val:
+                set_case["number"] = number_val
+            if "argument" in case:
+                set_case["argument"] = case["argument"]
+            if case.get("reargument"):
+                set_case["reargument"] = case["reargument"]
+            if "decision" in case:
+                set_case["decision"] = case["decision"]
+            new_set_cases.append(set_case)
+
+        folder = case_folder_name(case)
+        if folder and src.detail_url:
+            cases_dir = TERMS_DIR / term / "cases" / folder
+            files_path = cases_dir / "files.json"
+            # Don't overwrite an existing files.json.
+            if not files_path.exists():
+                try:
+                    files = fetch_brief_files(src.detail_url)
+                except Exception as exc:
+                    print(f"  [briefs] Failed to fetch {src.detail_url}: {exc}")
+                    files = []
+                if files:
+                    cases_dir.mkdir(parents=True, exist_ok=True)
+                    files_path.write_text(
+                        json.dumps(files, indent=2, ensure_ascii=False) + "\n",
+                        encoding="utf-8",
+                    )
+                    files_written += 1
+                    case["files"] = len(files)
+                    changed_terms.add(term)
+
+    # Merge existing entries with new ones and write.
+    all_set_cases = existing_set_cases + new_set_cases
+    output = [{"name": BRIEF_SET_NAME, "cases": all_set_cases}]
+    BRIEF_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    BRIEF_OUT_PATH.write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    return cases_matched, files_written, skipped_count, changed_terms
+
+
 def main() -> None:
     source_cases = fetch_source_cases()
     term_cases, term_paths = load_term_cases()
@@ -432,15 +707,16 @@ def main() -> None:
             skipped.append(src)
             continue
 
-        matched.append(
-            {
-                "title": case.get("title", ""),
-                "term": src.term,
-                "number": case.get("number", ""),
-                "argument": case.get("argument", ""),
-                "decision": case.get("decision", ""),
-            }
-        )
+        entry: dict = {
+            "title": case.get("title", ""),
+            "term": src.term,
+            "number": case.get("number") or case.get("id") or "",
+            "argument": case.get("argument", ""),
+        }
+        if case.get("reargument"):
+            entry["reargument"] = case["reargument"]
+        entry["decision"] = case.get("decision", "")
+        matched.append(entry)
 
         if maybe_add_ld_event(case, src):
             events_added += 1
@@ -461,6 +737,10 @@ def main() -> None:
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(build_output(matched), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    # Build brief archive.
+    brief_matched, brief_files, brief_skipped, brief_changed = build_brief_archive(term_cases, term_paths)
+    changed_terms |= brief_changed
+
     for term in sorted(changed_terms):
         path = term_paths.get(term)
         if not path:
@@ -474,8 +754,13 @@ def main() -> None:
     if events_skipped_no_arg:
         print(f"Skipped {events_skipped_no_arg} event(s) with no local argument date")
 
+    print(f"\nBrief archive: matched {brief_matched} case(s), wrote {brief_files} files.json file(s)")
+    print(f"Wrote {BRIEF_OUT_PATH.relative_to(ROOT)}")
+    if brief_skipped:
+        print(f"Skipped {brief_skipped} brief source case(s) with no local match")
+
     if skipped:
-        print(f"\nSkipped {len(skipped)} source case(s):")
+        print(f"\nSkipped {len(skipped)} transcript source case(s):")
         for src in skipped:
             detail = f"{src.term}: {src.title}"
             if src.scdb_id:
