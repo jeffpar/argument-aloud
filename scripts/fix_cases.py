@@ -5,8 +5,9 @@ Checks and fixes performed:
   - Duplicate docket numbers: cases whose comma-separated "number" fields share
     an individual docket number within the same term.
   - Key ordering: reorders keys in every case object and every event object
-    within it to match the canonical order.  Unknown case keys are reported
-    during --dry-run so they can be assigned a position.
+        within it to match the canonical order (including optional event-level
+        "view" as the final event key).  Unknown case keys are reported during
+        --dry-run so they can be assigned a position.
   - Bare text_href filenames: rewrites each audio entry's text_href from a bare
     filename (e.g. "2006-11-08-oyez.json") to a folder-relative path
     (e.g. "05-380/2006-11-08-oyez.json").
