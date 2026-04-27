@@ -16,6 +16,7 @@ CASE_KEY_ORDER: list[str] = [
     'volume', 'page', 'usCite', 'dateDecision',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'files',
+    'notes',
 ]
 
 # Canonical property order for an event object inside a case.
@@ -24,6 +25,7 @@ EVENT_KEY_ORDER: list[str] = [
     'audio_href', 'offset', 'transcript_href', 'text_href',
     'advocates', 'aligned', 'redundant', 'unique', 'note', 'view',
     'journal_href',
+    'notes',
 ]
 
 # Canonical property order for an advocate object inside event.advocates.

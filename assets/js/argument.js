@@ -1894,8 +1894,14 @@ async function loadAudioEntry(arg, basePath) {
 
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
 
-    const resolvedAudioUrl = (isEnvelope && transcriptData.media?.url) || audioUrl;
-    audio.src = resolvedAudioUrl;
+    // Always prefer the event's audio_href; fall back to media.url in the
+    // transcript envelope only when the event has no audio_href of its own.
+    const resolvedAudioUrl = audioUrl || (isEnvelope && transcriptData.media?.url) || null;
+    if (resolvedAudioUrl) {
+      audio.src = resolvedAudioUrl;
+    } else {
+      audio.removeAttribute('src');
+    }
     audio.load();
 
     // If the entry has an offset (e.g. NARA files covering multiple cases),
@@ -2065,13 +2071,29 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     // Supplement with entries from other sources whose (date, type) pair is
     // not already covered by the best source (e.g. a NARA opinion announcement
     // on a date where the best source only has an argument entry).
-    const covered = new Set(best.map(a => `${a.date ?? ''}|${a.type ?? ''}`));
+    const keyOf = a => `${a.date ?? ''}|${a.type ?? ''}`;
+    const covered = new Set(best.map(keyOf));
+    const coveredEntryByKey = new Map(best.map(a => [keyOf(a), a]));
     for (const [src, { entries }] of sourceGroups) {
       if (src === bestSource) continue;
       for (const a of entries) {
-        if (!covered.has(`${a.date ?? ''}|${a.type ?? ''}`)) {
+        const k = keyOf(a);
+        if (!covered.has(k)) {
           best.push(a);
-          covered.add(`${a.date ?? ''}|${a.type ?? ''}`);
+          covered.add(k);
+          coveredEntryByKey.set(k, a);
+          continue;
+        }
+
+        // If the existing covered entry for this (date,type) is transcript-only,
+        // prefer a playable replacement from another source (e.g. NARA).
+        const existing = coveredEntryByKey.get(k);
+        const existingHasAudio = !!existing?.audio_href;
+        const candidateHasAudio = !!a.audio_href;
+        if (!existingHasAudio && candidateHasAudio) {
+          const idx = best.indexOf(existing);
+          if (idx !== -1) best[idx] = a;
+          coveredEntryByKey.set(k, a);
         }
       }
     }
