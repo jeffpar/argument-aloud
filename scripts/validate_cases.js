@@ -1343,6 +1343,46 @@ function warnMissingOpinionHref(casesPath, term) {
     }
 }
 
+// Remove redundant `volume`/`page` properties when they match the first/second
+// numbers of `usCite` (e.g. usCite "584 U.S. 1" with volume "584" and page "1").
+// Verbose mode reports any discrepancies between volume/page and usCite numbers.
+function pruneRedundantCitation(casesPath, term, caseFilter = '') {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let modified = false;
+    for (const c of data) {
+        if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
+        const usCite = c.usCite || '';
+        if (!usCite) continue;
+        const nums = usCite.match(/\d+/g);
+        if (!nums || nums.length < 2) continue;
+        const citeVol  = String(parseInt(nums[0], 10));
+        const citePage = String(parseInt(nums[1], 10));
+        const label    = c.number || c.id || '?';
+        const hasVol   = 'volume' in c;
+        const hasPage  = 'page'   in c;
+        const vol      = hasVol  ? String(parseInt(c.volume, 10)) : null;
+        const page     = hasPage ? String(parseInt(c.page,   10)) : null;
+        const volMatch  = hasVol  && vol  === citeVol;
+        const pageMatch = hasPage && page === citePage;
+        if (hasVol && !volMatch && _VERBOSE) {
+            console.log(` NOTICE: ${term}/${label}: volume='${c.volume}' but usCite='${usCite}' has volume ${citeVol}`);
+        }
+        if (hasPage && !pageMatch && _VERBOSE) {
+            console.log(` NOTICE: ${term}/${label}: page='${c.page}' but usCite='${usCite}' has page ${citePage}`);
+        }
+        if (volMatch || pageMatch) {
+            const verb = _DRY_RUN ? 'would remove' : 'removed';
+            const removed = [];
+            if (volMatch)  { removed.push(`volume='${c.volume}'`);  if (!_DRY_RUN) delete c.volume; }
+            if (pageMatch) { removed.push(`page='${c.page}'`);      if (!_DRY_RUN) delete c.page;   }
+            if (_VERBOSE) console.log(` NOTICE: ${term}/${label}: ${verb} redundant ${removed.join(', ')} (usCite='${usCite}')`);
+            if (!_DRY_RUN) modified = true;
+        }
+    }
+    if (modified) _writeJson(casesPath, data);
+}
+
 async function validateFilesJson(filesPath, caseDir, checkUrls, printHeader, opinionsOnly) {
     let data;
     try { data = JSON.parse(fs.readFileSync(filesPath, 'utf8')); } catch { return; }
@@ -2295,6 +2335,7 @@ async function processOneTerm(term, opts) {
         if (!dryRun) syncFilesCount(casesPath);
         syncOpinionHrefFromFiles(casesPath);
         warnMissingOpinionHref(casesPath, term);
+        pruneRedundantCitation(casesPath, term, caseFilter || '');
         if (checkUrls) await checkCaseHrefs(casesPath, term, opinionsOnly);
     }
 
