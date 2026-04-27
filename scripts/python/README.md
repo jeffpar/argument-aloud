@@ -27,11 +27,11 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-	python3 scripts/import_cases.py TERM
+	python3 import_cases.py TERM
 
 Examples:
-	python3 scripts/import_cases.py 2025-10
-	python3 scripts/import_cases.py 2024-10
+	python3 import_cases.py 2025-10
+	python3 import_cases.py 2024-10
 
 The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
 page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
@@ -103,13 +103,13 @@ Use --purge to clear all existing timestamps before aligning.
 Validate file entries for SCOTUS cases.
 
 Usage:
-	python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
+	python3 validate_cases.py TERM [CASE] [--checkurls]
 
 Examples:
-	python3 scripts/validate_cases.py 2025-10 24-1260
-	python3 scripts/validate_cases.py 2025-10
-	python3 scripts/validate_cases.py 2025-10 --checkurls
-	python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
+	python3 validate_cases.py 2025-10 24-1260
+	python3 validate_cases.py 2025-10
+	python3 validate_cases.py 2025-10 --checkurls
+	python3 validate_cases.py 2025-10 24-1260 --checkurls
 
 For each case's files.json:
   1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
@@ -124,7 +124,7 @@ For each case's files.json:
 ### Sample Runs
 
 ```
-python3 scripts/import_cases.py 2023-10
+python3 import_cases.py 2023-10
 Fetching https://www.supremecourt.gov/oral_arguments/argument_audio/2023 ...
 Found 60 case(s) on page.
 
@@ -449,7 +449,7 @@ Updated cases.json with questions.
 ```
 
 ```
-python3 scripts/import_oyez.py 2023-10
+python3 import_oyez.py 2023-10
 Fetching Oyez case list for 2023 term ...
   62 case(s) from Oyez
   60 case(s) in local cases.json
