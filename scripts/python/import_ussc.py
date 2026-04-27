@@ -391,33 +391,65 @@ def _normalize_name_suffix(name: str) -> str:
     return f'{base}, {suffix}'
 
 
-def _build_justice_last_name_map() -> dict[str, str]:
-    """Return {LAST_NAME_UPPER: canonical_name_upper} from justices.json.
+def _build_justice_last_name_map() -> dict[str, list[dict]]:
+    """Return {LAST_NAME_UPPER: [{canonical, dateStart, dateStop}, ...]} from justices.json.
 
     Indexes last-name tokens from both canonical names and their alternates so
     that typo'd forms (e.g. 'GORUSCH') resolve to the correct canonical name.
+    Multiple justices sharing a last name are stored as a list so date-aware
+    resolution can pick the right one (e.g. KETANJI BROWN JACKSON vs HOWELL JACKSON).
     """
     if not _JUSTICES_PATH.exists():
         return {}
     data: dict = json.loads(_JUSTICES_PATH.read_text(encoding='utf-8'))
-    result: dict[str, str] = {}
-    for canonical, entry in data.items():
-        u = canonical.upper()
-        words = u.split()
+    result: dict[str, list[dict]] = {}
+
+    def last_name_of(s: str) -> str:
+        words = s.upper().split()
         last = words[-1]
         if last in _SUFFIX_WORDS and len(words) > 1:
             last = words[-2]
-        result.setdefault(last, u)
-        # Also index the last-name token of each alternate so typo'd last names
-        # (e.g. 'GORUSCH', 'GINSBERG') resolve without a separate TYPO: entry.
+        return last
+
+    def add(last: str, canonical: str, date_start: str, date_stop: str) -> None:
+        result.setdefault(last, []).append({
+            'canonical': canonical,
+            'dateStart': date_start or '',
+            'dateStop':  date_stop  or '',
+        })
+
+    for canonical, entry in data.items():
+        u = canonical.upper()
+        last = last_name_of(canonical)
+        tenures = entry.get('tenures') or [{
+            'dateStart': entry.get('dateStart', ''),
+            'dateStop':  entry.get('dateStop',  ''),
+        }]
+        for t in tenures:
+            add(last, u, t.get('dateStart', ''), t.get('dateStop', ''))
         for alt in entry.get('alternates') or []:
-            a = alt.upper()
-            aw = a.split()
-            al = aw[-1]
-            if al in _SUFFIX_WORDS and len(aw) > 1:
-                al = aw[-2]
-            result.setdefault(al, u)
+            a_last = last_name_of(alt)
+            for t in tenures:
+                add(a_last, u, t.get('dateStart', ''), t.get('dateStop', ''))
     return result
+
+
+def _resolve_justice_for_date(last: str, date: str) -> str | None:
+    """Pick the canonical justice for `last` whose tenure includes `date` (YYYY-MM-DD).
+
+    Falls back to the first registered entry when no date is given or no
+    tenure matches (preserves prior behavior).
+    """
+    entries = _JUSTICE_LAST_NAME_MAP.get(last)
+    if not entries:
+        return None
+    if date:
+        for e in entries:
+            ok_start = (not e['dateStart']) or e['dateStart'] <= date
+            ok_stop  = (not e['dateStop'])  or date <= e['dateStop']
+            if ok_start and ok_stop:
+                return e['canonical']
+    return entries[0]['canonical']
 
 
 def _build_justice_canonical_set() -> frozenset[str]:
@@ -428,7 +460,7 @@ def _build_justice_canonical_set() -> frozenset[str]:
     return frozenset(c.upper() for c in data)
 
 
-_JUSTICE_LAST_NAME_MAP: dict[str, str] = _build_justice_last_name_map()
+_JUSTICE_LAST_NAME_MAP: dict[str, list[dict]] = _build_justice_last_name_map()
 _JUSTICE_CANONICAL_SET: frozenset[str] = _build_justice_canonical_set()
 # Last-name tokens of all known justices; used to catch badly OCR'd justice
 # names that lack a title and would otherwise block redundancy detection.
@@ -590,7 +622,8 @@ def parse_appearances(raw_text: str) -> dict[str, list[str]]:
 
 
 def _resolve_speaker(raw_name: str,
-                     appearances: dict[str, list[str]]) -> tuple[str, str]:
+                     appearances: dict[str, list[str]],
+                     arg_date: str = '') -> tuple[str, str]:
     """Map a raw transcript speaker token to (canonical_full_name, title).
 
     Justice names (CHIEF JUSTICE X / JUSTICE X) are looked up via
@@ -622,8 +655,9 @@ def _resolve_speaker(raw_name: str,
             last = words[-2].rstrip('.,')
         if title in ('CHIEF JUSTICE', 'JUSTICE'):
             # Only treat as a justice if the last name is in justices.json.
-            if last in _JUSTICE_LAST_NAME_MAP:
-                return _JUSTICE_LAST_NAME_MAP[last], title
+            resolved = _resolve_justice_for_date(last, arg_date)
+            if resolved:
+                return resolved, title
             # Check typos from speakers.json (e.g. 'JUSTICE GORUSCH').
             corrected = _TYPO_SPEAKER_MAP.get(raw_upper)
             if corrected:
@@ -634,8 +668,9 @@ def _resolve_speaker(raw_name: str,
                 c_last  = c_words[-1].rstrip('.,')
                 if c_last in _SUFFIX_WORDS and len(c_words) > 1:
                     c_last = c_words[-2].rstrip('.,')
-                if c_last in _JUSTICE_LAST_NAME_MAP:
-                    return _JUSTICE_LAST_NAME_MAP[c_last], c_title
+                c_resolved = _resolve_justice_for_date(c_last, arg_date)
+                if c_resolved:
+                    return c_resolved, c_title
                 return c_name, c_title
             # Not a real justice — fall back to advocate resolution.
             title = ''
@@ -935,6 +970,8 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     """
     # Pre-pass: build name-resolution tables.
     appearances  = parse_appearances(raw_text)
+    dm = re.match(r'^(\d{4}-\d{2}-\d{2})', output_path.name)
+    arg_date = dm.group(1) if dm else ''
 
     tokens = []
 
@@ -981,7 +1018,7 @@ def _parse_raw_text(raw_text: str, output_path: Path,
     for turn in turns:
         raw = turn['name']
         if raw not in raw_to_resolved:
-            name, title = _resolve_speaker(raw, appearances)
+            name, title = _resolve_speaker(raw, appearances, arg_date)
             name = ' '.join(name.upper().split())
             raw_to_resolved[raw] = (name, title)
 

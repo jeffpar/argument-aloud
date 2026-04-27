@@ -279,22 +279,46 @@ function _normalizeNameSuffix(name) {
 function _buildJusticeLastNameMap() {
     if (!exists(_JUSTICES_PATH)) return new Map();
     const data = readJson(_JUSTICES_PATH);
-    const result = new Map();
-    for (const [canonical, entry] of Object.entries(data)) {
-        const u = canonical.toUpperCase();
-        const words = u.split(/\s+/);
+    const result = new Map();   // last → [{canonical, dateStart, dateStop}]
+    const addEntry = (last, canonical, dateStart, dateStop) => {
+        if (!result.has(last)) result.set(last, []);
+        result.get(last).push({ canonical, dateStart: dateStart || '', dateStop: dateStop || '' });
+    };
+    const lastNameOf = (s) => {
+        const words = s.toUpperCase().split(/\s+/);
         let last = words[words.length - 1];
         if (_SUFFIX_WORDS.has(last) && words.length > 1) last = words[words.length - 2];
-        if (!result.has(last)) result.set(last, u);
+        return last;
+    };
+    for (const [canonical, entry] of Object.entries(data)) {
+        const u = canonical.toUpperCase();
+        const last = lastNameOf(canonical);
+        const tenures = Array.isArray(entry?.tenures) && entry.tenures.length
+            ? entry.tenures
+            : [{ dateStart: entry?.dateStart || '', dateStop: entry?.dateStop || '' }];
+        for (const t of tenures) addEntry(last, u, t.dateStart, t.dateStop);
         for (const alt of (entry?.alternates || [])) {
-            const a = alt.toUpperCase();
-            const aw = a.split(/\s+/);
-            let al = aw[aw.length - 1];
-            if (_SUFFIX_WORDS.has(al) && aw.length > 1) al = aw[aw.length - 2];
-            if (!result.has(al)) result.set(al, u);
+            const aLast = lastNameOf(alt);
+            for (const t of tenures) addEntry(aLast, u, t.dateStart, t.dateStop);
         }
     }
     return result;
+}
+
+// Pick the canonical justice name for `last` whose tenure includes `date`
+// (YYYY-MM-DD). If no date is given or no tenure matches, fall back to the
+// first registered entry (preserves prior behavior).
+function _resolveJusticeForDate(last, date) {
+    const entries = _JUSTICE_LAST_NAME_MAP.get(last);
+    if (!entries || !entries.length) return null;
+    if (date) {
+        for (const e of entries) {
+            const okStart = !e.dateStart || e.dateStart <= date;
+            const okStop  = !e.dateStop  || date <= e.dateStop;
+            if (okStart && okStop) return e.canonical;
+        }
+    }
+    return entries[0].canonical;
 }
 
 function _buildJusticeCanonicalSet() {
@@ -403,7 +427,7 @@ function parseAppearances(rawText) {
 
 const _RESOLVE_TITLE_RE = /^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)/;
 
-function _resolveSpeaker(rawName, appearances) {
+function _resolveSpeaker(rawName, appearances, argDate = '') {
     const rawUpper = rawName.toUpperCase().trim();
     if (rawUpper === 'QUESTION' || rawUpper === 'Q') return ['UNKNOWN JUSTICE', 'JUSTICE'];
     if (_JUSTICE_CANONICAL_SET.has(rawUpper)) return [rawUpper, 'JUSTICE'];
@@ -418,7 +442,8 @@ function _resolveSpeaker(rawName, appearances) {
             last = words[words.length - 2].replace(/[.,]+$/, '');
         }
         if (title === 'CHIEF JUSTICE' || title === 'JUSTICE') {
-            if (_JUSTICE_LAST_NAME_MAP.has(last)) return [_JUSTICE_LAST_NAME_MAP.get(last), title];
+            const resolved = _resolveJusticeForDate(last, argDate);
+            if (resolved) return [resolved, title];
             const corrected = _TYPO_SPEAKER_MAP.get(rawUpper);
             if (corrected) {
                 const cm = /^(CHIEF JUSTICE|JUSTICE)\s+(.+)/.exec(corrected);
@@ -429,7 +454,8 @@ function _resolveSpeaker(rawName, appearances) {
                 if (_SUFFIX_WORDS.has(cLast) && cWords.length > 1) {
                     cLast = cWords[cWords.length - 2].replace(/[.,]+$/, '');
                 }
-                if (_JUSTICE_LAST_NAME_MAP.has(cLast)) return [_JUSTICE_LAST_NAME_MAP.get(cLast), cTitle];
+                const cResolved = _resolveJusticeForDate(cLast, argDate);
+                if (cResolved) return [cResolved, cTitle];
                 return [cName, cTitle];
             }
             title = '';
@@ -635,6 +661,8 @@ function _pdfToText(pdfPath) {
 
 function _parseRawText(rawText, outputPath, audioHref = '', _term = '', existingSpeakers = null) {
     const appearances = parseAppearances(rawText);
+    const dm = path.basename(outputPath || '').match(/^(\d{4}-\d{2}-\d{2})/);
+    const argDate = dm ? dm[1] : '';
 
     const tokens = [];
     for (const line of rawText.split('\n')) {
@@ -672,7 +700,7 @@ function _parseRawText(rawText, outputPath, audioHref = '', _term = '', existing
     const rawToResolved = new Map();
     for (const turn of turns) {
         if (!rawToResolved.has(turn.name)) {
-            let [name, title] = _resolveSpeaker(turn.name, appearances);
+            let [name, title] = _resolveSpeaker(turn.name, appearances, argDate);
             name = name.toUpperCase().split(/\s+/).filter(Boolean).join(' ');
             rawToResolved.set(turn.name, [name, title]);
         }
