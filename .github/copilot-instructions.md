@@ -26,9 +26,8 @@ _includes/           Partials (arguments.html audit widget, collection.html)
 assets/js/           argument.js – ~2600-line vanilla JS SPA
 assets/css/          argument.css (SPA), document.css, style.scss
 courts/ussc/         Case/term data + HTML entry points
-data/courts/ussc/    Jekyll data directory (site.data.courts.ussc.*)
+data/                Jekyll data directory (site.data.*)
 scripts/             Python import/validation/alignment scripts
-sources/             Raw source files (not published)
 ```
 
 ## Data Conventions
@@ -39,59 +38,78 @@ sources/             Raw source files (not published)
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
 
 ### Case schema (in `cases.json`)
+Canonical key order is defined in `scripts/schema.py` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Use `reorder_case()` / `reorder_event()` when writing new objects.
 ```json
 {
+  "id": "2024-123",
   "title": "Case Name v. Other Party",
   "number": "24-1260",
+  "oyez": "https://www.oyez.org/cases/2024/24-1260",
   "questions": "Plain-text questions presented",
   "questions_href": "https://…/pdf",
-  "audio": [
+  "argument": "YYYY-MM-DD",
+  "reargument": "YYYY-MM-DD",
+  "decision": "YYYY-MM-DD",
+  "volume": "601",
+  "page": "1",
+  "usCite": "601 U.S. 1",
+  "dateDecision": "Weekday, Month D, YYYY",
+  "voteMajority": 6,
+  "voteMinority": 3,
+  "votes": [{"name": "JOHN ROBERTS", "vote": "majority"}],
+  "events": [
     {
       "source": "ussc|oyez|nara",
       "type": "argument|opinion|reargument",
       "date": "YYYY-MM-DD",
+      "title": "Oral Argument on Month D, YYYY",
       "audio_href": "https://…/mp3",
+      "offset": 0,
       "transcript_href": "https://…/pdf",
       "text_href": "YYYY-MM-DD.json",
-      "aligned": true
+      "advocates": [{"name": "LAST NAME", "title": "MR.", "role": "Petitioner"}],
+      "aligned": true,
+      "redundant": true
     }
   ],
-  "argument": "YYYY-MM-DD",
   "opinion_href": "https://…",
-  "dateDecision": "Month D, YYYY"
+  "files": 0
 }
 ```
 
-### Transcript envelope format (`courts/ussc/terms/YYYY-MM/CASE/YYYY-MM-DD.json`)
+### Transcript envelope format (`courts/ussc/terms/YYYY-MM/cases/CASE/YYYY-MM-DD.json`)
 ```json
 {
-  "media": { "url": "https://…/mp3", "speakers": [{ "name": "JUSTICE THOMAS" }] },
+  "media": { "url": "https://…/mp3", "speakers": [{ "name": "JOHN ROBERTS", "title": "CHIEF JUSTICE" }] },
   "turns": [
-    { "turn": 0, "name": "CHIEF JUSTICE ROBERTS", "text": "…", "time": "00:00:05.12" }
+    { "turn": 1, "name": "JOHN ROBERTS", "text": "…", "time": "00:00:05.12" }
   ]
 }
 ```
 - `time` is `HH:MM:SS.FF` (frame-based, `.FF` treated as decimal seconds in JS)
-- Speaker names are ALL CAPS with role prefix: `CHIEF JUSTICE`, `JUSTICE`, `GENERAL` (AG), `MR.`/`MS.`
+- Speaker `name` is ALL CAPS last name (or full name); `title` is role: `CHIEF JUSTICE`, `JUSTICE`, `GENERAL` (AG), `MR.`, `MS.`
+- `turn` is 1-based
 
 ### Collections (`courts/ussc/collections.json`)
-Array of `{ title, collection (path to JSON), sort? }` — pre-built advocate/justice collections.
+Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, categories? }` — pre-built advocate/justice and curated collections.
 
 ## Key Scripts
 
 | Script | Purpose | Usage |
 |---|---|---|
-| `import_cases.py` | Scrape SCOTUS listing, extract PDF transcripts | `python3 scripts/import_cases.py 2025-10` |
+| `import_ussc.py` | Scrape SCOTUS listing, extract PDF transcripts | `python3 scripts/import_ussc.py 2025-10` |
 | `validate_cases.py` | Validate URLs, sync metadata, detect new opinions | `python3 scripts/validate_cases.py 2025-10 [CASE] [--checkurls]` |
 | `align_transcript.py` | Sync transcript text with audio timing via Whisper | `python3 scripts/align_transcript.py 2025-10 24-1238` |
 | `update_advocates.py` | Rebuild advocate profiles from all terms | `python3 scripts/update_advocates.py` |
+| `update_transcripts.py` | Reprocess/reformat existing transcript JSON files | `python3 scripts/update_transcripts.py 2025-10` |
 | `import_oyez.py` | Fetch historical data from Oyez API | `python3 scripts/import_oyez.py` |
+| `schema.py` | Canonical key ordering helpers; import and call `reorder_case()` / `reorder_event()` | (library, not run directly) |
 
 **Dependencies:** `pdftotext` (poppler-utils via Homebrew), `pip install faster-whisper rapidfuzz`, `brew install ffmpeg`
 
 ## Front-End (argument.js SPA)
 
-The main interactive page is a single-page app built with ~2600 lines of vanilla JS.
+The main interactive page is a single-page app built with ~3200 lines of vanilla JS.
 
 **Key patterns:**
 - `init()` — entry point; loads `terms.json` and `collections.json`, builds nav tree

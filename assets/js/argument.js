@@ -1730,7 +1730,12 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
 
     // Determine whether the resolved audio entry has playable audio.
     const resolvedAudioEntry = (audioIdx >= 1 ? sortedAudio[audioIdx - 1] : null) || sortedAudio[0] || null;
-    const hasPlayableAudio = !!(resolvedAudioEntry?.audio_href);
+    // When a specific event is requested (audioIdx >= 1), check only that entry.
+    // When using the default (audioIdx = 0), check whether any event has audio —
+    // the first-sorted entry may be a transcript-only placeholder for the same date.
+    const hasPlayableAudio = audioIdx >= 1
+      ? !!(resolvedAudioEntry?.audio_href)
+      : sortedAudio.some(a => a.audio_href);
 
     if (!fromRestore) {
       const entryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };

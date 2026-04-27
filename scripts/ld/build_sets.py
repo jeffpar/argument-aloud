@@ -5,9 +5,9 @@ Usage:
     python3 scripts/ld/build_sets.py [--dry-run]
 
 Outputs:
-    courts/ussc/sets/briefs.json
-    courts/ussc/sets/noteworthy.json
-    courts/ussc/sets/transcripts.json
+    courts/ussc/collections/briefs.json
+    courts/ussc/collections/noteworthy.json
+    courts/ussc/collections/transcripts.json
 """
 
 from __future__ import annotations
@@ -28,9 +28,9 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
-OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "transcripts.json"
+OUT_PATH = ROOT / "courts" / "ussc" / "collections" / "transcripts.json"
 HIGHLIGHTS_CSV_PATH = ROOT / "data" / "ld" / "ussc_deck.csv"
-HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "noteworthy.json"
+HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "collections" / "noteworthy.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
     "https://lonedissent.org/transcripts/pre-1968",
@@ -429,7 +429,7 @@ def maybe_add_ld_event(case: dict, src: SourceCase) -> bool:
 
 BRIEFS_SOURCE_URL = "https://lonedissent.org/briefs/featured/"
 BRIEF_SET_NAME = "Briefs (1857-1996)"
-BRIEF_OUT_PATH = ROOT / "courts" / "ussc" / "sets" / "briefs.json"
+BRIEF_OUT_PATH = ROOT / "courts" / "ussc" / "collections" / "briefs.json"
 
 TERM_FROM_URL_RE = re.compile(r"/cases/all/(\d{4}-\d{2})\b")
 YEAR_IN_PARENS_RE = re.compile(r"\((\d{4})\)")

@@ -8,7 +8,8 @@ webrick:
     Accept-Ranges: bytes
     Cache-Control: public, max-age=3600
 exclude:
-  - .history
+  - .github/
+  - .history/
   - Gemfile
   - Gemfile.lock
   - README.md
