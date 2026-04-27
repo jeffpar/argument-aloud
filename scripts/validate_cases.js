@@ -1,21 +1,35 @@
 /**
- * Subset of validate_cases.py ported to JavaScript — the helpers required by
- * import_ussc.js:
- *   - checkUrl(url)
- *   - waybackPdfUrl(pdfUrl, maxTs)
- *   - fetchOpinions(year2digit, checkUrls)
- *   - checkOpinionForCase(filesPath, caseNumber, term)
- *   - syncFilesCount(casesPath)
- *   - syncOpinionHrefFromFiles(casesPath)
+ * Validate file entries and case metadata for SCOTUS cases — and apply fixes
+ * (sorts, key reordering, refiled-case merging, etc.) unless --dry-run.
  *
- * This is NOT a full port of validate_cases.py — only the pieces import_ussc
- * imports are implemented.  The remaining functionality of validate_cases
- * remains in the original Python script for now.
+ * Usage:
+ *   node scripts/validate_cases.js TERM [CASE] [--checkurls] [--opinions] [--verbose] [--dry-run]
+ *
+ * Examples:
+ *   node scripts/validate_cases.js 2025-10
+ *   node scripts/validate_cases.js 2025-10 24-1260
+ *   node scripts/validate_cases.js 2025-10 --checkurls
+ *   node scripts/validate_cases.js 2025-10 --checkurls --opinions
+ *   node scripts/validate_cases.js 2025-10 --verbose
+ *   node scripts/validate_cases.js 2025-10 --dry-run
+ *
+ * Combines the logic of:
+ *   scripts/python/validate_cases.py
+ *   scripts/python/fix_cases.py
+ *
+ * Also exports helpers used by import_ussc.js / import_oyez.js:
+ *   - REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase
+ *   - syncFilesCount, syncOpinionHrefFromFiles, setVerbose
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import {
+    CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
+    reorderCase, reorderEvent,
+} from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT   = path.resolve(__dirname, '..');
@@ -24,6 +38,8 @@ export const SCOTUS_BASE = 'https://www.supremecourt.gov';
 const _OPINIONS_CACHE = new Map();   // `${year2}|${checkUrls}` -> opinions dict
 let _VERBOSE = false;
 export const setVerbose = (v) => { _VERBOSE = !!v; };
+let _DRY_RUN = false;
+export const setDryRun = (v) => { _DRY_RUN = !!v; };
 
 const _WAYBACK_CDX_URL   = 'https://web.archive.org/cdx/search/cdx';
 const _WAYBACK_PREFIX_RE = /\/web\/\d{14}\/https?:\/\/www\.supremecourt\.gov/g;
@@ -264,7 +280,28 @@ export async function fetchOpinions(year2digit, checkUrls = false) {
 // ── files.json updates ──────────────────────────────────────────────────────
 
 function _writeJson(p, data) {
+    if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, p)}`); return; }
     fs.writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8');
+}
+
+function _writeFileSync(p, data) {
+    if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, p)}`); return; }
+    fs.writeFileSync(p, data);
+}
+
+function _unlinkSync(p) {
+    if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would delete ${path.relative(REPO_ROOT, p)}`); return; }
+    fs.unlinkSync(p);
+}
+
+function _mkdirSync(p, opts) {
+    if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would mkdir ${path.relative(REPO_ROOT, p)}`); return; }
+    fs.mkdirSync(p, opts);
+}
+
+function _renameSync(src, dst) {
+    if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would rename ${path.relative(REPO_ROOT, src)} -> ${path.relative(REPO_ROOT, dst)}`); return; }
+    fs.renameSync(src, dst);
 }
 
 function _readJson(p) {
@@ -378,3 +415,2032 @@ export function syncOpinionHrefFromFiles(casesPath) {
 
     if (modified) _writeJson(casesPath, data);
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Common small helpers
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _MONTHS = ['January','February','March','April','May','June',
+                 'July','August','September','October','November','December'];
+const _DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+const _DATE_DEC_PARSE_RE = new RegExp(
+    '^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+'
+  + '(January|February|March|April|May|June|July|August|September|'
+  + 'October|November|December)\\s+(\\d{1,2}),\\s+(\\d{4})$'
+);
+
+const TERMS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
+const TERMS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+function isDir(p) {
+    try { return fs.statSync(p).isDirectory(); } catch { return false; }
+}
+
+function isFile(p) {
+    try { return fs.statSync(p).isFile(); } catch { return false; }
+}
+
+function listDir(p) {
+    try { return fs.readdirSync(p).sort(); } catch { return []; }
+}
+
+// Sort strings lexicographically (stable, locale-independent).
+function _sortStr(arr) {
+    return [...arr].sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
+}
+
+function _splitNumbers(raw) {
+    return String(raw || '').split(',').map(s => s.trim()).filter(Boolean);
+}
+
+function _parseDateField(value) {
+    return String(value || '').split(',').map(d => d.trim()).filter(Boolean);
+}
+
+function _joinDates(dates) {
+    return dates.join(',');
+}
+
+function _renameKey(obj, oldKey, newKey) {
+    const items = Object.entries(obj);
+    const idx = items.findIndex(([k]) => k === oldKey);
+    if (idx < 0) return;
+    items[idx] = [newKey, items[idx][1]];
+    for (const k of Object.keys(obj)) delete obj[k];
+    for (const [k, v] of items) obj[k] = v;
+}
+
+function _insertKeyBefore(c, newKey, newVal, before) {
+    const out = {};
+    let inserted = false;
+    for (const [k, v] of Object.entries(c)) {
+        if (k === before && !inserted) { out[newKey] = newVal; inserted = true; }
+        out[k] = v;
+    }
+    if (!inserted) out[newKey] = newVal;
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, out);
+}
+
+function _isCurrentTerm(term) {
+    try {
+        const [ys, ms] = term.split('-');
+        const year = parseInt(ys, 10), month = parseInt(ms, 10);
+        const now = new Date();
+        const start = new Date(year,     month - 1, 1);
+        const end   = new Date(year + 1, month - 1, 1);
+        return now >= start && now < end;
+    } catch { return false; }
+}
+
+function _parseTermArg(s) {
+    s = String(s || '').trim();
+    if (/^\d{4}$/.test(s)) return `${s}-10`;
+    if (/^\d{4}-\d{2}$/.test(s)) return s;
+    throw new Error(`Expected YYYY or YYYY-MM, got '${s}'`);
+}
+
+// ── Date helpers ──────────────────────────────────────────────────────────
+
+function _isoToDateDecision(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
+    if (!m) return null;
+    const year = +m[1], month = +m[2], day = +m[3];
+    const d = new Date(Date.UTC(year, month - 1, day));
+    if (Number.isNaN(d.getTime())
+            || d.getUTCFullYear() !== year
+            || d.getUTCMonth()    !== month - 1
+            || d.getUTCDate()     !== day) return null;
+    return `${_DAYS[d.getUTCDay()]}, ${_MONTHS[month - 1]} ${day}, ${year}`;
+}
+
+function _dateDecisionToIso(s) {
+    const m = _DATE_DEC_PARSE_RE.exec(String(s || '').trim());
+    if (!m) return null;
+    const monthIdx = _MONTHS.indexOf(m[1]);
+    if (monthIdx < 0) return null;
+    const day = +m[2], year = +m[3];
+    const d = new Date(Date.UTC(year, monthIdx, day));
+    if (Number.isNaN(d.getTime())
+            || d.getUTCFullYear() !== year
+            || d.getUTCMonth()    !== monthIdx
+            || d.getUTCDate()     !== day) return null;
+    return `${year}-${String(monthIdx + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function _datesAreConsecutive(dates) {
+    if (dates.length < 2) return true;
+    const parsed = [];
+    for (const d of dates) {
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+        if (!m) return false;
+        parsed.push(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    }
+    parsed.sort((a, b) => a - b);
+    const day = 86400000;
+    for (let i = 0; i + 1 < parsed.length; i++) {
+        if (parsed[i + 1] - parsed[i] !== day) return false;
+    }
+    return true;
+}
+
+function _termDateRange(term, allTerms) {
+    const [ys, ms] = term.split('-');
+    const year = +ys, month = +ms;
+    const start = new Date(Date.UTC(year, month - 1, 1));
+    let end;
+    const idx = allTerms.indexOf(term);
+    if (idx >= 0 && idx + 1 < allTerms.length) {
+        const [ny, nm] = allTerms[idx + 1].split('-');
+        end = new Date(Date.UTC(+ny, +nm - 1, 1) - 86400000);
+    } else {
+        let y = year, m = month + 11;
+        if (m > 12) { m -= 12; y += 1; }
+        end = new Date(Date.UTC(y, m - 1, 1) - 86400000);
+    }
+    const fmt = (d) => `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
+    return [fmt(start), fmt(end)];
+}
+
+// ── Source/type detection ─────────────────────────────────────────────────
+
+function _detectSourceType(audioHref) {
+    const lower = String(audioHref || '').toLowerCase();
+    let source;
+    if (lower.includes('supremecourt.gov')) source = 'ussc';
+    else if (lower.includes('nara'))        source = 'nara';
+    else if (lower.includes('oyez'))        source = 'oyez';
+    else                                    source = 'unknown';
+    let type;
+    if (source === 'oyez' && lower.includes('opinion'))         type = 'opinion';
+    else if (source === 'oyez' && lower.includes('reargument')) type = 'reargument';
+    else                                                        type = 'argument';
+    return [source, type];
+}
+
+function _isTranscriptAligned(transcriptPath) {
+    if (!fs.existsSync(transcriptPath)) return false;
+    try {
+        const data = JSON.parse(fs.readFileSync(transcriptPath, 'utf8'));
+        const turns = Array.isArray(data) ? data : (data?.turns || []);
+        return turns.some(t => t && t.time);
+    } catch { return false; }
+}
+
+// ── HTTP helpers (delays / framing / downloads) ───────────────────────────
+
+const _DELAYS = [['supremecourt.gov', 2000]];
+const _DEFAULT_DELAY = 500;
+
+async function _politeDelay(url) {
+    let host = '';
+    try { host = new URL(url).hostname || ''; } catch {}
+    for (const [domain, delay] of _DELAYS) {
+        if (host === domain || host.endsWith('.' + domain)) { await sleep(delay); return; }
+    }
+    await sleep(_DEFAULT_DELAY);
+}
+
+function isFramingBlocked(headers) {
+    const xfo = String(headers['X-Frame-Options'] || '').trim().toUpperCase();
+    if (xfo === 'DENY' || xfo === 'SAMEORIGIN') return true;
+    const csp = String(headers['Content-Security-Policy'] || '');
+    for (let directive of csp.split(';')) {
+        directive = directive.trim();
+        if (directive.toLowerCase().startsWith('frame-ancestors')) {
+            const sources = directive.split(/\s+/).slice(1);
+            if (!sources.includes('*')) return true;
+        }
+    }
+    return false;
+}
+
+function _localFilename(url) {
+    let p = '';
+    try { p = new URL(url).pathname; } catch { p = url; }
+    const name = decodeURIComponent(path.basename(p));
+    let safe = '';
+    for (const c of name) {
+        safe += /[a-zA-Z0-9._-]/.test(c) ? c : '_';
+    }
+    return safe || 'download.pdf';
+}
+
+function _uniqueDest(caseDir, name) {
+    let dest = path.join(caseDir, name);
+    if (!fs.existsSync(dest)) return dest;
+    const ext  = path.extname(name);
+    const stem = path.basename(name, ext);
+    let i = 1;
+    while (fs.existsSync(dest)) { dest = path.join(caseDir, `${stem}-${i}${ext}`); i++; }
+    return dest;
+}
+
+async function _downloadFile(url, destPath) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 60000);
+    try {
+        const resp = await fetch(url, {
+            headers: { 'User-Agent': USER_AGENT },
+            redirect: 'follow', signal: ctrl.signal,
+        });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const buf = Buffer.from(await resp.arrayBuffer());
+        _writeFileSync(destPath, buf);
+    } finally { clearTimeout(t); }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Speaker-map cleanup
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
+const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
+
+function _buildJusticeRenameEntries() {
+    if (!fs.existsSync(_JUSTICES_PATH)) return [];
+    let data;
+    try { data = JSON.parse(fs.readFileSync(_JUSTICES_PATH, 'utf8')); }
+    catch { return []; }
+    const entries = [];
+    for (const [canonical, info] of Object.entries(data)) {
+        const u = canonical.toUpperCase();
+        for (const alt of info?.alternates || []) {
+            const a = alt.toUpperCase();
+            if (a !== u) entries.push([a, null, null, u, 'justice', null]);
+        }
+    }
+    return entries;
+}
+
+function loadSpeakerMap() {
+    if (!fs.existsSync(_SPEAKERS_PATH)) return [];
+    let data;
+    try { data = JSON.parse(fs.readFileSync(_SPEAKERS_PATH, 'utf8')); }
+    catch { return []; }
+    const out = [];
+    for (const [raw, corrected] of Object.entries(data.typos || {})) {
+        out.push([raw.toUpperCase(), null, null, corrected.toUpperCase(), null, null]);
+    }
+    for (const [oldN, newN] of Object.entries(data.rename || {})) {
+        out.push([oldN.toUpperCase(), null, null, newN.toUpperCase(), null, null]);
+    }
+    return out;
+}
+
+function filterSpeakerMap(entries, term) {
+    const out = [];
+    for (const e of entries) {
+        const [, op, constraint] = e;
+        if (op === null) out.push(e);
+        else if (op === '<'  && term <  constraint) out.push(e);
+        else if (op === '>=' && term >= constraint) out.push(e);
+    }
+    return out;
+}
+
+let _JUSTICE_INFO = null;  // upper-name -> { titles?: string[], tenures: [{dateStart, dateStop}] }
+function _loadJusticeInfo() {
+    if (_JUSTICE_INFO) return _JUSTICE_INFO;
+    const map = new Map();
+    if (!fs.existsSync(_JUSTICES_PATH)) { _JUSTICE_INFO = map; return map; }
+    let data;
+    try { data = JSON.parse(fs.readFileSync(_JUSTICES_PATH, 'utf8')); }
+    catch { _JUSTICE_INFO = map; return map; }
+    for (const [canonical, info] of Object.entries(data)) {
+        const tenures = Array.isArray(info?.tenures)
+            ? info.tenures.map(t => ({ dateStart: t.dateStart || '', dateStop: t.dateStop || '' }))
+            : (info?.dateStart !== undefined
+                ? [{ dateStart: info.dateStart || '', dateStop: info.dateStop || '' }]
+                : []);
+        const entry = { titles: info?.titles || null, tenures };
+        map.set(canonical.toUpperCase(), entry);
+        for (const alt of info?.alternates || []) map.set(alt.toUpperCase(), entry);
+    }
+    _JUSTICE_INFO = map;
+    return map;
+}
+
+// True if `date` (YYYY-MM-DD) falls within any of the justice's tenure spans.
+// If the justice has no tenure data (e.g. UNKNOWN JUSTICE), assume true.
+function _isJusticeOnDate(info, date) {
+    if (!info || !info.tenures || !info.tenures.length) return true;
+    if (!date) return true;
+    for (const { dateStart, dateStop } of info.tenures) {
+        if (dateStart && date < dateStart) continue;
+        if (dateStop  && date > dateStop)  continue;
+        return true;
+    }
+    return false;
+}
+
+// Resolve the expected title ("JUSTICE" / "CHIEF JUSTICE") for a justice on a
+// given YYYY-MM. Returns null if titles array is malformed and no match found.
+function _resolveJusticeTitle(titles, yearMonth) {
+    if (!titles || !titles.length) return 'JUSTICE';
+    let unconditional = null;
+    for (const spec of titles) {
+        const m = String(spec).match(/^(.*?)\s*(<|>=|<=|>|=)\s*(\S+)\s*$/);
+        if (!m) { unconditional = unconditional || String(spec).trim(); continue; }
+        const [, title, op, constraint] = m;
+        const t = title.trim();
+        const c = constraint.trim();
+        if (!yearMonth) continue;
+        if (op === '<'  && yearMonth <  c) return t;
+        if (op === '<=' && yearMonth <= c) return t;
+        if (op === '>=' && yearMonth >= c) return t;
+        if (op === '>'  && yearMonth >  c) return t;
+        if (op === '='  && yearMonth === c) return t;
+    }
+    return unconditional || 'JUSTICE';
+}
+
+function checkUnmappedJustices(caseDir) {
+    if (!isDir(caseDir)) return;
+    const justiceInfo = _loadJusticeInfo();
+    for (const name of listDir(caseDir).filter(n => n.endsWith('.json'))) {
+        if (name === 'files.json') continue;
+        const p = path.join(caseDir, name);
+        let data;
+        try { data = JSON.parse(fs.readFileSync(p, 'utf8')); } catch { continue; }
+        if (!data || typeof data !== 'object') continue;
+        const speakers = data?.media?.speakers || [];
+        // Derive YYYY-MM-DD from filename (e.g. 1969-12-08.json or 1969-12-08-oyez.json).
+        const dm = name.match(/^(\d{4}-\d{2}-\d{2})/);
+        const argDate = dm ? dm[1] : '';
+        const yearMonth = argDate.slice(0, 7);
+        let modified = false;
+        for (const sp of speakers) {
+            const spName  = (sp.name  || '').toUpperCase();
+            const spTitle = (sp.title || '').toUpperCase();
+            const titleIsJustice = spTitle === 'JUSTICE' || spTitle === 'CHIEF JUSTICE';
+            const info = justiceInfo.get(spName);
+            const nameIsJustice  = !!info && _isJusticeOnDate(info, argDate);
+            if (titleIsJustice && !info) {
+                console.log(`WARNING: ${path.basename(caseDir)}/${name}: title='${sp.title}' but name='${sp.name}' is not a known justice`);
+            } else if (titleIsJustice && info && !nameIsJustice) {
+                console.log(`WARNING: ${path.basename(caseDir)}/${name}: title='${sp.title}' but '${sp.name}' was not on the Court on ${argDate}`);
+            } else if (!titleIsJustice && nameIsJustice) {
+                const expected = _resolveJusticeTitle(info.titles, yearMonth);
+                const verb = _DRY_RUN ? 'would set' : 'set';
+                console.log(`WARNING: ${path.basename(caseDir)}/${name}: name='${sp.name}' title='${sp.title}' → ${verb} title='${expected}'`);
+                if (!_DRY_RUN) {
+                    sp.title = expected;
+                    modified = true;
+                }
+            }
+        }
+        if (modified) _writeJson(p, data);
+    }
+}
+
+function applySpeakerMapToCase(caseDir, entries, dryRun = false) {
+    if (!isDir(caseDir)) return;
+    for (const name of listDir(caseDir).filter(n => n.endsWith('.json'))) {
+        if (name === 'files.json') continue;
+        const p = path.join(caseDir, name);
+        let data;
+        try { data = JSON.parse(fs.readFileSync(p, 'utf8')); } catch { continue; }
+        if (!data || typeof data !== 'object' || Array.isArray(data)) continue;
+        let modified = false;
+        const speakers = data?.media?.speakers || [];
+
+        // Pre-mapping role snapshot (used by turn-name pass below).
+        const speakerRoles = {};
+        for (const sp of speakers) speakerRoles[sp.name || ''] = sp.role || '';
+
+        // Rename speakers (first-match-wins).
+        for (const sp of speakers) {
+            const spName = sp.name || '', role = sp.role || '';
+            for (const [base, , , newName, roleFilter, newRole] of entries) {
+                if (spName !== base) continue;
+                if (roleFilter !== null && role !== roleFilter) continue;
+                sp.name = newName;
+                if (newRole !== null && newRole !== undefined) sp.role = newRole;
+                modified = true;
+                break;
+            }
+        }
+
+        // Rename turn names.
+        for (const turn of data.turns || []) {
+            const tName = turn.name || '';
+            const tRole = speakerRoles[tName] || '';
+            for (const [base, , , newName, roleFilter] of entries) {
+                if (tName !== base) continue;
+                if (roleFilter !== null && tRole !== roleFilter) continue;
+                turn.name = newName;
+                modified = true;
+                break;
+            }
+        }
+
+        if (modified) {
+            const verb = (_DRY_RUN || dryRun) ? 'would apply' : 'applied';
+            console.log(`  ${path.basename(caseDir)}: ${verb} speaker map to ${name}`);
+            if (!dryRun) _writeJson(p, data);
+        }
+    }
+    checkUnmappedJustices(caseDir);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// cases.json mutators (from validate_cases.py)
+// ═══════════════════════════════════════════════════════════════════════════
+
+function migrateArgumentsToAudio(casesPath) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let modified = false;
+    for (const c of data) {
+        if ('arguments' in c && !('audio' in c)) {
+            c.audio = c.arguments;
+            delete c.arguments;
+            modified = true;
+        }
+    }
+    if (modified) {
+        _writeJson(casesPath, data);
+        console.log('Migrated cases.json: renamed "arguments" → "audio".');
+    }
+}
+
+function validateCasesJsonArguments(casesPath, term = '', dryRun = false) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const termDir = path.dirname(casesPath);
+    let modified = false;
+    for (const c of data) {
+        const label = c.number || c.id || '?';
+        let caseModified = false;
+        const events = c.events || [];
+        for (let i = 0; i < events.length; i++) {
+            const arg = events[i];
+            const audioHref = arg.audio_href || '';
+            if (!audioHref) continue;
+            const [srcInferred, typeInferred] = _detectSourceType(audioHref);
+            const source   = arg.source || srcInferred;
+            let typeVal    = arg.type   || typeInferred;
+            if (typeVal === 'misc') typeVal = 'journal';
+
+            const textHref = arg.text_href || '';
+            const isAligned = !!(textHref
+                && _isTranscriptAligned(path.join(termDir, 'cases', textHref)));
+
+            const currentAligned = ('aligned' in arg) ? arg.aligned : null;
+            const desiredAligned = isAligned ? true : null;
+
+            if (arg.source === source && arg.type === typeVal
+                    && currentAligned === desiredAligned) continue;
+
+            const rebuilt = { ...arg, source, type: typeVal };
+            if (isAligned) rebuilt.aligned = true;
+            else delete rebuilt.aligned;
+            events[i] = reorderEvent(rebuilt);
+            modified = true;
+            caseModified = true;
+        }
+        if (caseModified && _VERBOSE) console.log(` NOTICE: ${term}/${label}: set aligned on audio file(s)`);
+    }
+    if (modified && !dryRun) _writeJson(casesPath, data);
+}
+
+function normalizeAudioAlignedPosition(casesPath) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let modified = false;
+    for (const c of data) {
+        for (const arg of c.events || []) {
+            if (!('aligned' in arg)) continue;
+            const keys = Object.keys(arg);
+            if (keys[keys.length - 1] === 'aligned') continue;
+            const v = arg.aligned;
+            delete arg.aligned;
+            arg.aligned = v;
+            modified = true;
+        }
+    }
+    if (modified) {
+        _writeJson(casesPath, data);
+        console.log('Updated cases.json: moved "aligned" to last position in audio objects.');
+    }
+}
+
+function removeRedundantTranscriptFiles(casesPath) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const termDir = path.dirname(casesPath);
+    let casesModified = false;
+
+    for (const c of data) {
+        const folderName = _caseFolder(c.number || c.id || '');
+        const filesPath = path.join(termDir, 'cases', folderName, 'files.json');
+        if (!fs.existsSync(filesPath)) continue;
+        let files;
+        try { files = JSON.parse(fs.readFileSync(filesPath, 'utf8')); } catch { continue; }
+        if (!Array.isArray(files)) continue;
+
+        const transcriptFileEntries = files.filter(f => f?.type === 'transcript');
+        if (transcriptFileEntries.length === 0) continue;
+
+        const label = c.number || c.id || '?';
+        if (!c.events) c.events = [];
+        let audioList = c.events;
+        let audioModified = false;
+
+        for (const tf of transcriptFileEntries) {
+            const tfHref = tf.href || '';
+            const tfDate = tf.date || '';
+            if (!tfHref || !tfDate) continue;
+            const matched = audioList.find(a => a.date === tfDate);
+            if (matched) {
+                if (!matched.transcript_href) {
+                    const rawTitle = tf.title || '';
+                    const argTitle = rawTitle.replace(/^Transcript of\s+/, '').trim() || rawTitle;
+                    const rebuilt = {};
+                    for (const [k, v] of Object.entries(matched)) rebuilt[k] = v;
+                    if (!matched.title && argTitle) rebuilt.title = argTitle;
+                    rebuilt.transcript_href = tfHref;
+                    for (const k of Object.keys(matched)) delete matched[k];
+                    Object.assign(matched, rebuilt);
+                    console.log(`  ${label} (${tfDate}): added transcript_href to existing audio object`);
+                    audioModified = true;
+                } else if (!matched.title) {
+                    const rawTitle = tf.title || '';
+                    const argTitle = rawTitle.replace(/^Transcript of\s+/, '').trim() || rawTitle;
+                    if (argTitle) {
+                        const rebuilt = {};
+                        for (const [k, v] of Object.entries(matched)) {
+                            rebuilt[k] = v;
+                            if (k === 'date') rebuilt.title = argTitle;
+                        }
+                        if (!('title' in rebuilt)) rebuilt.title = argTitle;
+                        for (const k of Object.keys(matched)) delete matched[k];
+                        Object.assign(matched, rebuilt);
+                        audioModified = true;
+                    }
+                }
+            } else {
+                const rawTitle = tf.title || '';
+                const argTitle = rawTitle.replace(/^Transcript of\s+/, '').trim() || rawTitle;
+                const newAudio = {
+                    source: 'ussc', type: 'argument',
+                    title: argTitle, date: tfDate, transcript_href: tfHref,
+                };
+                audioList.push(newAudio);
+                c.events = [...audioList].sort((a, b) =>
+                    (a.date || '') < (b.date || '') ? -1 :
+                    (a.date || '') > (b.date || '') ? 1 : 0);
+                audioList = c.events;
+                console.log(`  ${label} (${tfDate}): created audio object with transcript_href`);
+                audioModified = true;
+            }
+        }
+        if (audioModified) casesModified = true;
+
+        const audioTranscripts = new Set();
+        for (const a of audioList) {
+            if (a.transcript_href && a.date) {
+                audioTranscripts.add(`${a.transcript_href}\u0000${a.date}`);
+            }
+        }
+        const toRemove = files.filter(f =>
+            f?.type === 'transcript'
+            && audioTranscripts.has(`${f.href || ''}\u0000${f.date || ''}`));
+        if (toRemove.length === 0) continue;
+
+        const removeIds = new Set(toRemove.filter(f => 'file' in f).map(f => f.file));
+        const newFiles = [];
+        let gap = 0;
+        for (const f of files) {
+            const fid = f.file;
+            if (fid !== undefined && removeIds.has(fid)) { gap++; continue; }
+            if (gap && fid !== undefined) {
+                newFiles.push({ ...f, file: fid - gap });
+            } else {
+                newFiles.push(f);
+            }
+        }
+        if (newFiles.length) {
+            _writeJson(filesPath, newFiles);
+        } else {
+            _unlinkSync(filesPath);
+            const caseDir = path.dirname(filesPath);
+            const remaining = listDir(caseDir).filter(n => !n.startsWith('.'));
+            if (remaining.length === 0) {
+                try { fs.rmdirSync(caseDir); } catch {}
+            }
+        }
+        const n = toRemove.length;
+        console.log(`  ${label}: removed ${n} redundant transcript `
+                  + `entr${n === 1 ? 'y' : 'ies'} from files.json`
+                  + (newFiles.length ? '' : ' (files.json deleted)'));
+        c.files = newFiles.length;
+        casesModified = true;
+    }
+    if (casesModified) _writeJson(casesPath, data);
+}
+
+function checkDecisionDates(casesPath, term) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let modified = false;
+    for (const c of data) {
+        const decision = c.decision || '';
+        const dateDec  = c.dateDecision || '';
+        const label    = c.number || c.id || '?';
+        const title    = c.title || '';
+        if (!decision) continue;
+        const generated = _isoToDateDecision(decision);
+        if (generated === null) {
+            console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): cannot parse decision='${decision}'`);
+            continue;
+        }
+        if (!dateDec) {
+            const newCase = {};
+            for (const [k, v] of Object.entries(c)) {
+                newCase[k] = v;
+                if (k === 'decision') newCase.dateDecision = generated;
+            }
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, newCase);
+            modified = true;
+            console.log(`WARNING: ${term}/${label}: inserted dateDecision='${generated}'`);
+        } else {
+            const parsedBack = _dateDecisionToIso(dateDec);
+            if (parsedBack !== decision) {
+                console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): `
+                  + `decision='${decision}' but dateDecision parses to '${parsedBack}' (stored: '${dateDec}')`);
+            }
+        }
+    }
+    if (modified) {
+        _writeJson(casesPath, data);
+        console.log(`WARNING: ${term}/cases.json: inserted missing dateDecision values`);
+    }
+}
+
+async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let dirty = false;
+    for (const c of data) {
+        const caseLabel = c.number || c.id || '?';
+        let headerPrinted = false;
+        const printHeader = () => {
+            if (!headerPrinted) { console.log(`${caseLabel}:`); headerPrinted = true; }
+        };
+
+        const oh = c.opinion_href || '';
+        if (oh && /^https?:\/\//.test(oh)) {
+            printHeader();
+            const lbl = oh.length <= 80 ? oh : oh.slice(0, 77) + '…';
+            process.stdout.write(`  [o] ${lbl} `);
+            const [ok, headers] = await checkUrl(oh);
+            await _politeDelay(oh);
+            if (!ok) {
+                const status = headers._status || headers._error || 'unknown';
+                console.log(`✗ UNREACHABLE (${status}) — renaming to opinion_href_bad`);
+                _renameKey(c, 'opinion_href', 'opinion_href_bad');
+                dirty = true;
+            } else {
+                console.log('✓');
+            }
+        }
+
+        if (opinionsOnly) continue;
+        const tagMap = { audio_href: 'a', transcript_href: 't' };
+        for (const entry of c.events || []) {
+            for (const key of ['audio_href', 'transcript_href']) {
+                const href = entry[key] || '';
+                if (!href || !/^https?:\/\//.test(href)) continue;
+                printHeader();
+                const tag = tagMap[key];
+                const lbl = href.length <= 80 ? href : href.slice(0, 77) + '…';
+                process.stdout.write(`  [${tag}] ${lbl} `);
+                const [ok, headers] = await checkUrl(href);
+                await _politeDelay(href);
+                if (!ok) {
+                    const status = headers._status || headers._error || 'unknown';
+                    const badKey = key + '_bad';
+                    console.log(`✗ UNREACHABLE (${status}) — renaming to ${badKey}`);
+                    _renameKey(entry, key, badKey);
+                    dirty = true;
+                } else {
+                    console.log('✓');
+                }
+            }
+        }
+    }
+    if (dirty) _writeJson(casesPath, data);
+}
+
+function _fileTypeFromName(name) {
+    const lower = name.toLowerCase();
+    if (lower.includes('amicus') || lower.includes('amici')) return 'amicus';
+    if (lower.includes('petitioner') || lower.includes('appellant')) return 'petitioner';
+    if (lower.includes('respondent') || lower.includes('appellee'))  return 'respondent';
+    return null;
+}
+
+function _titleFromFilename(name) {
+    const stem = path.basename(name, path.extname(name)).replace(/[-_]+/g, ' ');
+    // Title case (mimic Python str.title): word characters split by non-letter.
+    return stem.replace(/[A-Za-z]+('[A-Za-z]+)?/g,
+        w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+}
+
+function backfillUntrackedFiles(casesPath, term, dryRun = false) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const termDir = path.dirname(casesPath);
+    for (const c of data) {
+        const folderName = _caseFolder(c.number || c.id || '');
+        if (!folderName) continue;
+        const caseDir = path.join(termDir, 'cases', folderName);
+        if (!isDir(caseDir)) continue;
+        const filesPath = path.join(caseDir, 'files.json');
+        let filesData = [];
+        if (fs.existsSync(filesPath)) {
+            try { filesData = JSON.parse(fs.readFileSync(filesPath, 'utf8')); }
+            catch { continue; }
+            if (!Array.isArray(filesData)) continue;
+        }
+        const relCase = 'cases/' + folderName;
+        const tracked = new Set();
+        for (const e of filesData) {
+            const href = e.href || '';
+            if (!/^https?:\/\//.test(href)) tracked.add(path.basename(href));
+        }
+        let filesModified = false;
+        for (const fname of listDir(caseDir)) {
+            const fpath = path.join(caseDir, fname);
+            if (isDir(fpath) || fname.startsWith('.')) continue;
+            const ext = path.extname(fname);
+            if (ext === '.json' || ext === '.mp3') continue;
+            if (tracked.has(fname)) continue;
+            if (dryRun) {
+                console.log(`  WARNING: ${folderName}: untracked file '${fname}' may need to be added to files.json`);
+                continue;
+            }
+            let maxId = 0;
+            for (const e of filesData) {
+                if (typeof e.file === 'number' && e.file > maxId) maxId = e.file;
+            }
+            const localHref = `/courts/ussc/terms/${term}/${relCase}/${fname}`;
+            const newEntry = { file: maxId + 1, title: _titleFromFilename(fname) };
+            const ftype = _fileTypeFromName(fname);
+            if (ftype) newEntry.type = ftype;
+            newEntry.href = localHref;
+            filesData.push(newEntry);
+            tracked.add(fname);
+            filesModified = true;
+            console.log(`  ${folderName}: added untracked file '${fname}'`);
+        }
+        if (filesModified) {
+            _writeJson(filesPath, filesData);
+        }
+    }
+}
+
+function checkAudioDates(casesPath, term, dryRun = false) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    let modified = false;
+    for (const c of data) {
+        const label = c.number || c.id || '?';
+        const title = c.title || '';
+        const argDates = [], reargDates = [], opDates = [];
+        const events = c.events || [];
+        for (let i = 0; i < events.length; i++) {
+            const audio = events[i];
+            const atype = audio.type || '';
+            const date  = audio.date || '';
+            if (atype === 'argument') {
+                if (!date) console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): audio[${i}] (argument) missing date`);
+                else argDates.push(date);
+            } else if (atype === 'reargument') {
+                if (!date) console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): audio[${i}] (reargument) missing date`);
+                else reargDates.push(date);
+            } else if (atype === 'opinion') {
+                if (!date) console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): audio[${i}] (opinion) missing date`);
+                else opDates.push(date);
+            }
+        }
+
+        // argument
+        if (argDates.length) {
+            const audioSet = new Set(argDates);
+            const current  = c.argument || '';
+            const currentDates = current ? new Set(current.split(',')) : new Set();
+            const subset = [...audioSet].every(d => currentDates.has(d));
+            if (!subset) {
+                const union = _sortStr(new Set([...currentDates, ...audioSet]));
+                const expected = union.join(',');
+                const intersect = [...currentDates].some(d => audioSet.has(d));
+                const prefix = (current && !intersect) ? 'WARNING' : ' NOTICE';
+                if (prefix === 'WARNING' || _VERBOSE) console.log(`${prefix}: ${term}/${label} (${title.slice(0,40)}): argument='${current}' → should be '${expected}'`);
+                if (!dryRun) {
+                    if ('argument' in c) c.argument = expected;
+                    else _insertKeyBefore(c, 'argument', expected, 'decision');
+                    modified = true;
+                }
+            }
+        }
+        // reargument
+        if (reargDates.length) {
+            const audioSet = new Set(reargDates);
+            const current  = c.reargument || '';
+            const currentDates = current ? new Set(current.split(',')) : new Set();
+            const subset = [...audioSet].every(d => currentDates.has(d));
+            if (!subset) {
+                const union = _sortStr(new Set([...currentDates, ...audioSet]));
+                const expected = union.join(',');
+                const intersect = [...currentDates].some(d => audioSet.has(d));
+                const prefix = (current && !intersect) ? 'WARNING' : ' NOTICE';
+                if (prefix === 'WARNING' || _VERBOSE) console.log(`${prefix}: ${term}/${label} (${title.slice(0,40)}): reargument='${current}' → should be '${expected}'`);
+                if (!dryRun) {
+                    if ('reargument' in c) c.reargument = expected;
+                    else if ('argument' in c) {
+                        const newCase = {};
+                        for (const [k, v] of Object.entries(c)) {
+                            newCase[k] = v;
+                            if (k === 'argument') newCase.reargument = expected;
+                        }
+                        for (const k of Object.keys(c)) delete c[k];
+                        Object.assign(c, newCase);
+                    } else {
+                        _insertKeyBefore(c, 'reargument', expected, 'decision');
+                    }
+                    modified = true;
+                }
+            }
+        }
+        // decision (from opinion audio)
+        if (opDates.length) {
+            const uniq = _sortStr(new Set(opDates));
+            if (uniq.length > 1) {
+                console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): multiple distinct opinion audio dates: [${uniq.map(d=>`'${d}'`).join(', ')}]`);
+            }
+            const expected = uniq[0];
+            const current  = c.decision || '';
+            if (current !== expected) {
+                const prefix = current ? 'WARNING' : ' NOTICE';
+                if (prefix === 'WARNING' || _VERBOSE) console.log(`${prefix}: ${term}/${label} (${title.slice(0,40)}): decision='${current}' → should be '${expected}' (from opinion audio)`);
+                if (!dryRun) {
+                    if ('decision' in c) c.decision = expected;
+                    else _insertKeyBefore(c, 'decision', expected, 'volume');
+                    modified = true;
+                }
+            }
+        }
+    }
+    if (modified) {
+        _writeJson(casesPath, data);
+        console.log('Updated cases.json: fixed argument/decision dates from audio.');
+    }
+}
+
+function warnMissingOpinionHref(casesPath, term) {
+    if (_isCurrentTerm(term)) return;
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    for (const c of data) {
+        if (c.opinion_href) continue;
+        const label = c.number || c.id || '?';
+        const title = c.title || '';
+        if (_VERBOSE) console.log(` NOTICE: ${term}/${label} (${title.slice(0,40)}): no opinion_href`);
+    }
+}
+
+async function validateFilesJson(filesPath, caseDir, checkUrls, printHeader, opinionsOnly) {
+    let data;
+    try { data = JSON.parse(fs.readFileSync(filesPath, 'utf8')); } catch { return; }
+    if (!Array.isArray(data)) return;
+    if (!checkUrls || opinionsOnly) return;
+
+    let modified = false;
+    for (const entry of data) {
+        const href = entry.href || '';
+        const fileNum = entry.file ?? '?';
+        if (!/^https?:\/\//.test(href)) continue;
+        if (entry.source) {
+            if (printHeader) printHeader();
+            console.log(`  [${fileNum}] already localized — skipped.`);
+            continue;
+        }
+        if (printHeader) printHeader();
+        const lbl = href.length <= 80 ? href : href.slice(0, 77) + '…';
+        process.stdout.write(`  [${fileNum}] ${lbl} `);
+        const [ok, headers] = await checkUrl(href);
+        await _politeDelay(href);
+        if (!ok) {
+            const status = headers._status || headers._error || 'unknown';
+            console.log(`✗ UNREACHABLE (${status}) — renaming to href_bad`);
+            _renameKey(entry, 'href', 'href_bad');
+            modified = true;
+            continue;
+        }
+        if (isFramingBlocked(headers)) {
+            const localName = _localFilename(href);
+            const dest = _uniqueDest(caseDir, localName);
+            process.stdout.write(`⚠ framing blocked → ${path.basename(dest)} ... `);
+            try {
+                await _downloadFile(href, dest);
+                entry.source = entry.href;
+                entry.href = '/' + path.relative(REPO_ROOT, dest).split(path.sep).join('/');
+                modified = true;
+                console.log('✓ downloaded');
+            } catch (exc) {
+                console.log(`ERROR: ${exc.message || exc}`);
+            }
+            await sleep(300);
+        } else {
+            console.log('✓');
+        }
+    }
+    if (modified) {
+        _writeJson(filesPath, data);
+    }
+}
+
+async function validateCase(termDir, caseNumber, checkUrls, opinionsOnly) {
+    const filesPath = path.join(termDir, 'cases', caseNumber, 'files.json');
+    if (!fs.existsSync(filesPath)) return;
+    const printed = [false];
+    const printHeader = () => {
+        if (!printed[0]) { console.log(`${caseNumber}:`); printed[0] = true; }
+    };
+    await validateFilesJson(filesPath, path.dirname(filesPath), checkUrls, printHeader, opinionsOnly);
+    await checkOpinionForCase(filesPath, caseNumber, path.basename(termDir), printHeader);
+}
+
+function deduplicateCases(casesPath) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const termDir = path.dirname(casesPath);
+    const term = path.basename(termDir);
+
+    const isStub = (c) => {
+        if (c.id || c.votes) return false;
+        return (c.events || []).every(a => !a.audio_href && a.transcript_href);
+    };
+
+    const compToIdx = {};
+    const duplicates = [];
+    for (let i = 0; i < data.length; i++) {
+        const c = data[i];
+        const raw = c.number || '';
+        if (!raw) continue;
+        for (const part of raw.split(',').map(p => p.trim()).filter(Boolean)) {
+            if (part in compToIdx) {
+                const otherIdx = compToIdx[part];
+                const other = data[otherIdx];
+                if (isStub(c) && !isStub(other)) duplicates.push([otherIdx, i]);
+                else if (isStub(other) && !isStub(c)) duplicates.push([i, otherIdx]);
+                else {
+                    console.log(`WARNING: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
+                }
+            } else {
+                compToIdx[part] = i;
+            }
+        }
+    }
+    if (!duplicates.length) return;
+
+    const processedStubs = new Set();
+    const toRemove = new Set();
+
+    for (const [completeIdx, stubIdx] of duplicates) {
+        if (processedStubs.has(stubIdx)) continue;
+        processedStubs.add(stubIdx);
+        const complete = data[completeIdx];
+        const stub     = data[stubIdx];
+        const label    = complete.number || complete.id || '?';
+        const stubNum  = stub.number || stub.id || '?';
+        const stubFolder = _caseFolder(stub.number || stub.id || '');
+        const stubDir = path.join(termDir, 'cases', stubFolder);
+        const stubFilesPath = path.join(stubDir, 'files.json');
+
+        // Step 1
+        if (fs.existsSync(stubFilesPath)) {
+            let stubFiles = [];
+            try { stubFiles = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
+            if (Array.isArray(stubFiles)) {
+                const audioTHrefs = new Set(
+                    (stub.events || []).filter(a => a.transcript_href).map(a => a.transcript_href));
+                const cleaned = stubFiles.filter(f => !(
+                    f?.type === 'transcript' && audioTHrefs.has(f.href || '')));
+                if (cleaned.length < stubFiles.length) {
+                    if (cleaned.length) {
+                        _writeJson(stubFilesPath, cleaned);
+                    } else {
+                        _unlinkSync(stubFilesPath);
+                    }
+                    console.log(`  ${stubNum}: cleaned redundant transcript entries from files.json`);
+                }
+            }
+        }
+
+        // Step 2: merge audio
+        if (!complete.events) complete.events = [];
+        const compAudio = complete.events;
+        for (const stubAudio of stub.events || []) {
+            const date = stubAudio.date;
+            const transcriptHref = stubAudio.transcript_href;
+            const matchedComp = compAudio.find(a => a.date === date) || null;
+            if (matchedComp !== null) {
+                if (transcriptHref && !matchedComp.transcript_href) {
+                    matchedComp.transcript_href = transcriptHref;
+                    console.log(`  ${label} (${date}): merged transcript_href from stub ${stubNum}`);
+                } else if (transcriptHref && matchedComp.transcript_href !== transcriptHref) {
+                    const entry = { ...stubAudio };
+                    if (!entry.title && transcriptHref) {
+                        let stubFilesNow = [];
+                        if (fs.existsSync(stubFilesPath)) {
+                            try { stubFilesNow = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
+                        }
+                        const tfm = (Array.isArray(stubFilesNow) ? stubFilesNow : []).find(
+                            f => f?.type === 'transcript' && f.href === transcriptHref);
+                        if (tfm) {
+                            const rawT = tfm.title || '';
+                            entry.title = rawT.replace(/^Transcript of\s+/, '').trim() || rawT;
+                        }
+                    }
+                    compAudio.push(entry);
+                    console.log(`  ${label} (${date}): appended distinct transcript audio from stub ${stubNum}`);
+                }
+            } else {
+                const entry = { ...stubAudio };
+                if (!entry.title && transcriptHref) {
+                    let stubFilesNow = [];
+                    if (fs.existsSync(stubFilesPath)) {
+                        try { stubFilesNow = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
+                    }
+                    const tfm = (Array.isArray(stubFilesNow) ? stubFilesNow : []).find(
+                        f => f?.type === 'transcript' && f.href === transcriptHref);
+                    if (tfm) {
+                        const rawT = tfm.title || '';
+                        entry.title = rawT.replace(/^Transcript of\s+/, '').trim() || rawT;
+                    }
+                }
+                compAudio.push(entry);
+                console.log(`  ${label} (${date}): appended unique audio entry from stub ${stubNum}`);
+            }
+        }
+        complete.events = [...compAudio].sort((a, b) =>
+            (a.date || '') < (b.date || '') ? -1 :
+            (a.date || '') > (b.date || '') ? 1 : 0);
+
+        // Step 3: merge remaining files.json entries
+        if (fs.existsSync(stubFilesPath)) {
+            let stubFiles = [];
+            try { stubFiles = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
+            if (Array.isArray(stubFiles) && stubFiles.length) {
+                const compFolder = _caseFolder(complete.number || complete.id || '');
+                const compDir = path.join(termDir, 'cases', compFolder);
+                const compFilesPath = path.join(compDir, 'files.json');
+                _mkdirSync(compDir, { recursive: true });
+                let compFiles = [];
+                if (fs.existsSync(compFilesPath)) {
+                    try { compFiles = JSON.parse(fs.readFileSync(compFilesPath, 'utf8')); } catch {}
+                }
+                const existingHrefs = new Set(compFiles.map(f => f.href));
+                let nextId = compFiles.reduce((m, f) => Math.max(m, f.file || 0), 0) + 1;
+                let added = 0;
+                for (const sf of stubFiles) {
+                    if (!existingHrefs.has(sf.href)) {
+                        const entry = { ...sf, file: nextId };
+                        nextId++;
+                        compFiles.push(entry);
+                        existingHrefs.add(sf.href);
+                        added++;
+                    }
+                }
+                if (added) {
+                    _writeJson(compFilesPath, compFiles);
+                    console.log(`  ${label}: merged ${added} file(s) from stub ${stubNum} into files.json`);
+                }
+                _unlinkSync(stubFilesPath);
+            }
+        }
+
+        // Step 4
+        if (fs.existsSync(stubDir)) {
+            const remaining = listDir(stubDir).filter(n => !n.startsWith('.'));
+            if (!remaining.length) {
+                try { fs.rmdirSync(stubDir); console.log(`  Removed empty stub folder ${stubFolder}/`); }
+                catch {}
+            } else {
+                console.log(`  WARNING: stub folder ${stubFolder}/ still has files: ${remaining.join(', ')}`);
+            }
+        }
+        toRemove.add(stubIdx);
+    }
+
+    const kept = data.filter((_, i) => !toRemove.has(i));
+    _writeJson(casesPath, kept);
+    console.log(`  Removed ${toRemove.size} duplicate stub entry(ies) from ${path.basename(casesPath)}.`);
+}
+
+function checkDuplicateCaseNumbers(termDir, term, verbose = false) {
+    const casesPath = path.join(termDir, 'cases.json');
+    if (!fs.existsSync(casesPath)) return;
+    const earlyTerm = term < '1950-10';
+    const cases = _readJson(casesPath);
+    const seen = {};
+    for (const c of cases) {
+        const number = c.number || '';
+        if (!number) continue;
+        const key = number.toLowerCase();
+        if (key in seen) {
+            if (earlyTerm) {
+                if (verbose) console.log(` NOTICE: ${term}/${number}: duplicate case number in cases.json: '${seen[key]}' and '${number}'`);
+            } else {
+                console.log(`WARNING: ${term}/${number}: duplicate case number in cases.json: '${seen[key]}' and '${number}'`);
+            }
+        } else {
+            seen[key] = number;
+        }
+    }
+}
+
+function checkDuplicateAudioHrefs(termDir) {
+    const casesPath = path.join(termDir, 'cases.json');
+    if (!fs.existsSync(casesPath)) return;
+    const cases = _readJson(casesPath);
+    for (const c of cases) {
+        const number = c.number || '?';
+        const seen = {};
+        const events = c.events || [];
+        for (let i = 0; i < events.length; i++) {
+            const href = events[i].audio_href || '';
+            if (!href) continue;
+            if (href in seen) {
+                console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[href]}] and audio[${i}]: '${href}'`);
+            } else {
+                seen[href] = i;
+            }
+        }
+    }
+}
+
+function checkCasesSync(termDir, verbose = false) {
+    const casesPath = path.join(termDir, 'cases.json');
+    const casesDir  = path.join(termDir, 'cases');
+    if (!fs.existsSync(casesPath)) return;
+    const term = path.basename(termDir);
+    const cases = _readJson(casesPath);
+
+    const jsonNumbers = {};   // number → case
+    for (const c of cases) {
+        const raw = c.number || '';
+        if (!raw) continue;
+        jsonNumbers[raw] = c;
+    }
+    const jsonFolders = {};
+    for (const [num, c] of Object.entries(jsonNumbers)) {
+        jsonFolders[_caseFolder(num)] = c;
+    }
+    const diskFolders = new Set(
+        isDir(casesDir)
+            ? fs.readdirSync(casesDir).filter(n => isDir(path.join(casesDir, n)))
+            : []);
+
+    // 1
+    for (const number of _sortStr(Object.keys(jsonNumbers))) {
+        const c = jsonNumbers[number];
+        const folder = _caseFolder(number);
+        if (!diskFolders.has(folder)) {
+            const hasLocalText = (c.events || []).some(a =>
+                a.text_href && !a.text_href.startsWith('http'));
+            const hasContent = !!c.files || hasLocalText;
+            if (hasContent || verbose) {
+                console.log(`WARNING: ${term}: ${number} in cases.json but no folder at cases/${folder}/`);
+            }
+        }
+    }
+    // 2
+    for (const folder of _sortStr(diskFolders)) {
+        if (!(folder in jsonFolders)) {
+            console.log(`WARNING: ${term}: cases/${folder}/ exists on disk but not in cases.json`);
+        }
+    }
+    // 3 & 4
+    const dateJsonRe = /^\d{4}-\d{2}-\d{2}.*\.json$/;
+    const partTitleRe = /\bPart\s+(\d+)\b/i;
+    const partFileRe  = /-(\d+)\.json$/;
+    // Build a global set of referenced `<folder>/<file>` paths across ALL
+    // cases — a file in one case folder may be referenced by another case's
+    // event (e.g. consolidated cases share transcripts).
+    const allReferenced = new Set();
+    for (const c of cases) {
+        const ownFolder = _caseFolder(c.number || '');
+        for (const audio of c.events || []) {
+            const th = audio.text_href || '';
+            if (!th || /^https?:\/\//.test(th)) continue;
+            const relPath = th.includes('/') ? th : `${ownFolder}/${th}`;
+            allReferenced.add(relPath);
+        }
+    }
+    for (const number of _sortStr(Object.keys(jsonNumbers))) {
+        const c = jsonNumbers[number];
+        const folder = _caseFolder(number);
+        if (!diskFolders.has(folder)) continue;
+        const caseDir = path.join(casesDir, folder);
+        const referenced = new Set();
+        for (const audio of c.events || []) {
+            const th = audio.text_href || '';
+            if (!th || /^https?:\/\//.test(th)) continue;
+            const relPath = th.includes('/') ? th : `${folder}/${th}`;
+            referenced.add(relPath);
+            const tm = partTitleRe.exec(audio.title || '');
+            if (tm) {
+                const expected = tm[1];
+                const fm = partFileRe.exec(th);
+                const actual = fm ? fm[1] : null;
+                if (actual !== expected) {
+                    console.log(`WARNING: ${term}: ${number}: title says Part ${expected} but text_href '${th}' has suffix -${actual || 'none'}`);
+                }
+            }
+        }
+        const onDisk = isDir(caseDir)
+            ? new Set(fs.readdirSync(caseDir).filter(f =>
+                isFile(path.join(caseDir, f)) && dateJsonRe.test(f)
+            ).map(f => `${folder}/${f}`))
+            : new Set();
+        for (const rel of _sortStr([...referenced].filter(x => !fs.existsSync(path.join(casesDir, x))))) {
+            console.log(`WARNING: ${term}: ${number}: audio text_href '${rel}' not found on disk`);
+        }
+        for (const rel of _sortStr([...onDisk].filter(x => !allReferenced.has(x)))) {
+            console.log(`WARNING: ${term}: ${number}: ${rel} on disk but not referenced in any case's events`);
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// fix_cases.py logic
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _NON_TRANSCRIPT_NAMES    = new Set(['files.json']);
+const _NON_TRANSCRIPT_SUFFIXES = ['--whisper'];
+const _SOURCE_ORDER = { ussc: 0, nara: 1, oyez: 2 };
+
+function _reorderWithUnknowns(obj, order) {
+    const known = {};
+    for (const k of order) {
+        if (Object.prototype.hasOwnProperty.call(obj, k)) known[k] = obj[k];
+    }
+    const orderSet = new Set(order);
+    const unknownKeys = new Set();
+    const extras = {};
+    for (const k of Object.keys(obj)) {
+        if (!orderSet.has(k)) { unknownKeys.add(k); extras[k] = obj[k]; }
+    }
+    return [{ ...known, ...extras }, unknownKeys];
+}
+
+function fixKeyOrder(term, cases, dryRun) {
+    let casesChanged = 0, eventsChanged = 0;
+    const unknownCaseKeys = new Set();
+    const unknownEventKeys = new Set();
+    for (const c of cases) {
+        for (const event of c.events || []) {
+            const [newEvent, evUnknown] = _reorderWithUnknowns(event, EVENT_KEY_ORDER);
+            for (const k of evUnknown) unknownEventKeys.add(k);
+            let advChanged = false;
+            const advs = newEvent.advocates;
+            if (Array.isArray(advs)) {
+                const reordered = [];
+                for (const adv of advs) {
+                    if (adv && typeof adv === 'object' && !Array.isArray(adv)) {
+                        const [na] = _reorderWithUnknowns(adv, ADVOCATE_KEY_ORDER);
+                        reordered.push(na);
+                        if (Object.keys(na).join('|') !== Object.keys(adv).join('|')) advChanged = true;
+                    } else {
+                        reordered.push(adv);
+                    }
+                }
+                if (advChanged) newEvent.advocates = reordered;
+            }
+            const eventChanged = (Object.keys(newEvent).join('|') !== Object.keys(event).join('|')) || advChanged;
+            if (eventChanged) {
+                eventsChanged++;
+                if (!dryRun) {
+                    for (const k of Object.keys(event)) delete event[k];
+                    Object.assign(event, newEvent);
+                }
+            }
+        }
+        const [newCase, unknown] = _reorderWithUnknowns(c, CASE_KEY_ORDER);
+        for (const k of unknown) unknownCaseKeys.add(k);
+        if (Object.keys(newCase).join('|') !== Object.keys(c).join('|')) {
+            casesChanged++;
+            if (!dryRun) {
+                for (const k of Object.keys(c)) delete c[k];
+                Object.assign(c, newCase);
+            }
+        }
+    }
+    if (dryRun && unknownCaseKeys.size) console.log(`  ${term}: unknown case keys: [${_sortStr(unknownCaseKeys).map(k=>`'${k}'`).join(', ')}]`);
+    if (dryRun && unknownEventKeys.size) console.log(`  ${term}: unknown event keys: [${_sortStr(unknownEventKeys).map(k=>`'${k}'`).join(', ')}]`);
+    return [casesChanged, eventsChanged, unknownCaseKeys, unknownEventKeys];
+}
+
+function checkDuplicateNumbers(term, cases) {
+    const numberToCases = {};
+    for (const c of cases) {
+        const raw = c.number || '';
+        for (const num of _splitNumbers(raw)) {
+            (numberToCases[num] = numberToCases[num] || []).push(c);
+        }
+    }
+    const duplicates = {};
+    for (const [n, list] of Object.entries(numberToCases)) {
+        if (list.length > 1) duplicates[n] = list;
+    }
+    const keys = Object.keys(duplicates);
+    if (!keys.length) return 0;
+    console.log(`${term}: ${keys.length} duplicate docket number(s)`);
+    for (const num of _sortStr(keys)) {
+        const titles = duplicates[num].map(c => `"${c.title || '?'}" (${c.number || '?'})`).join(', ');
+        console.log(`  ${num}  →  ${titles}`);
+    }
+    return keys.length;
+}
+
+function fixTextHrefs(term, cases, casesDir, dryRun) {
+    let updated = 0, warned = 0;
+    for (const c of cases) {
+        const numberField = c.number || '';
+        const numbers = _splitNumbers(numberField);
+        for (const audio of c.events || []) {
+            const th = audio.text_href || '';
+            if (!th || th.startsWith('http') || th.includes('/')) continue;
+            const foundNum = numbers.find(num => fs.existsSync(path.join(casesDir, num, th))) || null;
+            if (foundNum === null) {
+                console.log(`  WARNING: ${term}/${numberField}: cannot find '${th}' under any of [${numbers.map(n=>`'${n}'`).join(', ')}]`);
+                warned++;
+                continue;
+            }
+            const newHref = `${foundNum}/${th}`;
+            if (dryRun) console.log(`  MIGRATE ${term}/${numberField}: '${th}' -> '${newHref}'`);
+            audio.text_href = newHref;
+            updated++;
+        }
+    }
+    return [updated, warned];
+}
+
+function checkMissingTextHrefs(term, cases, casesDir, dryRun = false) {
+    let missing = 0, fixed = 0;
+    for (const c of cases) {
+        const numberField = c.number || '';
+        for (const audio of c.events || []) {
+            const th = audio.text_href || '';
+            if (!th || th.startsWith('http') || !th.includes('/')) continue;
+            if (!fs.existsSync(path.join(casesDir, th))) {
+                if (audio.redundant) {
+                    if (dryRun) console.log(`  WOULD FIX: ${term}/${numberField}: removing stale text_href '${th}' from redundant event`);
+                    else { console.log(`  FIX: ${term}/${numberField}: removed stale text_href '${th}' from redundant event`); delete audio.text_href; }
+                    fixed++;
+                } else {
+                    console.log(`  MISSING: ${term}/${numberField}: text_href '${th}' does not exist on disk`);
+                    missing++;
+                }
+            }
+        }
+    }
+    return [missing, fixed];
+}
+
+function checkOrphanedTranscripts(term, cases, casesDir) {
+    const referenced = new Set();
+    for (const c of cases) {
+        for (const a of c.events || []) {
+            const th = a.text_href || '';
+            if (th && th.includes('/') && !th.startsWith('http')) referenced.add(th);
+        }
+    }
+    const eventLookup = {};   // `${comp}\0${date}` → href
+    for (const c of cases) {
+        const components = _splitNumbers(c.number || '');
+        for (const e of c.events || []) {
+            const th = e.transcript_href || '';
+            const date = e.date || '';
+            if (!th || !date) continue;
+            for (const comp of components) {
+                const key = `${comp}\u0000${date}`;
+                if (!(key in eventLookup)) eventLookup[key] = th;
+            }
+        }
+    }
+    const orphaned = [];
+    if (isDir(casesDir)) {
+        const folders = fs.readdirSync(casesDir).filter(n => isDir(path.join(casesDir, n))).sort();
+        for (const folder of folders) {
+            const fullDir = path.join(casesDir, folder);
+            const files = fs.readdirSync(fullDir).filter(n => n.endsWith('.json')).sort();
+            for (const fn of files) {
+                if (_NON_TRANSCRIPT_NAMES.has(fn)) continue;
+                const stem = path.basename(fn, '.json');
+                if (_NON_TRANSCRIPT_SUFFIXES.some(s => stem.includes(s))) continue;
+                const rel = `${folder}/${fn}`;
+                if (referenced.has(rel)) continue;
+                const date = stem.replace(/-\d+$/, '');
+                const th = eventLookup[`${folder}\u0000${date}`] || '';
+                orphaned.push([`${term}/${folder}`, date, th]);
+            }
+        }
+    }
+    return orphaned;
+}
+
+function checkDuplicateTextHrefs(term, cases) {
+    const seen = {};
+    let dupes = 0;
+    for (const c of cases) {
+        const numberField = c.number || '';
+        for (const a of c.events || []) {
+            const th = a.text_href || '';
+            if (!th || th.startsWith('http') || !th.includes('/')) continue;
+            if (th in seen) {
+                console.log(`  DUPE:    ${term}/${numberField}: text_href '${th}' already used by ${seen[th]}`);
+                dupes++;
+            } else {
+                seen[th] = numberField;
+            }
+        }
+    }
+    return dupes;
+}
+
+function fixOyezTranscriptHrefs(term, cases, dryRun) {
+    let stripped = 0;
+    for (const c of cases) {
+        const numberField = c.number || '';
+        const usscHrefs = new Set();
+        for (const a of c.events || []) {
+            const src = a.source || 'ussc';
+            if (src === 'ussc' && a.transcript_href) usscHrefs.add(a.transcript_href);
+        }
+        if (!usscHrefs.size) continue;
+        for (const a of c.events || []) {
+            if (a.source !== 'oyez') continue;
+            const th = a.transcript_href || '';
+            if (th && usscHrefs.has(th)) {
+                if (dryRun) console.log(`  STRIP transcript_href ${term}/${numberField} [oyez ${a.date || '?'}]: '${th}'`);
+                else delete a.transcript_href;
+                stripped++;
+            }
+        }
+    }
+    return stripped;
+}
+
+function checkDuplicateMediaHrefs(termsToCheck) {
+    const seen = { audio_href: {}, transcript_href: {} };
+    const caseLookup = {};
+    for (const term of termsToCheck) {
+        const cp = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+        if (!fs.existsSync(cp)) continue;
+        let cases;
+        try { cases = JSON.parse(fs.readFileSync(cp, 'utf8')); } catch { continue; }
+        for (const c of cases) {
+            const number = c.number || '?';
+            caseLookup[`${term}\u0000${number}`] = c;
+            for (const e of c.events || []) {
+                const date = e.date || '', source = e.source || '';
+                for (const field of ['audio_href', 'transcript_href']) {
+                    const url = e[field] || '';
+                    if (url) {
+                        (seen[field][url] = seen[field][url] || []).push([term, number, date, source]);
+                    }
+                }
+            }
+        }
+    }
+    const result = [];
+    for (const field of Object.keys(seen)) {
+        for (const url of _sortStr(Object.keys(seen[field]))) {
+            const locs = seen[field][url];
+            if (locs.length <= 1) continue;
+            const tcSet = new Set(locs.map(([t, n]) => `${t}\u0000${n}`));
+            if (tcSet.size === 1) {
+                const [t, n] = [...tcSet][0].split('\u0000');
+                const eventDates = locs.map(l => l[2]).filter(Boolean);
+                if (eventDates.length && _datesAreConsecutive(eventDates)) {
+                    const c = caseLookup[`${t}\u0000${n}`] || {};
+                    const argDates = new Set();
+                    for (const fld of ['argument', 'reargument']) {
+                        for (const d of _parseDateField(c[fld] || '')) argDates.add(d);
+                    }
+                    if (eventDates.every(d => argDates.has(d))) continue;
+                }
+            }
+            result.push([field, url, locs]);
+        }
+    }
+    return result;
+}
+
+function fixArgumentDates(term, cases, dryRun) {
+    let fixed = 0;
+    for (const c of cases) {
+        const number = c.number || '?';
+        let changed = false;
+        for (const field of ['argument', 'reargument']) {
+            const raw = c[field];
+            if (!raw) continue;
+            const dates = _parseDateField(String(raw));
+            const seen = new Set();
+            const unique = [];
+            for (const d of dates) { if (!seen.has(d)) { seen.add(d); unique.push(d); } }
+            const sorted = _sortStr(unique);
+            const newVal = _joinDates(sorted);
+            if (newVal !== String(raw)) {
+                if (dryRun) console.log(`  FIX ${field} ${term}/${number}: '${raw}' -> '${newVal}'`);
+                else c[field] = newVal;
+                changed = true;
+            }
+        }
+        const argRaw = c.argument, reargRaw = c.reargument;
+        if (argRaw && reargRaw) {
+            const reargDates = new Set(_parseDateField(String(reargRaw)));
+            const argDates = _parseDateField(String(c.argument || ''));
+            const filtered = argDates.filter(d => !reargDates.has(d));
+            if (filtered.length !== argDates.length) {
+                const removed = _sortStr(new Set(argDates.filter(d => !filtered.includes(d))));
+                if (dryRun) console.log(`  FIX argument ${term}/${number}: removing [${removed.map(d=>`'${d}'`).join(', ')}] (also in reargument)`);
+                const newArg = filtered.length ? _joinDates(filtered) : '';
+                if (!dryRun) {
+                    if (newArg) c.argument = newArg;
+                    else delete c.argument;
+                }
+                changed = true;
+            }
+        }
+        if (changed) fixed++;
+    }
+    return fixed;
+}
+
+function _eventSortKey(event) {
+    const date   = event.date || '';
+    const source = event.source || '';
+    return [date, _SOURCE_ORDER[source] ?? 99, source];
+}
+
+function _cmpKeys(a, b) {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] < b[i]) return -1;
+        if (a[i] > b[i]) return 1;
+    }
+    return 0;
+}
+
+function fixEventTypes(term, cases, dryRun) {
+    let fixed = 0;
+    for (const c of cases) {
+        const number = c.number || '?';
+        const argDates      = c.argument   ? new Set(_parseDateField(String(c.argument)))   : new Set();
+        const reargDates    = c.reargument ? new Set(_parseDateField(String(c.reargument))) : new Set();
+        const decisionDates = c.decision   ? new Set(_parseDateField(String(c.decision)))   : new Set();
+        for (const event of c.events || []) {
+            const date  = event.date || '';
+            let etype = event.type || 'argument';
+            const title = event.title || '';
+            if (etype === 'misc') {
+                console.log(`WARNING: ${term}/${number} ${date || '?'}: type 'misc' should be journal`);
+                if (!dryRun) event.type = 'journal';
+                etype = 'journal';
+                fixed++;
+            }
+            if (reargDates.has(date)) {
+                let changed = false;
+                if (etype !== 'reargument') {
+                    console.log(`WARNING: ${term}/${number} ${date}: type '${etype}' should be reargument`);
+                    if (!dryRun) event.type = 'reargument';
+                    changed = true;
+                }
+                if (title && !title.startsWith('Oral Reargument')) {
+                    const newTitle = title.startsWith('Oral Argument')
+                        ? 'Oral Reargument' + title.slice('Oral Argument'.length)
+                        : 'Oral Reargument' + title;
+                    console.log(`WARNING: ${term}/${number} ${date}: '${title}' -> '${newTitle}'`);
+                    if (!dryRun) event.title = newTitle;
+                    changed = true;
+                }
+                if (changed) fixed++;
+            } else if (argDates.has(date)) {
+                if (etype !== 'argument' && etype !== 'reargument') {
+                    console.log(`WARNING: ${term}/${number} ${date}: event type '${etype}' on argument date (not auto-fixed)`);
+                }
+            } else if (decisionDates.has(date)) {
+                if (etype !== 'opinion') {
+                    console.log(`WARNING: ${term}/${number} ${date}: event type '${etype}' on decision date (not auto-fixed)`);
+                }
+            }
+            if (['argument', 'reargument', 'opinion'].includes(etype) && date) {
+                if (etype === 'argument' && !argDates.has(date))
+                    console.log(`WARNING: ${term}/${number} ${date}: argument event date not in 'argument' field`);
+                else if (etype === 'reargument' && !reargDates.has(date))
+                    console.log(`WARNING: ${term}/${number} ${date}: reargument event date not in 'reargument' field`);
+                else if (etype === 'opinion' && !decisionDates.has(date))
+                    console.log(`WARNING: ${term}/${number} ${date}: opinion event date not in 'decision' field`);
+            }
+        }
+    }
+    return fixed;
+}
+
+function sortEvents(term, cases, dryRun) {
+    let changed = 0;
+    for (const c of cases) {
+        const events = c.events;
+        if (!events || events.length < 2) continue;
+        const indexed = events.map((e, i) => [i, e]);
+        const sorted = [...indexed].sort(([, a], [, b]) =>
+            _cmpKeys(_eventSortKey(a), _eventSortKey(b)));
+        const orderChanged = sorted.some(([oi], i) => oi !== i);
+        if (orderChanged) {
+            changed++;
+            if (dryRun) console.log(`  SORT events ${term}/${c.number || '?'}`);
+            else c.events = sorted.map(([, e]) => e);
+        }
+    }
+    return changed;
+}
+
+function sortCases(term, cases, dryRun) {
+    const indexed = cases.map((c, i) => [i, c]);
+    const key = (c) => [(c.argument ? '0' : '1'), c.argument || ''];
+    const sorted = [...indexed].sort(([, a], [, b]) => _cmpKeys(key(a), key(b)));
+    const orderChanged = sorted.some(([oi], i) => oi !== i);
+    if (orderChanged) {
+        if (dryRun) console.log(`  SORT cases ${term}`);
+        else cases.splice(0, cases.length, ...sorted.map(([, c]) => c));
+        return 1;
+    }
+    return 0;
+}
+
+function mergeRefiledCases(term, cases, allTerms, dryRun) {
+    const termIdx = allTerms.indexOf(term);
+    if (termIdx < 0) return 0;
+    const laterTerms = allTerms.slice(termIdx + 1, termIdx + 3);
+    if (!laterTerms.length) return 0;
+    const laterCaseMap = new Map();
+    const laterCasesLists = {};
+    for (const lt of laterTerms) {
+        const lp = path.join(TERMS_DIR, lt, 'cases.json');
+        if (!fs.existsSync(lp)) continue;
+        let lcases;
+        try { lcases = JSON.parse(fs.readFileSync(lp, 'utf8')); } catch { continue; }
+        laterCasesLists[lt] = lcases;
+        for (const lc of lcases) {
+            const tt = lc.title || '', nn = lc.number || '';
+            const key = `${tt}\u0000${nn}`;
+            if (tt && nn && !laterCaseMap.has(key)) {
+                laterCaseMap.set(key, [lt, lcases, lc]);
+            }
+        }
+    }
+    if (!laterCaseMap.size) return 0;
+
+    const eventId = (ev) => ev.audio_href || `${ev.date || ''}|${ev.source || ''}|${ev.type || ''}`;
+
+    const mergedTermsWritten = new Set();
+    const casesToRemove = [];
+    for (const oldCase of cases) {
+        const title = oldCase.title || '', number = oldCase.number || '';
+        if (!title || !number) continue;
+        const match = laterCaseMap.get(`${title}\u0000${number}`);
+        if (!match) continue;
+        const [laterTerm, , newCase] = match;
+        const [ltStart, ltEnd] = _termDateRange(laterTerm, allTerms);
+        const oldEventDates = (oldCase.events || []).map(e => e.date).filter(Boolean);
+        if (!oldEventDates.some(d => d >= ltStart && d <= ltEnd)) continue;
+        const oldEvents = oldCase.events || [];
+        const newEventIds = new Set((newCase.events || []).map(eventId));
+        const eventsToMove = oldEvents.filter(e => !newEventIds.has(eventId(e)));
+        console.log(`  MERGE ${term}/${number} -> ${laterTerm}/${number} (${eventsToMove.length} of ${oldEvents.length} event(s) to move)`);
+        if (!dryRun) {
+            const oldCasesDir = path.join(TERMS_DIR, term,      'cases');
+            const newCasesDir = path.join(TERMS_DIR, laterTerm, 'cases');
+            for (const ev of eventsToMove) {
+                const th = ev.text_href || '';
+                if (th && !th.startsWith('http') && th.includes('/')) {
+                    const src = path.join(oldCasesDir, th);
+                    const dst = path.join(newCasesDir, th);
+                    if (fs.existsSync(src)) {
+                        _mkdirSync(path.dirname(dst), { recursive: true });
+                        _renameSync(src, dst);
+                        console.log(`    moved file ${th}`);
+                    }
+                }
+            }
+            const newEvents = newCase.events = newCase.events || [];
+            newEvents.push(...eventsToMove);
+            newEvents.sort((a, b) => _cmpKeys(_eventSortKey(a), _eventSortKey(b)));
+            newCase.previouslyFiled = `${term}/${number}`;
+            const [reordered] = _reorderWithUnknowns(newCase, CASE_KEY_ORDER);
+            for (const k of Object.keys(newCase)) delete newCase[k];
+            Object.assign(newCase, reordered);
+            for (const ev of newCase.events || []) {
+                const [newEv] = _reorderWithUnknowns(ev, EVENT_KEY_ORDER);
+                if (Object.keys(newEv).join('|') !== Object.keys(ev).join('|')) {
+                    for (const k of Object.keys(ev)) delete ev[k];
+                    Object.assign(ev, newEv);
+                }
+            }
+            mergedTermsWritten.add(laterTerm);
+        }
+        casesToRemove.push(oldCase);
+    }
+    if (!casesToRemove.length) return 0;
+    if (!dryRun) {
+        for (const c of casesToRemove) {
+            const i = cases.indexOf(c);
+            if (i >= 0) cases.splice(i, 1);
+        }
+        for (const lt of mergedTermsWritten) {
+            const lp = path.join(TERMS_DIR, lt, 'cases.json');
+            _writeJson(lp, laterCasesLists[lt]);
+        }
+    }
+    return casesToRemove.length;
+}
+
+function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
+    const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+    if (!fs.existsSync(casesPath)) {
+        return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
+                 hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
+                 hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
+                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0 };
+    }
+    const cases = _readJson(casesPath);
+    if (!cases || !cases.length) {
+        return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
+                 hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
+                 hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
+                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0 };
+    }
+    const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
+    let casesReordered = 0, eventsReordered = 0;
+    let unknownCaseKeys = new Set(), unknownEventKeys = new Set();
+    if (!sortOnly) {
+        [casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys] = fixKeyOrder(term, cases, dryRun);
+    }
+    const casesDir = path.join(TERMS_DIR, term, 'cases');
+    const [hrefUpdated, hrefWarned] = !sortOnly ? fixTextHrefs(term, cases, casesDir, dryRun) : [0, 0];
+    const [hrefMissing, hrefRedundantFixed] = !sortOnly ? checkMissingTextHrefs(term, cases, casesDir, dryRun) : [0, 0];
+    const hrefOrphaned = !sortOnly ? checkOrphanedTranscripts(term, cases, casesDir) : [];
+    for (const [label, date, th] of hrefOrphaned) {
+        const detail = th ? `  ${date}  ${th}` : `  ${date}`;
+        console.log(`  ORPHAN:  ${label}${detail}`);
+    }
+    const hrefDupes    = (checkDups && !sortOnly) ? checkDuplicateTextHrefs(term, cases) : 0;
+    const hrefStripped = !sortOnly ? fixOyezTranscriptHrefs(term, cases, dryRun) : 0;
+    const eventsSorted = sortEvents(term, cases, dryRun);
+    const casesSorted  = sortCases(term, cases, dryRun);
+    const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
+    const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
+    const mergedCount     = !sortOnly ? mergeRefiledCases(term, cases, allTerms || [], dryRun) : 0;
+
+    if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
+            || eventsSorted || casesSorted || argDatesFixed || eventTypesFixed
+            || mergedCount || hrefRedundantFixed)) {
+        _writeJson(casesPath, cases);
+    }
+    return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
+             hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
+             hrefDupes, hrefStripped, eventsSorted, casesSorted,
+             argDatesFixed, eventTypesFixed, mergedCount };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CLI / main
+// ═══════════════════════════════════════════════════════════════════════════
+
+const USAGE = `Usage: node scripts/validate_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+       node scripts/validate_cases.js TERM_START TERM_END [--checkurls] [--opinions] [--verbose] [--dry-run]
+       node scripts/validate_cases.js                  # validate all terms`;
+
+async function processOneTerm(term, opts) {
+    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, caseFilter, speakerMapBase } = opts;
+    const termDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term);
+    if (!isDir(termDir)) {
+        console.log(`Skipping ${term}: directory not found.`);
+        return null;
+    }
+
+    checkDuplicateCaseNumbers(termDir, term, verbose);
+    checkDuplicateAudioHrefs(termDir);
+    checkCasesSync(termDir, verbose);
+
+    const casesPath = path.join(termDir, 'cases.json');
+    if (fs.existsSync(casesPath)) {
+        migrateArgumentsToAudio(casesPath);
+        if (!dryRun) removeRedundantTranscriptFiles(casesPath);
+        deduplicateCases(casesPath);
+        validateCasesJsonArguments(casesPath, term, dryRun);
+        normalizeAudioAlignedPosition(casesPath);
+        checkAudioDates(casesPath, term, dryRun);
+        checkDecisionDates(casesPath, term);
+        backfillUntrackedFiles(casesPath, term, dryRun);
+        if (!dryRun) syncFilesCount(casesPath);
+        syncOpinionHrefFromFiles(casesPath);
+        warnMissingOpinionHref(casesPath, term);
+        if (checkUrls) await checkCaseHrefs(casesPath, term, opinionsOnly);
+    }
+
+    const speakerMap = [...speakerMapBase, ...filterSpeakerMap(loadSpeakerMap(), term)];
+
+    if (caseFilter) {
+        await validateCase(termDir, caseFilter, checkUrls, opinionsOnly);
+        applySpeakerMapToCase(path.join(termDir, 'cases', caseFilter), speakerMap, dryRun);
+    } else {
+        const casesDir = path.join(termDir, 'cases');
+        const caseDirs = isDir(casesDir)
+            ? fs.readdirSync(casesDir).filter(n => isDir(path.join(casesDir, n))).sort()
+            : [];
+        if (!caseDirs.length && verbose) console.log(`NOTICE: ${term}: no case directories found`);
+        for (const d of caseDirs) {
+            await validateCase(termDir, d, checkUrls, opinionsOnly);
+            applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
+        }
+    }
+
+    return processTerm(term, dryRun, false, allTerms, false);
+}
+
+async function main() {
+    const argv = process.argv.slice(2);
+    const flags = new Set(argv.filter(a => a.startsWith('--')));
+    const positional = argv.filter(a => !a.startsWith('--'));
+    const checkUrls    = flags.has('--checkurls');
+    const opinionsOnly = flags.has('--opinions');
+    const verbose      = flags.has('--verbose');
+    const dryRun       = flags.has('--dry-run');
+    setVerbose(verbose);
+    setDryRun(dryRun);
+
+    if (positional.length > 2) {
+        console.log(USAGE);
+        process.exit(1);
+    }
+
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.map(e => e.term);
+    } catch {}
+
+    // Decide scope.
+    //   0 args        → all terms
+    //   1 arg (TERM)  → single term
+    //   2 args:
+    //     - if arg2 looks like YYYY or YYYY-MM → range  TERM_START..TERM_END
+    //     - otherwise                           → TERM CASE
+    let termsToProcess = [];
+    let caseFilter = null;
+    if (positional.length === 0) {
+        termsToProcess = [...allTerms];
+    } else if (positional.length === 1) {
+        termsToProcess = [positional[0]];
+    } else {
+        const looksLikeTerm = /^\d{4}(-\d{2})?$/.test(positional[1]);
+        if (looksLikeTerm) {
+            try {
+                const start = _parseTermArg(positional[0]);
+                const end   = _parseTermArg(positional[1]);
+                termsToProcess = allTerms.filter(t => t >= start && t <= end);
+            } catch (e) { console.log(USAGE); process.exit(1); }
+        } else {
+            termsToProcess = [positional[0]];
+            caseFilter = positional[1];
+        }
+    }
+
+    if (!termsToProcess.length) {
+        console.log('No terms to process.');
+        process.exit(0);
+    }
+
+    const speakerMapBase = _buildJusticeRenameEntries();
+
+    const totals = {
+        casesReordered: 0, eventsReordered: 0,
+        unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
+        hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0,
+        hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
+        eventsSorted: 0, casesSorted: 0,
+        argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
+    };
+
+    for (const term of termsToProcess) {
+        const r = await processOneTerm(term, {
+            checkUrls, opinionsOnly, verbose, dryRun, allTerms,
+            caseFilter: termsToProcess.length === 1 ? caseFilter : null,
+            speakerMapBase,
+        });
+        if (!r) continue;
+        totals.casesReordered    += r.casesReordered;
+        totals.eventsReordered   += r.eventsReordered;
+        for (const k of r.unknownCaseKeys)  totals.unknownCaseKeys.add(k);
+        for (const k of r.unknownEventKeys) totals.unknownEventKeys.add(k);
+        totals.hrefUpdated         += r.hrefUpdated;
+        totals.hrefWarned          += r.hrefWarned;
+        totals.hrefMissing         += r.hrefMissing;
+        totals.hrefRedundantFixed  += r.hrefRedundantFixed;
+        totals.hrefOrphaned.push(...r.hrefOrphaned);
+        totals.hrefDupes           += r.hrefDupes;
+        totals.hrefStripped        += r.hrefStripped;
+        totals.eventsSorted        += r.eventsSorted;
+        totals.casesSorted         += r.casesSorted;
+        totals.argDatesFixed       += r.argDatesFixed;
+        totals.eventTypesFixed     += r.eventTypesFixed;
+        totals.mergedCount         += r.mergedCount;
+    }
+
+    // Cross-scope media-href dedup check (always runs across full scope).
+    const mediaDupes = checkDuplicateMediaHrefs(termsToProcess);
+
+    const r = totals;
+    if (r.casesReordered || r.eventsReordered) {
+        const verb = dryRun ? 'Would reorder' : 'Reordered';
+        const parts = [];
+        if (r.casesReordered)  parts.push(`${r.casesReordered} case(s)`);
+        if (r.eventsReordered) parts.push(`${r.eventsReordered} event(s)`);
+        console.log(`Key order: ${verb} ${parts.join(' and ')}.`);
+    }
+    if (dryRun && r.unknownCaseKeys.size) {
+        console.log(`Key order: unknown case keys found: [${_sortStr(r.unknownCaseKeys).map(k=>`'${k}'`).join(', ')}]`);
+    }
+    if (r.unknownEventKeys.size) {
+        console.log(`Key order: unknown event keys found: [${_sortStr(r.unknownEventKeys).map(k=>`'${k}'`).join(', ')}]`);
+    }
+    if (r.hrefUpdated) {
+        console.log(`text_href: ${dryRun ? 'Would migrate' : 'Migrated'} ${r.hrefUpdated} bare filename(s).`);
+    }
+    if (r.hrefWarned) {
+        console.log(`text_href: ${r.hrefWarned} bare filename(s) could not be resolved.`);
+    }
+    if (r.hrefRedundantFixed) {
+        console.log(`text_href: ${dryRun ? 'Would remove' : 'Removed'} stale text_href from ${r.hrefRedundantFixed} redundant event(s).`);
+    }
+    if (r.hrefMissing) console.log(`text_href: ${r.hrefMissing} reference(s) point to missing files.`);
+    if (r.hrefOrphaned.length) {
+        console.log(`text_href: ${r.hrefOrphaned.length} transcript file(s) have no reference.`);
+        for (const [label, date, th] of r.hrefOrphaned) {
+            const detail = th ? `  ${date}  ${th}` : `  ${date}`;
+            console.log(`  ${label}${detail}`);
+        }
+    }
+    if (r.hrefDupes)    console.log(`text_href: ${r.hrefDupes} duplicate value(s) found.`);
+    if (r.hrefStripped) console.log(`transcript_href: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
+    if (r.eventsSorted) console.log(`Event order: ${dryRun ? 'Would sort' : 'Sorted'} events in ${r.eventsSorted} case(s).`);
+    if (r.casesSorted)  console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
+    if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
+    if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
+    if (r.mergedCount) console.log(`Refiled cases: ${dryRun ? 'Would merge' : 'Merged'} ${r.mergedCount} case(s) into later term(s).`);
+    if (mediaDupes.length) {
+        console.log(`Media hrefs: ${mediaDupes.length} duplicate URL(s) found across scope.`);
+        for (const [field, url, locs] of mediaDupes) {
+            console.log(`  [${field}] ${url}`);
+            for (const [t, n, d, s] of locs) {
+                const lbl = d ? `${s} ${d}` : s;
+                console.log(`    ${t}/${n}  [${lbl}]`);
+            }
+        }
+    }
+}
+
+// Run main only when invoked directly (not when imported as a library).
+const _isMain = (() => {
+    try { return path.resolve(process.argv[1] || '') === fileURLToPath(import.meta.url); }
+    catch { return false; }
+})();
+
+if (_isMain) {
+    main().catch(err => { console.error(err); process.exit(1); });
+}
+
+// Export newly added utilities so other scripts can reuse them.
+export {
+    loadSpeakerMap, filterSpeakerMap, applySpeakerMapToCase,
+    migrateArgumentsToAudio, validateCasesJsonArguments, normalizeAudioAlignedPosition,
+    removeRedundantTranscriptFiles, checkDecisionDates, checkCaseHrefs,
+    backfillUntrackedFiles, checkAudioDates, warnMissingOpinionHref,
+    validateFilesJson, validateCase, deduplicateCases,
+    checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
+    fixKeyOrder, fixTextHrefs, checkMissingTextHrefs, checkOrphanedTranscripts,
+    checkDuplicateTextHrefs, fixOyezTranscriptHrefs, checkDuplicateMediaHrefs,
+    fixArgumentDates, fixEventTypes, sortEvents, sortCases,
+    mergeRefiledCases, processTerm,
+};
