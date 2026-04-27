@@ -372,7 +372,7 @@ export function syncFilesCount(casesPath) {
 
     if (modified) {
         _writeJson(casesPath, data);
-        console.log('Updated cases.json: synced "files" counts.');
+        if (_VERBOSE) console.log(` NOTICE: ${path.basename(termDir)}/cases.json: synced "files" counts`);
     }
 }
 
@@ -760,6 +760,7 @@ function _resolveJusticeTitle(titles, yearMonth) {
 
 function checkUnmappedJustices(caseDir) {
     if (!isDir(caseDir)) return;
+    const term = path.basename(path.dirname(path.dirname(caseDir)));
     const justiceInfo = _loadJusticeInfo();
     for (const name of listDir(caseDir).filter(n => n.endsWith('.json'))) {
         if (name === 'files.json') continue;
@@ -773,24 +774,50 @@ function checkUnmappedJustices(caseDir) {
         const argDate = dm ? dm[1] : '';
         const yearMonth = argDate.slice(0, 7);
         let modified = false;
-        for (const sp of speakers) {
+        const replacements = [];   // [origName] — speaker names to rename in turns
+        const removeIdx    = [];   // indices in speakers[] to remove (duplicates)
+        for (let i = 0; i < speakers.length; i++) {
+            const sp = speakers[i];
             const spName  = (sp.name  || '').toUpperCase();
             const spTitle = (sp.title || '').toUpperCase();
             const titleIsJustice = spTitle === 'JUSTICE' || spTitle === 'CHIEF JUSTICE';
             const info = justiceInfo.get(spName);
             const nameIsJustice  = !!info && _isJusticeOnDate(info, argDate);
             if (titleIsJustice && !info) {
-                console.log(`WARNING: ${path.basename(caseDir)}/${name}: title='${sp.title}' but name='${sp.name}' is not a known justice`);
+                console.log(`WARNING: ${term}/${path.basename(caseDir)}/${name}: title='${sp.title}' but name='${sp.name}' is not a known justice`);
             } else if (titleIsJustice && info && !nameIsJustice) {
-                console.log(`WARNING: ${path.basename(caseDir)}/${name}: title='${sp.title}' but '${sp.name}' was not on the Court on ${argDate}`);
+                const verb = _DRY_RUN ? 'would replace' : 'replacing';
+                console.log(`WARNING: ${term}/${path.basename(caseDir)}/${name}: title='${sp.title}' but '${sp.name}' was not on the Court on ${argDate} → ${verb} with 'UNKNOWN JUSTICE'`);
+                if (!_DRY_RUN) {
+                    const hasUnknown = speakers.some((s, j) =>
+                        j !== i && (s.name || '').toUpperCase() === 'UNKNOWN JUSTICE');
+                    if (hasUnknown) {
+                        removeIdx.push(i);
+                    } else {
+                        sp.name  = 'UNKNOWN JUSTICE';
+                        sp.title = 'JUSTICE';
+                    }
+                    replacements.push(spName);
+                    modified = true;
+                }
             } else if (!titleIsJustice && nameIsJustice) {
                 const expected = _resolveJusticeTitle(info.titles, yearMonth);
                 const verb = _DRY_RUN ? 'would set' : 'set';
-                console.log(`WARNING: ${path.basename(caseDir)}/${name}: name='${sp.name}' title='${sp.title}' → ${verb} title='${expected}'`);
+                console.log(`WARNING: ${term}/${path.basename(caseDir)}/${name}: name='${sp.name}' title='${sp.title}' → ${verb} title='${expected}'`);
                 if (!_DRY_RUN) {
                     sp.title = expected;
                     modified = true;
                 }
+            }
+        }
+        if (removeIdx.length) {
+            for (const idx of removeIdx.sort((a, b) => b - a)) speakers.splice(idx, 1);
+        }
+        if (replacements.length && Array.isArray(data.turns)) {
+            const renameSet = new Set(replacements);
+            for (const turn of data.turns) {
+                const tn = (turn.name || '').toUpperCase();
+                if (renameSet.has(tn)) turn.name = 'UNKNOWN JUSTICE';
             }
         }
         if (modified) _writeJson(p, data);
@@ -925,7 +952,7 @@ function normalizeAudioAlignedPosition(casesPath) {
     }
     if (modified) {
         _writeJson(casesPath, data);
-        console.log('Updated cases.json: moved "aligned" to last position in audio objects.');
+        if (_VERBOSE) console.log(` NOTICE: ${path.basename(path.dirname(casesPath))}/cases.json: moved "aligned" to last position in audio objects`);
     }
 }
 
@@ -1300,7 +1327,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
     }
     if (modified) {
         _writeJson(casesPath, data);
-        console.log('Updated cases.json: fixed argument/decision dates from audio.');
+        if (_VERBOSE) console.log(` NOTICE: ${term}/cases.json: fixed argument/decision dates from audio`);
     }
 }
 
@@ -1402,7 +1429,11 @@ function deduplicateCases(casesPath) {
                 if (isStub(c) && !isStub(other)) duplicates.push([otherIdx, i]);
                 else if (isStub(other) && !isStub(c)) duplicates.push([i, otherIdx]);
                 else {
-                    console.log(`WARNING: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
+                    if (term < '1955-10') {
+                        if (_VERBOSE) console.log(` NOTICE: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
+                    } else {
+                        console.log(`WARNING: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
+                    }
                 }
             } else {
                 compToIdx[part] = i;
@@ -1623,12 +1654,7 @@ function checkCasesSync(termDir, verbose = false) {
             }
         }
     }
-    // 2
-    for (const folder of _sortStr(diskFolders)) {
-        if (!(folder in jsonFolders)) {
-            console.log(`WARNING: ${term}: cases/${folder}/ exists on disk but not in cases.json`);
-        }
-    }
+    // 2 (moved below — needs `allReferenced` built first)
     // 3 & 4
     const dateJsonRe = /^\d{4}-\d{2}-\d{2}.*\.json$/;
     const partTitleRe = /\bPart\s+(\d+)\b/i;
@@ -1644,6 +1670,19 @@ function checkCasesSync(termDir, verbose = false) {
             if (!th || /^https?:\/\//.test(th)) continue;
             const relPath = th.includes('/') ? th : `${ownFolder}/${th}`;
             allReferenced.add(relPath);
+        }
+    }
+    // 2: orphan folders — only warn about files inside that aren't referenced
+    // by any case's text_href; skip entirely if all transcripts are referenced.
+    for (const folder of _sortStr(diskFolders)) {
+        if (folder in jsonFolders) continue;
+        const caseDir = path.join(casesDir, folder);
+        const onDisk = fs.readdirSync(caseDir)
+            .filter(f => isFile(path.join(caseDir, f)) && dateJsonRe.test(f))
+            .map(f => `${folder}/${f}`);
+        const unreferenced = onDisk.filter(rel => !allReferenced.has(rel));
+        for (const rel of _sortStr(unreferenced)) {
+            console.log(`WARNING: ${term}: cases/${rel} on disk but not referenced in any case's events`);
         }
     }
     for (const number of _sortStr(Object.keys(jsonNumbers))) {
