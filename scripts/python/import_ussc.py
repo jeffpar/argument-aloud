@@ -80,9 +80,9 @@ ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 _TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s*(.+)$', re.IGNORECASE)
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
-REPO_ROOT        = Path(__file__).resolve().parent.parent
-_SPEAKERS_PATH   = Path(__file__).parent / 'speakers.json'
-_JUSTICES_PATH   = Path(__file__).parent / 'justices.json'
+REPO_ROOT        = Path(__file__).resolve().parent.parent.parent
+_SPEAKERS_PATH   = Path(__file__).resolve().parent.parent / 'speakers.json'
+_JUSTICES_PATH   = Path(__file__).resolve().parent.parent / 'justices.json'
 
 # Set to True by --verbose; controls whether "nothing to do" messages appear.
 VERBOSE: bool = False
@@ -617,9 +617,9 @@ def _resolve_speaker(raw_name: str,
             title = 'GENERAL'
         rest  = m.group(2).strip()
         words = rest.split()
-        last  = words[-1].rstrip('.,') 
+        last  = words[-1].rstrip('.,')
         if last in _SUFFIX_WORDS and len(words) > 1:
-            last = words[-2].rstrip('.,') 
+            last = words[-2].rstrip('.,')
         if title in ('CHIEF JUSTICE', 'JUSTICE'):
             # Only treat as a justice if the last name is in justices.json.
             if last in _JUSTICE_LAST_NAME_MAP:
@@ -653,7 +653,7 @@ def _resolve_speaker(raw_name: str,
                 title = extra
         return full, title
     # No title prefix — if it's a bare last name, look it up in appearances.
-    bare = raw_upper.rstrip('.,')  
+    bare = raw_upper.rstrip('.,')
     if ' ' not in bare:
         candidates = appearances.get(bare)
         full = candidates[0] if candidates else None

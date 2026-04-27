@@ -214,7 +214,7 @@ def find_turn_start(
 
 # ── Per-argument alignment ────────────────────────────────────────────────────
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
 def _fetch_words(audio_href: str, cache_path: Path, model_name: str) -> list[dict]:

@@ -32,9 +32,9 @@ from pathlib import Path
 from validate_cases import sync_files_count
 from schema import reorder_event
 
-REPO_ROOT      = Path(__file__).resolve().parent.parent
+REPO_ROOT      = Path(__file__).resolve().parent.parent.parent
 OYEZ_API       = 'https://api.oyez.org'
-_SPEAKERS_PATH = Path(__file__).resolve().parent / 'speakers.json'
+_SPEAKERS_PATH = Path(__file__).resolve().parent.parent / 'speakers.json'
 
 # Set to True by --cases; gates creation of new case objects.  Without this
 # flag the script may only add new event objects to existing cases.
@@ -96,7 +96,7 @@ def load_justices() -> dict[str, str]:
 
     Both the canonical name and all alternates map to the canonical name.
     """
-    path = Path(__file__).resolve().parent / 'justices.json'
+    path = Path(__file__).resolve().parent.parent / 'justices.json'
     if not path.exists():
         return {}
     data = json.loads(path.read_text(encoding='utf-8'))

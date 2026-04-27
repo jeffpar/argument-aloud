@@ -1,0 +1,2287 @@
+#!/usr/bin/env node
+/**
+ * Fetches oral argument listings from supremecourt.gov for an entire term,
+ * producing a cases.json, and generating transcript JSON files from the PDF
+ * transcripts.
+ *
+ * Usage:
+ *   node scripts/import_ussc.js TERM [CASE]
+ *     [--docket] [--reparse] [--verbose] [--cases] [--checkurls] [--prompt] [--opinions]
+ *
+ * Examples:
+ *   node scripts/import_ussc.js 2025-10
+ *   node scripts/import_ussc.js 2024-10 --docket
+ *   node scripts/import_ussc.js 2010-10 09-5801
+ *
+ * JS port of scripts/import_ussc.py — see that file (and copilot-instructions.md)
+ * for full step-by-step documentation.
+ *
+ * Requires: pdftotext (poppler-utils) on PATH.
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import readline from 'node:readline';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { parse as parseHtml } from 'node-html-parser';
+
+import { reorderCase, reorderEvent } from './schema.js';
+import {
+    REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase,
+    syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose,
+} from './validate_cases.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// ── Regex constants ────────────────────────────────────────────────────────
+
+const CASE_RE = /^(\d+(?:-\d+|-Orig|A\d+))\s*(.+)$/i;
+const DATE_RE = /^(\d{1,2})\/(\d{1,2})\/(\d{2})$/;
+const ORIG_RE = /^(\d+)[\s-]Orig\.?$/i;
+
+const _TRANSCRIPT_CASE_RE = /^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s*(.+)$/i;
+const _ORIG_NORM_RE       = /[\s-]*Orig\.?$/i;
+
+const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
+const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
+
+// ── Module-level flags / state ─────────────────────────────────────────────
+
+let VERBOSE     = false;
+let ADD_CASES   = false;
+let CHECK_URLS  = false;
+let PROMPT      = false;
+let _anyChanges = false;
+
+function vprint(...args)        { if (VERBOSE) console.log(...args); }
+function reportChange(...args)  { _anyChanges = true; console.log(...args); }
+
+const BASE_URL         = 'https://www.supremecourt.gov';
+const _WAYBACK_CDX_URL = 'https://web.archive.org/cdx/search/cdx';
+const _WAYBACK_REWRITE_RE = /https?:\/\/web\.archive\.org\/web\/\d{14}\//g;
+
+const USER_AGENT = 'Mozilla/5.0';
+
+// ── Small fs/json helpers ──────────────────────────────────────────────────
+
+const exists       = (p) => fs.existsSync(p);
+const readText     = (p) => fs.readFileSync(p, 'utf8');
+const writeText    = (p, s) => fs.writeFileSync(p, s, 'utf8');
+const readJson     = (p) => JSON.parse(readText(p));
+const writeJson    = (p, d) => writeText(p, JSON.stringify(d, null, 2) + '\n');
+const ensureDir    = (p) => fs.mkdirSync(p, { recursive: true });
+const unlinkSafe   = (p) => { try { fs.unlinkSync(p); } catch {} };
+
+function relRepo(p) {
+    const r = path.relative(REPO_ROOT, p);
+    return r.startsWith('..') ? p : r;
+}
+
+// ── Docket number map ──────────────────────────────────────────────────────
+
+function _loadDocketMap() {
+    const p = path.join(__dirname, 'config.json');
+    const result = new Map();   // key: `${term}|${case}`
+    if (!exists(p)) return result;
+    let data;
+    try { data = readJson(p); } catch { return result; }
+    const docket = data?.docket || {};
+    for (const [key, value] of Object.entries(docket)) {
+        const colon = key.split(':');
+        if (colon.length !== 2) continue;
+        const [term, c] = colon;
+        result.set(`${term.trim()}|${c.trim()}`, String(value).trim());
+    }
+    return result;
+}
+const _DOCKET_MAP = _loadDocketMap();
+
+function _docketNumber(caseNumber, termYear) {
+    const m = ORIG_RE.exec(caseNumber);
+    if (m) {
+        const override = _DOCKET_MAP.get(`${termYear}|${caseNumber}`);
+        if (override) return override;
+        const yy = termYear.slice(-2);
+        return `${yy}O${m[1]}`;
+    }
+    return caseNumber;
+}
+
+// ── HTTP helpers ───────────────────────────────────────────────────────────
+
+function _safeUrl(url) {
+    // Equivalent to urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%")
+    return encodeURI(url).replace(/%25([0-9A-Fa-f]{2})/g, '%$1');
+}
+
+async function _fetchWithUA(url, { method = 'GET', timeoutMs = 30000 } = {}) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+        return await fetch(_safeUrl(url), {
+            method,
+            redirect: 'follow',
+            headers: { 'User-Agent': USER_AGENT },
+            signal: ctrl.signal,
+        });
+    } finally { clearTimeout(t); }
+}
+
+async function fetchHtml(url) {
+    const resp = await _fetchWithUA(url, { timeoutMs: 30000 });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
+    return await resp.text();
+}
+
+async function _fetchHtmlViaWayback(originalUrl, yearStr) {
+    const yearInt = parseInt(yearStr, 10);
+    const minDate = `${yearInt + 1}0901`;
+    const cdxApi = `${_WAYBACK_CDX_URL}?url=${encodeURIComponent(originalUrl)}`
+                 + `&output=json&from=${minDate}&limit=5&statuscode=200`;
+    const resp = await _fetchWithUA(cdxApi, { timeoutMs: 30000 });
+    if (!resp.ok) throw new Error(`Wayback CDX HTTP ${resp.status}`);
+    const cdxRows = await resp.json();
+    if (!Array.isArray(cdxRows) || cdxRows.length < 2) {
+        throw new Error(`No Wayback snapshot found for ${originalUrl} after ${minDate}`);
+    }
+    const header = cdxRows[0];
+    const tsIdx  = header.indexOf('timestamp') >= 0 ? header.indexOf('timestamp') : 1;
+    const ts     = cdxRows[1][tsIdx];
+    const snapshotUrl = `https://web.archive.org/web/${ts}/${originalUrl}`;
+    console.log(`Fetching Wayback snapshot (${ts.slice(0,8)}) for ${originalUrl} ...`);
+    let html = await fetchHtml(snapshotUrl);
+    return html.replace(_WAYBACK_REWRITE_RE, '');
+}
+
+async function downloadFile(url, dest) {
+    const resp = await _fetchWithUA(url, { timeoutMs: 60000 });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
+    const buf = Buffer.from(await resp.arrayBuffer());
+    fs.writeFileSync(dest, buf);
+}
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+// ── Date conversion ────────────────────────────────────────────────────────
+
+function parseDate(s) {
+    const m = DATE_RE.exec((s || '').trim());
+    if (!m) return null;
+    const [, mo, da, yy] = m;
+    return `20${yy}-${String(parseInt(mo, 10)).padStart(2, '0')}-${String(parseInt(da, 10)).padStart(2, '0')}`;
+}
+
+const DOCKET_DATE_RE = /^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$/;
+const MONTH_MAP = {
+    Jan: '01', Feb: '02', Mar: '03', Apr: '04',
+    May: '05', Jun: '06', Jul: '07', Aug: '08',
+    Sep: '09', Oct: '10', Nov: '11', Dec: '12',
+};
+
+function parseDocketDate(s) {
+    const m = DOCKET_DATE_RE.exec((s || '').trim());
+    if (!m) return null;
+    const monthKey = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
+    const month = MONTH_MAP[monthKey];
+    if (!month) return null;
+    return `${m[3]}-${month}-${m[2].padStart(2, '0')}`;
+}
+
+const ARCHIVED_DATE_RE = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+function parseArchivedDate(s) {
+    const m = ARCHIVED_DATE_RE.exec((s || '').trim());
+    if (!m) return null;
+    const [, mo, da, yr] = m;
+    return `${yr}-${String(parseInt(mo, 10)).padStart(2, '0')}-${String(parseInt(da, 10)).padStart(2, '0')}`;
+}
+
+const parseAnyDate = (s) => parseDate(s) || parseArchivedDate(s);
+
+const _ANY_DATE_TOKEN_RE = /\d{1,2}\/\d{1,2}\/(?:\d{4}|\d{2})/g;
+
+function parseAnyDates(s) {
+    const raw = (s || '').trim();
+    if (!raw) return [];
+    const single = parseAnyDate(raw);
+    if (single) return [single];
+    const out = [];
+    const seen = new Set();
+    for (const tok of raw.match(_ANY_DATE_TOKEN_RE) || []) {
+        const iso = parseAnyDate(tok);
+        if (iso && !seen.has(iso)) {
+            out.push(iso);
+            seen.add(iso);
+        }
+    }
+    return out;
+}
+
+function _normalizeNumber(num) {
+    let n = (num || '').trim().replace(/\.$/, '');
+    n = n.replace(_ORIG_NORM_RE, '-Orig');
+    return n;
+}
+
+function _caseFolder(number) {
+    return String(number || '').split(',')[0].trim();
+}
+
+const _USSC_HREF_NUM_RE = /\/(?:argument_transcripts|transcripts)\/\d+\/([^/]+)\.pdf/i;
+
+function _ussCcaseNumFromHref(transcriptHref = '', textHref = '') {
+    if (textHref && textHref.includes('/')) return textHref.split('/')[0];
+    if (transcriptHref) {
+        const m = _USSC_HREF_NUM_RE.exec(transcriptHref);
+        if (m) {
+            let raw = m[1].replace(/_[a-z0-9]{4}$/i, '');
+            return _normalizeNumber(raw);
+        }
+    }
+    return '';
+}
+
+function _usscAudioTitle(typeVal, dateStr, caseNum = '') {
+    let dateLabel;
+    try {
+        const [y, mo, d] = (dateStr || '').split('-');
+        const monthName  = ['January','February','March','April','May','June',
+                            'July','August','September','October','November','December'][parseInt(mo, 10) - 1];
+        if (!monthName || !y || !d) throw new Error('bad');
+        dateLabel = `${monthName} ${parseInt(d, 10)}, ${y}`;
+    } catch {
+        dateLabel = dateStr || '?';
+    }
+    const caseStr = caseNum ? ` in No. ${caseNum}` : '';
+    if (typeVal === 'reargument') return `Oral Reargument${caseStr} on ${dateLabel}`;
+    return `Oral Argument${caseStr} on ${dateLabel}`;
+}
+
+// ── Speaker name resolution ────────────────────────────────────────────────
+
+const _APPEARANCES_NAME_RE = new RegExp(
+    `^([A-Z][A-Za-z'\\.\\-]+(?:\\s+[A-Z][A-Za-z'\\.\\-]+){1,}` +
+    `(?:,\\s*(?:JR|SR|II|III|IV)\\.?)?)[\\s,]`
+);
+const _SUFFIX_WORDS = new Set(['JR', 'SR', 'II', 'III', 'IV']);
+const _SUFFIX_NORM_RE = /^(.+?)(?:,\s*|\s+)(JR\.|SR\.|JR|SR|II|III|IV)\s*$/i;
+
+function _normalizeNameSuffix(name) {
+    const m = _SUFFIX_NORM_RE.exec(name);
+    if (!m) return name;
+    const base = m[1].trim();
+    let suffix = m[2].toUpperCase().replace(/\.$/, '');
+    if (suffix === 'JR' || suffix === 'SR') suffix += '.';
+    return `${base}, ${suffix}`;
+}
+
+function _buildJusticeLastNameMap() {
+    if (!exists(_JUSTICES_PATH)) return new Map();
+    const data = readJson(_JUSTICES_PATH);
+    const result = new Map();
+    for (const [canonical, entry] of Object.entries(data)) {
+        const u = canonical.toUpperCase();
+        const words = u.split(/\s+/);
+        let last = words[words.length - 1];
+        if (_SUFFIX_WORDS.has(last) && words.length > 1) last = words[words.length - 2];
+        if (!result.has(last)) result.set(last, u);
+        for (const alt of (entry?.alternates || [])) {
+            const a = alt.toUpperCase();
+            const aw = a.split(/\s+/);
+            let al = aw[aw.length - 1];
+            if (_SUFFIX_WORDS.has(al) && aw.length > 1) al = aw[aw.length - 2];
+            if (!result.has(al)) result.set(al, u);
+        }
+    }
+    return result;
+}
+
+function _buildJusticeCanonicalSet() {
+    if (!exists(_JUSTICES_PATH)) return new Set();
+    const data = readJson(_JUSTICES_PATH);
+    return new Set(Object.keys(data).map(c => c.toUpperCase()));
+}
+
+const _JUSTICE_LAST_NAME_MAP = _buildJusticeLastNameMap();
+const _JUSTICE_CANONICAL_SET = _buildJusticeCanonicalSet();
+const _JUSTICE_LAST_NAMES    = new Set(_JUSTICE_LAST_NAME_MAP.keys());
+
+function _loadSpeakersSection(section) {
+    if (!exists(_SPEAKERS_PATH)) return new Map();
+    const data = readJson(_SPEAKERS_PATH);
+    const result = new Map();
+    const sect = data[section] || {};
+    for (const [k, v] of Object.entries(sect)) {
+        result.set(k.toUpperCase(), v.toUpperCase());
+    }
+    return result;
+}
+
+const _TYPO_SPEAKER_MAP   = _loadSpeakersSection('typos');
+const _RENAME_SPEAKER_MAP = _loadSpeakersSection('rename');
+
+const _ADVOCATE_TITLE_PREFIX_RE = /^(MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)$/;
+
+function _stripTitlePrefix(name) {
+    const m = _ADVOCATE_TITLE_PREFIX_RE.exec(name);
+    if (!m) return [name, ''];
+    let t = m[1];
+    if (t === 'GEN.') t = 'GENERAL';
+    return [m[2], t];
+}
+
+const _APPEARANCES_ESQ_RE             = /^(.+?)(?:,\s*|\s+)(?:ESQUIRE|ESQ\.)/i;
+const _APPEARANCES_HEADER_PREFIX_RE   = /^(?:ORAL\s+)?(?:ARGUMENT|REBUTTAL\s+ARGUMENT)\s+(?:OF|BY)\s+/i;
+
+const _FEMALE_FIRST_NAMES = new Set([
+    'ABIGAIL','ADRIENNE','AILEEN','AIMEE','ALEXIS','ALICE','ALICIA','ALISON','ALLISON','ALYSSA',
+    'AMANDA','AMBER','AMY','ANDREA','ANGELA','ANN','ANNA','ANNE','ANNETTE','ARIEL','ASHLEY',
+    'AUDREY','AUTUMN','BARBARA','BETTY','BEVERLY','BRENDA','BRIANNA','BRITTANY','BROOKE',
+    'CANDICE','CAROL','CARLY','CAROLYN','CASSANDRA','CECILIA','CHARLOTTE','CHELSEA','CHERYL',
+    'CHRISTY','CINDY','CLAIRE','CLAUDIA','COLLEEN','CONSTANCE','COURTNEY','CRYSTAL','CYNTHIA',
+    'DANA','DAWN','DEBORAH','DEBRA','DENISE','DIANA','DIANE','DONNA','DOROTHY','ELENA','ELEANOR',
+    'ELIZABETH','EMILY','EMMA','ERIN','EVA','FAITH','FELICIA','FLORENCE','FRANCES','GLORIA',
+    'GRACE','HANNAH','HEATHER','HELEN','HOLLY','HOPE','IRENE','IVY','JACKIE','JACQUELINE','JADE',
+    'JANET','JASMINE','JEAN','JENNIFER','JESSICA','JOANNA','JOANNE','JOY','JOYCE','JUDITH','JULIA',
+    'JULIE','JUNE','JUSTINE','KAREN','KATHERINE','KATHLEEN','KATHRYN','KATRINA','KELLY','KIMBERLY',
+    'KRISTIN','LACEY','LAURA','LAURIE','LEAH','LEILA','LENA','LESLIE','LILY','LINDA','LISA',
+    'LORENA','LORI','LORRAINE','LUCY','LYDIA','MACKENZIE','MADELINE','MARGARET','MARIA','MARIE',
+    'MARTHA','MARY','MAYA','MEGAN','MELISSA','MICHELLE','MILA','MIRANDA','MOLLY','MONIQUE','NAOMI',
+    'NATALIE','NANCY','NINA','NORA','NORMA','OLIVIA','PAIGE','PAMELA','PATRICIA','PEGGY','PHYLLIS',
+    'RACHEL','REBECCA','REBEKAH','RENEE','RHONDA','ROBIN','ROSA','ROSE','ROSEMARY','RUTH','SAMANTHA',
+    'SANDRA','SARA','SARAH','SHARON','SHEILA','SHELLEY','SIERRA','SONYA','SOPHIA','STACEY','STACY',
+    'STELLA','STEPHANIE','SUMMER','SUSAN','SYLVIA','TAMARA','TAMMY','TANYA','TARA','TERESA','THERESA',
+    'TIFFANY','TINA','TRACY','VANESSA','VERONICA','VIOLET','VIRGINIA','VIVIAN','WANDA','WENDY',
+    'WHITNEY','YVONNE','ZOE',
+]);
+
+function _pickCandidate(candidates, title) {
+    if (candidates.length === 1) return candidates[0];
+    const isFemale = title === 'MS.' || title === 'MRS.' || title === 'MISS';
+    const isMale   = title === 'MR.';
+    for (const cand of candidates) {
+        const [stripped] = _stripTitlePrefix(cand);
+        const first = stripped.split(/\s+/)[0];
+        if (isFemale && _FEMALE_FIRST_NAMES.has(first)) return cand;
+        if (isMale && !_FEMALE_FIRST_NAMES.has(first)) return cand;
+    }
+    return candidates[0];
+}
+
+const _APPEARANCES_LINE_RE = /^\s*\d{1,2}\s{2,}(.+)/;
+
+function parseAppearances(rawText) {
+    let inAppearances = false;
+    const names = [];
+    for (const line of rawText.split('\n')) {
+        const m = _APPEARANCES_LINE_RE.exec(line);
+        if (!m) continue;
+        const content = m[1].trim();
+        if (/^APPEARANCES:?$/.test(content)) { inAppearances = true; continue; }
+        if (!inAppearances) continue;
+        const collapsed = content.replace(/ /g, '');
+        if (collapsed.startsWith('CONTENTS') || collapsed.startsWith('PROCEEDINGS')) break;
+        const esq = _APPEARANCES_ESQ_RE.exec(content);
+        if (esq) { names.push(esq[1].trim()); continue; }
+        const nm = _APPEARANCES_NAME_RE.exec(content);
+        if (nm) names.push(nm[1].trim());
+    }
+    const result = new Map();
+    for (let nm of names) {
+        let nameUpper = nm.toUpperCase();
+        nameUpper = nameUpper.replace(_APPEARANCES_HEADER_PREFIX_RE, '').trim();
+        if (!nameUpper) continue;
+        const parts = nameUpper.split(/\s+/).map(p => p.replace(/^[.,]+|[.,]+$/g, ''));
+        let last = parts[parts.length - 1];
+        if (_SUFFIX_WORDS.has(last) && parts.length > 1) last = parts[parts.length - 2];
+        if (!result.has(last)) result.set(last, []);
+        result.get(last).push(nameUpper);
+    }
+    return result;
+}
+
+const _RESOLVE_TITLE_RE = /^(CHIEF JUSTICE|JUSTICE|MR\.|MS\.|MRS\.|MISS|GENERAL|GEN\.)\s+(.+)/;
+
+function _resolveSpeaker(rawName, appearances) {
+    const rawUpper = rawName.toUpperCase().trim();
+    if (rawUpper === 'QUESTION' || rawUpper === 'Q') return ['UNKNOWN JUSTICE', 'JUSTICE'];
+    if (_JUSTICE_CANONICAL_SET.has(rawUpper)) return [rawUpper, 'JUSTICE'];
+    const m = _RESOLVE_TITLE_RE.exec(rawUpper);
+    if (m) {
+        let title = m[1];
+        if (title === 'GEN.') title = 'GENERAL';
+        const rest = m[2].trim();
+        const words = rest.split(/\s+/);
+        let last = words[words.length - 1].replace(/[.,]+$/, '');
+        if (_SUFFIX_WORDS.has(last) && words.length > 1) {
+            last = words[words.length - 2].replace(/[.,]+$/, '');
+        }
+        if (title === 'CHIEF JUSTICE' || title === 'JUSTICE') {
+            if (_JUSTICE_LAST_NAME_MAP.has(last)) return [_JUSTICE_LAST_NAME_MAP.get(last), title];
+            const corrected = _TYPO_SPEAKER_MAP.get(rawUpper);
+            if (corrected) {
+                const cm = /^(CHIEF JUSTICE|JUSTICE)\s+(.+)/.exec(corrected);
+                const cTitle = cm ? cm[1] : title;
+                const cName  = cm ? cm[2] : corrected;
+                const cWords = cName.split(/\s+/);
+                let cLast = cWords[cWords.length - 1].replace(/[.,]+$/, '');
+                if (_SUFFIX_WORDS.has(cLast) && cWords.length > 1) {
+                    cLast = cWords[cWords.length - 2].replace(/[.,]+$/, '');
+                }
+                if (_JUSTICE_LAST_NAME_MAP.has(cLast)) return [_JUSTICE_LAST_NAME_MAP.get(cLast), cTitle];
+                return [cName, cTitle];
+            }
+            title = '';
+        }
+        const candidates = appearances.get(last);
+        let full = candidates ? _pickCandidate(candidates, title) : rest;
+        const [stripped, extra] = _stripTitlePrefix(full);
+        if (extra) {
+            full = stripped;
+            if (title && extra !== title) title = `${title},${extra}`;
+            else if (!title) title = extra;
+        }
+        return [full, title];
+    }
+    const bare = rawUpper.replace(/[.,]+$/, '');
+    if (!bare.includes(' ')) {
+        const candidates = appearances.get(bare);
+        const full = candidates && candidates[0];
+        if (full) {
+            const [stripped, extra] = _stripTitlePrefix(full);
+            return [extra ? stripped : full, extra];
+        }
+    }
+    return [rawName, ''];
+}
+
+// ── Transcript extraction ──────────────────────────────────────────────────
+
+const SKIP_PATTERNS = [
+    /^ORAL (?:ARGUMENT|REBUTTAL) OF\b/,
+    /^ON BEHALF OF\b/,
+    /^FOR THE UNITED\b/,
+    /^REBUTTAL ARGUMENT OF\b/,
+    /^P R O C E E D I N G S$/,
+    /^C O N T E N T S$/,
+    /^APPEARANCES:?$/,
+    /^\(.*\)$/,
+    /^[\s\-]+$/,
+];
+
+const TERMINATOR_PATTERNS = [
+    /^\(Whereupon\b/,
+    /\[\d+\]\s+\d+:\d+/,
+];
+
+const CONTENT_LINE_RE = /^\s{0,3}(\d{1,2})\s{2,}(.+)/;
+
+const SPEAKER_RE = new RegExp(
+    `^((?:CHIEF JUSTICE|JUSTICE|MR\\.|MS\\.|MRS\\.|MISS|GENERAL|GEN\\.)` +
+    `\\s+[A-Z][A-Za-z'\\.]+(?:\\s+[A-Z][A-Za-z'\\.]+)*` +
+    `|QUESTION|Q):\\s*([\\s\\S]*)`
+);
+
+function _buildTranscriptEnvelope(turns, audioHref = '', speakers = null) {
+    if (speakers === null) {
+        const seen = new Set();
+        const speakerNames = [];
+        for (const t of turns) {
+            if (!seen.has(t.name)) { seen.add(t.name); speakerNames.push(t.name); }
+        }
+        speakers = speakerNames.map(n => ({ name: n }));
+    }
+    return { media: { url: audioHref, speakers }, turns };
+}
+
+const _TEXT_CACHE_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'transcripts', 'text');
+
+function _cachedTextPath(caseNumber, date, term) {
+    const year = term.split('-')[0];
+    const filename = `${_caseFolder(caseNumber)}_${date}.txt`;
+    return path.join(_TEXT_CACHE_DIR, year, filename);
+}
+
+function _mergeSpeakerTitles(newSpeakers, existingSpeakers, label = '') {
+    const existingByName = new Map(existingSpeakers.map(s => [s.name, s.title || '']));
+    const result = [];
+    for (const sp of newSpeakers) {
+        const exTitle = existingByName.has(sp.name) ? existingByName.get(sp.name) : undefined;
+        if (exTitle !== undefined && exTitle !== (sp.title || '')) {
+            result.push({ name: sp.name, title: exTitle });
+        } else {
+            result.push(sp);
+        }
+    }
+    const newNames = new Set(newSpeakers.map(s => s.name));
+    for (const sp of existingSpeakers) {
+        if ((sp.title || '').includes('MS.') && !newNames.has(sp.name)) {
+            const prefix = label ? `${label}: ` : '';
+            console.log(`WARNING: ${prefix}existing MS. speaker `
+                      + `"${sp.name}" (title: "${sp.title}") `
+                      + `not found in reparsed transcript`);
+        }
+    }
+    return result;
+}
+
+const _JUSTICE_TITLE_SET = new Set(['JUSTICE', 'CHIEF JUSTICE', 'UNKNOWN JUSTICE']);
+
+function _nonJusticeSpeakers(transcriptPath) {
+    if (!exists(transcriptPath)) return [];
+    let data;
+    try { data = readJson(transcriptPath); } catch { return []; }
+    const speakers = data?.media?.speakers || [];
+    return speakers
+        .filter(sp => !_JUSTICE_TITLE_SET.has(sp.title || ''))
+        .map(sp => [sp.name || '', sp.title || '']);
+}
+
+const _FEMALE_TITLE_TOKENS = new Set(['MS', 'MRS', 'MISS']);
+
+function _titleIsFemale(title) {
+    const tokens = (title || '').toUpperCase().match(/[A-Z]+/g) || [];
+    return tokens.some(t => _FEMALE_TITLE_TOKENS.has(t));
+}
+
+const _SPEAKER_MATCH_SUFFIX_RE = /^(.+?)(?:,\s*|\s+)(JR\.?|SR\.?|II|III|IV)\.?\s*$/i;
+
+function _speakerNameMatchKeys(name) {
+    const base = (name || '').split(/\s+/).filter(Boolean).join(' ');
+    if (!base) return new Set();
+    const keys = new Set([base]);
+    const m = _SPEAKER_MATCH_SUFFIX_RE.exec(base);
+    if (m) {
+        const stripped = m[1].trim().replace(/,$/, '');
+        if (stripped) keys.add(stripped);
+    }
+    return keys;
+}
+
+function _levenshtein(a, b) {
+    if (a === b) return 0;
+    if (a.length > b.length) [a, b] = [b, a];
+    const row = new Array(a.length + 1);
+    for (let i = 0; i <= a.length; i++) row[i] = i;
+    for (let j = 1; j <= b.length; j++) {
+        let prev = j;
+        for (let i = 1; i <= a.length; i++) {
+            const cur = a[i - 1] === b[j - 1]
+                ? row[i - 1]
+                : 1 + Math.min(row[i - 1], row[i], prev);
+            row[i - 1] = prev;
+            prev = cur;
+        }
+        row[a.length] = prev;
+    }
+    return row[a.length];
+}
+
+function _nameLastToken(name) {
+    const tokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    while (tokens.length && _SUFFIX_WORDS.has(tokens[tokens.length - 1])) tokens.pop();
+    return tokens.length ? tokens[tokens.length - 1] : '';
+}
+
+function _isLikelyJusticeName(name, title) {
+    if (title) return false;
+    const tokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    if (tokens.length !== 1) return false;
+    const word = tokens[0];
+    for (const last of _JUSTICE_LAST_NAMES) {
+        if (_levenshtein(word, last) <= 2) return true;
+    }
+    return false;
+}
+
+function _fuzzyOyezCandidates(name, oyezSpk) {
+    const nameTokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    while (nameTokens.length && _SUFFIX_WORDS.has(nameTokens[nameTokens.length - 1])) nameTokens.pop();
+    if (nameTokens.length !== 1 && nameTokens.length !== 2) return [];
+    const query = nameTokens.join('');
+    const out = [];
+    for (const [n, t] of oyezSpk) {
+        if (_levenshtein(query, _nameLastToken(n)) <= 2) out.push(t);
+    }
+    return out;
+}
+
+function _speakersSubset(usscSpk, oyezSpk) {
+    const oyezByName = new Map();
+    for (const [name, title] of oyezSpk) {
+        for (const key of _speakerNameMatchKeys(name)) {
+            if (!oyezByName.has(key)) oyezByName.set(key, []);
+            oyezByName.get(key).push(title);
+        }
+    }
+    for (const [name, title] of usscSpk) {
+        if (_isLikelyJusticeName(name, title)) continue;
+        let candidates = [];
+        for (const key of _speakerNameMatchKeys(name)) {
+            if (oyezByName.has(key)) candidates.push(...oyezByName.get(key));
+        }
+        if (!candidates.length) candidates = _fuzzyOyezCandidates(name, oyezSpk);
+        if (!candidates.length) return false;
+        const usscFemale = _titleIsFemale(title);
+        if (!candidates.some(t => _titleIsFemale(t) === usscFemale)) return false;
+    }
+    return true;
+}
+
+function _pdfToText(pdfPath) {
+    return execFileSync('pdftotext', ['-layout', pdfPath, '-'], { encoding: 'utf8' });
+}
+
+function _parseRawText(rawText, outputPath, audioHref = '', _term = '', existingSpeakers = null) {
+    const appearances = parseAppearances(rawText);
+
+    const tokens = [];
+    for (const line of rawText.split('\n')) {
+        const m = CONTENT_LINE_RE.exec(line);
+        if (!m) continue;
+        const content = m[2].trim();
+        if (!content) continue;
+        if (TERMINATOR_PATTERNS.some(p => p.test(content))) break;
+        if (SKIP_PATTERNS.some(p => p.test(content))) continue;
+        const sm = SPEAKER_RE.exec(content);
+        if (sm) tokens.push(['SPEAKER', sm[1].trim(), sm[2].trim()]);
+        else tokens.push(['TEXT', content]);
+    }
+
+    let turns = [];
+    let currentSpeaker = null;
+    let currentParts = [];
+    const flush = () => {
+        if (currentSpeaker !== null) {
+            const text = currentParts.join(' ').replace(/\s+/g, ' ').trim();
+            if (text) turns.push({ name: currentSpeaker, text });
+        }
+    };
+    for (const tok of tokens) {
+        if (tok[0] === 'SPEAKER') {
+            flush();
+            currentSpeaker = tok[1];
+            currentParts = tok[2] ? [tok[2]] : [];
+        } else if (currentSpeaker !== null) {
+            currentParts.push(tok[1]);
+        }
+    }
+    flush();
+
+    const rawToResolved = new Map();
+    for (const turn of turns) {
+        if (!rawToResolved.has(turn.name)) {
+            let [name, title] = _resolveSpeaker(turn.name, appearances);
+            name = name.toUpperCase().split(/\s+/).filter(Boolean).join(' ');
+            rawToResolved.set(turn.name, [name, title]);
+        }
+    }
+    for (const turn of turns) {
+        turn.name = rawToResolved.get(turn.name)[0];
+    }
+
+    if (_RENAME_SPEAKER_MAP.size) {
+        for (const turn of turns) {
+            if (_RENAME_SPEAKER_MAP.has(turn.name)) turn.name = _RENAME_SPEAKER_MAP.get(turn.name);
+        }
+    }
+
+    for (const turn of turns) turn.name = _normalizeNameSuffix(turn.name);
+    for (const [raw, [full, title]] of rawToResolved) {
+        rawToResolved.set(raw, [_normalizeNameSuffix(full), title]);
+    }
+
+    turns = turns.map((t, i) => ({ turn: i + 1, ...t }));
+
+    const seenFull = new Map();   // full_name -> title (insertion ordered)
+    for (const [, [fullName, title]] of rawToResolved) {
+        const renamed = _RENAME_SPEAKER_MAP.get(fullName) || fullName;
+        if (!seenFull.has(renamed)) seenFull.set(renamed, title);
+    }
+    let speakers = [...seenFull].map(([name, title]) => ({ name, title }));
+
+    if (existingSpeakers) {
+        speakers = _mergeSpeakerTitles(speakers, existingSpeakers, path.basename(outputPath));
+    }
+
+    if (turns.length === 0 && speakers.length === 0) return [];
+
+    const envelope = _buildTranscriptEnvelope(turns, audioHref, speakers);
+    ensureDir(path.dirname(outputPath));
+    writeJson(outputPath, envelope);
+    return turns;
+}
+
+function extractTranscriptPdf(pdfPath, outputPath, audioHref = '', term = '') {
+    return _parseRawText(_pdfToText(pdfPath), outputPath, audioHref, term);
+}
+
+// ── HTML parsing helpers (DOM-based) ───────────────────────────────────────
+
+function _resolveHref(href, baseUrl) {
+    if (!href) return null;
+    try { return new URL(href, baseUrl).toString(); } catch { return null; }
+}
+
+function _cellText(td) {
+    return (td.text || '').split(/\s+/).filter(Boolean).join(' ');
+}
+
+function _firstTdAnchorHref(td, baseUrl, predicate = null) {
+    const anchors = td.querySelectorAll('a');
+    for (const a of anchors) {
+        const href = a.getAttribute('href');
+        if (!href) continue;
+        if (predicate && !predicate(href)) continue;
+        return _resolveHref(href, baseUrl);
+    }
+    return null;
+}
+
+// ── Listing page parsing ───────────────────────────────────────────────────
+
+function parseListing(html, baseUrl) {
+    const root = parseHtml(html);
+    const cases = [];
+    for (const tr of root.querySelectorAll('tr')) {
+        const tds = tr.querySelectorAll('td');
+        if (tds.length !== 2) continue;
+        const caseText = _cellText(tds[0]);
+        const dateText = _cellText(tds[1]);
+        const m = CASE_RE.exec(caseText);
+        const dateIsos = parseAnyDates(dateText);
+        if (!m || dateIsos.length === 0) continue;
+        const number = _normalizeNumber(m[1]);
+        const title  = m[2].trim();
+        const detailUrl = _firstTdAnchorHref(tds[0], baseUrl);
+        for (const dateIso of dateIsos) {
+            cases.push({ number, title, date: dateIso, detail_url: detailUrl });
+        }
+    }
+    return cases;
+}
+
+function parseDetail(html) {
+    const root = parseHtml(html);
+    let mp3Url = null, pdfUrl = null;
+    for (const a of root.querySelectorAll('a')) {
+        const href = a.getAttribute('href');
+        if (!href) continue;
+        const lower = href.toLowerCase();
+        if (mp3Url === null && lower.includes('mp3files') && lower.endsWith('.mp3')) {
+            mp3Url = href.startsWith('http') ? href : BASE_URL + href;
+        } else if (pdfUrl === null
+                && lower.includes('/oral_arguments/argument_transcripts/')
+                && lower.endsWith('.pdf')) {
+            pdfUrl = href.startsWith('http') ? href : BASE_URL + href;
+        }
+    }
+    return { mp3Url, pdfUrl };
+}
+
+function parseTranscriptListing(html, baseUrl) {
+    const root = parseHtml(html);
+    const transcripts = [];
+    for (const tr of root.querySelectorAll('tr')) {
+        const tds = tr.querySelectorAll('td');
+        if (tds.length !== 2) continue;
+        const caseText = _cellText(tds[0]);
+        const dateText = _cellText(tds[1]);
+        const m = _TRANSCRIPT_CASE_RE.exec(caseText);
+        const dateIsos = parseAnyDates(dateText);
+        const pdfUrl = _firstTdAnchorHref(tds[0], baseUrl,
+            href => href.toLowerCase().endsWith('.pdf'));
+        if (!m || dateIsos.length === 0 || !pdfUrl) continue;
+        let number = _normalizeNumber(m[1]);
+        if (/orig/i.test(pdfUrl)) {
+            const yyNn = /^\d{2}-(\d+)$/.exec(number);
+            if (yyNn) number = `${yyNn[1]}-Orig`;
+        }
+        const title = m[2].trim();
+        for (const dateIso of dateIsos) {
+            transcripts.push({ number, title, date: dateIso, pdf_url: pdfUrl });
+        }
+    }
+    return transcripts;
+}
+
+function parseDocket(html, pageUrl) {
+    const root = parseHtml(html);
+    let questionsHref = null;
+    const proceedings = [];
+
+    // First pass: pull out the questions_href anywhere on the page.
+    for (const a of root.querySelectorAll('a')) {
+        const text = (a.text || '').trim();
+        if (text === 'Questions Presented') {
+            const href = _resolveHref(a.getAttribute('href'), pageUrl);
+            if (href && questionsHref === null) questionsHref = href;
+        }
+    }
+
+    // Walk every <tr>; collect first two cells' text + named anchors.
+    for (const tr of root.querySelectorAll('tr')) {
+        const tds = tr.querySelectorAll('td');
+        if (tds.length < 2) continue;
+
+        const dateCell  = _cellText(tds[0]);
+        const titleCell = _cellText(tds[1]);
+        const date  = parseDocketDate(dateCell);
+        const title = titleCell;
+        if (!date || !title) continue;
+
+        // Build a map of link_text -> resolved_href across this row.
+        const rowLinks = new Map();
+        for (const a of tr.querySelectorAll('a')) {
+            const text = (a.text || '').trim();
+            if (!text) continue;
+            const href = _resolveHref(a.getAttribute('href'), pageUrl);
+            if (!href) continue;
+            rowLinks.set(text, href);
+        }
+
+        if (rowLinks.has('Main Document')) {
+            proceedings.push({ date, title, href: rowLinks.get('Main Document') });
+        }
+        if (rowLinks.has('Petition')) {
+            proceedings.push({
+                date, title,
+                href: rowLinks.get('Petition'),
+                type: 'petitioner',
+            });
+        }
+    }
+    return { questionsHref, proceedings };
+}
+
+// ── Network entry points ───────────────────────────────────────────────────
+
+async function fetchCasesFromUrl(url, yearStr = '') {
+    console.log(`Fetching ${url} ...`);
+    let html;
+    try {
+        html = await fetchHtml(url);
+    } catch (exc) {
+        if (!yearStr) throw exc;
+        console.log(`Live page unavailable (${exc.message || exc}); trying Wayback Machine ...`);
+        html = await _fetchHtmlViaWayback(url, yearStr);
+    }
+    return parseListing(html, url);
+}
+
+async function fetchArgumentUrls(detailUrl) {
+    if (!detailUrl) return {};
+    let html;
+    try {
+        html = await fetchHtml(detailUrl);
+    } catch (exc) {
+        console.log(`Warning: could not fetch detail page ${detailUrl}: ${exc.message || exc}`);
+        return {};
+    }
+    const { mp3Url, pdfUrl } = parseDetail(html);
+    const out = {};
+    if (mp3Url) out.audio_href = mp3Url;
+    if (pdfUrl) out.transcript_href = pdfUrl;
+    return out;
+}
+
+function _transcriptListingUrl(yearStr) {
+    const year = parseInt(yearStr, 10);
+    if (year < 2000) return `${BASE_URL}/oral_arguments/archived_transcripts/${yearStr}`;
+    return `${BASE_URL}/oral_arguments/argument_transcript/${yearStr}`;
+}
+
+async function fetchTranscriptsFromUrl(url, yearStr = '') {
+    console.log(`Fetching transcript listing from ${url} ...`);
+    let html;
+    try {
+        html = await fetchHtml(url);
+    } catch (exc) {
+        if (!yearStr) {
+            console.log(`Warning: could not fetch transcript listing: ${exc.message || exc}`);
+            return [];
+        }
+        console.log(`Live page unavailable (${exc.message || exc}); trying Wayback Machine ...`);
+        try {
+            html = await _fetchHtmlViaWayback(url, yearStr);
+        } catch (wbExc) {
+            console.log(`Warning: Wayback fallback also failed: ${wbExc.message || wbExc}`);
+            return [];
+        }
+    }
+    return parseTranscriptListing(html, url);
+}
+
+async function fetchDocketInfo(number, termYear = '') {
+    const internal = _docketNumber(number, termYear);
+    const yearInt = /^\d+$/.test(termYear) ? parseInt(termYear, 10) : 0;
+    const url = yearInt >= 2017
+        ? `${BASE_URL}/docket/docketfiles/html/public/${internal}.html`
+        : `${BASE_URL}/search.aspx?filename=/docketfiles/${internal}.htm`;
+    let html;
+    try {
+        html = await fetchHtml(url);
+    } catch (exc) {
+        console.log(`Warning: could not fetch docket for ${number}: ${exc.message || exc}`);
+        return {};
+    }
+    const { questionsHref, proceedings } = parseDocket(html, url);
+    return { questions_href: questionsHref, proceedings };
+}
+
+// ── cases.json updates ─────────────────────────────────────────────────────
+
+function _loadTermNumbers(casesPath) {
+    if (!exists(casesPath)) return new Set();
+    let data;
+    try { data = readJson(casesPath); } catch { return new Set(); }
+    const numbers = new Set();
+    for (const c of data) {
+        for (const part of (c.number || '').split(',')) {
+            const n = part.trim();
+            if (n) numbers.add(n);
+        }
+    }
+    return numbers;
+}
+
+function _loadLaterTermNumbers(termsRoot, yearStr, lookahead = 2) {
+    const result = new Map();
+    const year = parseInt(yearStr, 10);
+    for (let offset = 1; offset <= lookahead; offset++) {
+        const laterTerm = `${year + offset}-10`;
+        const laterPath = path.join(termsRoot, laterTerm, 'cases.json');
+        for (const num of _loadTermNumbers(laterPath)) {
+            if (!result.has(num)) result.set(num, laterTerm);
+        }
+    }
+    return result;
+}
+
+const _laterTermDataCache = new Map();   // term -> {data, path}
+
+function _checkPreviouslyFiled(_currentTerm, caseNumber, laterTerm, termsRoot) {
+    const laterPath = path.join(termsRoot, laterTerm, 'cases.json');
+    if (!_laterTermDataCache.has(laterTerm)) {
+        if (!exists(laterPath)) return;
+        try {
+            _laterTermDataCache.set(laterTerm, { data: readJson(laterPath), path: laterPath });
+        } catch { return; }
+    }
+    const { data } = _laterTermDataCache.get(laterTerm);
+    for (const c of data) {
+        const nums = (c.number || '').split(',').map(s => s.trim());
+        if (!nums.includes(caseNumber)) continue;
+        const pf = c.previouslyFiled;
+        if (!pf) {
+            console.log(`  WARNING: ${caseNumber} appears in ${laterTerm} `
+                      + `but previouslyFiled is not set on that entry`);
+            return;
+        }
+        if (!String(pf).includes('/')) {
+            const fixed = `${pf}/${caseNumber}`;
+            c.previouslyFiled = fixed;
+            console.log(`  Fixed previouslyFiled for ${caseNumber} in ${laterTerm}: `
+                      + `${JSON.stringify(pf)} -> ${JSON.stringify(fixed)}`);
+            writeJson(laterPath, data);
+        }
+        return;
+    }
+}
+
+async function updateCasesJson(casesPath, newCases, year, laterTermNumbers = null) {
+    let existing;
+    if (exists(casesPath)) {
+        existing = readJson(casesPath);
+    } else {
+        ensureDir(path.dirname(casesPath));
+        existing = [];
+    }
+
+    const scrapedByNum = new Map(newCases.map(c => [c.number, c]));
+    const groupedNew = new Map();
+    for (const c of newCases) {
+        if (!groupedNew.has(c.number)) groupedNew.set(c.number, []);
+        groupedNew.get(c.number).push(c);
+    }
+    const existingNumbers = new Set();
+    for (const c of existing) {
+        for (const part of (c.number || '').split(',')) existingNumbers.add(part.trim());
+    }
+
+    let modified = false;
+    const added = [];
+    const termsRoot = path.dirname(path.dirname(casesPath));
+
+    for (const [number, rowsRaw] of groupedNew) {
+        const rows = [...rowsRaw].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+        const seenDates = new Set();
+        const uniqueRows = [];
+        for (const r of rows) {
+            const d = r.date;
+            if (d && seenDates.has(d)) continue;
+            if (d) seenDates.add(d);
+            uniqueRows.push(r);
+        }
+        if (uniqueRows.length === 0) continue;
+
+        const sample = uniqueRows[0];
+        if (existingNumbers.has(number)) continue;
+        if (laterTermNumbers && laterTermNumbers.has(number)) {
+            const found = laterTermNumbers.get(number);
+            console.log(`Skipping ${number} (already in ${found})`);
+            _checkPreviouslyFiled(year, number, found, termsRoot);
+            continue;
+        }
+        if (!ADD_CASES) {
+            console.log(`  WARNING: ${number} (${sample.date || '?'}) is a new case `
+                      + `not in cases.json; pass --cases to add it`);
+            continue;
+        }
+
+        const dateLabel = uniqueRows.map(r => r.date || '?').join(',');
+        process.stdout.write(`Adding ${number} (${dateLabel}) ... `);
+        const argUrls = await fetchArgumentUrls(sample.detail_url);
+        await sleep(300);
+
+        let events = uniqueRows.map(r => {
+            const title = _usscAudioTitle('argument', r.date);
+            return { source: 'ussc', type: 'argument', date: r.date, title, ...argUrls };
+        });
+        events.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+
+        let status;
+        if (Object.keys(argUrls).length) {
+            status = ('transcript_href' in argUrls) ? 'audio+transcript' : 'audio only';
+        } else {
+            status = 'no media URLs found';
+        }
+        console.log(status);
+
+        existing.push({ title: sample.title, number, events });
+        existingNumbers.add(number);
+        added.push(number);
+    }
+
+    // Backfill missing audio/transcript hrefs.
+    for (const c of existing) {
+        const scraped = scrapedByNum.get(c.number);
+        if (!scraped || !scraped.detail_url) {
+            // Consolidated case fallback
+            if ((c.number || '').includes(',')) {
+                for (const arg of (c.events || [])) {
+                    if ((arg.source || 'ussc') !== 'ussc') continue;
+                    if (arg.audio_href || !arg.transcript_href) continue;
+                    const cn = _ussCcaseNumFromHref(arg.transcript_href);
+                    const compScraped = cn ? scrapedByNum.get(cn) : null;
+                    if (!compScraped || !compScraped.detail_url) continue;
+                    process.stdout.write(`Backfilling audio for ${c.number} (${cn}, ${arg.date || '?'}) ... `);
+                    const argUrls = await fetchArgumentUrls(compScraped.detail_url);
+                    await sleep(300);
+                    if (argUrls.audio_href) {
+                        const newArg = {};
+                        for (const [k, v] of Object.entries(arg)) {
+                            newArg[k] = v;
+                            if (k === 'title') newArg.audio_href = argUrls.audio_href;
+                        }
+                        if (!('audio_href' in newArg)) newArg.audio_href = argUrls.audio_href;
+                        for (const k of Object.keys(arg)) delete arg[k];
+                        Object.assign(arg, newArg);
+                        modified = true;
+                        console.log('audio_href set');
+                    } else {
+                        console.log('no audio found');
+                    }
+                }
+            }
+            continue;
+        }
+        for (const arg of (c.events || [])) {
+            if ((arg.source || 'ussc') !== 'ussc') continue;
+            if (arg.transcript_href) continue;
+            process.stdout.write(`Backfilling URLs for ${c.number} (${arg.date || '?'}) ... `);
+            const argUrls = await fetchArgumentUrls(scraped.detail_url);
+            await sleep(300);
+            if (Object.keys(argUrls).length) {
+                const newArg = {};
+                for (const [k, v] of Object.entries(arg)) {
+                    newArg[k] = v;
+                    if (k === 'title') {
+                        for (const [uk, uv] of Object.entries(argUrls)) {
+                            if (!(uk in newArg)) newArg[uk] = uv;
+                        }
+                    }
+                }
+                for (const [uk, uv] of Object.entries(argUrls)) {
+                    if (!(uk in newArg)) newArg[uk] = uv;
+                }
+                for (const k of Object.keys(arg)) delete arg[k];
+                Object.assign(arg, newArg);
+                modified = true;
+                console.log(('transcript_href' in argUrls) ? 'audio+transcript' : 'audio only');
+            } else {
+                console.log('no media URLs found');
+            }
+        }
+    }
+
+    if (added.length || modified) {
+        writeJson(casesPath, existing);
+        if (added.length) {
+            reportChange(`\nAdded ${added.length} case(s) to ${casesPath}.`);
+            if (parseInt(year, 10) >= 2001) {
+                console.log('Fetching docket info for newly added case(s) ...');
+                await updateDocketInfo(casesPath, year, new Set(added));
+            }
+        }
+    } else {
+        vprint(`No new cases to add to ${casesPath}`);
+    }
+}
+
+// ── Step 4: docket info ────────────────────────────────────────────────────
+
+async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
+    const existing = readJson(casesPath);
+    let casesModified = false;
+
+    for (const c of existing) {
+        const number = c.number;
+        if (caseNumbers && !caseNumbers.has(number)) continue;
+        const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');
+
+        if (c.questions_href) {
+            let hasPetitioner = false;
+            if (exists(filesPath)) {
+                try {
+                    const fdata = readJson(filesPath);
+                    hasPetitioner = fdata.some(f => f?.type === 'petitioner');
+                } catch {}
+            }
+            if (hasPetitioner || !exists(filesPath)) continue;
+        }
+
+        process.stdout.write(`Fetching docket for ${number} ... `);
+        const info = await fetchDocketInfo(number, termYear);
+        await sleep(300);
+
+        if (!info || (!info.questions_href && (!info.proceedings || !info.proceedings.length))) {
+            console.log('skipped');
+            continue;
+        }
+        const changed = [];
+
+        if (info.questions_href && !c.questions_href) {
+            const reordered = reorderCase({ ...c, questions_href: info.questions_href });
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            casesModified = true;
+            changed.push('questions_href');
+        }
+
+        const proceedings = info.proceedings || [];
+        if (proceedings.length) {
+            const caseDir = path.join(path.dirname(casesPath), 'cases', _caseFolder(number));
+            const fp      = path.join(caseDir, 'files.json');
+            ensureDir(caseDir);
+
+            let files = exists(fp) ? readJson(fp) : [];
+            const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
+            const audioTranscriptHrefs = new Set();
+            for (const a of (c.events || [])) {
+                if (a.transcript_href) audioTranscriptHrefs.add(a.transcript_href);
+            }
+            let nextFileId = files.reduce((m, f) => (typeof f.file === 'number' && f.file > m ? f.file : m), 0) + 1;
+            let added = 0;
+            for (const p of proceedings) {
+                if (audioTranscriptHrefs.has(p.href)) continue;
+                if (existingHrefs.has(p.href)) continue;
+                const entry = { file: nextFileId, title: p.title, date: p.date, href: p.href };
+                if (p.type) entry.type = p.type;
+                files.push(entry);
+                existingHrefs.add(p.href);
+                nextFileId++;
+                added++;
+            }
+            if (added) {
+                writeJson(fp, files);
+                changed.push(`${added} filings -> files.json`);
+            }
+        }
+
+        console.log(changed.length ? changed.join(', ') : 'nothing new');
+    }
+
+    if (casesModified) {
+        writeJson(casesPath, existing);
+        reportChange('Updated cases.json with questions_href entries.');
+    }
+}
+
+// ── Step 3: generate missing transcripts ───────────────────────────────────
+
+async function generateMissingTranscripts(casesPath, caseFilter = null, force = false) {
+    const existing = readJson(casesPath);
+    const term = path.basename(path.dirname(casesPath));
+    let modified = false;
+
+    // Collision pre-pass.
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
+        const folder = _caseFolder(c.number);
+        const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+        const byDate = new Map();
+        for (const arg of (c.events || [])) {
+            if ((arg.source || 'ussc') !== 'ussc') continue;
+            const t = arg.type;
+            if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
+            if (!arg.transcript_href || !arg.date) continue;
+            if (!byDate.has(arg.date)) byDate.set(arg.date, []);
+            byDate.get(arg.date).push(arg);
+        }
+        for (const [dateKey, args] of byDate) {
+            if (args.length < 2) continue;
+            const compNums = args.map(a => _ussCcaseNumFromHref(a.transcript_href || ''));
+            const allDistinct = compNums.every(cn => cn && caseNorms.includes(cn))
+                              && new Set(compNums).size === compNums.length;
+            const deleted = new Set();
+            if (allDistinct) {
+                for (let i = 0; i < args.length; i++) {
+                    const arg = args[i], cn = compNums[i];
+                    const newTh = `${cn}/${dateKey}.json`;
+                    if (arg.text_href !== newTh) {
+                        const oldTh = arg.text_href || '';
+                        if (oldTh) {
+                            const oldFile = path.join(path.dirname(casesPath), 'cases', oldTh);
+                            if (!deleted.has(oldFile) && exists(oldFile)) {
+                                unlinkSafe(oldFile);
+                                deleted.add(oldFile);
+                            }
+                        }
+                        arg.text_href = newTh;
+                        modified = true;
+                    }
+                }
+            } else {
+                for (let i = 0; i < args.length; i++) {
+                    const arg = args[i];
+                    const newTh = `${folder}/${dateKey}-${i + 1}.json`;
+                    if (arg.text_href !== newTh) {
+                        const oldTh = arg.text_href || '';
+                        if (oldTh) {
+                            const oldFile = path.join(path.dirname(casesPath), 'cases', oldTh);
+                            if (!deleted.has(oldFile) && exists(oldFile)
+                                    && path.basename(oldFile) === `${dateKey}.json`) {
+                                unlinkSafe(oldFile);
+                                deleted.add(oldFile);
+                            }
+                        }
+                        arg.text_href = newTh;
+                        modified = true;
+                    }
+                }
+            }
+        }
+
+        if (!('number' in c)) continue;
+        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
+
+        for (const arg of (c.events || [])) {
+            if ((arg.source || 'ussc') !== 'ussc') continue;
+            if (arg.redundant) continue;
+            const pdfUrl = arg.transcript_href;
+            const date   = arg.date;
+            if (!pdfUrl || !date) continue;
+
+            const existingTh = arg.text_href || '';
+            let componentNum = _ussCcaseNumFromHref(pdfUrl, existingTh);
+            const _caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            if (!componentNum || !_caseNorms.includes(componentNum)) {
+                componentNum = _caseFolder(c.number);
+            }
+
+            if (pdfUrl.includes('/pdfs/transcripts/')) {
+                if (!exists(_cachedTextPath(componentNum, date, term))) continue;
+            }
+
+            const caseDir = path.join(path.dirname(casesPath), 'cases', componentNum);
+            let transcriptOut = path.join(caseDir, `${date}.json`);
+            const thFile = existingTh ? path.join(path.dirname(casesPath), 'cases', existingTh) : null;
+            if (thFile) transcriptOut = thFile;
+
+            if (existingTh && !caseFilter && !force) {
+                if (exists(transcriptOut) || (thFile && exists(thFile))) continue;
+            }
+
+            process.stdout.write(`Extracting ${c.number} (${date})`);
+
+            let existingSpeakers = null;
+            if (exists(transcriptOut)) {
+                try {
+                    const ex = readJson(transcriptOut);
+                    existingSpeakers = ex?.media?.speakers || null;
+                } catch {}
+            }
+
+            const cachedTxt = _cachedTextPath(componentNum, date, term);
+            const audioHref = arg.audio_href || '';
+            let tmpPath = null;
+            let cacheTag = '';
+            try {
+                let turns;
+                if (exists(cachedTxt)) {
+                    cacheTag = ' (cached)';
+                    const rawText = fs.readFileSync(cachedTxt, 'utf8');
+                    turns = _parseRawText(rawText, transcriptOut, audioHref, term, existingSpeakers);
+                } else {
+                    tmpPath = path.join(os.tmpdir(), `import_ussc-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`);
+                    await downloadFile(pdfUrl, tmpPath);
+                    const rawText = _pdfToText(tmpPath);
+                    ensureDir(path.dirname(cachedTxt));
+                    fs.writeFileSync(cachedTxt, rawText, 'utf8');
+                    turns = _parseRawText(rawText, transcriptOut, audioHref, term, existingSpeakers);
+                    await sleep(300);
+                }
+
+                console.log(`${cacheTag}: ${turns.length} turns -> ${relRepo(transcriptOut)}`);
+
+                if (!turns.length) {
+                    if (exists(transcriptOut)) {
+                        unlinkSafe(transcriptOut);
+                        console.log(`Deleted empty transcript: ${relRepo(transcriptOut)}`);
+                    }
+                    if (arg.text_href) { delete arg.text_href; modified = true; }
+                    continue;
+                }
+
+                const newTextHref = `${componentNum}/${date}.json`;
+                if (!arg.text_href) {
+                    arg.text_href = newTextHref;
+                    modified = true;
+                }
+            } catch (exc) {
+                if (exc?.stderr) console.log(`ERROR (pdftotext): ${String(exc.stderr).trim()}`);
+                else console.log(`ERROR: ${exc.message || exc}`);
+            } finally {
+                if (tmpPath) unlinkSafe(tmpPath);
+            }
+        }
+    }
+
+    // Supplementary pass: backfill/strip "in No. N" for consolidated cases.
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
+        if (!(c.number || '').includes(',')) continue;
+        const comps = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+        const dateCounts = new Map();
+        for (const a of (c.events || [])) {
+            if ((a.source || 'ussc') !== 'ussc') continue;
+            const t = a.type;
+            if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
+            const d = a.date || '';
+            dateCounts.set(d, (dateCounts.get(d) || 0) + 1);
+        }
+        const useCaseNums = [...dateCounts.values()].some(v => v > 1);
+        for (const a of (c.events || [])) {
+            if ((a.source || 'ussc') !== 'ussc') continue;
+            const t = a.type;
+            if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
+            const title = a.title || '';
+            let cn = _ussCcaseNumFromHref(a.transcript_href || '');
+            if (!(cn && comps.includes(cn))) cn = _ussCcaseNumFromHref('', a.text_href || '');
+            if (!(cn && comps.includes(cn))) continue;
+            const typeV = a.type || 'argument';
+            const dateV = a.date || '';
+            const autoWith    = _usscAudioTitle(typeV, dateV, cn);
+            const autoWithout = _usscAudioTitle(typeV, dateV, '');
+            const isAuto = (title === autoWith || title === autoWithout
+                || comps.some(other => other !== cn && title === _usscAudioTitle(typeV, dateV, other)));
+            if (!isAuto) continue;
+            if (useCaseNums && a.title !== autoWith) {
+                a.title = autoWith; modified = true;
+            } else if (!useCaseNums && a.title !== autoWithout) {
+                a.title = autoWithout; modified = true;
+            }
+        }
+    }
+
+    if (modified) {
+        writeJson(casesPath, existing);
+        reportChange('Updated cases.json with new text_href entries.');
+    }
+}
+
+async function _ensureEventTranscript(casesPath, c, arg, term) {
+    if (!arg.transcript_href || !arg.date) return false;
+    const existingTh = arg.text_href || '';
+    if (existingTh) {
+        const thFile = path.join(path.dirname(casesPath), 'cases', existingTh);
+        if (exists(thFile)) return true;
+    }
+    const pdfUrl = arg.transcript_href;
+    const date   = arg.date;
+    const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+    let componentNum = _ussCcaseNumFromHref(pdfUrl, existingTh);
+    if (!componentNum || !caseNorms.includes(componentNum)) componentNum = _caseFolder(c.number);
+    if (pdfUrl.includes('/pdfs/transcripts/')) {
+        if (!exists(_cachedTextPath(componentNum, date, term))) return false;
+    }
+    const transcriptOut = existingTh
+        ? path.join(path.dirname(casesPath), 'cases', existingTh)
+        : path.join(path.dirname(casesPath), 'cases', componentNum, `${date}.json`);
+    process.stdout.write(`  Extracting ${c.number} (${date})`);
+    let existingSpeakers = null;
+    if (exists(transcriptOut)) {
+        try {
+            const ex = readJson(transcriptOut);
+            existingSpeakers = ex?.media?.speakers || null;
+        } catch {}
+    }
+    const cachedTxt = _cachedTextPath(componentNum, date, term);
+    const audioHref = arg.audio_href || '';
+    let tmpPath = null;
+    try {
+        let turns;
+        if (exists(cachedTxt)) {
+            const rawText = fs.readFileSync(cachedTxt, 'utf8');
+            turns = _parseRawText(rawText, transcriptOut, audioHref, term, existingSpeakers);
+        } else {
+            tmpPath = path.join(os.tmpdir(), `import_ussc-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`);
+            await downloadFile(pdfUrl, tmpPath);
+            const rawText = _pdfToText(tmpPath);
+            ensureDir(path.dirname(cachedTxt));
+            fs.writeFileSync(cachedTxt, rawText, 'utf8');
+            turns = _parseRawText(rawText, transcriptOut, audioHref, term, existingSpeakers);
+            await sleep(300);
+        }
+        if (!turns.length) {
+            if (exists(transcriptOut)) unlinkSafe(transcriptOut);
+            if (arg.text_href) delete arg.text_href;
+            console.log(' (empty — skipped)');
+            return false;
+        }
+        console.log(`: ${turns.length} turns -> ${relRepo(transcriptOut)}`);
+        if (!arg.text_href) arg.text_href = `${componentNum}/${date}.json`;
+        return true;
+    } catch (exc) {
+        if (exc?.stderr) console.log(` ERROR (pdftotext): ${String(exc.stderr).trim()}`);
+        else console.log(` ERROR: ${exc.message || exc}`);
+        return false;
+    } finally {
+        if (tmpPath) unlinkSafe(tmpPath);
+    }
+}
+
+// ── Step 3b: migrate transcripts ───────────────────────────────────────────
+
+function migrateTranscripts(casesPath) {
+    const existing = readJson(casesPath);
+    const audioMap = new Map();
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        for (const arg of (c.events || [])) {
+            audioMap.set(`${c.number}|${arg.date || ''}`, arg.audio_href || '');
+        }
+    }
+    let total = 0;
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        const number = c.number;
+        const caseDir = path.join(path.dirname(casesPath), 'cases', _caseFolder(number));
+        for (const arg of (c.events || [])) {
+            const date = arg.date || '';
+            const transcriptPath = path.join(caseDir, `${date}.json`);
+            if (!exists(transcriptPath)) continue;
+            let data;
+            try { data = readJson(transcriptPath); } catch { continue; }
+            if (Array.isArray(data)) {
+                const audioHref = audioMap.get(`${number}|${date}`) || '';
+                const envelope = _buildTranscriptEnvelope(data, audioHref);
+                writeJson(transcriptPath, envelope);
+                console.log(`Migrated ${relRepo(transcriptPath)}`);
+                total++;
+            }
+        }
+    }
+    if (!total) vprint('All transcripts already in new format.');
+    else reportChange(`  Migrated ${total} transcript(s).`);
+}
+
+// ── Step 5: clean files.json ───────────────────────────────────────────────
+
+const _FILED_RE = /\s+filed\..*$/is;
+
+const _TYPE_PREFIXES = [
+    ['amicus',     ['Brief amicus ', 'Brief amici ']],
+    ['respondent', ['Brief of respondent', 'Reply of respondent']],
+    ['petitioner', ['Brief of petitioner', 'Reply of petitioner']],
+];
+
+function _cleanTitle(title) { return title.replace(_FILED_RE, '').trim(); }
+
+function _inferType(title) {
+    const lower = title.toLowerCase();
+    for (const [typeVal, prefixes] of _TYPE_PREFIXES) {
+        if (prefixes.some(p => lower.startsWith(p.toLowerCase()))) return typeVal;
+    }
+    return null;
+}
+
+function _walkFilesJson(termDir) {
+    const out = [];
+    const casesDir = path.join(termDir, 'cases');
+    if (!exists(casesDir)) return out;
+    for (const entry of fs.readdirSync(casesDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue;
+        const fp = path.join(casesDir, entry.name, 'files.json');
+        if (exists(fp)) out.push(fp);
+    }
+    return out.sort();
+}
+
+function cleanFilesJson(casesPath) {
+    const termDir = path.dirname(casesPath);
+    let totalChanged = 0;
+    for (const fp of _walkFilesJson(termDir)) {
+        const files = readJson(fp);
+        let changed = false;
+        for (const entry of files) {
+            const title = entry.title || '';
+            let clean = _cleanTitle(title);
+            if (entry.type !== 'opinion') clean = clean.replace(/\.+$/, '');
+            if (clean !== title) {
+                entry.title = clean;
+                changed = true;
+            }
+            if (!entry.type) {
+                const inferred = _inferType(entry.title || '');
+                if (inferred) { entry.type = inferred; changed = true; }
+            }
+        }
+        if (changed) {
+            writeJson(fp, files);
+            totalChanged++;
+            reportChange(`  Cleaned ${relRepo(fp)}`);
+        }
+    }
+    if (!totalChanged) vprint('Nothing to clean.');
+}
+
+// ── Step 6: extract questions presented ────────────────────────────────────
+
+const _QP_START_RE = /(?:QUESTIONS?\s+PRESENTED\s*:?|[Tt]he\s+questions?\s+presented\s+(?:is|are)\s*:?)/;
+const _QP_END_RE   = /\n\s*(?:CERT\.\s+GRANTED|ORDER\s+OF\s+\w)[\s\S]*$/i;
+
+function _extractQuestionsFromText(text) {
+    const m = _QP_START_RE.exec(text);
+    if (!m) return null;
+    let body = text.slice(m.index + m[0].length);
+    body = body.replace(_QP_END_RE, '');
+    body = body.replace(/[ \t]+/g, ' ').replace(/\n{2,}/g, '\n').trim();
+    return body || null;
+}
+
+async function extractQuestions(casesPath) {
+    const existing = readJson(casesPath);
+    let modified = false;
+    for (const c of existing) {
+        if (c.questions || !c.questions_href) continue;
+        const number = c.number;
+        const pdfUrl = c.questions_href;
+        process.stdout.write(`Extracting questions for ${number} ... `);
+        let tmpPath = null;
+        try {
+            tmpPath = path.join(os.tmpdir(), `import_ussc-q-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`);
+            await downloadFile(pdfUrl, tmpPath);
+            const text = execFileSync('pdftotext', ['-layout', tmpPath, '-'], { encoding: 'utf8' });
+            const questions = _extractQuestionsFromText(text);
+            if (questions) {
+                const reordered = reorderCase({ ...c, questions });
+                for (const k of Object.keys(c)) delete c[k];
+                Object.assign(c, reordered);
+                modified = true;
+                console.log(`${questions.length} chars`);
+            } else {
+                console.log('not found');
+            }
+            await sleep(300);
+        } catch (exc) {
+            if (exc?.stderr) console.log(`ERROR (pdftotext): ${String(exc.stderr).trim()}`);
+            else console.log(`ERROR: ${exc.message || exc}`);
+        } finally {
+            if (tmpPath) unlinkSafe(tmpPath);
+        }
+    }
+    if (modified) {
+        writeJson(casesPath, existing);
+        reportChange('Updated cases.json with questions.');
+    } else {
+        vprint('Nothing to extract.');
+    }
+}
+
+// ── Step 2b: import transcript PDFs ────────────────────────────────────────
+
+function _findCaseInLaterTerms(termsRoot, currentYear, rowNorm, rowDate, lookahead = 2) {
+    const year = parseInt(currentYear, 10);
+    for (let offset = 1; offset <= lookahead; offset++) {
+        const checkTerm = `${year + offset}-10`;
+        const cp = path.join(termsRoot, checkTerm, 'cases.json');
+        if (!exists(cp)) continue;
+        let cases;
+        try { cases = readJson(cp); } catch { continue; }
+        for (const c of cases) {
+            if (!('number' in c)) continue;
+            const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            if (!caseNorms.includes(rowNorm)) continue;
+            const argDates = new Set();
+            for (const field of ['argument', 'reargument']) {
+                const v = c[field];
+                if (typeof v === 'string') {
+                    for (let d of v.split(',')) {
+                        d = d.trim();
+                        if (d) argDates.add(d);
+                    }
+                } else if (Array.isArray(v)) {
+                    for (const d of v) argDates.add(d);
+                }
+            }
+            if (argDates.size === 0) {
+                for (const ev of (c.events || [])) {
+                    const t = ev.type;
+                    if ((t === undefined || t === null || t === 'argument' || t === 'reargument') && ev.date) {
+                        argDates.add(ev.date);
+                    }
+                }
+            }
+            if (argDates.has(rowDate)) {
+                return { term: checkTerm, case: c, allCases: cases, casesPath: cp };
+            }
+        }
+    }
+    return null;
+}
+
+let _rl = null;
+function _ask(question) {
+    if (!_rl) _rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    return new Promise(resolve => _rl.question(question, ans => resolve(ans)));
+}
+
+async function _compareSingleUsscEvent(casesPath, _allCases, c, arg, _term) {
+    const usscTh = arg.text_href || '';
+    const date   = arg.date || '';
+    if (!usscTh || !date) return false;
+    const oyezEv = (c.events || []).find(ev =>
+        ev.source === 'oyez' && ev.date === date && ev.text_href);
+    if (!oyezEv) return false;
+    const usscPath = path.join(path.dirname(casesPath), 'cases', usscTh);
+    const oyezPath = path.join(path.dirname(casesPath), 'cases', oyezEv.text_href);
+    const usscSpk  = _nonJusticeSpeakers(usscPath);
+    const oyezSpk  = _nonJusticeSpeakers(oyezPath);
+    if (!usscSpk.length && !oyezSpk.length) return false;
+    if (_speakersSubset(usscSpk, oyezSpk)) {
+        if (exists(usscPath)) unlinkSafe(usscPath);
+        delete arg.text_href;
+        arg.redundant = true;
+        console.log(`${c.number} (${date}): ussc transcript deleted (redundant with oyez)`);
+        return true;
+    }
+    console.log(`\n${c.number} (${date}): ussc and oyez non-justice speakers differ:`);
+    console.log('  oyez:');
+    for (const [name, title] of [...oyezSpk].sort()) {
+        console.log(title ? `    [${title}] ${name}` : `    ${name}`);
+    }
+    console.log('  ussc:');
+    for (const [name, title] of [...usscSpk].sort()) {
+        const usscKeys = _speakerNameMatchKeys(name);
+        let candidates = [];
+        for (const [n, t] of oyezSpk) {
+            const k = _speakerNameMatchKeys(n);
+            for (const x of k) if (usscKeys.has(x)) { candidates.push(t); break; }
+        }
+        if (!candidates.length) candidates = _fuzzyOyezCandidates(name, oyezSpk);
+        const matched = candidates.some(t => _titleIsFemale(t) === _titleIsFemale(title));
+        const suffix = matched ? ' (matched)' : '';
+        console.log(title ? `    [${title}] ${name}${suffix}` : `    ${name}${suffix}`);
+    }
+    if (!PROMPT) {
+        console.log('  Retaining ussc transcript (pass --prompt to decide interactively).');
+        return false;
+    }
+    const ans = (await _ask('Retain ussc transcript? [Y/n] ')).trim().toLowerCase();
+    if (ans === 'n' || ans === 'no') {
+        if (exists(usscPath)) unlinkSafe(usscPath);
+        delete arg.text_href;
+        arg.redundant = true;
+        console.log('  ussc transcript deleted.');
+        return true;
+    }
+    return false;
+}
+
+async function importTranscriptPdfs(casesPath, yearStr, laterTermNumbers = null) {
+    const url = _transcriptListingUrl(yearStr);
+    const transcripts = await fetchTranscriptsFromUrl(url, yearStr);
+    if (!transcripts.length) {
+        console.log('No transcripts found on listing page.');
+        return;
+    }
+    console.log(`Found ${transcripts.length} transcript(s).`);
+
+    const byNumber = new Map();
+    for (const t of transcripts) {
+        if (!byNumber.has(t.number)) byNumber.set(t.number, []);
+        byNumber.get(t.number).push(t);
+    }
+
+    if (!exists(casesPath)) {
+        ensureDir(path.dirname(casesPath));
+        writeText(casesPath, '[]\n');
+    }
+    let existing = readJson(casesPath);
+    let casesModified = false;
+    const currentTerm = path.basename(path.dirname(casesPath));
+    /** @type {Array<{cp:string, cl:any[], c:any, a:any, t:string}>} */
+    const newlyMatched = [];
+    /** @type {Map<string,{lt:string, cl:any[]}>} */
+    const laterModified = new Map();
+
+    const matchedRows = new Set();   // `${number}|${date}`
+
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        const caseNorms = c.number.split(',').map(n => _normalizeNumber(n));
+        const seenRowKeys = new Set();
+        const rows = [];
+        for (const cn of caseNorms) {
+            for (const r of (byNumber.get(cn) || [])) {
+                const k = `${r.number}|${r.date}`;
+                if (!seenRowKeys.has(k)) { seenRowKeys.add(k); rows.push(r); }
+            }
+        }
+        if (!rows.length) continue;
+        for (const row of rows) {
+            const key = `${row.number}|${row.date}`;
+            matchedRows.add(key);
+            let assigned = false;
+            const rowComp = _normalizeNumber(row.number);
+            for (const arg of (c.events || [])) {
+                if ((arg.source || 'ussc') !== 'ussc') continue;
+                const t = arg.type;
+                if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
+                const argDate = arg.date || '';
+                if (!(argDate === row.date || (!argDate && rows.length === 1))) continue;
+                if (caseNorms.length > 1) {
+                    const existingComp = _ussCcaseNumFromHref(arg.transcript_href || '', arg.text_href || '');
+                    if (existingComp && existingComp !== rowComp) continue;
+                }
+                assigned = true;
+                if (arg.transcript_href) break;
+                const insertAfter = ('audio_href' in arg) ? 'audio_href' : 'date';
+                const newArg = {};
+                let inserted = false;
+                for (const [k, v] of Object.entries(arg)) {
+                    newArg[k] = v;
+                    if (!inserted && k === insertAfter) {
+                        newArg.transcript_href = row.pdf_url;
+                        inserted = true;
+                    }
+                }
+                if (!inserted) newArg.transcript_href = row.pdf_url;
+                for (const k of Object.keys(arg)) delete arg[k];
+                Object.assign(arg, newArg);
+                newlyMatched.push({ cp: casesPath, cl: existing, c, a: arg, t: currentTerm });
+                casesModified = true;
+                console.log(`${c.number} (${row.date}): transcript_href added`);
+                break;
+            }
+            if (!assigned) {
+                const audioList = c.events || (c.events = []);
+                const already = audioList.some(a =>
+                    (a.source || 'ussc') === 'ussc'
+                    && a.date === row.date
+                    && a.transcript_href === row.pdf_url);
+                if (!already) {
+                    const usscCompsWith = new Set(caseNorms.filter(cn => byNumber.has(cn)));
+                    const caseNumForTitle = usscCompsWith.size > 1 ? row.number : '';
+                    const title = _usscAudioTitle('argument', row.date, caseNumForTitle);
+                    const newAudio = reorderEvent({
+                        source: 'ussc', type: 'argument', date: row.date, title,
+                        transcript_href: row.pdf_url,
+                    });
+                    audioList.push(newAudio);
+                    audioList.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                    newlyMatched.push({ cp: casesPath, cl: existing, c, a: newAudio, t: currentTerm });
+                    casesModified = true;
+                    console.log(`${c.number} (${row.date}): created transcript-only audio object`);
+                }
+            }
+        }
+    }
+
+    // Pass 2: new cases
+    const existingNumbers = new Set();
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        for (const n of c.number.split(',')) existingNumbers.add(_normalizeNumber(n.trim()));
+    }
+    const newByNum = new Map();
+    const termsRoot = path.dirname(path.dirname(casesPath));
+    for (const row of transcripts) {
+        const key = `${row.number}|${row.date}`;
+        if (matchedRows.has(key) || existingNumbers.has(row.number)) continue;
+        const rowNorm = _normalizeNumber(row.number);
+        const laterMatch = _findCaseInLaterTerms(termsRoot, yearStr, rowNorm, row.date);
+        if (laterMatch) {
+            const { term: ltStr, case: ltCase, allCases: ltCases, casesPath: ltCp } = laterMatch;
+            let ltAssigned = false;
+            for (const ltArg of (ltCase.events || [])) {
+                if ((ltArg.source || 'ussc') !== 'ussc') continue;
+                const t = ltArg.type;
+                if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
+                if (ltArg.date !== row.date) continue;
+                ltAssigned = true;
+                if (!ltArg.transcript_href) {
+                    const ltInsert = ('audio_href' in ltArg) ? 'audio_href' : 'date';
+                    const newLt = {};
+                    let _ins = false;
+                    for (const [k, v] of Object.entries(ltArg)) {
+                        newLt[k] = v;
+                        if (!_ins && k === ltInsert) {
+                            newLt.transcript_href = row.pdf_url;
+                            _ins = true;
+                        }
+                    }
+                    if (!_ins) newLt.transcript_href = row.pdf_url;
+                    for (const k of Object.keys(ltArg)) delete ltArg[k];
+                    Object.assign(ltArg, newLt);
+                    laterModified.set(ltCp, { lt: ltStr, cl: ltCases });
+                    newlyMatched.push({ cp: ltCp, cl: ltCases, c: ltCase, a: ltArg, t: ltStr });
+                    console.log(`${ltCase.number} (${row.date}): `
+                              + `transcript_href added in ${ltStr}`);
+                }
+                break;
+            }
+            if (!ltAssigned) {
+                const ltAlready = (ltCase.events || []).some(a =>
+                    (a.source || 'ussc') === 'ussc'
+                    && a.date === row.date
+                    && a.transcript_href === row.pdf_url);
+                if (!ltAlready) {
+                    const ltTitle = _usscAudioTitle('argument', row.date);
+                    const ltEv = reorderEvent({
+                        source: 'ussc', type: 'argument', date: row.date, title: ltTitle,
+                        transcript_href: row.pdf_url,
+                    });
+                    if (!ltCase.events) ltCase.events = [];
+                    ltCase.events.push(ltEv);
+                    ltCase.events.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                    laterModified.set(ltCp, { lt: ltStr, cl: ltCases });
+                    newlyMatched.push({ cp: ltCp, cl: ltCases, c: ltCase, a: ltEv, t: ltStr });
+                    console.log(`${ltCase.number} (${row.date}): `
+                              + `transcript event created in ${ltStr}`);
+                }
+            }
+            matchedRows.add(key);
+            continue;
+        }
+        if (laterTermNumbers && laterTermNumbers.has(row.number)) {
+            const found = laterTermNumbers.get(row.number);
+            console.log(`Skipping ${row.number} (already in ${found})`);
+            _checkPreviouslyFiled(yearStr, row.number, found, termsRoot);
+            continue;
+        }
+        if (!ADD_CASES) {
+            console.log(`  WARNING: ${row.number} is a new case `
+                      + `not in cases.json; pass --cases to add it`);
+            continue;
+        }
+        if (!newByNum.has(row.number)) newByNum.set(row.number, []);
+        newByNum.get(row.number).push(row);
+    }
+
+    const sortedKeys = [...newByNum.keys()].sort();
+    for (const norm of sortedKeys) {
+        const rows = newByNum.get(norm);
+        const title = rows[0].title;
+        const audioEntries = rows.map(r => reorderEvent({
+            source: 'ussc', type: 'argument', date: r.date,
+            title: _usscAudioTitle('argument', r.date),
+            transcript_href: r.pdf_url,
+        }));
+        const newCase = { title, number: norm, events: audioEntries };
+        existing.push(newCase);
+        existingNumbers.add(norm);
+        for (const newEv of audioEntries) {
+            newlyMatched.push({ cp: casesPath, cl: existing, c: newCase, a: newEv, t: currentTerm });
+        }
+        casesModified = true;
+        reportChange(`  ${norm}: new case added with ${audioEntries.length} audio entry(ies)`);
+    }
+
+    if (casesModified) {
+        writeJson(casesPath, existing);
+        reportChange('  Updated cases.json.');
+        const newNumbers = new Set(newByNum.keys());
+        if (newNumbers.size) {
+            const yearInt = parseInt(path.basename(path.dirname(casesPath)).split('-')[0], 10);
+            if (yearInt >= 2001) {
+                console.log('Fetching docket info for newly added case(s) ...');
+                await updateDocketInfo(casesPath, String(yearInt), newNumbers);
+            }
+        }
+    } else {
+        vprint('No changes needed.');
+    }
+
+    for (const [ltCp, { lt: ltStr, cl: ltCases }] of laterModified) {
+        writeJson(ltCp, ltCases);
+        reportChange(`  Updated ${ltStr}/cases.json.`);
+        const ltYear = parseInt(ltStr.split('-')[0], 10);
+        const ltNewNums = new Set();
+        for (const m of newlyMatched) {
+            if (m.cp === ltCp && 'number' in m.c) ltNewNums.add(m.c.number);
+        }
+        if (ltYear >= 2001 && ltNewNums.size) {
+            console.log(`Fetching docket info for newly added ${ltStr} case(s) ...`);
+            await updateDocketInfo(ltCp, String(ltYear), ltNewNums);
+        }
+    }
+
+    if (!newlyMatched.length) return;
+
+    const uniqueCps = new Map();
+    for (const { cp, cl, t } of newlyMatched) {
+        if (!uniqueCps.has(cp)) uniqueCps.set(cp, { cl, t });
+    }
+
+    const ensureChanged = new Set();
+    for (const { cp, c, a, t } of newlyMatched) {
+        if (await _ensureEventTranscript(cp, c, a, t)) ensureChanged.add(cp);
+    }
+    for (const cp of ensureChanged) {
+        const { cl } = uniqueCps.get(cp);
+        writeJson(cp, cl);
+        reportChange(`  Updated ${path.basename(path.dirname(cp))}/cases.json with text_href.`);
+    }
+
+    const compareChanged = new Set();
+    for (const { cp, cl, c, a, t } of newlyMatched) {
+        if (a.text_href && await _compareSingleUsscEvent(cp, cl, c, a, t)) {
+            compareChanged.add(cp);
+        }
+    }
+    for (const cp of compareChanged) {
+        const { cl } = uniqueCps.get(cp);
+        writeJson(cp, cl);
+        reportChange(`  Updated ${path.basename(path.dirname(cp))}/cases.json after speaker comparison.`);
+    }
+}
+
+// ── Step 3c: compare ussc vs oyez speakers ─────────────────────────────────
+
+async function compareUsscOyezSpeakers(casesPath, caseFilter = null) {
+    const existing = readJson(casesPath);
+    const term = path.basename(path.dirname(casesPath));
+    let modified = false;
+    for (const c of existing) {
+        if (!('number' in c)) continue;
+        if (caseFilter) {
+            const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            if (!caseNorms.includes(_normalizeNumber(caseFilter))) continue;
+        }
+        for (const arg of (c.events || [])) {
+            if ((arg.source || 'ussc') !== 'ussc') continue;
+            if (arg.redundant) continue;
+            if (!arg.text_href) continue;
+            if (await _compareSingleUsscEvent(casesPath, existing, c, arg, term)) {
+                modified = true;
+            }
+        }
+    }
+    if (modified) {
+        writeJson(casesPath, existing);
+        reportChange('Updated cases.json after ussc/oyez speaker comparison.');
+    } else {
+        vprint('No redundant ussc transcripts found.');
+    }
+}
+
+// ── Step 7: opinion_href maintenance ───────────────────────────────────────
+
+async function upgradeDeadOpinionHrefs(casesPath) {
+    const data = readJson(casesPath);
+    let casesModified = false;
+
+    let waybackMaxTs = '';
+    try {
+        const termYear = parseInt(path.basename(path.dirname(casesPath)).split('-')[0], 10);
+        waybackMaxTs = `${termYear + 1}0930235959`;
+    } catch {}
+
+    const baseUrls = new Set();
+    for (const c of data) {
+        const href = c.opinion_href || '';
+        if (href && !href.startsWith('https://web.archive.org/') && !href.includes('loc.gov')) {
+            baseUrls.add(href.split('#')[0]);
+        }
+    }
+    if (!baseUrls.size) {
+        vprint('No live opinion_href values to verify.');
+    } else {
+        const replacements = new Map();
+        for (const base of [...baseUrls].sort()) {
+            const [ok] = await checkUrl(base);
+            if (ok) {
+                replacements.set(base, '');
+            } else {
+                const wb = await waybackPdfUrl(base, waybackMaxTs);
+                if (wb) console.log(`PDF 404 — upgrading to Wayback: ${base}`);
+                else console.log(`PDF 404 — no Wayback snapshot found: ${base}`);
+                replacements.set(base, wb);
+            }
+        }
+        for (const c of data) {
+            const href = c.opinion_href || '';
+            if (!href || href.startsWith('https://web.archive.org/')) continue;
+            if (href.includes('loc.gov')) continue;
+            const base = href.split('#')[0];
+            const frag = href.slice(base.length);
+            const wb   = replacements.get(base) || '';
+            if (wb) {
+                c.opinion_href = wb + frag;
+                casesModified = true;
+            }
+        }
+    }
+    for (const c of data) {
+        const href = c.opinion_href || '';
+        if (!href || !href.includes('loc.gov')) continue;
+        const [ok] = await checkUrl(href.split('#')[0]);
+        if (!ok) {
+            console.log(`loc.gov URL invalid — marking as opinion_href_bad: ${href}`);
+            delete c.opinion_href;
+            c.opinion_href_bad = href;
+            casesModified = true;
+        }
+    }
+    if (casesModified) {
+        writeJson(casesPath, data);
+        reportChange('Updated cases.json: replaced dead opinion_href values.');
+    } else {
+        vprint('All opinion_href values are reachable.');
+    }
+}
+
+async function backfillOpinionHrefs(casesPath, term) {
+    const year2 = term.split('-')[0].slice(-2);
+    const opinions = await fetchOpinions(year2, CHECK_URLS);
+    if (!opinions || !Object.keys(opinions).length) {
+        console.log('No slip opinions found.');
+        return;
+    }
+    const data = readJson(casesPath);
+    let casesModified = false;
+
+    for (const c of data) {
+        const number = c.number || '';
+        if (!number) continue;
+        let opinion = null;
+        for (const part of number.split(',')) {
+            opinion = opinions[part.trim().toLowerCase()];
+            if (opinion) break;
+        }
+        if (!opinion) continue;
+        const href = opinion.href;
+        const cite = opinion.cite || '';
+        const existingHref = c.opinion_href || '';
+        const existingCite = c.usCite || '';
+
+        const updateHref = (
+            !existingHref.startsWith('https://web.archive.org/')
+            && !c.opinion_href_bad
+            && existingHref !== href
+        );
+        const updateCite = !!(cite && existingCite !== cite);
+
+        if (!updateHref && !updateCite) continue;
+
+        const newCase = {};
+        let citeInserted = false, hrefInserted = false;
+        for (const [k, v] of Object.entries(c)) {
+            if (k === 'events' && updateCite && !citeInserted) {
+                newCase.usCite = cite;
+                citeInserted = true;
+            }
+            if (k === 'files' && updateHref && !hrefInserted) {
+                newCase.opinion_href = href;
+                hrefInserted = true;
+            }
+            if (k === 'usCite' && updateCite) continue;
+            if (k === 'opinion_href' && updateHref) continue;
+            newCase[k] = v;
+        }
+        if (updateHref && !hrefInserted) newCase.opinion_href = href;
+        if (updateCite && !citeInserted) newCase.usCite = cite;
+        for (const k of Object.keys(c)) delete c[k];
+        Object.assign(c, newCase);
+        casesModified = true;
+        if (updateHref) console.log(`  ${number}: opinion_href → ${href}`);
+        if (updateCite) console.log(`  ${number}: usCite → ${cite}`);
+
+        const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');
+        if (exists(filesPath)) {
+            await checkOpinionForCase(filesPath, number, term);
+        }
+    }
+    if (casesModified) {
+        writeJson(casesPath, data);
+        reportChange('Updated cases.json with opinion_href entries.');
+    } else {
+        vprint('opinion_href values already up to date.');
+    }
+}
+
+// ── Main ───────────────────────────────────────────────────────────────────
+
+function _printUsage() {
+    console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --opinions');
+}
+
+async function main() {
+    _anyChanges = false;
+    const argv = process.argv.slice(2);
+    const flags = new Set(argv.filter(a => a.startsWith('--')));
+    const args  = argv.filter(a => !a.startsWith('--'));
+
+    const fetchDocket = flags.has('--docket');
+    const forceReparse = flags.has('--reparse');
+    VERBOSE     = flags.has('--verbose');
+    ADD_CASES   = flags.has('--cases');
+    CHECK_URLS  = flags.has('--checkurls');
+    PROMPT      = flags.has('--prompt');
+    const opinionsFlag = flags.has('--opinions');
+    setVcVerbose(VERBOSE);
+
+    if (args.length < 1 || args.length > 2) {
+        _printUsage();
+        process.exit(1);
+    }
+
+    const term = args[0].trim();
+    const caseFilter = args.length > 1 ? args[1].trim() : null;
+
+    const m = /^(\d{4})-10$/.exec(term);
+    if (!m) {
+        console.log(`Error: expected a term in YYYY-10 format (e.g. 2025-10), got '${term}'`);
+        process.exit(1);
+    }
+    const yearStr = m[1];
+    const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+
+    if (caseFilter) {
+        console.log(`Single-case mode: ${term} / ${caseFilter}`);
+        if (!exists(casesPath)) {
+            console.log(`Error: ${casesPath} does not exist. Run without a case filter first.`);
+            process.exit(1);
+        }
+        console.log();
+        console.log(`Re-generating transcript for ${caseFilter} ...`);
+        await generateMissingTranscripts(casesPath, caseFilter);
+        await compareUsscOyezSpeakers(casesPath, caseFilter);
+        if (_rl) _rl.close();
+        return;
+    }
+
+    const url = `https://www.supremecourt.gov/oral_arguments/argument_audio/${yearStr}`;
+
+    const termsRoot = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const laterTermNumbers = _loadLaterTermNumbers(termsRoot, yearStr);
+    if (laterTermNumbers.size) {
+        const byTerm = new Map();
+        for (const [, t] of laterTermNumbers) byTerm.set(t, (byTerm.get(t) || 0) + 1);
+        const summary = [...byTerm].sort().map(([t, c]) => `${c} in ${t}`).join(', ');
+        vprint(`Loaded later-term cases for cross-term dedup: ${summary}.`);
+    }
+
+    let scraped = [];
+    try {
+        scraped = await fetchCasesFromUrl(url, yearStr);
+    } catch (exc) {
+        console.log(`Audio listing page not available (${exc.message || exc}); will rely on transcript listing.`);
+    }
+
+    if (scraped.length) {
+        console.log(`Found ${scraped.length} case(s).`);
+        await updateCasesJson(casesPath, scraped, yearStr, laterTermNumbers);
+    } else {
+        console.log('No audio cases found.');
+        if (!exists(casesPath)) {
+            ensureDir(path.dirname(casesPath));
+            writeText(casesPath, '[]\n');
+        }
+    }
+
+    if (yearStr >= '1968') {   // YYYY-10 → 1968-10 cutoff; string compare on YYYY works
+        vprint('Importing transcript PDFs from supremecourt.gov listing ...');
+        await importTranscriptPdfs(casesPath, yearStr, laterTermNumbers);
+    }
+
+    if (forceReparse) console.log('Reparsing all transcripts (--reparse) ...');
+    else vprint('Checking for missing transcripts ...');
+    await generateMissingTranscripts(casesPath, null, forceReparse);
+
+    vprint('Migrating old-format transcripts ...');
+    migrateTranscripts(casesPath);
+
+    vprint('Comparing ussc vs oyez speakers ...');
+    await compareUsscOyezSpeakers(casesPath);
+
+    if (!fetchDocket) {
+        console.log('Skipping docket check (pass --docket to enable).');
+    } else if (parseInt(yearStr, 10) >= 2001) {
+        console.log('Fetching docket info for cases without questions_href ...');
+        await updateDocketInfo(casesPath, yearStr);
+    } else {
+        vprint('Skipping docket check (not available before 2001 term).');
+    }
+
+    vprint('Cleaning up files.json entries ...');
+    cleanFilesJson(casesPath);
+
+    vprint('Extracting questions presented ...');
+    await extractQuestions(casesPath);
+
+    if (opinionsFlag) {
+        console.log('Updating opinion references ...');
+        await backfillOpinionHrefs(casesPath, term);
+        if (CHECK_URLS) {
+            await upgradeDeadOpinionHrefs(casesPath);
+        }
+    } else {
+        console.log('Skipping opinion reference checks (pass --opinions to enable).');
+    }
+
+    syncFilesCount(casesPath);
+    if (!_anyChanges) {
+        console.log('Nothing added/updated.');
+    }
+
+    if (_rl) _rl.close();
+}
+
+// Touch unused exports so future modules can reuse them.
+export {
+    extractTranscriptPdf,
+    syncOpinionHrefFromFiles,
+};
+
+main().catch(err => {
+    console.error(err?.stack || err);
+    process.exit(1);
+});

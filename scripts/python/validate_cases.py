@@ -49,7 +49,7 @@ import urllib.request
 from pathlib import Path
 from schema import reorder_event
 
-REPO_ROOT    = Path(__file__).resolve().parent.parent
+REPO_ROOT    = Path(__file__).resolve().parent.parent.parent
 SCOTUS_BASE  = 'https://www.supremecourt.gov'
 
 _OPINIONS_CACHE: dict = {}  # year_2digit -> {docket_lower: {date, name, author, href}}
@@ -829,7 +829,7 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
 
 # ── Speaker map cleanup ───────────────────────────────────────────────────────
 
-_SPEAKERS_PATH = Path(__file__).resolve().parent / 'speakers.json'
+_SPEAKERS_PATH = Path(__file__).resolve().parent.parent / 'speakers.json'
 _SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
 
 
@@ -841,7 +841,7 @@ def _build_justice_rename_entries() -> list[tuple]:
       (base_name, op, constraint_term, new_name, role_filter, new_role)
     where role_filter='justice' ensures only speakers with that role are renamed.
     """
-    path = Path(__file__).resolve().parent / 'justices.json'
+    path = Path(__file__).resolve().parent.parent / 'justices.json'
     if not path.exists():
         return []
     data: dict = json.loads(path.read_text(encoding='utf-8'))

@@ -30,7 +30,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 
 

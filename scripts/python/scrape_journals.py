@@ -3,7 +3,7 @@
 
 Reads from stdin the verbose output of update_advocates.py:
 
-    python3 scripts/update_advocates.py --verbose | python3 scripts/scrape_journals.py
+    python3 scripts/python/update_advocates.py --verbose | python3 scripts/python/scrape_journals.py
 
 For each one-word advocate name and its term/case pairs, searches
 courts/ussc/journals/text/{YYYY}.txt for the case block and extracts
@@ -19,9 +19,9 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 JOURNALS_DIR = ROOT / "courts" / "ussc" / "journals" / "text"
-SINGLES_FILE = ROOT / "scripts" / "singles.txt"
+SINGLES_FILE = ROOT / "scripts" / "python" / "singles.txt"
 
 # Any hyphen/dash variant used in case numbers (hyphen, figure, en, em dash)
 _DASH = r'[-\u2012\u2013\u2014]'

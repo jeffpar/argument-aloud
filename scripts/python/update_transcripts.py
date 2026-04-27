@@ -22,7 +22,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-REPO_ROOT       = Path(__file__).resolve().parent.parent
+REPO_ROOT       = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR       = REPO_ROOT / "courts" / "ussc" / "terms"
 PDFS_DIR        = REPO_ROOT / "courts" / "ussc" / "transcripts" / "pdfs"
 TEXT_DIR        = REPO_ROOT / "courts" / "ussc" / "transcripts" / "text"

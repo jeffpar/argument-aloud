@@ -21,7 +21,7 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 OUTPUT    = REPO_ROOT / 'courts' / 'ussc' / 'terms.json'
 

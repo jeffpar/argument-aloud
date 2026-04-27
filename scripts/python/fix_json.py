@@ -27,7 +27,7 @@ import re
 import sys
 from pathlib import Path
 
-REPO_ROOT     = Path(__file__).resolve().parent.parent
+REPO_ROOT     = Path(__file__).resolve().parent.parent.parent
 DATE_JSON_RE  = re.compile(r'^\d{4}-\d{2}-\d{2}\.json$')
 
 

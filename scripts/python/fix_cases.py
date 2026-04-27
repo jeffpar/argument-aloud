@@ -54,7 +54,7 @@ from pathlib import Path
 
 from schema import CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TERMS_JSON = REPO_ROOT / 'courts' / 'ussc' / 'terms.json'
 TERMS_DIR  = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 

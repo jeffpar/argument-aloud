@@ -20,7 +20,7 @@ FTC_URL = (
     "the-up-until-now-missing-audio-of-scotus-opinion-announcements-from-ot24/"
 )
 CASES_FILE = (
-    Path(__file__).parent.parent / "courts" / "ussc" / "terms" / "2024-10" / "cases.json"
+    Path(__file__).parent.parent.parent / "courts" / "ussc" / "terms" / "2024-10" / "cases.json"
 )
 
 MONTH_NAMES = [

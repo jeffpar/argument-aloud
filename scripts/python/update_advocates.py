@@ -56,13 +56,13 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "all_advocates.json"
 WOMEN_OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "women_advocates.json"
 WOMEN_CSV_FILE = REPO_ROOT / "data" / "misc" / "ussc_women_advocates.csv"
 ADVOCATES_DIR = REPO_ROOT / "courts" / "ussc" / "people" / "advocates"
-SINGLES_FILE = REPO_ROOT / "scripts" / "singles.txt"
+SINGLES_FILE = REPO_ROOT / "scripts" / "python" / "singles.txt"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
@@ -83,7 +83,7 @@ def is_feminine_title(title: str) -> bool:
 # (upper-case).  Entries are merged under the canonical name and the old
 # name(s) are stored in a "previously" list on the advocate record.
 # ---------------------------------------------------------------------------
-_SPEAKERS_FILE = Path(__file__).resolve().parent / "speakers.json"
+_SPEAKERS_FILE = Path(__file__).resolve().parent.parent / "speakers.json"
 
 
 def _load_name_aliases(path: Path) -> dict[str, str]:

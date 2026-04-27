@@ -118,7 +118,7 @@ def fix_transcript(data: dict) -> bool:
 
 
 def main() -> None:
-    base = Path(__file__).parent.parent / "courts" / "ussc" / "terms"
+    base = Path(__file__).parent.parent.parent / "courts" / "ussc" / "terms"
     files_checked = 0
     files_changed = 0
 

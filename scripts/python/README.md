@@ -1,4 +1,4 @@
-## Scripts
+## Python Scripts
 
 The following command-line scripts help us build out the website, creating JSON files
 that describe the contents and locations of all the media files for a set of cases, without
@@ -27,40 +27,40 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-    python3 scripts/import_cases.py TERM
+	python3 scripts/import_cases.py TERM
 
 Examples:
-    python3 scripts/import_cases.py 2025-10
-    python3 scripts/import_cases.py 2024-10
+	python3 scripts/import_cases.py 2025-10
+	python3 scripts/import_cases.py 2024-10
 
 The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
 page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
 fetched automatically.
 
 Output:
-    courts/ussc/terms/YYYY-10/cases.json
+	courts/ussc/terms/YYYY-10/cases.json
 
 Steps performed:
   1. Scrape the listing page for all case numbers, titles, and argument dates.
   2. For each case not already in cases.json, fetch its detail page to get the
-     audio (MP3) and transcript (PDF) URLs, then append it to cases.json.
+	 audio (MP3) and transcript (PDF) URLs, then append it to cases.json.
   3. For every case in cases.json whose argument has a transcript_href but no
-     YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
-     PDF, extract speaker turns with pdftotext, and write the JSON file in the
-     new transcript-envelope format (see below).
-     If text_href was absent it is also added to the argument entry in cases.json.
+	 YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
+	 PDF, extract speaker turns with pdftotext, and write the JSON file in the
+	 new transcript-envelope format (see below).
+	 If text_href was absent it is also added to the argument entry in cases.json.
   3b.Migrate any existing transcript JSON files that are in the old bare-array
-     format to the new envelope format:
-       {
-         "media": { "url": "<audio_href>", "speakers": [{"name": "…"}, …] },
-         "turns": [ … ]
-       }
+	 format to the new envelope format:
+	   {
+		 "media": { "url": "<audio_href>", "speakers": [{"name": "…"}, …] },
+		 "turns": [ … ]
+	   }
   6. For every case in cases.json that has questions_href but no questions property,
-     download the PDF, extract the question(s) presented as a plain-text string,
-     and save it as questions in cases.json.
+	 download the PDF, extract the question(s) presented as a plain-text string,
+	 and save it as questions in cases.json.
   6. For every case in cases.json that has questions_href but no questions property,
-     download the PDF, extract the question(s) presented as a plain-text string,
-     and save it as questions in cases.json.
+	 download the PDF, extract the question(s) presented as a plain-text string,
+	 and save it as questions in cases.json.
 
 Requires pdftotext (poppler-utils) to be installed.
 ```
@@ -74,21 +74,21 @@ Aligns SCOTUS oral argument transcript(s) with their audio, adding a
 "time" field (hh:mm:ss.nn) to each speaker turn.
 
 Dependencies:
-    pip install faster-whisper rapidfuzz
-    brew install ffmpeg          # required by faster-whisper for MP3 input
+	pip install faster-whisper rapidfuzz
+	brew install ffmpeg          # required by faster-whisper for MP3 input
 
 Usage:
-    python3 align_transcript.py TERM CASE [--model MODEL] [--purge]
+	python3 align_transcript.py TERM CASE [--model MODEL] [--purge]
 
 Example:
-    python3 align_transcript.py 2025-10 24-1238
+	python3 align_transcript.py 2025-10 24-1238
 
 The script reads courts/ussc/terms/TERM/cases.json, finds the matching
 case, then for each argument that has a transcript (text_href) and audio
 (audio_href), downloads the audio to a temporary file and runs alignment.
 
 The Whisper word-level transcription is cached in the case directory as
-    <case-dir>/<audio-stem>--whisper-<model>.json
+	<case-dir>/<audio-stem>--whisper-<model>.json
 so re-runs skip re-transcription (which can take several minutes).
 
 An argument is skipped when every turn already has a "time" value.
@@ -103,22 +103,22 @@ Use --purge to clear all existing timestamps before aligning.
 Validate file entries for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
+	python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
 
 Examples:
-    python3 scripts/validate_cases.py 2025-10 24-1260
-    python3 scripts/validate_cases.py 2025-10
-    python3 scripts/validate_cases.py 2025-10 --checkurls
-    python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
+	python3 scripts/validate_cases.py 2025-10 24-1260
+	python3 scripts/validate_cases.py 2025-10
+	python3 scripts/validate_cases.py 2025-10 --checkurls
+	python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
 
 For each case's files.json:
   1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
-     if found and not already recorded, adds it to files.json as type "opinion".
+	 if found and not already recorded, adds it to files.json as type "opinion".
   2. With --checkurls: also verifies that every href URL is reachable (HTTP HEAD
-     request with GET fallback) and checks whether it can be embedded in an iframe
-     by inspecting Content-Security-Policy and X-Frame-Options response headers.
-     If framing is blocked, the file is downloaded locally, the original URL is saved
-     as "source", and "href" is updated to the local path.
+	 request with GET fallback) and checks whether it can be embedded in an iframe
+	 by inspecting Content-Security-Policy and X-Frame-Options response headers.
+	 If framing is blocked, the file is downloaded locally, the original URL is saved
+	 as "source", and "href" is updated to the local path.
 ```
 
 ### Sample Runs
@@ -521,3 +521,7 @@ Updated courts/ussc/terms/2023-10/cases.json
 
 Done.  Downloaded: 61  |  Already existed: 0  |  Errors: 0
 ```
+
+## Archived Python Scripts
+
+Here also lie scripts that have served their purpose and have either been superseded or subsumed by another script (eg, [extract_transcript](extract_transcript.py) was later incorporated into [import_cases](import_cases.py)) or were only needed for a short time (or even just once, like [build_constitution](build_constitution.py)).

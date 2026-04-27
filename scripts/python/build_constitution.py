@@ -45,7 +45,7 @@ USER_AGENT = (
 )
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+ROOT = HERE.parent.parent
 CACHE_PATH = ROOT / "sources" / ".constitution-cache.json"
 DEFAULT_OUTPUT = ROOT / "nara" / "constitution" / "index.md"
 DELAY_SECONDS = 0.2
