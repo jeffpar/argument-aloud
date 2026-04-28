@@ -1106,6 +1106,14 @@ function buildTermCases(term, cases, ul) {
                 entries.push({ kind: 'flat', files: transcriptFiles });
               }
 
+              // If only one collapsible group survived, flatten it — no point
+              // making the user expand a group of one.
+              const groupEntries = entries.filter(e => e.kind === 'group');
+              if (groupEntries.length === 1) {
+                groupEntries[0].kind = 'flat';
+                delete groupEntries[0].label;
+              }
+
               return { entries };
             },
           });
@@ -1738,11 +1746,11 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
 
         const totalFiles = rawFiles.length;
         const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
-        // Suppress the group subheading when "Other" is the sole non-empty category:
-        // list its files directly rather than nesting them under a redundant header.
+        // Suppress the group subheading when there is only one non-empty
+        // category — listing files directly avoids forcing the user to expand
+        // a useless group of one.
         const nonEmptyGroupKeys = effectiveOrder.filter(k => groups[k]?.length > 0);
-        const otherIsOnlyGroup = nonEmptyGroupKeys.length === 1 && nonEmptyGroupKeys[0] === 'Other';
-        const suppressHeader = totalFiles === 1 || otherIsOnlyGroup;
+        const suppressHeader = totalFiles === 1 || nonEmptyGroupKeys.length === 1;
 
         const entries = [];
         effectiveOrder.forEach(typeKey => {
