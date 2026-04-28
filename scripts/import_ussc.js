@@ -6,7 +6,7 @@
  *
  * Usage:
  *   node scripts/import_ussc.js TERM [CASE]
- *     [--docket] [--reparse] [--verbose] [--cases] [--checkurls] [--prompt] [--opinions]
+ *     [--docket] [--reparse] [--verbose] [--cases] [--checkurls] [--prompt]
  *
  * Examples:
  *   node scripts/import_ussc.js 2025-10
@@ -1808,7 +1808,19 @@ async function importTranscriptPdfs(casesPath, yearStr, laterTermNumbers = null)
                     if (existingComp && existingComp !== rowComp) continue;
                 }
                 assigned = true;
-                if (arg.transcript_href) break;
+                if (arg.transcript_href) {
+                    // The transcript listing is fetched on every run, so always
+                    // refresh transcript_href if SCOTUS has rewritten the
+                    // hashed filename (no extra network cost).
+                    if (arg.transcript_href !== row.pdf_url) {
+                        console.log(`${c.number} (${row.date}): transcript_href changed`);
+                        console.log(`  old: ${arg.transcript_href}`);
+                        console.log(`  new: ${row.pdf_url}`);
+                        arg.transcript_href = row.pdf_url;
+                        casesModified = true;
+                    }
+                    break;
+                }
                 const insertAfter = ('audio_href' in arg) ? 'audio_href' : 'date';
                 const newArg = {};
                 let inserted = false;
@@ -2178,7 +2190,7 @@ async function backfillOpinionHrefs(casesPath, term) {
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
-    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --opinions');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt');
 }
 
 async function main() {
@@ -2193,7 +2205,6 @@ async function main() {
     ADD_CASES   = flags.has('--cases');
     CHECK_URLS  = flags.has('--checkurls');
     PROMPT      = flags.has('--prompt');
-    const opinionsFlag = flags.has('--opinions');
     setVcVerbose(VERBOSE);
 
     if (args.length < 1 || args.length > 2) {
@@ -2285,14 +2296,10 @@ async function main() {
     vprint('Extracting questions presented ...');
     await extractQuestions(casesPath);
 
-    if (opinionsFlag) {
-        console.log('Updating opinion references ...');
-        await backfillOpinionHrefs(casesPath, term);
-        if (CHECK_URLS) {
-            await upgradeDeadOpinionHrefs(casesPath);
-        }
-    } else {
-        console.log('Skipping opinion reference checks (pass --opinions to enable).');
+    console.log('Updating opinion references ...');
+    await backfillOpinionHrefs(casesPath, term);
+    if (CHECK_URLS) {
+        await upgradeDeadOpinionHrefs(casesPath);
     }
 
     syncFilesCount(casesPath);
