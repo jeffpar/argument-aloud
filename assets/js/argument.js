@@ -13,6 +13,7 @@ let _currentBasePath  = '';    // base URL path for the active case
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
+let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
 let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
 
 const audio       = document.getElementById('audio-player');
@@ -1976,6 +1977,10 @@ async function loadAudioEntry(arg, basePath) {
     // seek to that position after metadata is ready.
     if (arg.offset) {
       seekOnly(parseTime(arg.offset));
+    } else if (Number.isInteger(arg.turn) && arg.turn > 0 && arg.turn <= turnTimes.length) {
+      // `turn` is a 1-based index into the aligned transcript; used when
+      // multiple arguments share a single audio file. Seek to that turn's time.
+      seekOnly(turnTimes[arg.turn - 1]);
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
@@ -2048,24 +2053,84 @@ function loadCaseAsOpinion(term, caseEntry) {
   // Show case title (hide audio select since there is no audio).
   setCaseTitleLabel(term, caseEntry);
   document.title = caseEntry.title + ' | Argument Aloud';
-  document.getElementById('audio-select').hidden = true;
+  const audioSelect = document.getElementById('audio-select');
   const decisionLabel = document.getElementById('decision-date-label');
-  if (caseEntry.dateDecision) {
-    let text = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
-    if (caseEntry.usCite) text += '\u00a0(' + caseEntry.usCite + ')';
-    decisionLabel.textContent = text;
-    if (caseEntry.opinion_href) {
-      decisionLabel.href = caseEntry.opinion_href;
-      decisionLabel.target = '_blank';
-      decisionLabel.rel = 'noopener noreferrer';
-    } else {
-      decisionLabel.removeAttribute('href');
-      decisionLabel.removeAttribute('target');
-      decisionLabel.removeAttribute('rel');
-    }
-    decisionLabel.hidden = false;
-  } else {
+
+  // Collect any events with journal_ref so we can offer them in a dropdown
+  // alongside the decision/opinion.
+  const _months = ['January','February','March','April','May','June',
+                   'July','August','September','October','November','December'];
+  _currentJournalRefs = new Map();
+  const journalOpts = [];
+  const _journalSeen = new Set();
+  (caseEntry.events || []).forEach((ev, i) => {
+    if (!ev.journal_ref || !ev.date) return;
+    const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
+    if (!m) return;
+    const refTerm = m[1] || term;
+    const page    = m[2].trim();
+    if (!page) return;
+    const refTermEntry = TERMS.find(t => t.term === refTerm);
+    const journalHref  = refTermEntry?.journal_href;
+    if (!journalHref) return;
+    const pageNum  = parseInt(page, 10);
+    const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
+    const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
+      ? String(pageNum + offset)
+      : page;
+    const [y, mo, d] = ev.date.split('-');
+    const dateLabel  = (_months[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+    const title      = 'Journal Entry for ' + dateLabel;
+    const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
+    if (_journalSeen.has(url)) return;
+    _journalSeen.add(url);
+    const value      = 'journal:' + (i + 1);
+    _currentJournalRefs.set(value, { href: url, title });
+    journalOpts.push({ value, title });
+  });
+
+  const decisionText = caseEntry.dateDecision
+    ? 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '')
+        + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
+    : null;
+
+  // If there are extra documents to choose from, surface a dropdown rather
+  // than the standalone decision label.
+  _currentOpinionHref = caseEntry.opinion_href || null;
+  _currentOyezHref    = caseEntry.oyez || null;
+  if (journalOpts.length && (decisionText || journalOpts.length > 1)) {
     decisionLabel.hidden = true;
+    audioSelect.innerHTML = '';
+    journalOpts.forEach(j => {
+      const opt = document.createElement('option');
+      opt.value = j.value;
+      opt.textContent = j.title;
+      audioSelect.appendChild(opt);
+    });
+    if (decisionText && caseEntry.opinion_href) {
+      const opt = document.createElement('option');
+      opt.value = 'opinion';
+      opt.textContent = decisionText;
+      audioSelect.appendChild(opt);
+    }
+    audioSelect.hidden = false;
+  } else {
+    audioSelect.hidden = true;
+    if (decisionText) {
+      decisionLabel.textContent = decisionText;
+      if (caseEntry.opinion_href) {
+        decisionLabel.href = caseEntry.opinion_href;
+        decisionLabel.target = '_blank';
+        decisionLabel.rel = 'noopener noreferrer';
+      } else {
+        decisionLabel.removeAttribute('href');
+        decisionLabel.removeAttribute('target');
+        decisionLabel.removeAttribute('rel');
+      }
+      decisionLabel.hidden = false;
+    } else {
+      decisionLabel.hidden = true;
+    }
   }
 
   const qEl = document.getElementById('case-questions');
@@ -2218,7 +2283,46 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     opt.textContent = audioEntryLabel(a);
     audioSelect.appendChild(opt);
   });
-  // Append sentinel option linking to the opinion, if available.
+  // Append a sentinel option for each event with a `journal_ref`. The ref is
+  // either "PAGE" (use the case's term journal) or "TERM:PAGE" (use a different
+  // term's journal). The linked URL is `<journal_href>#page=<PAGE>`.
+  // Journal entries appear before the decision sentinel so the decision is
+  // always last.
+  _currentJournalRefs = new Map();
+  {
+    const _months = ['January','February','March','April','May','June',
+                     'July','August','September','October','November','December'];
+    const _journalSeen = new Set();
+    (caseEntry.events || []).forEach((ev, i) => {
+      if (!ev.journal_ref || !ev.date) return;
+      const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
+      if (!m) return;
+      const refTerm = m[1] || term;
+      const page    = m[2].trim();
+      if (!page) return;
+      const refTermEntry = TERMS.find(t => t.term === refTerm);
+      const journalHref  = refTermEntry?.journal_href;
+      if (!journalHref) return;
+      const pageNum  = parseInt(page, 10);
+      const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
+      const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
+        ? String(pageNum + offset)
+        : page;
+      const [y, mo, d] = ev.date.split('-');
+      const dateLabel  = (_months[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+      const title      = 'Journal Entry for ' + dateLabel;
+      const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
+      if (_journalSeen.has(url)) return;
+      _journalSeen.add(url);
+      const value      = 'journal:' + (i + 1);
+      _currentJournalRefs.set(value, { href: url, title });
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = title;
+      audioSelect.appendChild(opt);
+    });
+  }
+  // Append sentinel option linking to the opinion, if available. (Always last.)
   if (caseEntry.opinion_href && (caseEntry.dateDecision || caseEntry.decision)) {
     const _months = ['January','February','March','April','May','June',
                      'July','August','September','October','November','December'];
@@ -2244,7 +2348,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'opinion' && v !== 'oyez-page')
+    .filter(v => v !== 'opinion' && v !== 'oyez-page' && !v.startsWith('journal:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -2452,6 +2556,13 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   if (e.target.value === 'oyez-page') {
     if (_currentOyezHref) {
       showDocViewer({ href: _currentOyezHref, title: 'Description from The Oyez Project', view: 'pane' }, { force: true });
+    }
+    return;
+  }
+  if (typeof e.target.value === 'string' && e.target.value.startsWith('journal:')) {
+    const entry = _currentJournalRefs.get(e.target.value);
+    if (entry) {
+      showDocViewer({ href: entry.href, title: entry.title }, { force: true });
     }
     return;
   }

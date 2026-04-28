@@ -32,6 +32,7 @@ const TERMS_DIR         = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const OUTPUT_FILE       = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'all_advocates.json');
 const WOMEN_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'women_advocates.json');
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'misc', 'ussc_women_advocates.csv');
+const TRANS_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICE_ADVOCATES_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justice_advocates.json');
@@ -703,6 +704,8 @@ async function main() {
     const caseFeminineSeen = new Map();
     /** name_upper -> bool */
     const nameFeminine = new Map();
+    /** name_upper -> Set<tag-lowercase> aggregated across transcripts */
+    const nameTags = new Map();
     /** key: title|term|number -> citation */
     const caseCitation = new Map();
     /** name_upper -> Set<transcript_path> */
@@ -822,6 +825,21 @@ async function main() {
                 const audio = audioEntries[origIdx];
                 const audioDate = audio.date || c.argument || '';
 
+                // For consolidated dockets (number contains comma), an event
+                // whose title names a specific sub-docket (e.g. "in No. 54")
+                // represents a separate argument and should be counted on its
+                // own. Returns '' for non-consolidated cases or events whose
+                // title doesn't isolate one of the listed sub-dockets (e.g.
+                // multi-part argument blocks).
+                const eventSubDocket = (ev) => {
+                    if (!number || !number.includes(',')) return '';
+                    const m = (ev.title || '').match(/\bNo\.\s*([\w-]+)/i);
+                    if (!m) return '';
+                    const sub = m[1];
+                    const parts = number.split(',').map(s => s.trim());
+                    return parts.includes(sub) ? sub : '';
+                };
+
                 const recordAdvocate = (rawName, advocateTitle = '') => {
                     let name = (rawName || '').split(/\s+/).filter(Boolean).join(' ');
                     if (!name || !audioDate) return;
@@ -840,13 +858,18 @@ async function main() {
                             prevList.push(oldUpper);
                         }
                     }
-                    const caseKey = ckCase(nameKey, title, term, number);
+                    const subKey = eventSubDocket(audio);
+                    const caseKey = ckCase(nameKey, title, term, number + (subKey ? `#${subKey}` : ''));
+                    // Feminine tracking ignores subKey: the warning is per
+                    // (name, case) and a feminine title on any sub-event
+                    // should satisfy the check for the whole case.
+                    const femKey = ckCase(nameKey, title, term, number);
                     const isFem = isFeminineTitle(advocateTitle);
                     if (isFem) {
-                        caseFeminineSeen.set(caseKey, true);
+                        caseFeminineSeen.set(femKey, true);
                         nameFeminine.set(nameKey, true);
                     } else {
-                        if (!caseFeminineSeen.has(caseKey)) caseFeminineSeen.set(caseKey, false);
+                        if (!caseFeminineSeen.has(femKey)) caseFeminineSeen.set(femKey, false);
                         if (!nameFeminine.has(nameKey)) nameFeminine.set(nameKey, false);
                     }
                     if (Number.isNaN(isoToDays(audioDate))) return;
@@ -859,16 +882,25 @@ async function main() {
                     if (!(nameKey in advocates)) {
                         advocates[nameKey] = { id: makeAdvocateId(name), name, cases: [] };
                     }
-                    const resolvedOrigIdx = preferredOrigIdx.get(`${audioDate}|${nameKey}`)
-                        ?? bestOrigIdxForDate.get(audioDate)
-                        ?? origIdx;
+                    // When an event isolates a sub-docket, trust this event's
+                    // own index — sibling resolution (preferredOrigIdx /
+                    // bestOrigIdxForDate) would collapse the sub-cases.
+                    const resolvedOrigIdx = subKey
+                        ? origIdx
+                        : (preferredOrigIdx.get(`${audioDate}|${nameKey}`)
+                           ?? bestOrigIdxForDate.get(audioDate)
+                           ?? origIdx);
                     const resolvedAudio = audioEntries[resolvedOrigIdx] || audio;
                     const caseEntry = {
                         title,
                         term,
-                        number,
+                        number: subKey || number,
                         argument: audioDate,
                     };
+                    // Internal-only: original consolidated number (used for
+                    // citation lookup, dedup, and URL building); stripped
+                    // before the case entry is serialized to disk.
+                    if (subKey) Object.defineProperty(caseEntry, '_fullNumber', { value: number, enumerable: false });
                     if (decision) caseEntry.decision = decision;
                     const sameDateEntries = (dateToIdxs.get(audioDate) || []).map(i => audioEntries[i]);
                     if (sameDateEntries.some(e => e.transcript_href)) caseEntry.transcript = true;
@@ -913,6 +945,18 @@ async function main() {
                     if (!speakerTitle || _JUSTICE_TITLES.has(speakerTitle)) continue;
                     const spRaw = (speaker.name || '').trim();
                     recordAdvocate(spRaw, speakerTitle);
+                    if (spRaw && (Array.isArray(speaker.tags) || typeof speaker.tags === 'string')) {
+                        const tagList = Array.isArray(speaker.tags)
+                            ? speaker.tags
+                            : speaker.tags.split(',');
+                        const norm = normalizeNameSuffix(spRaw).split(/\s+/).filter(Boolean).join(' ').toUpperCase();
+                        const key  = NAME_ALIASES[norm] || norm;
+                        if (!nameTags.has(key)) nameTags.set(key, new Set());
+                        const set = nameTags.get(key);
+                        for (const t of tagList) {
+                            if (typeof t === 'string' && t.trim()) set.add(t.trim().toLowerCase());
+                        }
+                    }
                     if (spRaw && spRaw.split(/\s+/).length === 1) {
                         const key = spRaw.toUpperCase();
                         if (!singleNamePaths.has(key)) singleNamePaths.set(key, new Set());
@@ -1120,6 +1164,15 @@ async function main() {
     writeText(WOMEN_OUTPUT_FILE, JSON.stringify(womenIndex, null, 2) + '\n');
     console.log(`Wrote ${womenIndex.length} women advocates to ${relRepo(WOMEN_OUTPUT_FILE)}`);
 
+    // Transgender advocates index (anyone whose transcript speaker entry
+    // carries a 'transgender' tag).
+    const transIndex = index.filter(e => {
+        const tags = nameTags.get(e.name.toUpperCase());
+        return tags && tags.has('transgender');
+    });
+    writeText(TRANS_OUTPUT_FILE, JSON.stringify(transIndex, null, 2) + '\n');
+    console.log(`Wrote ${transIndex.length} transgender advocates to ${relRepo(TRANS_OUTPUT_FILE)}`);
+
     // ── ussc_women_advocates.csv ──────────────────────────────────────────
     let womenRows = [];
     for (const [nameUpper, entry] of Object.entries(advocates)) {
@@ -1132,11 +1185,12 @@ async function main() {
         let argNum = 0;
         for (const c of sortedCases) {
             argNum++;
-            const cit = caseCitation.get(ckCite(c.title, c.term, c.number)) || '';
+            const fullNum = c._fullNumber || c.number;
+            const cit = caseCitation.get(ckCite(c.title, c.term, fullNum)) || '';
             const audioIdx = c.audio;
-            let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${c.number.replace(/,/g, '%2C')}`;
+            let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${fullNum.replace(/,/g, '%2C')}`;
             if (audioIdx) url += `&event=${audioIdx}`;
-            const caseKey = ckCase(nameUpper, c.title, c.term, c.number);
+            const caseKey = ckCase(nameUpper, c.title, c.term, fullNum);
             let allDates = [];
             const anchor = c.argument || '';
             if (!Number.isNaN(isoToDays(anchor))) {
@@ -1334,8 +1388,8 @@ async function main() {
     // Duplicate-argument check.
     const dupSeen = new Map();
     womenRows.forEach((row, rowIdx) => {
-        const [advName, , argDate, , , title] = row;
-        const dupKey = `${advName.toLowerCase()}|${argDate}|${title.toLowerCase()}`;
+        const [advName, , argDate, , number, title] = row;
+        const dupKey = `${advName.toLowerCase()}|${argDate}|${number}|${title.toLowerCase()}`;
         if (dupSeen.has(dupKey)) {
             console.log(`  WARNING: duplicate argument — "${advName}" on ${argDate} in "${title}" (rows ${dupSeen.get(dupKey) + 1} and ${rowIdx + 1} of CSV)`);
         } else {
@@ -1349,7 +1403,7 @@ async function main() {
         if (!nameFeminine.get(nameUpper)) continue;
         if (entry.name.split(/\s+/).length <= 1) continue;
         const badCases = entry.cases.filter(c =>
-            !caseFeminineSeen.get(ckCase(nameUpper, c.title, c.term, c.number))
+            !caseFeminineSeen.get(ckCase(nameUpper, c.title, c.term, c._fullNumber || c.number))
         );
         if (badCases.length) failed[entry.name] = badCases;
     }
