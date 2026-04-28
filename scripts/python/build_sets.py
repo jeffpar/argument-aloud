@@ -669,7 +669,11 @@ def load_cases_for_year(
         return cache[year]
     result: list[tuple[str, list[dict]]] = []
     y = int(year)
-    for y_check in (y - 1, y, y + 1):
+    # Search the matching term first, then neighbours (cases sometimes carry
+    # over a term boundary). Visiting (y) before (y-1, y+1) avoids returning a
+    # stray docket-number collision from the prior term when the lonedissent
+    # id (e.g. "1919-014") clearly identifies the correct term.
+    for y_check in (y, y - 1, y + 1):
         prefix = f"{y_check}-"
         for term in sorted(t for t in term_cases.keys() if t.startswith(prefix)):
             result.append((term, term_cases[term]))
@@ -678,17 +682,47 @@ def load_cases_for_year(
 
 
 def find_case_in_term_list(cases: list[dict], csv_row: dict) -> dict | None:
-    csv_docket_norm = normalize_for_compare(csv_row.get("docket", ""))
     csv_scdb_ids = {s.strip() for s in (csv_row.get("scdb", "") or "").split(",") if s.strip()}
+    csv_citation = (csv_row.get("citation", "") or "").strip()
+    # Treat placeholder citations like "590 U.S. ___" as unknown.
+    if "___" in csv_citation:
+        csv_citation = ""
+    csv_decided  = first_date((csv_row.get("decided", "") or "").strip())
 
+    def _confirm(case: dict, matched_by: str) -> dict:
+        # Cross-check citation and decision date when both sides have values.
+        case_cite = (case.get("usCite") or "").strip()
+        if csv_citation and case_cite and csv_citation != case_cite:
+            print(
+                f"  WARN: {matched_by} matched {case.get('id','?')} but "
+                f"citation differs (csv={csv_citation!r}, case={case_cite!r})"
+            )
+        case_dec = (case.get("decision") or "").strip()
+        if csv_decided and case_dec and csv_decided != case_dec:
+            print(
+                f"  WARN: {matched_by} matched {case.get('id','?')} but "
+                f"decision date differs (csv={csv_decided!r}, case={case_dec!r})"
+            )
+        return case
+
+    # Prefer the lonedissent/scdb id (encodes term, e.g. "1919-014") over the
+    # bare docket number, since dockets recur each term and can collide.
+    for case in cases:
+        case_id = case.get("id", "")
+        if csv_scdb_ids and case_id and case_id in csv_scdb_ids:
+            return _confirm(case, f"scdb={case_id}")
+
+    csv_docket_norm = normalize_for_compare(csv_row.get("docket", ""))
     for case in cases:
         case_num = case.get("number", "")
         if csv_docket_norm and case_num and normalize_for_compare(case_num) == csv_docket_norm:
-            return case
-
-        case_id = case.get("id", "")
-        if csv_scdb_ids and case_id and case_id in csv_scdb_ids:
-            return case
+            # Require usCite to agree when available — guards against same
+            # docket number colliding across terms.
+            if csv_citation:
+                if (case.get("usCite") or "").strip() == csv_citation:
+                    return _confirm(case, f"docket={case_num}+citation")
+                continue
+            return _confirm(case, f"docket={case_num}")
 
     return None
 
