@@ -473,19 +473,19 @@ def _set_decision(case: dict, decision_date: str) -> bool:
 
 
 def _set_oyez_url(case: dict, url: str) -> bool:
-    """Set case['oyez'] to url, inserting it immediately after 'number'.
+    """Set case['oyez_href'] to url, inserting it immediately after 'number'.
 
-    Does nothing if 'oyez' is already present.  Returns True when newly added.
+    Does nothing if 'oyez_href' is already present.  Returns True when newly added.
     """
-    if 'oyez' in case:
+    if 'oyez_href' in case:
         return False
     new: dict = {}
     for k, v in case.items():
         new[k] = v
         if k == 'number':
-            new['oyez'] = url
-    if 'oyez' not in new:
-        new['oyez'] = url
+            new['oyez_href'] = url
+    if 'oyez_href' not in new:
+        new['oyez_href'] = url
     case.clear()
     case.update(new)
     return True

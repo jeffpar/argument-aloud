@@ -1818,6 +1818,25 @@ async function importTranscriptPdfs(casesPath, yearStr, laterTermNumbers = null)
                         console.log(`  new: ${row.pdf_url}`);
                         arg.transcript_href = row.pdf_url;
                         casesModified = true;
+                        // SCOTUS rewrites the URL when they re-publish the
+                        // PDF (corrections etc.), so drop our cached PDF text
+                        // and parsed transcript JSON; the later
+                        // _ensureEventTranscript pass will redownload and
+                        // re-parse from the new PDF.
+                        const cn = _ussCcaseNumFromHref(arg.transcript_href, arg.text_href || '')
+                            || _caseFolder(c.number);
+                        const cachedTxt = _cachedTextPath(cn, row.date, `${yearStr}-10`);
+                        if (exists(cachedTxt)) {
+                            unlinkSafe(cachedTxt);
+                            console.log(`  invalidated cached text: ${relRepo(cachedTxt)}`);
+                        }
+                        if (arg.text_href) {
+                            const thFile = path.join(path.dirname(casesPath), 'cases', arg.text_href);
+                            if (exists(thFile)) {
+                                unlinkSafe(thFile);
+                                console.log(`  invalidated transcript JSON: ${relRepo(thFile)}`);
+                            }
+                        }
                     }
                     break;
                 }

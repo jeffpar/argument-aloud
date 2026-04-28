@@ -373,13 +373,13 @@ function setDecision(c, decisionDate) {
 }
 
 function setOyezUrl(c, url) {
-    if ('oyez' in c) return false;
+    if ('oyez_href' in c) return false;
     const out = {};
     for (const [k, v] of Object.entries(c)) {
         out[k] = v;
-        if (k === 'number') out.oyez = url;
+        if (k === 'number') out.oyez_href = url;
     }
-    if (!('oyez' in out)) out.oyez = url;
+    if (!('oyez_href' in out)) out.oyez_href = url;
     for (const k of Object.keys(c)) delete c[k];
     Object.assign(c, out);
     return true;
