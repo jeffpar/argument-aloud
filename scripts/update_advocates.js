@@ -33,6 +33,8 @@ const OUTPUT_FILE       = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'all_
 const WOMEN_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'women_advocates.json');
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'misc', 'ussc_women_advocates.csv');
 const ADVOCATES_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
+const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
+const JUSTICE_ADVOCATES_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justice_advocates.json');
 const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
 const _SPEAKERS_FILE    = path.join(__dirname, 'speakers.json');
 
@@ -305,6 +307,372 @@ function writeCsvNonnumeric(headers, rows) {
     lines.push(headers.map(quoteField).join(','));
     for (const row of rows) lines.push(row.map(quoteField).join(','));
     return lines.join('\r\n') + '\r\n';
+}
+
+// ── Justice-advocates sync (from courts/ussc/people/justices/README.md) ────
+
+const _JM_HEADING_RE  = /^## ((?:CHIEF )?JUSTICE .+)$/;
+const _JM_OYEZ_URL_RE = /https:\/\/www\.oyez\.org\/cases\/(\d{4})\/([^\s)]+)/g;
+const _JM_LOC_RE      = /https:\/\/tile\.loc\.gov\/[^)]+\/usrep(\d+)\/usrep\d+(\d{3})\/[^)]+\.pdf/;
+const _JM_OYEZ_MULTI_RE = /https:\/\/www\.oyez\.org\/cases\/\d{4}-\d{4}\/(\d+)us(\d+)/;
+const _JM_JUSTIA_RE   = /https:\/\/supreme\.justia\.com\/cases\/federal\/us\/(\d+)\/(\d+)\//;
+const _JM_CASE_LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/;
+const _JM_SUFFIX_RE   = /,?\s+(?:JR|SR|II|III|IV)\.?$/i;
+const _JM_YEAR_SUFFIX_RE = /\s+\((\d{4})\)$/;
+const _JM_MONTHS = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December',
+                    'Jan','Feb','Mar','Apr','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const _JM_MONTHS_PAT = _JM_MONTHS.join('|');
+const _JM_ARGUED_DATE_RE = new RegExp(
+    '(?:[Aa]rgued\\s+)?((?:' + _JM_MONTHS_PAT + ')\\s+\\d+' +
+    '(?:\\s*[\\-\\u2013]\\s*(?:\\d+|(?:' + _JM_MONTHS_PAT + ')\\s+\\d+))?' +
+    '(?:\\s+and\\s+\\d+)?' +
+    ',\\s*\\d{4})',
+    'i',
+);
+
+function _jmDecodeEntities(s) {
+    return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
+
+function _jmDisplayName(upper) {
+    return upper.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+}
+
+function _jmParseHeading(heading) {
+    let prefix, fullName;
+    if (heading.startsWith('CHIEF JUSTICE ')) {
+        prefix = 'CHIEF JUSTICE';
+        fullName = heading.slice('CHIEF JUSTICE '.length).trim();
+    } else {
+        prefix = 'JUSTICE';
+        fullName = heading.slice('JUSTICE '.length).trim();
+    }
+    return { prefix, fullName, displayName: _jmDisplayName(fullName) };
+}
+
+function _jmNormalizeCaseNumber(raw) {
+    const first = String(raw).split(',')[0].trim();
+    const m = first.match(/^(\d+)\s*[-\u2013]?\s*(Misc|Orig)\.?$/i);
+    if (m) return `${m[1]}-${m[2].charAt(0).toUpperCase() + m[2].slice(1).toLowerCase()}`;
+    return first;
+}
+
+function _jmOyezTermCase(url) {
+    const m = url.match(/https:\/\/www\.oyez\.org\/cases\/(\d{4})\/([^\s)]+)/);
+    if (!m) return null;
+    const year = m[1];
+    let cs = m[2].replace(/_([a-z])/g, (_, c) => '-' + c.toUpperCase());
+    return [`${year}-10`, cs];
+}
+
+function _jmVolPageFromUrl(url) {
+    for (const re of [_JM_LOC_RE, _JM_OYEZ_MULTI_RE, _JM_JUSTIA_RE]) {
+        const m = url.match(re);
+        if (m) return [String(parseInt(m[1], 10)), String(parseInt(m[2], 10))];
+    }
+    return null;
+}
+
+function _jmParseFirstArgDateIso(note) {
+    if (!note) return null;
+    const m = note.match(_JM_ARGUED_DATE_RE);
+    if (!m) return null;
+    let raw = m[1];
+    raw = raw.replace(
+        new RegExp('(\\d+)\\s*[\\-\\u2013]\\s*(?:\\d+|(?:' + _JM_MONTHS_PAT + ')\\s+\\d+)', 'i'),
+        '$1');
+    raw = raw.replace(/(\d+)\s+and\s+\d+/, '$1');
+    raw = raw.trim().replace(/^,/, '').trim();
+    const dm = raw.match(/^(\w+)\s+(\d+),\s*(\d{4})$/);
+    if (!dm) return null;
+    const mi = _JM_MONTHS.indexOf(dm[1]);
+    if (mi === -1) return null;
+    const monthIdx = (mi % 12) + 1;
+    return `${dm[3]}-${String(monthIdx).padStart(2, '0')}-${String(parseInt(dm[2], 10)).padStart(2, '0')}`;
+}
+
+/** Walk justices README for [{ displayName, cases:[{name, url, note}] }]. */
+function _jmLoadJustices() {
+    if (!exists(JUSTICES_README)) return [];
+    const text = readText(JUSTICES_README);
+    const out = [];
+    let cur = null;
+    let inCases = false;
+    for (const line of text.split('\n')) {
+        const hm = line.match(_JM_HEADING_RE);
+        if (hm) {
+            if (cur) out.push(cur);
+            cur = { ..._jmParseHeading(hm[1].trim()), cases: [] };
+            inCases = false;
+        } else if (cur) {
+            if (line.trim() === '### Cases Argued') inCases = true;
+            else if (inCases) {
+                const lm = line.match(_JM_CASE_LINK_RE);
+                if (lm) {
+                    const note = line.slice(line.indexOf(lm[0]) + lm[0].length).trim();
+                    cur.cases.push({
+                        name: _jmDecodeEntities(lm[1].trim()),
+                        url:  lm[2].trim(),
+                        note,
+                    });
+                }
+            }
+        }
+    }
+    if (cur) out.push(cur);
+    return out;
+}
+
+/** Pick the best argument event index (1-based into events[]). */
+function _jmBestEventIndex(events, isoDate, forcedPosition) {
+    const argTypes = new Set(['argument', 'reargument']);
+    const argIdxs = [];
+    for (let i = 0; i < (events || []).length; i++) {
+        if (argTypes.has(events[i].type)) argIdxs.push(i);
+    }
+    if (argIdxs.length === 0) return null;
+    if (forcedPosition) {
+        const i = forcedPosition - 1;
+        if (i >= 0 && i < argIdxs.length) return argIdxs[i] + 1;
+        return argIdxs[0] + 1;
+    }
+    let cands = argIdxs;
+    if (isoDate) {
+        const dm = argIdxs.filter(i => events[i].date === isoDate);
+        if (dm.length) cands = dm;
+    }
+    const aligned = cands.filter(i => events[i].aligned);
+    if (aligned.length) return aligned[0] + 1;
+    const withAudio = cands.filter(i => events[i].audio_href);
+    if (withAudio.length) return withAudio[0] + 1;
+    return cands[0] + 1;
+}
+
+function _jmEventDateForIndex(events, idx) {
+    if (!events || !idx || idx < 1 || idx > events.length) return null;
+    return events[idx - 1].date || null;
+}
+
+/** Build {(term,number)→case} and {usCite→[term,number]} indices. */
+function _jmBuildCaseIndices(termDirs) {
+    const byKey = new Map();
+    const byUsCite = new Map();
+    for (const termDir of termDirs) {
+        const term = path.basename(termDir);
+        const cf = path.join(termDir, 'cases.json');
+        if (!exists(cf)) continue;
+        let cases;
+        try { cases = readJson(cf); } catch { continue; }
+        for (const c of cases) {
+            const raw = String(c.number || '').trim();
+            const number = raw.split(',')[0].trim();
+            byKey.set(`${term}/${number}`, c);
+            const cite = String(c.usCite || '').trim();
+            if (cite) byUsCite.set(cite, [term, String(c.number || '')]);
+        }
+    }
+    return { byKey, byUsCite };
+}
+
+function syncJusticeAdvocates(termDirs) {
+    if (exists(JUSTICE_ADVOCATES_FILE)) return;
+    console.log('\n── Building justice_advocates.json ──');
+    const justices = _jmLoadJustices();
+    if (!justices.length) {
+        console.log(`  No justices loaded from ${relRepo(JUSTICES_README)}`);
+        return;
+    }
+
+    const { byKey, byUsCite } = _jmBuildCaseIndices(termDirs);
+
+    let coll = [];
+    if (exists(JUSTICE_ADVOCATES_FILE)) {
+        try { coll = readJson(JUSTICE_ADVOCATES_FILE); } catch { coll = []; }
+    }
+    if (!Array.isArray(coll)) coll = [];
+
+    const groupsByName = new Map(coll.map(g => [g.name, g]));
+    let totalAdded = 0;
+
+    for (const j of justices) {
+        const disp = j.displayName;
+
+        // Resolve each markdown case to {name, term, number, forced_audio?, arg_date_iso?}.
+        const mdCases = [];
+        for (const c of j.cases) {
+            let term, number;
+            const tc = _jmOyezTermCase(c.url);
+            if (tc) {
+                term = tc[0];
+                number = _jmNormalizeCaseNumber(tc[1]);
+            } else {
+                const vp = _jmVolPageFromUrl(c.url);
+                if (!vp) continue;
+                const cite = `${vp[0]} U.S. ${vp[1]}`;
+                const hit = byUsCite.get(cite);
+                if (!hit) {
+                    console.log(`  [${disp}] WARN: no local case for ${cite} (${c.name})`);
+                    continue;
+                }
+                term = hit[0];
+                number = _jmNormalizeCaseNumber(hit[1]);
+            }
+            const isDual = /\bargued\s+and\s+reargued\b/i.test(c.note || '');
+            if (isDual) {
+                mdCases.push({ name: c.name, term, number: String(number), forced_audio: 1 });
+                mdCases.push({ name: c.name, term, number: String(number), forced_audio: 2 });
+            } else {
+                mdCases.push({
+                    name: c.name, term, number: String(number),
+                    arg_date_iso: _jmParseFirstArgDateIso(c.note),
+                });
+            }
+        }
+        if (!mdCases.length) continue;
+
+        let group = groupsByName.get(disp);
+        if (!group) {
+            group = { id: makeAdvocateId(disp), name: disp, cases: [] };
+            coll.push(group);
+            groupsByName.set(disp, group);
+        } else {
+            // Ensure id is present and current.
+            const desiredId = makeAdvocateId(disp);
+            if (group.id !== desiredId) {
+                // Rebuild with id first, name second, preserving remaining keys.
+                const { id: _oldId, name: _oldName, ...rest } = group;
+                for (const k of Object.keys(group)) delete group[k];
+                group.id = desiredId;
+                group.name = disp;
+                Object.assign(group, rest);
+            }
+        }
+        const existing = group.cases || [];
+
+        // Counts to compute deficit.
+        const mdCounts = new Map();
+        for (const mc of mdCases) {
+            const k = `${mc.term}/${mc.number}`;
+            mdCounts.set(k, (mdCounts.get(k) || 0) + 1);
+        }
+        const existingCounts = new Map();
+        for (const e of existing) {
+            const k = `${e.term || ''}/${_jmNormalizeCaseNumber(String(e.number || ''))}`;
+            existingCounts.set(k, (existingCounts.get(k) || 0) + 1);
+        }
+
+        const seen = new Map();
+        const toAdd = [];
+        for (const mc of mdCases) {
+            const k = `${mc.term}/${mc.number}`;
+            const need = mdCounts.get(k);
+            const have = existingCounts.get(k) || 0;
+            const s = seen.get(k) || 0;
+            if (s < need - have) toAdd.push(mc);
+            seen.set(k, s + 1);
+        }
+
+        // Insert new entries in term order.
+        const newExisting = [...existing];
+        for (const nc of toAdd) {
+            let pos = newExisting.length;
+            for (let i = 0; i < newExisting.length; i++) {
+                if ((newExisting[i].term || '') > nc.term) { pos = i; break; }
+            }
+            newExisting.splice(pos, 0, { title: nc.name, term: nc.term, number: nc.number });
+        }
+
+        // Build per-key audio plan in markdown order.
+        const audioPlan = new Map();
+        for (const mc of mdCases) {
+            const k = `${mc.term}/${mc.number}`;
+            if (!audioPlan.has(k)) audioPlan.set(k, []);
+            audioPlan.get(k).push({
+                forced_audio: mc.forced_audio ?? null,
+                arg_date_iso: mc.arg_date_iso ?? null,
+            });
+        }
+
+        const before = JSON.stringify(newExisting);
+        const seenByKey = new Map();
+        for (const entry of newExisting) {
+            const k = `${entry.term || ''}/${String(entry.number || '')}`;
+            const live = byKey.get(k);
+            const sk = seenByKey.get(k) || 0;
+            seenByKey.set(k, sk + 1);
+            if (!live) {
+                console.log(`  [${disp}] WARNING: case not found in cases.json: ${k}`);
+                delete entry.argument; delete entry.decision;
+                delete entry.event;    delete entry.audio;
+                delete entry.opinion_href;
+                continue;
+            }
+
+            // Strip " (YYYY)" from title; warn on year mismatch.
+            const rawTitle = entry.title || '';
+            const ym = rawTitle.match(_JM_YEAR_SUFFIX_RE);
+            const titleYear = ym ? ym[1] : null;
+            const cleanTitle = ym ? rawTitle.slice(0, ym.index) : rawTitle;
+            const decision = live.decision;
+            if (titleYear && decision && titleYear !== decision.slice(0, 4)) {
+                console.log(`  WARNING: year mismatch for ${k}: title year=${titleYear}, decision=${decision}`);
+            }
+            // Verify opinion_href if both present.
+            if (live.opinion_href && entry.opinion_href && live.opinion_href !== entry.opinion_href) {
+                console.log(`  WARNING: opinion_href mismatch for ${k}`);
+            }
+
+            // Pick best event (1-based events[] index).
+            let eventVal = null, argDate = null;
+            const events = live.events || [];
+            if (events.length) {
+                const plan = audioPlan.get(k) || [];
+                const planEntry = sk < plan.length ? plan[sk] : {};
+                eventVal = _jmBestEventIndex(events, planEntry.arg_date_iso, planEntry.forced_audio);
+                if (eventVal !== null) argDate = _jmEventDateForIndex(events, eventVal);
+            }
+            if (!argDate) argDate = live.argument || null;
+
+            // Rebuild entry with canonical field order.
+            for (const k2 of Object.keys(entry)) delete entry[k2];
+            entry.title  = cleanTitle;
+            entry.term   = k.split('/')[0];
+            entry.number = k.split('/').slice(1).join('/');
+            if (argDate)  entry.argument = argDate;
+            if (decision) entry.decision = decision;
+            if (eventVal !== null) entry.event = eventVal;
+        }
+        const after = JSON.stringify(newExisting);
+        const annotationsChanged = before !== after;
+
+        if (!toAdd.length && !annotationsChanged) continue;
+
+        group.cases = newExisting;
+        totalAdded += toAdd.length;
+        if (toAdd.length) {
+            const names = toAdd.slice(0, 4).map(c => c.name).join(', ')
+                + (toAdd.length > 4 ? `, … (+${toAdd.length - 4} more)` : '');
+            console.log(`  [${disp}] Added ${toAdd.length}: ${names}`);
+        }
+    }
+
+    // Sort groups by last name, stripping generational suffixes.
+    coll.sort((a, b) => {
+        const aLast = (a.name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
+        const bLast = (b.name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
+        return aLast < bLast ? -1 : aLast > bLast ? 1 : 0;
+    });
+
+    const newJson = JSON.stringify(coll, null, 2) + '\n';
+    const oldJson = exists(JUSTICE_ADVOCATES_FILE) ? readText(JUSTICE_ADVOCATES_FILE) : '';
+    if (newJson !== oldJson) {
+        writeText(JUSTICE_ADVOCATES_FILE, newJson);
+        console.log(`Wrote ${relRepo(JUSTICE_ADVOCATES_FILE)} (+${totalAdded} cases, annotations updated)`);
+    } else {
+        console.log(`${relRepo(JUSTICE_ADVOCATES_FILE)} is already up to date.`);
+    }
 }
 
 // ── Main ───────────────────────────────────────────────────────────────────
@@ -738,7 +1106,7 @@ async function main() {
         const entry = {
             id: e.id || makeAdvocateId(e.name),
             name: e.name,
-            total_cases: e.cases.length,
+            cases: e.cases.length,
         };
         if (e.previously) entry.previously = [...new Set(e.previously)].sort();
         return entry;
@@ -959,6 +1327,9 @@ async function main() {
         'Term', 'Case Number', 'Case Title', 'Citation', 'URL'];
     writeText(WOMEN_CSV_FILE, writeCsvNonnumeric(csvHeaders, womenRows));
     console.log(`Wrote ${womenRows.length} rows to ${relRepo(WOMEN_CSV_FILE)}`);
+
+    // ── Justice-advocates collection sync ────────────────────────────────
+    syncJusticeAdvocates(termDirs);
 
     // Duplicate-argument check.
     const dupSeen = new Map();

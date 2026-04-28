@@ -1,6 +1,7 @@
 [
   {
-    "name": "Samuel A. Alito, Jr.",
+    "id": "samuel_alito",
+    "name": "SAMUEL ALITO",
     "cases": [
       {
         "title": "Oregon v. Kennedy",
@@ -101,19 +102,22 @@
     ]
   },
   {
-    "name": "Warren E. Burger",
+    "id": "warren_burger",
+    "name": "WARREN BURGER",
     "cases": [
       {
         "title": "Peters v. Hobby",
         "term": "1954-10",
         "number": "376",
         "argument": "1955-04-19",
-        "decision": "1955-06-06"
+        "decision": "1955-06-06",
+        "event": 1
       }
     ]
   },
   {
-    "name": "Abe Fortas",
+    "id": "abe_fortas",
+    "name": "ABE FORTAS",
     "cases": [
       {
         "title": "United States v. W. T. Grant Co.",
@@ -187,7 +191,8 @@
     ]
   },
   {
-    "name": "Ruth Bader Ginsburg",
+    "id": "ruth_bader_ginsburg",
+    "name": "RUTH BADER GINSBURG",
     "cases": [
       {
         "title": "Frontiero v. Richardson",
@@ -240,7 +245,8 @@
     ]
   },
   {
-    "name": "Arthur J. Goldberg",
+    "id": "arthur_goldberg",
+    "name": "ARTHUR GOLDBERG",
     "cases": [
       {
         "title": "United Gas, Coke and Chemical Workers of America v. Wisconsin Employment Relations Board",
@@ -300,7 +306,8 @@
     ]
   },
   {
-    "name": "Elena Kagan",
+    "id": "elena_kagan",
+    "name": "ELENA KAGAN",
     "cases": [
       {
         "title": "Citizens United v. Federal Election Commission",
@@ -353,7 +360,8 @@
     ]
   },
   {
-    "name": "Thurgood Marshall",
+    "id": "thurgood_marshall",
+    "name": "THURGOOD MARSHALL",
     "cases": [
       {
         "title": "Adams v. United States",
@@ -373,7 +381,7 @@
         "title": "Smith v. Allwright",
         "term": "1943-10",
         "number": "51",
-        "argument": "1943-11-10",
+        "reargument": "1944-01-12",
         "decision": "1944-04-03"
       },
       {
@@ -405,18 +413,18 @@
         "decision": "1948-01-12"
       },
       {
-        "title": "Taylor v. Alabama",
-        "term": "1947-10",
-        "number": "721",
-        "argument": "1948-04-30",
-        "decision": "1948-06-21"
-      },
-      {
         "title": "Shelley v. Kraemer",
         "term": "1947-10",
         "number": "72",
         "argument": "1948-01-15",
         "decision": "1948-05-03"
+      },
+      {
+        "title": "Taylor v. Alabama",
+        "term": "1947-10",
+        "number": "721",
+        "argument": "1948-04-30",
+        "decision": "1948-06-21"
       },
       {
         "title": "Watts v. Indiana",
@@ -433,21 +441,21 @@
         "decision": "1950-06-05"
       },
       {
-        "title": "Brown v. Board of Education",
+        "title": "Brown v. Board of Education (I)",
         "term": "1953-10",
         "number": "1",
         "argument": "1952-12-09,1952-12-10,1952-12-11",
         "decision": "1954-05-17"
       },
       {
-        "title": "Brown v. Board of Education",
+        "title": "Brown v. Board of Education (I)",
         "term": "1953-10",
         "number": "1",
-        "argument": "1952-12-09,1952-12-10,1952-12-11",
+        "reargument": "1953-12-07,1953-12-08,1953-12-09",
         "decision": "1954-05-17"
       },
       {
-        "title": "Brown v. Board of Education",
+        "title": "Brown v. Board of Education (II)",
         "term": "1954-10",
         "number": "1",
         "argument": "1955-04-11,1955-04-12,1955-04-13,1955-04-14",
@@ -640,7 +648,8 @@
     ]
   },
   {
-    "name": "William H. Rehnquist",
+    "id": "william_rehnquist",
+    "name": "WILLIAM REHNQUIST",
     "cases": [
       {
         "title": "Ehlert v. United States",
@@ -653,7 +662,8 @@
     ]
   },
   {
-    "name": "John G. Roberts, Jr.",
+    "id": "john_roberts",
+    "name": "JOHN ROBERTS",
     "cases": [
       {
         "title": "United States v. Halper",
@@ -744,6 +754,14 @@
         "event": 2
       },
       {
+        "title": "Bray v. Alexandria Women's Health Clinic",
+        "term": "1992-10",
+        "number": "90-985",
+        "argument": "1991-10-16",
+        "decision": "1993-01-13",
+        "event": 1
+      },
+      {
         "title": "National Railroad Passenger Corporation v. Boston & Maine Corporation",
         "term": "1991-10",
         "number": "90-1419",
@@ -776,6 +794,14 @@
         "event": 2
       },
       {
+        "title": "Bray v. Alexandria Women's Health Clinic",
+        "term": "1992-10",
+        "number": "90-985",
+        "reargument": "1992-10-06",
+        "decision": "1993-01-13",
+        "event": 2
+      },
+      {
         "title": "Withrow v. Williams",
         "term": "1992-10",
         "number": "91-1030",
@@ -797,22 +823,6 @@
         "number": "91-1958",
         "argument": "1993-01-13",
         "decision": "1993-06-18",
-        "event": 2
-      },
-      {
-        "title": "Bray v. Alexandria Women's Health Clinic",
-        "term": "1992-10",
-        "number": "90-985",
-        "argument": "1991-10-16",
-        "decision": "1993-01-13",
-        "event": 1
-      },
-      {
-        "title": "Bray v. Alexandria Women's Health Clinic",
-        "term": "1992-10",
-        "number": "90-985",
-        "argument": "1991-10-16",
-        "decision": "1993-01-13",
         "event": 2
       },
       {
@@ -970,7 +980,8 @@
     ]
   },
   {
-    "name": "Antonin Scalia",
+    "id": "antonin_scalia",
+    "name": "ANTONIN SCALIA",
     "cases": [
       {
         "title": "Alfred Dunhill Of London, Inc. v. Cuba",
@@ -983,7 +994,8 @@
     ]
   },
   {
-    "name": "John Paul Stevens",
+    "id": "john_paul_stevens",
+    "name": "JOHN PAUL STEVENS",
     "cases": [
       {
         "title": "United States v. Borden Company",

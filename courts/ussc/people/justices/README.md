@@ -1,3 +1,5 @@
+# U.S. Supreme Court Justices
+
 ## JUSTICE ABE FORTAS
 
 ### Cases Argued
@@ -12,13 +14,13 @@
   - [Gideon v. Wainwright (1963)](https://www.oyez.org/cases/1962/155)
   - [Rodriguez v. Popular Democratic Party (1982)](https://www.oyez.org/cases/1981/81-328)
 
-## CHIEF JUSTICE WARREN E. BURGER
+## CHIEF JUSTICE WARREN BURGER
 
 ### Cases Argued
 
   - [Peters v. Hobby (1955)](https://supreme.justia.com/cases/federal/us/349/331/)
 
-## JUSTICE ARTHUR J. GOLDBERG
+## JUSTICE ARTHUR GOLDBERG
 
 ### Cases Argued
 
@@ -41,7 +43,7 @@
   - [Holder v. Humanitarian Law Project (2010)](https://www.oyez.org/cases/2009/08-1498) (Argued February 23, 2010)
   - [Robertson v. United States ex rel. Watson (2010)](https://www.oyez.org/cases/2009/08-6261) (Argued March 31, 2010)
 
-## CHIEF JUSTICE WILLIAM H. REHNQUIST
+## CHIEF JUSTICE WILLIAM REHNQUIST
 
 ### Cases Argued
 
@@ -112,7 +114,7 @@ Thurgood Marshall argued 37 times over a total of 35 cases.  Any consolidated ca
   - [Califano v. Goldfarb (1977)](https://www.oyez.org/cases/1976/75-699)
   - [Duren v. Missouri (1979)](https://www.oyez.org/cases/1978/77-6067)
 
-## JUSTICE SAMUEL A. ALITO, JR.
+## JUSTICE SAMUEL ALITO
 
 ### Cases Argued
 
@@ -129,7 +131,7 @@ Thurgood Marshall argued 37 times over a total of 35 cases.  Any consolidated ca
   - [National Railroad Passenger Corporation v. Atchison, Topeka & Santa Fe Railway Company (1985)](https://www.oyez.org/cases/1984/83-1492)
   - [Atkins v. Parker (1985)](https://www.oyez.org/cases/1984/83-1660)
 
-## CHIEF JUSTICE JOHN G. ROBERTS, JR.
+## CHIEF JUSTICE JOHN ROBERTS
 
 ### Cases Argued
 

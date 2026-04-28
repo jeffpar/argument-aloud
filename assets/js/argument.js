@@ -1408,14 +1408,15 @@ function buildCollectionItem(sectionUl, collEntry) {
         const res = await fetch(collEntry.collection, { cache: 'reload' });
         if (!res.ok) return;
         let groups = await res.json();
-        // Detect split-advocate format: {id, name, total_cases} with no embedded cases array.
+        // Detect split-advocate format: {id, name, cases: <number>} (no embedded cases array).
+        // Embedded format has cases as an array; split format has cases as a number count.
         const isSplitFormat = groups.length > 0 && groups[0].id !== undefined
-          && typeof groups[0].total_cases === 'number' && !Array.isArray(groups[0].cases);
+          && typeof groups[0].cases === 'number';
         if (collEntry.sort) {
           const sortKeys = collEntry.sort.split(',').map(spec => {
             const [keyPath, order] = spec.trim().split(':');
-            // For split format, 'cases.length' maps to the pre-computed 'total_cases' field.
-            const resolved = (isSplitFormat && keyPath.trim() === 'cases.length') ? 'total_cases' : keyPath.trim();
+            // For split format, 'cases.length' maps to the pre-computed numeric 'cases' field.
+            const resolved = (isSplitFormat && keyPath.trim() === 'cases.length') ? 'cases' : keyPath.trim();
             return { keyPath: resolved, descending: order === 'descending' };
           });
           const getVal = (obj, keyPath) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
@@ -1858,8 +1859,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
     const groupCount = document.createElement('span');
     groupCount.className = 'term-case-count';
-    // Split format carries total_cases; embedded format uses cases.length.
-    const n = group.total_cases !== undefined ? group.total_cases : (group.cases || []).length;
+    // Split format: cases is a number (precomputed count). Embedded format: cases is an array.
+    const n = typeof group.cases === 'number' ? group.cases : (Array.isArray(group.cases) ? group.cases.length : 0);
     groupCount.textContent = '(' + n + '\u00a0case' + (n === 1 ? '' : 's') + ')';
 
     groupHeader.appendChild(groupTog);
@@ -1869,11 +1870,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     const groupUl = document.createElement('ul');
     groupUl.className = 'month-case-list';
 
-    // For split-format groups (id + total_cases, no embedded cases), lazy-load
-    // the per-advocate cases file the first time the group is expanded.
+    // For split-format groups (id + numeric cases count, no embedded cases array),
+    // lazy-load the per-advocate cases file the first time the group is expanded.
     let _casesLoaded = false;
     const _ensureGroupCases = async () => {
-      if (!group.id || _casesLoaded) return;
+      if (!group.id || Array.isArray(group.cases) || _casesLoaded) return;
       _casesLoaded = true;
       try {
         const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
@@ -1908,10 +1909,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       }
     });
 
-    // For non-split format: populate cases immediately from embedded cases array.
-    if (!group.id) {
-      for (const caseRef of group.cases || []) {
-        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, undefined, collEntry.categories));
+    // Populate immediately when cases are embedded (non-split format, or
+    // split-id format like justice_advocates that still ships its cases inline).
+    if (Array.isArray(group.cases)) {
+      for (const caseRef of group.cases) {
+        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
       }
     }
 
@@ -3110,7 +3112,16 @@ async function init() {
           await groupLi._ensureCases?.();
         }
       }
-      const caseKey = CSS.escape(termParam + '/' + caseParam);
+      // Resolve caseParam (which may be one of several consolidated docket numbers)
+      // against the term's cases to obtain the canonical key (term/caseId).
+      const termCases = await fetchTermCases(termParam);
+      const matchedCase = termCases.find(c => {
+        if (c.id && c.id === caseParam) return true;
+        if (!c.number) return false;
+        return c.number === caseParam
+          || c.number.split(',').map(n => n.trim()).includes(caseParam);
+      });
+      const caseKey = CSS.escape(termParam + '/' + (matchedCase ? caseId(matchedCase) : caseParam));
       const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
       if (ci) {
         ci.closest('.month-group')?.classList.add('open');
@@ -3178,9 +3189,13 @@ async function init() {
       // Match the case param against id first, then number (for old URLs).
       // After _ensureBuilt the cases are already cached in _termFetchPromises.
       const termCases = await fetchTermCases(termParam);
-      const matchedCase = termCases.find(c =>
-        (c.id && c.id === caseParam) || (c.number && c.number === caseParam)
-      );
+      const matchedCase = termCases.find(c => {
+        if (c.id && c.id === caseParam) return true;
+        if (!c.number) return false;
+        // Match against full number or any individual number in a consolidated list ("81-298,81-799").
+        return c.number === caseParam
+          || c.number.split(',').map(n => n.trim()).includes(caseParam);
+      });
       const resolvedKey = matchedCase
         ? termParam + '/' + caseId(matchedCase)
         : termParam + '/' + caseParam;
