@@ -7,7 +7,7 @@ case URLs, then for each case finds transcript JSON files and:
     name (e.g. "ELENA KAGAN")
   - Changes the speaker's role from "justice" to "advocate"
 
-Also syncs courts/ussc/collections/1.json with all cases listed in
+Also syncs courts/ussc/people/justice_advocates.json with all cases listed in
 justicemap.md, resolving pre-Oyez cases (LOC, Justia, Oyez multi-year URLs)
 via US Reports volume+page lookup across all local cases.json files.
 
@@ -282,30 +282,52 @@ def _parse_first_arg_date_iso(note: str) -> str | None:
     return None
 
 
-def audio_index_for_date(audio_list: list, iso_date: str | None) -> int:
-    """Return 1-based index of the audio entry whose date matches iso_date.
+_ARG_TYPES = ('argument', 'reargument')
 
-    The list is sorted by date ascending before indexing. Returns 1 if no
-    match is found or no date is given.
+
+def _argument_event_indices(events: list) -> list[int]:
+    """Return 0-based indices of argument/reargument events in events[]."""
+    return [i for i, e in enumerate(events or [])
+            if e.get('type') in _ARG_TYPES]
+
+
+def best_event_index(events: list,
+                     iso_date: str | None,
+                     forced_position: int | None) -> int | None:
+    """Return 1-based index into events[] for the best argument event.
+
+    - forced_position (1 or 2): pick the Nth argument-type event in events[] order.
+    - Otherwise, if iso_date matches one or more argument events, restrict to those.
+    - Among candidates, prefer aligned, then audio_href, then first.
+    Returns None if there are no argument-type events.
     """
-    if not audio_list:
-        return 1
-    sorted_audio = sorted(audio_list, key=lambda a: (a.get('date') or ''))
-    if iso_date:
-        for i, entry in enumerate(sorted_audio):
-            if entry.get('date') == iso_date:
-                return i + 1
-    return 1
-
-
-def audio_date_for_index(audio_list: list, idx: int) -> str | None:
-    """Return the date of the audio entry at 1-based idx in date-sorted order."""
-    if not audio_list or idx < 1:
+    arg_idxs = _argument_event_indices(events)
+    if not arg_idxs:
         return None
-    sorted_audio = sorted(audio_list, key=lambda a: (a.get('date') or ''))
-    if idx <= len(sorted_audio):
-        return sorted_audio[idx - 1].get('date') or None
-    return None
+    if forced_position:
+        i = forced_position - 1
+        if 0 <= i < len(arg_idxs):
+            return arg_idxs[i] + 1
+        return arg_idxs[0] + 1
+    cands = arg_idxs
+    if iso_date:
+        date_match = [i for i in arg_idxs if events[i].get('date') == iso_date]
+        if date_match:
+            cands = date_match
+    aligned = [i for i in cands if events[i].get('aligned')]
+    if aligned:
+        return aligned[0] + 1
+    with_audio = [i for i in cands if events[i].get('audio_href')]
+    if with_audio:
+        return with_audio[0] + 1
+    return cands[0] + 1
+
+
+def event_date_for_index(events: list, idx: int) -> str | None:
+    """Return the date of events[idx-1] (1-based)."""
+    if not events or idx is None or idx < 1 or idx > len(events):
+        return None
+    return events[idx - 1].get('date') or None
 
 
 def build_cases_index() -> dict[tuple[str, str], dict]:
@@ -506,6 +528,7 @@ def sync_collection(dry_run: bool) -> None:
                 print(f'  [{disp}] WARNING: case not found in cases.json: {k[0]}/{k[1]}')
                 entry.pop('argument', None)
                 entry.pop('decision', None)
+                entry.pop('event', None)
                 entry.pop('audio', None)
                 entry.pop('opinion_href', None)
                 seen_by_key[k] += 1
@@ -527,15 +550,20 @@ def sync_collection(dry_run: bool) -> None:
             if live_opinion and entry_opinion and live_opinion != entry_opinion:
                 print(f'  WARNING: opinion_href mismatch for {k[0]}/{k[1]}')
 
-            # Audio: forced index for reargued cases, otherwise 1.
-            audio_val: int | None = None
+            # Pick the best argument event index (1-based into events[]):
+            # honor forced position for argued+reargued pairs, otherwise prefer
+            # aligned, then audio_href, then the date-matched first event.
+            event_val: int | None = None
             argument_date: str | None = None
-            if live.get('audio'):
+            events_list = live.get('events') or []
+            if events_list:
                 plan = audio_plan.get(k, [])
                 plan_entry = plan[seen_by_key[k]] if seen_by_key[k] < len(plan) else {}
                 forced = plan_entry.get('forced_audio')
-                audio_val = forced if forced is not None else 1
-                argument_date = audio_date_for_index(live['audio'], audio_val)
+                arg_date_iso = plan_entry.get('arg_date_iso')
+                event_val = best_event_index(events_list, arg_date_iso, forced)
+                if event_val is not None:
+                    argument_date = event_date_for_index(events_list, event_val)
             if not argument_date:
                 argument_date = live.get('argument') or None
 
@@ -548,8 +576,8 @@ def sync_collection(dry_run: bool) -> None:
                 entry['argument'] = argument_date
             if decision:
                 entry['decision'] = decision
-            if audio_val is not None:
-                entry['audio'] = audio_val
+            if event_val is not None:
+                entry['event'] = event_val
             seen_by_key[k] += 1
         after = json.dumps(new_existing, ensure_ascii=False)
         annotations_changed = (before != after)

@@ -371,18 +371,11 @@ async function main() {
             else if (usCite) citation = usCite;
             caseCitation.set(ckCite(title, term, number), citation);
 
-            // Pre-compute 1-based sorted position for each audio entry.
-            const indexed = audioEntries.map((a, i) => ({ origIdx: i, audio: a }));
-            const audioSorted = indexed.slice().sort((x, y) =>
-                ((x.audio.date || '') < (y.audio.date || '') ? -1
-                : (x.audio.date || '') > (y.audio.date || '') ? 1 : 0)
-            );
-            const audioSortedPos = new Map(); // origIdx -> 1-based
-            const sortedPosToAudio = new Map(); // 1-based -> audio
-            audioSorted.forEach(({ origIdx, audio }, i) => {
-                audioSortedPos.set(origIdx, i + 1);
-                sortedPosToAudio.set(i + 1, audio);
-            });
+            // The advocate JSON persists the 1-based index into the original
+            // `events[]` array (matching the on-disk cases.json schema and the
+            // URL `event` param). No per-iteration sort is needed here; the
+            // `preferredOrigIdx` / `bestOrigIdxForDate` maps below disambiguate
+            // siblings that share a date.
 
             // For terms <= 1999-10 prefer oyez transcripts when both sources cover the same date.
             const isEarlyTerm = term <= '1999-10';
@@ -427,20 +420,20 @@ async function main() {
             }
 
             // For each (date, advocate) appearing in multiple entries, pick best position.
-            const preferredAudioPos = new Map(); // `${date}|${nameUpper}` -> pos
+            const preferredOrigIdx = new Map(); // `${date}|${nameUpper}` -> origIdx
             const dateToIdxs = new Map();
             for (let i = 0; i < audioEntries.length; i++) {
                 const d = audioEntries[i].date || c.argument || '';
                 if (!dateToIdxs.has(d)) dateToIdxs.set(d, []);
                 dateToIdxs.get(d).push(i);
             }
-            const bestPosForDate = new Map();
+            const bestOrigIdxForDate = new Map();
             for (const [d, idxs] of dateToIdxs) {
                 if (idxs.length <= 1) continue;
-                const withAudio = idxs.filter(i => audioEntries[i].audio_href);
                 const aligned   = idxs.filter(i => audioEntries[i].aligned);
-                const bestI     = ([...withAudio, ...aligned, ...idxs])[0];
-                bestPosForDate.set(d, audioSortedPos.get(bestI));
+                const withAudio = idxs.filter(i => audioEntries[i].audio_href);
+                const bestI     = ([...aligned, ...withAudio, ...idxs])[0];
+                bestOrigIdxForDate.set(d, bestI);
             }
             for (const [d, idxs] of dateToIdxs) {
                 if (idxs.length <= 1) continue;
@@ -453,7 +446,7 @@ async function main() {
                     if (cands.length <= 1) continue;
                     const aligned = cands.filter(i => audioEntries[i].aligned);
                     const best = aligned.length ? aligned[0] : cands[0];
-                    preferredAudioPos.set(`${d}|${adv}`, audioSortedPos.get(best));
+                    preferredOrigIdx.set(`${d}|${adv}`, best);
                 }
             }
 
@@ -498,10 +491,10 @@ async function main() {
                     if (!(nameKey in advocates)) {
                         advocates[nameKey] = { id: makeAdvocateId(name), name, cases: [] };
                     }
-                    const resolvedPos = preferredAudioPos.get(`${audioDate}|${nameKey}`)
-                        ?? bestPosForDate.get(audioDate)
-                        ?? audioSortedPos.get(origIdx);
-                    const resolvedAudio = sortedPosToAudio.get(resolvedPos) || audio;
+                    const resolvedOrigIdx = preferredOrigIdx.get(`${audioDate}|${nameKey}`)
+                        ?? bestOrigIdxForDate.get(audioDate)
+                        ?? origIdx;
+                    const resolvedAudio = audioEntries[resolvedOrigIdx] || audio;
                     const caseEntry = {
                         title,
                         term,
@@ -512,7 +505,7 @@ async function main() {
                     const sameDateEntries = (dateToIdxs.get(audioDate) || []).map(i => audioEntries[i]);
                     if (sameDateEntries.some(e => e.transcript_href)) caseEntry.transcript = true;
                     if (resolvedAudio.audio_href || resolvedAudio.transcript_href) {
-                        caseEntry.audio = resolvedPos;
+                        caseEntry.event = resolvedOrigIdx + 1;
                     }
                     const fileCount = c.files || 0;
                     if (fileCount) caseEntry.files = fileCount;

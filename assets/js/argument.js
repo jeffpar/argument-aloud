@@ -8,6 +8,7 @@ let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 let _currentAudioList = [];    // sorted audio entries for the active case
+let _currentEvents    = [];    // unsorted events[] for the active case (URL `event` indexes into this)
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
@@ -613,6 +614,24 @@ function caseTermDate(caseEntry, term) {
   return inTerm?.date ?? audio[0]?.date ?? parseDateDecision(caseEntry.dateDecision);
 }
 
+// Returns 'missing' if the case has an oyez link but no oyez audio events at
+// all, 'partial' if oyez audio is present but at least one argument/reargument
+// date is not covered by an oyez audio event, or null otherwise. Used to draw
+// a red/beige ring around the audio icon to flag oyez data gaps.
+function oyezDeficitClass(caseEntry) {
+  if (!caseEntry?.oyez) return null;
+  // No argument/reargument dates → case wasn't argued; no audio is expected.
+  const dates = [caseEntry.argument, caseEntry.reargument].filter(Boolean);
+  if (!dates.length) return null;
+  const oyezAudio = (caseEntry.events || []).filter(
+    e => e.source === 'oyez' && e.audio_href &&
+         (e.type === 'argument' || e.type === 'reargument'),
+  );
+  if (!oyezAudio.length) return 'missing';
+  const missingDate = dates.some(d => !oyezAudio.some(e => e.date === d));
+  return missingDate ? 'partial' : null;
+}
+
 // Returns {fraction, orange} if the case's argument/reargument dates are fully
 // covered by oyez events (qualifying it for a ring around the audio icon), or
 // null if not. fraction = fraction of those events that have audio_href (0–1);
@@ -888,26 +907,44 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles }) {
 //   hasAudio       boolean — case has playable audio (♫ or oyez ring)
 //   hasTranscript  boolean — case has printed transcript only (✏)
 //   ring           {fraction, orange}? — render an oyez progress ring instead of ♫
-function _attachAudioIcon(header, { hasAudio, hasTranscript, ring }) {
+//   deficit        'missing' | 'partial' | null — wrap icon in a colored circle
+//                  to flag missing/incomplete oyez audio
+function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
+  let icon = null;
   if (hasAudio) {
     if (ring) {
-      header.appendChild(makeAudioRingSvg(ring.fraction, ring.orange));
+      icon = makeAudioRingSvg(ring.fraction, ring.orange);
     } else {
-      const speakerIcon = document.createElement('span');
-      speakerIcon.className = 'case-decided-icon case-audio-icon';
-      speakerIcon.textContent = '\u266b';
-      speakerIcon.title = 'Oral argument audio available';
-      header.appendChild(speakerIcon);
+      icon = document.createElement('span');
+      icon.className = 'case-decided-icon case-audio-icon';
+      icon.textContent = '\u266b';
+      icon.title = 'Oral argument audio available';
     }
-    return;
+  } else if (hasTranscript) {
+    icon = document.createElement('span');
+    icon.className = 'case-decided-icon case-transcript-icon';
+    icon.textContent = '\u270f';
+    icon.title = 'Printed transcript available';
   }
-  if (hasTranscript) {
-    const transcriptIcon = document.createElement('span');
-    transcriptIcon.className = 'case-decided-icon case-transcript-icon';
-    transcriptIcon.textContent = '\u270f';
-    transcriptIcon.title = 'Printed transcript available';
-    header.appendChild(transcriptIcon);
+  if (!icon && !deficit) return null;
+  if (!icon) {
+    // No icon but still want a deficit marker — use an empty placeholder.
+    icon = document.createElement('span');
+    icon.className = 'case-decided-icon case-audio-icon';
   }
+  let node = icon;
+  if (deficit) {
+    const wrap = document.createElement('span');
+    wrap.className = `case-audio-deficit case-audio-deficit-${deficit}`;
+    wrap.title = deficit === 'missing'
+      ? 'No Oyez audio for this case'
+      : 'Oyez audio incomplete for this case';
+    wrap.appendChild(icon);
+    node = wrap;
+  }
+  header.appendChild(node);
+  node.dataset.audioIcon = '1';
+  return node;
 }
 
 // Append the scales icon to the header. When `onClick` is supplied the icon
@@ -958,6 +995,7 @@ function buildTermCases(term, cases, ul) {
           hasAudio,
           hasTranscript,
           ring: hasAudio ? oyezCircleData(caseEntry) : null,
+          deficit: oyezDeficitClass(caseEntry),
         });
 
         // ── Scales icon: shown if opinion or audio; clickable iff opinion ──
@@ -1568,14 +1606,40 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
   }
 
   // ── Speaker / transcript icon ──────────────────────────
-  _attachAudioIcon(header, {
-    hasAudio:      !!caseRef.audio,
+  let _audioIconNode = _attachAudioIcon(header, {
+    hasAudio:      !!caseRef.event,
     hasTranscript: !!caseRef.transcript,
     ring:          null,
   });
 
+  // Asynchronously upgrade the audio icon with oyez ring/deficit data once
+  // the full case entry is available — keeps collection UI in sync with the
+  // term-list rendering.
+  if (caseRef.event) {
+    _fetchCaseEntry().then(caseEntry => {
+      if (!caseEntry) return;
+      const ring    = oyezCircleData(caseEntry);
+      const deficit = oyezDeficitClass(caseEntry);
+      if (!ring && !deficit) return;
+      const nextSibling = _audioIconNode ? _audioIconNode.nextSibling : null;
+      if (_audioIconNode && _audioIconNode.parentNode === header) {
+        header.removeChild(_audioIconNode);
+      }
+      _audioIconNode = _attachAudioIcon(header, {
+        hasAudio:      true,
+        hasTranscript: !!caseRef.transcript,
+        ring,
+        deficit,
+      });
+      // Preserve original position relative to other header icons (e.g. scales).
+      if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
+        header.insertBefore(_audioIconNode, nextSibling);
+      }
+    }).catch(() => { /* ignore */ });
+  }
+
   // ── Scales icon: shown if audio or decision; clickable iff decision ──
-  if (caseRef.audio || caseRef.decision) {
+  if (caseRef.event || caseRef.decision) {
     _attachScalesIcon(ci, header, {
       onClick: caseRef.decision ? async (e) => {
         e.stopPropagation();
@@ -1584,10 +1648,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         const caseEntry = await _fetchCaseEntry();
         if (!caseEntry?.opinion_href) return;
         const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseRef.title };
-        if (caseRef.audio) {
+        if (caseRef.event) {
           // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
           if (!ci.classList.contains('active')) {
-            const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio : 0;
+            const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
             await loadCase(caseRef.term, caseEntry, defaultAudioIdx);
           }
           document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
@@ -1715,8 +1779,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       console.warn('[collections] case not found in cases.json:', caseRef);
       return;
     }
-    // caseRef.audio is a 1-based index into the full audio array.
-    const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio : 0;
+    // caseRef.event is a 1-based index into caseEntry.events (original order).
+    const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
     const audioIdx = fromRestore
       ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
       : defaultAudioIdx;
@@ -2108,10 +2172,18 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
         }
       }
     }
+    // If the URL specified a particular event, ensure it survives the source-
+    // preference filter — otherwise the user's explicit choice would be hidden
+    // from the dropdown.
+    const _requestedEv = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
+    if (_requestedEv && !best.includes(_requestedEv)) best.push(_requestedEv);
     best.sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
 
     // Group by date. For each date group that contains at least one aligned
-    // entry, keep only the aligned ones; otherwise keep all entries for that date.
+    // entry, keep only the aligned ones; otherwise keep all entries for that
+    // date. When the caller requested a specific event via `audioIdx`, also
+    // retain that entry even if it would otherwise be filtered out, so the URL
+    // can override the aligned-preference heuristic.
     const dateGroups = new Map();
     for (const a of best) {
       const dk = a.date ?? '';
@@ -2121,18 +2193,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     const filtered = [];
     for (const group of dateGroups.values()) {
       const alignedOnly = group.filter(a => a.aligned === true);
-      filtered.push(...(alignedOnly.length ? alignedOnly : group));
+      let kept = alignedOnly.length ? alignedOnly : group;
+      if (_requestedEv && group.includes(_requestedEv) && !kept.includes(_requestedEv)) {
+        kept = [...kept, _requestedEv];
+      }
+      filtered.push(...kept);
     }
     return filtered;
   })();
-
-  // Update nav — deferred until after resolvedOptionValue is computed below.
-
-  // Reset transcript area
-  playerSection.hidden = true;
-  audioControls.hidden = true;
-  emptyState.style.display = 'none';
-  activeTurnIdx = -1;
 
   // Build the full date-sorted audio list; sortedAudio entries are references to
   // the same objects, so indexOf comparisons work for 1-based position lookups.
@@ -2167,14 +2235,19 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     oyezOpt.textContent = 'Description from The Oyez Project';
     audioSelect.appendChild(oyezOpt);
   }
-  // Resolve audioIdx (1-based into allAudio, or 0 = default) to a dropdown option value.
-  // If the requested entry was filtered out of the dropdown, fall back to the first option.
+  // Resolve audioIdx (1-based into caseEntry.events, or 0 = default) to a dropdown
+  // option value. The dropdown values are 1-based positions within the
+  // date-sorted `allAudio`, so translate via the underlying event reference.
+  // If the requested entry was filtered out of the dropdown, fall back to the
+  // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
     .filter(v => v !== 'opinion' && v !== 'oyez-page')
     .map(v => parseInt(v, 10));
-  const resolvedOptionValue = (audioIdx >= 1 && _dropdownValues.includes(audioIdx))
-    ? audioIdx
+  const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
+  const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
+  const resolvedOptionValue = (_requestedAllAudioPos >= 1 && _dropdownValues.includes(_requestedAllAudioPos))
+    ? _requestedAllAudioPos
     : (_dropdownValues[0] ?? 1);
   audioSelect.value = String(resolvedOptionValue);
 
@@ -2184,10 +2257,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _activeKeys.push(term + '/' + caseEntry.number);
   // The active sibling among collection items for this case is the one whose
-  // audioDate matches the resolved event's date. (caseRef.audio numbering is
-  // a position in the full events list; resolvedOptionValue indexes into
-  // dropdown entries built only from the chosen audio source — the two are
-  // not comparable, so we discriminate by date instead.)
+  // audioDate matches the resolved event's date. (caseRef.event numbering is
+  // a 1-based index into the original events[] array; resolvedOptionValue
+  // indexes into dropdown entries built only from the chosen audio source —
+  // the two are not comparable, so we discriminate by date instead.)
   const _resolvedDate = allAudio[resolvedOptionValue - 1]?.date || null;
   _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
     .forEach(el => {
@@ -2203,6 +2276,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   // Store the full sorted list; the dropdown change handler indexes into it by 1-based value.
   _currentAudioList = allAudio;
+  _currentEvents    = caseEntry.events || [];
   _currentBasePath  = basePath;
 
   // Update case title
@@ -2279,6 +2353,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   playerSection.hidden = false;
   audioControls.hidden = false;
+  emptyState.style.display = 'none';
   await loadAudioEntry(allAudio[resolvedOptionValue - 1], basePath);
 
   if (isMobile()) {
@@ -2378,10 +2453,17 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     }
     return;
   }
-  const val = parseInt(e.target.value, 10); // 1-based index into full audio array
+  const val = parseInt(e.target.value, 10); // 1-based index into the date-sorted audio list
   if (_currentAudioList[val - 1] && _currentBasePath) {
     const url = new URL(location.href);
-    url.searchParams.set('event', val);
+    // Translate the allAudio position back to a 1-based events[] index so the
+    // URL `event` param is stable across re-sorts and matches the on-disk schema.
+    const evIdx = _currentEvents.indexOf(_currentAudioList[val - 1]) + 1;
+    if (evIdx >= 1) {
+      url.searchParams.set('event', evIdx);
+    } else {
+      url.searchParams.delete('event');
+    }
     url.searchParams.delete('turn');
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
@@ -2960,7 +3042,7 @@ async function init() {
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
-  const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into full audio array
+  const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into caseEntry.events (original on-disk order)
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
