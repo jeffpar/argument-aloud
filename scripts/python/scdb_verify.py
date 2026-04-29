@@ -27,7 +27,7 @@ With --term YYYY:
     courts/ussc/terms/YYYY-10/cases.json
 
 With --ussc_deck:
-  Reads data/ld/ussc_deck.csv and verifies that every row containing an
+  Reads data/aa/ussc_deck.csv and verifies that every row containing an
   "scdb" value has a matching caseId in the combined SCDB table.
 
 With --case <caseId>:
@@ -37,8 +37,8 @@ With --case <caseId>:
 With --add (requires --term YYYY and --case <caseId>):
     Adds a new case to courts/ussc/terms/YYYY-10/cases.json when missing.
     New entry omits events, sets files=0, derives opinion_href from LOC when
-    usCite is available, prefers title from data/ld/ussc_citations.csv, and
-    enriches dates from data/ld/ussc_dates.csv.
+    usCite is available, prefers title from data/aa/ussc_citations.csv, and
+    enriches dates from data/aa/ussc_dates.csv.
 
 Usage:
     python3 scripts/scdb/verify_cases.py
@@ -943,7 +943,7 @@ def main() -> None:
     parser.add_argument(
         "--ussc_deck",
         action="store_true",
-        help="Verify every scdb-tagged row in data/ld/ussc_deck.csv exists in SCDB.",
+        help="Verify every scdb-tagged row in data/aa/ussc_deck.csv exists in SCDB.",
     )
     parser.add_argument(
         "--case",

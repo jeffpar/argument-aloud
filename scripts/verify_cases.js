@@ -3,15 +3,15 @@
  * (sorts, key reordering, refiled-case merging, etc.) unless --dry-run.
  *
  * Usage:
- *   node scripts/validate_cases.js TERM [CASE] [--checkurls] [--opinions] [--verbose] [--dry-run]
+ *   node scripts/verify_cases.js TERM [CASE] [--checkurls] [--opinions] [--verbose] [--dry-run]
  *
  * Examples:
- *   node scripts/validate_cases.js 2025-10
- *   node scripts/validate_cases.js 2025-10 24-1260
- *   node scripts/validate_cases.js 2025-10 --checkurls
- *   node scripts/validate_cases.js 2025-10 --checkurls --opinions
- *   node scripts/validate_cases.js 2025-10 --verbose
- *   node scripts/validate_cases.js 2025-10 --dry-run
+ *   node scripts/verify_cases.js 2025-10
+ *   node scripts/verify_cases.js 2025-10 24-1260
+ *   node scripts/verify_cases.js 2025-10 --checkurls
+ *   node scripts/verify_cases.js 2025-10 --checkurls --opinions
+ *   node scripts/verify_cases.js 2025-10 --verbose
+ *   node scripts/verify_cases.js 2025-10 --dry-run
  *
  * Combines the logic of:
  *   scripts/python/validate_cases.py
@@ -875,7 +875,7 @@ function applySpeakerMapToCase(caseDir, entries, dryRun = false) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// cases.json mutators (from validate_cases.py)
+// cases.json mutators (from verify_cases.py)
 // ═══════════════════════════════════════════════════════════════════════════
 
 function migrateArgumentsToAudio(casesPath) {
@@ -2303,12 +2303,807 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// SCDB CSV post-processing (--scdb)
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// Migrated from scripts/scdb/post_download.py. For each SCDB download named
+// in config.json under "scdb" (modern/legacy), reads the corresponding
+// CSV in data/scdb/, converts MM/DD/YYYY date values to YYYY-MM-DD, removes
+// unused columns, and writes <key>.csv (e.g. modern.csv / legacy.csv). The
+// original SCDB_*.csv file is deleted on success.
+
+const _SCDB_DROP_COLS = new Set([
+    'sctCite', 'ledCite', 'lexisCite', 'docketId', 'caseIssuesId', 'voteId',
+]);
+const _SCDB_DATE_RE   = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+const _SCDB_QUOTE_RE  = /[-,"]/;
+
+function _scdbQuote(value) {
+    return _SCDB_QUOTE_RE.test(value)
+        ? '"' + value.replace(/"/g, '""') + '"'
+        : value;
+}
+
+function _scdbConvertDate(value) {
+    const m = _SCDB_DATE_RE.exec(value);
+    if (!m) return value;
+    const [, mm, dd, yyyy] = m;
+    return `${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`;
+}
+
+// Minimal CSV-line splitter for the simple quoting style produced by SCDB.
+function _splitCsvLine(line) {
+    const out = [];
+    let cur = '';
+    let inQ = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (inQ) {
+            if (ch === '"') {
+                if (line[i + 1] === '"') { cur += '"'; i++; }
+                else inQ = false;
+            } else cur += ch;
+        } else {
+            if (ch === ',') { out.push(cur); cur = ''; }
+            else if (ch === '"' && cur === '') inQ = true;
+            else cur += ch;
+        }
+    }
+    out.push(cur);
+    return out;
+}
+
+function _processScdbFile(srcPath, outPath) {
+    const text = fs.readFileSync(srcPath, 'latin1');
+    const lines = text.split(/\r\n|\r|\n/);
+    while (lines.length && lines[lines.length - 1] === '') lines.pop();
+    if (!lines.length) {
+        console.log(`  ERROR: ${path.basename(srcPath)} is empty`);
+        return false;
+    }
+    const header = _splitCsvLine(lines[0]);
+    const keepIdx = header.map((h, i) => _SCDB_DROP_COLS.has(h) ? -1 : i).filter(i => i >= 0);
+    const outHeader = keepIdx.map(i => header[i]);
+
+    const outLines = [outHeader.map(_scdbQuote).join(',')];
+    let rowCount = 0;
+    for (let i = 1; i < lines.length; i++) {
+        const fields = _splitCsvLine(lines[i]);
+        const row = keepIdx.map(idx => {
+            const v = fields[idx] ?? '';
+            return v ? _scdbConvertDate(v) : v;
+        });
+        outLines.push(row.map(_scdbQuote).join(','));
+        rowCount++;
+    }
+    fs.writeFileSync(outPath, outLines.join('\n') + '\n', 'utf8');
+    fs.unlinkSync(srcPath);
+    console.log(`  -> Saved ${path.basename(outPath)} (${rowCount.toLocaleString()} rows), deleted original.`);
+    return true;
+}
+
+function processScdbDownloads() {
+    const configPath = path.join(REPO_ROOT, 'config.json');
+    let cfg;
+    try { cfg = JSON.parse(fs.readFileSync(configPath, 'utf8')); }
+    catch (e) {
+        console.log(`SCDB: failed to read ${path.relative(REPO_ROOT, configPath)}: ${e.message}`);
+        return;
+    }
+    const scdb = cfg?.scdb || {};
+    const dataDir = path.join(REPO_ROOT, 'data', 'scdb');
+    let any = false;
+    for (const [key, basename] of Object.entries(scdb)) {
+        if (!basename) continue;
+        const srcPath = path.join(dataDir, basename);
+        const outPath = path.join(dataDir, `${key}.csv`);
+        if (!fs.existsSync(srcPath)) continue;
+        any = true;
+        console.log(`SCDB: processing ${basename}`);
+        _processScdbFile(srcPath, outPath);
+    }
+    if (!any) console.log(`SCDB: no downloads found in ${path.relative(REPO_ROOT, dataDir)}.`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SCDB cases.json verification (migrated from scripts/scdb/verify_cases.py)
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'data', 'scdb');
+const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+const _SCDB_DECK_PATH   = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
+const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_citations.csv');
+const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
+const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
+const _SCDB_JUSTICES    = path.join(__dirname, 'justices.json');
+const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
+const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
+
+const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
+const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
+
+const _SCDB_JUSTICE_COLS = [
+    'justice', 'justiceName', 'vote', 'opinion', 'direction',
+    'majority', 'firstAgreement', 'secondAgreement',
+];
+
+const _SCDB_MAJ_VOTE_TYPES = new Set([
+    'voted with majority or plurality',
+    'majority opinion',
+    'majority',
+    'regular concurrence',
+    'special concurrence',
+    'judgment of the court',
+    'justice participated in an equally divided vote',
+]);
+const _SCDB_MIN_VOTE_TYPES = new Set([
+    'dissent',
+    'minority',
+    'dissent from a denial or dismissal of certiorari , or dissent from summary affirmation of an appeal',
+    'jurisdictional dissent',
+]);
+
+const _DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const _MON = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function _readCsvRows(filePath, encoding = 'utf8') {
+    const text = fs.readFileSync(filePath, encoding);
+    const lines = text.split(/\r\n|\r|\n/);
+    while (lines.length && lines[lines.length - 1] === '') lines.pop();
+    if (!lines.length) return { fields: [], rows: [] };
+    const fields = _splitCsvLine(lines[0]);
+    const rows = [];
+    for (let i = 1; i < lines.length; i++) {
+        const cols = _splitCsvLine(lines[i]);
+        const row = {};
+        for (let j = 0; j < fields.length; j++) row[fields[j]] = cols[j] ?? '';
+        rows.push(row);
+    }
+    return { fields, rows };
+}
+
+function _scdbLoadVarsMap() {
+    if (!fs.existsSync(_SCDB_VARS_PATH)) return {};
+    let raw; try { raw = JSON.parse(fs.readFileSync(_SCDB_VARS_PATH, 'utf8')); }
+    catch { return {}; }
+    const result = {};
+    for (const [col, spec] of Object.entries(raw)) {
+        if (spec && typeof spec.values === 'object' && spec.values) result[col] = spec.values;
+    }
+    for (const [col, spec] of Object.entries(raw)) {
+        if (spec && typeof spec.values === 'string' && result[spec.values]) {
+            result[col] = result[spec.values];
+        }
+    }
+    return result;
+}
+
+function _scdbLoadJusticesMap() {
+    if (!fs.existsSync(_SCDB_JUSTICES)) return {};
+    let data; try { data = JSON.parse(fs.readFileSync(_SCDB_JUSTICES, 'utf8')); }
+    catch { return {}; }
+    const out = {};
+    for (const [canonical, spec] of Object.entries(data)) {
+        const c = canonical.toUpperCase();
+        out[c] = c;
+        for (const alt of (spec?.alternates || [])) out[String(alt).toUpperCase()] = c;
+    }
+    return out;
+}
+
+function _scdbNormalizeRow(row, varsMaps, normIssues) {
+    const out = {};
+    for (const [col, raw] of Object.entries(row)) {
+        const val = String(raw ?? '').trim();
+        const map = varsMaps[col];
+        if (map && val && val.toUpperCase() !== 'NULL') {
+            const label = map[val];
+            if (label === undefined) {
+                normIssues.add(`${col}\u0000${val}`);
+                out[col] = val;
+            } else out[col] = label;
+        } else out[col] = val;
+    }
+    return out;
+}
+
+function _scdbLoadCsv(csvPath, table, varsMaps, normIssues) {
+    if (!fs.existsSync(csvPath)) return 0;
+    const { rows } = _readCsvRows(csvPath, 'utf8');
+    let added = 0;
+    for (const row of rows) {
+        const cid = (row.caseId || '').trim();
+        if (!cid) continue;
+        const norm = _scdbNormalizeRow(row, varsMaps, normIssues);
+        const justice = {};
+        for (const c of _SCDB_JUSTICE_COLS) if (c in norm) justice[c] = norm[c];
+        if (!table[cid]) {
+            const c = {};
+            for (const [k, v] of Object.entries(norm)) {
+                if (!_SCDB_JUSTICE_COLS.includes(k)) c[k] = v;
+            }
+            c.justices = [];
+            table[cid] = c;
+            added++;
+        }
+        table[cid].justices.push(justice);
+    }
+    return added;
+}
+
+function _scdbParseIso(s) {
+    if (!s) return null;
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s.trim());
+    if (!m) return null;
+    const dt = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    if (isNaN(dt.getTime())) return null;
+    return dt;
+}
+
+function _scdbNormalizeDate(s) {
+    s = (s || '').trim();
+    if (!s) return '';
+    if (_SCDB_ISO_RE.test(s)) return s;
+    // Accept M/D/YYYY format too (defensive — modern.csv already converted)
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(s);
+    if (m) return `${m[3]}-${String(m[1]).padStart(2,'0')}-${String(m[2]).padStart(2,'0')}`;
+    return s;
+}
+
+function _scdbDateList(val) {
+    if (Array.isArray(val)) return val.map(v => _scdbNormalizeDate(String(v))).filter(Boolean);
+    if (typeof val === 'string' && val.trim()) return val.split(',').map(p => _scdbNormalizeDate(p)).filter(Boolean);
+    return [];
+}
+function _scdbContainsDate(ourValue, scdbDate) {
+    const target = _scdbNormalizeDate(scdbDate);
+    if (!target) return true;
+    return _scdbDateList(ourValue).includes(target);
+}
+
+function _scdbNormalizeCite(s) { return (s || '').split(/\s+/).filter(Boolean).join(' '); }
+
+function _scdbParseUsCite(usCite) {
+    const m = _US_CITE_RE.exec(_scdbNormalizeCite(usCite));
+    if (!m) return ['', ''];
+    return [m[1], m[2]];
+}
+
+function _scdbLocOpinionHref(volume, page) {
+    const v = (volume || '').replace(/\D+/g, '');
+    const p = (page    || '').replace(/\D+/g, '');
+    if (!v || !p) return '';
+    const v3 = v.padStart(3, '0');
+    const p3 = p.padStart(3, '0');
+    const vp = `${v3}${p3}`;
+    return `https://tile.loc.gov/storage-services/service/ll/usrep/usrep${v3}/usrep${vp}/usrep${vp}.pdf`;
+}
+
+function _scdbFormatLongDate(iso) {
+    const dt = _scdbParseIso(iso);
+    if (!dt) return '';
+    return `${_DOW[dt.getUTCDay()]}, ${_MON[dt.getUTCMonth()]} ${dt.getUTCDate()}, ${dt.getUTCFullYear()}`;
+}
+
+function _scdbIsoFromLongDate(s) {
+    const m = /^(?:Sun|Mon|Tues|Wednes|Thurs|Fri|Satur)day,\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s+(\d{4})$/.exec((s||'').trim());
+    if (!m) return '';
+    const monthIdx = _MON.indexOf(m[1]);
+    if (monthIdx < 0) return '';
+    return `${m[3]}-${String(monthIdx + 1).padStart(2,'0')}-${String(+m[2]).padStart(2,'0')}`;
+}
+
+function _scdbVoteToOurs(v) {
+    const t = (v || '').trim().toLowerCase();
+    if (t === 'majority' || t === '2') return 'majority';
+    if (t === 'dissent' || t === 'minority' || t === '1') return 'minority';
+    return t;
+}
+function _scdbVoteTypeToMajority(v) {
+    const t = (v || '').trim().toLowerCase();
+    if (_SCDB_MAJ_VOTE_TYPES.has(t)) return 'majority';
+    if (_SCDB_MIN_VOTE_TYPES.has(t)) return 'minority';
+    return '';
+}
+
+let _scdbJusticesMap = {};
+
+function _scdbVotesSubset(row) {
+    const out = [];
+    for (const j of (row.justices || [])) {
+        let name = (j.justiceName || '').trim().toUpperCase();
+        if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
+        const maj = _scdbVoteToOurs(j.majority || '');
+        if (!name || (maj !== 'majority' && maj !== 'minority')) continue;
+        out.push({ name, vote: maj });
+    }
+    return out;
+}
+function _scdbOurVotesSubset(c) {
+    if (!Array.isArray(c.votes)) return [];
+    const out = [];
+    for (const v of c.votes) {
+        if (!v || typeof v !== 'object') continue;
+        const name = (v.name || '').trim().toUpperCase();
+        const raw  = (v.vote || '').trim().toLowerCase();
+        const vote = _scdbVoteTypeToMajority(raw) || _scdbVoteToOurs(raw);
+        if (!name || (vote !== 'majority' && vote !== 'minority')) continue;
+        out.push({ name, vote });
+    }
+    return out;
+}
+function _scdbVotesSorted(votes) {
+    return [...votes].sort((a, b) => a.name.localeCompare(b.name) || a.vote.localeCompare(b.vote));
+}
+function _scdbVotesEqual(a, b) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i].name !== b[i].name || a[i].vote !== b[i].vote) return false;
+    }
+    return true;
+}
+
+function _scdbMajorityCounts(row) {
+    const parse = (v) => {
+        const s = (v || '').trim();
+        if (!s) return null;
+        const n = parseFloat(s);
+        return Number.isFinite(n) ? Math.trunc(n) : null;
+    };
+    return [parse(row.majVotes), parse(row.minVotes)];
+}
+
+function _scdbFieldPresent(c, key) {
+    if (!(key in c)) return false;
+    const v = c[key];
+    if (typeof v === 'string') return !!v.trim();
+    if (Array.isArray(v)) return v.length > 0;
+    if (typeof v === 'number') return true;
+    return false;
+}
+
+function _scdbHasImportedOpinion(c) {
+    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','opinion_href']) {
+        if (_scdbFieldPresent(c, k)) return true;
+    }
+    return false;
+}
+
+function _scdbApplyOpinionUpdate(c, row) {
+    const usCite = _scdbNormalizeCite(row.usCite || '');
+    const [volume, page] = _scdbParseUsCite(usCite);
+    const [maj, minv]    = _scdbMajorityCounts(row);
+    const votes          = _scdbVotesSubset(row);
+    const opinionHref    = _scdbLocOpinionHref(volume, page);
+
+    if (!(volume || page || usCite || maj !== null || minv !== null || votes.length || opinionHref)) return false;
+
+    const next = { ...c };
+    if (volume       && !_scdbFieldPresent(c, 'volume'))       next.volume = volume;
+    if (page         && !_scdbFieldPresent(c, 'page'))         next.page = page;
+    if (usCite       && !_scdbFieldPresent(c, 'usCite'))       next.usCite = usCite;
+    if (maj  !== null && !_scdbFieldPresent(c, 'voteMajority')) next.voteMajority = maj;
+    if (minv !== null && !_scdbFieldPresent(c, 'voteMinority')) next.voteMinority = minv;
+    if (votes.length && !_scdbFieldPresent(c, 'votes'))        next.votes = votes;
+    if (opinionHref  && !_scdbFieldPresent(c, 'opinion_href')) next.opinion_href = opinionHref;
+
+    const reordered = reorderCase(next);
+    if (JSON.stringify(reordered) === JSON.stringify(c)) return false;
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, reordered);
+    return true;
+}
+
+function _scdbLoadLdTitles() {
+    const out = {};
+    if (!fs.existsSync(_LD_CITES_PATH)) return out;
+    const { rows } = _readCsvRows(_LD_CITES_PATH, 'utf8');
+    for (const r of rows) {
+        const cite = _scdbNormalizeCite(r.usCite || '');
+        const title = (r.caseTitle || '').trim();
+        if (cite && title && !out[cite]) out[cite] = title;
+    }
+    return out;
+}
+
+function _scdbLoadLdDatesByCaseId() {
+    const out = {};
+    if (!fs.existsSync(_LD_DATES_PATH)) return out;
+    const { rows } = _readCsvRows(_LD_DATES_PATH, 'utf8');
+    for (const r of rows) {
+        const cid = (r.caseId || '').trim();
+        if (!cid) continue;
+        (out[cid] = out[cid] || []).push(r);
+    }
+    return out;
+}
+
+function _scdbSplitCsvDates(raw) {
+    const out = [];
+    for (const part of (raw || '').split(',')) {
+        const d = _scdbNormalizeDate(part);
+        if (d && d !== '0' && !out.includes(d)) out.push(d);
+    }
+    return out;
+}
+function _scdbArgnum(r) {
+    const n = parseInt((r.argumentNumber || '').trim(), 10);
+    return Number.isFinite(n) ? n : 1;
+}
+
+function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
+    let usCite     = _scdbNormalizeCite(scdbCase.usCite || '');
+    let docket     = (scdbCase.docket || '').trim();
+    let argument   = _scdbNormalizeDate(scdbCase.dateArgument || '');
+    let reargument = _scdbNormalizeDate(scdbCase.dateRearg || scdbCase.datreRearg || '');
+    let decision   = _scdbNormalizeDate(scdbCase.dateDecision || '');
+    let title      = (scdbCase.caseName || '').trim() || caseId;
+
+    let ldArgDates = [], ldReargDates = [], ldDecision = '', ldTitle = '', ldUsCite = '', ldDocket = '';
+    for (const r of [...ldDates].sort((a, b) => _scdbArgnum(a) - _scdbArgnum(b))) {
+        if (!ldTitle)   ldTitle   = (r.caseTitle || '').trim();
+        if (!ldUsCite)  ldUsCite  = _scdbNormalizeCite(r.usCite || '');
+        if (!ldDocket)  ldDocket  = (r.docket || '').trim();
+        if (!ldDecision) {
+            const cand = _scdbNormalizeDate(r.dateDecision || '');
+            if (cand && cand !== '0') ldDecision = cand;
+        }
+        const argDates = _scdbSplitCsvDates(r.dateArgument || '');
+        if (!argDates.length) continue;
+        const target = _scdbArgnum(r) <= 1 ? ldArgDates : ldReargDates;
+        for (const d of argDates) if (!target.includes(d)) target.push(d);
+    }
+
+    if (!usCite && ldUsCite) usCite = ldUsCite;
+    if ((!docket || docket === '0') && ldDocket && ldDocket !== '0') docket = ldDocket;
+
+    if (usCite && ldTitles[usCite]) title = ldTitles[usCite];
+    else if (ldTitle) title = ldTitle;
+
+    if (ldArgDates.length) {
+        const ldArg = ldArgDates.join(',');
+        if (_scdbSplitCsvDates(ldArg).length >= _scdbSplitCsvDates(argument).length) argument = ldArg;
+    }
+    if (ldReargDates.length) {
+        const ldRe = ldReargDates.join(',');
+        if (_scdbSplitCsvDates(ldRe).length >= _scdbSplitCsvDates(reargument).length) reargument = ldRe;
+    }
+    if (ldDecision) decision = ldDecision;
+
+    const [maj, minv] = _scdbMajorityCounts(scdbCase);
+    const votes = _scdbVotesSubset(scdbCase);
+
+    const obj = { id: caseId, title, files: 0, votes };
+    if (docket && docket !== '0')     obj.number = docket;
+    if (argument && argument !== '0') obj.argument = argument;
+    if (reargument && reargument !== '0') obj.reargument = reargument;
+    if (decision && decision !== '0') {
+        obj.decision = decision;
+        const longD = _scdbFormatLongDate(decision);
+        if (longD) obj.dateDecision = longD;
+    }
+    if (maj  !== null) obj.voteMajority = maj;
+    if (minv !== null) obj.voteMinority = minv;
+    if (usCite) {
+        obj.usCite = usCite;
+        const [volume, page] = _scdbParseUsCite(usCite);
+        if (volume) obj.volume = volume;
+        if (page)   obj.page = page;
+        const href = _scdbLocOpinionHref(volume, page);
+        if (href)   obj.opinion_href = href;
+    }
+    return reorderCase(obj);
+}
+
+function _scdbFirstArgDate(c) {
+    const raw = (c.argument || '').trim();
+    if (!raw) return '';
+    return _scdbNormalizeDate(raw.split(',', 1)[0]);
+}
+
+function _scdbMergeMissing(existing, template) {
+    let changed = false;
+    for (const [k, v] of Object.entries(template)) {
+        if (_scdbFieldPresent(existing, k)) continue;
+        existing[k] = v;
+        changed = true;
+    }
+    if (_scdbFieldPresent(existing, 'decision') && !_scdbFieldPresent(existing, 'dateDecision')) {
+        const longD = _scdbFormatLongDate(_scdbNormalizeDate(existing.decision || ''));
+        if (longD) { existing.dateDecision = longD; changed = true; }
+    }
+    if (_scdbFieldPresent(existing, 'dateDecision') && !_scdbFieldPresent(existing, 'decision')) {
+        const raw = (existing.dateDecision || '').trim();
+        let iso = _scdbNormalizeDate(raw);
+        if (!_SCDB_ISO_RE.test(iso)) iso = _scdbIsoFromLongDate(raw);
+        if (iso) { existing.decision = iso; changed = true; }
+    }
+    if (changed) {
+        const re = reorderCase({ ...existing });
+        for (const k of Object.keys(existing)) delete existing[k];
+        Object.assign(existing, re);
+    }
+    return changed;
+}
+
+function _scdbAddCaseToTerm(scdb, termYear, caseId) {
+    if (!/^\d{4}$/.test(termYear)) {
+        console.error(`ERROR: --term expects YYYY, got ${JSON.stringify(termYear)}`);
+        process.exit(1);
+    }
+    const casesPath = path.join(_SCDB_TERMS_DIR, `${termYear}-10`, 'cases.json');
+    if (!fs.existsSync(casesPath)) {
+        console.error(`ERROR: term cases file not found: ${casesPath}`);
+        process.exit(1);
+    }
+    if (!scdb[caseId]) {
+        console.error(`ERROR: caseId ${JSON.stringify(caseId)} not found in loaded SCDB data`);
+        process.exit(1);
+    }
+    let cases;
+    try { cases = JSON.parse(fs.readFileSync(casesPath, 'utf8')); }
+    catch (e) { console.error(`ERROR: Could not parse ${casesPath}: ${e.message}`); process.exit(1); }
+
+    const ldTitles = _scdbLoadLdTitles();
+    const ldDates  = _scdbLoadLdDatesByCaseId();
+    const newCase  = _scdbBuildCaseFromSources(scdb[caseId], caseId, ldTitles, ldDates[caseId] || []);
+
+    const existing = cases.find(c => (c.id || '').trim() === caseId);
+    if (existing) {
+        if (_scdbMergeMissing(existing, newCase)) {
+            fs.writeFileSync(casesPath, JSON.stringify(cases, null, 2) + '\n', 'utf8');
+            console.log(`Enriched existing ${caseId} in ${path.relative(REPO_ROOT, casesPath)}`);
+            console.log(JSON.stringify(existing, null, 2));
+        } else {
+            console.log(`No change: ${caseId} already exists in ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+        return;
+    }
+
+    const number = (newCase.number || '').trim();
+    if (number && cases.some(c => (c.number || '').trim() === number)) {
+        console.log(`No change: docket ${number} already exists in ${path.relative(REPO_ROOT, casesPath)} (new id would be ${caseId}).`);
+        return;
+    }
+
+    const newArg = _scdbFirstArgDate(newCase);
+    let insertAt = cases.length;
+    if (newArg) {
+        for (let i = 0; i < cases.length; i++) {
+            const cur = _scdbFirstArgDate(cases[i]);
+            if (cur && cur > newArg) { insertAt = i; break; }
+        }
+    }
+    cases.splice(insertAt, 0, newCase);
+    fs.writeFileSync(casesPath, JSON.stringify(cases, null, 2) + '\n', 'utf8');
+    console.log(`Added ${caseId} to ${path.relative(REPO_ROOT, casesPath)}`);
+    console.log(JSON.stringify(newCase, null, 2));
+}
+
+function _scdbVerifyTerms(scdb, termFilter, update, verbose) {
+    let cases_files;
+    if (termFilter) {
+        const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
+        if (!fs.existsSync(p)) {
+            console.error(`ERROR: term cases file not found: ${p}`);
+            process.exit(1);
+        }
+        cases_files = [p];
+    } else {
+        cases_files = [];
+        for (const d of fs.readdirSync(_SCDB_TERMS_DIR).sort()) {
+            const p = path.join(_SCDB_TERMS_DIR, d, 'cases.json');
+            if (fs.existsSync(p)) cases_files.push(p);
+        }
+        if (!cases_files.length) console.log(`WARNING: No cases.json files found under ${_SCDB_TERMS_DIR}`);
+    }
+
+    let total = 0, skipped = 0, updates = 0;
+    const errors = [];
+
+    for (const cf of cases_files) {
+        const term = path.basename(path.dirname(cf));
+        let cases;
+        try { cases = JSON.parse(fs.readFileSync(cf, 'utf8')); }
+        catch (e) { errors.push(`[${term}] Could not parse ${cf}: ${e.message}`); continue; }
+
+        let termChanged = false;
+
+        for (const c of cases) {
+            const cid = c.id;
+            if (!cid) { skipped++; continue; }
+            total++;
+            const prefix = `[${term}] ${cid} (${c.title || cid})`;
+
+            const row = scdb[cid];
+            if (!row) { errors.push(`${prefix}: caseId not found in SCDB`); continue; }
+
+            const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
+            if (scdbArg && !_scdbContainsDate(c.argument, scdbArg))
+                errors.push(`${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
+
+            const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
+            if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe))
+                errors.push(`${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
+
+            const scdbDec = _scdbNormalizeDate(row.dateDecision || '');
+            const ourDec  = _scdbNormalizeDate(c.decision || '');
+            if (scdbDec && ourDec && scdbDec !== ourDec)
+                errors.push(`${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
+
+            if (_scdbHasImportedOpinion(c)) {
+                const [maj, minv] = _scdbMajorityCounts(row);
+                if (maj  !== null && c.voteMajority !== maj)
+                    errors.push(`${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
+                if (minv !== null && c.voteMinority !== minv)
+                    errors.push(`${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
+
+                const sV = _scdbVotesSubset(row);
+                const oV = _scdbOurVotesSubset(c);
+                if (sV.length && !_scdbVotesEqual(_scdbVotesSorted(oV), _scdbVotesSorted(sV))) {
+                    let msg = `${prefix}: votes subset mismatch (name+vote).`;
+                    if (verbose) {
+                        const sSet = new Set(sV.map(v => `${v.name}\u0000${v.vote}`));
+                        const oSet = new Set(oV.map(v => `${v.name}\u0000${v.vote}`));
+                        const onlyScdb = [...sSet].filter(x => !oSet.has(x)).sort();
+                        const onlyOurs = [...oSet].filter(x => !sSet.has(x)).sort();
+                        const lines = [msg];
+                        for (const x of onlyScdb) { const [n, v] = x.split('\u0000'); lines.push(`      scdb only:  ${n} / ${v}`); }
+                        for (const x of onlyOurs) { const [n, v] = x.split('\u0000'); lines.push(`      ours only:  ${n} / ${v}`); }
+                        msg = lines.join('\n');
+                    }
+                    errors.push(msg);
+                }
+            }
+
+            if (update && _scdbApplyOpinionUpdate(c, row)) {
+                updates++;
+                termChanged = true;
+            }
+        }
+
+        if (termChanged) {
+            fs.writeFileSync(cf, JSON.stringify(cases, null, 2) + '\n', 'utf8');
+            console.log(`Updated ${path.relative(REPO_ROOT, cf)}`);
+        }
+    }
+
+    console.log(`Checked ${total} cases with SCDB ids (${skipped} cases skipped — no id).`);
+    if (update) console.log(`Applied SCDB opinion metadata updates to ${updates} case(s).`);
+
+    if (errors.length) {
+        console.log(`\n${errors.length} issue(s) found:\n`);
+        for (const e of errors) console.log(`  ${e}`);
+    } else {
+        console.log('All checks passed.');
+    }
+}
+
+function _scdbVerifyUsscDeck(scdb) {
+    if (!fs.existsSync(_SCDB_DECK_PATH)) {
+        console.error(`ERROR: ussc_deck.csv not found at ${_SCDB_DECK_PATH}`);
+        process.exit(1);
+    }
+    const yearCache = new Map();
+    const getCaseIdsForYear = (year) => {
+        if (yearCache.has(year)) return yearCache.get(year);
+        const ids = new Set();
+        const y = parseInt(year, 10);
+        for (const yr of [y - 1, y, y + 1]) {
+            const dirs = fs.readdirSync(_SCDB_TERMS_DIR).filter(d => d.startsWith(`${yr}-`));
+            for (const d of dirs) {
+                const p = path.join(_SCDB_TERMS_DIR, d, 'cases.json');
+                if (!fs.existsSync(p)) continue;
+                try {
+                    const cases = JSON.parse(fs.readFileSync(p, 'utf8'));
+                    for (const c of cases) if (c.id) ids.add(c.id);
+                } catch {}
+            }
+        }
+        yearCache.set(year, ids);
+        return ids;
+    };
+
+    let checked = 0;
+    const notInScdb = [], notInCases = [];
+    const { rows } = _readCsvRows(_SCDB_DECK_PATH, 'utf8');
+    for (const r of rows) {
+        const raw = (r.scdb || '').trim();
+        if (!raw) continue;
+        const term = (r.term || '').trim();
+        for (const sid of raw.split(',').map(s => s.trim()).filter(Boolean)) {
+            checked++;
+            if (!scdb[sid]) { notInScdb.push(`  ${sid}: ${term}`); continue; }
+            const s = scdb[sid];
+            const year = (s.term || '').trim();
+            if (!/^\d{4}$/.test(year)) {
+                notInCases.push(`  ${sid}: unrecognized SCDB term value ${JSON.stringify(year)}`);
+                continue;
+            }
+            const ids = getCaseIdsForYear(year);
+            if (!ids.size) {
+                notInCases.push(`  ${sid}: no cases.json found for ${+year - 1}-*, ${year}-*, or ${+year + 1}-*`);
+                continue;
+            }
+            if (!ids.has(sid)) {
+                const summary = `${year} | ${s.caseName || ''} | docket=${s.docket || ''} | decided=${s.dateDecision || ''}`;
+                notInCases.push(`  ${sid}: ${summary}`);
+            }
+        }
+    }
+    console.log(`Checked ${checked} SCDB id(s) across ussc_deck rows.`);
+    if (notInScdb.length) {
+        console.log(`\n${notInScdb.length} caseId(s) not found in SCDB:`);
+        for (const m of notInScdb) console.log(m);
+    } else console.log('All SCDB ids found in SCDB data.');
+    if (notInCases.length) {
+        console.log(`\n${notInCases.length} caseId(s) not found in our cases.json:`);
+        for (const m of notInCases) console.log(m);
+    } else console.log('All SCDB ids found in cases.json.');
+}
+
+function _scdbPrintCase(scdb, caseId) {
+    const c = scdb[caseId];
+    if (!c) { console.log(`caseId ${JSON.stringify(caseId)} not found in loaded SCDB data.`); return; }
+    console.log(JSON.stringify(c, null, 2));
+}
+
+async function runScdb(opts) {
+    // 1) First, migrate/condense any newly-downloaded SCDB CSVs.
+    processScdbDownloads();
+
+    // 2) Load combined SCDB table.
+    const varsMaps   = _scdbLoadVarsMap();
+    if (Object.keys(varsMaps).length) console.log(`Loaded vars.json (${Object.keys(varsMaps).length} column mappings).`);
+    else console.log('WARNING: vars.json not found or empty — no normalization applied.');
+
+    _scdbJusticesMap = _scdbLoadJusticesMap();
+    if (Object.keys(_scdbJusticesMap).length) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries).`);
+    else console.log('WARNING: justices.json not found — justice names not normalized.');
+
+    if (!fs.existsSync(_SCDB_MODERN_CSV)) { console.error(`ERROR: ${_SCDB_MODERN_CSV} not found`); process.exit(1); }
+    if (!fs.existsSync(_SCDB_LEGACY_CSV)) { console.error(`ERROR: ${_SCDB_LEGACY_CSV} not found`); process.exit(1); }
+
+    const scdb = {};
+    const normIssues = new Set();
+    const mAdded = _scdbLoadCsv(_SCDB_MODERN_CSV, scdb, varsMaps, normIssues);
+    const lAdded = _scdbLoadCsv(_SCDB_LEGACY_CSV, scdb, varsMaps, normIssues);
+    console.log(`Loaded ${mAdded.toLocaleString()} cases from modern, ${lAdded.toLocaleString()} unique cases from legacy (${Object.keys(scdb).length.toLocaleString()} total).`);
+
+    if (normIssues.size && opts.verbose) {
+        console.log(`\n${normIssues.size} normalization issue(s) — unknown codes in mapped columns:`);
+        for (const x of [...normIssues].sort()) {
+            const [col, val] = x.split('\u0000');
+            console.log(`  ${col}: ${JSON.stringify(val)}`);
+        }
+    }
+    console.log();
+
+    if (opts.add) {
+        if (!opts.term || !opts.case) {
+            console.error('ERROR: --add requires both TERM (positional, YYYY-10) and --case CASEID');
+            process.exit(1);
+        }
+        const yearMatch = /^(\d{4})(?:-\d{2})?$/.exec(opts.term);
+        if (!yearMatch) { console.error(`ERROR: TERM must be YYYY or YYYY-MM, got ${JSON.stringify(opts.term)}`); process.exit(1); }
+        _scdbAddCaseToTerm(scdb, yearMatch[1], opts.case);
+    } else if (opts.case) {
+        _scdbPrintCase(scdb, opts.case);
+    } else if (opts.usscDeck) {
+        _scdbVerifyUsscDeck(scdb);
+    } else {
+        _scdbVerifyTerms(scdb, opts.term || null, !!opts.update, !!opts.verbose);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
-const USAGE = `Usage: node scripts/validate_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
-       node scripts/validate_cases.js TERM_START TERM_END [--checkurls] [--opinions] [--verbose] [--dry-run]
-       node scripts/validate_cases.js                  # validate all terms`;
+const USAGE = `Usage: node scripts/verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+       node scripts/verify_cases.js TERM_START TERM_END [--checkurls] [--opinions] [--verbose] [--dry-run]
+       node scripts/verify_cases.js [TERM] --scdb [--update] [--ussc-deck] [--case CASEID] [--add] [--verbose]
+       node scripts/verify_cases.js                  # validate all terms`;
 
 async function processOneTerm(term, opts) {
     const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, caseFilter, speakerMapBase } = opts;
@@ -2361,14 +3156,49 @@ async function processOneTerm(term, opts) {
 
 async function main() {
     const argv = process.argv.slice(2);
-    const flags = new Set(argv.filter(a => a.startsWith('--')));
-    const positional = argv.filter(a => !a.startsWith('--'));
+    // Parse flag values: support both `--key value` and `--key=value`.
+    const flagValues = {};
+    const boolFlags  = new Set();
+    const positional = [];
+    for (let i = 0; i < argv.length; i++) {
+        const a = argv[i];
+        if (a.startsWith('--')) {
+            const eq = a.indexOf('=');
+            if (eq >= 0) {
+                flagValues[a.slice(2, eq)] = a.slice(eq + 1);
+            } else {
+                const key = a.slice(2);
+                // Flags that take a value
+                if (['case'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                    flagValues[key] = argv[++i];
+                } else {
+                    boolFlags.add(key);
+                }
+            }
+        } else {
+            positional.push(a);
+        }
+    }
+    const flags = new Set([...boolFlags].map(f => `--${f}`));
     const checkUrls    = flags.has('--checkurls');
     const opinionsOnly = flags.has('--opinions');
     const verbose      = flags.has('--verbose');
     const dryRun       = flags.has('--dry-run');
+    const scdb         = flags.has('--scdb');
     setVerbose(verbose);
     setDryRun(dryRun);
+
+    if (scdb) {
+        await runScdb({
+            term:     positional[0] || null,
+            case:     flagValues.case || null,
+            update:   flags.has('--update'),
+            add:      flags.has('--add'),
+            usscDeck: flags.has('--ussc-deck') || flags.has('--ussc_deck'),
+            verbose,
+        });
+        return;
+    }
 
     if (positional.length > 2) {
         console.log(USAGE);

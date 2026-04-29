@@ -12,7 +12,7 @@ As part of that process, an updated copy of Marlene's spreadsheet was produced: 
 
 This project stores all its data as a collection of JSON files that are maintained by a set of scripts on [GitHub](https://github.com/jeffpar/argument-aloud) and presented through a web interface at [Argument Aloud](https://argumentaloud.org).  However, as a convenience, whenever [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) is periodically run, a new spreadsheet is generated as well:
 
-  - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/ussc_women_advocates.csv)
+  - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/aa/ussc_women.csv)
   
 That spreadsheet contains all previously available data, along with any women advocates discovered since.  As of April 22, 2026, the list of additional women includes:
 

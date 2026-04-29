@@ -31,7 +31,7 @@ import { reorderCase, reorderEvent } from './schema.js';
 import {
     REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase,
     syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose,
-} from './validate_cases.js';
+} from './verify_cases.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -82,12 +82,12 @@ function relRepo(p) {
 // ── Docket number map ──────────────────────────────────────────────────────
 
 function _loadDocketMap() {
-    const p = path.join(__dirname, 'config.json');
+    const p = path.join(REPO_ROOT, 'config.json');
     const result = new Map();   // key: `${term}|${case}`
     if (!exists(p)) return result;
     let data;
     try { data = readJson(p); } catch { return result; }
-    const docket = data?.docket || {};
+    const docket = data?.ussc?.docket || {};
     for (const [key, value] of Object.entries(docket)) {
         const colon = key.split(':');
         if (colon.length !== 2) continue;

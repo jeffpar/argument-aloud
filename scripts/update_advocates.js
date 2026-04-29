@@ -10,7 +10,7 @@
  *
  * JS port of scripts/python/update_advocates.py — see that file for full
  * documentation. Behaviour and outputs (advocates index, per-advocate JSON,
- * women_advocates.json, ussc_women_advocates.csv, anomaly report, --repair
+ * women_advocates.json, ussc_women.csv, anomaly report, --repair
  * interactive flow, --fix one-word repair) are intended to match.
  *
  * Usage:
@@ -31,7 +31,7 @@ const REPO_ROOT         = path.resolve(__dirname, '..');
 const TERMS_DIR         = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const OUTPUT_FILE       = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'all_advocates.json');
 const WOMEN_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'women_advocates.json');
-const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'misc', 'ussc_women_advocates.csv');
+const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
 const TRANS_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
@@ -1173,7 +1173,7 @@ async function main() {
     writeText(TRANS_OUTPUT_FILE, JSON.stringify(transIndex, null, 2) + '\n');
     console.log(`Wrote ${transIndex.length} transgender advocates to ${relRepo(TRANS_OUTPUT_FILE)}`);
 
-    // ── ussc_women_advocates.csv ──────────────────────────────────────────
+    // ── ussc_women.csv ──────────────────────────────────────────
     let womenRows = [];
     for (const [nameUpper, entry] of Object.entries(advocates)) {
         if (!nameFeminine.get(nameUpper)) continue;

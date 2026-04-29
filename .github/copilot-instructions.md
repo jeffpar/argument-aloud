@@ -98,7 +98,7 @@ Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, c
 | Script | Purpose | Usage |
 |---|---|---|
 | `import_ussc.py` | Scrape SCOTUS listing, extract PDF transcripts | `python3 scripts/import_ussc.py 2025-10` |
-| `validate_cases.py` | Validate URLs, sync metadata, detect new opinions | `python3 scripts/validate_cases.py 2025-10 [CASE] [--checkurls]` |
+| `verify_cases.js` | Validate URLs, sync metadata, detect new opinions | `node scripts/verify_cases.js 2025-10 [CASE] [--checkurls]` |
 | `align_transcript.py` | Sync transcript text with audio timing via Whisper | `python3 scripts/align_transcript.py 2025-10 24-1238` |
 | `update_advocates.py` | Rebuild advocate profiles from all terms | `python3 scripts/update_advocates.py` |
 | `update_transcripts.py` | Reprocess/reformat existing transcript JSON files | `python3 scripts/update_transcripts.py 2025-10` |

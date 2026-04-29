@@ -916,11 +916,12 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
 //                       loadCase highlights only the sibling whose audioDate
 //                       matches the currently-resolved event.
 //   hasFiles   boolean — when false, the toggle (▶) is hidden by default
-function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles }) {
+function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, caseNumber }) {
   const ci = document.createElement('li');
   ci.className = 'case-item';
   ci.dataset.caseKey = caseKey;
   if (audioDate) ci.dataset.audioDate = audioDate;
+  if (caseNumber) ci.dataset.caseNumber = caseNumber;
 
   const header = document.createElement('div');
   header.className = 'case-header';
@@ -1032,6 +1033,7 @@ function buildTermCases(term, cases, ul) {
           title:    caseEntry.title,
           tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
           hasFiles: !!caseEntry.files,
+          caseNumber: caseEntry.number || '',
         });
 
         // ── Speaker / transcript icon ──────────────────────────
@@ -1645,6 +1647,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       ? caseRef.argument.split(',')[0].trim()
       : null,
     hasFiles:  !!caseRef.files,
+    caseNumber: caseRef.number || '',
   });
 
   // Cache the fetched caseEntry so all click handlers share one fetch per case.
@@ -3155,8 +3158,9 @@ function findFileItem(param) {
 
     termsSectionEl.querySelectorAll('.case-item').forEach(ci => {
       const title      = ci.querySelector('.case-title-nav')?.textContent.toLowerCase() || '';
-      const caseNumber = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
-      const matches    = title.includes(q) || caseNumber.includes(q);
+      const caseKeyTail = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
+      const caseNumber = (ci.dataset.caseNumber || '').toLowerCase();
+      const matches    = title.includes(q) || caseKeyTail.includes(q) || caseNumber.includes(q);
 
       ci.classList.toggle('nav-search-match', matches);
       ci.style.display = matches ? '' : 'none';

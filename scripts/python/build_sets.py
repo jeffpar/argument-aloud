@@ -29,7 +29,7 @@ from urllib.parse import urljoin
 ROOT = Path(__file__).resolve().parents[2]
 TERMS_DIR = ROOT / "courts" / "ussc" / "terms"
 OUT_PATH = ROOT / "courts" / "ussc" / "collections" / "transcripts.json"
-HIGHLIGHTS_CSV_PATH = ROOT / "data" / "ld" / "ussc_deck.csv"
+HIGHLIGHTS_CSV_PATH = ROOT / "data" / "aa" / "ussc_deck.csv"
 HIGHLIGHTS_OUT_PATH = ROOT / "courts" / "ussc" / "collections" / "noteworthy.json"
 SOURCE_URLS = [
     "https://lonedissent.org/transcripts/pre-1955",
