@@ -2399,7 +2399,7 @@ function _processScdbFile(srcPath, outPath) {
     return true;
 }
 
-function processScdbDownloads() {
+function processScdbDownloads(verbose) {
     const configPath = path.join(REPO_ROOT, 'config.json');
     let cfg;
     try { cfg = JSON.parse(fs.readFileSync(configPath, 'utf8')); }
@@ -2419,7 +2419,7 @@ function processScdbDownloads() {
         console.log(`SCDB: processing ${basename}`);
         _processScdbFile(srcPath, outPath);
     }
-    if (!any) console.log(`SCDB: no downloads found in ${path.relative(REPO_ROOT, dataDir)}.`);
+    if (!any && verbose) console.log(`SCDB: no downloads found in ${path.relative(REPO_ROOT, dataDir)}.`);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2672,16 +2672,28 @@ let _scdbJusticesMap = {};
 function _scdbVotesSubset(row) {
     const out = [];
     for (const j of (row.justices || [])) {
-        // Skip jurisdictional dissents — we don't count them in our data.
-        if ((j.vote || '').trim().toLowerCase() === 'jurisdictional dissent') continue;
         let name = (j.justiceName || '').trim().toUpperCase();
         if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
+        if (!name) continue;
+        const voteRaw = (j.vote || '').trim().toLowerCase();
+        if (voteRaw === 'jurisdictional dissent') {
+            out.push({ name, vote: 'jurisdictional dissent' });
+            continue;
+        }
+        // SCDB sometimes leaves `majority` blank for procedural dissents
+        // (e.g. "dissent from a denial or dismissal of certiorari, or dissent
+        // from summary affirmation of an appeal"). Treat as minority.
+        if (voteRaw.startsWith('dissent from')) {
+            out.push({ name, vote: 'minority' });
+            continue;
+        }
         const maj = _scdbVoteToOurs(j.majority || '');
-        if (!name || (maj !== 'majority' && maj !== 'minority')) continue;
+        if (maj !== 'majority' && maj !== 'minority') continue;
         out.push({ name, vote: maj });
     }
     return out;
 }
+
 function _scdbOurVotesSubset(c) {
     if (!Array.isArray(c.votes)) return [];
     const out = [];
@@ -2689,8 +2701,13 @@ function _scdbOurVotesSubset(c) {
         if (!v || typeof v !== 'object') continue;
         const name = (v.name || '').trim().toUpperCase();
         const raw  = (v.vote || '').trim().toLowerCase();
+        if (!name) continue;
+        if (raw === 'jurisdictional dissent') {
+            out.push({ name, vote: 'jurisdictional dissent' });
+            continue;
+        }
         const vote = _scdbVoteTypeToMajority(raw) || _scdbVoteToOurs(raw);
-        if (!name || (vote !== 'majority' && vote !== 'minority')) continue;
+        if (vote !== 'majority' && vote !== 'minority') continue;
         out.push({ name, vote });
     }
     return out;
@@ -2713,13 +2730,8 @@ function _scdbMajorityCounts(row) {
         const n = parseFloat(s);
         return Number.isFinite(n) ? Math.trunc(n) : null;
     };
-    let maj  = parse(row.majVotes);
-    let minv = parse(row.minVotes);
-    // Exclude jurisdictional dissents from the minority count — we don't count them.
-    if (minv !== null && Array.isArray(row.justices)) {
-        const jd = row.justices.filter(j => (j.vote || '').trim().toLowerCase() === 'jurisdictional dissent').length;
-        if (jd) minv = Math.max(0, minv - jd);
-    }
+    const maj  = parse(row.majVotes);
+    const minv = parse(row.minVotes);
     return [maj, minv];
 }
 
@@ -3169,7 +3181,7 @@ function _scdbPrintCase(scdb, caseId) {
 
 async function runScdb(opts) {
     // 1) First, migrate/condense any newly-downloaded SCDB CSVs.
-    processScdbDownloads();
+    processScdbDownloads(opts.verbose);
 
     // 2) Load combined SCDB table — use cache when fresh.
     const scdb = {};
@@ -3190,7 +3202,7 @@ async function runScdb(opts) {
                 const cached = JSON.parse(fs.readFileSync(_SCDB_CACHE_PATH, 'utf8'));
                 Object.assign(scdb, cached);
                 usedCache = true;
-                console.log(`Loaded SCDB cache (${Object.keys(scdb).length.toLocaleString()} cases) from ${path.relative(REPO_ROOT, _SCDB_CACHE_PATH)}.`);
+                if (opts.verbose) console.log(`Loaded SCDB cache (${Object.keys(scdb).length.toLocaleString()} cases) from ${path.relative(REPO_ROOT, _SCDB_CACHE_PATH)}.`);
             } catch (e) {
                 console.log(`WARNING: failed to read SCDB cache (${e.message}); rebuilding.`);
             }
@@ -3198,8 +3210,9 @@ async function runScdb(opts) {
     }
 
     _scdbJusticesMap = _scdbLoadJusticesMap();
-    if (Object.keys(_scdbJusticesMap).length) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries).`);
-    else console.log('WARNING: justices.json not found — justice names not normalized.');
+    if (Object.keys(_scdbJusticesMap).length) {
+        if (opts.verbose) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries).`);
+    } else console.log('WARNING: justices.json not found — justice names not normalized.');
 
     if (!usedCache) {
         const { map: varsMaps, sets: varsSets, declared: declaredCols } = _scdbLoadVarsMap();
@@ -3354,6 +3367,12 @@ async function main() {
     if (argv.includes('--help') || argv.includes('-h')) {
         console.log(USAGE);
         return;
+    }
+    // Banner: record what was invoked so logged output is self-describing.
+    {
+        const scriptName = path.basename(process.argv[1] || 'verify_cases.js');
+        const quoted = argv.map(a => /[\s"'\\$`]/.test(a) ? JSON.stringify(a) : a);
+        console.log(`$ ${scriptName}${quoted.length ? ' ' + quoted.join(' ') : ''}`);
     }
     // Parse flag values: support both `--key value` and `--key=value`.
     const flagValues = {};
