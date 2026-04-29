@@ -1,17 +1,27 @@
 /**
- * Validate file entries and case metadata for SCOTUS cases — and apply fixes
+ * Verify file entries and case metadata for SCOTUS cases — and apply fixes
  * (sorts, key reordering, refiled-case merging, etc.) unless --dry-run.
  *
  * Usage:
- *   node scripts/verify_cases.js TERM [CASE] [--checkurls] [--opinions] [--verbose] [--dry-run]
+ *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+ *   node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
  *
  * Examples:
- *   node scripts/verify_cases.js 2025-10
- *   node scripts/verify_cases.js 2025-10 24-1260
- *   node scripts/verify_cases.js 2025-10 --checkurls
- *   node scripts/verify_cases.js 2025-10 --checkurls --opinions
- *   node scripts/verify_cases.js 2025-10 --verbose
- *   node scripts/verify_cases.js 2025-10 --dry-run
+ *   node verify_cases.js                            # verify all terms
+ *   node verify_cases.js 2025-10                    # verify one term
+ *   node verify_cases.js 2025-10 24-1260            # verify one case
+ *   node verify_cases.js 2025-10 --checkurls        # also probe remote URLs
+ *   node verify_cases.js 2025-10 --checkurls --opinions
+ *   node verify_cases.js 2025-10 --verbose          # extra logging
+ *   node verify_cases.js 2025-10 --dry-run          # report only, no writes
+ *
+ *   node verify_cases.js --scdb                     # check SCDB cache + verify all terms
+ *   node verify_cases.js --scdb --nocache           # ignore SCDB cache
+ *   node verify_cases.js 1926-10 --scdb             # verify one term against SCDB
+ *   node verify_cases.js 1926-10 1926-011 --scdb --verbose
+ *                                                           # verify one case; dump mismatching JSON
+ *   node verify_cases.js --scdb --ussc-deck         # also rebuild data/aa/ussc_deck.csv
+ *   node verify_cases.js 2024-10 --scdb --update    # apply SCDB-derived fixes to cases.json
  *
  * Combines the logic of:
  *   scripts/python/validate_cases.py
@@ -496,13 +506,6 @@ function _isCurrentTerm(term) {
     } catch { return false; }
 }
 
-function _parseTermArg(s) {
-    s = String(s || '').trim();
-    if (/^\d{4}$/.test(s)) return `${s}-10`;
-    if (/^\d{4}-\d{2}$/.test(s)) return s;
-    throw new Error(`Expected YYYY or YYYY-MM, got '${s}'`);
-}
-
 // ── Date helpers ──────────────────────────────────────────────────────────
 
 function _isoToDateDecision(iso) {
@@ -895,7 +898,7 @@ function migrateArgumentsToAudio(casesPath) {
     }
 }
 
-function validateCasesJsonArguments(casesPath, term = '', dryRun = false) {
+function verifyCasesJsonArguments(casesPath, term = '', dryRun = false) {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
     const termDir = path.dirname(casesPath);
@@ -1383,7 +1386,7 @@ function pruneRedundantCitation(casesPath, term, caseFilter = '') {
     if (modified) _writeJson(casesPath, data);
 }
 
-async function validateFilesJson(filesPath, caseDir, checkUrls, printHeader, opinionsOnly) {
+async function verifyFilesJson(filesPath, caseDir, checkUrls, printHeader, opinionsOnly) {
     let data;
     try { data = JSON.parse(fs.readFileSync(filesPath, 'utf8')); } catch { return; }
     if (!Array.isArray(data)) return;
@@ -1434,14 +1437,14 @@ async function validateFilesJson(filesPath, caseDir, checkUrls, printHeader, opi
     }
 }
 
-async function validateCase(termDir, caseNumber, checkUrls, opinionsOnly) {
+async function verifyCase(termDir, caseNumber, checkUrls, opinionsOnly) {
     const filesPath = path.join(termDir, 'cases', caseNumber, 'files.json');
     if (!fs.existsSync(filesPath)) return;
     const printed = [false];
     const printHeader = () => {
         if (!printed[0]) { console.log(`${caseNumber}:`); printed[0] = true; }
     };
-    await validateFilesJson(filesPath, path.dirname(filesPath), checkUrls, printHeader, opinionsOnly);
+    await verifyFilesJson(filesPath, path.dirname(filesPath), checkUrls, printHeader, opinionsOnly);
     await checkOpinionForCase(filesPath, caseNumber, path.basename(termDir), printHeader);
 }
 
@@ -2353,8 +2356,22 @@ function _splitCsvLine(line) {
     return out;
 }
 
+function _readScdbSource(srcPath) {
+    const buf = fs.readFileSync(srcPath);
+    // Strip UTF-8 BOM if present.
+    const start = (buf.length >= 3 && buf[0] === 0xEF && buf[1] === 0xBB && buf[2] === 0xBF) ? 3 : 0;
+    const slice = start ? buf.subarray(start) : buf;
+    try {
+        const dec = new TextDecoder('utf-8', { fatal: true });
+        return { text: dec.decode(slice), encoding: 'utf-8' };
+    } catch {
+        return { text: slice.toString('latin1'), encoding: 'latin1' };
+    }
+}
+
 function _processScdbFile(srcPath, outPath) {
-    const text = fs.readFileSync(srcPath, 'latin1');
+    const { text, encoding } = _readScdbSource(srcPath);
+    if (encoding !== 'utf-8') console.log(`  (read ${path.basename(srcPath)} as ${encoding})`);
     const lines = text.split(/\r\n|\r|\n/);
     while (lines.length && lines[lines.length - 1] === '') lines.pop();
     if (!lines.length) {
@@ -2418,6 +2435,8 @@ const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
 const _SCDB_JUSTICES    = path.join(__dirname, 'justices.json');
 const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
 const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
+const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
+const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
 
 const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
 const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
@@ -2462,20 +2481,50 @@ function _readCsvRows(filePath, encoding = 'utf8') {
     return { fields, rows };
 }
 
+function _scdbDecodeEntities(s) {
+    if (typeof s !== 'string' || s.indexOf('&') < 0) return s;
+    const named = {
+        amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00a0',
+        sect: '\u00a7', para: '\u00b6', deg: '\u00b0', copy: '\u00a9',
+        reg: '\u00ae', trade: '\u2122', mdash: '\u2014', ndash: '\u2013',
+        lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201c', rdquo: '\u201d',
+        hellip: '\u2026', laquo: '\u00ab', raquo: '\u00bb', middot: '\u00b7',
+        bull: '\u2022', dagger: '\u2020', Dagger: '\u2021',
+    };
+    return s.replace(/&(#x[0-9a-f]+|#\d+|[a-zA-Z]+);/g, (m, ent) => {
+        if (ent[0] === '#') {
+            const cp = ent[1] === 'x' || ent[1] === 'X' ? parseInt(ent.slice(2), 16) : parseInt(ent.slice(1), 10);
+            if (Number.isFinite(cp)) try { return String.fromCodePoint(cp); } catch { return m; }
+            return m;
+        }
+        return Object.prototype.hasOwnProperty.call(named, ent) ? named[ent] : m;
+    });
+}
+
 function _scdbLoadVarsMap() {
-    if (!fs.existsSync(_SCDB_VARS_PATH)) return {};
+    if (!fs.existsSync(_SCDB_VARS_PATH)) return { map: {}, sets: {}, declared: new Set() };
     let raw; try { raw = JSON.parse(fs.readFileSync(_SCDB_VARS_PATH, 'utf8')); }
-    catch { return {}; }
+    catch { return { map: {}, sets: {}, declared: new Set() }; }
     const result = {};
+    const sets = {};
+    const declared = new Set(Object.keys(raw));
     for (const [col, spec] of Object.entries(raw)) {
-        if (spec && typeof spec.values === 'object' && spec.values) result[col] = spec.values;
-    }
-    for (const [col, spec] of Object.entries(raw)) {
-        if (spec && typeof spec.values === 'string' && result[spec.values]) {
-            result[col] = result[spec.values];
+        if (!spec) continue;
+        if (Array.isArray(spec.values)) {
+            sets[col] = new Set(spec.values.map(v => _scdbDecodeEntities(String(v))));
+        } else if (typeof spec.values === 'object' && spec.values) {
+            const m = {};
+            for (const [k, v] of Object.entries(spec.values)) m[k] = _scdbDecodeEntities(typeof v === 'string' ? v : String(v));
+            result[col] = m;
         }
     }
-    return result;
+    for (const [col, spec] of Object.entries(raw)) {
+        if (spec && typeof spec.values === 'string') {
+            if (result[spec.values]) result[col] = result[spec.values];
+            else if (sets[spec.values]) sets[col] = sets[spec.values];
+        }
+    }
+    return { map: result, sets, declared };
 }
 
 function _scdbLoadJusticesMap() {
@@ -2491,30 +2540,42 @@ function _scdbLoadJusticesMap() {
     return out;
 }
 
-function _scdbNormalizeRow(row, varsMaps, normIssues) {
+function _scdbNormalizeRow(row, varsMaps, varsSets, normIssues, unmappedFields, declaredCols) {
     const out = {};
     for (const [col, raw] of Object.entries(row)) {
         const val = String(raw ?? '').trim();
         const map = varsMaps[col];
+        const set = varsSets ? varsSets[col] : null;
         if (map && val && val.toUpperCase() !== 'NULL') {
             const label = map[val];
             if (label === undefined) {
                 normIssues.add(`${col}\u0000${val}`);
                 out[col] = val;
             } else out[col] = label;
-        } else out[col] = val;
+        } else {
+            if (set && val && val.toUpperCase() !== 'NULL' && !set.has(val)) {
+                normIssues.add(`${col}\u0000${val}`);
+            }
+            if (unmappedFields && val && val.toUpperCase() !== 'NULL' && !map && !set &&
+                declaredCols && !declaredCols.has(col) && !_SCDB_JUSTICE_COLS.includes(col)) {
+                let s = unmappedFields.get(col);
+                if (!s) { s = new Set(); unmappedFields.set(col, s); }
+                if (s.size < 20) s.add(val);
+            }
+            out[col] = val;
+        }
     }
     return out;
 }
 
-function _scdbLoadCsv(csvPath, table, varsMaps, normIssues) {
+function _scdbLoadCsv(csvPath, table, varsMaps, varsSets, normIssues, unmappedFields, declaredCols) {
     if (!fs.existsSync(csvPath)) return 0;
     const { rows } = _readCsvRows(csvPath, 'utf8');
     let added = 0;
     for (const row of rows) {
         const cid = (row.caseId || '').trim();
         if (!cid) continue;
-        const norm = _scdbNormalizeRow(row, varsMaps, normIssues);
+        const norm = _scdbNormalizeRow(row, varsMaps, varsSets, normIssues, unmappedFields, declaredCols);
         const justice = {};
         for (const c of _SCDB_JUSTICE_COLS) if (c in norm) justice[c] = norm[c];
         if (!table[cid]) {
@@ -2880,7 +2941,7 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, update, verbose) {
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -2912,31 +2973,34 @@ function _scdbVerifyTerms(scdb, termFilter, update, verbose) {
         for (const c of cases) {
             const cid = c.id;
             if (!cid) { skipped++; continue; }
+            if (caseFilter && cid !== caseFilter) continue;
             total++;
             const prefix = `[${term}] ${cid} (${c.title || cid})`;
 
             const row = scdb[cid];
             if (!row) { errors.push(`${prefix}: caseId not found in SCDB`); continue; }
 
+            const caseErrors = [];
+
             const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
             if (scdbArg && !_scdbContainsDate(c.argument, scdbArg))
-                errors.push(`${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
+                caseErrors.push(`${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
 
             const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
             if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe))
-                errors.push(`${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
+                caseErrors.push(`${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
 
             const scdbDec = _scdbNormalizeDate(row.dateDecision || '');
             const ourDec  = _scdbNormalizeDate(c.decision || '');
             if (scdbDec && ourDec && scdbDec !== ourDec)
-                errors.push(`${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
+                caseErrors.push(`${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
 
             if (_scdbHasImportedOpinion(c)) {
                 const [maj, minv] = _scdbMajorityCounts(row);
                 if (maj  !== null && c.voteMajority !== maj)
-                    errors.push(`${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
+                    caseErrors.push(`${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
                 if (minv !== null && c.voteMinority !== minv)
-                    errors.push(`${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
+                    caseErrors.push(`${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
 
                 const sV = _scdbVotesSubset(row);
                 const oV = _scdbOurVotesSubset(c);
@@ -2952,7 +3016,16 @@ function _scdbVerifyTerms(scdb, termFilter, update, verbose) {
                         for (const x of onlyOurs) { const [n, v] = x.split('\u0000'); lines.push(`      ours only:  ${n} / ${v}`); }
                         msg = lines.join('\n');
                     }
-                    errors.push(msg);
+                    caseErrors.push(msg);
+                }
+            }
+
+            if (caseErrors.length) {
+                for (const e of caseErrors) errors.push(e);
+                if (verbose) {
+                    console.log(`\n${prefix}: mismatch detail`);
+                    console.log(`  ours:  ${JSON.stringify(c, null, 2).split('\n').join('\n  ')}`);
+                    console.log(`  scdb:  ${JSON.stringify(row, null, 2).split('\n').join('\n  ')}`);
                 }
             }
 
@@ -3052,29 +3125,93 @@ async function runScdb(opts) {
     // 1) First, migrate/condense any newly-downloaded SCDB CSVs.
     processScdbDownloads();
 
-    // 2) Load combined SCDB table.
-    const varsMaps   = _scdbLoadVarsMap();
-    if (Object.keys(varsMaps).length) console.log(`Loaded vars.json (${Object.keys(varsMaps).length} column mappings).`);
-    else console.log('WARNING: vars.json not found or empty — no normalization applied.');
+    // 2) Load combined SCDB table — use cache when fresh.
+    const scdb = {};
+    const normIssues = new Set();
+    const unmappedFields = new Map();
+    let usedCache = false;
+
+    if (fs.existsSync(_SCDB_CACHE_PATH) &&
+        !opts.noCache &&
+        fs.existsSync(_SCDB_MODERN_CSV) &&
+        fs.existsSync(_SCDB_LEGACY_CSV)) {
+        const cacheMtime  = fs.statSync(_SCDB_CACHE_PATH).mtimeMs;
+        const modernMtime = fs.statSync(_SCDB_MODERN_CSV).mtimeMs;
+        const legacyMtime = fs.statSync(_SCDB_LEGACY_CSV).mtimeMs;
+        const varsMtime   = fs.existsSync(_SCDB_VARS_PATH) ? fs.statSync(_SCDB_VARS_PATH).mtimeMs : 0;
+        if (cacheMtime >= modernMtime && cacheMtime >= legacyMtime && cacheMtime >= varsMtime) {
+            try {
+                const cached = JSON.parse(fs.readFileSync(_SCDB_CACHE_PATH, 'utf8'));
+                Object.assign(scdb, cached);
+                usedCache = true;
+                console.log(`Loaded SCDB cache (${Object.keys(scdb).length.toLocaleString()} cases) from ${path.relative(REPO_ROOT, _SCDB_CACHE_PATH)}.`);
+            } catch (e) {
+                console.log(`WARNING: failed to read SCDB cache (${e.message}); rebuilding.`);
+            }
+        }
+    }
 
     _scdbJusticesMap = _scdbLoadJusticesMap();
     if (Object.keys(_scdbJusticesMap).length) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries).`);
     else console.log('WARNING: justices.json not found — justice names not normalized.');
 
-    if (!fs.existsSync(_SCDB_MODERN_CSV)) { console.error(`ERROR: ${_SCDB_MODERN_CSV} not found`); process.exit(1); }
-    if (!fs.existsSync(_SCDB_LEGACY_CSV)) { console.error(`ERROR: ${_SCDB_LEGACY_CSV} not found`); process.exit(1); }
+    if (!usedCache) {
+        const { map: varsMaps, sets: varsSets, declared: declaredCols } = _scdbLoadVarsMap();
+        const mapCount = Object.keys(varsMaps).length;
+        const setCount = Object.keys(varsSets).length;
+        if (mapCount || setCount) console.log(`Loaded vars.json (${mapCount} value mappings, ${setCount} value whitelists).`);
+        else console.log('WARNING: vars.json not found or empty — no normalization applied.');
 
-    const scdb = {};
-    const normIssues = new Set();
-    const mAdded = _scdbLoadCsv(_SCDB_MODERN_CSV, scdb, varsMaps, normIssues);
-    const lAdded = _scdbLoadCsv(_SCDB_LEGACY_CSV, scdb, varsMaps, normIssues);
-    console.log(`Loaded ${mAdded.toLocaleString()} cases from modern, ${lAdded.toLocaleString()} unique cases from legacy (${Object.keys(scdb).length.toLocaleString()} total).`);
+        if (!fs.existsSync(_SCDB_MODERN_CSV)) { console.error(`ERROR: ${_SCDB_MODERN_CSV} not found`); process.exit(1); }
+        if (!fs.existsSync(_SCDB_LEGACY_CSV)) { console.error(`ERROR: ${_SCDB_LEGACY_CSV} not found`); process.exit(1); }
 
-    if (normIssues.size && opts.verbose) {
-        console.log(`\n${normIssues.size} normalization issue(s) — unknown codes in mapped columns:`);
-        for (const x of [...normIssues].sort()) {
-            const [col, val] = x.split('\u0000');
-            console.log(`  ${col}: ${JSON.stringify(val)}`);
+        const mAdded = _scdbLoadCsv(_SCDB_MODERN_CSV, scdb, varsMaps, varsSets, normIssues, unmappedFields, declaredCols);
+        const lAdded = _scdbLoadCsv(_SCDB_LEGACY_CSV, scdb, varsMaps, varsSets, normIssues, unmappedFields, declaredCols);
+        console.log(`Loaded ${mAdded.toLocaleString()} cases from modern, ${lAdded.toLocaleString()} unique cases from legacy (${Object.keys(scdb).length.toLocaleString()} total).`);
+
+        try {
+            if (opts.noCache) {
+                if (opts.verbose) console.log(`(skipping SCDB cache write because --nocache)`);
+            } else {
+                if (!fs.existsSync(_SCDB_CACHE_DIR)) fs.mkdirSync(_SCDB_CACHE_DIR, { recursive: true });
+                const sorted = {};
+                for (const k of Object.keys(scdb).sort()) sorted[k] = scdb[k];
+                fs.writeFileSync(_SCDB_CACHE_PATH, JSON.stringify(sorted, null, 2));
+                console.log(`Wrote SCDB cache to ${path.relative(REPO_ROOT, _SCDB_CACHE_PATH)}.`);
+            }
+        } catch (e) {
+            console.log(`WARNING: failed to write SCDB cache (${e.message}).`);
+        }
+    }
+
+    if (normIssues.size) {
+        const items = [...normIssues].sort();
+        const lawMinor = items.filter(x => x.startsWith('lawMinor\u0000'));
+        const others   = items.filter(x => !x.startsWith('lawMinor\u0000'));
+        if (others.length) {
+            console.log(`\n${others.length} normalization issue(s) — unknown codes in mapped columns:`);
+            for (const x of others) {
+                const [col, val] = x.split('\u0000');
+                console.log(`  ${col}: ${JSON.stringify(val)}`);
+            }
+        }
+        if (lawMinor.length) {
+            if (opts.verbose) {
+                console.log(`\n${lawMinor.length} lawMinor value(s) not in vars.json whitelist:`);
+                for (const x of lawMinor) {
+                    const [col, val] = x.split('\u0000');
+                    console.log(`  ${col}: ${JSON.stringify(val)}`);
+                }
+            } else {
+                console.log(`\n${lawMinor.length} lawMinor value(s) not in vars.json whitelist (use --verbose to list).`);
+            }
+        }
+    }
+    if (unmappedFields.size) {
+        console.log(`\n${unmappedFields.size} CSV column(s) not declared in vars.json (showing up to 20 distinct values each):`);
+        for (const col of [...unmappedFields.keys()].sort()) {
+            const vals = [...unmappedFields.get(col)].sort();
+            console.log(`  ${col}: ${vals.map(v => JSON.stringify(v)).join(', ')}`);
         }
     }
     console.log();
@@ -3092,7 +3229,7 @@ async function runScdb(opts) {
     } else if (opts.usscDeck) {
         _scdbVerifyUsscDeck(scdb);
     } else {
-        _scdbVerifyTerms(scdb, opts.term || null, !!opts.update, !!opts.verbose);
+        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose);
     }
 }
 
@@ -3100,10 +3237,22 @@ async function runScdb(opts) {
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
-const USAGE = `Usage: node scripts/verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
-       node scripts/verify_cases.js TERM_START TERM_END [--checkurls] [--opinions] [--verbose] [--dry-run]
-       node scripts/verify_cases.js [TERM] --scdb [--update] [--ussc-deck] [--case CASEID] [--add] [--verbose]
-       node scripts/verify_cases.js                  # validate all terms`;
+const USAGE = `Usage: node verify_cases.js                                # verify all terms
+       node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+       node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
+
+Examples:
+  node verify_cases.js 2025-10
+  node verify_cases.js 2025-10 24-1260
+  node verify_cases.js 2025-10 --checkurls --opinions
+  node verify_cases.js 2025-10 --dry-run
+
+  node verify_cases.js --scdb                              # rebuild cache + verify all terms
+  node verify_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
+  node verify_cases.js 1926-10 --scdb                      # verify one term vs SCDB
+  node verify_cases.js 1926-10 1926-011 --scdb --verbose   # verify one case; dump mismatching JSON
+  node verify_cases.js --scdb --ussc-deck                  # also rebuild data/aa/ussc_deck.csv
+  node verify_cases.js 2024-10 --scdb --update             # apply SCDB-derived fixes to cases.json`;
 
 async function processOneTerm(term, opts) {
     const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, caseFilter, speakerMapBase } = opts;
@@ -3122,7 +3271,7 @@ async function processOneTerm(term, opts) {
         migrateArgumentsToAudio(casesPath);
         if (!dryRun) removeRedundantTranscriptFiles(casesPath);
         deduplicateCases(casesPath);
-        validateCasesJsonArguments(casesPath, term, dryRun);
+        verifyCasesJsonArguments(casesPath, term, dryRun);
         normalizeAudioAlignedPosition(casesPath);
         checkAudioDates(casesPath, term, dryRun);
         checkDecisionDates(casesPath, term);
@@ -3137,7 +3286,7 @@ async function processOneTerm(term, opts) {
     const speakerMap = [...speakerMapBase, ...filterSpeakerMap(loadSpeakerMap(), term)];
 
     if (caseFilter) {
-        await validateCase(termDir, caseFilter, checkUrls, opinionsOnly);
+        await verifyCase(termDir, caseFilter, checkUrls, opinionsOnly);
         applySpeakerMapToCase(path.join(termDir, 'cases', caseFilter), speakerMap, dryRun);
     } else {
         const casesDir = path.join(termDir, 'cases');
@@ -3146,7 +3295,7 @@ async function processOneTerm(term, opts) {
             : [];
         if (!caseDirs.length && verbose) console.log(`NOTICE: ${term}: no case directories found`);
         for (const d of caseDirs) {
-            await validateCase(termDir, d, checkUrls, opinionsOnly);
+            await verifyCase(termDir, d, checkUrls, opinionsOnly);
             applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
         }
     }
@@ -3156,6 +3305,10 @@ async function processOneTerm(term, opts) {
 
 async function main() {
     const argv = process.argv.slice(2);
+    if (argv.includes('--help') || argv.includes('-h')) {
+        console.log(USAGE);
+        return;
+    }
     // Parse flag values: support both `--key value` and `--key=value`.
     const flagValues = {};
     const boolFlags  = new Set();
@@ -3192,9 +3345,11 @@ async function main() {
         await runScdb({
             term:     positional[0] || null,
             case:     flagValues.case || null,
+            caseFilter: positional[1] || null,
             update:   flags.has('--update'),
             add:      flags.has('--add'),
             usscDeck: flags.has('--ussc-deck') || flags.has('--ussc_deck'),
+            noCache:  flags.has('--nocache') || flags.has('--no-cache'),
             verbose,
         });
         return;
@@ -3214,9 +3369,7 @@ async function main() {
     // Decide scope.
     //   0 args        → all terms
     //   1 arg (TERM)  → single term
-    //   2 args:
-    //     - if arg2 looks like YYYY or YYYY-MM → range  TERM_START..TERM_END
-    //     - otherwise                           → TERM CASE
+    //   2 args        → TERM CASE
     let termsToProcess = [];
     let caseFilter = null;
     if (positional.length === 0) {
@@ -3224,17 +3377,8 @@ async function main() {
     } else if (positional.length === 1) {
         termsToProcess = [positional[0]];
     } else {
-        const looksLikeTerm = /^\d{4}(-\d{2})?$/.test(positional[1]);
-        if (looksLikeTerm) {
-            try {
-                const start = _parseTermArg(positional[0]);
-                const end   = _parseTermArg(positional[1]);
-                termsToProcess = allTerms.filter(t => t >= start && t <= end);
-            } catch (e) { console.log(USAGE); process.exit(1); }
-        } else {
-            termsToProcess = [positional[0]];
-            caseFilter = positional[1];
-        }
+        termsToProcess = [positional[0]];
+        caseFilter = positional[1];
     }
 
     if (!termsToProcess.length) {
@@ -3344,10 +3488,10 @@ if (_isMain) {
 // Export newly added utilities so other scripts can reuse them.
 export {
     loadSpeakerMap, filterSpeakerMap, applySpeakerMapToCase,
-    migrateArgumentsToAudio, validateCasesJsonArguments, normalizeAudioAlignedPosition,
+    migrateArgumentsToAudio, verifyCasesJsonArguments, normalizeAudioAlignedPosition,
     removeRedundantTranscriptFiles, checkDecisionDates, checkCaseHrefs,
     backfillUntrackedFiles, checkAudioDates, warnMissingOpinionHref,
-    validateFilesJson, validateCase, deduplicateCases,
+    verifyFilesJson, verifyCase, deduplicateCases,
     checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
     fixKeyOrder, fixTextHrefs, checkMissingTextHrefs, checkOrphanedTranscripts,
     checkDuplicateTextHrefs, fixOyezTranscriptHrefs, checkDuplicateMediaHrefs,
