@@ -10,6 +10,7 @@ webrick:
 exclude:
   - .github/
   - .history/
+  - config.json
   - Gemfile
   - Gemfile.lock
   - package.json
@@ -19,7 +20,7 @@ exclude:
   - scripts/
   - courts/ussc/journals/
   - courts/ussc/transcripts/
-  - data/aa/
+  - data/ld/
   - data/scdb/
 defaults:
   - scope:
