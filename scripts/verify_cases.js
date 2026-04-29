@@ -2672,6 +2672,8 @@ let _scdbJusticesMap = {};
 function _scdbVotesSubset(row) {
     const out = [];
     for (const j of (row.justices || [])) {
+        // Skip jurisdictional dissents — we don't count them in our data.
+        if ((j.vote || '').trim().toLowerCase() === 'jurisdictional dissent') continue;
         let name = (j.justiceName || '').trim().toUpperCase();
         if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
         const maj = _scdbVoteToOurs(j.majority || '');
@@ -2711,7 +2713,14 @@ function _scdbMajorityCounts(row) {
         const n = parseFloat(s);
         return Number.isFinite(n) ? Math.trunc(n) : null;
     };
-    return [parse(row.majVotes), parse(row.minVotes)];
+    let maj  = parse(row.majVotes);
+    let minv = parse(row.minVotes);
+    // Exclude jurisdictional dissents from the minority count — we don't count them.
+    if (minv !== null && Array.isArray(row.justices)) {
+        const jd = row.justices.filter(j => (j.vote || '').trim().toLowerCase() === 'jurisdictional dissent').length;
+        if (jd) minv = Math.max(0, minv - jd);
+    }
+    return [maj, minv];
 }
 
 function _scdbFieldPresent(c, key) {
@@ -2730,6 +2739,25 @@ function _scdbHasImportedOpinion(c) {
     return false;
 }
 
+function _scdbMergeVotes(existing, fromScdb) {
+    const list = Array.isArray(existing) ? existing.slice() : [];
+    const seen = new Set();
+    for (const v of list) {
+        if (v && typeof v === 'object' && v.name) {
+            seen.add(`${String(v.name).trim().toUpperCase()}\u0000${String(v.vote || '').trim().toLowerCase()}`);
+        }
+    }
+    let added = 0;
+    for (const v of fromScdb) {
+        const key = `${v.name}\u0000${v.vote}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        list.push({ name: v.name, vote: v.vote });
+        added++;
+    }
+    return { votes: list, added };
+}
+
 function _scdbApplyOpinionUpdate(c, row) {
     const usCite = _scdbNormalizeCite(row.usCite || '');
     const [volume, page] = _scdbParseUsCite(usCite);
@@ -2739,14 +2767,32 @@ function _scdbApplyOpinionUpdate(c, row) {
 
     if (!(volume || page || usCite || maj !== null || minv !== null || votes.length || opinionHref)) return false;
 
+    // If usCite is/will be present and parses to the same volume/page, don't write redundant keys.
+    const effectiveUsCite = _scdbFieldPresent(c, 'usCite') ? c.usCite : usCite;
+    const [citeVol, citePage] = _scdbParseUsCite(effectiveUsCite);
+
     const next = { ...c };
-    if (volume       && !_scdbFieldPresent(c, 'volume'))       next.volume = volume;
-    if (page         && !_scdbFieldPresent(c, 'page'))         next.page = page;
+    if (volume       && !_scdbFieldPresent(c, 'volume') && volume !== citeVol)  next.volume = volume;
+    if (page         && !_scdbFieldPresent(c, 'page')   && page   !== citePage) next.page = page;
     if (usCite       && !_scdbFieldPresent(c, 'usCite'))       next.usCite = usCite;
     if (maj  !== null && !_scdbFieldPresent(c, 'voteMajority')) next.voteMajority = maj;
     if (minv !== null && !_scdbFieldPresent(c, 'voteMinority')) next.voteMinority = minv;
-    if (votes.length && !_scdbFieldPresent(c, 'votes'))        next.votes = votes;
+    if (votes.length) {
+        if (!_scdbFieldPresent(c, 'votes')) {
+            next.votes = votes;
+        } else {
+            const merged = _scdbMergeVotes(c.votes, votes);
+            if (merged.added) next.votes = merged.votes;
+        }
+    }
     if (opinionHref  && !_scdbFieldPresent(c, 'opinion_href')) next.opinion_href = opinionHref;
+
+    // Strip redundant volume/page if usCite already implies them.
+    if (_scdbFieldPresent(next, 'usCite')) {
+        const [nvCv, nvCp] = _scdbParseUsCite(next.usCite);
+        if (nvCv && next.volume === nvCv) delete next.volume;
+        if (nvCp && next.page === nvCp) delete next.page;
+    }
 
     const reordered = reorderCase(next);
     if (JSON.stringify(reordered) === JSON.stringify(c)) return false;
