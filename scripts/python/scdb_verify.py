@@ -4,7 +4,7 @@ Verify our cases.json data against SCDB CSV files.
 
 Loads the latest "modern" SCDB CSV (highest 4-digit year, e.g. 2025_01.csv)
 and the latest "legacy" SCDB CSV (highest revision number after "Legacy_",
-e.g. Legacy_07.csv) from data/scdb/, merges them into an indexed table by
+e.g. Legacy_07.csv) from scdb/, merges them into an indexed table by
 caseId, then checks one or more courts/ussc/terms/*/cases.json files.
 
 Default verification behavior for every case object with an "id":
@@ -63,11 +63,11 @@ sys.path.insert(0, str(SCRIPT_DIR.parent))
 
 from schema import reorder_case
 
-DATA_DIR = REPO_DIR / "data" / "scdb"
+DATA_DIR = REPO_DIR / "scdb"
 TERMS_DIR = REPO_DIR / "courts" / "ussc" / "terms"
-USCC_DECK_PATH = REPO_DIR / "data" / "ld" / "ussc_deck.csv"
-LD_CITATIONS_PATH = REPO_DIR / "data" / "ld" / "ussc_citations.csv"
-LD_DATES_PATH = REPO_DIR / "data" / "ld" / "ussc_dates.csv"
+USCC_DECK_PATH = REPO_DIR / "data" / "aa" / "ussc_deck.csv"
+LD_CITATIONS_PATH = REPO_DIR / "data" / "aa" / "ussc_citations.csv"
+LD_DATES_PATH = REPO_DIR / "data" / "aa" / "ussc_dates.csv"
 VARS_PATH = DATA_DIR / "vars.json"
 JUSTICES_JSON_PATH = REPO_DIR / "scripts" / "justices.json"
 

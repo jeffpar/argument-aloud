@@ -2311,7 +2311,7 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 //
 // Migrated from scripts/scdb/post_download.py. For each SCDB download named
 // in config.json under "scdb" (modern/legacy), reads the corresponding
-// CSV in data/scdb/, converts MM/DD/YYYY date values to YYYY-MM-DD, removes
+// CSV in scdb/, converts MM/DD/YYYY date values to YYYY-MM-DD, removes
 // unused columns, and writes <key>.csv (e.g. modern.csv / legacy.csv). The
 // original SCDB_*.csv file is deleted on success.
 
@@ -2408,7 +2408,7 @@ function processScdbDownloads() {
         return;
     }
     const scdb = cfg?.scdb || {};
-    const dataDir = path.join(REPO_ROOT, 'data', 'scdb');
+    const dataDir = path.join(REPO_ROOT, 'scdb');
     let any = false;
     for (const [key, basename] of Object.entries(scdb)) {
         if (!basename) continue;
@@ -2426,7 +2426,7 @@ function processScdbDownloads() {
 // SCDB cases.json verification (migrated from scripts/scdb/verify_cases.py)
 // ═══════════════════════════════════════════════════════════════════════════
 
-const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'data', 'scdb');
+const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const _SCDB_DECK_PATH   = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
 const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_citations.csv');

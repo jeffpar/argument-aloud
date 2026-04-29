@@ -3,7 +3,7 @@
 Post-download processing for SCDB CSV files.
 
 Reads every SCDB_<category>_<release>_justiceCentered_Citation.csv file in
-data/scdb/, converts date values from MM/DD/YYYY to YYYY-MM-DD, removes the
+scdb/, converts date values from MM/DD/YYYY to YYYY-MM-DD, removes the
 sctCite / ledCite / lexisCite columns, saves the result as
 <category>_<release>.csv, and deletes the original file.
 
@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-DATA_DIR = SCRIPT_DIR.parent.parent / "data" / "scdb"
+DATA_DIR = SCRIPT_DIR.parent.parent / "scdb"
 
 # Matches the full SCDB download filename; captures the middle portion that
 # becomes the output filename (e.g. "2025_01" or "Legacy_07").
