@@ -76,6 +76,7 @@ That spreadsheet contains all previously available data, along with any women ad
   - [CECILLIA D. WANG](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=cecillia_d_wang) argued on April 1, 2026 in [Trump, President of U.S. v. Barbara (No. 25-365)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=25-365)
   - [ELIZABETH B. PRELOGAR](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=elizabeth_b_prelogar) argued on April 20, 2026 in [T. M. v. Univ. of MD Medical Sys. Corp. (No. 25-197)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=25-197)
   - [LISA S. BLATT](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=lisa_s_blatt) argued on April 20, 2026 in [T. M. v. Univ. of MD Medical Sys. Corp. (No. 25-197)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=25-197)
+  - [SARAH M. HARRIS](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=sarah_m_harris) argued on April 27, 2026 in [Monsanto Co. v. Durnell (No. 24-1068)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=24-1068)
 
 ### Corrections made to "Women Advocates Through October Term 2024"
 
