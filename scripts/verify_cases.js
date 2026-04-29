@@ -19,9 +19,12 @@
  *   node verify_cases.js --scdb --nocache           # ignore SCDB cache
  *   node verify_cases.js 1926-10 --scdb             # verify one term against SCDB
  *   node verify_cases.js 1926-10 1926-011 --scdb --verbose
- *                                                           # verify one case; dump mismatching JSON
+ *                                                           # verify one case; show extra detail
  *   node verify_cases.js --scdb --ussc-deck         # also rebuild data/aa/ussc_deck.csv
  *   node verify_cases.js 2024-10 --scdb --update    # apply SCDB-derived fixes to cases.json
+ *                                                   # (records date disagreements in scdb_errors;
+ *                                                   #  fills in missing votes / vote counts)
+ *   node verify_cases.js 2024-10 --scdb --debug     # also dump full ours/scdb JSON on mismatch
  *
  * Combines the logic of:
  *   scripts/python/validate_cases.py
@@ -2668,6 +2671,25 @@ function _scdbVoteTypeToMajority(v) {
 }
 
 let _scdbJusticesMap = {};
+let _scdbJusticesTenures = {}; // canonical UPPERCASE name -> [{start, stop}]
+
+function _scdbLoadJusticesTenures() {
+    if (!fs.existsSync(_SCDB_JUSTICES)) return {};
+    let data; try { data = JSON.parse(fs.readFileSync(_SCDB_JUSTICES, 'utf8')); }
+    catch { return {}; }
+    const out = {};
+    for (const [canonical, spec] of Object.entries(data)) {
+        const c = canonical.toUpperCase();
+        const tenures = [];
+        if (Array.isArray(spec?.tenures)) {
+            for (const t of spec.tenures) tenures.push({ start: t.dateStart || '', stop: t.dateStop || '' });
+        } else if (spec?.dateStart || spec?.dateStop) {
+            tenures.push({ start: spec.dateStart || '', stop: spec.dateStop || '' });
+        }
+        if (tenures.length) out[c] = tenures;
+    }
+    return out;
+}
 
 function _scdbVotesSubset(row) {
     const out = [];
@@ -2690,6 +2712,19 @@ function _scdbVotesSubset(row) {
         const maj = _scdbVoteToOurs(j.majority || '');
         if (maj !== 'majority' && maj !== 'minority') continue;
         out.push({ name, vote: maj });
+    }
+    return out;
+}
+
+// All justice names listed by SCDB for a case row, regardless of whether they
+// participated. Used to suppress "ours only" mismatches when SCDB explicitly
+// shows the justice as non-participating (blank vote/majority fields).
+function _scdbAllJusticeNames(row) {
+    const out = new Set();
+    for (const j of (row.justices || [])) {
+        let name = (j.justiceName || '').trim().toUpperCase();
+        if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
+        if (name) out.add(name);
     }
     return out;
 }
@@ -2811,6 +2846,54 @@ function _scdbApplyOpinionUpdate(c, row) {
     for (const k of Object.keys(c)) delete c[k];
     Object.assign(c, reordered);
     return true;
+}
+
+// Minimal corrective updates (used when --update is set). Trusts our data for
+// date fields (records disagreement in scdb_errors) and trusts SCDB for missing
+// votes and vote counts.
+function _scdbApplyXUpdate(c, row, mm) {
+    let changed = false;
+
+    const addToErrors = (field) => {
+        const cur = String(c.scdb_errors || '').split(',').map(s => s.trim()).filter(Boolean);
+        if (cur.includes(field)) return;
+        cur.push(field);
+        c.scdb_errors = cur.join(',');
+        changed = true;
+    };
+
+    if (mm.decision)   addToErrors('decision');
+    if (mm.argument)   addToErrors('argument');
+    if (mm.reargument) addToErrors('reargument');
+
+    if (mm.missingVotes && mm.missingVotes.length) {
+        const list = Array.isArray(c.votes) ? c.votes.slice() : [];
+        const seen = new Set(
+            list.filter(v => v && v.name).map(v => String(v.name).trim().toUpperCase())
+        );
+        for (const v of mm.missingVotes) {
+            if (seen.has(v.name)) continue;
+            seen.add(v.name);
+            list.push({ name: v.name, vote: v.vote });
+            changed = true;
+        }
+        c.votes = list;
+    }
+
+    const [maj, minv] = _scdbMajorityCounts(row);
+    if (mm.voteMajority !== null && maj  !== null && c.voteMajority !== maj) {
+        c.voteMajority = maj; changed = true;
+    }
+    if (mm.voteMinority !== null && minv !== null && c.voteMinority !== minv) {
+        c.voteMinority = minv; changed = true;
+    }
+
+    if (changed) {
+        const reordered = reorderCase(c);
+        for (const k of Object.keys(c)) delete c[k];
+        Object.assign(c, reordered);
+    }
+    return changed;
 }
 
 function _scdbLoadLdTitles() {
@@ -2999,7 +3082,7 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose) {
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -3039,30 +3122,82 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose) {
             if (!row) { errors.push(`${prefix}: caseId not found in SCDB`); continue; }
 
             const caseErrors = [];
+            const ignored = new Set(
+                String(c.scdb_errors || '')
+                    .split(',')
+                    .map(s => s.trim())
+                    .filter(Boolean)
+            );
+            const pushErr = (field, msg) => {
+                if (ignored.has(field)) return;
+                if (verbose) msg += `\n${' '.repeat(21)}${c.opinion_href || ''}\n`;
+                caseErrors.push(msg);
+            };
+
+            // Preliminary tenure precheck: every justice in c.votes must have
+            // been serving on c.decision date.
+            const decIso = _scdbNormalizeDate(c.decision || '');
+            if (decIso && Array.isArray(c.votes)) {
+                for (const v of c.votes) {
+                    if (!v || !v.name) continue;
+                    let nm = String(v.name).trim().toUpperCase();
+                    if (_scdbJusticesMap[nm]) nm = _scdbJusticesMap[nm];
+                    const ten = _scdbJusticesTenures[nm];
+                    if (!ten) continue;
+                    const ok = ten.some(t =>
+                        (!t.start || decIso >= t.start) &&
+                        (!t.stop  || decIso <= t.stop));
+                    if (!ok && verbose) {
+                        const ranges = ten.map(t => `${t.start || '?'}–${t.stop || 'present'}`).join(', ');
+                        caseErrors.push(`${prefix}: justice "${v.name}" not serving on decision ${decIso} (tenure(s): ${ranges})`);
+                    }
+                }
+            }
+
+            const mm = { decision: false, argument: false, reargument: false,
+                         voteMajority: null, voteMinority: null, missingVotes: [] };
 
             const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
-            if (scdbArg && !_scdbContainsDate(c.argument, scdbArg))
-                caseErrors.push(`${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
+            if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
+                mm.argument = true;
+                pushErr('argument', `${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
+            }
 
             const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
-            if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe))
-                caseErrors.push(`${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
+            if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe)) {
+                mm.reargument = true;
+                pushErr('reargument', `${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
+            }
 
             const scdbDec = _scdbNormalizeDate(row.dateDecision || '');
             const ourDec  = _scdbNormalizeDate(c.decision || '');
-            if (scdbDec && ourDec && scdbDec !== ourDec)
-                caseErrors.push(`${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
+            if (scdbDec && ourDec && scdbDec !== ourDec) {
+                mm.decision = true;
+                pushErr('decision', `${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
+            }
 
             if (_scdbHasImportedOpinion(c)) {
                 const [maj, minv] = _scdbMajorityCounts(row);
-                if (maj  !== null && c.voteMajority !== maj)
-                    caseErrors.push(`${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
-                if (minv !== null && c.voteMinority !== minv)
-                    caseErrors.push(`${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
+                if (maj  !== null && c.voteMajority !== maj) {
+                    mm.voteMajority = maj;
+                    pushErr('voteMajority', `${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
+                }
+                if (minv !== null && c.voteMinority !== minv) {
+                    mm.voteMinority = minv;
+                    pushErr('voteMinority', `${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
+                }
 
                 const sV = _scdbVotesSubset(row);
-                const oV = _scdbOurVotesSubset(c);
+                let oV = _scdbOurVotesSubset(c);
+                // If SCDB explicitly lists a justice on the case but with no
+                // participating vote, treat them as non-participating and drop
+                // any matching entry from our side rather than flagging it.
+                const scdbAll  = _scdbAllJusticeNames(row);
+                const scdbVoted = new Set(sV.map(v => v.name));
+                oV = oV.filter(v => !(scdbAll.has(v.name) && !scdbVoted.has(v.name)));
                 if (sV.length && !_scdbVotesEqual(_scdbVotesSorted(oV), _scdbVotesSorted(sV))) {
+                    const oNames = new Set(oV.map(v => v.name));
+                    mm.missingVotes = sV.filter(v => !oNames.has(v.name));
                     let msg = `${prefix}: votes subset mismatch (name+vote).`;
                     if (verbose) {
                         const sSet = new Set(sV.map(v => `${v.name}\u0000${v.vote}`));
@@ -3074,22 +3209,21 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose) {
                         for (const x of onlyOurs) { const [n, v] = x.split('\u0000'); lines.push(`      ours only:  ${n} / ${v}`); }
                         msg = lines.join('\n');
                     }
-                    caseErrors.push(msg);
+                    pushErr('votes', msg);
                 }
             }
 
             if (caseErrors.length) {
                 for (const e of caseErrors) errors.push(e);
-                if (verbose) {
+                if (debug) {
                     console.log(`\n${prefix}: mismatch detail`);
                     console.log(`  ours:  ${JSON.stringify(c, null, 2).split('\n').join('\n  ')}`);
                     console.log(`  scdb:  ${JSON.stringify(row, null, 2).split('\n').join('\n  ')}`);
                 }
             }
 
-            if (update && _scdbApplyOpinionUpdate(c, row)) {
-                updates++;
-                termChanged = true;
+            if (update) {
+                if (_scdbApplyXUpdate(c, row, mm)) { updates++; termChanged = true; }
             }
         }
 
@@ -3210,8 +3344,9 @@ async function runScdb(opts) {
     }
 
     _scdbJusticesMap = _scdbLoadJusticesMap();
+    _scdbJusticesTenures = _scdbLoadJusticesTenures();
     if (Object.keys(_scdbJusticesMap).length) {
-        if (opts.verbose) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries).`);
+        if (opts.verbose) console.log(`Loaded justices.json (${Object.keys(_scdbJusticesMap).length} name entries, ${Object.keys(_scdbJusticesTenures).length} with tenures).`);
     } else console.log('WARNING: justices.json not found — justice names not normalized.');
 
     if (!usedCache) {
@@ -3288,7 +3423,7 @@ async function runScdb(opts) {
     } else if (opts.usscDeck) {
         _scdbVerifyUsscDeck(scdb);
     } else {
-        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose);
+        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug);
     }
 }
 
@@ -3298,7 +3433,7 @@ async function runScdb(opts) {
 
 const USAGE = `Usage: node verify_cases.js                                # verify all terms
        node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
-       node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
+       node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
 
 Examples:
   node verify_cases.js 2025-10
@@ -3309,9 +3444,12 @@ Examples:
   node verify_cases.js --scdb                              # rebuild cache + verify all terms
   node verify_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
   node verify_cases.js 1926-10 --scdb                      # verify one term vs SCDB
-  node verify_cases.js 1926-10 1926-011 --scdb --verbose   # verify one case; dump mismatching JSON
+  node verify_cases.js 1926-10 1926-011 --scdb --verbose   # verify one case; show extra detail
   node verify_cases.js --scdb --ussc-deck                  # also rebuild data/aa/ussc_deck.csv
-  node verify_cases.js 2024-10 --scdb --update             # apply SCDB-derived fixes to cases.json`;
+  node verify_cases.js 2024-10 --scdb --update             # apply SCDB-derived fixes to cases.json
+                                                           #   (records date disagreements in scdb_errors;
+                                                           #    fills in missing votes / vote counts)
+  node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch`;
 
 async function processOneTerm(term, opts) {
     const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, caseFilter, speakerMapBase } = opts;
@@ -3416,6 +3554,7 @@ async function main() {
             usscDeck: flags.has('--ussc-deck') || flags.has('--ussc_deck'),
             noCache:  flags.has('--nocache') || flags.has('--no-cache'),
             verbose,
+            debug:    flags.has('--debug'),
         });
         return;
     }

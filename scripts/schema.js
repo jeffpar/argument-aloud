@@ -15,7 +15,7 @@ export const CASE_KEY_ORDER = [
     'argument', 'reargument', 'decision',
     'volume', 'page', 'usCite', 'dateDecision',
     'voteMajority', 'voteMinority', 'votes',
-    'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'files',
+    'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'scdb_errors', 'files',
     'notes',
 ];
 
