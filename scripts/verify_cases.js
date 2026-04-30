@@ -3719,32 +3719,58 @@ Examples:
   node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch`;
 
 async function processOneTerm(term, opts) {
-    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, caseFilter, speakerMapBase } = opts;
+    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, speakerMapBase } = opts;
+    let { caseFilter } = opts;
     const termDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term);
     if (!isDir(termDir)) {
         console.log(`Skipping ${term}: directory not found.`);
         return null;
     }
 
-    checkDuplicateCaseNumbers(termDir, term, verbose);
-    checkDuplicateAudioHrefs(termDir);
-    checkCasesSync(termDir, verbose);
+    // Resolve a caseFilter that's an `id` (e.g. "1986-091") to the case directory
+    // name (the docket number, e.g. "85-2099"), so verifyCase / applySpeakerMapToCase
+    // operate on the right folder.
+    if (caseFilter) {
+        const casesPathForLookup = path.join(termDir, 'cases.json');
+        const casesDir = path.join(termDir, 'cases');
+        const dirExists = isDir(path.join(casesDir, caseFilter));
+        if (!dirExists && fs.existsSync(casesPathForLookup)) {
+            const arr = _readJson(casesPathForLookup);
+            if (Array.isArray(arr)) {
+                const match = arr.find(c => c && (c.id === caseFilter || (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)));
+                if (match && match.number) {
+                    const primary = match.number.split(',')[0].trim();
+                    if (primary && isDir(path.join(casesDir, primary))) {
+                        caseFilter = primary;
+                    }
+                }
+            }
+        }
+    }
+
+    if (!caseFilter) {
+        checkDuplicateCaseNumbers(termDir, term, verbose);
+        checkDuplicateAudioHrefs(termDir);
+        checkCasesSync(termDir, verbose);
+    }
 
     const casesPath = path.join(termDir, 'cases.json');
     if (fs.existsSync(casesPath)) {
-        migrateArgumentsToAudio(casesPath);
-        if (!dryRun) removeRedundantTranscriptFiles(casesPath);
-        deduplicateCases(casesPath);
-        verifyCasesJsonArguments(casesPath, term, dryRun);
-        normalizeAudioAlignedPosition(casesPath);
-        checkAudioDates(casesPath, term, dryRun);
-        checkDecisionDates(casesPath, term);
-        backfillUntrackedFiles(casesPath, term, dryRun);
-        if (!dryRun) syncFilesCount(casesPath);
-        syncOpinionHrefFromFiles(casesPath);
-        warnMissingOpinionHref(casesPath, term);
+        if (!caseFilter) {
+            migrateArgumentsToAudio(casesPath);
+            if (!dryRun) removeRedundantTranscriptFiles(casesPath);
+            deduplicateCases(casesPath);
+            verifyCasesJsonArguments(casesPath, term, dryRun);
+            normalizeAudioAlignedPosition(casesPath);
+            checkAudioDates(casesPath, term, dryRun);
+            checkDecisionDates(casesPath, term);
+            backfillUntrackedFiles(casesPath, term, dryRun);
+            if (!dryRun) syncFilesCount(casesPath);
+            syncOpinionHrefFromFiles(casesPath);
+            warnMissingOpinionHref(casesPath, term);
+        }
         pruneRedundantCitation(casesPath, term, caseFilter || '');
-        if (checkUrls) await checkCaseHrefs(casesPath, term, opinionsOnly);
+        if (checkUrls && !caseFilter) await checkCaseHrefs(casesPath, term, opinionsOnly);
     }
 
     const speakerMap = [...speakerMapBase, ...filterSpeakerMap(loadSpeakerMap(), term)];
@@ -3764,7 +3790,23 @@ async function processOneTerm(term, opts) {
         }
     }
 
-    return processTerm(term, dryRun, false, allTerms, false);
+    return caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
+}
+
+// Subset of processTerm checks that are safe / meaningful when scoped to a
+// single case. Returns null (so totals aren't accumulated) but performs
+// per-case warnings + writes when --update is given.
+function runPerCaseChecks(casesPath, term, caseFilter, dryRun) {
+    if (!fs.existsSync(casesPath)) return null;
+    const cases = _readJson(casesPath);
+    if (!Array.isArray(cases)) return null;
+    const matches = cases.filter(c =>
+        c && (c.id === caseFilter || (c.number || '').split(',').map(s => s.trim()).includes(caseFilter))
+    );
+    if (!matches.length) return null;
+    const resorted = verifyVoteSeniority(term, matches, !dryRun);
+    if (!dryRun && resorted) _writeJson(casesPath, cases);
+    return null;
 }
 
 async function main() {
