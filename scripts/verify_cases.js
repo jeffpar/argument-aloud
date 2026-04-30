@@ -2296,10 +2296,11 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
     const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
     const mergedCount     = !sortOnly ? mergeRefiledCases(term, cases, allTerms || [], dryRun) : 0;
+    const votesResorted   = !sortOnly ? verifyVoteSeniority(term, cases, !dryRun) : 0;
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
             || eventsSorted || casesSorted || argDatesFixed || eventTypesFixed
-            || mergedCount || hrefRedundantFixed)) {
+            || mergedCount || hrefRedundantFixed || votesResorted)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
@@ -2672,12 +2673,18 @@ function _scdbVoteTypeToMajority(v) {
 
 let _scdbJusticesMap = {};
 let _scdbJusticesTenures = {}; // canonical UPPERCASE name -> [{start, stop}]
+let _scdbJusticesChief = {};   // canonical UPPERCASE name -> [{start, stop}] (chief tenures)
+let _scdbJusticesStart = {};   // canonical UPPERCASE name -> earliest dateStart (YYYY-MM-DD)
 
 function _scdbLoadJusticesTenures() {
     if (!fs.existsSync(_SCDB_JUSTICES)) return {};
     let data; try { data = JSON.parse(fs.readFileSync(_SCDB_JUSTICES, 'utf8')); }
     catch { return {}; }
     const out = {};
+    _scdbJusticesChief = {};
+    _scdbJusticesStart = {};
+    // "YYYY-MM" → "YYYY-MM-01" for comparison with ISO decision dates.
+    const termToDate = (s) => /^\d{4}-\d{2}$/.test(s) ? `${s}-01` : s;
     for (const [canonical, spec] of Object.entries(data)) {
         const c = canonical.toUpperCase();
         const tenures = [];
@@ -2687,8 +2694,102 @@ function _scdbLoadJusticesTenures() {
             tenures.push({ start: spec.dateStart || '', stop: spec.dateStop || '' });
         }
         if (tenures.length) out[c] = tenures;
+        const starts = tenures.map(t => t.start).filter(Boolean).sort();
+        if (starts.length) _scdbJusticesStart[c] = starts[0];
+
+        // Parse titles to find chief-justice date ranges. Each entry like
+        // "CHIEF JUSTICE", "CHIEF JUSTICE >= 1986-10", "JUSTICE < 1986-10".
+        const titles = Array.isArray(spec?.titles) ? spec.titles : [];
+        const chiefRanges = [];
+        const baseStart = (tenures[0] && tenures[0].start) || '';
+        const baseStop  = (tenures[tenures.length - 1] && tenures[tenures.length - 1].stop) || '';
+        for (const t of titles) {
+            const m = String(t).match(/^\s*CHIEF\s+JUSTICE\b(?:\s*(>=|<=|>|<)\s*(\S+))?/i);
+            if (!m) continue;
+            const op = m[1];
+            const ref = m[2] ? termToDate(m[2]) : '';
+            let start = baseStart, stop = baseStop;
+            if (op === '>=' || op === '>') start = ref;
+            else if (op === '<=' || op === '<') stop = ref;
+            chiefRanges.push({ start, stop });
+        }
+        if (chiefRanges.length) _scdbJusticesChief[c] = chiefRanges;
     }
     return out;
+}
+
+// Resolve a vote-name to its canonical UPPERCASE name (via the alternates map).
+function _scdbCanonName(name) {
+    let nm = String(name || '').trim().toUpperCase();
+    if (_scdbJusticesMap[nm]) nm = _scdbJusticesMap[nm];
+    return nm;
+}
+
+function _scdbIsChiefOn(name, isoDate) {
+    const ranges = _scdbJusticesChief[_scdbCanonName(name)];
+    if (!ranges) return false;
+    if (!isoDate) return ranges.length > 0;
+    return ranges.some(r =>
+        (!r.start || isoDate >= r.start) &&
+        (!r.stop  || isoDate <= r.stop));
+}
+
+// Sort a votes array by seniority for the given date: chief justice first,
+// then associates by ascending dateStart (ties broken by name for stability).
+function _scdbSortVotesBySeniority(votes, isoDate) {
+    const decorated = votes.map((v, i) => {
+        const nm = _scdbCanonName(v && v.name);
+        return {
+            v, i,
+            chief: _scdbIsChiefOn(nm, isoDate) ? 0 : 1,
+            start: _scdbJusticesStart[nm] || '9999-99-99',
+            name:  nm,
+        };
+    });
+    decorated.sort((a, b) =>
+        a.chief - b.chief ||
+        a.start.localeCompare(b.start) ||
+        a.name.localeCompare(b.name) ||
+        a.i - b.i);
+    return decorated.map(d => d.v);
+}
+
+function _scdbVotesOrderEqual(a, b) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+        if (_scdbCanonName(a[i] && a[i].name) !== _scdbCanonName(b[i] && b[i].name)) return false;
+    }
+    return true;
+}
+
+let _seniorityLoaded = false;
+function _ensureSeniorityLoaded() {
+    if (_seniorityLoaded) return;
+    _seniorityLoaded = true;
+    if (!Object.keys(_scdbJusticesMap).length) _scdbJusticesMap = _scdbLoadJusticesMap();
+    if (!Object.keys(_scdbJusticesTenures).length) _scdbJusticesTenures = _scdbLoadJusticesTenures();
+}
+
+// Verify each case's votes array is in seniority order (chief justice first,
+// then associates by ascending dateStart). When `update` is true, re-sort.
+// Returns the number of cases whose votes were re-sorted.
+function verifyVoteSeniority(term, cases, update) {
+    _ensureSeniorityLoaded();
+    let resorted = 0;
+    for (const c of cases) {
+        if (!Array.isArray(c.votes) || c.votes.length < 2) continue;
+        const decIso = _scdbNormalizeDate(c.decision || c.argument || '');
+        const sorted = _scdbSortVotesBySeniority(c.votes, decIso);
+        if (_scdbVotesOrderEqual(c.votes, sorted)) continue;
+        const cid = c.id || c.number || c.title || '?';
+        if (update) {
+            c.votes = sorted;
+            resorted++;
+        } else {
+            console.log(`WARNING: ${term}/${cid} (${c.title || cid}): votes not in seniority order`);
+        }
+    }
+    return resorted;
 }
 
 function _scdbVotesSubset(row) {
@@ -3111,12 +3212,95 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
 
         let termChanged = false;
 
+        // Build per-term SCDB lookup tables for matching cases that don't yet
+        // have a c.id (e.g. recently imported terms).
+        const termYear = (term.match(/^(\d{4})/) || [])[1] || '';
+        const scdbByCite       = new Map(); // normalized usCite -> caseId | null(=ambiguous)
+        const scdbByDocketDate = new Map(); // "docket\u0000YYYY-MM-DD" -> caseId | null
+        const scdbByDocket     = new Map(); // docket -> caseId | null
+        const scdbByTitle      = new Map(); // squashed title -> caseId | null
+        const scdbTermIds      = new Set(); // all caseIds in this term
+        const splitDocket = (s) => String(s || '').split(/[,;\s]+/).map(x => x.trim()).filter(Boolean);
+        const squashTitle = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        if (termYear) {
+            for (const [k, r] of Object.entries(scdb)) {
+                if (!k.startsWith(`${termYear}-`)) continue;
+                scdbTermIds.add(k);
+                const cite = _scdbNormalizeCite(r.usCite || '');
+                if (cite) {
+                    if (scdbByCite.has(cite)) scdbByCite.set(cite, null);
+                    else scdbByCite.set(cite, k);
+                }
+                const dec = _scdbNormalizeDate(r.dateDecision || '');
+                for (const d of splitDocket(r.docket)) {
+                    if (scdbByDocket.has(d)) scdbByDocket.set(d, null);
+                    else scdbByDocket.set(d, k);
+                    if (dec) {
+                        const dk = `${d}\u0000${dec}`;
+                        if (scdbByDocketDate.has(dk)) scdbByDocketDate.set(dk, null);
+                        else scdbByDocketDate.set(dk, k);
+                    }
+                }
+                const t = squashTitle(r.caseName);
+                if (t) {
+                    if (scdbByTitle.has(t)) scdbByTitle.set(t, null);
+                    else scdbByTitle.set(t, k);
+                }
+            }
+        }
+
+        const matchedFromOurs = new Set();   // SCDB ids matched to one of our cases
+        const matchInfo = [];                // {title, cid, how}
+        const unmatchedOurs = [];            // titles of our cases that couldn't match
+
         for (const c of cases) {
-            const cid = c.id;
-            if (!cid) { skipped++; continue; }
+            let cid = c.id;
+            let matchHow = '';
+            if (!cid) {
+                const cite = _scdbNormalizeCite(c.usCite || '');
+                let cand = cite ? scdbByCite.get(cite) : null;
+                if (cand) matchHow = 'usCite';
+                if (!cand) {
+                    const decIso = _scdbNormalizeDate(c.decision || '');
+                    for (const d of splitDocket(c.number)) {
+                        const got = decIso ? scdbByDocketDate.get(`${d}\u0000${decIso}`) : null;
+                        if (got) { cand = got; matchHow = 'docket+decision'; break; }
+                    }
+                }
+                if (!cand) {
+                    for (const d of splitDocket(c.number)) {
+                        const got = scdbByDocket.get(d);
+                        if (got) { cand = got; matchHow = 'docket'; break; }
+                    }
+                }
+                if (!cand) {
+                    const t = squashTitle(c.title);
+                    const got = t ? scdbByTitle.get(t) : null;
+                    if (got) { cand = got; matchHow = 'title'; }
+                }
+                if (!cand) {
+                    if (caseFilter) continue;
+                    unmatchedOurs.push(c.title || '(untitled)');
+                    skipped++;
+                    continue;
+                }
+                cid = cand;
+                if (update) {
+                    c.id = cid;
+                    const reordered = reorderCase(c);
+                    for (const k of Object.keys(c)) delete c[k];
+                    Object.assign(c, reordered);
+                    termChanged = true;
+                }
+            }
             if (caseFilter && cid !== caseFilter) continue;
+            matchedFromOurs.add(cid);
+            if (matchHow) matchInfo.push({ title: c.title || cid, cid, how: matchHow });
             total++;
-            const prefix = `[${term}] ${cid} (${c.title || cid})`;
+            const prefix = `${term}/${cid} (${c.title || cid})`;
+            const noVoteData = (c.voteMajority === undefined &&
+                                c.voteMinority === undefined &&
+                                (!Array.isArray(c.votes) || c.votes.length === 0));
 
             const row = scdb[cid];
             if (!row) { errors.push(`${prefix}: caseId not found in SCDB`); continue; }
@@ -3178,6 +3362,15 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
 
             if (_scdbHasImportedOpinion(c)) {
                 const [maj, minv] = _scdbMajorityCounts(row);
+                if (noVoteData) {
+                    if (maj !== null) mm.voteMajority = maj;
+                    if (minv !== null) mm.voteMinority = minv;
+                    const sVall = _scdbVotesSubset(row);
+                    if (sVall.length) mm.missingVotes = sVall;
+                    if (maj !== null || minv !== null || sVall.length) {
+                        pushErr('votes', `${prefix}: missing vote data`);
+                    }
+                } else {
                 if (maj  !== null && c.voteMajority !== maj) {
                     mm.voteMajority = maj;
                     pushErr('voteMajority', `${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
@@ -3211,6 +3404,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
                     }
                     pushErr('votes', msg);
                 }
+                }
             }
 
             if (caseErrors.length) {
@@ -3224,6 +3418,51 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
 
             if (update) {
                 if (_scdbApplyXUpdate(c, row, mm)) { updates++; termChanged = true; }
+            }
+        }
+
+        // Verify each case's votes array is in seniority order: chief justice
+        // first, then associates by ascending dateStart. Re-sort if --update.
+        const resorted = verifyVoteSeniority(term, cases, update);
+        if (resorted) termChanged = true;
+
+        // Verify cases array is in ascending order by argument date.
+        // Re-sort if --update. Cases without an argument date keep their
+        // relative position (stable sort).
+        const argKey = (c) => {
+            const a = Array.isArray(c.argument) ? c.argument[0] : c.argument;
+            return _scdbNormalizeDate(a || '') || '9999-99-99';
+        };
+        const isSorted = cases.every((c, i) => i === 0 || argKey(cases[i - 1]) <= argKey(c));
+        if (!isSorted) {
+            if (update) {
+                const decorated = cases.map((c, i) => ({ c, i, k: argKey(c) }));
+                decorated.sort((a, b) => a.k.localeCompare(b.k) || a.i - b.i);
+                cases.length = 0;
+                for (const d of decorated) cases.push(d.c);
+                termChanged = true;
+            } else {
+                errors.push(`${term}/cases.json: cases not in ascending argument-date order`);
+            }
+        }
+
+        if (matchInfo.length) {
+            const verb = update ? 'matched & assigned id' : 'could be matched';
+            console.log(`[${term}] ${matchInfo.length} case(s) ${verb}:`);
+            for (const m of matchInfo) console.log(`  ${m.cid}  via ${m.how}  — ${m.title}`);
+        }
+        if (unmatchedOurs.length) {
+            console.log(`[${term}] ${unmatchedOurs.length} case(s) in cases.json with no SCDB match:`);
+            for (const t of unmatchedOurs) console.log(`  ${t}`);
+        }
+        if (scdbTermIds.size) {
+            const unmatchedScdb = [...scdbTermIds].filter(k => !matchedFromOurs.has(k)).sort();
+            if (unmatchedScdb.length) {
+                console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) with no match in cases.json:`);
+                for (const k of unmatchedScdb) {
+                    const r = scdb[k];
+                    console.log(`  ${k}  ${r.docket || ''}  ${r.dateDecision || ''}  ${r.caseName || ''}`);
+                }
             }
         }
 
