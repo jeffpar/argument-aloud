@@ -2816,7 +2816,7 @@ function _justiceDisplayName(canonical) {
 function processLoneDissenters(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
-    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'loners');
     const INDEX_FILE    = path.join(PEOPLE_DIR, 'lone_dissents.json');
 
     // canonical name -> [case-entry, ...]
@@ -2834,10 +2834,14 @@ function processLoneDissenters(termsToProcess, dryRun) {
             if (minorityVotes.length !== 1) continue;
             const canonical = _scdbCanonName(minorityVotes[0].name);
             if (!canonical) continue;
+            const baseTitle = c.title || '';
+            const decisionDate = c.decision || '';
+            const yearMatch = /^(\d{4})/.exec(decisionDate);
+            const titled = (baseTitle && yearMatch) ? `${baseTitle} (${yearMatch[1]})` : baseTitle;
             const entry = {
-                title:    c.title    || '',
+                title:    titled,
                 term,
-                number:   c.number   || '',
+                number:   c.number || c.id || '',
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
@@ -2897,7 +2901,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
             const stem = name.slice(0, -5);
             if (knownIds.has(stem)) continue;
             _unlinkSync(path.join(JUSTICES_DIR, name));
-            if (_VERBOSE) console.log(`  Removed stale lone-dissenter file: courts/ussc/people/justices/${name}`);
+            if (_VERBOSE) console.log(`  Removed stale lone-dissenter file: courts/ussc/people/justices/loners/${name}`);
         }
     }
 
