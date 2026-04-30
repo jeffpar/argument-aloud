@@ -338,7 +338,7 @@ function _jmDecodeEntities(s) {
 }
 
 function _jmDisplayName(upper) {
-    return upper.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    return upper.toUpperCase();
 }
 
 function _jmParseHeading(heading) {
@@ -358,6 +358,21 @@ function _jmNormalizeCaseNumber(raw) {
     const m = first.match(/^(\d+)\s*[-\u2013]?\s*(Misc|Orig)\.?$/i);
     if (m) return `${m[1]}-${m[2].charAt(0).toUpperCase() + m[2].slice(1).toLowerCase()}`;
     return first;
+}
+
+const _JUSTICE_SPEAKER_TITLES = new Set(['JUSTICE', 'CHIEF JUSTICE']);
+
+/** Reduce a name to a comparison key: uppercase first + last token, no
+ *  middle initials, no Jr./Sr./roman suffixes. So "JOHN G. ROBERTS, JR."
+ *  matches "JOHN ROBERTS". */
+function _jmNameKey(name) {
+    if (!name) return '';
+    let s = String(name).toUpperCase().trim();
+    s = s.replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '');
+    const tokens = s.replace(/[.,]/g, '').split(/\s+/).filter(Boolean);
+    if (tokens.length === 0) return '';
+    if (tokens.length === 1) return tokens[0];
+    return `${tokens[0]} ${tokens[tokens.length - 1]}`;
 }
 
 function _jmOyezTermCase(url) {
@@ -456,10 +471,11 @@ function _jmEventDateForIndex(events, idx) {
     return events[idx - 1].date || null;
 }
 
-/** Build {(term,number)→case} and {usCite→[term,number]} indices. */
+/** Build {(term,number)→case}, {usCite→[term,number]}, and {titleStripped→[term,number]} indices. */
 function _jmBuildCaseIndices(termDirs) {
     const byKey = new Map();
     const byUsCite = new Map();
+    const byTitle = new Map();
     for (const termDir of termDirs) {
         const term = path.basename(termDir);
         const cf = path.join(termDir, 'cases.json');
@@ -472,21 +488,26 @@ function _jmBuildCaseIndices(termDirs) {
             byKey.set(`${term}/${number}`, c);
             const cite = String(c.usCite || '').trim();
             if (cite) byUsCite.set(cite, [term, String(c.number || '')]);
+            const title = String(c.title || '').trim();
+            if (title) {
+                if (!byTitle.has(title)) byTitle.set(title, []);
+                byTitle.get(title).push([term, number]);
+            }
         }
     }
-    return { byKey, byUsCite };
+    return { byKey, byUsCite, byTitle };
 }
 
-function syncJusticeAdvocates(termDirs) {
+function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
     if (exists(JUSTICE_ADVOCATES_FILE)) return;
-    console.log('\n── Building justice_advocates.json ──');
+    if (verbose) console.log('\n── Building justice_advocates.json ──');
     const justices = _jmLoadJustices();
     if (!justices.length) {
         console.log(`  No justices loaded from ${relRepo(JUSTICES_README)}`);
         return;
     }
 
-    const { byKey, byUsCite } = _jmBuildCaseIndices(termDirs);
+    const { byKey, byUsCite, byTitle } = _jmBuildCaseIndices(termDirs);
 
     let coll = [];
     if (exists(JUSTICE_ADVOCATES_FILE)) {
@@ -499,8 +520,12 @@ function syncJusticeAdvocates(termDirs) {
 
     for (const j of justices) {
         const disp = j.displayName;
+        const justiceUpper = (j.fullName || disp).toUpperCase();
 
-        // Resolve each markdown case to {name, term, number, forced_audio?, arg_date_iso?}.
+        // Resolve each markdown case to one or more {name, term, number, type, dates}
+        // entries. The split between argument vs. reargument (and the dates kept
+        // for each) comes from the case's events[]: every argument/reargument
+        // event whose advocates list names this justice contributes its date.
         const mdCases = [];
         for (const c of j.cases) {
             let term, number;
@@ -520,14 +545,97 @@ function syncJusticeAdvocates(termDirs) {
                 term = hit[0];
                 number = _jmNormalizeCaseNumber(hit[1]);
             }
-            const isDual = /\bargued\s+and\s+reargued\b/i.test(c.note || '');
-            if (isDual) {
-                mdCases.push({ name: c.name, term, number: String(number), forced_audio: 1 });
-                mdCases.push({ name: c.name, term, number: String(number), forced_audio: 2 });
+
+            // If the (term, number) doesn't resolve, or resolves to a case
+            // whose title doesn't match the README's, try to find the case by
+            // title. Required for cases where the README's oyez URL points at
+            // a different term than where the case actually lives (e.g. the
+            // 1958-08 special-session cases referenced via /cases/1958/1) or
+            // to a different case entirely (oyez sometimes reuses a docket).
+            const stripped = c.name.replace(_JM_YEAR_SUFFIX_RE, '').trim();
+            const resolved = byKey.get(`${term}/${number}`);
+            if (!resolved || (resolved.title || '') !== stripped) {
+                const hits = byTitle.get(stripped) || [];
+                if (hits.length === 1) {
+                    [term, number] = hits[0];
+                } else if (hits.length > 1) {
+                    // Prefer a hit whose term year matches the README's year suffix.
+                    const ym = c.name.match(_JM_YEAR_SUFFIX_RE);
+                    const wantedYear = ym ? ym[1] : null;
+                    const liveHit = hits
+                        .map(([t, n]) => [t, n, byKey.get(`${t}/${n}`)])
+                        .find(([, , l]) => l && wantedYear
+                              && (l.decision || '').slice(0, 4) === wantedYear);
+                    if (liveHit) [term, number] = [liveHit[0], liveHit[1]];
+                    else         [term, number] = hits[0];
+                }
+            }
+            const live = byKey.get(`${term}/${number}`);
+            const events = (live && live.events) || [];
+            const termDir = path.join(TERMS_DIR, term);
+            const justiceKey = _jmNameKey(justiceUpper);
+            const datesByType = { argument: [], reargument: [] };
+            const eventsByType = { argument: [], reargument: [] };
+            for (let i = 0; i < events.length; i++) {
+                const ev = events[i];
+                if (!ev || (ev.type !== 'argument' && ev.type !== 'reargument')) continue;
+                let matched = (ev.advocates || []).some(a => {
+                    const n = (typeof a === 'object' && a !== null) ? a.name : a;
+                    return typeof n === 'string' && _jmNameKey(n) === justiceKey;
+                });
+                // Fall back to scanning the transcript's media.speakers for
+                // cases where events[].advocates is empty (e.g. older imports).
+                if (!matched && ev.text_href) {
+                    const tp = path.join(termDir, 'cases', ev.text_href);
+                    if (exists(tp)) {
+                        try {
+                            const tj = readJson(tp);
+                            for (const sp of tj?.media?.speakers || []) {
+                                if (_JUSTICE_SPEAKER_TITLES.has(sp.title || '')) continue;
+                                if (_jmNameKey(sp.name || '') === justiceKey) {
+                                    matched = true; break;
+                                }
+                            }
+                        } catch { /* ignore */ }
+                    }
+                }
+                if (!matched || !ev.date) continue;
+                const bucket = datesByType[ev.type];
+                if (!bucket.includes(ev.date)) bucket.push(ev.date);
+                eventsByType[ev.type].push(i);
+            }
+            for (const t of ['argument', 'reargument']) datesByType[t].sort();
+
+            // Pick the best event index (1-based) per type: prefer aligned,
+            // then audio_href, else the first matched event.
+            const bestEventIdx = {};
+            for (const t of ['argument', 'reargument']) {
+                const idxs = eventsByType[t];
+                if (!idxs.length) continue;
+                const aligned   = idxs.filter(i => events[i].aligned);
+                const withAudio = idxs.filter(i => events[i].audio_href);
+                bestEventIdx[t] = (aligned[0] ?? withAudio[0] ?? idxs[0]) + 1;
+            }
+
+            const haveAny = datesByType.argument.length || datesByType.reargument.length;
+            if (haveAny) {
+                for (const t of ['argument', 'reargument']) {
+                    if (datesByType[t].length) {
+                        mdCases.push({
+                            name: c.name, term, number: String(number),
+                            type: t, dates: datesByType[t],
+                            event: bestEventIdx[t] ?? null,
+                        });
+                    }
+                }
             } else {
+                // No events list this justice — fall back to a single
+                // argument-typed entry using the case-level argument date.
                 mdCases.push({
                     name: c.name, term, number: String(number),
-                    arg_date_iso: _jmParseFirstArgDateIso(c.note),
+                    type: 'argument',
+                    dates: live && live.argument ? [live.argument] : [],
+                    event: events.length ? 1 : null,
                 });
             }
         }
@@ -552,22 +660,28 @@ function syncJusticeAdvocates(termDirs) {
         }
         const existing = group.cases || [];
 
-        // Counts to compute deficit.
+        // A "slot" is keyed by (term, number, type). Existing entries are
+        // classified by which date field they carry (reargument vs. argument).
+        const slotKey = (term, number, type) =>
+            `${term}/${_jmNormalizeCaseNumber(String(number))}#${type}`;
+        const existingType = (e) => (e && 'reargument' in e) ? 'reargument' : 'argument';
+
+        // Counts to compute deficit (per slot).
         const mdCounts = new Map();
         for (const mc of mdCases) {
-            const k = `${mc.term}/${mc.number}`;
+            const k = slotKey(mc.term, mc.number, mc.type);
             mdCounts.set(k, (mdCounts.get(k) || 0) + 1);
         }
         const existingCounts = new Map();
         for (const e of existing) {
-            const k = `${e.term || ''}/${_jmNormalizeCaseNumber(String(e.number || ''))}`;
+            const k = slotKey(e.term || '', e.number || '', existingType(e));
             existingCounts.set(k, (existingCounts.get(k) || 0) + 1);
         }
 
         const seen = new Map();
         const toAdd = [];
         for (const mc of mdCases) {
-            const k = `${mc.term}/${mc.number}`;
+            const k = slotKey(mc.term, mc.number, mc.type);
             const need = mdCounts.get(k);
             const have = existingCounts.get(k) || 0;
             const s = seen.get(k) || 0;
@@ -575,39 +689,47 @@ function syncJusticeAdvocates(termDirs) {
             seen.set(k, s + 1);
         }
 
-        // Insert new entries in term order.
+        // Insert new entries in (term, type) order — reargument follows argument.
         const newExisting = [...existing];
         for (const nc of toAdd) {
             let pos = newExisting.length;
             for (let i = 0; i < newExisting.length; i++) {
-                if ((newExisting[i].term || '') > nc.term) { pos = i; break; }
+                const eTerm = newExisting[i].term || '';
+                if (eTerm > nc.term) { pos = i; break; }
+                if (eTerm === nc.term && nc.type === 'argument'
+                    && existingType(newExisting[i]) === 'reargument') {
+                    pos = i; break;
+                }
             }
-            newExisting.splice(pos, 0, { title: nc.name, term: nc.term, number: nc.number });
+            const inserted = { title: nc.name, term: nc.term, number: nc.number };
+            if (nc.type === 'reargument') inserted.reargument = '';
+            else inserted.argument = '';
+            newExisting.splice(pos, 0, inserted);
         }
 
-        // Build per-key audio plan in markdown order.
-        const audioPlan = new Map();
+        // Build per-slot date plan in markdown order.
+        const datePlan = new Map();
         for (const mc of mdCases) {
-            const k = `${mc.term}/${mc.number}`;
-            if (!audioPlan.has(k)) audioPlan.set(k, []);
-            audioPlan.get(k).push({
-                forced_audio: mc.forced_audio ?? null,
-                arg_date_iso: mc.arg_date_iso ?? null,
-            });
+            const k = slotKey(mc.term, mc.number, mc.type);
+            if (!datePlan.has(k)) datePlan.set(k, []);
+            datePlan.get(k).push({ dates: mc.dates || [], event: mc.event ?? null });
         }
 
         const before = JSON.stringify(newExisting);
         const seenByKey = new Map();
         for (const entry of newExisting) {
-            const k = `${entry.term || ''}/${String(entry.number || '')}`;
-            const live = byKey.get(k);
-            const sk = seenByKey.get(k) || 0;
-            seenByKey.set(k, sk + 1);
+            const term   = entry.term || '';
+            const number = String(entry.number || '');
+            const type   = existingType(entry);
+            const lookupKey = `${term}/${number}`;
+            const live = byKey.get(lookupKey);
+            const sk = seenByKey.get(slotKey(term, number, type)) || 0;
+            seenByKey.set(slotKey(term, number, type), sk + 1);
             if (!live) {
-                console.log(`  [${disp}] WARNING: case not found in cases.json: ${k}`);
-                delete entry.argument; delete entry.decision;
-                delete entry.event;    delete entry.audio;
-                delete entry.opinion_href;
+                console.log(`  [${disp}] WARNING: case not found in cases.json: ${lookupKey}`);
+                delete entry.argument; delete entry.reargument;
+                delete entry.decision; delete entry.event;
+                delete entry.audio;    delete entry.opinion_href;
                 continue;
             }
 
@@ -618,33 +740,46 @@ function syncJusticeAdvocates(termDirs) {
             const cleanTitle = ym ? rawTitle.slice(0, ym.index) : rawTitle;
             const decision = live.decision;
             if (titleYear && decision && titleYear !== decision.slice(0, 4)) {
-                console.log(`  WARNING: year mismatch for ${k}: title year=${titleYear}, decision=${decision}`);
+                console.log(`  WARNING: year mismatch for ${lookupKey}: title year=${titleYear}, decision=${decision}`);
             }
             // Verify opinion_href if both present.
             if (live.opinion_href && entry.opinion_href && live.opinion_href !== entry.opinion_href) {
-                console.log(`  WARNING: opinion_href mismatch for ${k}`);
+                console.log(`  WARNING: opinion_href mismatch for ${lookupKey}`);
             }
 
-            // Pick best event (1-based events[] index).
-            let eventVal = null, argDate = null;
-            const events = live.events || [];
-            if (events.length) {
-                const plan = audioPlan.get(k) || [];
-                const planEntry = sk < plan.length ? plan[sk] : {};
-                eventVal = _jmBestEventIndex(events, planEntry.arg_date_iso, planEntry.forced_audio);
-                if (eventVal !== null) argDate = _jmEventDateForIndex(events, eventVal);
+            // Pick the dates and event for this slot.
+            const plan = datePlan.get(slotKey(term, number, type)) || [];
+            const planEntry = sk < plan.length ? plan[sk] : { dates: [], event: null };
+            const dates = planEntry.dates || [];
+            const eventVal = planEntry.event ?? null;
+            let dateStr = '';
+            if (dates.length) {
+                dateStr = dates.join(',');
+            } else if (type === 'argument' && live.argument) {
+                dateStr = live.argument;
+            } else if (type === 'reargument' && live.reargument) {
+                dateStr = live.reargument;
             }
-            if (!argDate) argDate = live.argument || null;
 
             // Rebuild entry with canonical field order.
             for (const k2 of Object.keys(entry)) delete entry[k2];
             entry.title  = cleanTitle;
-            entry.term   = k.split('/')[0];
-            entry.number = k.split('/').slice(1).join('/');
-            if (argDate)  entry.argument = argDate;
+            entry.term   = term;
+            entry.number = number;
+            if (dateStr) entry[type] = dateStr;
             if (decision) entry.decision = decision;
             if (eventVal !== null) entry.event = eventVal;
         }
+        // Sort cases by the entry's argument-or-reargument date (first ISO
+        // date if comma-joined). Stable: ties keep insertion order.
+        const dateKey = (e) => {
+            const s = String(e.argument || e.reargument || '');
+            return s.split(',')[0];
+        };
+        newExisting.sort((a, b) => {
+            const da = dateKey(a), db = dateKey(b);
+            return da < db ? -1 : da > db ? 1 : 0;
+        });
         const after = JSON.stringify(newExisting);
         const annotationsChanged = before !== after;
 
@@ -652,7 +787,7 @@ function syncJusticeAdvocates(termDirs) {
 
         group.cases = newExisting;
         totalAdded += toAdd.length;
-        if (toAdd.length) {
+        if (toAdd.length && verbose) {
             const names = toAdd.slice(0, 4).map(c => c.name).join(', ')
                 + (toAdd.length > 4 ? `, … (+${toAdd.length - 4} more)` : '');
             console.log(`  [${disp}] Added ${toAdd.length}: ${names}`);
@@ -807,16 +942,16 @@ async function main() {
                 bestOrigIdxForDate.set(d, bestI);
             }
             for (const [d, idxs] of dateToIdxs) {
-                if (idxs.length <= 1) continue;
                 const allAdv = new Set();
                 for (const i of idxs) {
                     for (const a of (audioEntryAdvocates.get(i) || [])) allAdv.add(a);
                 }
                 for (const adv of allAdv) {
                     const cands = idxs.filter(i => (audioEntryAdvocates.get(i) || new Set()).has(adv));
-                    if (cands.length <= 1) continue;
-                    const aligned = cands.filter(i => audioEntries[i].aligned);
-                    const best = aligned.length ? aligned[0] : cands[0];
+                    if (!cands.length) continue;
+                    const aligned   = cands.filter(i => audioEntries[i].aligned);
+                    const withAudio = cands.filter(i => audioEntries[i].audio_href);
+                    const best = aligned[0] ?? withAudio[0] ?? cands[0];
                     preferredOrigIdx.set(`${d}|${adv}`, best);
                 }
             }
@@ -1383,7 +1518,7 @@ async function main() {
     console.log(`Wrote ${womenRows.length} rows to ${relRepo(WOMEN_CSV_FILE)}`);
 
     // ── Justice-advocates collection sync ────────────────────────────────
-    syncJusticeAdvocates(termDirs);
+    syncJusticeAdvocates(termDirs, { verbose });
 
     // Duplicate-argument check.
     const dupSeen = new Map();

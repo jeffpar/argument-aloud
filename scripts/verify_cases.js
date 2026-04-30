@@ -2909,6 +2909,381 @@ function processLoneDissenters(termsToProcess, dryRun) {
     console.log(`Lone dissenters: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
 }
 
+// =====================================================================
+// Collection-set builders: transcripts.json / briefs.json / noteworthy.json
+// Output-only port of scripts/python/build_sets.py — rebuilds the three
+// collection JSON files purely from local state (no external HTTP fetches,
+// no cases.json or files.json mutation).
+// =====================================================================
+
+const _COLLECTIONS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
+const _TRANSCRIPTS_PATH = path.join(_COLLECTIONS_DIR, 'transcripts.json');
+const _BRIEFS_PATH      = path.join(_COLLECTIONS_DIR, 'briefs.json');
+const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
+const _DECK_CSV_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
+
+const _TRANSCRIPTS_SET_BASENAME = 'Transcripts';
+const _BRIEFS_SET_BASENAME      = 'Briefs';
+
+// Upper-bound term year for each curated set (no lower bound: the earliest
+// term containing matching files defines the start of the range).
+const _TRANSCRIPTS_MAX_YEAR = 1967;
+const _BRIEFS_MAX_YEAR      = 1999;
+
+function _termYearAtMost(term, maxYear) {
+    const y = parseInt(String(term).split('-')[0], 10);
+    return Number.isFinite(y) && y <= maxYear;
+}
+
+// Derive a "Name (minYear-maxYear)" set name from the cases that ended up in
+// a collection, using each case's decision-year prefix from the title (the
+// browser-facing entries are already formatted like "Title (YYYY)").
+function _setNameFromCases(baseName, cases) {
+    const years = [];
+    for (const c of cases) {
+        const m = /\((\d{4})\)\s*$/.exec(c?.title || '');
+        if (m) years.push(parseInt(m[1], 10));
+        else {
+            const dy = (c?.decision || '').slice(0, 4);
+            if (/^\d{4}$/.test(dy)) years.push(parseInt(dy, 10));
+        }
+    }
+    if (!years.length) return baseName;
+    const lo = Math.min(...years);
+    const hi = Math.max(...years);
+    return lo === hi ? `${baseName} (${lo})` : `${baseName} (${lo}-${hi})`;
+}
+
+function _firstDate(s) {
+    if (!s) return '';
+    return String(s).split(',')[0].trim();
+}
+
+function _normalizeDocket(d) {
+    if (!d) return '';
+    let docket = String(d).split(',')[0].trim();
+    docket = docket.replace(/^(\d+)\s+ORIG$/i, '$1-Orig');
+    return docket;
+}
+
+function _decisionYearOf(c) {
+    const dec = (c.decision || '').trim();
+    if (dec) return dec.slice(0, 4);
+    const dd = (c.dateDecision || '').trim();
+    if (dd) return dd.slice(-4);
+    return '';
+}
+
+function _setCaseEntry(c, term) {
+    const year = _decisionYearOf(c);
+    const baseTitle = c.title || '';
+    const title = year ? `${baseTitle} (${year})` : baseTitle;
+    const entry = { title, term };
+    const numberVal = c.number || c.id || '';
+    if (numberVal) entry.number = numberVal;
+    if (c.argument)   entry.argument   = c.argument;
+    if (c.reargument) entry.reargument = c.reargument;
+    if (c.decision)   entry.decision   = c.decision;
+    if (c.files)      entry.files      = c.files;
+    return entry;
+}
+
+function _loadExistingSet(filePath) {
+    if (!fs.existsSync(filePath)) return { existingCases: [], existingKeys: new Set() };
+    let data;
+    try { data = _readJson(filePath); } catch { return { existingCases: [], existingKeys: new Set() }; }
+    if (!Array.isArray(data) || !data.length) return { existingCases: [], existingKeys: new Set() };
+    const cases = Array.isArray(data[0]?.cases) ? data[0].cases : [];
+    const keys  = new Set();
+    for (const c of cases) {
+        // Identify entries by (term, first-docket-piece) — matches the
+        // case-folder convention used when discovering local entries.
+        const term = (c.term   || '').trim();
+        const num  = (c.number || '').split(',')[0].trim();
+        if (term && num) keys.add(`${term}\u0000${num}`);
+    }
+    return { existingCases: cases, existingKeys: keys };
+}
+
+// Find LD-source argument events and build the transcripts collection.
+// Existing entries in transcripts.json are preserved verbatim; any new local
+// LD events are appended.
+function _buildTranscriptsCollection(allTerms) {
+    const { existingCases, existingKeys } = _loadExistingSet(_TRANSCRIPTS_PATH);
+    const added = [];
+    for (const term of allTerms) {
+        if (!_termYearAtMost(term, _TRANSCRIPTS_MAX_YEAR)) continue;
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            if (!Array.isArray(c.events)) continue;
+            const hasLd = c.events.some(e =>
+                e && typeof e === 'object'
+                && (e.type === 'argument' || e.type === 'reargument')
+                && (e.source === 'ld'
+                    || /^https?:\/\/(?:[\w-]+\.)*lonedissent\.org\//i.test(String(e.transcript_href || ''))));
+            if (!hasLd) continue;
+            const num = (c.number || c.id || '').split(',')[0].trim();
+            const key = `${term}\u0000${num}`;
+            if (existingKeys.has(key)) continue;
+            added.push(_setCaseEntry(c, term));
+        }
+    }
+    added.sort((a, b) =>
+        (a.term      || '').localeCompare(b.term      || '') ||
+        (a.argument  || '').localeCompare(b.argument  || '') ||
+        (a.decision  || '').localeCompare(b.decision  || '') ||
+        (a.title     || '').localeCompare(b.title     || ''));
+    const cases = existingCases.concat(added);
+    return [{ name: _setNameFromCases(_TRANSCRIPTS_SET_BASENAME, cases), cases }];
+}
+
+// Find cases that have a files.json with at least one brief entry; build
+// the briefs collection. Existing entries in briefs.json are preserved
+// verbatim; any new local entries are appended.
+function _buildBriefsCollection(allTerms) {
+    const { existingCases, existingKeys } = _loadExistingSet(_BRIEFS_PATH);
+    const added = [];
+    for (const term of allTerms) {
+        if (!_termYearAtMost(term, _BRIEFS_MAX_YEAR)) continue;
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        const termCasesDir = path.join(TERMS_DIR, term, 'cases');
+        for (const c of cases) {
+            const folder = (c.number || c.id || '').split(',')[0].trim();
+            if (!folder) continue;
+            const filesPath = path.join(termCasesDir, folder, 'files.json');
+            if (!fs.existsSync(filesPath)) continue;
+            let files;
+            try { files = _readJson(filesPath); } catch { continue; }
+            if (!Array.isArray(files) || !files.length) continue;
+            const hasBrief = files.some(f => f && typeof f === 'object'
+                && /^https?:\/\/briefs\d*\.lonedissent\.org\//i.test(String(f.href || '')));
+            if (!hasBrief) continue;
+            const key = `${term}\u0000${folder}`;
+            if (existingKeys.has(key)) continue;
+            added.push(_setCaseEntry(c, term));
+        }
+    }
+    added.sort((a, b) =>
+        (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
+        (a.term  || '').localeCompare(b.term  || '') ||
+        (a.title || '').localeCompare(b.title || ''));
+    const cases = existingCases.concat(added);
+    return [{ name: _setNameFromCases(_BRIEFS_SET_BASENAME, cases), cases }];
+}
+
+// ---- noteworthy (deck CSV) helpers ---------------------------------
+
+function _decodeUnicodeEscapes(text) {
+    return String(text || '').replace(/\\u([0-9a-fA-F]{4})/g, (_, h) =>
+        String.fromCharCode(parseInt(h, 16)));
+}
+
+function _decodeHtmlEntitiesBasic(s) {
+    if (typeof s !== 'string' || s.indexOf('&') < 0) return s;
+    return s.replace(/&(amp|lt|gt|quot|apos|nbsp|#x[0-9a-fA-F]+|#\d+);/g, (m, ent) => {
+        if (ent === 'amp')  return '&';
+        if (ent === 'lt')   return '<';
+        if (ent === 'gt')   return '>';
+        if (ent === 'quot') return '"';
+        if (ent === 'apos') return "'";
+        if (ent === 'nbsp') return '\u00a0';
+        if (ent[0] === '#') {
+            const cp = ent[1] === 'x' || ent[1] === 'X'
+                ? parseInt(ent.slice(2), 16)
+                : parseInt(ent.slice(1), 10);
+            return Number.isFinite(cp) ? String.fromCodePoint(cp) : m;
+        }
+        return m;
+    });
+}
+
+function _titleCasePhrase(text) {
+    return String(text || '').replace(/[A-Za-z][A-Za-z'-]*/g,
+        m => m[0].toUpperCase() + m.slice(1).toLowerCase());
+}
+
+const _ARTICLE_SECTION_PAREN_RE = /^(Article\s+[A-Za-z0-9IVXLC]+,\s*Section\s+[A-Za-z0-9IVXLC]+),\s*Paragraph\s+[A-Za-z0-9IVXLC]+\s*\(([^)]+)\)\s*$/i;
+const _PAREN_DESC_RE = /^(.+?)\s*\(([^)]+)\)\s*$/;
+
+function _cleanSubsetName(name) {
+    let s = _decodeHtmlEntitiesBasic(name || '');
+    s = _decodeUnicodeEscapes(s);
+    s = s.replace(/\\xa0/g, ' ').replace(/\\n/g, ' ');
+    s = s.replace(/\s+/g, ' ').trim();
+    let m = _ARTICLE_SECTION_PAREN_RE.exec(s);
+    if (m) {
+        const base = m[1].replace(/\s+/g, ' ').trim();
+        s = `${base}: ${_titleCasePhrase(m[2].trim())}`;
+    } else {
+        const pm = _PAREN_DESC_RE.exec(s);
+        if (pm) s = `${pm[1].trim()}: ${_titleCasePhrase(pm[2].trim())}`;
+    }
+    if (s.includes(',') && !/^Article\b/i.test(s)) s = s.split(',', 1)[0].trim();
+    return s;
+}
+
+function _formatDeckCaseName(row) {
+    const p = (row.petitioner || '').trim();
+    const r = (row.respondent || '').trim();
+    if (p && r) return `${p} v. ${r}`;
+    return p || r;
+}
+
+function _extractTermYear(termStr) {
+    const m = /\b(\d{4})\b/.exec(String(termStr || '').trim());
+    return m ? m[1] : '';
+}
+
+function _naturalSortKey(text) {
+    return String(text || '').split(/(\d+)/).map(p =>
+        /^\d+$/.test(p) ? p.padStart(12, '0') : p.toLowerCase()).join('|');
+}
+
+// Map a year to candidate (term, cases) pairs from termCases.
+function _candidateTermsForYear(year, termCases) {
+    const result = [];
+    const y = parseInt(year, 10);
+    for (const yc of [y, y - 1, y + 1]) {
+        const prefix = `${yc}-`;
+        const matchingTerms = Object.keys(termCases)
+            .filter(t => t.startsWith(prefix))
+            .sort();
+        for (const t of matchingTerms) result.push([t, termCases[t]]);
+    }
+    return result;
+}
+
+function _findCaseInList(cases, row) {
+    const csvScdbIds = new Set(
+        String(row.scdb || '').split(',').map(s => s.trim()).filter(Boolean));
+    let csvCitation = (row.citation || '').trim();
+    if (csvCitation.includes('___')) csvCitation = '';
+    const csvDocketNorm = _normalizeDocket(row.docket || '').toLowerCase();
+
+    if (csvScdbIds.size) {
+        for (const c of cases) {
+            const cid = (c.id || '').trim();
+            if (cid && csvScdbIds.has(cid)) return c;
+        }
+    }
+    if (csvDocketNorm) {
+        for (const c of cases) {
+            const num = c.number || '';
+            if (!num) continue;
+            if (_normalizeDocket(num).toLowerCase() !== csvDocketNorm) continue;
+            if (csvCitation) {
+                if ((c.usCite || '').trim() === csvCitation) return c;
+                continue;
+            }
+            return c;
+        }
+    }
+    return null;
+}
+
+function _buildNoteworthyCollection(allTerms) {
+    if (!fs.existsSync(_DECK_CSV_PATH)) {
+        console.log(`Noteworthy: deck CSV not found at ${path.relative(REPO_ROOT, _DECK_CSV_PATH)}; skipping.`);
+        return null;
+    }
+    // Load all term cases once.
+    const termCases = {};
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        try { termCases[term] = _readJson(casesPath); } catch { /* ignore */ }
+    }
+
+    const { rows } = _readCsvRows(_DECK_CSV_PATH);
+    const groups = new Map(); // subset name -> [entry, ...]
+    let skipped = 0;
+    let unmatched = 0;
+
+    for (const row of rows) {
+        const caseName = _formatDeckCaseName(row);
+        const legalBasisRaw = (row.legalBasis || '').trim();
+        const subset = legalBasisRaw ? _cleanSubsetName(legalBasisRaw) : 'Other';
+
+        const year = _extractTermYear(row.term || '');
+        if (!year) { skipped++; continue; }
+
+        const candidates = _candidateTermsForYear(year, termCases);
+        if (!candidates.length) { skipped++; continue; }
+
+        let matched = null;
+        let matchedTerm = '';
+        for (const [t, cases] of candidates) {
+            const c = _findCaseInList(cases, row);
+            if (c) { matched = c; matchedTerm = t; break; }
+        }
+        if (!matched) { unmatched++; continue; }
+
+        const altTitle = (row.altTitle || '').trim();
+        let title = altTitle || caseName;
+        title = title.replace(/\\\\/g, ' ');
+
+        const decidedRaw = _firstDate(row.decided || '');
+        const decisionYear =
+            decidedRaw.slice(0, 4) ||
+            (matched.decision || '').slice(0, 4) ||
+            ((matched.dateDecision || '').slice(-4));
+        if (decisionYear) title = `${title} (${decisionYear})`;
+
+        const entry = { title, term: matchedTerm };
+        const docketNorm = _normalizeDocket((row.docket || '').trim());
+        if (docketNorm) entry.number = docketNorm;
+        const argued  = _firstDate(row.argued  || '');
+        const decided = _firstDate(row.decided || '');
+        if (argued)  entry.argument = argued;
+        if (decided) entry.decision = decided;
+        if (matched.files) entry.files = matched.files;
+
+        if (!groups.has(subset)) groups.set(subset, []);
+        groups.get(subset).push(entry);
+    }
+
+    const sortedSubsets = [...groups.keys()].sort((a, b) =>
+        _naturalSortKey(a).localeCompare(_naturalSortKey(b)));
+    const output = sortedSubsets.map(name => ({ name, cases: groups.get(name) }));
+
+    return { output, skipped, unmatched };
+}
+
+function processCollectionSets(allTerms, dryRun) {
+    const transcripts = _buildTranscriptsCollection(allTerms);
+    const briefs      = _buildBriefsCollection(allTerms);
+    const noteworthy  = _buildNoteworthyCollection(allTerms);
+
+    const tCount = transcripts[0].cases.length;
+    const bCount = briefs[0].cases.length;
+    const nGroups = noteworthy ? noteworthy.output.length : 0;
+    const nCount  = noteworthy ? noteworthy.output.reduce((a, g) => a + g.cases.length, 0) : 0;
+
+    const verb = dryRun ? 'Would write' : 'Wrote';
+    if (!dryRun) {
+        _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
+        _writeJson(_TRANSCRIPTS_PATH, transcripts);
+        _writeJson(_BRIEFS_PATH,      briefs);
+        if (noteworthy) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
+    }
+    console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
+    console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
+    if (noteworthy) {
+        console.log(`Noteworthy:  ${verb} ${nGroups} subset(s) / ${nCount} case(s) → courts/ussc/collections/noteworthy.json`);
+        if (noteworthy.skipped || noteworthy.unmatched) {
+            console.log(`Noteworthy:  skipped ${noteworthy.skipped} row(s), unmatched ${noteworthy.unmatched} case(s).`);
+        }
+    }
+}
+
 function _scdbVotesSubset(row) {
     const out = [];
     for (const j of (row.justices || [])) {
@@ -4058,9 +4433,20 @@ async function main() {
     const mediaDupes = checkDuplicateMediaHrefs(termsToProcess);
 
     // Lone-dissenter aggregation: always rebuild from the full set of terms
-    // (so partial-scope runs don't yield a partial index). Skipped in dry-run.
-    if (!dryRun) {
-        processLoneDissenters(allTerms, dryRun);
+    // (so partial-scope runs don't yield a partial index). Skipped only when
+    // the user passes --dry-run explicitly. Temporarily disable the global
+    // dry-run flag so the file writes inside these builders are not no-oped
+    // by the read-only default of verify_cases.js.
+    const explicitDryRun = flags.has('--dry-run') || flags.has('--dry_run');
+    if (!explicitDryRun) {
+        const prevDryRun = dryRun;
+        setDryRun(false);
+        try {
+            processLoneDissenters(allTerms, false);
+            processCollectionSets(allTerms, false);
+        } finally {
+            setDryRun(prevDryRun);
+        }
     }
 
     const r = totals;
