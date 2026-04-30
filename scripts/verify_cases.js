@@ -1657,10 +1657,13 @@ function checkDuplicateAudioHrefs(termDir) {
         for (let i = 0; i < events.length; i++) {
             const href = events[i].audio_href || '';
             if (!href) continue;
+            const turn = 'turn' in events[i] ? events[i].turn : undefined;
             if (href in seen) {
-                console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[href]}] and audio[${i}]: '${href}'`);
+                if (seen[href].turn === turn) {
+                    console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[href].i}] and audio[${i}]: '${href}'`);
+                }
             } else {
-                seen[href] = i;
+                seen[href] = { i, turn };
             }
         }
     }
@@ -2791,6 +2794,115 @@ function verifyVoteSeniority(term, cases, update) {
         }
     }
     return resorted;
+}
+
+// Slugify a justice name (mirrors makeAdvocateId in update_advocates.js).
+function _justiceSlug(name) {
+    const ascii = String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const noPunct = ascii.replace(/[^\w\s-]/g, '');
+    return noPunct.replace(/[\s\-_]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+// Title-case a canonical UPPER-CASE justice name (e.g. "OLIVER ELLSWORTH" → "Oliver Ellsworth").
+function _justiceDisplayName(canonical) {
+    return String(canonical || '')
+        .toLowerCase()
+        .replace(/\b([a-z])/g, (_, c) => c.toUpperCase());
+}
+
+// Scan every term's cases.json, find cases with exactly one "minority" vote,
+// and rebuild courts/ussc/people/lonedissent_justices.json plus per-justice
+// files in courts/ussc/people/justices/.
+function processLoneDissenters(termsToProcess, dryRun) {
+    _ensureSeniorityLoaded();
+    const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'lone_dissents.json');
+
+    // canonical name -> [case-entry, ...]
+    const byJustice = new Map();
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            if (!Array.isArray(c.votes) || !c.votes.length) continue;
+            const minorityVotes = c.votes.filter(v => v && v.vote === 'minority');
+            if (minorityVotes.length !== 1) continue;
+            const canonical = _scdbCanonName(minorityVotes[0].name);
+            if (!canonical) continue;
+            const entry = {
+                title:    c.title    || '',
+                term,
+                number:   c.number   || '',
+                argument: c.argument || '',
+                decision: c.decision || '',
+            };
+            if (!byJustice.has(canonical)) byJustice.set(canonical, []);
+            byJustice.get(canonical).push(entry);
+        }
+    }
+
+    if (!byJustice.size) {
+        if (_VERBOSE) console.log('Lone dissenters: none found in scope.');
+        return;
+    }
+
+    if (!fs.existsSync(JUSTICES_DIR)) _mkdirSync(JUSTICES_DIR, { recursive: true });
+
+    // Build index entries.
+    const index = [];
+    for (const [canonical, list] of byJustice) {
+        list.sort((a, b) =>
+            (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
+            (a.term || '').localeCompare(b.term || '') ||
+            (a.title || '').localeCompare(b.title || ''));
+        index.push({
+            id:    _justiceSlug(canonical),
+            name:  _justiceDisplayName(canonical),
+            cases: list.length,
+        });
+    }
+    index.sort((a, b) => a.id.localeCompare(b.id));
+
+    _writeJson(INDEX_FILE, index);
+
+    // Write per-justice files, preserving any existing details / highlights.
+    const knownIds = new Set();
+    for (const [canonical, list] of byJustice) {
+        const id = _justiceSlug(canonical);
+        knownIds.add(id);
+        const file = path.join(JUSTICES_DIR, `${id}.json`);
+        let details = {};
+        let highlights = [];
+        if (fs.existsSync(file)) {
+            try {
+                const raw = _readJson(file);
+                if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+                    details    = raw.details    || {};
+                    highlights = raw.highlights || [];
+                }
+            } catch { /* ignore */ }
+        }
+        _writeJson(file, { details, highlights, cases: list });
+    }
+
+    // Remove orphan per-justice files for justices no longer in the index.
+    if (fs.existsSync(JUSTICES_DIR)) {
+        for (const name of fs.readdirSync(JUSTICES_DIR)) {
+            if (!name.endsWith('.json')) continue;
+            const stem = name.slice(0, -5);
+            if (knownIds.has(stem)) continue;
+            _unlinkSync(path.join(JUSTICES_DIR, name));
+            if (_VERBOSE) console.log(`  Removed stale lone-dissenter file: courts/ussc/people/justices/${name}`);
+        }
+    }
+
+    const verb = dryRun ? 'Would update' : 'Updated';
+    console.log(`Lone dissenters: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
 }
 
 function _scdbVotesSubset(row) {
@@ -3940,6 +4052,12 @@ async function main() {
 
     // Cross-scope media-href dedup check (always runs across full scope).
     const mediaDupes = checkDuplicateMediaHrefs(termsToProcess);
+
+    // Lone-dissenter aggregation: always rebuild from the full set of terms
+    // (so partial-scope runs don't yield a partial index). Skipped in dry-run.
+    if (!dryRun) {
+        processLoneDissenters(allTerms, dryRun);
+    }
 
     const r = totals;
     if (r.casesReordered || r.eventsReordered) {
