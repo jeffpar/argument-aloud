@@ -3281,7 +3281,11 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
                 }
                 if (!cand) {
                     if (caseFilter) continue;
-                    unmatchedOurs.push(c.title || '(untitled)');
+                    const errs = String(c.scdb_errors || '').split(',').map(s => s.trim());
+                    if (!c.disposition && !errs.includes('missing')) {
+                        const label = c.title || '(untitled)';
+                        unmatchedOurs.push(c.number ? `${label} (No. ${c.number})` : label);
+                    }
                     skipped++;
                     continue;
                 }
@@ -3457,7 +3461,26 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
             for (const t of unmatchedOurs) console.log(`  ${t}`);
         }
         if (scdbTermIds.size) {
-            const unmatchedScdb = [...scdbTermIds].filter(k => !matchedFromOurs.has(k)).sort();
+            // Map any docket appearing in our cases.json (including
+            // consolidated case numbers) to its disposition string, if any.
+            const ourDocketDisposition = new Map();
+            for (const c of cases) {
+                if (!c.disposition) continue;
+                for (const d of splitDocket(c.number)) {
+                    if (!ourDocketDisposition.has(d)) ourDocketDisposition.set(d, c.disposition);
+                }
+            }
+            const unmatchedScdb = [...scdbTermIds]
+                .filter(k => !matchedFromOurs.has(k))
+                .filter(k => {
+                    const r = scdb[k];
+                    return (r.dateArgument || r.dateRearg || r.datreRearg);
+                })
+                .filter(k => {
+                    const r = scdb[k];
+                    return !splitDocket(r.docket).some(d => ourDocketDisposition.has(d));
+                })
+                .sort();
             if (unmatchedScdb.length) {
                 console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) with no match in cases.json:`);
                 for (const k of unmatchedScdb) {
