@@ -1,25 +1,26 @@
 /**
  * Verify file entries and case metadata for SCOTUS cases — and apply fixes
- * (sorts, key reordering, refiled-case merging, etc.) unless --dry-run.
+ * (sorts, key reordering, refiled-case merging, etc.) only when --update is
+ * given. Without --update, the script is read-only.
  *
  * Usage:
- *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+ *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--update]
  *   node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
  *
  * Examples:
- *   node verify_cases.js                            # verify all terms
+ *   node verify_cases.js                            # verify all terms (no writes)
  *   node verify_cases.js 2025-10                    # verify one term
  *   node verify_cases.js 2025-10 24-1260            # verify one case
  *   node verify_cases.js 2025-10 --checkurls        # also probe remote URLs
  *   node verify_cases.js 2025-10 --checkurls --opinions
  *   node verify_cases.js 2025-10 --verbose          # extra logging
- *   node verify_cases.js 2025-10 --dry-run          # report only, no writes
+ *   node verify_cases.js 2025-10 --update           # apply fixes to cases.json
  *
  *   node verify_cases.js --scdb                     # check SCDB cache + verify all terms
  *   node verify_cases.js --scdb --nocache           # ignore SCDB cache
  *   node verify_cases.js 1926-10 --scdb             # verify one term against SCDB
  *   node verify_cases.js 1926-10 1926-011 --scdb --verbose
- *                                                           # verify one case; show extra detail
+ *                                                   # verify one case; show extra detail
  *   node verify_cases.js --scdb --ussc-deck         # also rebuild data/aa/ussc_deck.csv
  *   node verify_cases.js 2024-10 --scdb --update    # apply SCDB-derived fixes to cases.json
  *                                                   # (records date disagreements in scdb_errors;
@@ -3670,15 +3671,19 @@ async function runScdb(opts) {
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
-const USAGE = `Usage: node verify_cases.js                                # verify all terms
-       node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--dry-run]
+const USAGE = `Usage: node verify_cases.js                                # verify all terms (no writes)
+       node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--update]
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
+
+File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
+refiled-case merging, SCDB-derived corrections, etc.). Without --update, the
+script only reports what it would change.
 
 Examples:
   node verify_cases.js 2025-10
   node verify_cases.js 2025-10 24-1260
   node verify_cases.js 2025-10 --checkurls --opinions
-  node verify_cases.js 2025-10 --dry-run
+  node verify_cases.js 2025-10 --update                    # apply fixes to cases.json
 
   node verify_cases.js --scdb                              # rebuild cache + verify all terms
   node verify_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
@@ -3778,7 +3783,10 @@ async function main() {
     const checkUrls    = flags.has('--checkurls');
     const opinionsOnly = flags.has('--opinions');
     const verbose      = flags.has('--verbose');
-    const dryRun       = flags.has('--dry-run');
+    // File changes are now opt-in via --update. The legacy --dry-run flag is
+    // accepted but redundant (dry-run is the default).
+    const update       = flags.has('--update');
+    const dryRun       = !update;
     const scdb         = flags.has('--scdb');
     setVerbose(verbose);
     setDryRun(dryRun);
