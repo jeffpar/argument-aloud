@@ -3447,6 +3447,13 @@ function _scdbApplyOpinionUpdate(c, row) {
 function _scdbApplyXUpdate(c, row, mm) {
     let changed = false;
 
+    const ignored = new Set(
+        String(c.scdb_errors || '')
+            .split(',')
+            .map(s => s.trim())
+            .filter(Boolean)
+    );
+
     const addToErrors = (field) => {
         const cur = String(c.scdb_errors || '').split(',').map(s => s.trim()).filter(Boolean);
         if (cur.includes(field)) return;
@@ -3459,7 +3466,7 @@ function _scdbApplyXUpdate(c, row, mm) {
     if (mm.argument)   addToErrors('argument');
     if (mm.reargument) addToErrors('reargument');
 
-    if (mm.missingVotes && mm.missingVotes.length) {
+    if (mm.missingVotes && mm.missingVotes.length && !ignored.has('votes')) {
         const list = Array.isArray(c.votes) ? c.votes.slice() : [];
         const seen = new Set(
             list.filter(v => v && v.name).map(v => String(v.name).trim().toUpperCase())
@@ -3474,11 +3481,35 @@ function _scdbApplyXUpdate(c, row, mm) {
     }
 
     const [maj, minv] = _scdbMajorityCounts(row);
-    if (mm.voteMajority !== null && maj  !== null && c.voteMajority !== maj) {
+    if (mm.voteMajority !== null && maj  !== null && c.voteMajority !== maj
+            && !ignored.has('voteMajority') && !ignored.has('votes')) {
         c.voteMajority = maj; changed = true;
     }
-    if (mm.voteMinority !== null && minv !== null && c.voteMinority !== minv) {
+    if (mm.voteMinority !== null && minv !== null && c.voteMinority !== minv
+            && !ignored.has('voteMinority') && !ignored.has('votes')) {
         c.voteMinority = minv; changed = true;
+    }
+
+    if (!('result' in c)) {
+        const pw = String(row.partyWinning ?? '').trim();
+        if (pw !== '' && pw.toUpperCase() !== 'NULL') {
+            c.result = pw;
+            changed = true;
+        }
+    }
+
+    if (!ignored.has('usCite')) {
+        const cur = String(c.usCite || '').trim();
+        const scdbCite = _scdbNormalizeCite(row.usCite || '');
+        if (!cur && scdbCite) {
+            c.usCite = scdbCite;
+            changed = true;
+            if (!c.opinion_href && !ignored.has('opinion_href')) {
+                const [vol, pg] = _scdbParseUsCite(scdbCite);
+                const href = _scdbLocOpinionHref(vol, pg);
+                if (href) { c.opinion_href = href; }
+            }
+        }
     }
 
     if (changed) {
@@ -3675,7 +3706,7 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) {
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, add) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -3856,7 +3887,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
                 pushErr('decision', `${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
             }
 
-            if (_scdbHasImportedOpinion(c)) {
+            if (_scdbHasImportedOpinion(c) || noVoteData) {
                 const [maj, minv] = _scdbMajorityCounts(row);
                 if (noVoteData) {
                     if (maj !== null) mm.voteMajority = maj;
@@ -3951,7 +3982,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug) 
             console.log(`[${term}] ${unmatchedOurs.length} case(s) in cases.json with no SCDB match:`);
             for (const t of unmatchedOurs) console.log(`  ${t}`);
         }
-        if (scdbTermIds.size) {
+        if (scdbTermIds.size && add) {
             // Map any docket appearing in our cases.json (including
             // consolidated case numbers) to its disposition string, if any.
             const ourDocketDisposition = new Map();
@@ -4177,7 +4208,7 @@ async function runScdb(opts) {
     } else if (opts.usscDeck) {
         _scdbVerifyUsscDeck(scdb);
     } else {
-        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug);
+        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.add);
     }
 }
 
