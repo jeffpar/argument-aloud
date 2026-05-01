@@ -4,7 +4,7 @@
  * given. Without --update, the script is read-only.
  *
  * Usage:
- *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--update]
+ *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
  *   node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
  *
  * Examples:
@@ -15,6 +15,12 @@
  *   node verify_cases.js 2025-10 --checkurls --opinions
  *   node verify_cases.js 2025-10 --verbose          # extra logging
  *   node verify_cases.js 2025-10 --update           # apply fixes to cases.json
+ *   node verify_cases.js 1979-10 --roles            # derive advocate roles for each
+ *                                                   #   argument event (petitioner /
+ *                                                   #   respondent / appellant / appellee /
+ *                                                   #   plaintiff / defendant). A trailing
+ *                                                   #   '*' on a role means it was confirmed
+ *                                                   #   by only one source.
  *
  *   node verify_cases.js --scdb                     # check SCDB cache + verify all terms
  *   node verify_cases.js --scdb --nocache           # ignore SCDB cache
@@ -42,7 +48,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
     CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
-    reorderCase, reorderEvent,
+    reorderCase, reorderEvent, reorderAdvocate,
 } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1088,6 +1094,10 @@ function checkDecisionDates(casesPath, term) {
         const label    = c.number || c.id || '?';
         const title    = c.title || '';
         if (!decision) continue;
+        // Allow imprecise decision dates (e.g. "1816-02" or just "1816") —
+        // those cases have no exact day on record, so dateDecision can't be
+        // generated. Silently skip rather than warn.
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(decision)) continue;
         const generated = _isoToDateDecision(decision);
         if (generated === null) {
             console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): cannot parse decision='${decision}'`);
@@ -1114,6 +1124,78 @@ function checkDecisionDates(casesPath, term) {
     if (modified) {
         _writeJson(casesPath, data);
         console.log(`WARNING: ${term}/cases.json: inserted missing dateDecision values`);
+    }
+}
+
+// Verbose-only: warn when a case's `votes[]` lists a justice who, by their
+// `justices.json` tenure data, was not on the Court on the case's decision
+// date. (UNKNOWN JUSTICE / unmapped names are silently skipped.) For each
+// case with at least one such mismatch, also print the set of justices who
+// *were* serving on the decision date but are absent from `votes[]` (or note
+// that no other justices were on the Court that day).
+function checkVoteTenures(casesPath, term) {
+    if (!_VERBOSE) return;
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const justiceInfo = _loadJusticeInfo();
+    if (!justiceInfo.size) return;
+
+    // Build a deduped catalogue (canonical-name -> tenures) so we don't double-
+    // visit a justice through their `alternates` map entries. Preserve
+    // insertion order from justices.json (≈ chronological).
+    const catalogue = [];
+    const seen = new Set();
+    for (const [name, info] of justiceInfo.entries()) {
+        if (!info || !info.tenures || !info.tenures.length) continue;
+        if (seen.has(info)) continue;
+        seen.add(info);
+        catalogue.push({ name, info });
+    }
+
+    for (const c of data) {
+        const decision = c.decision || '';
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(decision) || !Array.isArray(c.votes)) continue;
+        const label = c.number || c.id || '?';
+
+        const mismatches = [];   // [name, ranges]
+        const listedNames = new Set();
+        for (const v of c.votes) {
+            if (!v || !v.name) continue;
+            const nm = String(v.name).trim().toUpperCase();
+            listedNames.add(nm);
+            if (nm === 'UNKNOWN JUSTICE') continue;
+            const info = justiceInfo.get(nm);
+            if (!info || !info.tenures || !info.tenures.length) continue;
+            if (_isJusticeOnDate(info, decision)) continue;
+            const ranges = info.tenures
+                .map(t => `${t.dateStart || '?'}–${t.dateStop || 'present'}`).join(', ');
+            mismatches.push([v.name, ranges]);
+        }
+        if (!mismatches.length) continue;
+
+        for (const [name, ranges] of mismatches) {
+            console.log(` NOTICE: ${term}/${label}: vote lists '${name}' but tenure (${ranges}) does not include decision ${decision}`);
+        }
+
+        // Justices in service on the decision date who aren't in c.votes.
+        const servingButUnlisted = [];
+        for (const { name, info } of catalogue) {
+            if (!_isJusticeOnDate(info, decision)) continue;
+            if (listedNames.has(name)) continue;
+            // Skip if any of this justice's alternates is already listed
+            // (catalogue dedupes by info ref, so name == primary canonical).
+            let alreadyListed = false;
+            for (const [alt, altInfo] of justiceInfo.entries()) {
+                if (altInfo === info && listedNames.has(alt)) { alreadyListed = true; break; }
+            }
+            if (alreadyListed) continue;
+            servingButUnlisted.push(name);
+        }
+        if (servingButUnlisted.length) {
+            console.log(` NOTICE: ${term}/${label}: justices serving on ${decision} but absent from votes: ${servingButUnlisted.join(', ')}`);
+        } else {
+            console.log(` NOTICE: ${term}/${label}: no other justices serving on ${decision} are missing from votes`);
+        }
     }
 }
 
@@ -1476,7 +1558,11 @@ function deduplicateCases(casesPath) {
                 if (isStub(c) && !isStub(other)) duplicates.push([otherIdx, i]);
                 else if (isStub(other) && !isStub(c)) duplicates.push([i, otherIdx]);
                 else {
-                    if (term < '1955-10') {
+                    const stem = (t) => String(t || '').split('(')[0].trim().toLowerCase();
+                    const sameTitle = stem(c.title) && stem(c.title) === stem(other.title);
+                    if (sameTitle) {
+                        // Same case split across multiple entries; skip silently.
+                    } else if (term < '1955-10') {
                         if (_VERBOSE) console.log(` NOTICE: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
                     } else {
                         console.log(`WARNING: ${term}: '${raw}' and '${other.number}' share component '${part}' but neither is clearly a stub — skipping`);
@@ -1630,18 +1716,22 @@ function checkDuplicateCaseNumbers(termDir, term, verbose = false) {
     const earlyTerm = term < '1950-10';
     const cases = _readJson(casesPath);
     const seen = {};
+    const titleStem = (t) => String(t || '').split('(')[0].trim().toLowerCase();
     for (const c of cases) {
         const number = c.number || '';
         if (!number) continue;
         const key = number.toLowerCase();
         if (key in seen) {
+            const prev = seen[key];
+            const sameTitle = titleStem(c.title) && titleStem(c.title) === titleStem(prev.title);
+            if (sameTitle) continue;
             if (earlyTerm) {
-                if (verbose) console.log(` NOTICE: ${term}/${number}: duplicate case number in cases.json: '${seen[key]}' and '${number}'`);
+                if (verbose) console.log(` NOTICE: ${term}/${number}: duplicate case number in cases.json: '${prev.number}' and '${number}'`);
             } else {
-                console.log(`WARNING: ${term}/${number}: duplicate case number in cases.json: '${seen[key]}' and '${number}'`);
+                console.log(`WARNING: ${term}/${number}: duplicate case number in cases.json: '${prev.number}' and '${number}'`);
             }
         } else {
-            seen[key] = number;
+            seen[key] = c;
         }
     }
 }
@@ -1696,10 +1786,20 @@ function checkCasesSync(termDir, verbose = false) {
         const c = jsonNumbers[number];
         const folder = _caseFolder(number);
         if (!diskFolders.has(folder)) {
-            const hasLocalText = (c.events || []).some(a =>
-                a.text_href && !a.text_href.startsWith('http'));
+            // A case folder is only required when there's something to put in
+            // it — either a `files` count (i.e. files.json entries) or an
+            // event with a local text_href that resolves into THIS folder.
+            // text_hrefs that point at another case folder (e.g. consolidated
+            // cases share a transcript file) don't require a folder here.
+            const hasLocalText = (c.events || []).some(a => {
+                const href = a.text_href;
+                if (!href || href.startsWith('http')) return false;
+                const slash = href.indexOf('/');
+                if (slash < 0) return true; // bare filename → lives in this folder
+                return href.slice(0, slash) === folder;
+            });
             const hasContent = !!c.files || hasLocalText;
-            if (hasContent || verbose) {
+            if (hasContent) {
                 console.log(`WARNING: ${term}: ${number} in cases.json but no folder at cases/${folder}/`);
             }
         }
@@ -2003,10 +2103,11 @@ function checkDuplicateMediaHrefs(termsToCheck) {
             caseLookup[`${term}\u0000${number}`] = c;
             for (const e of c.events || []) {
                 const date = e.date || '', source = e.source || '';
+                const turn = (e.turn === undefined || e.turn === null) ? '' : String(e.turn);
                 for (const field of ['audio_href', 'transcript_href']) {
                     const url = e[field] || '';
                     if (url) {
-                        (seen[field][url] = seen[field][url] || []).push([term, number, date, source]);
+                        (seen[field][url] = seen[field][url] || []).push([term, number, date, source, turn]);
                     }
                 }
             }
@@ -2017,7 +2118,17 @@ function checkDuplicateMediaHrefs(termsToCheck) {
         for (const url of _sortStr(Object.keys(seen[field]))) {
             const locs = seen[field][url];
             if (locs.length <= 1) continue;
+            // Same case, same URL but distinct `turn` values on each
+            // occurrence (treating a missing `turn` as the implicit start) →
+            // consolidated multi-case audio split into per-case segments.
+            // Not a duplicate.
             const tcSet = new Set(locs.map(([t, n]) => `${t}\u0000${n}`));
+            if (tcSet.size === 1) {
+                const turns = locs.map(l => l[4]);
+                const hasExplicit = turns.some(t => t !== '');
+                const distinct = new Set(turns).size === turns.length;
+                if (hasExplicit && distinct) continue;
+            }
             if (tcSet.size === 1) {
                 const [t, n] = [...tcSet][0].split('\u0000');
                 const eventDates = locs.map(l => l[2]).filter(Boolean);
@@ -4217,7 +4328,7 @@ async function runScdb(opts) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node verify_cases.js                                # verify all terms (no writes)
-       node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--verbose] [--update]
+       node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
@@ -4229,6 +4340,8 @@ Examples:
   node verify_cases.js 2025-10 24-1260
   node verify_cases.js 2025-10 --checkurls --opinions
   node verify_cases.js 2025-10 --update                    # apply fixes to cases.json
+  node verify_cases.js 1979-10 --roles                     # derive event advocate roles
+  node verify_cases.js 1979-10 78-1014 --roles --update    #   ... and write them to cases.json
 
   node verify_cases.js --scdb                              # rebuild cache + verify all terms
   node verify_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
@@ -4240,8 +4353,315 @@ Examples:
                                                            #    fills in missing votes / vote counts)
   node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch`;
 
+// ═══════════════════════════════════════════════════════════════════════════
+// --roles: derive event advocate roles from transcript JSON, raw transcript
+// text, and the per-year SCOTUS journal. A role is appended with "*" when
+// only one source confirms it; with two or more sources it's left bare.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const PARTY_PETITIONER_TERMS = ['petitioner', 'appellant', 'plaintiff'];
+const PARTY_RESPONDENT_TERMS = ['respondent', 'appellee', 'defendant'];
+const PARTY_ALL_ROLE_TERMS   = [...PARTY_PETITIONER_TERMS, ...PARTY_RESPONDENT_TERMS];
+const PARTY_JUSTICE_TITLES   = new Set(['JUSTICE', 'CHIEF JUSTICE']);
+// Hyphen-like characters that may appear in journal text in place of "-".
+const PARTY_HYPHEN_CLASS = '[-\\u2010\\u2011\\u2012\\u2013\\u2014\\u2015\\u2212]';
+
+function _partyRoleSide(role) {
+    if (!role) return null;
+    const r = String(role).toLowerCase().replace(/\*$/, '');
+    if (PARTY_PETITIONER_TERMS.includes(r)) return 'petitioner';
+    if (PARTY_RESPONDENT_TERMS.includes(r)) return 'respondent';
+    return null;
+}
+
+function _partySurname(name) {
+    if (!name) return '';
+    const cleaned = String(name).replace(/[.,]/g, ' ').trim();
+    if (!cleaned) return '';
+    const parts = cleaned.split(/\s+/).filter(p => !/^(JR|SR|II|III|IV|ESQ)$/i.test(p));
+    return (parts[parts.length - 1] || '').replace(/[^A-Za-z\-']/g, '');
+}
+
+function _partyEscapeRegex(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function _partyHyphenVariants(num) {
+    return _partyEscapeRegex(num).replace(/-/g, PARTY_HYPHEN_CLASS);
+}
+
+// Read the transcript envelope and return the ordered list of non-justice
+// speakers (in the order they first appear in turns) plus a name->title map.
+function _partyReadTranscript(transcriptPath) {
+    let env;
+    try { env = JSON.parse(fs.readFileSync(transcriptPath, 'utf8')); }
+    catch { return null; }
+    if (!env || typeof env !== 'object') return null;
+    const speakers = Array.isArray(env?.media?.speakers) ? env.media.speakers : [];
+    const titles = {};
+    for (const sp of speakers) titles[sp.name || ''] = sp.title || '';
+    const turns = Array.isArray(env.turns) ? env.turns
+                : Array.isArray(env)        ? env
+                : [];
+    const seen = new Set();
+    const order = [];
+    for (const t of turns) {
+        const n = (t && t.name) || '';
+        if (!n || seen.has(n)) continue;
+        const title = (titles[n] || '').toUpperCase();
+        if (PARTY_JUSTICE_TITLES.has(title)) continue;
+        if (/^UNKNOWN/i.test(n)) continue;
+        seen.add(n);
+        order.push(n);
+    }
+    return { order, titles };
+}
+
+// Search the (raw) transcript text for "<surname> ... on behalf of (the) <role>".
+function _partyFindRoleInText(text, surname) {
+    if (!text || !surname) return null;
+    const esc = _partyEscapeRegex(surname);
+    // Forward search: name precedes role mention.
+    const fwd = new RegExp(
+        `\\b${esc}\\b[\\s\\S]{0,400}?on\\s+behalf\\s+of\\s+(?:the\\s+)?(${PARTY_ALL_ROLE_TERMS.join('|')})s?`,
+        'i',
+    );
+    let m = fwd.exec(text);
+    if (m) return m[1].toLowerCase();
+    // Reverse search: role mention precedes name (e.g. "ORAL ARGUMENT OF X ON BEHALF OF THE PETITIONER").
+    const back = new RegExp(
+        `on\\s+behalf\\s+of\\s+(?:the\\s+)?(${PARTY_ALL_ROLE_TERMS.join('|')})s?[\\s\\S]{0,400}?\\b${esc}\\b`,
+        'i',
+    );
+    m = back.exec(text);
+    return m ? m[1].toLowerCase() : null;
+}
+
+// Scan a journal year file for a "No. <docket>." block and extract
+// "...by <Honorific> <Name> for (the) <role>..." pairings.
+function _partyFindRolesInJournal(journalText, docket) {
+    if (!journalText || !docket) return [];
+    const numRe = new RegExp(
+        `No\\.\\s*${_partyHyphenVariants(docket)}(?![\\d${PARTY_HYPHEN_CLASS.slice(1, -1)}])[\\s\\S]{0,1200}`,
+        'g',
+    );
+    const out = [];
+    let m;
+    while ((m = numRe.exec(journalText)) !== null) {
+        const block = m[0];
+        // Stop block at the next "No. <docket>." entry to avoid leaking
+        // into the following case.
+        const nextIdx = block.search(/\bNo\.\s*\d/i);
+        const slice = nextIdx > 40 ? block.slice(0, nextIdx) : block;
+        // by [honorific] First [Middle] LastName ... for (the) ROLE
+        // NB: case-sensitive (no /i) so [A-Z] really means uppercase — the
+        // journal uses Title-Case honorifics ("Mrs.") and lowercase roles
+        // ("for the petitioner").
+        const partRe = new RegExp(
+            `by\\s+(?:Mr\\.?|Mrs\\.?|Ms\\.?|Miss|Dr\\.?|General|Solicitor\\s+General|Attorney\\s+General)\\s+` +
+            `((?:[A-Z][A-Za-z'\\-]*\\.?\\s+){0,4}[A-Z][A-Za-z'\\-]+)` +
+            `[^A-Za-z]{1,80}?for\\s+(?:the\\s+)?(${PARTY_ALL_ROLE_TERMS.join('|')})s?`,
+            'g',
+        );
+        let pm;
+        while ((pm = partRe.exec(slice)) !== null) {
+            const surname = _partySurname(pm[1]);
+            const role    = pm[2].toLowerCase();
+            if (surname) out.push([surname, role]);
+        }
+        if (out.length) break;
+    }
+    return out;
+}
+
+function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
+    const casesPath = path.join(termDir, 'cases.json');
+    if (!fs.existsSync(casesPath)) return 0;
+    const cases = _readJson(casesPath);
+    if (!Array.isArray(cases)) return 0;
+    const casesDir = path.join(termDir, 'cases');
+
+    const journalDir = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
+    const transcriptDir = path.join(REPO_ROOT, 'courts', 'ussc', 'transcripts', 'text');
+    const journalCache = {};
+    const loadJournal = (year) => {
+        if (year in journalCache) return journalCache[year];
+        const p = path.join(journalDir, `${year}.txt`);
+        try { journalCache[year] = fs.readFileSync(p, 'utf8'); }
+        catch { journalCache[year] = null; }
+        return journalCache[year];
+    };
+
+    let casesChanged = 0;
+    let modifiedFile = false;
+
+    for (const c of cases) {
+        if (caseFilter) {
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
+        }
+        if (!Array.isArray(c.events)) continue;
+        const docket = (c.number || '').split(',')[0].trim();
+        if (!docket) continue;
+
+        let caseModified = false;
+        for (const ev of c.events) {
+            if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+            if (!ev.text_href) continue;
+            const transcriptPath = path.join(casesDir, ev.text_href);
+            const info = _partyReadTranscript(transcriptPath);
+            if (!info || info.order.length === 0) continue;
+
+            const date = ev.date || '';
+            const year = date.slice(0, 4);
+
+            // Raw transcript text (cached PDF-extracted) — limit search to the
+            // first ~12 KB which covers the appearances + opening pages.
+            let rawText = null;
+            if (year && docket) {
+                const candidates = [
+                    path.join(transcriptDir, year, `${docket}_${date}.txt`),
+                ];
+                for (const p of candidates) {
+                    if (fs.existsSync(p)) {
+                        try { rawText = fs.readFileSync(p, 'utf8').slice(0, 12000); }
+                        catch {}
+                        break;
+                    }
+                }
+            }
+
+            const journalText = year ? loadJournal(year) : null;
+            const journalEntries = journalText ? _partyFindRolesInJournal(journalText, docket) : [];
+
+            // Heuristic: first non-justice speaker = petitioner-side;
+            // last different non-justice speaker = respondent-side.
+            const petitionerName = info.order[0] || null;
+            const respondentName = info.order.slice(1).reverse()
+                                       .find(n => n && n !== petitionerName) || null;
+            const heuristicRole = {};
+            if (petitionerName) heuristicRole[petitionerName] = 'petitioner';
+            if (respondentName) heuristicRole[respondentName] = 'respondent';
+
+            const computed = [];
+            for (const name of info.order) {
+                const surname = _partySurname(name);
+                // role -> Set of source labels
+                const votes = {};
+                const add = (role, src) => {
+                    if (!role) return;
+                    (votes[role] = votes[role] || new Set()).add(src);
+                };
+                if (heuristicRole[name]) add(heuristicRole[name], 'heuristic');
+                if (rawText)             add(_partyFindRoleInText(rawText, surname), 'text');
+                if (journalEntries.length) {
+                    for (const [jSurname, jRole] of journalEntries) {
+                        if (jSurname && jSurname.toLowerCase() === surname.toLowerCase()) {
+                            add(jRole, 'journal');
+                            break;
+                        }
+                    }
+                }
+                const entries = Object.entries(votes);
+                if (!entries.length) continue;
+                // Pick the role with the most distinct sources; on ties prefer
+                // the one *not* coming solely from the heuristic.
+                entries.sort((a, b) => {
+                    if (b[1].size !== a[1].size) return b[1].size - a[1].size;
+                    const aH = a[1].has('heuristic') && a[1].size === 1 ? 1 : 0;
+                    const bH = b[1].has('heuristic') && b[1].size === 1 ? 1 : 0;
+                    return aH - bH;
+                });
+                const [role, sources] = entries[0];
+                const finalRole = sources.size >= 2 ? role : `${role}*`;
+                computed.push({ name, title: info.titles[name] || '', role: finalRole, _sources: [...sources] });
+            }
+            if (!computed.length) continue;
+
+            // Decide whether it's safe to (re)write ev.advocates.
+            //
+            // If an "advocates" array already exists, we only overwrite it when
+            // every existing entry maps to a computed entry by name AND each
+            // existing role is either absent or compatible with the computed
+            // role (same alias OR same petitioner/respondent side). Anything
+            // else — extra existing names not in the transcript, or a confirmed
+            // role on the opposite side — leaves the array untouched and emits
+            // a single WARNING.
+            const existing = Array.isArray(ev.advocates) ? ev.advocates : [];
+            const computedByName = new Map(computed.map(c => [c.name || '', c]));
+            const conflicts = [];
+            for (const ex of existing) {
+                const exName = ex.name || '';
+                const cand = computedByName.get(exName);
+                if (!cand) {
+                    conflicts.push(`existing advocate '${exName}' not found among transcript speakers`);
+                    continue;
+                }
+                const exRoleRaw = ex.role || '';
+                if (!exRoleRaw) continue;            // missing role: fine to fill in
+                const exRole  = exRoleRaw.replace(/\*$/, '').toLowerCase();
+                const newRole = (cand.role || '').replace(/\*$/, '').toLowerCase();
+                if (exRole === newRole) continue;    // same alias: fine
+                const exSide  = _partyRoleSide(exRoleRaw);
+                const newSide = _partyRoleSide(cand.role);
+                if (exSide && newSide && exSide === newSide) continue; // same side, different alias: fine
+                conflicts.push(`'${exName}' existing role '${exRoleRaw}' conflicts with computed '${cand.role}' (sources: ${cand._sources.join(',')})`);
+            }
+            if (conflicts.length) {
+                console.log(`[roles] ${term}/${docket} ${ev.date}: WARNING — leaving existing advocates unchanged:`);
+                for (const msg of conflicts) console.log(`    ${msg}`);
+                continue;
+            }
+
+            // Build the replacement list. For each computed advocate, prefer
+            // an existing entry's role when it's already confirmed (no '*')
+            // and on the same side; otherwise use the computed role.
+            const merged = [];
+            const existingByName = new Map(existing.map(a => [a.name || '', a]));
+            for (const cand of computed) {
+                const ex = existingByName.get(cand.name);
+                if (ex) {
+                    const exRoleRaw = ex.role || '';
+                    const exConfirmed = exRoleRaw && !exRoleRaw.endsWith('*');
+                    const exSide  = _partyRoleSide(exRoleRaw);
+                    const newSide = _partyRoleSide(cand.role);
+                    const useExisting = exConfirmed && exSide && newSide && exSide === newSide;
+                    merged.push({
+                        name:  cand.name,
+                        title: ex.title || cand.title,
+                        role:  useExisting ? exRoleRaw : cand.role,
+                    });
+                } else {
+                    merged.push({ name: cand.name, title: cand.title, role: cand.role });
+                }
+            }
+
+            const beforeJson = JSON.stringify(existing.map(reorderAdvocate));
+            const afterJson  = JSON.stringify(merged.map(reorderAdvocate));
+            if (beforeJson === afterJson) continue;
+
+            const verb = dryRun ? 'would set' : 'set';
+            console.log(`[roles] ${term}/${docket} ${ev.date}: ${verb} advocates`);
+            for (const a of merged) {
+                const sources = computed.find(x => x.name === a.name)?._sources || [];
+                const tag = sources.length ? `  (${sources.join(',')})` : '';
+                console.log(`    ${a.role || '?'}\t${a.title || ''} ${a.name}${tag}`);
+            }
+            ev.advocates = merged.map(reorderAdvocate);
+            caseModified = true;
+        }
+        if (caseModified) {
+            casesChanged++;
+            modifiedFile = true;
+        }
+    }
+
+    if (modifiedFile && !dryRun) _writeJson(casesPath, cases);
+    return casesChanged;
+}
+
 async function processOneTerm(term, opts) {
-    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, speakerMapBase } = opts;
+    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, speakerMapBase, roles } = opts;
     let { caseFilter } = opts;
     const termDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term);
     if (!isDir(termDir)) {
@@ -4286,6 +4706,7 @@ async function processOneTerm(term, opts) {
             normalizeAudioAlignedPosition(casesPath);
             checkAudioDates(casesPath, term, dryRun);
             checkDecisionDates(casesPath, term);
+            checkVoteTenures(casesPath, term);
             backfillUntrackedFiles(casesPath, term, dryRun);
             if (!dryRun) syncFilesCount(casesPath);
             syncOpinionHrefFromFiles(casesPath);
@@ -4305,11 +4726,14 @@ async function processOneTerm(term, opts) {
         const caseDirs = isDir(casesDir)
             ? fs.readdirSync(casesDir).filter(n => isDir(path.join(casesDir, n))).sort()
             : [];
-        if (!caseDirs.length && verbose) console.log(`NOTICE: ${term}: no case directories found`);
         for (const d of caseDirs) {
             await verifyCase(termDir, d, checkUrls, opinionsOnly);
             applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
         }
+    }
+
+    if (roles) {
+        _partyVerifyTerm(termDir, term, caseFilter, dryRun);
     }
 
     return caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
@@ -4375,6 +4799,7 @@ async function main() {
     const update       = flags.has('--update');
     const dryRun       = !update;
     const scdb         = flags.has('--scdb');
+    const roles        = flags.has('--roles');
     setVerbose(verbose);
     setDryRun(dryRun);
 
@@ -4439,7 +4864,7 @@ async function main() {
         const r = await processOneTerm(term, {
             checkUrls, opinionsOnly, verbose, dryRun, allTerms,
             caseFilter: termsToProcess.length === 1 ? caseFilter : null,
-            speakerMapBase,
+            speakerMapBase, roles,
         });
         if (!r) continue;
         totals.casesReordered    += r.casesReordered;

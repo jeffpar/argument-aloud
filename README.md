@@ -17,3 +17,5 @@
  4. When incorporating SCDB decision data, be aware that while a case "number" many consist of several consolidated case numbers, there are cases in some terms (eg, cases "17-1618" and "18-107" in the "2019-10" term) that were initially separate because they were argued separately but later decided together. We could add some scripting logic to merge them, or we could leave them separated and simply apply the same SCDB decision data to both cases.
 
  5. loc.gov currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for "Sullivan v. Florida, 560 U.S. 181"; you can only find it at the bottom of the document for "United States v. Comstock, 560 U.S. 126".
+
+ 6. Why is there missing audio for some of Kneedler's cases (eg, 92-1180)?
