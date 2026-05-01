@@ -4,11 +4,13 @@
  *
  * Usage:
  *   node scripts/import_oyez.js TERM [CASE] [--cases]
+ *   node scripts/import_oyez.js OYEZ_URL [--cases]
  *
  * Examples:
  *   node scripts/import_oyez.js 2025-10
  *   node scripts/import_oyez.js 2025          # same as 2025-10
  *   node scripts/import_oyez.js 2025-10 24-1063
+ *   node scripts/import_oyez.js https://www.oyez.org/cases/1961/2
  *
  * JS port of scripts/python/import_oyez.py — see that file for full docs.
  */
@@ -482,22 +484,39 @@ async function main() {
 
     if (posArgs.length < 1 || posArgs.length > 2) {
         console.log('Usage: node scripts/import_oyez.js TERM [CASE] [--cases]');
+        console.log('       node scripts/import_oyez.js OYEZ_URL [--cases]');
         process.exit(1);
     }
 
     const arg = posArgs[0].trim();
-    const caseFilter = posArgs.length === 2 ? posArgs[1].trim() : null;
 
-    let yearStr, term;
-    if (/^\d{4}$/.test(arg)) {
-        yearStr = arg; term = `${arg}-10`;
-    } else {
-        const m = /^(\d{4})-(\d{2})$/.exec(arg);
-        if (!m) {
-            console.log(`Error: expected YYYY or YYYY-MM (e.g. 2025 or 2025-10), got '${arg}'`);
+    // Single-case URL form: https://www.oyez.org/cases/YYYY/DOCKET
+    //                  or:  https://api.oyez.org/cases/YYYY/DOCKET
+    let singleCaseUrl = null;
+    const urlMatch = /^https?:\/\/(?:www\.|api\.)?oyez\.org\/cases\/(\d{4})\/([^/?#]+)\/?/.exec(arg);
+
+    let yearStr, term, caseFilter;
+    if (urlMatch) {
+        if (posArgs.length !== 1) {
+            console.log('Error: when passing an Oyez URL, do not also pass a CASE argument');
             process.exit(1);
         }
-        yearStr = m[1]; term = arg;
+        yearStr = urlMatch[1];
+        term = `${yearStr}-10`;
+        caseFilter = normalizeCaseNum(decodeURIComponent(urlMatch[2]));
+        singleCaseUrl = `${OYEZ_API}/cases/${yearStr}/${urlMatch[2]}`;
+    } else {
+        caseFilter = posArgs.length === 2 ? posArgs[1].trim() : null;
+        if (/^\d{4}$/.test(arg)) {
+            yearStr = arg; term = `${arg}-10`;
+        } else {
+            const m = /^(\d{4})-(\d{2})$/.exec(arg);
+            if (!m) {
+                console.log(`Error: expected YYYY, YYYY-MM, or an oyez.org URL, got '${arg}'`);
+                process.exit(1);
+            }
+            yearStr = m[1]; term = arg;
+        }
     }
 
     const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
@@ -533,8 +552,15 @@ async function main() {
     const termsRoot = path.dirname(path.dirname(casesPath));
     const laterTermNumbers = loadLaterTermNumbers(termsRoot, yearStr);
 
-    console.log(`Fetching Oyez case list for ${yearStr} term ...`);
-    const oyezCases = await fetchOyezCases(yearStr);
+    let oyezCases;
+    if (singleCaseUrl) {
+        console.log(`Fetching single Oyez case ${singleCaseUrl} ...`);
+        const detail = await fetchJson(singleCaseUrl);
+        oyezCases = [detail];
+    } else {
+        console.log(`Fetching Oyez case list for ${yearStr} term ...`);
+        oyezCases = await fetchOyezCases(yearStr);
+    }
     console.log(`  ${oyezCases.length} case(s) from Oyez`);
     console.log(`  ${Object.keys(ourByNum).length} case(s) in local cases.json`);
 
@@ -571,6 +597,24 @@ async function main() {
         let caseDir = path.join(path.dirname(casesPath), 'cases', number);
 
         let localCase = ourByNum[number] || null;
+        // Docket numbers are reused across terms (e.g. "6" is Baker v. Carr
+        // in 1960-10 and Gibson in 1961-10) and across cases within a term
+        // (e.g. 1961's docket "2" is Kennedy v. Mendoza-Martinez while
+        // "2_0" is Metlakatla v. Egan). If the local match's oyez_href
+        // points at a different /cases/YYYY/DOCKET than the current oyez
+        // case, treat it as not found so the laterTermNumbers redirect
+        // path can run instead.
+        if (localCase && localCase.oyez_href) {
+            const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(localCase.oyez_href);
+            if (m) {
+                const localOyezYear   = m[1];
+                const localOyezDocket = normalizeCaseNum(decodeURIComponent(m[2]));
+                const oyezDocket      = normalizeCaseNum(oyezCase.docket_number || number);
+                if (localOyezYear !== yearStr || localOyezDocket !== oyezDocket) {
+                    localCase = null;
+                }
+            }
+        }
         const localNumber = localCase ? (localCase.number || '') : '';
         const isConsolidated = localNumber.includes(',');
         let caseNumForTitle = '';
@@ -658,8 +702,23 @@ async function main() {
                     _redirFiles.set(laterCasesPath, readJson(laterCasesPath));
                 }
                 const laterData = _redirFiles.get(laterCasesPath) || [];
-                const laterLocal = laterData.find(c =>
-                    normalizeCaseNum(c.number || '') === number) || null;
+                const oyezDocket = normalizeCaseNum(oyezCase.docket_number || number);
+                const laterLocal = laterData.find(c => {
+                    const nums = (c.number || '').split(',')
+                        .map(s => normalizeCaseNum(s.trim()))
+                        .filter(Boolean);
+                    if (!nums.includes(number)) return false;
+                    // Same /cases/YYYY/DOCKET guard as above.
+                    if (c.oyez_href) {
+                        const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(c.oyez_href);
+                        if (m) {
+                            const lY = m[1];
+                            const lD = normalizeCaseNum(decodeURIComponent(m[2]));
+                            if (lY !== yearStr || lD !== oyezDocket) return false;
+                        }
+                    }
+                    return true;
+                }) || null;
                 if (!laterLocal) {
                     console.log(`  ${number}: found in ${foundTerm} — no matching case, skipping`);
                     continue;
