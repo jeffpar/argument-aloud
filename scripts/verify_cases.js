@@ -4511,23 +4511,48 @@ function _partyReadTranscript(transcriptPath) {
 }
 
 // Search the (raw) transcript text for "<surname> ... on behalf of (the) <role>".
+// Allows up to two capitalised modifier words before the role term so that
+// "on behalf of the Federal Respondents" matches "respondent". If the
+// appearance line continues with "...supporting the <other-role>...",
+// the supporting-role wins — e.g. an amicus "on behalf of the Federal
+// Respondents, supporting the Petitioners" should map to petitioner.
 function _partyFindRoleInText(text, surname) {
     if (!text || !surname) return null;
     const esc = _partyEscapeRegex(surname);
+    const roleAlt = PARTY_ALL_ROLE_TERMS
+        .map(r => `[${r[0].toUpperCase()}${r[0]}]${r.slice(1)}`)
+        .join('|');
+    // Soft whitespace: tolerates the line-number columns ("\n\n6   ") that
+    // pdftotext leaves inside multi-line appearance blocks.
+    const ws = `(?:\\s+\\d{1,3}\\s+|\\s+)`;
+    // Optional "the " plus 0-2 capitalised modifier words (e.g. "Federal").
+    const lead = `(?:[Tt]he${ws})?(?:[A-Z][a-zA-Z]+${ws}){0,2}`;
+    const supportRe = new RegExp(
+        `^[\\s\\S]{0,200}?[Ss]upporting${ws}(?:[Tt]he${ws}|[Nn]either${ws})?(${roleAlt})s?`,
+        '',
+    );
+    const resolve = (matchedRole, tail) => {
+        const sm = supportRe.exec(tail || '');
+        return (sm ? sm[1] : matchedRole).toLowerCase();
+    };
     // Forward search: name precedes role mention.
     const fwd = new RegExp(
-        `\\b${esc}\\b[\\s\\S]{0,400}?on\\s+behalf\\s+of\\s+(?:the\\s+)?(${PARTY_ALL_ROLE_TERMS.join('|')})s?`,
-        'i',
+        `\\b${esc}\\b[\\s\\S]{0,400}?on${ws}behalf${ws}of${ws}${lead}(${roleAlt})s?`,
+        '',
     );
     let m = fwd.exec(text);
-    if (m) return m[1].toLowerCase();
+    if (m) return resolve(m[1], text.slice(m.index + m[0].length));
     // Reverse search: role mention precedes name (e.g. "ORAL ARGUMENT OF X ON BEHALF OF THE PETITIONER").
     const back = new RegExp(
-        `on\\s+behalf\\s+of\\s+(?:the\\s+)?(${PARTY_ALL_ROLE_TERMS.join('|')})s?[\\s\\S]{0,400}?\\b${esc}\\b`,
-        'i',
+        `on${ws}behalf${ws}of${ws}${lead}(${roleAlt})s?([\\s\\S]{0,400}?)\\b${esc}\\b`,
+        '',
     );
     m = back.exec(text);
-    return m ? m[1].toLowerCase() : null;
+    if (!m) return null;
+    const afterRole = m[2] || '';
+    const sm1 = supportRe.exec(afterRole);
+    if (sm1) return sm1[1].toLowerCase();
+    return resolve(m[1], text.slice(m.index + m[0].length));
 }
 
 // Scan a journal year file for a "No. <docket>." block and extract
@@ -4698,15 +4723,18 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
             // Decide whether it's safe to (re)write ev.advocates.
             //
             // If an "advocates" array already exists, we only overwrite it when
-            // every existing entry maps to a computed entry by name AND each
-            // existing role is either absent or compatible with the computed
-            // role (same alias OR same petitioner/respondent side). Anything
-            // else — extra existing names not in the transcript, or a confirmed
-            // role on the opposite side — leaves the array untouched and emits
-            // a single WARNING.
+            // every existing entry maps to a computed entry by name. Extra
+            // existing names not in the transcript leave the array untouched
+            // and emit a single WARNING.
+            //
+            // Role conflicts (existing role vs. computed role on a different
+            // side) are *not* warnings: with --update we overwrite them with
+            // the newer computed role; without --update we log what would
+            // change so the user can review before re-running.
             const existing = Array.isArray(ev.advocates) ? ev.advocates : [];
             const computedByName = new Map(computed.map(c => [c.name || '', c]));
             const conflicts = [];
+            const roleOverrides = [];   // [{name, oldRole, newRole, sources}]
             for (const ex of existing) {
                 const exName = ex.name || '';
                 const cand = computedByName.get(exName);
@@ -4724,12 +4752,25 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
                 const exSide  = _partyRoleSide(exRoleRaw);
                 const newSide = _partyRoleSide(cand.role);
                 if (exSide && newSide && exSide === newSide) continue; // same side, different alias: fine
-                conflicts.push(`'${exName}' existing role '${exRoleRaw}' conflicts with computed '${cand.role}' (sources: ${cand._sources.join(',')})`);
+                roleOverrides.push({
+                    name: exName,
+                    oldRole: exRoleRaw,
+                    newRole: candRoleRaw,
+                    sources: cand._sources,
+                });
             }
             if (conflicts.length) {
                 console.log(`[roles] ${term}/${docket} ${ev.date}: WARNING — leaving existing advocates unchanged:`);
                 for (const msg of conflicts) console.log(`    ${msg}`);
                 continue;
+            }
+            if (roleOverrides.length) {
+                const verb = dryRun ? 'would override' : 'overriding';
+                console.log(`[roles] ${term}/${docket} ${ev.date}: ${verb} existing role(s):`);
+                for (const o of roleOverrides) {
+                    const tag = o.sources && o.sources.length ? `  (${o.sources.join(',')})` : '';
+                    console.log(`    '${o.name}': '${o.oldRole}' → '${o.newRole}'${tag}`);
+                }
             }
 
             // Build the replacement list. For each computed advocate, prefer

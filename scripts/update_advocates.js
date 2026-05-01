@@ -90,6 +90,25 @@ function isFeminineTitle(title) {
     return _FEMININE_TITLE_PARTS.some(p => upper.includes(p));
 }
 
+// ── Result summarisation ───────────────────────────────────────────────────
+//
+// Map the verbose `c.result` string and an advocate's role to a short side
+// label. Roles ending in '*' (low-confidence) are accepted as-is for the
+// purpose of choosing the family (cert/appeal/civil).
+function summarizeResult(fullResult, role) {
+    if (!fullResult) return '';
+    const r = (role || '').replace(/\*$/, '').toLowerCase();
+    let family = 'cert';            // petitioner / respondent
+    if (r === 'appellant' || r === 'appellee')      family = 'appeal';
+    else if (r === 'plaintiff' || r === 'defendant') family = 'civil';
+    const won = fullResult === 'petitioning party received a favorable disposition';
+    const lost = fullResult === 'no favorable disposition for petitioning party apparent';
+    if (!won && !lost) return '';
+    if (family === 'appeal') return won ? 'appellant' : 'appellee';
+    if (family === 'civil')  return won ? 'plaintiff' : 'defendant';
+    return won ? 'petitioner' : 'respondent';
+}
+
 // ── Name aliases (from speakers.json) ──────────────────────────────────────
 
 function loadNameAliases(p) {
@@ -960,6 +979,20 @@ async function main() {
                 const audio = audioEntries[origIdx];
                 const audioDate = audio.date || c.argument || '';
 
+                // Map of upper-case advocate name -> role string (if any)
+                // for this event's explicit advocates list. Used to attach
+                // role/result to advocates discovered via the transcript.
+                const audioRoles = new Map();
+                for (const raw of audio.advocates || []) {
+                    if (!raw || typeof raw !== 'object') continue;
+                    const rn = (raw.name || '').trim();
+                    if (!rn) continue;
+                    const role = (raw.role || '').trim();
+                    if (!role) continue;
+                    const key = normalizeNameSuffix(rn).split(/\s+/).filter(Boolean).join(' ').toUpperCase();
+                    if (key && !audioRoles.has(key)) audioRoles.set(key, role);
+                }
+
                 // For consolidated dockets (number contains comma), an event
                 // whose title names a specific sub-docket (e.g. "in No. 54")
                 // represents a separate argument and should be counted on its
@@ -975,10 +1008,11 @@ async function main() {
                     return parts.includes(sub) ? sub : '';
                 };
 
-                const recordAdvocate = (rawName, advocateTitle = '') => {
+                const recordAdvocate = (rawName, advocateTitle = '', explicitRole = '') => {
                     let name = (rawName || '').split(/\s+/).filter(Boolean).join(' ');
                     if (!name || !audioDate) return;
                     let nameKey = name.toUpperCase();
+                    const preAliasKey = nameKey;
                     const canonicalKey = NAME_ALIASES[nameKey];
                     if (canonicalKey) {
                         const oldDisplay = name;
@@ -1037,6 +1071,13 @@ async function main() {
                     // before the case entry is serialized to disk.
                     if (subKey) Object.defineProperty(caseEntry, '_fullNumber', { value: number, enumerable: false });
                     if (decision) caseEntry.decision = decision;
+                    const advRole = (explicitRole
+                        || audioRoles.get(nameKey)
+                        || audioRoles.get(preAliasKey)
+                        || '').trim();
+                    if (advRole) caseEntry.role = advRole;
+                    const summarized = summarizeResult(c.result, advRole);
+                    if (summarized) caseEntry.result = summarized;
                     const sameDateEntries = (dateToIdxs.get(audioDate) || []).map(i => audioEntries[i]);
                     if (sameDateEntries.some(e => e.transcript_href)) caseEntry.transcript = true;
                     if (resolvedAudio.audio_href || resolvedAudio.transcript_href) {
@@ -1059,7 +1100,8 @@ async function main() {
                     for (const raw of audio.advocates || []) {
                         const rawName  = (typeof raw === 'object' && raw !== null) ? raw.name  : raw;
                         const rawTitle = (typeof raw === 'object' && raw !== null) ? (raw.title || '') : '';
-                        recordAdvocate(normalizeNameSuffix((rawName || '').trim()), rawTitle);
+                        const rawRole  = (typeof raw === 'object' && raw !== null) ? (raw.role  || '') : '';
+                        recordAdvocate(normalizeNameSuffix((rawName || '').trim()), rawTitle, rawRole);
                     }
                 }
 
