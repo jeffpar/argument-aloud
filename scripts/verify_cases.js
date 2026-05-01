@@ -1199,6 +1199,27 @@ function checkVoteTenures(casesPath, term) {
     }
 }
 
+// Warn when a case has audio/transcript media (audio_href, transcript_href,
+// or text_href on any event) but no `votes` array — typically meaning we
+// haven't yet pulled SCDB vote data for it. Returns the count of warned
+// cases so the top-level driver can suggest re-running with --scdb.
+function checkArgumentsHaveVotes(casesPath, term) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return 0;
+    let count = 0;
+    for (const c of data) {
+        if (Array.isArray(c.votes) && c.votes.length) continue;
+        const events = c.events || [];
+        const hasMedia = events.some(e =>
+            e && (e.audio_href || e.transcript_href || e.text_href));
+        if (!hasMedia) continue;
+        const label = c.number || c.id || '?';
+        console.log(`WARNING: ${term}/${label}: has audio/transcript but no votes (run with --scdb)`);
+        count++;
+    }
+    return count;
+}
+
 async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
@@ -3853,9 +3874,34 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         const scdbByDocketDate = new Map(); // "docket\u0000YYYY-MM-DD" -> caseId | null
         const scdbByDocket     = new Map(); // docket -> caseId | null
         const scdbByTitle      = new Map(); // squashed title -> caseId | null
+        const scdbByDate       = new Map(); // YYYY-MM-DD -> [{ id, title, tokens:Set }, …]
         const scdbTermIds      = new Set(); // all caseIds in this term
         const splitDocket = (s) => String(s || '').split(/[,;\s]+/).map(x => x.trim()).filter(Boolean);
         const squashTitle = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        const STOPWORDS = new Set(['v','vs','et','al','the','of','a','an','and','co','company','inc','corp','corporation','llc','ltd','no']);
+        const tokenize = (s) => {
+            const out = new Set();
+            for (const w of squashTitle(s).split(/\s+/)) {
+                if (!w || STOPWORDS.has(w)) continue;
+                out.add(w);
+            }
+            return out;
+        };
+        // Split a title into petitioner/respondent halves (around " v "/" vs ")
+        // and tokenize each. Falls back to a single bag if no separator.
+        const sidesOf = (s) => {
+            const sq = ' ' + squashTitle(s) + ' ';
+            const m = sq.match(/^(.*?)\s+(?:v|vs)\s+(.*)$/);
+            if (m) return { left: tokenize(m[1]), right: tokenize(m[2]), both: tokenize(s) };
+            return { left: new Set(), right: new Set(), both: tokenize(s) };
+        };
+        const jaccard = (a, b) => {
+            if (!a.size && !b.size) return 0;
+            let inter = 0;
+            for (const w of a) if (b.has(w)) inter++;
+            const union = a.size + b.size - inter;
+            return union ? inter / union : 0;
+        };
         if (termYear) {
             for (const [k, r] of Object.entries(scdb)) {
                 if (!k.startsWith(`${termYear}-`)) continue;
@@ -3879,6 +3925,10 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 if (t) {
                     if (scdbByTitle.has(t)) scdbByTitle.set(t, null);
                     else scdbByTitle.set(t, k);
+                }
+                if (dec) {
+                    if (!scdbByDate.has(dec)) scdbByDate.set(dec, []);
+                    scdbByDate.get(dec).push({ id: k, title: r.caseName || '', sides: sidesOf(r.caseName) });
                 }
             }
         }
@@ -3913,11 +3963,50 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     if (got) { cand = got; matchHow = 'title'; }
                 }
                 if (!cand) {
-                    if (caseFilter) continue;
+                    // Fuzzy fallback: among SCDB cases with the same decision
+                    // date, pick one whose title is similar to ours, scoring
+                    // petitioner and respondent halves separately so that
+                    // "X v Y" doesn't tie with "Y v X".
+                    const decIso = _scdbNormalizeDate(c.decision || '');
+                    const candidates = decIso ? scdbByDate.get(decIso) : null;
+                    if (candidates && candidates.length) {
+                        const ours = sidesOf(c.title);
+                        if (ours.both.size) {
+                            let best = null, bestScore = 0, secondScore = 0;
+                            for (const ent of candidates) {
+                                let score;
+                                if (ours.left.size && ent.sides.left.size) {
+                                    const ls = jaccard(ours.left, ent.sides.left);
+                                    const rs = jaccard(ours.right, ent.sides.right);
+                                    score = (ls + rs) / 2;
+                                } else {
+                                    score = jaccard(ours.both, ent.sides.both);
+                                }
+                                if (score > bestScore) {
+                                    secondScore = bestScore;
+                                    bestScore = score; best = ent;
+                                } else if (score > secondScore) {
+                                    secondScore = score;
+                                }
+                            }
+                            if (best && bestScore >= 0.6 && bestScore - secondScore >= 0.15) {
+                                cand = best.id;
+                                matchHow = `date+title~${bestScore.toFixed(2)}`;
+                            }
+                        }
+                    }
+                }
+                if (!cand) {
                     const errs = String(c.scdb_errors || '').split(',').map(s => s.trim());
                     if (!c.disposition && !errs.includes('missing')) {
                         const label = c.title || '(untitled)';
-                        unmatchedOurs.push(c.number ? `${label} (No. ${c.number})` : label);
+                        const arg = Array.isArray(c.argument) ? c.argument[0] : c.argument;
+                        const dec = c.decision || '';
+                        const dates = [];
+                        if (arg) dates.push(`argued ${arg}`);
+                        if (dec) dates.push(`decided ${dec}`);
+                        const datesStr = dates.length ? ` (${dates.join(', ')})` : '';
+                        unmatchedOurs.push(`WARNING: ${term}/${c.number || '?'}: ${label}${datesStr}: no SCDB match`);
                     }
                     skipped++;
                     continue;
@@ -3931,7 +4020,10 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     termChanged = true;
                 }
             }
-            if (caseFilter && cid !== caseFilter) continue;
+            if (caseFilter) {
+                const dockets = (c.number || '').split(',').map(s => s.trim());
+                if (cid !== caseFilter && c.id !== caseFilter && !dockets.includes(caseFilter)) continue;
+            }
             matchedFromOurs.add(cid);
             if (matchHow) matchInfo.push({ title: c.title || cid, cid, how: matchHow });
             total++;
@@ -4090,8 +4182,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             for (const m of matchInfo) console.log(`  ${m.cid}  via ${m.how}  — ${m.title}`);
         }
         if (unmatchedOurs.length) {
-            console.log(`[${term}] ${unmatchedOurs.length} case(s) in cases.json with no SCDB match:`);
-            for (const t of unmatchedOurs) console.log(`  ${t}`);
+            for (const t of unmatchedOurs) console.log(t);
         }
         if (scdbTermIds.size && add) {
             // Map any docket appearing in our cases.json (including
@@ -4411,6 +4502,8 @@ function _partyReadTranscript(transcriptPath) {
         const title = (titles[n] || '').toUpperCase();
         if (PARTY_JUSTICE_TITLES.has(title)) continue;
         if (/^UNKNOWN/i.test(n)) continue;
+        // Exclude court officials (e.g. "THE MARSHAL") from advocate lists.
+        if (n.toUpperCase() === 'THE MARSHAL') continue;
         seen.add(n);
         order.push(n);
     }
@@ -4505,9 +4598,27 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
         if (!docket) continue;
 
         let caseModified = false;
+        // For early terms (≤1999-10), prefer the Oyez transcript when both
+        // sources cover the same date — and skip the USSC event entirely so
+        // we don't seed ev.advocates with USSC-transcript-only name variants
+        // (e.g. "ANN M. KAPPLER") that would later collide with the Oyez
+        // variant ("ANN MARY KAPPLER") in update_advocates.js. Mirrors the
+        // skipUsscTranscript logic in scripts/update_advocates.js.
+        const isEarlyTerm = term <= '1999-10';
+        const oyezDates = new Set();
+        if (isEarlyTerm) {
+            for (const e of c.events) {
+                if (e && e.source === 'oyez' && e.text_href) {
+                    const d = e.date || c.argument || '';
+                    if (d) oyezDates.add(d);
+                }
+            }
+        }
         for (const ev of c.events) {
             if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
             if (!ev.text_href) continue;
+            const evDate = ev.date || c.argument || '';
+            if (isEarlyTerm && ev.source === 'ussc' && oyezDates.has(evDate)) continue;
             const transcriptPath = path.join(casesDir, ev.text_href);
             const info = _partyReadTranscript(transcriptPath);
             if (!info || info.order.length === 0) continue;
@@ -4563,7 +4674,13 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
                     }
                 }
                 const entries = Object.entries(votes);
-                if (!entries.length) continue;
+                if (!entries.length) {
+                    // No role detected — still record the speaker so they
+                    // appear in ev.advocates (with no role). Court officials
+                    // like "THE MARSHAL" are filtered out earlier.
+                    computed.push({ name, title: info.titles[name] || '', _sources: [] });
+                    continue;
+                }
                 // Pick the role with the most distinct sources; on ties prefer
                 // the one *not* coming solely from the heuristic.
                 entries.sort((a, b) => {
@@ -4599,8 +4716,10 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
                 }
                 const exRoleRaw = ex.role || '';
                 if (!exRoleRaw) continue;            // missing role: fine to fill in
+                const candRoleRaw = cand.role || '';
+                if (!candRoleRaw) continue;          // computed has no role: keep existing
                 const exRole  = exRoleRaw.replace(/\*$/, '').toLowerCase();
-                const newRole = (cand.role || '').replace(/\*$/, '').toLowerCase();
+                const newRole = candRoleRaw.replace(/\*$/, '').toLowerCase();
                 if (exRole === newRole) continue;    // same alias: fine
                 const exSide  = _partyRoleSide(exRoleRaw);
                 const newSide = _partyRoleSide(cand.role);
@@ -4625,14 +4744,18 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
                     const exConfirmed = exRoleRaw && !exRoleRaw.endsWith('*');
                     const exSide  = _partyRoleSide(exRoleRaw);
                     const newSide = _partyRoleSide(cand.role);
-                    const useExisting = exConfirmed && exSide && newSide && exSide === newSide;
-                    merged.push({
-                        name:  cand.name,
-                        title: ex.title || cand.title,
-                        role:  useExisting ? exRoleRaw : cand.role,
-                    });
+                    const useExisting = exRoleRaw && (
+                        !cand.role ||
+                        (exConfirmed && exSide && newSide && exSide === newSide)
+                    );
+                    const finalRole = useExisting ? exRoleRaw : (cand.role || '');
+                    const entry = { name: cand.name, title: ex.title || cand.title };
+                    if (finalRole) entry.role = finalRole;
+                    merged.push(entry);
                 } else {
-                    merged.push({ name: cand.name, title: cand.title, role: cand.role });
+                    const entry = { name: cand.name, title: cand.title };
+                    if (cand.role) entry.role = cand.role;
+                    merged.push(entry);
                 }
             }
 
@@ -4696,6 +4819,7 @@ async function processOneTerm(term, opts) {
         checkCasesSync(termDir, verbose);
     }
 
+    let missingVotes = 0;
     const casesPath = path.join(termDir, 'cases.json');
     if (fs.existsSync(casesPath)) {
         if (!caseFilter) {
@@ -4707,6 +4831,7 @@ async function processOneTerm(term, opts) {
             checkAudioDates(casesPath, term, dryRun);
             checkDecisionDates(casesPath, term);
             checkVoteTenures(casesPath, term);
+            missingVotes = checkArgumentsHaveVotes(casesPath, term);
             backfillUntrackedFiles(casesPath, term, dryRun);
             if (!dryRun) syncFilesCount(casesPath);
             syncOpinionHrefFromFiles(casesPath);
@@ -4736,7 +4861,9 @@ async function processOneTerm(term, opts) {
         _partyVerifyTerm(termDir, term, caseFilter, dryRun);
     }
 
-    return caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
+    const result = caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
+    if (result && typeof result === 'object') result.missingVotes = missingVotes;
+    return result;
 }
 
 // Subset of processTerm checks that are safe / meaningful when scoped to a
@@ -4787,7 +4914,14 @@ async function main() {
                 }
             }
         } else {
-            positional.push(a);
+            // Shorthand: split TERM/CASE in a single positional arg.
+            if (a.includes('/') && /^\d{4}-\d{2}\//.test(a)) {
+                const [t, ...rest] = a.split('/');
+                positional.push(t);
+                if (rest.length && rest[0]) positional.push(rest.join('/'));
+            } else {
+                positional.push(a);
+            }
         }
     }
     const flags = new Set([...boolFlags].map(f => `--${f}`));
@@ -4802,6 +4936,29 @@ async function main() {
     const roles        = flags.has('--roles');
     setVerbose(verbose);
     setDryRun(dryRun);
+
+    // Validate that an explicit case filter actually exists in the term's
+    // cases.json (either as a stand-alone case `id`/`number`, or as part of a
+    // consolidated `number` like "23-456,23-457"). Runs for both default and
+    // --scdb modes.
+    const _explicitCase = positional[1] || flagValues.case || null;
+    if (_explicitCase && positional[0]) {
+        const cp = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', positional[0], 'cases.json');
+        if (fs.existsSync(cp)) {
+            try {
+                const arr = _readJson(cp);
+                if (Array.isArray(arr)) {
+                    const found = arr.some(c => c && (
+                        c.id === _explicitCase ||
+                        (c.number || '').split(',').map(s => s.trim()).includes(_explicitCase)
+                    ));
+                    if (!found) {
+                        console.log(`WARNING: ${positional[0]}: case '${_explicitCase}' not found in cases.json`);
+                    }
+                }
+            } catch {}
+        }
+    }
 
     if (scdb) {
         await runScdb({
@@ -4858,6 +5015,7 @@ async function main() {
         hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
         eventsSorted: 0, casesSorted: 0,
         argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
+        missingVotes: 0,
     };
 
     for (const term of termsToProcess) {
@@ -4883,6 +5041,7 @@ async function main() {
         totals.argDatesFixed       += r.argDatesFixed;
         totals.eventTypesFixed     += r.eventTypesFixed;
         totals.mergedCount         += r.mergedCount;
+        totals.missingVotes        += (r.missingVotes || 0);
     }
 
     // Cross-scope media-href dedup check (always runs across full scope).
@@ -4943,6 +5102,7 @@ async function main() {
     if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
     if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
     if (r.mergedCount) console.log(`Refiled cases: ${dryRun ? 'Would merge' : 'Merged'} ${r.mergedCount} case(s) into later term(s).`);
+    if (r.missingVotes) console.log(`Missing votes: ${r.missingVotes} case(s) have audio/transcript but no votes — re-run with --scdb to backfill.`);
     if (mediaDupes.length) {
         console.log(`Media hrefs: ${mediaDupes.length} duplicate URL(s) found across scope.`);
         for (const [field, url, locs] of mediaDupes) {

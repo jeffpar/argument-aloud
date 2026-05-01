@@ -1047,16 +1047,24 @@ async function main() {
                     advocates[nameKey].cases.push(caseEntry);
                 };
 
+                // For early terms, prefer the Oyez transcript when both
+                // sources cover the same date — and skip the USSC event's
+                // explicit advocates list too, so we don't double-record
+                // the same appearance under a slightly-different name
+                // variant (e.g. "ANN M. KAPPLER" vs "ANN MARY KAPPLER").
+                const skipUsscTranscript = isEarlyTerm && audio.source === 'ussc' && oyezDates.has(audioDate);
+
                 // Explicit advocates list
-                for (const raw of audio.advocates || []) {
-                    const rawName  = (typeof raw === 'object' && raw !== null) ? raw.name  : raw;
-                    const rawTitle = (typeof raw === 'object' && raw !== null) ? (raw.title || '') : '';
-                    recordAdvocate(normalizeNameSuffix((rawName || '').trim()), rawTitle);
+                if (!skipUsscTranscript) {
+                    for (const raw of audio.advocates || []) {
+                        const rawName  = (typeof raw === 'object' && raw !== null) ? raw.name  : raw;
+                        const rawTitle = (typeof raw === 'object' && raw !== null) ? (raw.title || '') : '';
+                        recordAdvocate(normalizeNameSuffix((rawName || '').trim()), rawTitle);
+                    }
                 }
 
                 // Transcript-based speakers
                 const textHref = audio.text_href;
-                const skipUsscTranscript = isEarlyTerm && audio.source === 'ussc' && oyezDates.has(audioDate);
                 if (!textHref || !audioDate || skipUsscTranscript) continue;
                 const transcriptPath = path.join(termDir, 'cases', textHref);
                 if (!exists(transcriptPath)) continue;
