@@ -705,7 +705,8 @@ function oyezCircleData(caseEntry) {
 
   const withAudio = relevant.filter(e => e.audio_href);
   const fraction = withAudio.length / relevant.length;
-  const orange = withAudio.some(e => !e.aligned);
+  // Orange when any audio event either has no transcript yet, or has one that hasn't been aligned.
+  const orange = withAudio.some(e => !e.text_href || !e.aligned);
   return { fraction, orange };
 }
 
@@ -2127,7 +2128,7 @@ async function loadAudioEntry(arg, basePath) {
     : null;
   const audioUrl = arg.audio_href
     ? (/^https?:\/\//i.test(arg.audio_href) ? arg.audio_href : (basePath + arg.audio_href))
-    : (basePath + arg.audio);
+    : (arg.audio != null ? (basePath + arg.audio) : null);
   _currentTranscriptPdfUrl = arg.transcript_href
     ? (/^https?:\/\//i.test(arg.transcript_href) ? arg.transcript_href : (basePath + arg.transcript_href))
     : null;
@@ -2436,9 +2437,9 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     }
     // If the URL specified a particular event, ensure it survives the source-
     // preference filter — otherwise the user's explicit choice would be hidden
-    // from the dropdown.
+    // from the dropdown. Only force-include if it actually has audio.
     const _requestedEv = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
-    if (_requestedEv && !best.includes(_requestedEv)) best.push(_requestedEv);
+    if (_requestedEv && _requestedEv.audio_href && !best.includes(_requestedEv)) best.push(_requestedEv);
     best.sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
 
     // Group by date. For each date group that contains at least one aligned

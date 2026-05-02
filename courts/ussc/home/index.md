@@ -12,7 +12,9 @@ Finally, some weeks or months later, an opinion is issued, unless the Court resc
 
 Digital copies of all those pieces (petitions, briefs, transcripts, audio recordings, and opinions) tend to be fully available for modern cases, but they are scattered across different pages and websites.  And as you move back through the 20th century, fewer online resources are available and they're harder to find.
 
-So that's why this website exists.  Not sure where to start?  Try a random case, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).
+In addition, we hope to start including links in transcripts that allow the listener to immediately access cited cases and other referenced materials, to make it easier to find and understand what the speakers are referring to.
+
+You can find examples of such links in a few cases already, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).  Dive in and listen!
 
 ![U.S. Supreme Court Courtroom](/assets/img/default.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]

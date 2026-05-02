@@ -972,7 +972,16 @@ async function main() {
                     if (!cands.length) continue;
                     const aligned   = cands.filter(i => audioEntries[i].aligned);
                     const withAudio = cands.filter(i => audioEntries[i].audio_href);
-                    const best = aligned[0] ?? withAudio[0] ?? cands[0];
+                    let best = aligned[0] ?? withAudio[0] ?? cands[0];
+                    // If the best candidate has no audio_href, prefer a sibling
+                    // that has audio_href but no text_href (e.g. an Oyez entry
+                    // added for audio coverage before a transcript is available).
+                    if (!audioEntries[best].audio_href) {
+                        const audioOnlySibling = idxs.find(
+                            i => audioEntries[i].audio_href && !audioEntries[i].text_href,
+                        );
+                        if (audioOnlySibling != null) best = audioOnlySibling;
+                    }
                     preferredOrigIdx.set(`${d}|${adv}`, best);
                 }
             }
