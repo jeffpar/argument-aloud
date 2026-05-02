@@ -72,19 +72,11 @@ title: U.S. Supreme Court Media
       <div id="turn-list" role="list"></div>
     </div>
 
-    <div id="audio-controls" hidden>
-      <div id="audio-row">
-        <audio id="audio-player" controls preload="metadata"></audio>
-        <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
-        <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
-        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
-      </div>
-      <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
-    </div>
-
     <div id="page-viewer" hidden>
       <iframe id="page-viewer-frame" title="Content page" style="width:100%;height:100%;border:0;"></iframe>
     </div>
+
+    <div id="bottom-bar">
 
     <div id="doc-viewer" hidden>
       <div id="h-resize" class="resize-handle resize-handle--h" title="Drag to resize document viewer"></div>
@@ -104,6 +96,18 @@ title: U.S. Supreme Court Media
       <iframe id="doc-viewer-pdf" title="PDF document"
               allow="fullscreen"></iframe>
     </div>
+
+    <div id="audio-controls" hidden>
+      <div id="audio-row">
+        <audio id="audio-player" controls preload="metadata"></audio>
+        <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
+        <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
+        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+      </div>
+      <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
+    </div>
+
+    </div><!-- #bottom-bar -->
   </div>
 </div>
 

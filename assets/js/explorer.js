@@ -10,6 +10,7 @@ let docViewerOpenHeight = null;  // px height for next animated open (null = use
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentEvents    = [];    // unsorted events[] for the active case (URL `event` indexes into this)
 let _currentBasePath  = '';    // base URL path for the active case
+let _currentLoadedEntry = null; // the audio entry object currently loaded in loadAudioEntry
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentOtdHref     = null; // On The Docket video URL for the active case (used by audio dropdown sentinel)
@@ -390,6 +391,12 @@ function checkLinksForActiveTurn(idx, autoScroll = false) {
 function collapseDocViewer() {
   const panel = document.getElementById('doc-viewer');
   if (panel.hidden || panel.classList.contains('collapsed')) return;
+  // On mobile the open animation releases to style.height='auto'.
+  // CSS can't transition from 'auto' to a pixel value, so pin it first.
+  if (!panel.style.height || panel.style.height === 'auto') {
+    panel.style.height = panel.offsetHeight + 'px';
+    panel.offsetHeight; // commit so the next change starts a transition
+  }
   docViewerOpenHeight = panel.offsetHeight;
   panel.classList.add('collapsed');
   panel.offsetHeight; // force reflow
@@ -558,21 +565,37 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   }
 
   if (panel.hidden) {
-    const h = docViewerOpenHeight ?? Math.round(window.innerHeight * 0.45);
     panel.style.height = '0px';
     panel.hidden = false;
     panel.offsetHeight; // force reflow so transition plays
-    panel.style.height = h + 'px';
-    // When opened automatically (not by a user click), scroll the active turn
-    // to the top of the transcript pane so the doc viewer doesn't obscure it.
-    if (!autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
+    if (isMobile()) {
+      // On mobile the doc-viewer lives in #bottom-bar which is sticky at the
+      // bottom. Animate from 0 to the natural content height so it slides up
+      // above the audio controls without requiring the user to scroll.
+      // Use scrollHeight (measures full content even while height:0) so card
+      // content and PDF iframes both size themselves correctly.
+      const naturalH = panel.scrollHeight;
+      const maxH = Math.round(window.innerHeight * 0.50);
+      const targetH = Math.min(naturalH, maxH);
+      panel.style.height = targetH + 'px';
+      // After the animation, release to auto height so the panel fits its
+      // content rather than leaving dead space (important for card content).
+      panel.addEventListener('transitionend', function onMobileOpen(e) {
+        if (e.target !== panel || e.propertyName !== 'height') return;
+        panel.removeEventListener('transitionend', onMobileOpen);
+        panel.style.height = 'auto';
+      }, { once: true });
+    } else {
+      const h = docViewerOpenHeight ?? Math.round(window.innerHeight * 0.45);
+      panel.style.height = h + 'px';
+      // When opened automatically (not by a user click), scroll the active turn
+      // to the top of the transcript pane so the doc viewer doesn't obscure it.
+      if (!autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
+    }
   } else if (panel.classList.contains('collapsed')) {
     expandDocViewer();
-    // Same scroll when un-minimized automatically during playback.
-    if (!autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
-  }
-  if (autoScroll && isMobile()) {
-    panel.scrollIntoView({ behavior: 'instant', block: 'start' });
+    // Same scroll when un-minimized automatically during playback (desktop only).
+    if (!isMobile() && !autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
   }
 }
 
@@ -2134,6 +2157,7 @@ async function loadAudioEntry(arg, basePath) {
     : null;
 
   // Reset transcript area
+  _currentLoadedEntry = null;
   turnList.style.display = 'none';
   turnList.innerHTML = '';
   loadingMsg.textContent = 'Loading\u2026';
@@ -2197,6 +2221,7 @@ async function loadAudioEntry(arg, basePath) {
     }
     activeBottomLinkText = null;
 
+    _currentLoadedEntry = arg;
     loadingMsg.style.display = 'none';
     turnList.style.display = 'block';
     document.dispatchEvent(new Event('transcriptloaded'));
@@ -2779,10 +2804,21 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   }
   const val = parseInt(e.target.value, 10); // 1-based index into the date-sorted audio list
   if (_currentAudioList[val - 1] && _currentBasePath) {
+    const selectedEntry = _currentAudioList[val - 1];
+    // If the user is switching back to the already-loaded entry (e.g. after
+    // opening a document-only option like "Decision..."), just dismiss the
+    // doc viewer without reloading — this preserves activeTurnIdx and audio state.
+    if (selectedEntry === _currentLoadedEntry) {
+      const docPanel = document.getElementById('doc-viewer');
+      if (!docPanel.hidden && !docPanel.classList.contains('collapsed')) {
+        collapseDocViewer();
+      }
+      return;
+    }
     const url = new URL(location.href);
     // Translate the allAudio position back to a 1-based events[] index so the
     // URL `event` param is stable across re-sorts and matches the on-disk schema.
-    const evIdx = _currentEvents.indexOf(_currentAudioList[val - 1]) + 1;
+    const evIdx = _currentEvents.indexOf(selectedEntry) + 1;
     if (evIdx >= 1) {
       url.searchParams.set('event', evIdx);
     } else {
@@ -2791,7 +2827,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     url.searchParams.delete('turn');
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
-    await loadAudioEntry(_currentAudioList[val - 1], _currentBasePath);
+    await loadAudioEntry(selectedEntry, _currentBasePath);
   }
 });
 
@@ -2832,7 +2868,7 @@ let _mobileNavVisible = false;
 
 function setMobileNavVisible(visible) {
   _mobileNavVisible = visible;
-  mobileBackBtn.textContent = visible ? '\u25bc' : '\u25b2';
+  mobileBackBtn.textContent = visible ? '\u25b2' : '\u25bc';
   mobileBackBtn.title = visible ? 'Back to transcript' : 'Back to case list';
   mobileBackBtn.setAttribute('aria-label', visible ? 'Back to transcript' : 'Back to case list');
 }

@@ -651,6 +651,12 @@ body {
   display: none;
 }
 
+#bottom-bar {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 #case-info {
   margin-bottom: 8px;
 }
@@ -974,7 +980,10 @@ body {
 }
 
 /* In no-audio mode the doc viewer should fill all remaining space. */
-#transcript-viewer.no-audio ~ #doc-viewer:not([hidden]):not(.collapsed) {
+#transcript-viewer.no-audio ~ #bottom-bar {
+  flex: 1;
+}
+#transcript-viewer.no-audio ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
   flex: 1;
   height: auto !important;
 }
@@ -987,7 +996,10 @@ body {
   padding: 0;
 }
 
-#transcript-viewer.no-transcript ~ #doc-viewer:not([hidden]):not(.collapsed) {
+#transcript-viewer.no-transcript ~ #bottom-bar {
+  flex: 1;
+}
+#transcript-viewer.no-transcript ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
   flex: 1;
   height: auto !important;
 }
@@ -1395,6 +1407,14 @@ body {
     z-index: 100;
   }
 
+  #site-link {
+    font-size: 12px;
+  }
+
+  #topbar-sep {
+    margin: 0 6px;
+  }
+
   #browser {
     flex-direction: column;
     height: auto;
@@ -1426,7 +1446,7 @@ body {
     padding-bottom: 0;
   }
 
-  #audio-controls {
+  #bottom-bar {
     position: sticky;
     bottom: 0;
     z-index: 50;
@@ -1443,7 +1463,7 @@ body {
 
   #doc-viewer-pdf {
     flex: 0 0 auto;
-    min-height: 70vh;
+    height: 45vh;
   }
 
   #h-resize {
