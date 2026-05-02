@@ -20,6 +20,8 @@ Output files use the same envelope format as the PDF-derived transcripts:
     "media": {"url": "<mp3 url>", "speakers": [{"name": "…"}, …]},
     "turns": [{"turn": N, "name": "…", "text": "…", "time": "HH:MM:SS.ss"}]
   }
+
+© 2026 by Jeff Parsons
 """
 
 import json

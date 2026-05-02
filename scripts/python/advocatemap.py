@@ -9,6 +9,8 @@ Reads all .md files (except README.md) from:
 
 Writes:
     courts/ussc/collections/2.json
+
+© 2026 by Jeff Parsons
 """
 
 import html

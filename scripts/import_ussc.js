@@ -17,6 +17,8 @@
  * for full step-by-step documentation.
  *
  * Requires: pdftotext (poppler-utils) on PATH.
+ *
+ * © 2026 by Jeff Parsons
  */
 
 import fs from 'node:fs';

@@ -6,6 +6,8 @@ after building any dict that will be written to a cases.json file, so the
 serialised JSON stays consistently ordered.
 
 Unknown keys are appended at the end in their original relative order.
+
+© 2026 by Jeff Parsons
 """
 
 # Canonical property order for a case object.

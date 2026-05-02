@@ -11,6 +11,8 @@ when any case in the file was fixed.
 
 Options:
     --dry-run   Report issues without writing any changes.
+
+© 2026 by Jeff Parsons
 """
 
 import json

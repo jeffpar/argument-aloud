@@ -11,6 +11,8 @@ Usage:
 Examples:
     python3 scripts/scan_speakers.py Barbara Jarrett
     python3 scripts/scan_speakers.py Barbara Jarrett --term 1990-10
+
+© 2026 by Jeff Parsons
 """
 
 import argparse

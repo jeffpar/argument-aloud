@@ -20,6 +20,8 @@ For each case directory under courts/ussc/terms/TERM/:
     Adds a "turn" property (1-based integer) to every turn that is missing
     it.  The number reflects the turn's position in the array, so turn 1 is
     always the first turn.  The "turn" key is placed first.
+
+© 2026 by Jeff Parsons
 """
 
 import json

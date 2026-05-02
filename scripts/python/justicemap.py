@@ -18,6 +18,8 @@ Warnings are printed when:
 
 Usage:
     python3 scripts/justicemap.py [--dry-run]
+
+© 2026 by Jeff Parsons
 """
 
 import html

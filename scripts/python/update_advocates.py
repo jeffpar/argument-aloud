@@ -41,6 +41,8 @@ If the output files already exist, new advocates/cases are merged in.
 
 Usage:
     python3 scripts/update_advocates.py
+
+© 2026 by Jeff Parsons
 """
 
 import csv
@@ -866,7 +868,7 @@ def main() -> None:
     # -----------------------------------------------------------------------
     # Cross-check against reference CSV "Women Advocates Through October Term 2024.csv"
     # -----------------------------------------------------------------------
-    REF_CSV = REPO_ROOT / "data" / "misc" / "Women Advocates Through October Term 2024.csv"
+    REF_CSV = REPO_ROOT / "data" / "misc" / "women" / "Women Advocates Through October Term 2024.csv"
     _ORDINAL_RE = re.compile(r'\s*\(\d+\)\s*$')
     _FORMERLY_RE = re.compile(r'\s*\(formerly\s+[^)]+\)', re.I)
     _MONTH_ABBR_MAP = {

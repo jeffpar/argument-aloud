@@ -16,6 +16,8 @@
  * Usage:
  *   node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
  *                                    [--markdown] [--singles] [--fix]
+ *
+ * © 2026 by Jeff Parsons
  */
 
 import fs from 'node:fs';
@@ -1395,7 +1397,7 @@ async function main() {
     });
 
     // ── Cross-check against reference CSV ────────────────────────────────
-    const REF_CSV = path.join(REPO_ROOT, 'data', 'misc', 'Women Advocates Through October Term 2024.csv');
+    const REF_CSV = path.join(REPO_ROOT, 'data', 'misc', 'women', 'Women Advocates Through October Term 2024.csv');
     const _ORDINAL_RE   = /\s*\(\d+\)\s*$/;
     const _FORMERLY_RE  = /\s*\(formerly\s+[^)]+\)/ig;
     const _MONTH_ABBR_MAP = {

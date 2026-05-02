@@ -8,6 +8,8 @@
 
 Usage:
     python3 scripts/old/fix_justices.py [--dry-run]
+
+© 2026 by Jeff Parsons
 """
 
 import json

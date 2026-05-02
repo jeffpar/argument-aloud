@@ -12,6 +12,8 @@ Each term object contains:
 
 Usage:
     python3 scripts/update_terms.py
+
+© 2026 by Jeff Parsons
 """
 
 import json

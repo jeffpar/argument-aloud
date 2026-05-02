@@ -13,6 +13,8 @@
  *   node scripts/import_oyez.js https://www.oyez.org/cases/1961/2
  *
  * JS port of scripts/python/import_oyez.py — see that file for full docs.
+ *
+ * © 2026 by Jeff Parsons
  */
 
 import fs from 'node:fs';

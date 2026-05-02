@@ -36,6 +36,8 @@ With --checkurls --opinions:
 With --dry-run:
   Report discrepancies in audio dates / argument / decision fields without
   writing any changes to cases.json.
+
+© 2026 by Jeff Parsons
 """
 
 import datetime

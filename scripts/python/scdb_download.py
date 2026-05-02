@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 Post-download processing for SCDB CSV files.
 

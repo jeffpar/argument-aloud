@@ -19,6 +19,8 @@ For every transcript referenced by a text_href in cases.json:
 
 Usage:
     python3 scripts/old/fix_speakers.py [--dry-run]
+
+© 2026 by Jeff Parsons
 """
 
 import csv

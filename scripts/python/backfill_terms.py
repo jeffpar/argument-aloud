@@ -26,6 +26,8 @@ Usage:
     <term-folder>  Optional: restrict to one term folder (e.g. "1955-10").
     --dry-run      Show what would change without writing any files.
     --add          Also create new case objects for unmatched source cases.
+
+© 2026 by Jeff Parsons
 """
 
 import json

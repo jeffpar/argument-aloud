@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 import_ftc.py - Import Fix the Court OT24 opinion audio into cases.json
 

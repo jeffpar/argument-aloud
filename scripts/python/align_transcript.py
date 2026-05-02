@@ -22,6 +22,8 @@ so re-runs skip re-transcription (which can take several minutes).
 
 An argument is skipped when every turn already has a "time" value.
 Use --purge to clear all existing timestamps before aligning.
+
+© 2026 by Jeff Parsons
 """
 
 import argparse

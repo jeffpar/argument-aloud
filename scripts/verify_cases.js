@@ -40,6 +40,8 @@
  * Also exports helpers used by import_ussc.js / import_oyez.js:
  *   - REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase
  *   - syncFilesCount, syncOpinionHrefFromFiles, setVerbose
+ *
+ * © 2026 by Jeff Parsons
  */
 
 import fs from 'node:fs';
@@ -5024,7 +5026,13 @@ async function main() {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.map(e => e.term);
+        // terms.json is decade-grouped: [{title, pages:[{title, cases, term?},...]}]
+        // Derive the term key from the cases URL: /courts/ussc/terms/YYYY-MM/cases.json
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
     } catch {}
 
     // Decide scope.

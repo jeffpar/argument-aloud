@@ -21,6 +21,8 @@ On a plain move (no conflict):
 
 Usage:
     python3 scripts/validate_terms.py [TERM] [--dry-run]
+
+© 2026 by Jeff Parsons
 """
 
 import json

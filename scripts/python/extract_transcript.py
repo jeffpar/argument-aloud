@@ -13,6 +13,8 @@ Output format:
       { "name": "MR. STEWART", "text": "Mr. Chief Justice, and may it..." },
       ...
     ]
+
+© 2026 by Jeff Parsons
 """
 
 import re

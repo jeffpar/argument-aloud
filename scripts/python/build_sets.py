@@ -8,6 +8,8 @@ Outputs:
     courts/ussc/collections/briefs.json
     courts/ussc/collections/noteworthy.json
     courts/ussc/collections/transcripts.json
+
+© 2026 by Jeff Parsons
 """
 
 from __future__ import annotations

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 fix_speakers.py — normalise legacy justice names in transcript JSON files.
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 Verify our cases.json data against SCDB CSV files.
 

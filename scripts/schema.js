@@ -7,6 +7,8 @@
  * serialised JSON stays consistently ordered.
  *
  * Unknown keys are appended at the end in their original relative order.
+ *
+ * © 2026 by Jeff Parsons
  */
 
 export const CASE_KEY_ORDER = [

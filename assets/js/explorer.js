@@ -687,7 +687,9 @@ function oyezDeficitClass(caseEntry) {
 // null if not. fraction = fraction of those events that have audio_href (0–1);
 // orange = true if any audio event is missing an aligned transcript.
 function oyezCircleData(caseEntry) {
-  const dates = [caseEntry.argument, caseEntry.reargument].filter(Boolean);
+  const dates = [caseEntry.argument, caseEntry.reargument]
+    .filter(Boolean)
+    .flatMap(d => d.split(',').map(s => s.trim()));
   if (!dates.length) return null;
 
   const oyezEvents = (caseEntry.events || []).filter(

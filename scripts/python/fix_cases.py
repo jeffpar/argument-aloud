@@ -43,6 +43,8 @@ Usage:
 
     --dry-run      Report what would be changed without writing files.
     --duplicates   Also check for duplicate docket numbers within each term.
+
+© 2026 by Jeff Parsons
 """
 
 import json

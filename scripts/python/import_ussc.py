@@ -49,6 +49,8 @@ Steps performed:
      and save it as questions in cases.json.
 
 Requires pdftotext (poppler-utils) to be installed.
+
+© 2026 by Jeff Parsons
 """
 
 import json

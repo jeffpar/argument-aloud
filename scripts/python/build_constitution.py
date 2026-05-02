@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 Build a single-file HTML copy of the U.S. Constitution with stable fragment ids.
 

@@ -13,6 +13,8 @@ YYYY-MM-DD.  Secondary consolidated case numbers (e.g. the "83-1373" in
 
 Usage:
     python3 scripts/update_transcripts.py [--verbose] [--download] [--extract]
+
+© 2026 by Jeff Parsons
 """
 
 import json

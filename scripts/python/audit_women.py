@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+© 2026 by Jeff Parsons
 """
 audit_women.py [term]
 
@@ -33,7 +35,7 @@ from difflib import SequenceMatcher
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CSV_PATH = os.path.join(
-    BASE_DIR, 'data', 'misc',
+    BASE_DIR, 'data', 'misc', 'women',
     'Women Advocates Through October Term 2024.csv'
 )
 TERMS_DIR = os.path.join(BASE_DIR, 'courts', 'ussc', 'terms')

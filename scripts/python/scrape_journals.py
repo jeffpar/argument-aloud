@@ -12,6 +12,8 @@ full advocate names from argument attribution text near the case number.
 The one-word name in our data may be wrong; this script prints ALL names
 found near the case number so the correct attribution can be determined.
 Optionally prompts to replace the single-word name in transcript files.
+
+© 2026 by Jeff Parsons
 """
 
 import json
