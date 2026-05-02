@@ -1733,6 +1733,22 @@ function deduplicateCases(casesPath) {
     console.log(`  Removed ${toRemove.size} duplicate stub entry(ies) from ${path.basename(casesPath)}.`);
 }
 
+function checkDuplicateCaseIds(termDir, term) {
+    const casesPath = path.join(termDir, 'cases.json');
+    if (!fs.existsSync(casesPath)) return;
+    const cases = _readJson(casesPath);
+    const seen = {};
+    for (const c of cases) {
+        const id = c.id || '';
+        if (!id) continue;
+        if (id in seen) {
+            console.log(`WARNING: ${term}: duplicate case id '${id}' in cases.json`);
+        } else {
+            seen[id] = true;
+        }
+    }
+}
+
 function checkDuplicateCaseNumbers(termDir, term, verbose = false) {
     const casesPath = path.join(termDir, 'cases.json');
     if (!fs.existsSync(casesPath)) return;
@@ -4857,6 +4873,7 @@ async function processOneTerm(term, opts) {
     }
 
     if (!caseFilter) {
+        checkDuplicateCaseIds(termDir, term);
         checkDuplicateCaseNumbers(termDir, term, verbose);
         checkDuplicateAudioHrefs(termDir);
         checkCasesSync(termDir, verbose);
@@ -5181,7 +5198,7 @@ export {
     removeRedundantTranscriptFiles, checkDecisionDates, checkCaseHrefs,
     backfillUntrackedFiles, checkAudioDates, warnMissingOpinionHref,
     verifyFilesJson, verifyCase, deduplicateCases,
-    checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
+    checkDuplicateCaseIds, checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
     fixKeyOrder, fixTextHrefs, checkMissingTextHrefs, checkOrphanedTranscripts,
     checkDuplicateTextHrefs, fixOyezTranscriptHrefs, checkDuplicateMediaHrefs,
     fixArgumentDates, fixEventTypes, sortEvents, sortCases,
