@@ -1490,18 +1490,15 @@ function buildStaticPageItem(parentUl, page) {
 
     header.appendChild(tog);
     header.appendChild(label);
-    // Single handler: clicking the label always opens + loads; clicking the toggle toggles.
-    // stopPropagation prevents the click from bubbling up to a parent terms-header.
-    header.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (page.link && label.contains(e.target)) {
-        li.classList.add('open');
+    // Toggle expand on the header row; click on label also loads the page if it has a link.
+    header.addEventListener('click', () => li.classList.toggle('open'));
+    if (page.link) {
+      label.style.cursor = 'pointer';
+      label.addEventListener('click', (e) => {
+        e.stopPropagation();
         showPageViewer(page.link);
-      } else {
-        li.classList.toggle('open');
-      }
-    });
-    if (page.link) label.style.cursor = 'pointer';
+      });
+    }
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';

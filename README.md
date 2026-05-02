@@ -10,14 +10,12 @@
 
  1. The transcript for [Reno v. Bossier Parish School Bd. (No. 98-405)](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998) cannot be downloaded; the URL is listed as https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf
 
- 2. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 
+ 2. loc.gov currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for "Sullivan v. Florida, 560 U.S. 181"; you can only find it at the bottom of the document for "United States v. Comstock, 560 U.S. 126".
 
- 3. Note that while having both `volume` and `page` *and* `usCite` may seem redundant (which it is 99.99% of the time), there are cases like **Kaiser v. Stickney** from the 1880 term where the official citation represents the case's logical location, but the physical volume and page numbers are where the case details are *actually* printed.  That said, we should still probably eliminate `volume` and `page` from all cases where `usCite` contains the same exact information.
+ 3. Why is there missing audio for some of Kneedler's cases (eg, 92-1180)?
 
- 4. When incorporating SCDB decision data, be aware that while a case "number" many consist of several consolidated case numbers, there are cases in some terms (eg, cases "17-1618" and "18-107" in the "2019-10" term) that were initially separate because they were argued separately but later decided together. We could add some scripting logic to merge them, or we could leave them separated and simply apply the same SCDB decision data to both cases.
+ 4. Why is there no Oyez transcript for courts/ussc/terms/1984-10/cases/83-1492?  It's a case that Alito argued.
 
- 5. loc.gov currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for "Sullivan v. Florida, 560 U.S. 181"; you can only find it at the bottom of the document for "United States v. Comstock, 560 U.S. 126".
+## TODO
 
- 6. Why is there missing audio for some of Kneedler's cases (eg, 92-1180)?
-
- 7. Why is there no Oyez transcript for courts/ussc/terms/1984-10/cases/83-1492?  It's a case that Alito argued.
+ 1. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 

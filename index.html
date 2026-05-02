@@ -1,12 +1,12 @@
 ---
-layout: argument
-title: Oral Arguments
+layout: explorer
+title: U.S. Supreme Court
 ---
 
 <div id="topbar">
   <a id="site-link" href="/">Argument Aloud</a>
   <span id="topbar-sep">&rsaquo;</span>
-  <span id="page-title">Oral Arguments</span>
+  <span id="page-title">U.S. Supreme Court</span>
   <span id="topbar-term"></span>
 </div>
 
@@ -66,7 +66,7 @@ title: Oral Arguments
     </div>
 
     <div id="transcript-viewer">
-      <div id="empty-state"><div><span>Select a case to begin<br/>(such as <a href="?term=2025-10&case=24-1260&turn=369">Watson v. RNC</a>)</span><span class="empty-state-data">Generated data is also available<br/>(for example, see <a href="/data/misc/#women-advocates">Women Advocates</a>)</span></div></div>
+      <div id="empty-state"><div><span>Select a case to begin<br/>(such as <a href="?term=2025-10&case=24-1260&turn=369">Watson v. RNC</a>)</span><span class="empty-state-data">Generated data is also available<br/>(for example, see <a href="?link=/data/misc/women">Women Advocates</a>)</span></div></div>
       <div id="loading-msg">Loading transcript&hellip;</div>
       <div id="turn-list" role="list"></div>
     </div>
@@ -79,6 +79,10 @@ title: Oral Arguments
         <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
       </div>
       <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
+    </div>
+
+    <div id="page-viewer" hidden>
+      <iframe id="page-viewer-frame" title="Content page" style="width:100%;height:100%;border:0;"></iframe>
     </div>
 
     <div id="doc-viewer" hidden>
@@ -102,4 +106,4 @@ title: Oral Arguments
   </div>
 </div>
 
-<script src="{{ '/assets/js/argument.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/explorer.js' | relative_url }}"></script>

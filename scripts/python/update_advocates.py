@@ -1039,10 +1039,10 @@ def main() -> None:
                 for row in sorted(our_unmatched, key=lambda r: (r[2], r[0])):
                     adv_name, _arg_num, arg_date, term, case_num, title, _citation, _url = row
                     adv_id = make_advocate_id(adv_name)
-                    adv_url = (f"https://argumentaloud.org/courts/ussc/"
+                    adv_url = (f"https://argumentaloud.org/"
                                f"?collection=women_advocates&id={adv_id}")
                     case_num_url = case_num.replace(',', '%2C')
-                    case_url = (f"https://argumentaloud.org/courts/ussc/"
+                    case_url = (f"https://argumentaloud.org/"
                                 f"?term={term}&case={case_num_url}")
                     first_iso = arg_date.split(',')[0]
                     try:

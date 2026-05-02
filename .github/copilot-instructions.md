@@ -23,8 +23,8 @@ source .venv/bin/activate
 _config.yml          Jekyll config (remote minimal theme, data_dir: data)
 _layouts/            Page templates (argument, default, document, post)
 _includes/           Partials (arguments.html audit widget, collection.html)
-assets/js/           argument.js – ~2600-line vanilla JS SPA
-assets/css/          argument.css (SPA), document.css, style.scss
+assets/js/           explorer.js – ~2600-line vanilla JS SPA
+assets/css/          explorer.css (SPA), document.css, style.scss
 courts/ussc/         Case/term data + HTML entry points
 data/                Jekyll data directory (site.data.*)
 scripts/             Python import/validation/alignment scripts
@@ -123,7 +123,7 @@ The main interactive page is a single-page app built with ~3200 lines of vanilla
 
 ## CSS Layout
 
-`argument.css` drives the SPA layout:
+`explorer.css` drives the SPA layout:
 - `#topbar` — 44px dark nav bar (`background: #1a1a2e`)
 - `#browser` — flex-row: 30% sidebar (term/case tree) + 70% main panel
 - `.turn` — transcript turn blocks; `.ref-mark`, `.search-match`, `.search-match.current` for highlights

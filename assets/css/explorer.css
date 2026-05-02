@@ -431,7 +431,8 @@ body {
   text-overflow: ellipsis;
 }
 
-.case-item.active>.case-header .case-title-nav {
+.case-item.active>.case-header .case-title-nav,
+.case-item.active-page>.case-header .case-title-nav {
   background: #2672b4;
   color: #fff;
   padding: 0 5px;
@@ -979,6 +980,10 @@ body {
   height: auto !important;
 }
 
+#transcript-viewer[hidden] {
+  display: none;
+}
+
 #empty-state {
   height: 100%;
   display: flex;
@@ -987,6 +992,23 @@ body {
   color: #bbb;
   font-size: 15px;
   user-select: none;
+}
+
+#page-viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#page-viewer[hidden] {
+  display: none;
+}
+
+#page-viewer-frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
 }
 
 #empty-state span {

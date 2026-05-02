@@ -1,6 +1,8 @@
-# Miscellaneous Third-Party Data
+---
+layout: pane
+---
 
-## Women Advocates
+# Women Advocates
 
 A lot of research has been done by Marlene Trestman into the history of women advocates at the U. S. Supreme Court.  A good starting point is this [Supreme Court Historical Society](https://supremecourthistory.org) article, "[Trestman’s Quest to Honor Women Advocates](https://supremecourthistory.org/society-news/trestmans-quest-to-honor-women-advocates/)", which also links to this New York Times article, "[Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html)".
 
@@ -8,7 +10,7 @@ More recently, Marlene published an article, "[Women Advocates Before the Suprem
 
 To check for any mistakes or omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, a script was created named [Audit_Women](https://github.com/jeffpar/argument-aloud/blob/main/scripts/python/audit_women.py) that compared the spreadsheet to all available transcript data and reported any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running [Audit_Women](https://github.com/jeffpar/argument-aloud/blob/main/scripts/python/audit_women.py), and repeating that process hundreds of times until all the warnings were eliminated.
 
-As part of that process, an updated copy of Marlene's spreadsheet was produced: [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv).  That spreadsheet is no longer used as part of the [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) process, but the updated copy serves as a record of our corrections.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
+As part of that process, an updated copy of Marlene's spreadsheet was produced: [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv).  That spreadsheet is no longer used as part of the [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) process, but the updated copy serves as a record of our corrections.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
 
 This project stores all its data as a collection of JSON files that are maintained by a set of scripts on [GitHub](https://github.com/jeffpar/argument-aloud) and presented through a web interface at [Argument Aloud](https://argumentaloud.org).  However, as a convenience, whenever [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) is periodically run, a new spreadsheet is generated as well:
 
@@ -80,7 +82,7 @@ That spreadsheet contains all previously available data, along with any women ad
 
 ### Corrections made to "Women Advocates Through October Term 2024"
 
-All corrections (eg, fixed typos, corrected dates/citations/etc) that were made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
+All corrections (eg, fixed typos, corrected dates/citations/etc) that were made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
 It's worth noting when discussing advocate appearances that the unit of measure is typically "argument", not "case".  Sometimes multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
 

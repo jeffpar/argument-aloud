@@ -1,8 +1,10 @@
 ---
-layout: default
+layout: pane
 ---
 
-## U.S. Supreme Court Arguments: Auditing and Oddities
+# U.S. Supreme Court Arguments
+
+## Auditing and Oddities
 
 Below are the results of an on-going audit that correlates three sources of U.S. Supreme Court data:
 
