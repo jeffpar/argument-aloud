@@ -107,7 +107,7 @@ Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, c
 
 **Dependencies:** `pdftotext` (poppler-utils via Homebrew), `pip install faster-whisper rapidfuzz`, `brew install ffmpeg`
 
-## Front-End (argument.js SPA)
+## Front-End (explorer.js SPA)
 
 The main interactive page is a single-page app built with ~3200 lines of vanilla JS.
 

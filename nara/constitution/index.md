@@ -1,5 +1,5 @@
 ---
-layout: document
+layout: pane
 ---
 
 <div class="doc-page">

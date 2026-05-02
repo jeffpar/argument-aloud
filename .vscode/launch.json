@@ -14,15 +14,8 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "USSC Audit",
-      "url": "http://localhost:4008/courts/ussc/audit/",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "USSC Terms",
-      "url": "http://localhost:4008/",
+      "name": "U.S. Supreme Court",
+      "url": "http://localhost:4008/courts/ussc",
       "webRoot": "${workspaceFolder}"
     },
     {
@@ -30,13 +23,6 @@
       "request": "launch",
       "name": "2025 Term: Watson v. RNC",
       "url": "http://localhost:4008/courts/ussc/?term=2025-10&case=24-1260",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "U.S. Constitution",
-      "url": "http://localhost:4008/nara/constitution",
       "webRoot": "${workspaceFolder}"
     }
   ]

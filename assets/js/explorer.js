@@ -1490,15 +1490,18 @@ function buildStaticPageItem(parentUl, page) {
 
     header.appendChild(tog);
     header.appendChild(label);
-    // Toggle expand on the header row; click on label also loads the page if it has a link.
-    header.addEventListener('click', () => li.classList.toggle('open'));
-    if (page.link) {
-      label.style.cursor = 'pointer';
-      label.addEventListener('click', (e) => {
-        e.stopPropagation();
+    // Single handler: clicking the label always opens + loads; clicking the toggle toggles.
+    // stopPropagation prevents the click from bubbling up to a parent terms-header.
+    header.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (page.link && label.contains(e.target)) {
+        li.classList.add('open');
         showPageViewer(page.link);
-      });
-    }
+      } else {
+        li.classList.toggle('open');
+      }
+    });
+    if (page.link) label.style.cursor = 'pointer';
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';
@@ -3341,7 +3344,7 @@ async function init() {
   // Load nav structure from index.json, then pre-fetch any referenced data files in parallel.
   let navData = [];
   try {
-    const res = await fetch('/index.json', { cache: 'reload' });
+    const res = await fetch('/courts/ussc/index.json', { cache: 'reload' });
     if (res.ok) navData = await res.json();
   } catch (e) {
     console.warn('[nav] index.json fetch failed:', e);
@@ -3612,6 +3615,9 @@ async function init() {
       updateEmptyStateForTerm(termParam);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
+  } else {
+    // No URL params — show the default home page.
+    showPageViewer('/courts/ussc/home', { pushState: false });
   }
 }
 init();

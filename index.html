@@ -1,109 +1,16 @@
 ---
-layout: explorer
-title: U.S. Supreme Court
+layout: null
+permalink: /
 ---
-
-<div id="topbar">
-  <a id="site-link" href="/">Argument Aloud</a>
-  <span id="topbar-sep">&rsaquo;</span>
-  <span id="page-title">U.S. Supreme Court</span>
-  <span id="topbar-term"></span>
-</div>
-
-<div id="browser">
-  <nav id="doc-browser">
-    <div id="nav-header">
-      <h3>U.S. Supreme Court</h3>
-      <button id="nav-search-btn" title="Search cases" aria-label="Search cases">&#128269;</button>
-    </div>
-    <div id="nav-search-row" hidden>
-      <input id="nav-search-input" type="search" placeholder="Case name or number…" autocomplete="off" spellcheck="false">
-    </div>
-    <ul id="term-list"></ul>
-  </nav>
-
-  <div id="v-resize" class="resize-handle resize-handle--v" title="Drag to resize sidebar"></div>
-
-  <div id="main-panel">
-    <div id="player-section" hidden>
-      <div id="case-info">
-        <div id="case-info-row1">
-          <span id="case-title-label"></span>
-          <button id="mobile-back-btn" title="Back to case list" aria-label="Back to case list">&#9650;</button>
-          <a id="decision-date-label" hidden></a>
-          <select id="audio-select"></select>
-        </div>
-        <div id="case-info-row2" hidden>
-          <a id="case-cite"></a>
-        </div>
-        <div id="case-questions"></div>
-      </div>
-    </div>
-
-    <!-- Transcript search modal -->
-    <div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search transcript">
-      <div id="search-box">
-        <div id="search-box-header">
-          <input id="search-input" type="search" placeholder="Search transcript…" autocomplete="off" spellcheck="false">
-          <button id="search-next" title="Next match" aria-label="Next match">&#8595;</button>
-          <button id="search-prev" title="Previous match" aria-label="Previous match">&#8593;</button>
-          <button id="search-close" title="Close" aria-label="Close search">&times;</button>
-        </div>
-        <div id="search-speakers-row">
-          <label for="search-speakers">Speaker:</label>
-          <select id="search-speakers">
-            <option value="">All Speakers</option>
-          </select>
-        </div>
-        <div id="search-refs-row">
-          <label for="search-refs">References:</label>
-          <select id="search-refs">
-            <option value=""></option>
-          </select>
-        </div>
-        <div id="search-status"></div>
-      </div>
-    </div>
-
-    <div id="transcript-viewer">
-      <div id="empty-state"><div><span>Select a case to begin<br/>(such as <a href="?term=2025-10&case=24-1260&turn=369">Watson v. RNC</a>)</span><span class="empty-state-data">Generated data is also available<br/>(for example, see <a href="?link=/data/misc/women">Women Advocates</a>)</span></div></div>
-      <div id="loading-msg">Loading transcript&hellip;</div>
-      <div id="turn-list" role="list"></div>
-    </div>
-
-    <div id="audio-controls" hidden>
-      <div id="audio-row">
-        <audio id="audio-player" controls preload="metadata"></audio>
-        <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
-        <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
-        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
-      </div>
-      <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
-    </div>
-
-    <div id="page-viewer" hidden>
-      <iframe id="page-viewer-frame" title="Content page" style="width:100%;height:100%;border:0;"></iframe>
-    </div>
-
-    <div id="doc-viewer" hidden>
-      <div id="h-resize" class="resize-handle resize-handle--h" title="Drag to resize document viewer"></div>
-      <div id="doc-viewer-header">
-        <span>Document Viewer</span>
-        <a id="doc-viewer-url" target="_blank" rel="noopener noreferrer" title="Open in new tab"></a>
-        <span id="doc-viewer-ref"></span>
-        <button id="doc-viewer-minimize" title="Minimize document viewer" aria-label="Minimize document viewer">&#9660;</button>
-        <button id="doc-viewer-expand" title="Expand document viewer" aria-label="Expand document viewer">&#9650;</button>
-        <button id="doc-viewer-close" title="Close document viewer" aria-label="Close document viewer">&times;</button>
-      </div>
-      <div id="doc-viewer-card">
-        <p id="doc-viewer-card-title"></p>
-        <p id="doc-viewer-card-desc"></p>
-        <a id="doc-viewer-card-link" href="#" target="_blank" rel="noopener noreferrer">Open document <img src="/assets/img/open-external-link-icon.webp" alt="" width="13" height="13" style="vertical-align:middle;opacity:0.75"></a>
-      </div>
-      <iframe id="doc-viewer-pdf" title="PDF document"
-              allow="fullscreen"></iframe>
-    </div>
-  </div>
-</div>
-
-<script src="{{ '/assets/js/explorer.js' | relative_url }}"></script>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=/courts/ussc/">
+  <title>Argument Aloud</title>
+  <script>location.replace('/courts/ussc/');</script>
+</head>
+<body>
+  <a href="/courts/ussc/">Redirecting to U.S. Supreme Court…</a>
+</body>
+</html>
