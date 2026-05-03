@@ -4,15 +4,23 @@ layout: pane
 
 # Women Advocates
 
+<div style="overflow-x:auto;margin:1.5em 0">
+  <div style="min-width:900px;height:624px;position:relative">
+    <canvas id="women-chart"></canvas>
+  </div>
+</div>
+
+<script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100 });</script>
+
 A lot of research has been done by Marlene Trestman into the history of women advocates at the U. S. Supreme Court.  A good starting point is this [Supreme Court Historical Society](https://supremecourthistory.org) article, "[Trestman’s Quest to Honor Women Advocates](https://supremecourthistory.org/society-news/trestmans-quest-to-honor-women-advocates/)", which also links to this New York Times article, "[Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html)".
 
 More recently, Marlene published an article, "[Women Advocates Before the Supreme Court](https://supremecourthistory.org/oral-arguments/women-advocates-before-the-supreme-court/)", that included a Google Docs spreadsheet named [Women Advocates Through OT 24](https://docs.google.com/spreadsheets/d/1Qsu5_yl8WABum3OmNqi8wruhWXeC73n9/edit?gid=1826861058#gid=1826861058), which has been preserved [here](https://github.com/jeffpar/argument-aloud/blob/b48499ee848a389c9d6f1a2274a11c059c3424f1/courts/ussc/people/advocates/Women%20Through%20October%20Term%202024.csv).
 
-To check for any mistakes or omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, a script was created named [Audit_Women](https://github.com/jeffpar/argument-aloud/blob/main/scripts/python/audit_women.py) that compared the spreadsheet to all available transcript data and reported any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running [Audit_Women](https://github.com/jeffpar/argument-aloud/blob/main/scripts/python/audit_women.py), and repeating that process hundreds of times until all the warnings were eliminated.
+To check for any mistakes or omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, a [script](https://github.com/jeffpar/argument-aloud/blob/main/scripts/python/audit_women.py) was created that compared the spreadsheet to all available transcript data and reported any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running the script, and repeating that process hundreds of times until all the warnings were eliminated.
 
-As part of that process, an updated copy of Marlene's spreadsheet was produced: [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv).  That spreadsheet is no longer used as part of the [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) process, but the updated copy serves as a record of our corrections.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
+As part of that process, an updated copy of Marlene's spreadsheet was produced: [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv).  That spreadsheet is no longer used as part of our "[Advocate Update](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js)" process, but the updated copy serves as a record of our corrections.  All 85 changes are also documented [below](#corrections-made-to-women-advocates-through-october-term-2024).
 
-This project stores all its data as a collection of JSON files that are maintained by a set of scripts on [GitHub](https://github.com/jeffpar/argument-aloud) and presented through a web interface at [Argument Aloud](/).  However, as a convenience, whenever [Update_Advocates](https://github.com/jeffpar/argument-aloud/blob/main/scripts/update_advocates.js) is periodically run, a new spreadsheet is generated as well:
+This project stores all its data as a collection of JSON files that are maintained by a set of scripts on [GitHub](https://github.com/jeffpar/argument-aloud) and presented through a web interface at [Argument Aloud](/).  However, as a convenience, whenever our "Advocate Update" process is periodically run, a new spreadsheet is generated as well:
 
   - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/aa/ussc_women.csv)
   
