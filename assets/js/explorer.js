@@ -2124,6 +2124,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           const advocateData = await r.json();
           const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
           const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
+          const advocateLink = Array.isArray(advocateData) ? null : (advocateData.link ?? null);
+          if (advocateLink) showPageViewer(advocateLink, { pushState: false });
           for (const [hlIdx, hl] of highlights.entries()) {
             groupUl.appendChild(_buildHighlightItem(hl, hlIdx));
           }

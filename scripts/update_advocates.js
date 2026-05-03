@@ -1074,11 +1074,12 @@ async function main() {
                            ?? bestOrigIdxForDate.get(audioDate)
                            ?? origIdx);
                     const resolvedAudio = audioEntries[resolvedOrigIdx] || audio;
+                    const dateFieldName = resolvedAudio.type === 'reargument' ? 'reargument' : 'argument';
                     const caseEntry = {
                         title,
                         term,
                         number: subKey || number,
-                        argument: audioDate,
+                        [dateFieldName]: audioDate,
                     };
                     // Internal-only: original consolidated number (used for
                     // citation lookup, dedup, and URL building); stripped
@@ -1166,11 +1167,11 @@ async function main() {
         }
     }
 
-    // Sort each advocate's cases by argument date, most recent first.
+    // Sort each advocate's cases by argument/reargument date, most recent first.
     for (const e of Object.values(advocates)) {
         e.cases.sort((a, b) => {
-            const da = a.argument || a.date || '';
-            const db = b.argument || b.date || '';
+            const da = a.argument || a.reargument || a.date || '';
+            const db = b.argument || b.reargument || b.date || '';
             return da < db ? 1 : da > db ? -1 : 0;
         });
     }
@@ -1284,8 +1285,8 @@ async function main() {
                 const isFem = nameFeminine.get(entry.name.toUpperCase()) && !_isShadowWoman(entry);
                 const femTag = isFem ? '  [possibly woman]' : '';
                 const sortedCases = entry.cases.slice().sort((a, b) =>
-                    (a.argument || '') < (b.argument || '') ? -1
-                    : (a.argument || '') > (b.argument || '') ? 1 : 0);
+                    (a.argument || a.reargument || '') < (b.argument || b.reargument || '') ? -1
+                    : (a.argument || a.reargument || '') > (b.argument || b.reargument || '') ? 1 : 0);
                 const casesStr = sortedCases.map(c => `${c.term}/${c.number}`).join('; ');
                 if (verbose && exists(stale)) {
                     fs.unlinkSync(stale);
@@ -1320,12 +1321,14 @@ async function main() {
         const caseFile = path.join(ADVOCATES_DIR, `${advId}.json`);
         let existingDetails = {};
         let existingHighlights = [];
+        let existingLink = null;
         if (exists(caseFile)) {
             try {
                 const raw = readJson(caseFile);
                 if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
                     existingDetails = raw.details || {};
                     existingHighlights = raw.highlights || [];
+                    if (raw.link != null) existingLink = raw.link;
                 }
             } catch { /* ignore */ }
         }
@@ -1333,10 +1336,23 @@ async function main() {
             details: existingDetails,
             highlights: existingHighlights,
         };
+        if (existingLink != null) envelope.link = existingLink;
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
         }
-        envelope.cases = entry.cases;
+        // Assign entry numbers (1 = earliest argument, N = most recent) and
+        // insert after `event` in the key order.
+        const total = entry.cases.length;
+        envelope.cases = entry.cases.map((c, i) => {
+            const entryNum = total - i; // cases are sorted most-recent-first
+            const rebuilt = {};
+            for (const k of Object.keys(c)) {
+                rebuilt[k] = c[k];
+                if (k === 'event') rebuilt.entry = entryNum;
+            }
+            if (!('entry' in rebuilt)) rebuilt.entry = entryNum;
+            return rebuilt;
+        });
         writeText(caseFile, JSON.stringify(envelope, null, 2) + '\n');
     }
 
@@ -1354,8 +1370,8 @@ async function main() {
     const index = output.map(e => {
         const caseCount = e.cases.length;
         // cases[] is sorted most-recent-first, so [0] = newest, [last] = oldest.
-        const dateLast  = caseCount ? (e.cases[0].argument || '')              : '';
-        const dateFirst = caseCount ? (e.cases[caseCount - 1].argument || '')  : '';
+        const dateLast  = caseCount ? (e.cases[0].argument || e.cases[0].reargument || '')             : '';
+        const dateFirst = caseCount ? (e.cases[caseCount - 1].argument || e.cases[caseCount - 1].reargument || '') : '';
         const entry = {
             id: e.id || makeAdvocateId(e.name),
             name: e.name,
@@ -1396,8 +1412,8 @@ async function main() {
         if (entry.name.split(/\s+/).length <= 1) continue;
         const advName = entry.name;
         const sortedCases = entry.cases.slice().sort((a, b) =>
-            (a.argument || '') < (b.argument || '') ? -1
-            : (a.argument || '') > (b.argument || '') ? 1 : 0);
+            (a.argument || a.reargument || '') < (b.argument || b.reargument || '') ? -1
+            : (a.argument || a.reargument || '') > (b.argument || b.reargument || '') ? 1 : 0);
         let argNum = 0;
         for (const c of sortedCases) {
             argNum++;
@@ -1408,14 +1424,14 @@ async function main() {
             if (audioIdx) url += `&event=${audioIdx}`;
             const caseKey = ckCase(nameUpper, c.title, c.term, fullNum);
             let allDates = [];
-            const anchor = c.argument || '';
+            const anchor = c.argument || c.reargument || '';
             if (!Number.isNaN(isoToDays(anchor))) {
                 const dates = [...(allAppearanceDates.get(caseKey) || [])]
                     .filter(d => daysAbsDiff(d, anchor) <= 7)
                     .sort();
                 allDates = dates;
             }
-            const argDate = allDates.length ? allDates.join(',') : (c.argument || '');
+            const argDate = allDates.length ? allDates.join(',') : (c.argument || c.reargument || '');
             womenRows.push([advName, argNum, argDate, c.term, c.number, c.title, cit, url]);
         }
     }
