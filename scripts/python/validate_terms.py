@@ -50,17 +50,6 @@ def case_folder_name(case: dict) -> str:
     return case.get('id', '')
 
 
-def parse_date_decision(date_decision: str) -> str | None:
-    """Parse a dateDecision string like 'Monday, March 14, 1955' into YYYY-MM-DD."""
-    s = re.sub(r'^[A-Za-z]+,\s*', '', date_decision.strip())
-    for fmt in ('%B %d, %Y', '%b %d, %Y'):
-        try:
-            return datetime.strptime(s, fmt).strftime('%Y-%m-%d')
-        except ValueError:
-            pass
-    return None
-
-
 def find_target_term(decision: str, terms: list[str]) -> str | None:
     """Return the term whose range contains decision, or None."""
     target = None
@@ -118,7 +107,7 @@ def do_merge(
 
     # 2. Rebuild the dest dict to insert 'previouslyFiled' before 'decision'.
     #    If dest already has a decision, insert previouslyFiled just before it.
-    #    If not, insert previouslyFiled + decision (+ dateDecision) after 'number'.
+    #    If not, insert previouslyFiled + decision after 'number'.
     rebuilt: dict = {}
     pf_inserted = False
     for k, v in dst_case.items():
@@ -130,15 +119,11 @@ def do_merge(
             rebuilt['previouslyFiled'] = src_term
             if 'decision' in src_case:
                 rebuilt['decision'] = src_case['decision']
-                if 'dateDecision' in src_case and 'dateDecision' not in dst_case:
-                    rebuilt['dateDecision'] = src_case['dateDecision']
             pf_inserted = True
     if not pf_inserted:
         rebuilt['previouslyFiled'] = src_term
         if 'decision' in src_case and 'decision' not in rebuilt:
             rebuilt['decision'] = src_case['decision']
-            if 'dateDecision' in src_case and 'dateDecision' not in rebuilt:
-                rebuilt['dateDecision'] = src_case['dateDecision']
     dst_case.clear()
     dst_case.update(rebuilt)
 
@@ -453,27 +438,6 @@ def main() -> None:
 
         for case in cases:
             label = case.get('title') or case.get('id') or '?'
-
-            # 3a. Ensure 'decision' present when 'dateDecision' exists.
-            if 'dateDecision' in case and 'decision' not in case:
-                parsed = parse_date_decision(case['dateDecision'])
-                if parsed:
-                    print(f'FIX-DECISION: {term} | {label!r} | inserting decision={parsed!r}')
-                    insert_after = 'number' if 'number' in case else 'title'
-                    rebuilt: dict = {}
-                    for k, v in case.items():
-                        rebuilt[k] = v
-                        if k == insert_after and 'decision' not in rebuilt:
-                            rebuilt['decision'] = parsed
-                    if 'decision' not in rebuilt:
-                        rebuilt['decision'] = parsed
-                    case.clear()
-                    case.update(rebuilt)
-                    if not dry_run:
-                        modified.add(term)
-                    consistency_fixed += 1
-                else:
-                    print(f'WARNING: {term} | {label!r} | could not parse dateDecision {case["dateDecision"]!r}')
 
             # 3b. Ensure 'files' key exists.
             if 'files' not in case:

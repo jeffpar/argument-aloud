@@ -1184,10 +1184,16 @@ async function main() {
         }
     }
 
-    // Output sorted by name.
+    // Output sorted by cases (descending) then last name.
+    const _advLastName = (name) => (name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
     let output = Object.values(advocates)
         .filter(e => e.cases.length > 0)
-        .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+        .sort((a, b) => {
+            const ca = a.cases.length, cb = b.cases.length;
+            if (ca !== cb) return cb - ca;
+            const la = _advLastName(a.name), lb = _advLastName(b.name);
+            return la < lb ? -1 : la > lb ? 1 : 0;
+        });
 
     // Skip one-word names.
     const skipped = output.filter(e => e.name.split(/\s+/).length === 1);
@@ -1343,11 +1349,17 @@ async function main() {
 
     // Write the index.
     const index = output.map(e => {
+        const caseCount = e.cases.length;
+        // cases[] is sorted most-recent-first, so [0] = newest, [last] = oldest.
+        const dateLast  = caseCount ? (e.cases[0].argument || '')              : '';
+        const dateFirst = caseCount ? (e.cases[caseCount - 1].argument || '')  : '';
         const entry = {
             id: e.id || makeAdvocateId(e.name),
             name: e.name,
-            cases: e.cases.length,
+            cases: caseCount,
         };
+        if (dateFirst) entry.dateFirst = dateFirst;
+        if (dateLast)  entry.dateLast  = dateLast;
         if (e.previously) entry.previously = [...new Set(e.previously)].sort();
         return entry;
     });

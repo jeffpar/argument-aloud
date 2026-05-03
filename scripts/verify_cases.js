@@ -520,32 +520,6 @@ function _isCurrentTerm(term) {
 
 // ── Date helpers ──────────────────────────────────────────────────────────
 
-function _isoToDateDecision(iso) {
-    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
-    if (!m) return null;
-    const year = +m[1], month = +m[2], day = +m[3];
-    const d = new Date(Date.UTC(year, month - 1, day));
-    if (Number.isNaN(d.getTime())
-            || d.getUTCFullYear() !== year
-            || d.getUTCMonth()    !== month - 1
-            || d.getUTCDate()     !== day) return null;
-    return `${_DAYS[d.getUTCDay()]}, ${_MONTHS[month - 1]} ${day}, ${year}`;
-}
-
-function _dateDecisionToIso(s) {
-    const m = _DATE_DEC_PARSE_RE.exec(String(s || '').trim());
-    if (!m) return null;
-    const monthIdx = _MONTHS.indexOf(m[1]);
-    if (monthIdx < 0) return null;
-    const day = +m[2], year = +m[3];
-    const d = new Date(Date.UTC(year, monthIdx, day));
-    if (Number.isNaN(d.getTime())
-            || d.getUTCFullYear() !== year
-            || d.getUTCMonth()    !== monthIdx
-            || d.getUTCDate()     !== day) return null;
-    return `${year}-${String(monthIdx + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-}
-
 function _datesAreConsecutive(dates) {
     if (dates.length < 2) return true;
     const parsed = [];
@@ -1086,48 +1060,7 @@ function removeRedundantTranscriptFiles(casesPath) {
     if (casesModified) _writeJson(casesPath, data);
 }
 
-function checkDecisionDates(casesPath, term) {
-    const data = _readJson(casesPath);
-    if (!Array.isArray(data)) return;
-    let modified = false;
-    for (const c of data) {
-        const decision = c.decision || '';
-        const dateDec  = c.dateDecision || '';
-        const label    = c.number || c.id || '?';
-        const title    = c.title || '';
-        if (!decision) continue;
-        // Allow imprecise decision dates (e.g. "1816-02" or just "1816") —
-        // those cases have no exact day on record, so dateDecision can't be
-        // generated. Silently skip rather than warn.
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(decision)) continue;
-        const generated = _isoToDateDecision(decision);
-        if (generated === null) {
-            console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): cannot parse decision='${decision}'`);
-            continue;
-        }
-        if (!dateDec) {
-            const newCase = {};
-            for (const [k, v] of Object.entries(c)) {
-                newCase[k] = v;
-                if (k === 'decision') newCase.dateDecision = generated;
-            }
-            for (const k of Object.keys(c)) delete c[k];
-            Object.assign(c, newCase);
-            modified = true;
-            console.log(`WARNING: ${term}/${label}: inserted dateDecision='${generated}'`);
-        } else {
-            const parsedBack = _dateDecisionToIso(dateDec);
-            if (parsedBack !== decision) {
-                console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): `
-                  + `decision='${decision}' but dateDecision parses to '${parsedBack}' (stored: '${dateDec}')`);
-            }
-        }
-    }
-    if (modified) {
-        _writeJson(casesPath, data);
-        console.log(`WARNING: ${term}/cases.json: inserted missing dateDecision values`);
-    }
-}
+function checkDecisionDates() {} // no-op: dateDecision field is obsolete
 
 // Verbose-only: warn when a case's `votes[]` lists a justice who, by their
 // `justices.json` tenure data, was not on the Court on the case's decision
@@ -2798,20 +2731,6 @@ function _scdbLocOpinionHref(volume, page) {
     return `https://tile.loc.gov/storage-services/service/ll/usrep/usrep${v3}/usrep${vp}/usrep${vp}.pdf`;
 }
 
-function _scdbFormatLongDate(iso) {
-    const dt = _scdbParseIso(iso);
-    if (!dt) return '';
-    return `${_DOW[dt.getUTCDay()]}, ${_MON[dt.getUTCMonth()]} ${dt.getUTCDate()}, ${dt.getUTCFullYear()}`;
-}
-
-function _scdbIsoFromLongDate(s) {
-    const m = /^(?:Sun|Mon|Tues|Wednes|Thurs|Fri|Satur)day,\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s+(\d{4})$/.exec((s||'').trim());
-    if (!m) return '';
-    const monthIdx = _MON.indexOf(m[1]);
-    if (monthIdx < 0) return '';
-    return `${m[3]}-${String(monthIdx + 1).padStart(2,'0')}-${String(+m[2]).padStart(2,'0')}`;
-}
-
 function _scdbVoteToOurs(v) {
     const t = (v || '').trim().toLowerCase();
     if (t === 'majority' || t === '2') return 'majority';
@@ -3014,13 +2933,25 @@ function processLoneDissenters(termsToProcess, dryRun) {
             (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
             (a.term || '').localeCompare(b.term || '') ||
             (a.title || '').localeCompare(b.title || ''));
-        index.push({
+        const caseCount = list.length;
+        // list is sorted oldest→newest; [0] = oldest, [last] = newest.
+        const dateFirst = caseCount ? (list[0].decision || list[0].argument || '') : '';
+        const dateLast  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
+        const entry = {
             id:    _justiceSlug(canonical),
             name:  _justiceDisplayName(canonical),
-            cases: list.length,
-        });
+            cases: caseCount,
+        };
+        if (dateFirst) entry.dateFirst = dateFirst;
+        if (dateLast)  entry.dateLast  = dateLast;
+        index.push(entry);
     }
-    index.sort((a, b) => a.id.localeCompare(b.id));
+    const _lonLastName = (name) => (name || '').trim().split(/\s+/).pop() || '';
+    index.sort((a, b) => {
+        if (a.cases !== b.cases) return b.cases - a.cases;
+        const la = _lonLastName(a.name), lb = _lonLastName(b.name);
+        return la < lb ? -1 : la > lb ? 1 : 0;
+    });
 
     _writeJson(INDEX_FILE, index);
 
@@ -3118,10 +3049,7 @@ function _normalizeDocket(d) {
 
 function _decisionYearOf(c) {
     const dec = (c.decision || '').trim();
-    if (dec) return dec.slice(0, 4);
-    const dd = (c.dateDecision || '').trim();
-    if (dd) return dd.slice(-4);
-    return '';
+    return dec ? dec.slice(0, 4) : '';
 }
 
 function _setCaseEntry(c, term) {
@@ -3383,8 +3311,7 @@ function _buildNoteworthyCollection(allTerms) {
         const decidedRaw = _firstDate(row.decided || '');
         const decisionYear =
             decidedRaw.slice(0, 4) ||
-            (matched.decision || '').slice(0, 4) ||
-            ((matched.dateDecision || '').slice(-4));
+            (matched.decision || '').slice(0, 4);
         if (decisionYear) title = `${title} (${decisionYear})`;
 
         const entry = { title, term: matchedTerm };
@@ -3755,8 +3682,6 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     if (reargument && reargument !== '0') obj.reargument = reargument;
     if (decision && decision !== '0') {
         obj.decision = decision;
-        const longD = _scdbFormatLongDate(decision);
-        if (longD) obj.dateDecision = longD;
     }
     if (maj  !== null) obj.voteMajority = maj;
     if (minv !== null) obj.voteMinority = minv;
@@ -3783,16 +3708,6 @@ function _scdbMergeMissing(existing, template) {
         if (_scdbFieldPresent(existing, k)) continue;
         existing[k] = v;
         changed = true;
-    }
-    if (_scdbFieldPresent(existing, 'decision') && !_scdbFieldPresent(existing, 'dateDecision')) {
-        const longD = _scdbFormatLongDate(_scdbNormalizeDate(existing.decision || ''));
-        if (longD) { existing.dateDecision = longD; changed = true; }
-    }
-    if (_scdbFieldPresent(existing, 'dateDecision') && !_scdbFieldPresent(existing, 'decision')) {
-        const raw = (existing.dateDecision || '').trim();
-        let iso = _scdbNormalizeDate(raw);
-        if (!_SCDB_ISO_RE.test(iso)) iso = _scdbIsoFromLongDate(raw);
-        if (iso) { existing.decision = iso; changed = true; }
     }
     if (changed) {
         const re = reorderCase({ ...existing });
@@ -5195,7 +5110,7 @@ if (_isMain) {
 export {
     loadSpeakerMap, filterSpeakerMap, applySpeakerMapToCase,
     migrateArgumentsToAudio, verifyCasesJsonArguments, normalizeAudioAlignedPosition,
-    removeRedundantTranscriptFiles, checkDecisionDates, checkCaseHrefs,
+    removeRedundantTranscriptFiles, checkCaseHrefs,
     backfillUntrackedFiles, checkAudioDates, warnMissingOpinionHref,
     verifyFilesJson, verifyCase, deduplicateCases,
     checkDuplicateCaseIds, checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,

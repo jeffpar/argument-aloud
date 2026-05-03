@@ -662,17 +662,13 @@ function setCaseTitleLabel(term, caseEntry) {
   span.appendChild(a);
 }
 
-// Parse a human-readable decision date like "Monday, October 17, 1910" → "1910-10-17".
-// Used as a fallback sort/group key for historical cases that have no audio entries.
-function parseDateDecision(str) {
-  if (!str) return '';
-  const m = str.match(/(\w+)\s+(\d+),\s+(\d{4})$/);
-  if (!m) return '';
+// Format an ISO date "YYYY-MM-DD" → "Month\u00a0D,\u00a0YYYY" for display.
+function formatDecisionDate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-');
   const MONTHS = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
-  const mi = MONTHS.indexOf(m[1]);
-  if (mi === -1) return '';
-  return `${m[3]}-${String(mi + 1).padStart(2, '0')}-${String(m[2]).padStart(2, '0')}`;
+  return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
 function caseTermDate(caseEntry, term) {
@@ -684,7 +680,7 @@ function caseTermDate(caseEntry, term) {
   const inTerm = audio.find(a =>
     a.type !== 'opinion' && a.date && a.date >= termStart && a.date < termEnd
   );
-  return inTerm?.date ?? audio[0]?.date ?? parseDateDecision(caseEntry.dateDecision);
+  return inTerm?.date ?? audio[0]?.date ?? caseEntry.decision ?? '';
 }
 
 // Returns 'missing' if the case has an oyez link but no oyez audio events at
@@ -2308,8 +2304,8 @@ function loadCaseAsOpinion(term, caseEntry) {
     journalOpts.push({ value, title });
   });
 
-  const decisionText = caseEntry.dateDecision
-    ? 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '')
+  const decisionText = caseEntry.decision
+    ? 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision)
         + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
     : null;
 
@@ -2544,15 +2540,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     });
   }
   // Append sentinel option linking to the opinion, if available. (Always last.)
-  if (caseEntry.opinion_href && (caseEntry.dateDecision || caseEntry.decision)) {
-    const _months = ['January','February','March','April','May','June',
-                     'July','August','September','October','November','December'];
-    const _decisionLabel = caseEntry.dateDecision
-      ? caseEntry.dateDecision.replace(/^\w+,\s*/, '')
-      : (() => { const [y, m, d] = caseEntry.decision.split('-'); return (_months[parseInt(m,10)-1] || m) + '\u00a0' + parseInt(d,10) + ',\u00a0' + y; })();
+  if (caseEntry.opinion_href && caseEntry.decision) {
     const sentinelOpt = document.createElement('option');
     sentinelOpt.value = 'opinion';
-    sentinelOpt.textContent = 'Decision on\u00a0' + _decisionLabel + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
+    sentinelOpt.textContent = 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision) + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
     audioSelect.appendChild(sentinelOpt);
   }
   // Append sentinel option linking to the Oyez case page, if available.
@@ -3469,6 +3460,21 @@ async function init() {
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
+  // Collection-only: just open/expand the collection in the nav.
+  if (collectionParam && !entryParam && !idParam && highlightParam == null && !termParam && !caseParam && _collectionsSectionLi) {
+    _collectionsSectionLi.classList.add('open');
+    await _collectionsSectionLi._ensureBuilt();
+    const collLi = _collectionsSectionLi.querySelector(
+      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+    );
+    if (collLi) {
+      collLi.classList.add('open');
+      await collLi._ensureBuilt?.();
+      requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+    }
+    return;
+  }
+
   // Highlight: collection + id + highlight index
   if (collectionParam && idParam && highlightParam != null && !termParam && !caseParam && _collectionsSectionLi) {
     _collectionsSectionLi.classList.add('open');

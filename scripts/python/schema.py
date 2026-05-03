@@ -15,7 +15,7 @@ CASE_KEY_ORDER: list[str] = [
     'id', 'title', 'number', 'oyez_href', 'otd_href', 'oyez_alt', 'previouslyFiled',
     'questions', 'questions_href',
     'argument', 'reargument', 'decision',
-    'volume', 'page', 'usCite', 'dateDecision',
+    'volume', 'page', 'usCite',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'files',
     'notes',
