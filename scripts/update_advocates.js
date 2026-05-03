@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Builds/updates courts/ussc/people/all_advocates.json (index) and
- * courts/ussc/people/advocates/{id}.json (per-advocate case lists) from
+ * Builds/updates courts/ussc/people/advocates/all_advocates.json (index) and
+ * courts/ussc/people/advocates/all/{id}.json (per-advocate case lists) from
  * transcript files.
  *
  * For every case in every cases.json under courts/ussc/terms/, follows each
@@ -31,13 +31,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const REPO_ROOT         = path.resolve(__dirname, '..');
 const TERMS_DIR         = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-const OUTPUT_FILE       = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'all_advocates.json');
-const WOMEN_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'women_advocates.json');
+const ADVOCATES_BASE    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
+const OUTPUT_FILE       = path.join(ADVOCATES_BASE, 'all_advocates.json');
+const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women_advocates.json');
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
-const TRANS_OUTPUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'transgender_advocates.json');
-const ADVOCATES_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
+const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender_advocates.json');
+const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
-const JUSTICE_ADVOCATES_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justice_advocates.json');
+const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justice_advocates.json');
 const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
 const _SPEAKERS_FILE    = path.join(__dirname, 'speakers.json');
 
