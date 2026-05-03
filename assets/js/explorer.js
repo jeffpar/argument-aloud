@@ -1428,6 +1428,7 @@ function buildCollectionsNav(title = 'Collections') {
     if (_sectionBuilt) return;
     _sectionBuilt = true;
     for (const collEntry of COLLECTIONS) {
+      if (collEntry.hidden) continue;
       buildCollectionItem(sectionUl, collEntry);
     }
   }
@@ -1452,6 +1453,7 @@ function buildNavFromIndex(navData) {
   const termListEl = document.getElementById('term-list');
   termListEl.innerHTML = '';
   for (const entry of navData) {
+    if (entry.hidden) continue;
     if (entry.file) {
       if (entry.file.endsWith('terms.json')) buildNav(entry.title || 'Terms');
       else if (entry.file.endsWith('collections.json')) buildCollectionsNav(entry.title || 'Collections');
@@ -1484,6 +1486,7 @@ function buildStaticNavSection(termListEl, entry) {
   ul.className = 'terms-list-inner';
 
   for (const page of entry.pages || []) {
+    if (page.hidden) continue;
     buildStaticPageItem(ul, page);
   }
 
@@ -1493,6 +1496,7 @@ function buildStaticNavSection(termListEl, entry) {
 }
 
 function buildStaticPageItem(parentUl, page) {
+  if (page.hidden) return;
   const li = document.createElement('li');
   const hasSubPages = Array.isArray(page.pages) && page.pages.length > 0;
 
@@ -1604,6 +1608,10 @@ function buildCollectionItem(sectionUl, collEntry) {
 
   collHeader.appendChild(collTog);
   collHeader.appendChild(collLabel);
+  if (collEntry.link) {
+    collLabel.style.cursor = 'pointer';
+    collLi.dataset.link = collEntry.link;
+  }
 
   const collUl = document.createElement('ul');
   collUl.className = 'case-list';
@@ -1669,10 +1677,29 @@ function buildCollectionItem(sectionUl, collEntry) {
 
   collLi._ensureBuilt = _ensureCollectionBuilt;
 
-  collHeader.addEventListener('click', async () => {
-    collLi.classList.toggle('open');
-    if (collLi.classList.contains('open')) {
-      await _ensureCollectionBuilt();
+  collHeader.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    if (collEntry.link && collLabel.contains(e.target)) {
+      collLi.classList.toggle('open');
+      if (collLi.classList.contains('open')) {
+        await _ensureCollectionBuilt();
+        showPageViewer(collEntry.link, { pushState: false });
+        const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight', 'link']);
+        history.pushState(null, '', url);
+      } else {
+        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
+        history.pushState(null, '', url);
+      }
+    } else {
+      collLi.classList.toggle('open');
+      if (collLi.classList.contains('open')) {
+        await _ensureCollectionBuilt();
+        const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight', 'link']);
+        history.pushState(null, '', url);
+      } else {
+        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
+        history.pushState(null, '', url);
+      }
     }
   });
 
@@ -2046,8 +2073,11 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
 function _populateCollectionGroups(collUl, groups, collEntry, collId) {
   // Base path for per-advocate JSON files (split format): collectionDir/folder/
   // Uses collEntry.folder if specified, otherwise falls back to collId.
+  // An absolute folder path (starts with '/') is used directly; relative paths
+  // are resolved relative to the collection file's directory.
   const collBase = collEntry.collection.slice(0, collEntry.collection.lastIndexOf('/'));
-  const splitBase = collBase + '/' + (collEntry.folder || collId) + '/';
+  const folderVal = collEntry.folder || collId;
+  const splitBase = folderVal.startsWith('/') ? (folderVal + '/') : (collBase + '/' + folderVal + '/');
 
   for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
     const group = groups[groupIdx];
@@ -2146,7 +2176,7 @@ async function loadAudioEntry(arg, basePath) {
     ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (casesPath + arg.text_href))
     : null;
   const audioUrl = arg.audio_href
-    ? (/^https?:\/\//i.test(arg.audio_href) ? arg.audio_href : (basePath + arg.audio_href))
+    ? (/^https?:\/\//i.test(arg.audio_href) || arg.audio_href.startsWith('/') ? arg.audio_href : (basePath + arg.audio_href))
     : (arg.audio != null ? (basePath + arg.audio) : null);
   _currentTranscriptPdfUrl = arg.transcript_href
     ? (/^https?:\/\//i.test(arg.transcript_href) ? arg.transcript_href : (basePath + arg.transcript_href))
@@ -3472,6 +3502,9 @@ async function init() {
       await collLi._ensureBuilt?.();
       requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
+    const collEntry = COLLECTIONS.find(c => c.collection.split('/').pop().replace('.json', '') === collectionParam);
+    const resolvedLink = linkParam || collEntry?.link || null;
+    if (resolvedLink) showPageViewer(resolvedLink, { pushState: false });
     return;
   }
 

@@ -2,9 +2,7 @@
 layout: pane
 ---
 
-# Third-Party Data
-
-## Women Advocates
+# Women Advocates
 
 A lot of research has been done by Marlene Trestman into the history of women advocates at the U. S. Supreme Court.  A good starting point is this [Supreme Court Historical Society](https://supremecourthistory.org) article, "[Trestman’s Quest to Honor Women Advocates](https://supremecourthistory.org/society-news/trestmans-quest-to-honor-women-advocates/)", which also links to this New York Times article, "[Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html)".
 

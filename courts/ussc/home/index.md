@@ -7,8 +7,8 @@ layout: pane
 ## Quick Links
 
   - [October 2025 Term](/courts/ussc/?term=2025-10)
-  - [Top Advocates](/courts/ussc/?collection=all_advocates)
-  - [Top Women Advocates](/courts/ussc/?collection=women_advocates)
+  - [Top Advocates](/courts/ussc/?collection=top_advocates)
+  - [Women Advocates](/courts/ussc/?collection=women_advocates)
 
 ## Why This Website Exists
 

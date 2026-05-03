@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Builds/updates courts/ussc/people/advocates/all_advocates.json (index) and
+ * Builds/updates courts/ussc/people/advocates/all_advocates.json (index),
+ * courts/ussc/people/advocates/top_advocates.json (top 100 by case count), and
  * courts/ussc/people/advocates/all/{id}.json (per-advocate case lists) from
  * transcript files.
  *
@@ -33,12 +34,13 @@ const REPO_ROOT         = path.resolve(__dirname, '..');
 const TERMS_DIR         = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const ADVOCATES_BASE    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
 const OUTPUT_FILE       = path.join(ADVOCATES_BASE, 'all_advocates.json');
-const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women_advocates.json');
+const TOP_OUTPUT_FILE   = path.join(ADVOCATES_BASE, 'top', 'top_advocates.json');
+const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women', 'women_advocates.json');
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
-const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender_advocates.json');
+const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
-const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justice_advocates.json');
+const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
 const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
 const _SPEAKERS_FILE    = path.join(__dirname, 'speakers.json');
 
@@ -1367,6 +1369,11 @@ async function main() {
     ensureDir(path.dirname(OUTPUT_FILE));
     writeText(OUTPUT_FILE, JSON.stringify(index, null, 2) + '\n');
     console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)} and ${relRepo(ADVOCATES_DIR)}/`);
+
+    // Top 100 advocates index.
+    const topIndex = index.slice(0, 100);
+    writeText(TOP_OUTPUT_FILE, JSON.stringify(topIndex, null, 2) + '\n');
+    console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP_OUTPUT_FILE)}`);
 
     // Women advocates index.
     const womenIndex = index.filter(e => nameFeminine.get(e.name.toUpperCase()));
