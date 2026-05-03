@@ -2909,7 +2909,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
 // ── Resize handles ────────────────────────────────────────────────────────────
 (function() {
-  // Vertical: document browser ↔ main panel
+  // Vertical: document browser ↔ main panel (desktop)
   const vHandle         = document.getElementById('v-resize');
   const docBrowserPanel = document.getElementById('doc-browser');
   let vDragging = false, vStartX = 0, vStartW = 0;
@@ -2998,6 +2998,49 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     dragShield.style.display = 'none';
     document.body.style.userSelect = '';
   });
+})();
+
+// ── Mobile horizontal resize: doc-browser ↔ main-panel ───────────────────────
+(function() {
+  const handle    = document.getElementById('h-mobile-resize');
+  const navPanel  = document.getElementById('doc-browser');
+  let dragging = false, startY = 0, startH = 0;
+
+  function onStart(clientY) {
+    if (!isMobile()) return;
+    dragging = true;
+    startY = clientY;
+    startH = navPanel.offsetHeight;
+    handle.classList.add('dragging');
+    document.body.style.userSelect = 'none';
+  }
+
+  function onMove(clientY) {
+    if (!dragging) return;
+    // Dragging down increases the nav panel height; cap between 80px and 80vh.
+    const maxH = Math.round(window.innerHeight * 0.80);
+    const h = Math.max(80, Math.min(maxH, startH + (clientY - startY)));
+    navPanel.style.maxHeight = h + 'px';
+  }
+
+  function onEnd() {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.userSelect = '';
+  }
+
+  // Mouse events (desktop/emulated)
+  handle.addEventListener('mousedown', e => { onStart(e.clientY); e.preventDefault(); });
+  document.addEventListener('mousemove', e => { if (dragging) onMove(e.clientY); });
+  document.addEventListener('mouseup', onEnd);
+
+  // Touch events
+  handle.addEventListener('touchstart', e => { onStart(e.touches[0].clientY); }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (dragging) { onMove(e.touches[0].clientY); e.preventDefault(); }
+  }, { passive: false });
+  document.addEventListener('touchend', onEnd);
 })();
 
 // ── Transcript search ────────────────────────────────────────────────────────

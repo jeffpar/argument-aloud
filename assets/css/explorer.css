@@ -1197,6 +1197,10 @@ body {
   transition: background 0.1s;
 }
 
+#h-mobile-resize {
+  display: none;
+}
+
 .resize-handle--v:hover,
 .resize-handle--v.dragging {
   background: #8ab4d4;
@@ -1399,11 +1403,14 @@ body {
 @media (max-width: 768px) {
   body {
     overflow: auto;
+    padding-top: 44px; /* offset for fixed topbar */
   }
 
   #topbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
   }
 
@@ -1417,7 +1424,6 @@ body {
 
   #browser {
     flex-direction: column;
-    height: auto;
   }
 
   #doc-browser {
@@ -1427,6 +1433,10 @@ body {
 
   #v-resize {
     display: none;
+  }
+
+  #h-mobile-resize {
+    display: block;
   }
 
   #main-panel {
