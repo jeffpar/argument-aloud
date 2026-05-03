@@ -39,6 +39,7 @@ const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women', 'women_advocates.js
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
 const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
+const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
 const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
@@ -1332,11 +1333,17 @@ async function main() {
                 }
             } catch { /* ignore */ }
         }
+        // Auto-derive link from featured folder if an index.md exists there.
+        const featuredDir = path.join(FEATURED_DIR, advId);
+        const featuredLink = exists(path.join(featuredDir, 'index.md'))
+            ? '/courts/ussc/people/advocates/featured/' + advId
+            : null;
+        const resolvedLink = featuredLink ?? existingLink;
         const envelope = {
             details: existingDetails,
             highlights: existingHighlights,
         };
-        if (existingLink != null) envelope.link = existingLink;
+        if (resolvedLink != null) envelope.link = resolvedLink;
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
         }

@@ -14,7 +14,7 @@ Mr. Kneedler replied: “Thank you, Mr. Chief Justice. It has been a great honor
 
 [We assume the Chief Justice meant to say "in the October 1979 term" rather than "in October 1979."]
 
-Next, In the 2021 Journal, on April 27, 2022, after Mr. Kneedler argued in No. 21–429, Oklahoma, Petitioner v. Victor Manuel Castro-Huerta, the Chief Justice said:
+Next, in the 2021 Journal, on April 27, 2022, after Mr. Kneedler argued in No. 21–429, Oklahoma, Petitioner v. Victor Manuel Castro-Huerta, the Chief Justice said:
 
 > “Mr. Kneedler, I note for the record that this is the 150th case in which you have presented oral argument before the Court. And on behalf of the Court, I thank you for your skilled advocacy over the years."
 
