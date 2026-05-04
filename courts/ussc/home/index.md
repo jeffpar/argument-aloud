@@ -16,7 +16,7 @@ Every U.S. Supreme Court case ends in a decision, but understanding how it start
 
 Arguments come in many forms. There is the initial petition, and if the Court accepts it, that's followed by a series of briefs, which usually culminates in oral argument.  Oral arguments have been routinely recorded since October 1955 and routinely transcribed since October 1968.
 
-Digital copies of all those pieces (petitions, briefs, transcripts, audio recordings, opinions, etc) are available for modern cases, but they tend to be scattered.  Even the U.S. Supreme Court's own [website](https://www.supremecourt.gov) forces you to go a different page for *every* piece of information related to a case.
+Digital copies of all those pieces (petitions, briefs, transcripts, audio recordings, opinions, etc) are available for modern cases, but they tend to be scattered.  Even the U.S. Supreme Court's own [website](https://www.supremecourt.gov) forces you to different pages for *every* piece of information related to a case.
 
 And there are other essential pieces of information, such as copies of statutes, records from the lower courts, and so on.  Those are often buried in one or more of the briefs (eg, joint appendices), but having links to the relevant pages in the transcripts would be even better.
 
