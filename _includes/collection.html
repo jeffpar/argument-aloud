@@ -1,8 +1,9 @@
-{%- assign location = include.location %}
+{%- assign location = include.location | default: "nara" %}
+{%- assign location_category = include.category | default: "ussc" %}
 {%- assign location_id = include.id %}
-{%- assign collection = site.data[location][location_id] %}
+{%- assign collection = site.data[location][location_category][location_id] %}
 <h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
-<p><a href="/data/{{ location }}/{{ location_id }}.json">[Raw Data]</a></p>
+<p><a href="/data/{{ location }}/{{ location_category }}/{{ location_id }}.json">[Raw Data]</a></p>
 <ul>
 {%- for object in collection %}
   {%- unless object.events %}

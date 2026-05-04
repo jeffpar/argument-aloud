@@ -18,4 +18,4 @@ This [audit](/courts/ussc/audit/) relies in part on the audio materials (and ass
 
 Other [Series](https://catalog.archives.gov/search-within/594?levelOfDescription=series&limit=100&sort=title%3Aasc) in NARA's SCOTUS collection include:
 
-{% include collection.html title="Records of the Supreme Court of the United States, 1772-2007" link="https://catalog.archives.gov/id/594" location="nara" id="594" %}
+{% include collection.html title="Records of the Supreme Court of the United States, 1772-2007" link="https://catalog.archives.gov/id/594" location="nara" category="ussc" id="594" %}
