@@ -22,5 +22,5 @@ And there are other essential pieces of information, such as copies of statutes,
 
 You can find examples of how such links would work in a few cases here already, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).  Dive in and listen!
 
-![U.S. Supreme Court Courtroom](/assets/img/default.jpg)  
+![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]
