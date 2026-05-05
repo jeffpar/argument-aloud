@@ -1141,6 +1141,9 @@ function checkVoteTenures(casesPath, term) {
 // haven't yet pulled SCDB vote data for it. Returns the count of warned
 // cases so the top-level driver can suggest re-running with --scdb.
 function checkArgumentsHaveVotes(casesPath, term) {
+    // Don't warn for active terms (term year + 1 October hasn't arrived yet).
+    const termYear = parseInt(term.slice(0, 4), 10);
+    if (!isNaN(termYear) && new Date() < new Date(`${termYear + 1}-10-01`)) return 0;
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return 0;
     let count = 0;
@@ -1721,13 +1724,15 @@ function checkDuplicateAudioHrefs(termDir) {
         for (let i = 0; i < events.length; i++) {
             const href = events[i].audio_href || '';
             if (!href) continue;
-            const turn = 'turn' in events[i] ? events[i].turn : undefined;
-            if (href in seen) {
-                if (seen[href].turn === turn) {
-                    console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[href].i}] and audio[${i}]: '${href}'`);
+            const turn   = 'turn'   in events[i] ? events[i].turn   : undefined;
+            const offset = 'offset' in events[i] ? events[i].offset : undefined;
+            const key = `${href}\0${turn}`;
+            if (key in seen) {
+                if (seen[key].offset === offset) {
+                    console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[key].i}] and audio[${i}]: '${href}'`);
                 }
             } else {
-                seen[href] = { i, turn };
+                seen[key] = { i, offset };
             }
         }
     }
@@ -2081,7 +2086,7 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                 for (const field of ['audio_href', 'transcript_href']) {
                     const url = e[field] || '';
                     if (url) {
-                        (seen[field][url] = seen[field][url] || []).push([term, number, date, source, turn]);
+                        (seen[field][url] = seen[field][url] || []).push([term, number, date, source, turn, e.type || '', e.offset !== undefined ? String(e.offset) : '']);
                     }
                 }
             }
@@ -2102,6 +2107,19 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                 const hasExplicit = turns.some(t => t !== '');
                 const distinct = new Set(turns).size === turns.length;
                 if (hasExplicit && distinct) continue;
+            }
+            // Same case, same audio_href, all events are type=opinion, same
+            // date, each with a distinct offset → these are intentional split
+            // events. Not a duplicate.
+            if (field === 'audio_href' && tcSet.size === 1) {
+                const allOpinion = locs.every(l => l[5] === 'opinion');
+                if (allOpinion) {
+                    const dates = locs.map(l => l[2]);
+                    const sameDates = new Set(dates).size === 1;
+                    const offsets = locs.map(l => l[6]);
+                    const distinctOffsets = new Set(offsets).size === offsets.length;
+                    if (sameDates && distinctOffsets) continue;
+                }
             }
             if (tcSet.size === 1) {
                 const [t, n] = [...tcSet][0].split('\u0000');
