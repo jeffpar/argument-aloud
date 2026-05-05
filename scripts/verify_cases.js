@@ -4572,6 +4572,308 @@ async function runDatesCheck(termFilter, caseFilter, update) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// --split: detect opinion events whose transcript contains the majority
+// opinion writer followed by additional speakers, and optionally insert a
+// separate opinion event for each additional speaker.
+// ═══════════════════════════════════════════════════════════════════════════
+
+/** Convert HH:MM:SS.FF transcript time to floating-point seconds. */
+function _splitParseTime(s) {
+    if (!s) return 0;
+    const dot = s.lastIndexOf('.');
+    const hms = dot >= 0 ? s.slice(0, dot) : s;
+    const frac = dot >= 0 ? parseFloat('0.' + s.slice(dot + 1)) : 0;
+    const parts = hms.split(':').map(Number);
+    const [h = 0, m = 0, sec = 0] = parts.length === 3 ? parts : [0, ...parts];
+    return h * 3600 + m * 60 + sec + frac;
+}
+
+const _SPLIT_MONTHS = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December',
+];
+
+/** Format "YYYY-MM-DD" → "Month D, YYYY". */
+function _splitFormatDate(iso) {
+    const [y, m, d] = (iso || '').split('-').map(Number);
+    if (!y || !m || !d) return iso || '';
+    return `${_SPLIT_MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+/** Extract the first sentence (up to the first ". ") from a turn's text. */
+function _splitFirstSentence(text) {
+    const s = (text || '').trim();
+    const end = s.search(/\.\s/);
+    return end >= 0 ? s.slice(0, end + 1) : s.slice(0, 120);
+}
+
+/** True if transcript speaker name matches the votes[].name canonical name. */
+function _splitSpeakerMatches(speakerName, voteName) {
+    const sp = speakerName.trim().toUpperCase();
+    const vn = voteName.trim().toUpperCase();
+    if (sp === vn) return true;
+    // Transcript may use last name only (e.g. "KAVANAUGH").
+    const last = vn.split(' ').pop();
+    return sp === last;
+}
+
+/** Return the name of the speaker who spoke the most words across all their turns. */
+function _splitPrimarySpeaker(turns) {
+    const wordCounts = new Map();
+    for (const turn of turns) {
+        const name = (turn.name || '').trim();
+        if (!name) continue;
+        const words = (turn.text || '').trim().split(/\s+/).filter(Boolean).length;
+        wordCounts.set(name, (wordCounts.get(name) || 0) + words);
+    }
+    let best = '', bestCount = 0;
+    for (const [name, count] of wordCounts) {
+        if (count > bestCount) { bestCount = count; best = name; }
+    }
+    return best;
+}
+
+/**
+ * For each opinion event whose transcript has the majority opinion writer
+ * followed by additional speakers:
+ *   - print a report line
+ *   - if update=true, insert a new "opinion" event for each additional speaker
+ *     (same audio/transcript, different title, offset set to first turn time)
+ */
+async function runSplitCheck(termFilter, caseFilter, update) {
+    const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter
+        ? [termFilter]
+        : allTerms;
+
+    // ── Phase 1: Rename "Opinion Announcement Part N ..." events ─────────────
+    // For any case that has at least one opinion event with "Part N" in the
+    // title, examine each opinion event's transcript to find the primary
+    // speaker (most words). If the primary speaker is the opinion author,
+    // strip "Part N" from the title; otherwise rename to
+    // "Announcement by Justice <Last> on <Date>".
+    const _PART_N_RE = /\s+Part \d+/i;
+    let renameFound   = 0;
+    let renameUpdated = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        const cases = _readJson(casesPath);
+        if (!Array.isArray(cases)) continue;
+
+        let termChanged = false;
+
+        for (const c of cases) {
+            if (caseFilter && c.id !== caseFilter &&
+                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+            if (!Array.isArray(c.votes) || !Array.isArray(c.events)) continue;
+
+            // Only process cases with at least one "Part N" opinion event title.
+            const hasPartN = c.events.some(ev =>
+                ev.type === 'opinion' && _PART_N_RE.test(ev.title || ''));
+            if (!hasPartN) continue;
+
+            const opinionVote = c.votes.find(v => v.opinion === true);
+            if (!opinionVote) continue;
+
+            const casesDir = path.join(termsDir, term, 'cases');
+
+            for (const ev of c.events) {
+                if (ev.type !== 'opinion' || !ev.text_href) continue;
+
+                const transcriptPath = path.join(casesDir, ev.text_href);
+                if (!fs.existsSync(transcriptPath)) continue;
+
+                let transcript;
+                try { transcript = JSON.parse(fs.readFileSync(transcriptPath, 'utf8')); }
+                catch { continue; }
+
+                const turns = Array.isArray(transcript.turns) ? transcript.turns : [];
+                if (!turns.length) continue;
+
+                const primarySpeaker = _splitPrimarySpeaker(turns);
+                const isAuthor = _splitSpeakerMatches(primarySpeaker, opinionVote.name);
+
+                let newTitle;
+                if (isAuthor) {
+                    newTitle = (ev.title || '').replace(_PART_N_RE, '');
+                } else {
+                    const lastName = primarySpeaker.trim().split(' ').pop();
+                    const capitalized = lastName.charAt(0) + lastName.slice(1).toLowerCase();
+                    newTitle = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
+                }
+
+                if (newTitle === ev.title) continue;
+
+                renameFound++;
+                const label = `${term}/${c.id} (${c.title || c.id})`;
+                console.log(`  ${label}: "${ev.title}" -> "${newTitle}"`);
+
+                if (update) {
+                    ev.title = newTitle;
+                    renameUpdated++;
+                    termChanged = true;
+                }
+            }
+        }
+
+        if (termChanged) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+    }
+
+    console.log(`\nRename: ${renameFound} event title(s) to rename, ${renameUpdated} updated.`);
+
+    // ── Phase 2: Insert split events for multi-speaker opinion transcripts ────
+    let totalFound   = 0;
+    let totalUpdated = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        const cases = _readJson(casesPath);
+        if (!Array.isArray(cases)) continue;
+
+        let termChanged = false;
+
+        for (const c of cases) {
+            if (caseFilter && c.id !== caseFilter &&
+                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+            if (!Array.isArray(c.votes) || !Array.isArray(c.events)) continue;
+
+            // Find the majority opinion writer (the one vote with opinion:true).
+            const opinionVote = c.votes.find(v => v.opinion === true);
+            if (!opinionVote) continue;
+
+            const casesDir = path.join(termsDir, term, 'cases');
+
+            for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
+                const ev = c.events[evIdx];
+                if (ev.type !== 'opinion' || !ev.text_href) continue;
+
+                const transcriptPath = path.join(casesDir, ev.text_href);
+                if (!fs.existsSync(transcriptPath)) continue;
+
+                let transcript;
+                try { transcript = JSON.parse(fs.readFileSync(transcriptPath, 'utf8')); }
+                catch { continue; }
+
+                const turns = Array.isArray(transcript.turns) ? transcript.turns : [];
+                if (!turns.length) continue;
+
+                // Find the writer's last turn index in the transcript.
+                const writerName = opinionVote.name;
+                let writerLastTurnIdx = -1;
+                for (let i = 0; i < turns.length; i++) {
+                    if (_splitSpeakerMatches(turns[i].name, writerName)) {
+                        writerLastTurnIdx = i;
+                    }
+                }
+                if (writerLastTurnIdx < 0) continue; // writer not in transcript
+
+                // Build a set of speaker names whose title is CHIEF JUSTICE
+                // (from media.speakers) — they are skipped as additional
+                // speakers since they're making introductions/thank-yous.
+                const chiefJusticeNames = new Set(
+                    (transcript.media?.speakers || [])
+                        .filter(s => (s.title || '').toUpperCase() === 'CHIEF JUSTICE')
+                        .map(s => (s.name || '').trim().toUpperCase())
+                );
+
+                // Collect additional speakers (in order of first appearance)
+                // from turns that come after the writer's last turn.
+                // Skip any chief justice speaker.
+                const additionalSpeakers = [];
+                const seenAdditional = new Set();
+                for (let i = writerLastTurnIdx + 1; i < turns.length; i++) {
+                    const sp = turns[i].name;
+                    if (chiefJusticeNames.has(sp.trim().toUpperCase())) continue;
+                    if (_splitSpeakerMatches(sp, writerName)) continue;
+                    if (seenAdditional.has(sp)) continue;
+                    // If this speaker's first post-writer turn opens with "Thank you" or "Mr. Clerk",
+                    // treat them as a closing/thank-you speaker and skip.
+                    if (/^thank you\b|^mr\. clerk\b/i.test((turns[i].text || '').trim())) continue;
+                    seenAdditional.add(sp);
+                    // First occurrence of this speaker after the writer.
+                    additionalSpeakers.push({ name: sp, turnIdx: i });
+                }
+
+                if (!additionalSpeakers.length) continue;
+
+                // Check whether this event was already split (avoid duplicates).
+                // Skip events that are themselves already split copies (have offset set).
+                if (ev.offset !== undefined) continue;
+
+                const alreadySplit = c.events.some((e, i) =>
+                    i > evIdx &&
+                    e.type === 'opinion' &&
+                    e.text_href === ev.text_href &&
+                    e.offset !== undefined
+                );
+                if (alreadySplit) continue;
+
+                totalFound++;
+                const label = `${term}/${c.id} (${c.title || c.id})`;
+                console.log(`  ${label}: ${ev.text_href} — ${additionalSpeakers.length} additional speaker(s) after writer (${writerName})`);
+
+                if (update) {
+                    // Build the new events in speaker order, then splice them all
+                    // in after the current event index in one shot.
+                    const newEvents = [];
+                    for (const sp of additionalSpeakers) {
+                        const lastName = sp.name.trim().split(' ').pop();
+                        const capitalized = lastName.charAt(0) + lastName.slice(1).toLowerCase();
+                        const offset = turns[sp.turnIdx].time;
+                        const newEv = { ...ev };
+                        newEv.title  = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
+                        newEv.offset = offset;
+                        delete newEv.advocates;
+                        newEvents.push(reorderEvent(newEv));
+                        const firstSentence = _splitFirstSentence(turns[sp.turnIdx].text);
+                        console.log(`    -> inserting "${newEv.title}" (offset=${offset}s)`);
+                        console.log(`       "${firstSentence}"`);
+                        console.log();
+                        totalUpdated++;
+                    }
+                    c.events.splice(evIdx + 1, 0, ...newEvents);
+                    // Advance evIdx past the newly inserted events so the outer
+                    // loop doesn't re-examine them.
+                    evIdx += newEvents.length;
+                    termChanged = true;
+                } else {
+                    for (const sp of additionalSpeakers) {
+                        const firstSentence = _splitFirstSentence(turns[sp.turnIdx].text);
+                        console.log(`    -> ${sp.name}  (turn ${sp.turnIdx + 1}, time=${turns[sp.turnIdx].time})`);
+                        console.log(`       "${firstSentence}"`);
+                        console.log();
+                    }
+                }
+            } // end for evIdx
+        } // end for c
+
+        if (termChanged) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+    }
+
+    console.log(`\nSplit: ${totalFound} event(s) need splitting, ${totalUpdated} new event(s) inserted.`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -4579,6 +4881,7 @@ const USAGE = `Usage: node verify_cases.js                                # veri
        node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
        node verify_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
+       node verify_cases.js [TERM [CASE]] --split [--update]                    # detect/split multi-speaker opinion events
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
 refiled-case merging, SCDB-derived corrections, etc.). Without --update, the
@@ -4605,7 +4908,11 @@ Examples:
   node verify_cases.js --dates                             # check all terms vs ussc_dates.csv
   node verify_cases.js 1793-02 --dates                     # check one term vs ussc_dates.csv
   node verify_cases.js 1793-02 1793-001 --dates            # check one case vs ussc_dates.csv
-  node verify_cases.js --dates --verbose                   # also list cases absent from CSV`;
+  node verify_cases.js --dates --verbose                   # also list cases absent from CSV
+
+  node verify_cases.js --split                             # find opinion events needing a split
+  node verify_cases.js 2024-10 --split                     # check one term
+  node verify_cases.js 2024-10 --split --update            # insert split events into cases.json`;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --roles: derive event advocate roles from transcript JSON, raw transcript
@@ -5182,6 +5489,11 @@ async function main() {
 
     if (flags.has('--dates')) {
         await runDatesCheck(positional[0] || null, positional[1] || null, update);
+        return;
+    }
+
+    if (flags.has('--split')) {
+        await runSplitCheck(positional[0] || null, positional[1] || null, update);
         return;
     }
 
