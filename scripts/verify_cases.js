@@ -6,6 +6,7 @@
  * Usage:
  *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
  *   node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
+ *   node verify_cases.js [TERM [CASE]] --dates [--verbose]
  *
  * Examples:
  *   node verify_cases.js                            # verify all terms (no writes)
@@ -46,6 +47,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 
 import {
@@ -3589,6 +3591,28 @@ function _scdbApplyXUpdate(c, row, mm) {
         }
     }
 
+    // majOpinWriter: mark the majority opinion author with "opinion": true.
+    // Row-level majOpinWriter is a justice code; look it up in row.justices
+    // to get the full name, then normalise via _scdbJusticesMap to match our
+    // c.votes[].name values.
+    if (!ignored.has('votes') && Array.isArray(c.votes) && c.votes.length) {
+        const writerCode = (row.majOpinWriter || '').trim();
+        if (writerCode) {
+            const jEntry = (row.justices || []).find(j => (j.justice || '').trim() === writerCode);
+            if (jEntry) {
+                let writerName = (jEntry.justiceName || '').trim().toUpperCase();
+                if (_scdbJusticesMap[writerName]) writerName = _scdbJusticesMap[writerName];
+                if (writerName) {
+                    const vote = c.votes.find(v => String(v.name || '').trim().toUpperCase() === writerName);
+                    if (vote && !vote.opinion) {
+                        vote.opinion = true;
+                        changed = true;
+                    }
+                }
+            }
+        }
+    }
+
     if (changed) {
         const reordered = reorderCase(c);
         for (const k of Object.keys(c)) delete c[k];
@@ -4348,12 +4372,213 @@ async function runScdb(opts) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// --dates: verify argument/decision dates and usCite against
+//          data/aa/ussc_dates.csv
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _DATES_CSV_PATH = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
+
+function _loadDatesCsv() {
+    const text = fs.readFileSync(_DATES_CSV_PATH, 'utf8');
+    const lines = text.split(/\r\n|\r|\n/);
+    while (lines.length && lines[lines.length - 1] === '') lines.pop();
+    if (!lines.length) throw new Error('ussc_dates.csv is empty');
+
+    const header    = _splitCsvLine(lines[0]);
+    const idIdx     = header.indexOf('caseId');
+    const citeIdx   = header.indexOf('usCite');
+    const argIdx    = header.indexOf('dateArgument');
+    const decIdx    = header.indexOf('dateDecision');
+    const sourceIdx = header.indexOf('source');
+    if (idIdx < 0 || citeIdx < 0 || argIdx < 0 || decIdx < 0) {
+        throw new Error('ussc_dates.csv missing expected columns (caseId, usCite, dateArgument, dateDecision)');
+    }
+
+    const map = new Map();
+    for (let i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue;
+        const fields = _splitCsvLine(lines[i]);
+        // Only trust rows from the official SCOTUS source.
+        if (sourceIdx >= 0 && (fields[sourceIdx] || '').trim() !== 'scotus') continue;
+        const caseId = (fields[idIdx] || '').trim();
+        if (!caseId) continue;
+        // A caseId may appear more than once (multiple argument dates for the
+        // same case under separate rows). Only merge rows where both usCite and
+        // dateDecision match the first-seen row — rows that differ on either
+        // field are a different case that shares the caseId by error.
+        const rowCite = (fields[citeIdx] || '').trim();
+        const rowDec  = (fields[decIdx]  || '').trim();
+        if (!map.has(caseId)) {
+            map.set(caseId, {
+                usCite:        rowCite,
+                dateArguments: [],
+                dateDecision:  rowDec,
+            });
+        }
+        const entry = map.get(caseId);
+        // Skip rows that belong to a different case sharing this caseId.
+        if (rowCite !== entry.usCite || rowDec !== entry.dateDecision) continue;
+        // dateArgument may be '0' (no date), a single YYYY-MM-DD, or a
+        // quoted comma-separated list like "1792-08-08,1792-08-10".
+        const rawArg = (fields[argIdx] || '').trim();
+        if (rawArg && rawArg !== '0') {
+            for (const d of rawArg.split(',').map(s => s.trim()).filter(Boolean)) {
+                if (!entry.dateArguments.includes(d)) entry.dateArguments.push(d);
+            }
+        }
+    }
+    return map;
+}
+
+async function runDatesCheck(termFilter, caseFilter, update) {
+    let datesMap;
+    try {
+        datesMap = _loadDatesCsv();
+    } catch (e) {
+        console.error(`ERROR: could not read ussc_dates.csv: ${e.message}`);
+        process.exit(1);
+    }
+    console.log(`Loaded ${datesMap.size.toLocaleString()} cases from ussc_dates.csv.\n`);
+
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+
+    // Normalise a date-or-date-list value: strip blanks, treat '0'/''/null as empty string.
+    const normDate = v => (v == null || v === '0') ? '' : String(v).trim();
+
+    // Build a canonical sorted comma-joined string for comparison.
+    const normDates = v => normDate(v).split(',').map(s => s.trim()).filter(Boolean).sort().join(',');
+
+    let rl = null;
+    const _ask = (q) => new Promise(resolve => rl.question(q, a => resolve(a.trim())));
+    if (update) {
+        rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    }
+
+    let totalChecked       = 0;
+    let totalMissingInCsv  = 0;
+    let totalDiscrepancies = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const filtered = caseFilter
+            ? cases.filter(c => c && (
+                c.id === caseFilter ||
+                (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)
+              ))
+            : cases;
+
+        let casesModified = false;
+
+        for (const c of filtered) {
+            if (!c || !c.id) continue;
+            totalChecked++;
+
+            const row = datesMap.get(c.id);
+            if (!row) {
+                totalMissingInCsv++;
+                if (_VERBOSE) console.log(`  ${term}/${c.id} (${c.title || '?'}): not found in ussc_dates.csv`);
+                continue;
+            }
+
+            const label = `${term}/${c.id} (${c.title || '?'})`;
+            let discrepancy = false;
+            let fixArg = null;   // sorted CSV dates to set as c.argument, if accepted
+            let fixDec = null;   // CSV decision date to set as c.decision, if accepted
+
+            // usCite — also used as a sanity check: if it doesn't match,
+            // the CSV row is for a different case and date checks are skipped.
+            const ourCite = normDate(c.usCite);
+            const csvCite = normDate(row.usCite);
+            const citeConflict = ourCite && csvCite && !csvCite.includes('___') && ourCite !== csvCite;
+            if (citeConflict) {
+                console.log(`  ${label}: usCite   ours="${ourCite}"  csv="${csvCite}"`);
+                discrepancy = true;
+            }
+
+            // argument date(s) and decision date: only checked when usCite
+            // matches (or is absent), so a caseId collision in the CSV doesn't
+            // produce spurious date discrepancies.
+            if (!citeConflict) {
+
+            // argument date(s): each CSV date must appear in our "argument" or "reargument" field
+            const ourArgDates = new Set([
+                ...normDates(c.argument).split(',').filter(Boolean),
+                ...normDates(c.reargument).split(',').filter(Boolean),
+            ]);
+            const missingArgDates = row.dateArguments.filter(d => d && !ourArgDates.has(d));
+            if (missingArgDates.length) {
+                const ourAll = [...ourArgDates].sort().join(',') || '(none)';
+                console.log(`  ${label}: argument csv="${missingArgDates.join(',')}" not found in ours="${ourAll}"`);
+                discrepancy = true;
+                fixArg = row.dateArguments.slice().sort().join(',');
+            }
+
+            // decision date
+            const ourDec = normDate(c.decision);
+            const csvDec = normDate(row.dateDecision);
+            if (ourDec !== csvDec && (ourDec || csvDec)) {
+                console.log(`  ${label}: decision ours="${ourDec || '(none)'}"  csv="${csvDec || '(none)'}"`);
+                discrepancy = true;
+                fixDec = csvDec || null;
+            }
+
+            } // end !citeConflict
+
+            if (discrepancy) {
+                totalDiscrepancies++;
+                if (update) {
+                    console.log(`                  ${c.opinion_href || '(no opinion_href)'}`);
+                    console.log();
+                    const answer = await _ask('  Change to CSV date? (y/N) ');
+                    if (answer.toLowerCase() === 'y') {
+                        if (fixArg !== null) c.argument = fixArg;
+                        if (fixDec !== null) c.decision = fixDec;
+                        // Reorder keys to canonical position before writing.
+                        const reordered = reorderCase(c);
+                        Object.keys(c).forEach(k => delete c[k]);
+                        Object.assign(c, reordered);
+                        casesModified = true;
+                        console.log('  -> Updated.');
+                    }
+                    console.log();
+                }
+            }
+        }
+
+        if (casesModified) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+    }
+
+    if (rl) rl.close();
+
+    console.log(`\nDates: ${totalChecked} case(s) checked, ${totalDiscrepancies} discrepancy/discrepancies, ${totalMissingInCsv} case(s) not in CSV.`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node verify_cases.js                                # verify all terms (no writes)
        node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
+       node verify_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
 refiled-case merging, SCDB-derived corrections, etc.). Without --update, the
@@ -4375,7 +4600,12 @@ Examples:
   node verify_cases.js 2024-10 --scdb --update             # apply SCDB-derived fixes to cases.json
                                                            #   (records date disagreements in scdb_errors;
                                                            #    fills in missing votes / vote counts)
-  node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch`;
+  node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch
+
+  node verify_cases.js --dates                             # check all terms vs ussc_dates.csv
+  node verify_cases.js 1793-02 --dates                     # check one term vs ussc_dates.csv
+  node verify_cases.js 1793-02 1793-001 --dates            # check one case vs ussc_dates.csv
+  node verify_cases.js --dates --verbose                   # also list cases absent from CSV`;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --roles: derive event advocate roles from transcript JSON, raw transcript
@@ -4947,6 +5177,11 @@ async function main() {
             verbose,
             debug:    flags.has('--debug'),
         });
+        return;
+    }
+
+    if (flags.has('--dates')) {
+        await runDatesCheck(positional[0] || null, positional[1] || null, update);
         return;
     }
 
