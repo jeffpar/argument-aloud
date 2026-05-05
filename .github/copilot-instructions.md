@@ -10,9 +10,6 @@
 # Serve locally (auto-runs on folder open via VS Code task)
 bundle exec jekyll serve --host 0.0.0.0 --port 4008
 # → http://localhost:4008
-
-# Python scripts use .venv
-source .venv/bin/activate
 ```
 
 `_site/` is the build output — never edit files there directly.
@@ -27,7 +24,7 @@ assets/js/           explorer.js – ~2600-line vanilla JS SPA
 assets/css/          explorer.css (SPA), document.css, style.scss
 courts/ussc/         Case/term data + HTML entry points
 data/                Jekyll data directory (site.data.*)
-scripts/             Python import/validation/alignment scripts
+scripts/             import/validation/alignment scripts (requires node.js)
 ```
 
 ## Data Conventions
@@ -38,7 +35,7 @@ scripts/             Python import/validation/alignment scripts
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
 
 ### Case schema (in `cases.json`)
-Canonical key order is defined in `scripts/schema.py` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Use `reorder_case()` / `reorder_event()` when writing new objects.
+Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Use `reorder_case()` / `reorder_event()` when writing new objects.
 ```json
 {
   "id": "2024-123",
@@ -97,13 +94,12 @@ Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, c
 
 | Script | Purpose | Usage |
 |---|---|---|
-| `import_ussc.py` | Scrape SCOTUS listing, extract PDF transcripts | `python3 scripts/import_ussc.py 2025-10` |
+| `import_nara.js` | Fetch historical data from NARA | `node scripts/import_nara.js` |
+| `import_oyez.js` | Fetch historical data using Oyez API | `node scripts/import_oyez.js` |
+| `import_ussc.js` | Scrape SCOTUS listing, extract PDF transcripts | `node scripts/import_ussc.js 2025-10` |
 | `verify_cases.js` | Validate URLs, sync metadata, detect new opinions | `node scripts/verify_cases.js 2025-10 [CASE] [--checkurls]` |
-| `align_transcript.py` | Sync transcript text with audio timing via Whisper | `python3 scripts/align_transcript.py 2025-10 24-1238` |
-| `update_advocates.py` | Rebuild advocate profiles from all terms | `python3 scripts/update_advocates.py` |
-| `update_transcripts.py` | Reprocess/reformat existing transcript JSON files | `python3 scripts/update_transcripts.py 2025-10` |
-| `import_oyez.py` | Fetch historical data from Oyez API | `python3 scripts/import_oyez.py` |
-| `schema.py` | Canonical key ordering helpers; import and call `reorder_case()` / `reorder_event()` | (library, not run directly) |
+| `update_advocates.js` | Rebuild advocate profiles from all terms | `node scripts/update_advocates.js` |
+| `schema.js` | Canonical key ordering helpers; import and call `reorder_case()` / `reorder_event()` | (library, not run directly) |
 
 **Dependencies:** `pdftotext` (poppler-utils via Homebrew), `pip install faster-whisper rapidfuzz`, `brew install ffmpeg`
 
@@ -135,7 +131,6 @@ The main interactive page is a single-page app built with ~3200 lines of vanilla
 - **Never edit `_site/`** — it's Jekyll build output, overwritten on every build.
 - **`_config.yml` excludes `scripts/` and `sources/`** — changes there won't affect the built site.
 - **`data/` is Jekyll's data dir** — files in `data/courts/ussc/` are accessible as `site.data.courts.ussc.*` in templates.
-- **Old vs. new transcript format** — some older transcript files are bare arrays; `import_cases.py` migrates them to the envelope format. Always use envelope format for new files.
 - **Audio timing uses frames** — `HH:MM:SS.FF` where `.FF` is frame number treated as decimal; `parseTime()` handles this correctly.
 - **`courts/ussc/index.html` is the SPA entry point**, not `index.md` — it uses `layout: argument`.
 

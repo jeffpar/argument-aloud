@@ -9,11 +9,6 @@
  * audio entry's text_href to its transcript file, extracts speakers whose role
  * is "advocate", and records which case/date they appeared in.
  *
- * JS port of scripts/python/update_advocates.py — see that file for full
- * documentation. Behaviour and outputs (advocates index, per-advocate JSON,
- * women_advocates.json, ussc_women.csv, anomaly report, --repair
- * interactive flow, --fix one-word repair) are intended to match.
- *
  * Usage:
  *   node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
  *                                    [--markdown] [--singles] [--fix]

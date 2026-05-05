@@ -34,11 +34,7 @@
  *                                                   #  fills in missing votes / vote counts)
  *   node verify_cases.js 2024-10 --scdb --debug     # also dump full ours/scdb JSON on mismatch
  *
- * Combines the logic of:
- *   scripts/python/validate_cases.py
- *   scripts/python/fix_cases.py
- *
- * Also exports helpers used by import_ussc.js / import_oyez.js:
+ * Exports helpers used by import_ussc.js / import_oyez.js:
  *   - REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase
  *   - syncFilesCount, syncOpinionHrefFromFiles, setVerbose
  *
@@ -440,9 +436,9 @@ export function syncOpinionHrefFromFiles(casesPath) {
     if (modified) _writeJson(casesPath, data);
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════
 // Common small helpers
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════
 
 const _MONTHS = ['January','February','March','April','May','June',
                  'July','August','September','October','November','December'];
@@ -644,9 +640,9 @@ async function _downloadFile(url, destPath) {
     } finally { clearTimeout(t); }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═══════════════════
 // Speaker-map cleanup
-// ═══════════════════════════════════════════════════════════════════════════
+// ═══════════════════
 
 const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
 const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
@@ -865,9 +861,9 @@ function applySpeakerMapToCase(caseDir, entries, dryRun = false) {
     checkUnmappedJustices(caseDir);
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// cases.json mutators (from verify_cases.py)
-// ═══════════════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════
+// cases.json mutators (from verify_cases)
+// ═══════════════════════════════════════
 
 function migrateArgumentsToAudio(casesPath) {
     const data = _readJson(casesPath);
@@ -1849,9 +1845,9 @@ function checkCasesSync(termDir, verbose = false) {
     }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// fix_cases.py logic
-// ═══════════════════════════════════════════════════════════════════════════
+// ═══════════════
+// fix_cases logic
+// ═══════════════
 
 const _NON_TRANSCRIPT_NAMES    = new Set(['files.json']);
 const _NON_TRANSCRIPT_SUFFIXES = ['--whisper'];
@@ -2418,15 +2414,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
              argDatesFixed, eventTypesFixed, mergedCount };
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════
 // SCDB CSV post-processing (--scdb)
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════
 //
-// Migrated from scripts/scdb/post_download.py. For each SCDB download named
-// in config.json under "scdb" (modern/legacy), reads the corresponding
-// CSV in scdb/, converts MM/DD/YYYY date values to YYYY-MM-DD, removes
-// unused columns, and writes <key>.csv (e.g. modern.csv / legacy.csv). The
-// original SCDB_*.csv file is deleted on success.
+// For each SCDB download named in config.json under "scdb" (modern/legacy),
+// reads the corresponding CSV in scdb/, converts MM/DD/YYYY date values to
+// YYYY-MM-DD, removes unused columns, and writes <key>.csv (e.g. modern.csv /
+// legacy.csv). The original SCDB_*.csv file is deleted on success.
 
 const _SCDB_DROP_COLS = new Set([
     'sctCite', 'ledCite', 'lexisCite', 'docketId', 'caseIssuesId', 'voteId',
@@ -2535,9 +2530,9 @@ function processScdbDownloads(verbose) {
     if (!any && verbose) console.log(`SCDB: no downloads found in ${path.relative(REPO_ROOT, dataDir)}.`);
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// SCDB cases.json verification (migrated from scripts/scdb/verify_cases.py)
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════
+// SCDB cases.json verification
+// ════════════════════════════
 
 const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
@@ -3014,9 +3009,6 @@ function processLoneDissenters(termsToProcess, dryRun) {
 
 // =====================================================================
 // Collection-set builders: transcripts.json / briefs.json / noteworthy.json
-// Output-only port of scripts/python/build_sets.py — rebuilds the three
-// collection JSON files purely from local state (no external HTTP fetches,
-// no cases.json or files.json mutation).
 // =====================================================================
 
 const _COLLECTIONS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
