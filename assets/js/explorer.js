@@ -3,6 +3,7 @@ let turns = [];
 let turnTimes = [];   // each turn's start time in seconds
 let hasTimes = false; // whether current transcript has real time values
 let activeTurnIdx = -1;
+let _suppressTimeupdateBeforeSeek = false; // true while waiting for a deferred seek to complete
 let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
@@ -729,9 +730,21 @@ function oyezCircleData(caseEntry) {
   return { fraction, orange };
 }
 
+// Returns {blue} if the case has any 'opinion' events with audio_href, else
+// null. blue=true when ALL such events have a title starting with "Opinion"
+// (vs. an announcement or separate opinion reading).
+function opinionCircleData(caseEntry) {
+  const opinionEvents = (caseEntry.events || []).filter(
+    e => e.type === 'opinion' && e.audio_href,
+  );
+  if (!opinionEvents.length) return null;
+  const blue = opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
+  return { blue };
+}
+
 // Builds the SVG ring icon used when oyezCircleData returns a result.
 function makeAudioRingSvg(fraction, orange) {
-  const size = 20, cx = 10, cy = 10, r = 8.5;
+  const size = 22, cx = 11, cy = 11, r = 9;
   const circ = 2 * Math.PI * r;
   const dash = fraction * circ;
   const color = orange ? '#E07820' : '#3778A6';
@@ -760,8 +773,43 @@ function makeAudioRingSvg(fraction, orange) {
   label.setAttribute('text-anchor', 'middle');
   label.setAttribute('dominant-baseline', 'middle');
   label.setAttribute('fill', 'currentColor');
-  label.setAttribute('font-size', '11');
+  label.setAttribute('font-size', '12');
   label.textContent = '\u266b';
+
+  svg.appendChild(arc);
+  svg.appendChild(label);
+  return svg;
+}
+
+// Builds the SVG ring icon used around the scales icon when opinion audio exists.
+// blue=true → blue ring (all opinion events titled "Opinion…"); false → purple.
+function makeScalesRingSvg(blue) {
+  const size = 22, cx = 11, cy = 11, r = 9;
+  const color = blue ? '#3778A6' : '#7B5EA7';
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', size);
+  svg.setAttribute('height', size);
+  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.setAttribute('class', 'case-decided-icon case-scales-ring');
+  svg.setAttribute('title', 'Opinion audio available');
+
+  const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  arc.setAttribute('cx', cx);
+  arc.setAttribute('cy', cy);
+  arc.setAttribute('r', r);
+  arc.setAttribute('fill', 'none');
+  arc.setAttribute('stroke', color);
+  arc.setAttribute('stroke-width', '1.5');
+
+  const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  label.setAttribute('x', cx);
+  label.setAttribute('y', cy + 0.5);
+  label.setAttribute('text-anchor', 'middle');
+  label.setAttribute('dominant-baseline', 'middle');
+  label.setAttribute('fill', 'currentColor');
+  label.setAttribute('font-size', '13');
+  label.textContent = '\u2696';
 
   svg.appendChild(arc);
   svg.appendChild(label);
@@ -1025,20 +1073,28 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
 // is rendered active and clickable (tooltip + cursor + 'decided' class on ci);
 // otherwise it is rendered as an invisible placeholder so the row layout
 // stays consistent across cases with and without an opinion link.
-function _attachScalesIcon(ci, header, { onClick }) {
-  const icon = document.createElement('span');
-  icon.className = 'case-decided-icon';
-  icon.textContent = '\u2696';
+// When `ring` is supplied (from opinionCircleData), the icon is drawn as an
+// SVG with a colored circle. Returns the created icon node.
+function _attachScalesIcon(ci, header, { onClick, ring = null }) {
+  let icon;
+  if (ring) {
+    icon = makeScalesRingSvg(ring.blue);
+  } else {
+    icon = document.createElement('span');
+    icon.className = 'case-decided-icon case-scales-icon';
+    icon.textContent = '\u2696';
+  }
   if (onClick) {
     icon.title = 'Opinion issued';
     icon.style.cursor = 'pointer';
     ci.classList.add('decided');
     icon.addEventListener('click', onClick);
-  } else {
+  } else if (!ring) {
     icon.style.opacity = '0';
     icon.style.pointerEvents = 'none';
   }
   header.appendChild(icon);
+  return icon;
 }
 
 function buildTermCases(term, cases, ul) {
@@ -1076,6 +1132,7 @@ function buildTermCases(term, cases, ul) {
         // ── Scales icon: shown if opinion or audio; clickable iff opinion ──
         if (hasOpinion || caseEntry.events?.length) {
           _attachScalesIcon(ci, header, {
+            ring: opinionCircleData(caseEntry),
             onClick: hasOpinion ? (e) => {
               e.stopPropagation();
               const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
@@ -1879,29 +1936,41 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
   }
 
   // ── Scales icon: shown if audio or decision; clickable iff decision ──
+  let _scalesIconNode = null;
+  const _scalesOnClick = caseRef.decision ? async (e) => {
+    e.stopPropagation();
+    // Synchronous selection feedback before any async fetch.
+    if (!ci.classList.contains('active')) markCaseItemActive(ci);
+    const caseEntry = await _fetchCaseEntry();
+    if (!caseEntry?.opinion_href) return;
+    const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseRef.title };
+    if (caseRef.event) {
+      // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
+      if (!ci.classList.contains('active')) {
+        const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
+        await loadCase(caseRef.term, caseEntry, defaultAudioIdx);
+      }
+      document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+      showDocViewer(opinionFile, { autoScroll: true });
+    } else {
+      // No audio: load case in no-audio mode so opinion opens full-height.
+      loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
+    }
+  } : null;
   if (caseRef.event || caseRef.decision) {
-    _attachScalesIcon(ci, header, {
-      onClick: caseRef.decision ? async (e) => {
-        e.stopPropagation();
-        // Synchronous selection feedback before any async fetch.
-        if (!ci.classList.contains('active')) markCaseItemActive(ci);
-        const caseEntry = await _fetchCaseEntry();
-        if (!caseEntry?.opinion_href) return;
-        const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseRef.title };
-        if (caseRef.event) {
-          // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
-          if (!ci.classList.contains('active')) {
-            const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
-            await loadCase(caseRef.term, caseEntry, defaultAudioIdx);
-          }
-          document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-          showDocViewer(opinionFile, { autoScroll: true });
-        } else {
-          // No audio: load case in no-audio mode so opinion opens full-height.
-          loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
-        }
-      } : null,
-    });
+    _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick });
+  }
+
+  // Asynchronously upgrade the scales icon with an opinion ring once the full
+  // case entry is available — shows whether opinion audio exists (blue or purple).
+  if (caseRef.decision) {
+    _fetchCaseEntry().then(caseEntry => {
+      if (!caseEntry) return;
+      const ring = opinionCircleData(caseEntry);
+      if (!ring) return;
+      if (_scalesIconNode?.parentNode === header) header.removeChild(_scalesIconNode);
+      _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick, ring });
+    }).catch(() => { /* ignore */ });
   }
 
   let fileListBuilt = false;
@@ -2228,6 +2297,7 @@ async function loadAudioEntry(arg, basePath) {
       // after the browser quantizes the seek, ensuring findCurrentTurn returns
       // the correct turn on the first timeupdate.
       seekOnly(turnTimes[arg.turn - 1] + 0.01);
+      _suppressTimeupdateBeforeSeek = true;
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
@@ -2265,6 +2335,22 @@ async function loadAudioEntry(arg, basePath) {
         activeTurnIdx = initialIdx;
         requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
       }
+      // Re-affirm the correct highlight once the pending seek actually lands.
+      // timeupdate may fire at t=0 before the deferred seek takes effect (the
+      // browser fires timeupdate when audio.load() resets currentTime) and
+      // browsers don't reliably fire timeupdate after a paused seek. Using
+      // 'seeked' avoids both races.
+      audio.addEventListener('seeked', () => {
+        _suppressTimeupdateBeforeSeek = false;
+        if (activeTurnIdx !== initialIdx) {
+          document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+          const el2 = document.getElementById('turn-' + initialIdx);
+          if (el2) {
+            el2.classList.add('active');
+            activeTurnIdx = initialIdx;
+          }
+        }
+      }, { once: true });
     }
 
     _currentLoadedEntry = arg;
@@ -2799,6 +2885,7 @@ function renderTranscript() {
 
 audio.addEventListener('timeupdate', () => {
   if (!hasTimes) return;
+  if (_suppressTimeupdateBeforeSeek) return;
   const idx = findCurrentTurn(audio.currentTime);
   if (idx === activeTurnIdx) return;
 

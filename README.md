@@ -16,6 +16,8 @@
 
  4. Track down the audio for No. 8 Orig on October 10, 1978 from NARA. [Oyez](https://www.oyez.org/cases/1978/8_orig) claims no argument took place, but that can't be correct, because a [transcript](https://www.supremecourt.gov/pdfs/transcripts/1978/8_Orig_10-10-1978.pdf) exists.
 
+ 5. For some reason, Oyez has no opinion announcements for Mahmoud v. Taylor (No. 24-297) or Trump v. CASA Inc. (No. 24A884), just oral dissents from Justice Sotomayor.
+
 ## TODO
 
  1. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 
