@@ -2109,7 +2109,7 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                 if (hasExplicit && distinct) continue;
             }
             // Same case, same audio_href, all events are type=opinion, same
-            // date, each with a distinct offset → these are intentional split
+            // date, each with a distinct offset or turn → these are intentional split
             // events. Not a duplicate.
             if (field === 'audio_href' && tcSet.size === 1) {
                 const allOpinion = locs.every(l => l[5] === 'opinion');
@@ -2118,7 +2118,9 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                     const sameDates = new Set(dates).size === 1;
                     const offsets = locs.map(l => l[6]);
                     const distinctOffsets = new Set(offsets).size === offsets.length;
-                    if (sameDates && distinctOffsets) continue;
+                    const turns2 = locs.map(l => l[4]);
+                    const distinctTurns = new Set(turns2).size === turns2.length && turns2.some(t => t !== '');
+                    if (sameDates && (distinctOffsets || distinctTurns)) continue;
                 }
             }
             if (tcSet.size === 1) {
@@ -2906,7 +2908,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
     const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'loners');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'lone_dissents.json');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'loners.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();
@@ -4675,6 +4677,87 @@ async function runSplitCheck(termFilter, caseFilter, update) {
         ? [termFilter]
         : allTerms;
 
+    // ── Phase 0: Convert offset→turn on already-split opinion events ─────────
+    // For any opinion event that has an "offset" (time string from a prior
+    // --split run), find the matching turn in the transcript and replace
+    // "offset" with a 1-based "turn" number instead.
+    let migrateFound   = 0;
+    let migrateUpdated = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        const cases = _readJson(casesPath);
+        if (!Array.isArray(cases)) continue;
+
+        let termChanged = false;
+
+        for (const c of cases) {
+            if (caseFilter && c.id !== caseFilter &&
+                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+            if (!Array.isArray(c.events)) continue;
+
+            const casesDir = path.join(termsDir, term, 'cases');
+
+            for (const ev of c.events) {
+                if (ev.type !== 'opinion' || ev.offset === undefined || !ev.text_href) continue;
+
+                const transcriptPath = path.join(casesDir, ev.text_href);
+                if (!fs.existsSync(transcriptPath)) continue;
+
+                let transcript;
+                try { transcript = JSON.parse(fs.readFileSync(transcriptPath, 'utf8')); }
+                catch { continue; }
+
+                const turns = Array.isArray(transcript.turns) ? transcript.turns : [];
+                if (!turns.length) continue;
+
+                // Find the turn by matching the stored offset time string.
+                let matchIdx = turns.findIndex(t => t.time === ev.offset);
+
+                // Fallback: derive justice last name from title and find their
+                // first turn after the offset time (by parsed seconds).
+                if (matchIdx < 0) {
+                    const m = /^Announcement by Justice (\S+)\b/i.exec(ev.title || '');
+                    if (m) {
+                        const lastName = m[1].toUpperCase();
+                        const offsetSecs = _splitParseTime(String(ev.offset));
+                        matchIdx = turns.findIndex(t =>
+                            _splitParseTime(t.time) >= offsetSecs &&
+                            t.name.trim().toUpperCase().endsWith(lastName));
+                    }
+                }
+
+                if (matchIdx < 0) continue;
+
+                // The transcript turn objects carry a 1-based `turn` field.
+                const turnNumber = turns[matchIdx].turn ?? (matchIdx + 1);
+
+                migrateFound++;
+                const label = `${term}/${c.id} (${c.title || c.id})`;
+                console.log(`  ${label}: "${ev.title}" offset=${ev.offset} -> turn=${turnNumber}`);
+
+                if (update) {
+                    delete ev.offset;
+                    ev.turn = turnNumber;
+                    // Reorder keys in-place after mutation.
+                    const reordered = reorderEvent({ ...ev });
+                    for (const k of Object.keys(ev)) delete ev[k];
+                    Object.assign(ev, reordered);
+                    migrateUpdated++;
+                    termChanged = true;
+                }
+            }
+        }
+
+        if (termChanged) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+    }
+
+    console.log(`\nMigrate: ${migrateFound} offset(s) to convert, ${migrateUpdated} updated.`);
+
     // ── Phase 1: Rename "Opinion Announcement Part N ..." events ─────────────
     // For any case that has at least one opinion event with "Part N" in the
     // title, examine each opinion event's transcript to find the primary
@@ -4832,14 +4915,14 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 if (!additionalSpeakers.length) continue;
 
                 // Check whether this event was already split (avoid duplicates).
-                // Skip events that are themselves already split copies (have offset set).
-                if (ev.offset !== undefined) continue;
+                // Skip events that are themselves already split copies (have turn or offset set).
+                if (ev.turn !== undefined || ev.offset !== undefined) continue;
 
                 const alreadySplit = c.events.some((e, i) =>
                     i > evIdx &&
                     e.type === 'opinion' &&
                     e.text_href === ev.text_href &&
-                    e.offset !== undefined
+                    (e.turn !== undefined || e.offset !== undefined)
                 );
                 if (alreadySplit) continue;
 
@@ -4854,14 +4937,15 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                     for (const sp of additionalSpeakers) {
                         const lastName = sp.name.trim().split(' ').pop();
                         const capitalized = lastName.charAt(0) + lastName.slice(1).toLowerCase();
-                        const offset = turns[sp.turnIdx].time;
+                        const turnNumber = turns[sp.turnIdx].turn ?? (sp.turnIdx + 1);
                         const newEv = { ...ev };
-                        newEv.title  = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
-                        newEv.offset = offset;
+                        newEv.title = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
+                        newEv.turn  = turnNumber;
+                        delete newEv.offset;
                         delete newEv.advocates;
                         newEvents.push(reorderEvent(newEv));
                         const firstSentence = _splitFirstSentence(turns[sp.turnIdx].text);
-                        console.log(`    -> inserting "${newEv.title}" (offset=${offset}s)`);
+                        console.log(`    -> inserting "${newEv.title}" (turn=${turnNumber})`);
                         console.log(`       "${firstSentence}"`);
                         console.log();
                         totalUpdated++;
@@ -4873,8 +4957,9 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                     termChanged = true;
                 } else {
                     for (const sp of additionalSpeakers) {
+                        const turnNumber = turns[sp.turnIdx].turn ?? (sp.turnIdx + 1);
                         const firstSentence = _splitFirstSentence(turns[sp.turnIdx].text);
-                        console.log(`    -> ${sp.name}  (turn ${sp.turnIdx + 1}, time=${turns[sp.turnIdx].time})`);
+                        console.log(`    -> ${sp.name}  (turn ${turnNumber}, time=${turns[sp.turnIdx].time})`);
                         console.log(`       "${firstSentence}"`);
                         console.log();
                     }
@@ -4930,7 +5015,102 @@ Examples:
 
   node verify_cases.js --split                             # find opinion events needing a split
   node verify_cases.js 2024-10 --split                     # check one term
-  node verify_cases.js 2024-10 --split --update            # insert split events into cases.json`;
+  node verify_cases.js 2024-10 --split --update            # insert split events into cases.json
+
+  node verify_cases.js --dissents                          # rebuild courts/ussc/collections/dissents.json
+  node verify_cases.js 2024-10 --dissents                  # rebuild for one term only`;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// --dissents: build courts/ussc/collections/dissents.json
+// Contains sets per term for any "opinion" event whose title does not start
+// with "Opinion". Each set is named "October Term YYYY" and its cases list
+// objects: { title, term, number, decision, event (1-based index) }.
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function runDissentCheck(termFilter) {
+    const termsDir   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const outPath    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'dissents.json');
+
+    // Build term→title map from terms.json.
+    let termTitleMap = {};
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        for (const decade of tj) {
+            for (const page of (decade.pages || [])) {
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+                const termKey = page.term || (m ? m[1] : null);
+                if (termKey && page.title) termTitleMap[termKey] = page.title;
+            }
+        }
+    } catch {}
+
+    // Collect all terms in order.
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+
+    // If we're only rebuilding one term, load existing output to merge.
+    let existingSets = [];
+    if (termFilter && fs.existsSync(outPath)) {
+        try { existingSets = JSON.parse(fs.readFileSync(outPath, 'utf8')); } catch {}
+    }
+
+    const newSets = [];
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        const cases = _readJson(casesPath);
+        if (!Array.isArray(cases)) continue;
+
+        const termCases = [];
+        for (const c of cases) {
+            if (!Array.isArray(c.events)) continue;
+            for (let i = 0; i < c.events.length; i++) {
+                const ev = c.events[i];
+                if (ev.type !== 'opinion') continue;
+                const title = ev.title || '';
+                if (title.startsWith('Opinion')) continue;
+                // This opinion event's title is non-standard.
+                termCases.push({
+                    title:    `${c.title || c.id}: ${title}`,
+                    term,
+                    number:   c.number || c.id || undefined,
+                    decision: c.decision || undefined,
+                    event:    i + 1,
+                });
+                // Only take the first matching event per case.
+                break;
+            }
+        }
+
+        if (!termCases.length) continue;
+
+        const setTitle = termTitleMap[term] || term;
+        newSets.push({ name: setTitle, cases: termCases });
+    }
+
+    // Merge: replace or append sets for processed terms.
+    let finalSets;
+    if (termFilter) {
+        // Remove any existing set for this term, then append new one.
+        finalSets = existingSets.filter(s => s.name !== (termTitleMap[termFilter] || termFilter));
+        finalSets.push(...newSets);
+    } else {
+        finalSets = newSets;
+    }
+
+    fs.writeFileSync(outPath, JSON.stringify(finalSets, null, 2) + '\n', 'utf8');
+    console.log(`Wrote ${path.relative(REPO_ROOT, outPath)} (${finalSets.length} set(s))`);
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --roles: derive event advocate roles from transcript JSON, raw transcript
@@ -5515,6 +5695,11 @@ async function main() {
         return;
     }
 
+    if (flags.has('--dissents')) {
+        await runDissentCheck(positional[0] || null);
+        return;
+    }
+
     if (positional.length > 2) {
         console.log(USAGE);
         process.exit(1);
@@ -5605,6 +5790,7 @@ async function main() {
         try {
             processLoneDissenters(allTerms, false);
             processCollectionSets(allTerms, false);
+            await runDissentCheck(null);
         } finally {
             setDryRun(prevDryRun);
         }

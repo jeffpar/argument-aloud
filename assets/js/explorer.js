@@ -2224,7 +2224,10 @@ async function loadAudioEntry(arg, basePath) {
     } else if (Number.isInteger(arg.turn) && arg.turn > 0 && arg.turn <= turnTimes.length) {
       // `turn` is a 1-based index into the aligned transcript; used when
       // multiple arguments share a single audio file. Seek to that turn's time.
-      seekOnly(turnTimes[arg.turn - 1]);
+      // Add a tiny epsilon so audio.currentTime lands above the turn boundary
+      // after the browser quantizes the seek, ensuring findCurrentTurn returns
+      // the correct turn on the first timeupdate.
+      seekOnly(turnTimes[arg.turn - 1] + 0.01);
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
@@ -2248,6 +2251,21 @@ async function loadAudioEntry(arg, basePath) {
       collapseDocViewer();
     }
     activeBottomLinkText = null;
+
+    // When a specific turn is requested (arg.turn), highlight it immediately
+    // after rendering so the correct turn is shown even before timeupdate fires.
+    // (Relying solely on timeupdate is unreliable: audio.currentTime after a
+    // seek can differ from turnTimes[n] by a tiny floating-point epsilon, which
+    // causes findCurrentTurn to land on the preceding turn.)
+    if (Number.isInteger(arg.turn) && arg.turn > 0 && arg.turn <= turns.length) {
+      const initialIdx = arg.turn - 1;
+      const el = document.getElementById('turn-' + initialIdx);
+      if (el) {
+        el.classList.add('active');
+        activeTurnIdx = initialIdx;
+        requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      }
+    }
 
     _currentLoadedEntry = arg;
     loadingMsg.style.display = 'none';
@@ -3573,17 +3591,20 @@ async function init() {
           await groupLi._ensureCases?.();
         }
       }
-      // Resolve caseParam (which may be one of several consolidated docket numbers)
-      // against the term's cases to obtain the canonical key (term/caseId).
-      const termCases = await fetchTermCases(termParam);
+      // Collection case items use `caseRef.number` (the docket number) as
+      // their data-case-key, and the URL `case` param is set to caseRef.number
+      // by the click handler. Use caseParam directly so the key always matches,
+      // even when the term's full case entry has a separate `id` field.
+      const caseKey = CSS.escape(termParam + '/' + caseParam);
+      const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
+      // Still fetch term cases so fileRestore can check events length below.
+      const termCases = ci ? await fetchTermCases(termParam) : [];
       const matchedCase = termCases.find(c => {
         if (c.id && c.id === caseParam) return true;
         if (!c.number) return false;
         return c.number === caseParam
           || c.number.split(',').map(n => n.trim()).includes(caseParam);
       });
-      const caseKey = CSS.escape(termParam + '/' + (matchedCase ? caseId(matchedCase) : caseParam));
-      const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
       if (ci) {
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
