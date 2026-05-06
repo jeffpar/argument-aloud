@@ -2611,13 +2611,13 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     }
   }
   const sortedAudio = (() => {
-    const best = (sourceGroups.get(bestSource)?.entries ?? [])
-      .sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+    const best = (sourceGroups.get(bestSource)?.entries ?? []).slice();
 
-    // Supplement with entries from other sources whose (date, type) pair is
-    // not already covered by the best source (e.g. a NARA opinion announcement
-    // on a date where the best source only has an argument entry).
-    const keyOf = a => `${a.date ?? ''}|${a.type ?? ''}`;
+    // Supplement with entries from other sources whose (date, type, offset) tuple
+    // is not already covered by the best source (e.g. a NARA opinion announcement
+    // on a date where the best source only has an argument entry, or a NARA event
+    // with a non-zero offset covering a distinct audio segment of the same date).
+    const keyOf = a => `${a.date ?? ''}|${a.type ?? ''}|${a.offset ?? ''}`;
     const covered = new Set(best.map(keyOf));
     const coveredEntryByKey = new Map(best.map(a => [keyOf(a), a]));
     for (const [src, { entries }] of sourceGroups) {
@@ -2648,7 +2648,6 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     // from the dropdown. Only force-include if it actually has audio.
     const _requestedEv = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
     if (_requestedEv && _requestedEv.audio_href && !best.includes(_requestedEv)) best.push(_requestedEv);
-    best.sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
 
     // Group by date. For each date group that contains at least one aligned
     // entry, keep only the aligned ones; otherwise keep all entries for that
@@ -2663,19 +2662,30 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     }
     const filtered = [];
     for (const group of dateGroups.values()) {
-      const alignedOnly = group.filter(a => a.aligned === true);
-      let kept = alignedOnly.length ? alignedOnly : group;
+      // Entries with a non-empty offset that is unique within this date-group
+      // cover a distinct audio segment (e.g. a NARA file shared across cases);
+      // keep them unconditionally alongside the aligned-preference filtering
+      // applied to the remaining entries.
+      const offsetCounts = new Map();
+      for (const a of group) offsetCounts.set(a.offset ?? '', (offsetCounts.get(a.offset ?? '') ?? 0) + 1);
+      const distinct  = group.filter(a => (a.offset ?? '') && offsetCounts.get(a.offset) === 1);
+      const remainder = group.filter(a => !distinct.includes(a));
+      const alignedOnly = remainder.filter(a => a.aligned === true);
+      let kept = alignedOnly.length ? alignedOnly : remainder;
       if (_requestedEv && group.includes(_requestedEv) && !kept.includes(_requestedEv)) {
         kept = [...kept, _requestedEv];
       }
-      filtered.push(...kept);
+      filtered.push(...group.filter(a => kept.includes(a) || distinct.includes(a)));
     }
+    // Re-sort by original JSON position so the dropdown reflects the order in cases.json.
+    const _jsonOrder = caseEntry.events;
+    filtered.sort((a, b) => _jsonOrder.indexOf(a) - _jsonOrder.indexOf(b));
     return filtered;
   })();
 
   // Build the full date-sorted audio list; sortedAudio entries are references to
   // the same objects, so indexOf comparisons work for 1-based position lookups.
-  const allAudio = [...caseEntry.events].sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+  const allAudio = [...caseEntry.events];
 
   // Build audio select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).

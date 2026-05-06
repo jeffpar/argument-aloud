@@ -2131,6 +2131,10 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                     if (eventDates.every(d => argDates.has(d))) continue;
                 }
             }
+            // Different offset values imply different portions of the same
+            // audio are used across events — not a true duplicate.
+            const offsets = locs.map(l => l[6] || '0');
+            if (new Set(offsets).size === offsets.length && offsets.some(o => o !== '0')) continue;
             result.push([field, url, locs]);
         }
     }

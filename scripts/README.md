@@ -161,6 +161,34 @@ node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
 
 ---
 
+## download.js
+
+Downloads and caches all external assets referenced in `cases.json` files —
+opinion PDFs, audio MP3s, and transcript PDFs — into
+`courts/ussc/cache/<term>/<case-number>/`. At the end, reports any URLs that
+could not be reached.
+
+`courts/ussc/cache` must exist before running (create the directory or symlink
+it to your preferred storage location).
+
+```
+node scripts/download.js [TERM [CASE]] [--dry-run] [--refetch] [--verbose]
+```
+
+| Argument / Flag | Description |
+|---|---|
+| `TERM` | Term to download (omit to process all terms) |
+| `CASE` | Optional docket number to limit to a single case |
+| `--dry-run` | Show what would be downloaded without fetching |
+| `--refetch` | Re-download even if the file already exists in the cache |
+| `--verbose` | Print each URL as it is checked or downloaded |
+
+The cache folder for a case is named after its primary docket number (the first
+number in the `number` field). If two cases in the same term share the same
+primary number, the `id` field is used instead.
+
+---
+
 ## schema.js
 
 Library (not run directly). Exports canonical key ordering for case and event
