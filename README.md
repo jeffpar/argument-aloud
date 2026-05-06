@@ -30,7 +30,7 @@ Dive in and explore!
 
 ## MIT License
 
-UI, schema, and scripts (c) 2026 by Jeff Parsons
+Schema and UI design (c) 2026 by Jeff Parsons
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
