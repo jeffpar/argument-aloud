@@ -20,7 +20,9 @@ Digital copies of all those pieces (petitions, briefs, transcripts, audio record
 
 And there are other essential pieces of information, such as copies of statutes, records from the lower courts, and so on.  Those are often buried in one or more of the briefs (eg, joint appendices), but having links to the relevant pages in the transcripts would be even better.
 
-You can find examples of how such links would work in a few cases here already, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).  Dive in and listen!
+You can find examples of how such links would work in a few cases here already, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).
+
+Dive in and explore!
 
 ![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]
