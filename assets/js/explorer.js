@@ -3634,7 +3634,10 @@ async function init() {
   }));
   buildNavFromIndex(navData);
 
-  // Restore state from URL params
+  await restoreFromURL();
+}
+
+async function restoreFromURL() {
   const params = new URLSearchParams(location.search);
   const linkParam       = params.get('link');
   const termParam       = params.get('term');
@@ -3903,4 +3906,6 @@ async function init() {
     showPageViewer('/courts/ussc/home', { pushState: false });
   }
 }
+
+window.addEventListener('popstate', () => restoreFromURL());
 init();

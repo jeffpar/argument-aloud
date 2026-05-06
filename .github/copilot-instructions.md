@@ -137,4 +137,3 @@ The main interactive page is a single-page app built with ~3200 lines of vanilla
 ## Related Docs
 
 - [scripts/README.md](../scripts/README.md) — detailed script usage and step-by-step descriptions
-- [scripts/old/README.md](../scripts/old/README.md) — archive of superseded scripts
