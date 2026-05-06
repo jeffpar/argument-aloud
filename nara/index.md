@@ -12,9 +12,9 @@ No detailed mappings across all these rich data sets exist yet, but hopefully th
 
 This [audit](/courts/ussc/audit/) relies in part on the audio materials (and associated metadata) sitting in [NARA's SCOTUS Collection](https://catalog.archives.gov/id/594):
 
-  - [Sound Recordings of Oral Arguments - Black Series, October 1955-December 1972](/courts/ussc?link=/nara/audio/black)
-  - [Sound Recordings of Oral Arguments - Red Series, December 1972-June 27, 2005](/courts/ussc?link=/nara/audio/red)
-  - [Sound Recordings of Oral Arguments - Gold Series, October 3, 2005-May 13, 2020](/courts/ussc?link=/nara/audio/gold)
+  - [Sound Recordings of Oral Arguments - Black Series, October 1955 - December 1972](/courts/ussc?link=/nara/audio/black)
+  - [Sound Recordings of Oral Arguments - Red Series, December 1972 - June 27, 2005](/courts/ussc?link=/nara/audio/red)
+  - [Sound Recordings of Oral Arguments - Gold Series, October 3, 2005 - June 27, 2025](/courts/ussc?link=/nara/audio/gold)
 
 Other [Series](https://catalog.archives.gov/search-within/594?levelOfDescription=series&limit=100&sort=title%3Aasc) in NARA's SCOTUS collection include:
 
