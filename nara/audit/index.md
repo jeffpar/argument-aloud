@@ -20,11 +20,15 @@ The goal of this initial audit was to identify issues and work out kinks in the 
 
 Ultimately, all terms from 1889 (the earliest year for which Journals are available digitally) through the present need to be audited.
 
-Oyez omissions discovered in the initial audit:
+Omissions discovered during the initial audit:
 
-  - [Nilva v. United States](https://www.oyez.org/cases/1956/37) (No. 37) was argued on November 8 and 13, 1956.  Oyez appears to have combined the audio recordings and inadvertently dropped the November 8 date in the process.
+  - [Nilva v. United States (No. 37)](/courts/ussc/?term=1956-10&case=1956-038) was argued on November 8 and 13, 1956, but apparently all audio from November 8 missing, including:
 
-  - **Stanton v. United States** (No. 546) was argued on March 24, 1960, following a related case, Commissioner of Internal Revenue v. Duberstein  (No. 376) that was argued on March 23.  However, the argument for Stanton appears to be missing from Oyez; only the argument for [Commissioner v. Duberstein](https://www.oyez.org/cases/1959/376) is available.  The cases were decided together and reported in [363 U.S. 278](https://tile.loc.gov/storage-services/service/ll/usrep/usrep363/usrep363278/usrep363278.pdf).
+      - No. 39. [United States of America, petitioner, v. Paul E. Plesha et al](/courts/ussc/?term=1956-10&case=1956-020). Argued by Mr. Lester S. Jayson for the petitioner and by Mr. Lawrence A. Schei for the respondents.
+      - No. 31. [Massachusetts Bonding and Insurance Company et al., petitioners, v. Linked States of America](/courts/ussc/?term=1956-10&case=1956-013). Argued by Mr. John R. Kewer for the petitioners and by Mr. Paul A. Sweeney for the respondent.
+	  - No. 37. [Allen I. Nilva, petitioner, v. United States of America](/courts/ussc/?term=1956-10&case=1956-038). Argument commenced by Mr. Eugene Gressman for the petitioner.
+
+  - **Stanton v. United States** (No. 546) was argued on March 24, 1960, following a related case, [Commissioner of Internal Revenue v. Duberstein (No. 376)](/courts/ussc/?term=1959-10&case=1959-099) on March 23.  However, the argument for Stanton appears to be missing.  The cases were decided together and reported in [363 U.S. 278](https://tile.loc.gov/storage-services/service/ll/usrep/usrep363/usrep363278/usrep363278.pdf).
 
   - [Presser v. United States](https://www.oyez.org/cases/1961/278) (No. 278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez appears to provide only the 1961 argument.
 

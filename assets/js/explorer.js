@@ -993,7 +993,7 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
 //                       loadCase highlights only the sibling whose audioDate
 //                       matches the currently-resolved event.
 //   hasFiles   boolean — when false, the toggle (▶) is hidden by default
-function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, caseNumber }) {
+function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, caseNumber, href }) {
   const ci = document.createElement('li');
   ci.className = 'case-item';
   ci.dataset.caseKey = caseKey;
@@ -1008,10 +1008,16 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, cas
   toggle.textContent = '\u25b6'; // ▶
   if (!hasFiles) toggle.style.display = 'none';
 
-  const titleSpan = document.createElement('span');
+  const titleSpan = href ? document.createElement('a') : document.createElement('span');
   titleSpan.className = 'case-title-nav';
   titleSpan.textContent = title;
   titleSpan.title = tooltip;
+  if (href) {
+    titleSpan.href = href;
+    // Sync guard must be registered first so it fires before any async listener,
+    // reliably preventing anchor navigation while still allowing SPA handlers to run.
+    titleSpan.addEventListener('click', (e) => e.preventDefault());
+  }
 
   header.appendChild(toggle);
   header.appendChild(titleSpan);
@@ -1119,6 +1125,10 @@ function buildTermCases(term, cases, ul) {
           tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
           hasFiles: !!caseEntry.files,
           caseNumber: caseEntry.number || '',
+          href:     buildUrlParams(
+            { term, case: caseId(caseEntry) },
+            ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+          ),
         });
 
         // ── Speaker / transcript icon ──────────────────────────
@@ -1559,6 +1569,7 @@ function buildStaticPageItem(parentUl, page) {
 
   if (hasSubPages) {
     li.className = 'term-group';
+    if (page.link) li.dataset.link = page.link;
 
     const header = document.createElement('div');
     header.className = 'term-header';
@@ -1567,9 +1578,22 @@ function buildStaticPageItem(parentUl, page) {
     tog.className = 'term-toggle';
     tog.textContent = '\u25b6';
 
-    const label = document.createElement('span');
-    label.className = 'term-label';
-    label.textContent = page.title;
+    let label;
+    if (page.link) {
+      label = document.createElement('a');
+      label.className = 'term-label';
+      label.textContent = page.title;
+      label.style.cursor = 'pointer';
+      const _lu = new URL(location.href);
+      _lu.search = '';
+      _lu.searchParams.set('link', page.link);
+      _lu.search = _lu.search.replace(/%2F/gi, '/');
+      label.href = _lu.toString();
+    } else {
+      label = document.createElement('span');
+      label.className = 'term-label';
+      label.textContent = page.title;
+    }
 
     header.appendChild(tog);
     header.appendChild(label);
@@ -1578,13 +1602,13 @@ function buildStaticPageItem(parentUl, page) {
     header.addEventListener('click', (e) => {
       e.stopPropagation();
       if (page.link && label.contains(e.target)) {
+        e.preventDefault(); // prevent anchor navigation; SPA handler manages routing
         li.classList.add('open');
         showPageViewer(page.link);
       } else {
         li.classList.toggle('open');
       }
     });
-    if (page.link) label.style.cursor = 'pointer';
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';
@@ -1601,12 +1625,22 @@ function buildStaticPageItem(parentUl, page) {
     const header = document.createElement('div');
     header.className = 'case-header';
 
-    const titleSpan = document.createElement('span');
-    titleSpan.className = 'case-title-nav';
-    titleSpan.textContent = page.title;
+    let titleSpan;
     if (page.link) {
+      titleSpan = document.createElement('a');
+      titleSpan.className = 'case-title-nav';
+      titleSpan.textContent = page.title;
       titleSpan.style.cursor = 'pointer';
-      titleSpan.addEventListener('click', () => showPageViewer(page.link));
+      const _pu = new URL(location.href);
+      _pu.search = '';
+      _pu.searchParams.set('link', page.link);
+      _pu.search = _pu.search.replace(/%2F/gi, '/');
+      titleSpan.href = _pu.toString();
+      titleSpan.addEventListener('click', (e) => { e.preventDefault(); showPageViewer(page.link); });
+    } else {
+      titleSpan = document.createElement('span');
+      titleSpan.className = 'case-title-nav';
+      titleSpan.textContent = page.title;
     }
 
     header.appendChild(titleSpan);
@@ -1765,7 +1799,7 @@ function buildCollectionItem(sectionUl, collEntry) {
   sectionUl.appendChild(collLi);
 }
 
-function _buildHighlightItem(highlight, highlightIdx) {
+function _buildHighlightItem(highlight, highlightIdx, href = null) {
   const ci = document.createElement('li');
   ci.className = 'case-item highlight-item';
   ci.dataset.highlightIdx = String(highlightIdx);
@@ -1773,10 +1807,14 @@ function _buildHighlightItem(highlight, highlightIdx) {
   const header = document.createElement('div');
   header.className = 'case-header';
 
-  const titleSpan = document.createElement('span');
+  const titleSpan = href ? document.createElement('a') : document.createElement('span');
   titleSpan.className = 'case-title-nav';
   titleSpan.textContent = highlight.title;
   if (highlight.date) titleSpan.title = highlight.date;
+  if (href) {
+    titleSpan.href = href;
+    titleSpan.addEventListener('click', (e) => e.preventDefault()); // sync guard
+  }
   header.appendChild(titleSpan);
 
   // Star icon to distinguish highlights from normal cases
@@ -1877,6 +1915,8 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
   const caseKey = caseRef.term + '/' + caseRef.number;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
+  const _ciEntryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };
+  const _ciDeleteOther = groupId != null ? 'entry' : 'id';
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
     title:     caseRef.title,
@@ -1889,6 +1929,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       : null,
     hasFiles:  !!caseRef.files,
     caseNumber: caseRef.number || '',
+    href:      buildUrlParams(
+      { collection: collId, ..._ciEntryOrId, term: caseRef.term, case: caseRef.number },
+      [_ciDeleteOther, 'highlight', 'event', 'file', 'turn'],
+    ),
   });
 
   // Cache the fetched caseEntry so all click handlers share one fetch per case.
@@ -2196,7 +2240,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           const advocateLink = Array.isArray(advocateData) ? null : (advocateData.link ?? null);
           if (advocateLink) showPageViewer(advocateLink, { pushState: false });
           for (const [hlIdx, hl] of highlights.entries()) {
-            groupUl.appendChild(_buildHighlightItem(hl, hlIdx));
+            const _hlGroupId = group.id ?? null;
+            const _hlEntryOrId = _hlGroupId != null ? { id: _hlGroupId } : { entry: entryNumber };
+            const _hlDeleteOther = _hlGroupId != null ? 'entry' : 'id';
+            const hlHref = buildUrlParams(
+              { collection: collId, ..._hlEntryOrId, highlight: hlIdx + 1 },
+              [_hlDeleteOther, 'term', 'case', 'event', 'file', 'turn'],
+            );
+            groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
           }
           for (const caseRef of advocateCases) {
             groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
@@ -3730,7 +3781,7 @@ async function init() {
           }, { once: true });
         }
         const titleEl = ci.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, ...(audioParam != null ? { audioIdx: audioParam } : {}) }));
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), { fromRestore: true, ...(audioParam != null ? { audioIdx: audioParam } : {}) }));
       }
     }
     return;
@@ -3807,7 +3858,7 @@ async function init() {
         }
         // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
         const titleEl = caseEl.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), {
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
           fromRestore: true,
           audioIdx: audioParam ?? 0,
           fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.length) ? String(fileParam) : null,
@@ -3821,9 +3872,10 @@ async function init() {
     }
   } else if (linkParam) {
     // link URL: show the page viewer for the linked page.
-    const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(linkParam)}"]`);
+    const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(linkParam)}"], .term-group[data-link="${CSS.escape(linkParam)}"]`);
     if (navItem) {
       // Expand all ancestor collapsible sections.
+      navItem.classList.add('open');
       let ancestor = navItem.parentElement;
       while (ancestor) {
         if (ancestor.classList.contains('terms-group') || ancestor.classList.contains('term-group') ||
