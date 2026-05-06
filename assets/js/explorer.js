@@ -1157,7 +1157,7 @@ function buildTermCases(term, cases, ul) {
                   { term, case: caseId(caseEntry) },
                   ['collection', 'event', 'file', 'turn'],
                 );
-                history.replaceState(null, '', url);
+                history.pushState(null, '', url);
                 loadCase(term, caseEntry, 0);
               }
             } : null,
@@ -1291,7 +1291,7 @@ function buildTermCases(term, cases, ul) {
               { term, case: caseId(caseEntry) },
               ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
             );
-            history.replaceState(null, '', url);
+            history.pushState(null, '', url);
           }
           loadCase(term, caseEntry, audioIdx);
           // For no-audio cases, transcriptloaded never fires; restore file selection here,
@@ -1840,7 +1840,7 @@ function _buildHighlightItem(highlight, highlightIdx, href = null) {
         { ...(collId ? { collection: collId } : {}), ...entryOrId, highlight: highlightIdx + 1 },
         [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
-      history.replaceState(null, '', url);
+      history.pushState(null, '', url);
     }
     await loadHighlight(highlight);
   });
@@ -2166,7 +2166,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'turn'],
       );
-      history.replaceState(null, '', url);
+      history.pushState(null, '', url);
     }
     loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
