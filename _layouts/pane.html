@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script src="{{ '/assets/js/chart.js@4.4.9/dist/chart.umd.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=2"></script>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      body, .wrapper {
+        background: #1a1c22;
+        color: #d0d3dc;
+      }
+      a             { color: #5eaee0; }
+      a:hover       { color: #7bc8f0; }
+      h1, h2, h3, h4, h5, h6 { color: #d0d3dc; border-color: #2d2f38; }
+      hr            { background: #2d2f38; }
+      blockquote    { border-left-color: #404450; color: #9da5b4; }
+      code, pre     { background: #1e2028; color: #c8cad2; border-color: #404450; }
+      table         { color: #d0d3dc; }
+      th            { background: #21242c; border-color: #404450; }
+      td            { border-color: #2d2f38; }
+      tr:nth-child(even) { background: #1a1c22; }
+      img           { opacity: 0.9; }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
