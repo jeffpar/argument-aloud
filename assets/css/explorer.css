@@ -321,6 +321,65 @@ body {
   color: #999;
   margin-left: auto;
   white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  font-family: inherit;
+  line-height: inherit;
+}
+.term-case-count[data-loaded],
+button.term-case-count:not(:empty) {
+  cursor: pointer;
+}
+button.term-case-count:not(:empty):hover {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+button.term-case-count.sort-active {
+  color: #2672b4;
+  font-weight: 600;
+}
+button.term-case-count.sort-active:hover {
+  color: #1a4e8a;
+}
+
+/* Sort dropdown menu */
+.term-sort-menu {
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  padding: 4px 0;
+  margin: 0;
+  list-style: none;
+  min-width: 90px;
+  font-size: 12px;
+}
+.term-sort-option {
+  padding: 5px 12px;
+  cursor: pointer;
+  color: #222;
+  white-space: nowrap;
+}
+.term-sort-option:hover {
+  background: #f0f4ff;
+}
+.term-sort-option.active {
+  font-weight: 700;
+  color: #2672b4;
+}
+
+/* Inline label shown instead of icons in sorted modes */
+.case-sort-label {
+  font-size: 10px;
+  color: #888;
+  margin-left: auto;
+  white-space: nowrap;
+  padding-right: 2px;
 }
 
 .case-list {
@@ -1573,6 +1632,16 @@ body {
   .term-toggle         { color: #6c7280; }
   .term-label          { color: #9da5b4; }
   .term-case-count     { color: #6c7280; }
+  button.term-case-count:not(:empty):hover { color: #9da5b4; }
+  button.term-case-count.sort-active       { color: #7bc8f0; }
+  button.term-case-count.sort-active:hover { color: #a8daff; }
+
+  .term-sort-menu      { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 3px 10px rgba(0,0,0,0.4); }
+  .term-sort-option    { color: #c8ccd8; }
+  .term-sort-option:hover   { background: #252a3a; }
+  .term-sort-option.active  { color: #7bc8f0; }
+
+  .case-sort-label     { color: #6c7280; }
 
   .month-header:hover  { background: #252a35; }
   .month-name          { color: #6c7280; }

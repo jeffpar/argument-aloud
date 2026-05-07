@@ -1103,210 +1103,206 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   return icon;
 }
 
-function buildTermCases(term, cases, ul) {
-  // Include cases with audio, a direct opinion link, or browsable files; skip truly empty cases.
-  // Sort alphabetically by title.
-  const sortedCases = [...cases]
-    .filter(c => c.events?.length || c.opinion_href || c.files > 0)
-    .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+// ── Sort modes for the term case list ────────────────────────────────────────
+// modes: 'cases' (default alpha) | 'argued' | 'decided' | 'votes'
 
-  sortedCases.forEach(caseEntry => {
-        const caseKey = term + '/' + caseId(caseEntry);
-        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+const _SORT_MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-        const hasAudio      = !!caseEntry.events?.some(a => a.audio_href);
-        const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href);
-        const hasOpinion    = !!caseEntry.opinion_href;
+function _sortModeLabel(mode, count) {
+  if (mode === 'cases') return '(' + count + '\u00a0Cases)';
+  if (mode === 'argued')  return 'Argued';
+  if (mode === 'decided') return 'Decided';
+  if (mode === 'votes')   return 'Votes';
+  return '';
+}
 
-        // ── Shell: <li>, header (toggle + title), file <ul> ──
-        const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
-          caseKey,
-          title:    caseEntry.title,
-          tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
-          hasFiles: !!caseEntry.files,
-          caseNumber: caseEntry.number || '',
-          href:     buildUrlParams(
-            { term, case: caseId(caseEntry) },
-            ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
-          ),
-        });
+// Format a YYYY-MM-DD string as "MMM DD".
+function _fmtMonthDay(dateStr) {
+  if (!dateStr) return '';
+  const parts = String(dateStr).split('-');
+  const mo = parseInt(parts[1], 10) - 1;
+  const dd = parseInt(parts[2], 10);
+  return (_SORT_MONTH_ABBR[mo] || '') + '\u00a0' + dd;
+}
 
-        // ── Speaker / transcript icon ──────────────────────────
-        _attachAudioIcon(header, {
-          hasAudio,
-          hasTranscript,
-          ring: hasAudio ? oyezCircleData(caseEntry) : null,
-          deficit: oyezDeficitClass(caseEntry),
-        });
+// Build (or rebuild) a term's case list under `ul` using the given sort mode.
+// Does not rebuild if mode hasn't changed (idempotent).
+function buildTermCasesSorted(term, cases, ul, mode) {
+  const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
 
-        // ── Scales icon: shown if opinion or audio; clickable iff opinion ──
-        if (hasOpinion || caseEntry.events?.length) {
-          _attachScalesIcon(ci, header, {
-            ring: opinionCircleData(caseEntry),
-            onClick: hasOpinion ? (e) => {
-              e.stopPropagation();
-              const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
-              if (caseEntry.events?.length) {
-                // Has audio: open the opinion alongside the transcript.
-                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-                showDocViewer(opinionFile, { autoScroll: true });
-              } else {
-                // No audio: full case load — opinion opens full-height.
-                markCaseItemActive(ci);
-                const url = buildUrlParams(
-                  { term, case: caseId(caseEntry) },
-                  ['collection', 'event', 'file', 'turn'],
-                );
-                history.pushState(null, '', url);
-                loadCase(term, caseEntry, 0);
-              }
-            } : null,
-          });
-        }
+  let sorted;
+  if (mode === 'argued') {
+    sorted = [...visible].sort((a, b) => (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : (a.title || '').localeCompare(b.title || ''));
+  } else if (mode === 'decided') {
+    sorted = [...visible].sort((a, b) => (a.decision || '') < (b.decision || '') ? -1 : (a.decision || '') > (b.decision || '') ? 1 : (a.title || '').localeCompare(b.title || ''));
+  } else if (mode === 'votes') {
+    sorted = [...visible].sort((a, b) => {
+      const am = a.voteMajority ?? 0, an_ = a.voteMinority ?? 0;
+      const bm = b.voteMajority ?? 0, bn_ = b.voteMinority ?? 0;
+      // Sort descending by majority, then ascending minority
+      if (bm !== am) return bm - am;
+      if (an_ !== bn_) return an_ - bn_;
+      return (a.title || '').localeCompare(b.title || '');
+    });
+  } else {
+    sorted = [...visible].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+  }
 
-        // ── File sub-list (populated lazily) ──────────────────
-        let filesLoaded = false;
+  ul.innerHTML = '';
 
-        // Lazily populate the file sub-list; shared by both click handlers below.
-        async function ensureFilesLoaded() {
-          if (filesLoaded) return;
-          filesLoaded = true;
+  sorted.forEach(caseEntry => {
+    const caseKey = term + '/' + caseId(caseEntry);
+    const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href);
+    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href);
+    const hasOpinion    = !!caseEntry.opinion_href;
 
-          const { isEmpty } = await _buildCaseFileList(fileUl, caseEntry, {
-            basePath,
-            argumentDates: null,
-            computeEntries: (rawFiles) => {
-              const TYPE_LABELS = {
-                petitioner: 'Petitioner',
-                respondent: 'Respondent',
-                amicus:     'Amicus',
-                other:      'Other',
-                reference:  'References',
-              };
-              const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference'];
-              // When true, amicus + other are merged into a single "Other" group
-              // (amicus entries first, then other, each sub-sorted by date).
-              const MERGE_AMICUS_OTHER = true;
+    const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
+      caseKey,
+      title:    caseEntry.title,
+      tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
+      hasFiles: !!caseEntry.files,
+      caseNumber: caseEntry.number || '',
+      href:     buildUrlParams(
+        { term, case: caseId(caseEntry) },
+        ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+      ),
+    });
 
-              // Group files by type, then sort each group by date ascending.
-              const groups = {};
-              rawFiles.forEach(f => {
-                let key = (f.type || '').toLowerCase();
-                if (key === 'appellant' || key === 'appellants') key = 'petitioner';
-                else if (key === 'appellee' || key === 'appellees') key = 'respondent';
-                else if (key === 'brief' || key === 'briefs') key = '';
-                if (!key) {
-                  // Infer from title when type is absent.
-                  const t = (f.title || '').toLowerCase();
-                  if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
-                  else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
-                  else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
-                  else key = 'other';
-                }
-                if (!groups[key]) groups[key] = [];
-                groups[key].push(f);
-              });
-              ORDER.forEach(k => {
-                if (!groups[k]) return;
-                if (k === 'reference') {
-                  groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
-                } else {
-                  groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
-                }
-              });
-
-              // Merge amicus into other (amicus first) when the flag is set.
-              if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
-                groups.other = [...(groups.amicus || []), ...(groups.other || [])];
-                delete groups.amicus;
-              }
-
-              // Transcript entries are always rendered directly under the case
-              // (outside any collapsible group), after all other groups.
-              const transcriptFiles = groups.transcript || [];
-              delete groups.transcript;
-
-              const effectiveOrder = MERGE_AMICUS_OTHER
-                ? ORDER.filter(k => k !== 'amicus')
-                : ORDER;
-
-              const entries = [];
-              effectiveOrder.forEach(typeKey => {
-                if (!groups[typeKey] || !groups[typeKey].length) return;
-                // When "other" contains only a single file, skip the collapsible
-                // group wrapper and render the item directly under the case.
-                const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
-                entries.push({
-                  kind: isSoloOther ? 'flat' : 'group',
-                  label: TYPE_LABELS[typeKey] || typeKey,
-                  files: groups[typeKey],
-                });
-              });
-              // Transcripts go at the very end, always flat.
-              if (transcriptFiles.length) {
-                entries.push({ kind: 'flat', files: transcriptFiles });
-              }
-
-              // If only one collapsible group survived, flatten it — no point
-              // making the user expand a group of one.
-              const groupEntries = entries.filter(e => e.kind === 'group');
-              if (groupEntries.length === 1) {
-                groupEntries[0].kind = 'flat';
-                delete groupEntries[0].label;
-              }
-
-              return { entries };
-            },
-          });
-
-          if (isEmpty) toggle.style.display = 'none';
-        }
-
-        // Toggle (▶): expand or collapse the case — no selection, no transcript load.
-        toggle.addEventListener('click', async (e) => {
-          e.stopPropagation();
-          if (ci.classList.toggle('open')) {
-            await ensureFilesLoaded();
-          }
-        });
-
-        // Title: select the case, open it, and load the transcript.
-        titleSpan.addEventListener('click', async (e) => {
-          const fromRestore  = !!e.fromRestore;
-          const audioIdx     = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
-          const fileRestore  = e.fileRestore ?? null;
-          // If this case is already active and the click came from a user (not a
-          // programmatic restore), just toggle its sub-list visibility.
-          if (!fromRestore && ci.classList.contains('active')) {
-            if (ci.classList.toggle('open')) {
-              await ensureFilesLoaded();
+    if (mode === 'argued' || mode === 'decided') {
+      // Replace icons with a compact date label
+      const dateStr = mode === 'argued' ? caseEntry.argument : caseEntry.decision;
+      // argument/decision can be multi-date (comma-separated); use the first
+      const firstDate = dateStr ? String(dateStr).split(',')[0].trim() : '';
+      const dateLbl = document.createElement('span');
+      dateLbl.className = 'case-sort-label';
+      dateLbl.textContent = _fmtMonthDay(firstDate);
+      header.appendChild(dateLbl);
+    } else if (mode === 'votes') {
+      const maj = caseEntry.voteMajority, min = caseEntry.voteMinority;
+      const voteLbl = document.createElement('span');
+      voteLbl.className = 'case-sort-label';
+      voteLbl.textContent = (maj != null && min != null) ? maj + '\u2013' + min : '';
+      header.appendChild(voteLbl);
+    } else {
+      // Default mode: normal icons
+      _attachAudioIcon(header, {
+        hasAudio, hasTranscript,
+        ring: hasAudio ? oyezCircleData(caseEntry) : null,
+        deficit: oyezDeficitClass(caseEntry),
+      });
+      if (hasOpinion || caseEntry.events?.length) {
+        _attachScalesIcon(ci, header, {
+          ring: opinionCircleData(caseEntry),
+          onClick: hasOpinion ? (e) => {
+            e.stopPropagation();
+            const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
+            if (caseEntry.events?.length) {
+              document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+              showDocViewer(opinionFile, { autoScroll: true });
+            } else {
+              markCaseItemActive(ci);
+              const url = buildUrlParams(
+                { term, case: caseId(caseEntry) },
+                ['collection', 'event', 'file', 'turn'],
+              );
+              history.pushState(null, '', url);
+              loadCase(term, caseEntry, 0);
             }
-            return;
-          }
-          // Synchronous selection feedback before any async work.
-          markCaseItemActive(ci);
-          await ensureFilesLoaded();
-          if (!fromRestore) {
-            const url = buildUrlParams(
-              { term, case: caseId(caseEntry) },
-              ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
-            );
-            history.pushState(null, '', url);
-          }
-          loadCase(term, caseEntry, audioIdx);
-          // For no-audio cases, transcriptloaded never fires; restore file selection here,
-          // after ensureFilesLoaded() has finished building the file list DOM.
-          if (fileRestore != null && !caseEntry.events?.length) {
-            const fileEl = findFileItem(fileRestore);
-            if (fileEl) {
-              fileEl.closest('.file-type-group')?.classList.add('open');
-              fileEl.click();
-            }
-          }
+          } : null,
         });
+      }
+    }
 
-        ul.appendChild(ci);
+    let filesLoaded = false;
+    async function ensureFilesLoaded() {
+      if (filesLoaded) return;
+      filesLoaded = true;
+      const { isEmpty } = await _buildCaseFileList(fileUl, caseEntry, {
+        basePath,
+        argumentDates: null,
+        computeEntries: (rawFiles) => {
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', other:'Other', reference:'References' };
+          const ORDER = ['petitioner','respondent','amicus','other','reference'];
+          const MERGE_AMICUS_OTHER = true;
+          const groups = {};
+          rawFiles.forEach(f => {
+            let key = (f.type || '').toLowerCase();
+            if (key === 'appellant' || key === 'appellants') key = 'petitioner';
+            else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+            else if (key === 'brief' || key === 'briefs') key = '';
+            if (!key) {
+              const t = (f.title || '').toLowerCase();
+              if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
+              else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
+              else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
+              else key = 'other';
+            }
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(f);
+          });
+          ORDER.forEach(k => {
+            if (!groups[k]) return;
+            if (k === 'reference') groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+            else groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+          });
+          if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
+            groups.other = [...(groups.amicus || []), ...(groups.other || [])];
+            delete groups.amicus;
+          }
+          const transcriptFiles = groups.transcript || [];
+          delete groups.transcript;
+          const effectiveOrder = MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER;
+          const entries = [];
+          effectiveOrder.forEach(typeKey => {
+            if (!groups[typeKey]?.length) return;
+            const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
+            entries.push({ kind: isSoloOther ? 'flat' : 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
+          });
+          if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
+          const groupEntries = entries.filter(e => e.kind === 'group');
+          if (groupEntries.length === 1) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
+          return { entries };
+        },
+      });
+      if (isEmpty) toggle.style.display = 'none';
+    }
+
+    toggle.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      if (ci.classList.toggle('open')) await ensureFilesLoaded();
+    });
+
+    titleSpan.addEventListener('click', async (e) => {
+      const fromRestore = !!e.fromRestore;
+      const audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
+      const fileRestore = e.fileRestore ?? null;
+      if (!fromRestore && ci.classList.contains('active')) {
+        if (ci.classList.toggle('open')) await ensureFilesLoaded();
+        return;
+      }
+      markCaseItemActive(ci);
+      await ensureFilesLoaded();
+      if (!fromRestore) {
+        const url = buildUrlParams(
+          { term, case: caseId(caseEntry) },
+          ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+        );
+        history.pushState(null, '', url);
+      }
+      loadCase(term, caseEntry, audioIdx);
+      if (fileRestore != null && !caseEntry.events?.length) {
+        const fileEl = findFileItem(fileRestore);
+        if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
+      }
+    });
+
+    ul.appendChild(ci);
   });
+}
+
+function buildTermCases(term, cases, ul) {
+  buildTermCasesSorted(term, cases, ul, 'cases');
 }
 
 function buildNav(title = 'Terms') {
@@ -1390,8 +1386,9 @@ function buildNav(title = 'Terms') {
       termHeader.appendChild(termTog);
       termHeader.appendChild(label);
 
-      const termCount = document.createElement('span');
+      const termCount = document.createElement('button');
       termCount.className = 'term-case-count';
+      termCount.type = 'button';
       termHeader.appendChild(termCount);
 
       termLi.appendChild(termHeader);
@@ -1399,21 +1396,85 @@ function buildNav(title = 'Terms') {
       const ul = document.createElement('ul');
       ul.className = 'case-list';
 
+      // Current sort mode for this term's case list.
+      let _sortMode = 'cases';
+      let _casesCache = null; // cached after first fetch
+
+      const _SORT_OPTIONS = [
+        { mode: 'cases',   label: 'Cases'   },
+        { mode: 'argued',  label: 'Argued'  },
+        { mode: 'decided', label: 'Decided' },
+        { mode: 'votes',   label: 'Votes'   },
+      ];
+
+      // Show/hide a small sort dropdown anchored to termCount.
+      function _showSortMenu() {
+        // Remove any existing menus elsewhere.
+        document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
+
+        const menu = document.createElement('ul');
+        menu.className = 'term-sort-menu';
+        for (const opt of _SORT_OPTIONS) {
+          const item = document.createElement('li');
+          item.className = 'term-sort-option' + (opt.mode === _sortMode ? ' active' : '');
+          item.textContent = opt.label;
+          item.addEventListener('mousedown', (e) => {
+            e.preventDefault(); // prevent blur before click registers
+            e.stopPropagation();
+            menu.remove();
+            if (opt.mode === _sortMode) return;
+            _sortMode = opt.mode;
+            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0) : null;
+            const count = visible ? visible.length : null;
+            termCount.textContent = _sortModeLabel(_sortMode, count);
+            termCount.classList.add('sort-active');
+            if (_casesCache && termLi.classList.contains('open')) {
+              buildTermCasesSorted(term, _casesCache, ul, _sortMode);
+            }
+          });
+          menu.appendChild(item);
+        }
+
+        // Position below termCount
+        document.body.appendChild(menu);
+        const rect = termCount.getBoundingClientRect();
+        menu.style.top  = (rect.bottom + window.scrollY) + 'px';
+        menu.style.left = (rect.left   + window.scrollX) + 'px';
+
+        const close = (e) => {
+          if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
+        };
+        // Small delay so the mousedown that opened the menu doesn't immediately close it.
+        setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+      }
+
+      // Clicking the sort button opens the menu; stop propagation so the
+      // term header's expand/collapse click doesn't also fire.
+      termCount.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (_casesCache === null) return; // not loaded yet, nothing to sort
+        _showSortMenu();
+      });
+
       let built = false;
       const ensureBuilt = async () => {
         if (built) return;
         built = true;
         const cases = await fetchTermCases(term);
-        buildTermCases(term, cases, ul);
+        _casesCache = cases;
+        buildTermCasesSorted(term, cases, ul, _sortMode);
         const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
-        termCount.textContent = '(' + visible.length + '\u00a0cases)';
+        termCount.textContent = _sortModeLabel(_sortMode, visible.length);
+        termCount.classList.add('sort-active');
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
       const ensureCount = async () => {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
+        _casesCache = cases;
         const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
-        termCount.textContent = '(' + visible.length + '\u00a0cases)';
+        termCount.textContent = _sortModeLabel(_sortMode, visible.length);
+        termCount.classList.add('sort-active');
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
