@@ -5,7 +5,7 @@
  *   - audio_href    → MP3 audio (from each event)
  *   - transcript_href → PDF transcript (from each event)
  *
- * Assets are stored under courts/ussc/cache/<term>/<case-number>/<filename>.
+ * Assets are stored under courts/ussc/cache/terms/<term>/<case-number>/<filename>.
  * At the end, reports which URLs are no longer reachable.
  *
  * Usage:
@@ -29,7 +29,7 @@ import { pipeline } from 'node:stream/promises';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const TERMS_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-const CACHE_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'cache');
+const CACHE_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
 
 const USER_AGENT = 'Mozilla/5.0 argument-aloud/download';
 const TIMEOUT_MS = 30_000;
@@ -275,7 +275,7 @@ async function main() {
 
     if (!exists(CACHE_DIR)) {
         console.error(`Cache directory not found: ${relRepo(CACHE_DIR)}`);
-        console.error('Create courts/ussc/cache (or symlink it to your storage location) before running this script.');
+        console.error('Create courts/ussc/cache/terms (or symlink it to your storage location) before running this script.');
         process.exit(1);
     }
 

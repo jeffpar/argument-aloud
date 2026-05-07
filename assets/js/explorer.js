@@ -795,36 +795,57 @@ function makeAudioRingSvg(fraction, orange) {
 
 // Builds the SVG ring icon used around the scales icon when opinion audio exists.
 // blue=true → blue ring (all opinion events titled "Opinion…"); false → purple.
+
+function _svgEl(tag, attrs) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+// Appends scales paths to `g` (a <g> element). Drawn within a 22×22 viewBox
+// centered at (11,11). Pass a CSS transform on the group to resize/reposition.
+function _appendScalesPaths(g) {
+  g.appendChild(_svgEl('line',   { x1: 11,   y1: 5.5,  x2: 11,   y2: 17   })); // pole
+  g.appendChild(_svgEl('line',   { x1: 4,    y1: 7.5,  x2: 18,   y2: 7.5  })); // beam
+  g.appendChild(_svgEl('circle', { cx: 11,   cy: 7.5,  r: 1, fill: 'currentColor', stroke: 'none' })); // knob
+  g.appendChild(_svgEl('line',   { x1: 4,    y1: 7.5,  x2: 2.5,  y2: 13.5 })); // left suspension
+  g.appendChild(_svgEl('line',   { x1: 4,    y1: 7.5,  x2: 5.5,  y2: 13.5 }));
+  g.appendChild(_svgEl('path',   { d: 'M2.5,13.5 Q4,16 5.5,13.5' }));            // left pan
+  g.appendChild(_svgEl('line',   { x1: 18,   y1: 7.5,  x2: 16.5, y2: 13.5 })); // right suspension
+  g.appendChild(_svgEl('line',   { x1: 18,   y1: 7.5,  x2: 19.5, y2: 13.5 }));
+  g.appendChild(_svgEl('path',   { d: 'M16.5,13.5 Q18,16 19.5,13.5' }));         // right pan
+  g.appendChild(_svgEl('line',   { x1: 8.5,  y1: 17,   x2: 13.5, y2: 17   })); // base
+}
+
+// Builds a standalone scales SVG (no ring) for the "decided" indicator.
+function makeScalesSvg() {
+  const svg = _svgEl('svg', { width: 22, height: 22, viewBox: '0 0 22 22' });
+  svg.setAttribute('class', 'case-decided-icon case-scales-icon');
+  const g = _svgEl('g', { stroke: 'currentColor', 'stroke-width': '1.15', fill: 'none', 'stroke-linecap': 'round' });
+  _appendScalesPaths(g);
+  svg.appendChild(g);
+  return svg;
+}
+
 function makeScalesRingSvg(blue) {
   const size = 22, cx = 11, cy = 11, r = 9;
   const color = blue ? '#3778A6' : '#7B5EA7';
 
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('width', size);
-  svg.setAttribute('height', size);
-  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
   svg.setAttribute('title', 'Opinion audio available');
 
-  const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  arc.setAttribute('cx', cx);
-  arc.setAttribute('cy', cy);
-  arc.setAttribute('r', r);
-  arc.setAttribute('fill', 'none');
-  arc.setAttribute('stroke', color);
-  arc.setAttribute('stroke-width', '1.5');
+  const arc = _svgEl('circle', { cx, cy, r, fill: 'none', stroke: color, 'stroke-width': '1.5' });
 
-  const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-  label.setAttribute('x', cx);
-  label.setAttribute('y', cy + 0.5);
-  label.setAttribute('text-anchor', 'middle');
-  label.setAttribute('dominant-baseline', 'middle');
-  label.setAttribute('fill', 'currentColor');
-  label.setAttribute('font-size', '13');
-  label.textContent = '\u2696';
+  // Scale the icon to ~76% so it sits comfortably inside the ring
+  const g = _svgEl('g', {
+    stroke: 'currentColor', 'stroke-width': '1.5', fill: 'none', 'stroke-linecap': 'round',
+    transform: `translate(${cx},${cy}) scale(0.76) translate(-${cx},-${cy})`,
+  });
+  _appendScalesPaths(g);
 
   svg.appendChild(arc);
-  svg.appendChild(label);
+  svg.appendChild(g);
   return svg;
 }
 
@@ -1109,9 +1130,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   if (ring) {
     icon = makeScalesRingSvg(ring.blue);
   } else {
-    icon = document.createElement('span');
-    icon.className = 'case-decided-icon case-scales-icon';
-    icon.textContent = '\u2696';
+    icon = makeScalesSvg();
   }
   if (onClick) {
     icon.title = 'Opinion issued';
@@ -3444,6 +3463,30 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     vHandle.classList.remove('dragging');
     dragShield.style.display = 'none';
     document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+
+  // Touch events for vertical resize (iPad / touch screens)
+  vHandle.addEventListener('touchstart', e => {
+    if (window.innerWidth <= 768) return; // mobile layout: handle hidden
+    vDragging = true;
+    vStartX = e.touches[0].clientX;
+    vStartW = docBrowserPanel.offsetWidth;
+    vHandle.classList.add('dragging');
+    document.body.style.userSelect = 'none';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', e => {
+    if (!vDragging) return;
+    const max = browser.offsetWidth - MIN_RIGHT_PANE;
+    const w = Math.max(140, Math.min(max, vStartW + (e.touches[0].clientX - vStartX)));
+    docBrowserPanel.style.width = w + 'px';
+  }, { passive: false });
+
+  document.addEventListener('touchend', () => {
+    if (!vDragging) return;
+    vDragging = false;
+    vHandle.classList.remove('dragging');
     document.body.style.userSelect = '';
   });
 

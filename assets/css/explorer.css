@@ -1270,6 +1270,16 @@ button.term-case-count.sort-active:hover {
   flex-shrink: 0;
   background: #ddd;
   transition: background 0.1s;
+  touch-action: none;
+  position: relative;
+}
+
+/* Wider invisible touch target for finger-dragging on touch screens */
+.resize-handle--v::before {
+  content: '';
+  position: absolute;
+  inset: 0 -8px;
+  z-index: 1;
 }
 
 .resize-handle--h {
