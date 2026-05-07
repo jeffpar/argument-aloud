@@ -1185,7 +1185,13 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
   if (mode === 'argued') {
     sorted = [...visible].sort((a, b) => (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : (a.title || '').localeCompare(b.title || ''));
   } else if (mode === 'decided') {
-    sorted = [...visible].sort((a, b) => (a.decision || '') < (b.decision || '') ? -1 : (a.decision || '') > (b.decision || '') ? 1 : (a.title || '').localeCompare(b.title || ''));
+    // Undecided cases (no decision date) always sort to the end regardless of direction.
+    const decided   = visible.filter(c =>  c.decision);
+    const undecided = visible.filter(c => !c.decision);
+    decided.sort((a, b) => a.decision < b.decision ? -1 : a.decision > b.decision ? 1 : (a.title || '').localeCompare(b.title || ''));
+    undecided.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    if (!asc) decided.reverse();
+    sorted = [...decided, ...undecided];
   } else if (mode === 'votes') {
     sorted = [...visible].sort((a, b) => {
       const am = a.voteMajority ?? 0, an_ = a.voteMinority ?? 0;
@@ -1198,7 +1204,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
   } else {
     sorted = [...visible].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
   }
-  if (!asc) sorted.reverse();
+  if (mode !== 'decided' && !asc) sorted.reverse();
 
   ul.innerHTML = '';
 
@@ -1459,8 +1465,8 @@ function buildNav(title = 'Terms') {
       ul.className = 'case-list';
 
       // Current sort mode for this term's case list.
-      let _sortMode = 'cases';
-      let _sortAsc  = true;
+      let _sortMode = 'decided';
+      let _sortAsc  = false;
       let _casesCache = null; // cached after first fetch
 
       const _SORT_OPTIONS = [
@@ -1540,15 +1546,26 @@ function buildNav(title = 'Terms') {
         const cases = await fetchTermCases(term);
         _casesCache = cases;
         const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
-        termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
+        termCount.textContent = visible.length + '\u00a0Cases';
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
+      termLi._showSortLabel = () => {
+        if (!_casesCache) return;
+        const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+        termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
+        termCount.classList.add('sort-active');
+      };
 
       termHeader.addEventListener('click', async (e) => {
         if (termTog.contains(e.target)) {
           if (!termLi.classList.toggle('open')) {
             termCount.classList.remove('sort-active');
+            // Reset to plain count label when collapsed
+            if (_casesCache) {
+              const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+              termCount.textContent = visible.length + '\u00a0Cases';
+            }
             updateEmptyStateForTerm(null);
             // Term collapsed — remove term param too.
             const url = new URL(location.href);
@@ -1572,6 +1589,10 @@ function buildNav(title = 'Terms') {
         }
         await ensureBuilt();
         termCount.classList.add('sort-active');
+        if (_casesCache) {
+          const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+          termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
+        }
         updateEmptyStateForTerm(term);
         // Update URL: set term param, clear case/audio/file/turn params.
         const url = new URL(location.href);
@@ -4157,6 +4178,7 @@ async function restoreFromURL() {
       termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
+      termLi._showSortLabel?.();
       // Prefetch counts for remaining terms in the decade (same as clicking the decade header).
       if (decLi) {
         (async () => {
@@ -4252,10 +4274,21 @@ async function restoreFromURL() {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
     if (termLi) {
-      termLi.closest('.decade-group')?.classList.add('open');
+      const decLi = termLi.closest('.decade-group');
+      decLi?.classList.add('open');
       termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
+      termLi._showSortLabel?.();
+      // Prefetch counts for sibling terms in the decade.
+      if (decLi) {
+        (async () => {
+          const termEls = [...decLi.querySelectorAll('.term-group[data-term]')];
+          for (const el of termEls) {
+            await el._ensureCount?.();
+          }
+        })();
+      }
       updateEmptyStateForTerm(termParam);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
