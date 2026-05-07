@@ -1,54 +1,64 @@
 [
   {
-    "title": "All Advocates",
-    "collection": "/courts/ussc/people/advocates/all_advocates.json",
-    "link": "/courts/ussc/people/advocates",
-    "folder": "/courts/ussc/people/advocates/all",
-    "hidden": true
-  },
-  {
-    "title": "Top Advocates",
-    "collection": "/courts/ussc/people/advocates/top/top_advocates.json",
-    "link": "/courts/ussc/people/advocates/top",
-    "folder": "/courts/ussc/people/advocates/all"
-  },
-  {
-    "title": "Justice Advocates",
-    "collection": "/courts/ussc/people/advocates/justices/justice_advocates.json",
-    "link": "/courts/ussc/people/advocates/justices"
-  },
-  {
-    "title": "Transgender Advocates",
-    "collection": "/courts/ussc/people/advocates/transgender/transgender_advocates.json",
-    "folder": "/courts/ussc/people/advocates/all"
-  },
-  {
-    "title": "Women Advocates",
-    "collection": "/courts/ussc/people/advocates/women/women_advocates.json",
-    "link": "/courts/ussc/people/advocates/women",
-    "folder": "/courts/ussc/people/advocates/all"
+    "title": "Advocates",
+    "collections": [
+      {
+        "title": "All Advocates",
+        "file": "/courts/ussc/people/advocates/all_advocates.json",
+        "link": "/courts/ussc/people/advocates",
+        "folder": "/courts/ussc/people/advocates/all",
+        "order": "argued:descending",
+        "hidden": true
+      },
+      {
+        "title": "Top Advocates",
+        "file": "/courts/ussc/people/advocates/top/top_advocates.json",
+        "link": "/courts/ussc/people/advocates/top",
+        "folder": "/courts/ussc/people/advocates/all",
+        "order": "argued:descending"
+      },
+      {
+        "title": "Justice Advocates",
+        "file": "/courts/ussc/people/advocates/justices/justice_advocates.json",
+        "link": "/courts/ussc/people/advocates/justices",
+        "order": "argued:ascending"
+      },
+      {
+        "title": "Women Advocates",
+        "file": "/courts/ussc/people/advocates/women/women_advocates.json",
+        "link": "/courts/ussc/people/advocates/women",
+        "folder": "/courts/ussc/people/advocates/all",
+        "order": "argued:descending"
+      },
+      {
+        "title": "Transgender Advocates",
+        "file": "/courts/ussc/people/advocates/transgender/transgender_advocates.json",
+        "folder": "/courts/ussc/people/advocates/all",
+        "order": "argued:descending"
+      }
+    ]
   },
   {
     "title": "Historical Briefs",
-    "collection": "/courts/ussc/collections/briefs.json",
+    "file": "/courts/ussc/collections/briefs.json",
     "categories": ["Petitioner", "Respondent", "Amicus", "Briefs", "Transcripts", "Other"]
   },
   {
     "title": "Historical Transcripts",
-    "collection": "/courts/ussc/collections/transcripts.json",
+    "file": "/courts/ussc/collections/transcripts.json",
     "categories": ["Briefs", "Transcripts", "Other"]
   },
   {
     "title": "Noteworthy Cases",
-    "collection": "/courts/ussc/collections/noteworthy.json"
+    "file": "/courts/ussc/collections/noteworthy.json"
   },
   {
     "title": "Lone Dissenters",
-    "collection": "/courts/ussc/people/justices/loners.json",
+    "file": "/courts/ussc/people/justices/loners.json",
     "folder": "/courts/ussc/people/justices/loners"
   },
   {
     "title": "Oral Dissents",
-    "collection": "/courts/ussc/people/justices/dissents.json"
+    "file": "/courts/ussc/people/justices/dissents.json"
   }
 ]

@@ -382,6 +382,12 @@ button.term-case-count.sort-active:hover {
   padding-right: 2px;
 }
 
+/* Hide audio/scales icons when collection is sorted by date */
+.month-case-list.coll-sort-date .case-decided-icon,
+.month-case-list.coll-sort-date .case-audio-deficit {
+  display: none;
+}
+
 .case-list {
   display: none;
   padding-left: 4px;
