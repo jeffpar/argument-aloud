@@ -2159,8 +2159,10 @@ async function backfillOpinionHrefs(casesPath, term) {
         if (!opinion) continue;
         const href = opinion.href;
         const cite = opinion.cite || '';
+        const date = opinion.date || '';
         const existingHref = c.opinion_href || '';
         const existingCite = c.usCite || '';
+        const existingDate = c.decision || '';
 
         const updateHref = (
             !existingHref.startsWith('https://web.archive.org/')
@@ -2168,12 +2170,21 @@ async function backfillOpinionHrefs(casesPath, term) {
             && existingHref !== href
         );
         const updateCite = !!(cite && existingCite !== cite);
+        const updateDate = !!(date && existingDate !== date);
 
-        if (!updateHref && !updateCite) continue;
+        if (!updateHref && !updateCite && !updateDate) continue;
 
         const newCase = {};
-        let citeInserted = false, hrefInserted = false;
+        let dateInserted = false, citeInserted = false, hrefInserted = false;
         for (const [k, v] of Object.entries(c)) {
+            // Insert decision after reargument (if present) or after argument.
+            if ((k === 'events' || k === 'reargument' || k === 'argument') && updateDate && !dateInserted) {
+                // Only insert here if this is 'events' (decision goes before events in key order).
+                if (k === 'events') {
+                    newCase.decision = date;
+                    dateInserted = true;
+                }
+            }
             if (k === 'events' && updateCite && !citeInserted) {
                 newCase.usCite = cite;
                 citeInserted = true;
@@ -2182,17 +2193,20 @@ async function backfillOpinionHrefs(casesPath, term) {
                 newCase.opinion_href = href;
                 hrefInserted = true;
             }
+            if (k === 'decision' && updateDate) continue;
             if (k === 'usCite' && updateCite) continue;
             if (k === 'opinion_href' && updateHref) continue;
             newCase[k] = v;
         }
         if (updateHref && !hrefInserted) newCase.opinion_href = href;
         if (updateCite && !citeInserted) newCase.usCite = cite;
+        if (updateDate && !dateInserted) newCase.decision = date;
         for (const k of Object.keys(c)) delete c[k];
         Object.assign(c, newCase);
         casesModified = true;
         if (updateHref) console.log(`  ${number}: opinion_href → ${href}`);
         if (updateCite) console.log(`  ${number}: usCite → ${cite}`);
+        if (updateDate) console.log(`  ${number}: decision → ${date}`);
 
         const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');
         if (exists(filesPath)) {

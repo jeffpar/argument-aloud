@@ -614,6 +614,18 @@ function caseId(caseEntry) {
   return caseEntry.id || caseEntry.number || '';
 }
 
+// Preferred URL 'case' param for a case entry given its sibling cases.
+// Uses the first docket number (split on ',') when it is unique across all
+// cases in the term; falls back to caseEntry.id so the param stays stable.
+function _caseUrlId(caseEntry, allCases) {
+  if (caseEntry.number) {
+    const firstNum = caseEntry.number.split(',')[0].trim();
+    const unique = allCases.filter(c => c.number && c.number.split(',')[0].trim() === firstNum).length === 1;
+    if (unique) return firstNum;
+  }
+  return caseEntry.id || (caseEntry.number ? caseEntry.number.split(',')[0].trim() : '');
+}
+
 // Directory name for the case on the filesystem — uses number first since
 // case directories are named by docket number, not the lonedissent id.
 function caseDirName(caseEntry) {
@@ -887,9 +899,20 @@ function _makeCaseFileItem(f, caseEntry) {
       const fileKey = f.file != null ? String(f.file)
         : f.href ? f.href.split('/').pop() : null;
       if (fileKey) {
+        // Only update the URL if this file belongs to the currently URL-encoded case.
+        const ci = fi.closest('.case-item');
+        const caseKey = ci?.dataset.caseKey || '';
+        const slash = caseKey.indexOf('/');
+        const fileTerm = slash >= 0 ? caseKey.slice(0, slash) : '';
+        const fileCase = slash >= 0 ? caseKey.slice(slash + 1) : '';
         const url = new URL(location.href);
-        url.searchParams.set('file', fileKey);
-        history.replaceState(null, '', url);
+        const urlMatches = !fileTerm || !fileCase
+          || (url.searchParams.get('term') === fileTerm
+              && url.searchParams.get('case') === fileCase);
+        if (urlMatches) {
+          url.searchParams.set('file', fileKey);
+          history.replaceState(null, '', url);
+        }
       }
     }
     // No-audio cases have no transcript pane, so expand the doc viewer full-height.
@@ -1109,7 +1132,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
 const _SORT_MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function _sortModeLabel(mode, count) {
-  if (mode === 'cases') return '(' + count + '\u00a0Cases)';
+  if (mode === 'cases') return count + '\u00a0Cases';
   if (mode === 'argued')  return 'Argued';
   if (mode === 'decided') return 'Decided';
   if (mode === 'votes')   return 'Votes';
@@ -1129,6 +1152,13 @@ function _fmtMonthDay(dateStr) {
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode) {
   const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+
+  // Precompute URL ids for all cases in the term (not just visible) so the
+  // uniqueness check is accurate and stable across sort modes.
+  const _firstNumOf = (c) => c.number ? c.number.split(',')[0].trim() : '';
+  const _numCount = new Map();
+  for (const c of cases) { const n = _firstNumOf(c); if (n) _numCount.set(n, (_numCount.get(n) || 0) + 1); }
+  const urlIdOf = (c) => { const n = _firstNumOf(c); return (n && _numCount.get(n) === 1) ? n : (c.id || n || ''); };
 
   let sorted;
   if (mode === 'argued') {
@@ -1151,7 +1181,8 @@ function buildTermCasesSorted(term, cases, ul, mode) {
   ul.innerHTML = '';
 
   sorted.forEach(caseEntry => {
-    const caseKey = term + '/' + caseId(caseEntry);
+    const urlId = urlIdOf(caseEntry);
+    const caseKey = term + '/' + urlId;
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
     const hasAudio      = !!caseEntry.events?.some(a => a.audio_href);
     const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href);
@@ -1164,7 +1195,7 @@ function buildTermCasesSorted(term, cases, ul, mode) {
       hasFiles: !!caseEntry.files,
       caseNumber: caseEntry.number || '',
       href:     buildUrlParams(
-        { term, case: caseId(caseEntry) },
+        { term, case: urlId },
         ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
       ),
     });
@@ -1203,7 +1234,7 @@ function buildTermCasesSorted(term, cases, ul, mode) {
             } else {
               markCaseItemActive(ci);
               const url = buildUrlParams(
-                { term, case: caseId(caseEntry) },
+                { term, case: urlId },
                 ['collection', 'event', 'file', 'turn'],
               );
               history.pushState(null, '', url);
@@ -1285,7 +1316,7 @@ function buildTermCasesSorted(term, cases, ul, mode) {
       await ensureFilesLoaded();
       if (!fromRestore) {
         const url = buildUrlParams(
-          { term, case: caseId(caseEntry) },
+          { term, case: urlId },
           ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
         );
         history.pushState(null, '', url);
@@ -1349,7 +1380,7 @@ function buildNav(title = 'Terms') {
     decHeader.addEventListener('click', () => {
       decLi.classList.toggle('open');
       if (decLi.classList.contains('open')) {
-        // Prefetch case counts for all terms in this decade, in order.
+        // Prefetch case counts for all terms in this decade, newest first.
         (async () => {
           const termEls = [...decUl.querySelectorAll('.term-group[data-term]')];
           for (const el of termEls) {
@@ -1452,7 +1483,7 @@ function buildNav(title = 'Terms') {
       // term header's expand/collapse click doesn't also fire.
       termCount.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (_casesCache === null) return; // not loaded yet, nothing to sort
+        if (_casesCache === null || !termLi.classList.contains('open')) return;
         _showSortMenu();
       });
 
@@ -1465,7 +1496,6 @@ function buildNav(title = 'Terms') {
         buildTermCasesSorted(term, cases, ul, _sortMode);
         const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length);
-        termCount.classList.add('sort-active');
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
       const ensureCount = async () => {
@@ -1474,7 +1504,6 @@ function buildNav(title = 'Terms') {
         _casesCache = cases;
         const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length);
-        termCount.classList.add('sort-active');
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
@@ -1482,6 +1511,7 @@ function buildNav(title = 'Terms') {
       termHeader.addEventListener('click', async () => {
         if (termLi.classList.toggle('open')) {
           await ensureBuilt();
+          termCount.classList.add('sort-active');
           updateEmptyStateForTerm(term);
           // Update URL: set term param, clear case/audio/file/turn params.
           const url = new URL(location.href);
@@ -1497,6 +1527,7 @@ function buildNav(title = 'Terms') {
           url.searchParams.delete('turn');
           history.pushState(null, '', url);
         } else {
+          termCount.classList.remove('sort-active');
           updateEmptyStateForTerm(null);
           // Term collapsed — remove term param too.
           const url = new URL(location.href);
@@ -2993,9 +3024,28 @@ function renderTranscript() {
       } else {
         div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      // Update URL with turn number
+      // Update URL with turn number, re-anchoring to the case that owns this transcript
+      // (the URL term/case may have drifted if the user expanded a different term).
       const turnId = turn.turn ?? (idx + 1);
-      const url = buildUrlParams({ turn: turnId });
+      const activeCI = document.querySelector('.case-item.active');
+      const caseKey = activeCI?.dataset.caseKey || '';
+      const slashIdx = caseKey.indexOf('/');
+      const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
+      const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
+      let url;
+      if (ciTerm && ciCase) {
+        url = buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
+          ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link']);
+        // Scroll the case back into view in the sidebar if it's been scrolled away.
+        if (activeCI) {
+          activeCI.closest('.term-group')?.classList.add('open');
+          activeCI.closest('.decade-group')?.classList.add('open');
+          activeCI.closest('[data-section="terms"]')?.classList.add('open');
+          requestAnimationFrame(() => activeCI.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+        }
+      } else {
+        url = buildUrlParams({ turn: turnId });
+      }
       history.replaceState(null, '', url);
     });
     frag.appendChild(div);
@@ -3688,7 +3738,7 @@ async function init() {
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {
-        TERMS_GROUPED = data;
+        TERMS_GROUPED = [...data].reverse().map(d => ({ ...d, pages: [...(d.pages || [])].reverse() }));
         // Build flat TERMS array for lookups (term derived from cases URL).
         TERMS = data.flatMap(decade =>
           (decade.pages || []).map(page => {
@@ -3891,7 +3941,7 @@ async function restoreFromURL() {
           || c.number.split(',').map(n => n.trim()).includes(caseParam);
       });
       const resolvedKey = matchedCase
-        ? termParam + '/' + caseId(matchedCase)
+        ? termParam + '/' + _caseUrlId(matchedCase, termCases)
         : termParam + '/' + caseParam;
       const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
