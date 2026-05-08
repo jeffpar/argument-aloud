@@ -963,7 +963,7 @@ function _renderFileGroup(fileUl, label, files, makeFileItem) {
 
   const typeTog = document.createElement('span');
   typeTog.className = 'file-type-toggle';
-  typeTog.textContent = '\u25b6';
+  typeTog.textContent = '▶';
 
   typeHeader.appendChild(typeTog);
   typeHeader.appendChild(typeLabel);
@@ -1004,6 +1004,28 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
 
   _applyTranscriptViews(rawFiles, caseEntry);
   _injectVirtualTranscripts(rawFiles, caseEntry, opts.argumentDates ?? null);
+
+  // When opinion_href is set, drop any opinion entries from files.json (prefer opinion_href).
+  // When no opinion_href, normalise files.json opinion titles to "Decision on <date>".
+  if (caseEntry.opinion_href) {
+    const idx = rawFiles.findIndex(f => (f.type || '').toLowerCase() === 'opinion');
+    if (idx !== -1) rawFiles.splice(idx, 1);
+  } else {
+    rawFiles.forEach(f => {
+      if ((f.type || '').toLowerCase() === 'opinion') {
+        const dateStr = f.date || caseEntry.decision || '';
+        f.title = dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision';
+      }
+    });
+  }
+
+  // When opinion_href is set, append a "Decision on <Date>" entry after any transcripts.
+  if (caseEntry.opinion_href) {
+    const title = caseEntry.decision
+      ? 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision)
+      : 'Decision';
+    rawFiles.push({ type: 'opinion', title, href: caseEntry.opinion_href });
+  }
 
   const { entries, hideToggle = false } = opts.computeEntries(rawFiles);
   const makeFileItem = (f) => _makeCaseFileItem(f, caseEntry);
@@ -1049,7 +1071,7 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, cas
 
   const toggle = document.createElement('span');
   toggle.className = 'case-toggle';
-  toggle.textContent = '\u25b6'; // ▶
+  toggle.textContent = '▶';
   if (!hasFiles) toggle.style.display = 'none';
 
   const titleSpan = href ? document.createElement('a') : document.createElement('span');
@@ -1311,6 +1333,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           }
           const transcriptFiles = groups.transcript || [];
           delete groups.transcript;
+          const opinionFiles = groups.opinion || [];
+          delete groups.opinion;
           const effectiveOrder = MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER;
           const entries = [];
           effectiveOrder.forEach(typeKey => {
@@ -1319,6 +1343,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             entries.push({ kind: isSoloOther ? 'flat' : 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
           });
           if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
+          if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           const groupEntries = entries.filter(e => e.kind === 'group');
           if (groupEntries.length === 1) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
           return { entries };
@@ -1348,6 +1373,14 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
         );
         history.pushState(null, '', url);
+      } else {
+        // Normalise the URL to use the canonical urlId (the URL may have arrived
+        // via an id-based param like ?case=1959-099 instead of ?case=376).
+        const url = new URL(location.href);
+        if (url.searchParams.get('case') !== urlId) {
+          url.searchParams.set('case', urlId);
+          history.replaceState(null, '', url);
+        }
       }
       loadCase(term, caseEntry, audioIdx);
       if (fileRestore != null && !caseEntry.events?.length) {
@@ -1375,19 +1408,23 @@ function buildNav(title = 'Terms') {
   termsHeader.className = 'terms-header';
   const termsTog = document.createElement('span');
   termsTog.className = 'terms-toggle';
-  termsTog.textContent = '\u25b6';
+  termsTog.textContent = '▶';
   const termsLabel = document.createElement('span');
   termsLabel.className = 'terms-label';
   termsLabel.textContent = title;
   termsHeader.appendChild(termsTog);
   termsHeader.appendChild(termsLabel);
+  const _navSearchBtn = document.getElementById('nav-search-btn');
+  if (_navSearchBtn) { _navSearchBtn.removeAttribute('hidden'); termsHeader.appendChild(_navSearchBtn); }
   termsHeader.addEventListener('click', (e) => {
     if (termsTog.contains(e.target)) termsLi.classList.toggle('open');
     else if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
   });
   termsLi.appendChild(termsHeader);
+  const _navSearchRow = document.getElementById('nav-search-row');
   const termsUl = document.createElement('ul');
   termsUl.className = 'terms-list-inner';
+  if (_navSearchRow) termsLi.appendChild(_navSearchRow);
   termsLi.appendChild(termsUl);
   termListEl.appendChild(termsLi);
 
@@ -1400,7 +1437,7 @@ function buildNav(title = 'Terms') {
 
     const decTog = document.createElement('span');
     decTog.className = 'decade-toggle';
-    decTog.textContent = '\u25b6';
+    decTog.textContent = '▶';
 
     const decLabel = document.createElement('span');
     decLabel.className = 'decade-label';
@@ -1445,7 +1482,7 @@ function buildNav(title = 'Terms') {
 
       const termTog = document.createElement('span');
       termTog.className = 'term-toggle';
-      termTog.textContent = '\u25b6';
+      termTog.textContent = '▶';
 
       const label = document.createElement('span');
       label.className = 'term-label';
@@ -1465,8 +1502,12 @@ function buildNav(title = 'Terms') {
       ul.className = 'case-list';
 
       // Current sort mode for this term's case list.
-      let _sortMode = 'decided';
-      let _sortAsc  = false;
+      // The "current term" is YYYY-10 where YYYY = this year if month >= Oct, else last year.
+      const _now = new Date();
+      const _currentTerm = (_now.getMonth() >= 9 ? _now.getFullYear() : _now.getFullYear() - 1) + '-10';
+      const _isCurrentTerm = term === _currentTerm;
+      let _sortMode = _isCurrentTerm ? 'decided' : 'cases';
+      let _sortAsc  = !_isCurrentTerm;
       let _casesCache = null; // cached after first fetch
 
       const _SORT_OPTIONS = [
@@ -1647,7 +1688,7 @@ function buildCollectionsNav(title = 'Collections') {
 
   const sectionTog = document.createElement('span');
   sectionTog.className = 'terms-toggle';
-  sectionTog.textContent = '\u25b6';
+  sectionTog.textContent = '▶';
 
   const sectionLabel = document.createElement('span');
   sectionLabel.className = 'terms-label';
@@ -1709,7 +1750,7 @@ function buildStaticNavSection(termListEl, entry) {
 
   const tog = document.createElement('span');
   tog.className = 'terms-toggle';
-  tog.textContent = '\u25b6';
+  tog.textContent = '▶';
 
   const label = document.createElement('span');
   label.className = 'terms-label';
@@ -1749,7 +1790,7 @@ function buildStaticPageItem(parentUl, page) {
 
     const tog = document.createElement('span');
     tog.className = 'term-toggle';
-    tog.textContent = '\u25b6';
+    tog.textContent = '▶';
 
     let label;
     if (page.link) {
@@ -1863,7 +1904,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     groupHeader.className = 'term-header';
     const groupTog = document.createElement('span');
     groupTog.className = 'term-toggle';
-    groupTog.textContent = '\u25b6';
+    groupTog.textContent = '▶';
     const groupLabel = document.createElement('span');
     groupLabel.className = 'term-label';
     groupLabel.textContent = collEntry.title;
@@ -1898,7 +1939,7 @@ function buildCollectionItem(sectionUl, collEntry) {
 
   const collTog = document.createElement('span');
   collTog.className = 'term-toggle';
-  collTog.textContent = '\u25b6';
+  collTog.textContent = '▶';
 
   const collLabel = document.createElement('span');
   collLabel.className = 'term-label';
@@ -2277,8 +2318,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
           return activeCats[0];
         }
 
+        const opinionFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion');
         const groups = {};
         rawFiles.forEach(f => {
+          if ((f.type || '').toLowerCase() === 'opinion') return;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -2311,6 +2354,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
             files: groups[typeKey],
           });
         });
+        if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 
         // Also hide the toggle when the only available files are transcript entries —
         // transcript-only cases are not considered "browsable" via the toggle.
@@ -2423,7 +2467,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
     const groupTog = document.createElement('span');
     groupTog.className = 'month-toggle';
-    groupTog.textContent = '\u25b6';
+    groupTog.textContent = '▶';
 
     const groupName = document.createElement('span');
     groupName.className = 'month-name';
@@ -2740,6 +2784,11 @@ function loadCaseAsOpinion(term, caseEntry) {
   const _navKeys = [caseKey];
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _navKeys.push(term + '/' + caseEntry.number);
+  if (caseEntry.number) {
+    const _firstNum = caseEntry.number.split(',')[0].trim();
+    const _firstNumKey = term + '/' + _firstNum;
+    if (!_navKeys.includes(_firstNumKey)) _navKeys.push(_firstNumKey);
+  }
   _navKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
     .forEach(el => el.classList.add('active')));
   // When switching cases, collapse file lists for every non-active case.
@@ -3092,6 +3141,11 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   const _activeKeys = [caseKey];
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _activeKeys.push(term + '/' + caseEntry.number);
+  if (caseEntry.number) {
+    const _firstNum = caseEntry.number.split(',')[0].trim();
+    const _firstNumKey = term + '/' + _firstNum;
+    if (!_activeKeys.includes(_firstNumKey)) _activeKeys.push(_firstNumKey);
+  }
   // The active sibling among collection items for this case is the one whose
   // audioDate matches the resolved event's date. (caseRef.event numbering is
   // a 1-based index into the original events[] array; resolvedOptionValue
@@ -3258,8 +3312,9 @@ function renderTranscript() {
       if (ciTerm && ciCase) {
         url = buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
           ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link']);
-        // Scroll the case back into view in the sidebar if it's been scrolled away.
-        if (activeCI) {
+        // Desktop only: keep the active case visible in the sidebar. On mobile,
+        // tapping a turn should not shift the viewport or reveal the explorer pane.
+        if (activeCI && !isMobile()) {
           activeCI.closest('.term-group')?.classList.add('open');
           activeCI.closest('.decade-group')?.classList.add('open');
           activeCI.closest('[data-section="terms"]')?.classList.add('open');
@@ -3948,8 +4003,9 @@ function findFileItem(param) {
       dg.style.display = dg.querySelector('.nav-search-match') ? '' : 'none';
     });
 
-    // Hide the Terms section entirely if no matches at all
-    termsSectionEl.style.display = termsSectionEl.querySelector('.nav-search-match') ? '' : 'none';
+    // Keep the Terms section (including the search UI) visible even when
+    // there are no matches; only inner groups/cases are filtered.
+    termsSectionEl.style.display = '';
 
     // Scroll first match into view
     const firstMatch = document.querySelector('.nav-search-match');

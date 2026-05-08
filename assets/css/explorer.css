@@ -72,24 +72,9 @@ body {
   padding: 16px 12px;
 }
 
-#nav-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-#doc-browser h3 {
-  margin: 0;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
-}
-
 #nav-search-btn {
   flex-shrink: 0;
+  margin-left: auto;
   background: none;
   border: none;
   cursor: pointer;
@@ -1611,7 +1596,6 @@ button.term-case-count.sort-active:hover {
 
   /* Sidebar */
   #doc-browser { background: #1a1c22; }
-  #doc-browser h3 { color: #6c7280; }
   #nav-copyright { color: #555; }
   #nav-copyright a { color: #555; }
 
