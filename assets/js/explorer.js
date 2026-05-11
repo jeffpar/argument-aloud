@@ -127,28 +127,13 @@ function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Show a journal cover in the transcript pane when a term with journal_cover
-// is selected but no case is loaded. Pass null to restore the default message.
+// Show the home page when a term is opened and no other content is displayed.
+// Pass null when a term is collapsed (no-op; leave whatever is currently shown).
 function updateEmptyStateForTerm(term) {
-  if (emptyState.style.display === 'none') return;
-  const termEntry = term ? TERMS.find(t => t.term === term) : null;
-  if (termEntry?.journal_cover && termEntry?.journal_href) {
-    const imgUrl = '/courts/ussc/terms/' + term + '/' + termEntry.journal_cover;
-    emptyState.innerHTML = '';
-    const a = document.createElement('a');
-    a.href = termEntry.journal_href;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.title = 'Open journal for ' + (termEntry.title || term);
-    const img = document.createElement('img');
-    img.src = imgUrl;
-    img.alt = 'Journal cover for ' + (termEntry.title || term);
-    img.id = 'journal-cover-img';
-    a.appendChild(img);
-    emptyState.appendChild(a);
-  } else {
-    emptyState.innerHTML = _emptyStateDefault;
-  }
+  if (!term) return;                         // term collapsed — leave current view
+  if (emptyState.style.display === 'none') return;  // case transcript is active
+  if (!pageViewer.hidden) return;            // a page is already displayed
+  showPageViewer('/courts/ussc/home', { pushState: false });
 }
 
 function audioEntryLabel(a) {
