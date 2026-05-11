@@ -1317,28 +1317,29 @@ async function main() {
         const caseFile = path.join(ADVOCATES_DIR, `${advId}.json`);
         let existingDetails = {};
         let existingHighlights = [];
-        let existingLink = null;
         if (exists(caseFile)) {
             try {
                 const raw = readJson(caseFile);
                 if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
                     existingDetails = raw.details || {};
                     existingHighlights = raw.highlights || [];
-                    if (raw.link != null) existingLink = raw.link;
                 }
             } catch { /* ignore */ }
         }
-        // Auto-derive link from featured folder if an index.md exists there.
+        // Auto-derive page link from featured folder if an index.md exists there.
         const featuredDir = path.join(FEATURED_DIR, advId);
         const featuredLink = exists(path.join(featuredDir, 'index.md'))
             ? '/courts/ussc/people/advocates/featured/' + advId
             : null;
-        const resolvedLink = featuredLink ?? existingLink;
+        // featuredLink takes precedence; fall back to whatever is already in details.page.
+        const resolvedLink = featuredLink ?? existingDetails.page ?? null;
+        const mergedDetails = { ...existingDetails };
+        if (resolvedLink != null) mergedDetails.page = resolvedLink;
+        else delete mergedDetails.page;
         const envelope = {
-            details: existingDetails,
+            details: mergedDetails,
             highlights: existingHighlights,
         };
-        if (resolvedLink != null) envelope.link = resolvedLink;
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
         }

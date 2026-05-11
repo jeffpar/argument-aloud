@@ -8,57 +8,67 @@
         "link": "/courts/ussc/people/advocates",
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argued:descending",
-        "hidden": true
+        "search": "name",
+        "hidden": false
       },
       {
         "title": "Top Advocates",
         "file": "/courts/ussc/people/advocates/top/top_advocates.json",
         "link": "/courts/ussc/people/advocates/top",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending"
+        "order": "argued:descending",
+        "search": "name"
       },
       {
         "title": "Justice Advocates",
         "file": "/courts/ussc/people/advocates/justices/justice_advocates.json",
         "link": "/courts/ussc/people/advocates/justices",
-        "order": "argued:ascending"
+        "order": "argued:ascending",
+        "search": "name"
       },
       {
         "title": "Women Advocates",
         "file": "/courts/ussc/people/advocates/women/women_advocates.json",
         "link": "/courts/ussc/people/advocates/women",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending"
+        "order": "argued:descending",
+        "search": "name"
       },
       {
         "title": "Transgender Advocates",
         "file": "/courts/ussc/people/advocates/transgender/transgender_advocates.json",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending"
+        "order": "argued:descending",
+        "search": "name"
       }
     ]
   },
   {
     "title": "Historical Briefs",
     "file": "/courts/ussc/collections/briefs.json",
+    "search": "cases:title",
     "categories": ["Petitioner", "Respondent", "Amicus", "Briefs", "Transcripts", "Other"]
   },
   {
     "title": "Historical Transcripts",
     "file": "/courts/ussc/collections/transcripts.json",
+    "search": "cases:title",
     "categories": ["Briefs", "Transcripts", "Other"]
   },
   {
     "title": "Noteworthy Cases",
-    "file": "/courts/ussc/collections/noteworthy.json"
+    "file": "/courts/ussc/collections/noteworthy.json",
+    "search": "cases:title"
   },
   {
     "title": "Lone Dissenters",
     "file": "/courts/ussc/people/justices/loners.json",
-    "folder": "/courts/ussc/people/justices/loners"
+    "folder": "/courts/ussc/people/justices/loners",
+    "search": "name"
   },
   {
     "title": "Oral Dissents",
-    "file": "/courts/ussc/people/justices/dissents.json"
+    "file": "/courts/ussc/people/justices/dissents.json",
+    "search": "cases:title"
   }
 ]

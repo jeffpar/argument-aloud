@@ -60,14 +60,14 @@ Take the case of [Aaron v. Cooper (No. 1 Misc)](/courts/ussc/?term=1958-08&case=
 
 Another anomaly arises when the Court invites *amicus* parties to argue on behalf of a *set* of cases, rather than a specific case.  For example, in the 1962 term, the following cases were argued over a period of three days:
 
-  - [Avent v. North Carolina (No. 11)](https://www.oyez.org/cases/1962/11)
-  - [Griffin v. Maryland (No. 26)](https://www.oyez.org/cases/1962/6)
-  - [Lombard v. Louisiana (No. 58)](https://www.oyez.org/cases/1962/58)
-  - [Gober v. Birmingham (No. 66)](https://www.oyez.org/cases/1962/66)
-  - [Shuttlesworth v. Birmingham (No. 67)](https://www.oyez.org/cases/1962/67)
-  - [Peterson v. Greenville (No. 71)](https://www.oyez.org/cases/1962/71)
+  - [Avent v. North Carolina (No. 11)](/courts/ussc/?term=1962-10&case=11) [[Oyez](https://www.oyez.org/cases/1962/11)]
+  - [Griffin v. Maryland (No. 26)](/courts/ussc/?term=1963-10&case=6) [[Oyez](https://www.oyez.org/cases/1962/6)]
+  - [Lombard v. Louisiana (No. 58)](/courts/ussc/?term=1962-10&case=58) [[Oyez](https://www.oyez.org/cases/1962/58)]
+  - [Gober v. Birmingham (No. 66)](/courts/ussc/?term=1962-10&case=66) [[Oyez](https://www.oyez.org/cases/1962/66)]
+  - [Shuttlesworth v. Birmingham (No. 67)](/courts/ussc/?term=1962-10&case=67) [[Oyez](https://www.oyez.org/cases/1962/67)]
+  - [Peterson v. Greenville (No. 71)](/courts/ussc/?term=1962-10&case=71) [[Oyez](https://www.oyez.org/cases/1962/71)]
 
-On the third day, the Solicitor General and others then argued as *amici*, and while the Solicitor General argued with respect to *all* the cases, other attorneys (e.g., Joseph Kaufman) argued only with respect to specific cases (e.g., No. 26).  Unfortunately, Oyez didn't have an easy way to attach *amicus* arguments to multiple cases, so it simply tacked all the *amicus* arguments onto [Shuttlesworth v. City of Birmingham (No. 67)](https://www.oyez.org/cases/1962/67) [see November 7, 1962].  Since there are no notations to explain this, anyone looking for the complete set of arguments in another case (e.g., Griffin v. Maryland) will not know where to find the *amicus* arguments, or even that they exist.
+On the third day, the Solicitor General and others then argued as *amici*, and while the Solicitor General argued with respect to *all* the cases, other attorneys (e.g., Joseph Kaufman) argued only with respect to specific cases (e.g., No. 26).  Unfortunately, Oyez didn't have an easy way to attach *amicus* arguments to multiple cases, so it simply tacked all the *amicus* arguments onto **Shuttlesworth v. City of Birmingham** [see [November 7, 1962](https://www.oyez.org/cases/1962/67)].  Since there are no notations to explain this, anyone looking for the complete set of arguments in another case (e.g., **Griffin v. Maryland**) will not know where to find the *amicus* arguments, or even that they exist.
 
 These exceptions are what consume 90% of the time required to audit a single term.  90% of all argued cases match up perfectly between Journals, NARA records, and Oyez records -- quickly and automatically.  It's figuring out what's wrong with the remaining 10% that can take hours of sleuthing.  As the process moves forward in time, the process should improve and the number of exceptions shrink.
 

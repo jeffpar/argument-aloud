@@ -1866,6 +1866,35 @@ function buildStaticPageItem(parentUl, page) {
   parentUl.appendChild(li);
 }
 
+// Show an advocate's document (details.document) in the doc-viewer, optionally
+// alongside a link page in the page-viewer above it.
+// documentUrl  — the PDF/iframe URL (details.document)
+// linkUrl      — if set, show this in the page-viewer above; if null, doc-viewer
+//                expands to fill the whole right pane (no-audio CSS trick).
+function showAdvocateDocument(documentUrl, linkUrl, groupName) {
+  playerSection.hidden = true;
+  audioControls.hidden = true;
+  document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active', 'open'));
+  document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
+
+  if (linkUrl) {
+    // Show link page in top half, document in doc-viewer below.
+    transcriptViewer.hidden = true;
+    pageViewer.hidden = false;
+    const pf = document.getElementById('page-viewer-frame');
+    if (pf.src !== new URL(linkUrl, location.href).href) pf.src = linkUrl;
+    transcriptViewer.classList.remove('no-audio');
+  } else {
+    // Document only: hide page-viewer, use no-audio trick so doc-viewer fills right pane.
+    transcriptViewer.hidden = false;
+    transcriptViewer.classList.add('no-audio');
+    pageViewer.hidden = true;
+    document.getElementById('page-viewer-frame').src = '';
+  }
+
+  showDocViewer({ href: documentUrl, title: groupName || '', view: 'pane' }, { autoScroll: false });
+}
+
 function showPageViewer(url, { pushState = true } = {}) {
   playerSection.hidden = true;
   audioControls.hidden = true;
@@ -2016,12 +2045,15 @@ function buildCollectionItem(sectionUl, collEntry) {
 
   collLi._ensureBuilt = _ensureCollectionBuilt;
 
+  let _onCollClose = null;
+
   collHeader.addEventListener('click', async (e) => {
     e.stopPropagation();
     if (collTog.contains(e.target)) {
       // Toggle click: can open or close.
       collLi.classList.toggle('open');
       if (!collLi.classList.contains('open')) {
+        _onCollClose?.();
         const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
         history.pushState(null, '', url);
         return;
@@ -2036,7 +2068,127 @@ function buildCollectionItem(sectionUl, collEntry) {
     history.pushState(null, '', url);
   });
 
+  // ── Collection inline search ─────────────────────────────────────────────
+  let _collSearchRow = null;
+  if (collEntry.search) {
+    const _collSearchBtn = document.createElement('button');
+    _collSearchBtn.type = 'button';
+    _collSearchBtn.className = 'coll-search-btn';
+    _collSearchBtn.textContent = '\u{1F50D}';
+    _collSearchBtn.title = 'Search ' + collEntry.title;
+    _collSearchBtn.setAttribute('aria-label', 'Search ' + collEntry.title);
+    collHeader.appendChild(_collSearchBtn);
+
+    _collSearchRow = document.createElement('div');
+    _collSearchRow.className = 'coll-search-row';
+    _collSearchRow.hidden = true;
+    _collSearchRow.addEventListener('click', e => e.stopPropagation());
+
+    const _collSearchInput = document.createElement('input');
+    _collSearchInput.type = 'search';
+    _collSearchInput.className = 'coll-search-input';
+    _collSearchInput.placeholder = 'Search\u2026';
+    _collSearchInput.setAttribute('autocomplete', 'off');
+    _collSearchInput.setAttribute('spellcheck', 'false');
+
+    const _collSearchClear = document.createElement('button');
+    _collSearchClear.type = 'button';
+    _collSearchClear.className = 'coll-search-clear';
+    _collSearchClear.textContent = '\u00d7';
+    _collSearchClear.title = 'Close search';
+    _collSearchClear.setAttribute('aria-label', 'Close search');
+
+    _collSearchRow.appendChild(_collSearchInput);
+    _collSearchRow.appendChild(_collSearchClear);
+
+    const _searchIsCompound = collEntry.search && collEntry.search.includes(':');
+
+    function _runCollSearch(q) {
+      const _groups = collUl.querySelectorAll('.month-group');
+      if (!q) {
+        // Collapse all groups and restore all items — clean slate.
+        _groups.forEach(g => {
+          g.style.display = '';
+          g.classList.remove('open');
+          if (_searchIsCompound) g.querySelectorAll('.case-item').forEach(ci => { ci.style.display = ''; });
+        });
+        return;
+      }
+      const _ql = q.toLowerCase();
+      if (_searchIsCompound) {
+        // Filter individual case items within each group; show the group only if any matched.
+        _groups.forEach(g => {
+          let anyMatch = false;
+          g.querySelectorAll('.case-item').forEach(ci => {
+            const text = (ci.querySelector('.case-title-nav')?.textContent || '').toLowerCase();
+            const matches = text.includes(_ql);
+            ci.style.display = matches ? '' : 'none';
+            if (matches) anyMatch = true;
+          });
+          g.style.display = anyMatch ? '' : 'none';
+          if (anyMatch) g.classList.add('open');
+        });
+      } else {
+        // Filter at the group level using the precomputed search text.
+        _groups.forEach(g => {
+          const _matches = (g.dataset.searchText || '').includes(_ql);
+          g.style.display = _matches ? '' : 'none';
+          if (_matches) g.classList.add('open');
+        });
+      }
+    }
+
+    function _closeCollSearch() {
+      _collSearchRow.hidden = true;
+      _collSearchBtn.classList.remove('active');
+      _collSearchInput.value = '';
+      _runCollSearch('');
+    }
+    _onCollClose = _closeCollSearch;
+
+    _collSearchBtn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      if (!_collSearchRow.hidden) { _closeCollSearch(); return; }
+      _collSearchRow.hidden = false;
+      _collSearchBtn.classList.add('active');
+      if (!collLi.classList.contains('open')) collLi.classList.add('open');
+      await _ensureCollectionBuilt();
+      _runCollSearch('');
+      _collSearchInput.focus();
+    });
+
+    _collSearchClear.addEventListener('click', (e) => {
+      e.stopPropagation();
+      _closeCollSearch();
+    });
+
+    _collSearchInput.addEventListener('input', async () => {
+      const q = _collSearchInput.value;
+      if (_searchIsCompound && q) {
+        const _propName = collEntry.search.slice(collEntry.search.indexOf(':') + 1);
+        const _ql = q.toLowerCase();
+        // For each unbuilt group, pre-check raw embedded data; only build DOM for groups
+        // that have at least one matching case. Split-format groups (no _rawCases) are
+        // skipped here — they have no case items in DOM so _runCollSearch hides them.
+        await Promise.all(Array.from(collUl.querySelectorAll('.month-group')).map(async g => {
+          if (g.querySelector('.case-item')) return; // already built
+          const rawCases = g._rawCases;
+          if (!rawCases) return; // split format — skip
+          if (rawCases.some(c => String(c[_propName] || '').toLowerCase().includes(_ql))) {
+            await g._ensureCases?.();
+          }
+        }));
+      }
+      _runCollSearch(q);
+    });
+
+    _collSearchInput.addEventListener('keydown', e => {
+      if (e.key === 'Escape') _closeCollSearch();
+    });
+  }
+
   collLi.appendChild(collHeader);
+  if (_collSearchRow) collLi.appendChild(_collSearchRow);
   collLi.appendChild(collUl);
   sectionUl.appendChild(collLi);
 }
@@ -2462,6 +2614,24 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupLi.dataset.entryIdx = String(entryNumber);
     if (group.id != null) groupLi.dataset.entryId = group.id;
 
+    // Precompute search text for collection filtering (used by inline search).
+    {
+      const _s = collEntry.search || '';
+      const _ci = _s.indexOf(':');
+      const _an = _ci >= 0 ? _s.slice(0, _ci) : null;
+      const _pn = _ci >= 0 ? _s.slice(_ci + 1) : _s;
+      let _st;
+      if (!_pn) {
+        _st = String(group.name || '');
+      } else if (!_an) {
+        _st = String(group[_pn] || '');
+      } else {
+        const _a = group[_an];
+        _st = Array.isArray(_a) ? _a.map(item => String(item[_pn] || '')).join(' ') : String(group.name || '');
+      }
+      groupLi.dataset.searchText = _st.toLowerCase();
+    }
+
     const groupHeader = document.createElement('div');
     groupHeader.className = 'month-header';
 
@@ -2568,41 +2738,55 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       _showGroupSortMenu();
     });
 
-    // For split-format groups (id + numeric cases count, no embedded cases array),
-    // lazy-load the per-advocate cases file the first time the group is expanded.
+    // Lazy-load case items the first time the group is expanded.
+    // For embedded format (cases is an array): build items from the in-memory array.
+    // For split format (cases is a count, id is set): fetch the per-group JSON file.
     let _casesLoaded = false;
     let _groupLink = null;
+    let _groupDocument = null;
     const _ensureGroupCases = async () => {
-      if (!group.id || Array.isArray(group.cases) || _casesLoaded) return;
+      if (_casesLoaded) return;
       _casesLoaded = true;
-      try {
-        const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
-        if (r.ok) {
-          const advocateData = await r.json();
-          const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
-          const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
-          _groupLink = Array.isArray(advocateData) ? null : (advocateData.link ?? null);
-          groupLi._groupLink = _groupLink;
-          for (const [hlIdx, hl] of highlights.entries()) {
-            const _hlGroupId = group.id ?? null;
-            const _hlEntryOrId = _hlGroupId != null ? { id: _hlGroupId } : { entry: entryNumber };
-            const _hlDeleteOther = _hlGroupId != null ? 'entry' : 'id';
-            const hlHref = buildUrlParams(
-              { collection: collId, ..._hlEntryOrId, highlight: hlIdx + 1 },
-              [_hlDeleteOther, 'term', 'case', 'event', 'file', 'turn'],
-            );
-            groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
-          }
-          for (const caseRef of advocateCases) {
-            groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
-          }
-          _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+      if (Array.isArray(group.cases)) {
+        // Embedded format: build case items from the in-memory array.
+        for (const caseRef of group.cases) {
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
         }
-      } catch (err) {
-        console.warn('[collections] advocate cases fetch failed:', group.id, err);
+        _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+      } else if (group.id) {
+        // Split format: fetch the per-group JSON file.
+        try {
+          const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
+          if (r.ok) {
+            const advocateData = await r.json();
+            const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
+            const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
+            _groupLink = Array.isArray(advocateData) ? null : (advocateData.details?.page ?? null);
+            _groupDocument = Array.isArray(advocateData) ? null : (advocateData.details?.web ?? null);
+            groupLi._groupLink = _groupLink;
+            groupLi._groupDocument = _groupDocument;
+            for (const [hlIdx, hl] of highlights.entries()) {
+              const _hlGroupId = group.id ?? null;
+              const _hlEntryOrId = _hlGroupId != null ? { id: _hlGroupId } : { entry: entryNumber };
+              const _hlDeleteOther = _hlGroupId != null ? 'entry' : 'id';
+              const hlHref = buildUrlParams(
+                { collection: collId, ..._hlEntryOrId, highlight: hlIdx + 1 },
+                [_hlDeleteOther, 'term', 'case', 'event', 'file', 'turn'],
+              );
+              groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
+            }
+            for (const caseRef of advocateCases) {
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
+            }
+            _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+          }
+        } catch (err) {
+          console.warn('[collections] advocate cases fetch failed:', group.id, err);
+        }
       }
     };
     groupLi._ensureCases = _ensureGroupCases;
+    groupLi._rawCases = Array.isArray(group.cases) ? group.cases : null;
     groupLi._activateCount = () => { groupCount.classList.add('sort-active'); groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc); };
 
     groupHeader.addEventListener('click', async (e) => {
@@ -2627,17 +2811,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       );
       history.replaceState(null, '', url);
       await _ensureGroupCases();
-      if (_groupLink) showPageViewer(_groupLink, { pushState: false });
+      if (_groupLink && _groupDocument) showAdvocateDocument(_groupDocument, _groupLink, group.name || '');
+      else if (_groupLink) showPageViewer(_groupLink, { pushState: false });
+      else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
     });
-
-    // Populate immediately when cases are embedded (non-split format, or
-    // split-id format like justice_advocates that still ships its cases inline).
-    if (Array.isArray(group.cases)) {
-      for (const caseRef of group.cases) {
-        groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
-      }
-      _applyGroupSortMode(_groupSortMode, _groupSortAsc);
-    }
 
     groupLi.appendChild(groupHeader);
     groupLi.appendChild(groupUl);
@@ -3935,6 +4112,7 @@ function findFileItem(param) {
   const navSearchBtn   = document.getElementById('nav-search-btn');
   const navSearchRow   = document.getElementById('nav-search-row');
   const navSearchInput = document.getElementById('nav-search-input');
+  const navSearchClear = document.getElementById('nav-search-clear');
 
   function openNavSearch() {
     navSearchRow.hidden = false;
@@ -4015,6 +4193,8 @@ function findFileItem(param) {
   navSearchBtn.addEventListener('click', () => {
     if (navSearchRow.hidden) openNavSearch(); else closeNavSearch();
   });
+
+  navSearchClear.addEventListener('click', () => closeNavSearch());
 
   navSearchInput.addEventListener('input', () => runNavSearch(navSearchInput.value));
 
@@ -4140,7 +4320,9 @@ async function restoreFromURL() {
         groupLi.classList.add('open');
         await groupLi._ensureCases?.();
         groupLi._activateCount?.();
-        if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
+        if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
+        else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
+        else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
       }
     }
@@ -4158,9 +4340,16 @@ async function restoreFromURL() {
       while (_ag && _collectionsSectionLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
-      // For id-based groups (split format), lazy-load the group's cases before looking up the case item.
+      // Ensure group cases are built before looking up the case item (both split and embedded format).
       if (idParam) {
         const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
+        if (groupLi) {
+          groupLi.classList.add('open');
+          await groupLi._ensureCases?.();
+          groupLi._activateCount?.();
+        }
+      } else if (entryParam) {
+        const groupLi = collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
         if (groupLi) {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
