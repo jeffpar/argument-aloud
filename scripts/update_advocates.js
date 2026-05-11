@@ -124,6 +124,32 @@ function loadNameAliases(p) {
 }
 const NAME_ALIASES = loadNameAliases(_SPEAKERS_FILE);
 
+// ── Justice longest-name map (justices.json) ───────────────────────────────
+// Maps every multi-word form of a justice's name to the longest multi-word
+// form so that advocates who were also justices get stored under their full
+// name (e.g. "JOHN ROBERTS" → "JOHN G. ROBERTS, JR.").
+
+function loadJusticeCanonicalNames(p) {
+    const map = {};
+    if (!exists(p)) return map;
+    let data;
+    try { data = readJson(p); } catch { return map; }
+    for (const [key, entry] of Object.entries(data)) {
+        const allForms = [key, ...(entry.alternates || [])];
+        // Keep only multi-word forms; single-word entries are typos handled by speakers.json.
+        const multiWord = allForms.filter(n => /\s/.test(n.trim()));
+        if (multiWord.length <= 1) continue; // canonical key is already the only/longest multi-word form
+        const longest = multiWord.reduce((a, b) => a.length >= b.length ? a : b);
+        const longestUpper = longest.trim().toUpperCase();
+        for (const form of multiWord) {
+            const upper = form.trim().toUpperCase();
+            if (upper !== longestUpper) map[upper] = longestUpper;
+        }
+    }
+    return map;
+}
+const JUSTICE_LONGEST_NAME = loadJusticeCanonicalNames(path.join(__dirname, 'justices.json'));
+
 // ── Advocate ID ────────────────────────────────────────────────────────────
 
 /** Strip combining marks (NFD-decomposed accents). */
@@ -1036,6 +1062,20 @@ async function main() {
                         if (!prevList.map(p => p.toUpperCase()).includes(oldUpper)) {
                             prevList.push(oldUpper);
                         }
+                    }
+                    // Normalize justice names to their longest known form so advocates
+                    // who were also justices are stored under their full name.
+                    const justiceCanonical = JUSTICE_LONGEST_NAME[nameKey];
+                    if (justiceCanonical) {
+                        if (!(justiceCanonical in advocates)) {
+                            advocates[justiceCanonical] = { id: makeAdvocateId(justiceCanonical), name: justiceCanonical, cases: [], previously: [] };
+                        }
+                        const prevList = advocates[justiceCanonical].previously = advocates[justiceCanonical].previously || [];
+                        if (!prevList.map(p => p.toUpperCase()).includes(nameKey)) {
+                            prevList.push(nameKey);
+                        }
+                        name = justiceCanonical;
+                        nameKey = justiceCanonical;
                     }
                     const subKey = eventSubDocket(audio);
                     const caseKey = ckCase(nameKey, title, term, number + (subKey ? `#${subKey}` : ''));
