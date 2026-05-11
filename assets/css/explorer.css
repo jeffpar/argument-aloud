@@ -784,6 +784,7 @@ button.term-case-count.sort-active:hover {
 /* ── Audio controls footer ───────────────────────────────── */
 #audio-controls {
   flex-shrink: 0;
+  order: -1; /* stay above #doc-viewer inside #bottom-bar */
   border-top: 1px solid #e0e0e0;
   background: #fafafa;
   padding: 10px 20px 12px;
