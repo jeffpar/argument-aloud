@@ -2300,12 +2300,14 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     caseKey,
     title:     caseRef.title,
     tooltip:   argumentTooltip(caseRef.term, caseRef),
-    // First date in caseRef.argument (comma-separated when reargued) is the
-    // event this collection entry represents — used by loadCase to highlight
-    // the correct sibling when the same case has multiple collection items.
+    // First date in caseRef.argument (or reargument) is the event this
+    // collection entry represents — used by loadCase to highlight the correct
+    // sibling when the same case has multiple collection items.
     audioDate: (typeof caseRef.argument === 'string' && caseRef.argument)
       ? caseRef.argument.split(',')[0].trim()
-      : null,
+      : (typeof caseRef.reargument === 'string' && caseRef.reargument)
+        ? caseRef.reargument.split(',')[0].trim()
+        : null,
     hasFiles:  !!caseRef.files,
     caseNumber: caseRef.number || '',
     href:      buildUrlParams(
