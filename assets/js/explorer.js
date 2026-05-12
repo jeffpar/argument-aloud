@@ -618,6 +618,15 @@ function caseDirName(caseEntry) {
   return name.split(',')[0].trim();
 }
 
+// Return the primary (display) title from a raw case title string.
+// Multiple consolidated case titles may be stored as pipe-delimited values;
+// only the first element is used for display.
+function caseTitle(raw) {
+  if (!raw) return raw;
+  const idx = raw.indexOf('|');
+  return idx === -1 ? raw : raw.slice(0, idx);
+}
+
 // Build the text for the case‑title label above the transcript pane.
 // Priority for parenthesised annotation: docket number → usCite → nothing.
 function caseTitleLabel(caseEntry) {
@@ -629,7 +638,7 @@ function caseTitleLabel(caseEntry) {
   } else if (caseEntry.usCite) {
     suffix = '\u00a0(' + caseEntry.usCite + ')';
   }
-  return caseEntry.title + suffix;
+  return caseTitle(caseEntry.title) + suffix;
 }
 
 // Set the case-title-label element to a link that reveals the case in the nav pane.
@@ -1190,13 +1199,13 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
   let sorted;
   if (mode === 'argued') {
-    sorted = [...visible].sort((a, b) => (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : (a.title || '').localeCompare(b.title || ''));
+    sorted = [...visible].sort((a, b) => (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
   } else if (mode === 'decided') {
     // Undecided cases (no decision date) always sort to the end regardless of direction.
     const decided   = visible.filter(c =>  c.decision);
     const undecided = visible.filter(c => !c.decision);
-    decided.sort((a, b) => a.decision < b.decision ? -1 : a.decision > b.decision ? 1 : (a.title || '').localeCompare(b.title || ''));
-    undecided.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    decided.sort((a, b) => a.decision < b.decision ? -1 : a.decision > b.decision ? 1 : caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
+    undecided.sort((a, b) => caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
     if (!asc) decided.reverse();
     sorted = [...decided, ...undecided];
   } else if (mode === 'votes') {
@@ -1206,10 +1215,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       // Sort descending by majority, then ascending minority
       if (bm !== am) return bm - am;
       if (an_ !== bn_) return an_ - bn_;
-      return (a.title || '').localeCompare(b.title || '');
+      return caseTitle(a.title || '').localeCompare(caseTitle(b.title || ''));
     });
   } else {
-    sorted = [...visible].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    sorted = [...visible].sort((a, b) => caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
   }
   if (mode !== 'decided' && !asc) sorted.reverse();
 
@@ -1225,7 +1234,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
-      title:    caseEntry.title,
+      title:    caseTitle(caseEntry.title),
       tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
       hasFiles: !!caseEntry.files,
       caseNumber: caseEntry.number || '',
@@ -1262,7 +1271,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ring: opinionCircleData(caseEntry),
           onClick: hasOpinion ? (e) => {
             e.stopPropagation();
-            const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
+            const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseEntry.title || '') };
             if (caseEntry.events?.length) {
               document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
               showDocViewer(opinionFile, { autoScroll: true });
@@ -2298,7 +2307,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
   const _ciDeleteOther = groupId != null ? 'entry' : 'id';
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
-    title:     caseRef.title,
+    title:     caseTitle(caseRef.title),
     tooltip:   argumentTooltip(caseRef.term, caseRef),
     // First date in caseRef.argument (or reargument) is the event this
     // collection entry represents — used by loadCase to highlight the correct
@@ -2374,7 +2383,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     if (!ci.classList.contains('active')) markCaseItemActive(ci);
     const caseEntry = await _fetchCaseEntry();
     if (!caseEntry?.opinion_href) return;
-    const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseRef.title };
+    const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseRef.title) };
     if (caseRef.event) {
       // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
       if (!ci.classList.contains('active')) {
@@ -2988,7 +2997,7 @@ function loadCaseAsOpinion(term, caseEntry) {
 
   // Show case title (hide audio select since there is no audio).
   setCaseTitleLabel(term, caseEntry);
-  document.title = caseEntry.title + ' | Argument Aloud';
+  document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
   const audioSelect = document.getElementById('audio-select');
   const decisionLabel = document.getElementById('decision-date-label');
 
@@ -3084,7 +3093,7 @@ function loadCaseAsOpinion(term, caseEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
     showDocViewer(
-      { href: caseEntry.opinion_href, title: 'Opinion in ' + caseEntry.title },
+      { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseEntry.title) },
       { autoScroll: true }
     );
     docViewerOpenHeight = savedHeight;
@@ -3342,7 +3351,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   // Update case title
   setCaseTitleLabel(term, caseEntry);
-  document.title = caseEntry.title + ' | Argument Aloud';
+  document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
 
   const qEl = document.getElementById('case-questions');
   if (caseEntry.questions) {
