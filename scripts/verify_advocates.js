@@ -386,22 +386,24 @@ function candidateTerms(oyezYear) {
 function main() {
     // ── Parse args ──────────────────────────────────────────────────────────
     const args = process.argv.slice(2);
-    let name     = null;
-    let page     = null;
-    let journals = null;
-    let dates    = false;
-    let verbose  = false;
+    let name      = null;
+    let page      = null;
+    let journals  = null;
+    let dates     = false;
+    let doArgs    = false;
+    let verbose   = false;
 
     for (let i = 0; i < args.length; i++) {
-        if (args[i] === '--name'     && args[i + 1]) { name     = args[++i]; continue; }
-        if (args[i] === '--page'     && args[i + 1]) { page     = args[++i]; continue; }
-        if (args[i] === '--journals' && args[i + 1]) { journals = args[++i]; continue; }
-        if (args[i] === '--dates')                   { dates    = true;      continue; }
-        if (args[i] === '--verbose'  || args[i] === '-v') { verbose = true; continue; }
+        if (args[i] === '--name'      && args[i + 1]) { name    = args[++i]; continue; }
+        if (args[i] === '--page'      && args[i + 1]) { page    = args[++i]; continue; }
+        if (args[i] === '--journals'  && args[i + 1]) { journals = args[++i]; continue; }
+        if (args[i] === '--dates')                    { dates   = true;      continue; }
+        if (args[i] === '--arguments')                { doArgs  = true;      continue; }
+        if (args[i] === '--verbose'   || args[i] === '-v') { verbose = true; continue; }
     }
 
-    if (!name || (!page && !journals)) {
-        console.error('Usage: node scripts/verify_advocates.js --name "PAUL D. CLEMENT" [--page PATH] [--journals "YYYY-YYYY"] [--dates] [--verbose]');
+    if (!name || (!page && !journals && !doArgs)) {
+        console.error('Usage: node scripts/verify_advocates.js --name "PAUL D. CLEMENT" [--page PATH] [--journals "YYYY-YYYY"] [--dates] [--arguments] [--verbose]');
         process.exit(1);
     }
 
@@ -415,7 +417,7 @@ function main() {
     console.log(`JSON: ${relRepo(jsonPath)}`);
     if (pagePath) console.log(`HTML: ${relRepo(pagePath)}`);
     if (journals) console.log(`Journals: ${journals}`);
-    console.log();
+    if (!pagePath && !journals) console.log();
 
     // ── Load advocate JSON ──────────────────────────────────────────────────
     if (!exists(jsonPath)) {
@@ -720,6 +722,130 @@ function main() {
                 }
                 console.log();
             }
+        }
+    }
+
+    // ── --arguments listing ──────────────────────────────────────────────────
+    if (doArgs) {
+        // Load cases.json for each unique term referenced by this advocate.
+        const termSet = new Set(ourCases.map(c => c.term).filter(Boolean));
+        const termCasesMap = new Map(); // term → array of case entries
+        for (const term of termSet) {
+            const p = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+            if (exists(p)) termCasesMap.set(term, readJson(p));
+        }
+
+        // Collect rows: one per unique (date, type, advocateNumber).
+        const rowMap = new Map(); // key → row object
+        for (const c of ourCases) {
+            const termCases = termCasesMap.get(c.term) || [];
+            const caseEntry = termCases.find(tc => {
+                if (!tc.number && !tc.id) return false;
+                if (tc.id && tc.id === c.number) return true;
+                if (!tc.number) return false;
+                return tc.number === c.number ||
+                    tc.number.split(',').map(n => n.trim()).includes(c.number);
+            });
+
+            const title = (caseEntry?.title || c.title || null);
+
+            if (caseEntry?.events?.length) {
+                // Deduplicate event dates within this case entry (multiple sources
+                // may cover the same argument; keep one row per date+type).
+                const seenForCase = new Set();
+                for (const ev of caseEntry.events) {
+                    if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+                    if (!ev.date) continue;
+                    const evKey = `${ev.date}|${ev.type}`;
+                    if (seenForCase.has(evKey)) continue;
+                    seenForCase.add(evKey);
+                    const rowKey = `${ev.date}|${ev.type}|${c.number}`;
+                    if (!rowMap.has(rowKey)) {
+                        rowMap.set(rowKey, { date: ev.date, type: ev.type, number: c.number, term: c.term, title });
+                    }
+                }
+            } else {
+                // Fallback: use dates from the advocate JSON entry itself.
+                if (c.argument) {
+                    const rowKey = `${c.argument}|argument|${c.number}`;
+                    if (!rowMap.has(rowKey)) rowMap.set(rowKey, { date: c.argument, type: 'argument', number: c.number, term: c.term, title });
+                }
+                if (c.reargument) {
+                    const rowKey = `${c.reargument}|reargument|${c.number}`;
+                    if (!rowMap.has(rowKey)) rowMap.set(rowKey, { date: c.reargument, type: 'reargument', number: c.number, term: c.term, title });
+                }
+            }
+        }
+
+        const rows = [...rowMap.values()].sort((a, b) =>
+            a.date < b.date ? -1 : a.date > b.date ? 1 : a.number < b.number ? -1 : a.number > b.number ? 1 : 0
+        );
+
+        const _numWidth = String(rows.length).length;
+        console.log(`── Argument dates (${rows.length}) ──────────────────────────────`);
+        rows.forEach((r, i) => {
+            const lineNum   = String(i + 1).padStart(_numWidth, ' ');
+            const typeLabel = r.type === 'reargument' ? 'reargued' : 'argument';
+            const rawTitle  = r.title ? firstTitle(r.title) : null;
+            const titleStr  = rawTitle ? `  "${rawTitle.length > 60 ? rawTitle.slice(0, 60) + '\u2026' : rawTitle}"` : '';
+            console.log(`  ${lineNum}.  ${r.date} (${typeLabel})  No. ${r.number}  [${r.term}]${titleStr}`);
+        });
+        console.log();
+
+        // ── Consolidated cases with multiple audio argument events ──────────
+        // For cases whose full cases.json entry has a consolidated number
+        // (comma-separated dockets), check whether that entry has more than one
+        // distinct argument date with audio — which would mean the case was
+        // argued on multiple days.
+        const multiAudioCases = [];
+        const seenCaseIds = new Set();
+        for (const c of ourCases) {
+            const termCases = termCasesMap.get(c.term) || [];
+            const caseEntry = termCases.find(tc => {
+                if (!tc.number && !tc.id) return false;
+                if (tc.id && tc.id === c.number) return true;
+                if (!tc.number) return false;
+                return tc.number === c.number ||
+                    tc.number.split(',').map(n => n.trim()).includes(c.number);
+            });
+            if (!caseEntry) continue;
+            // Only care about consolidated cases (multiple dockets).
+            if (!caseEntry.number || !caseEntry.number.includes(',')) continue;
+            // Deduplicate: each consolidated case entry is only reported once.
+            const caseId = caseEntry.id || caseEntry.number;
+            if (seenCaseIds.has(caseId)) continue;
+            seenCaseIds.add(caseId);
+
+            // Count audio_href and transcript_href files across argument/reargument events.
+            const audioHrefs      = new Set();
+            const transcriptHrefs = new Set();
+            for (const ev of caseEntry.events || []) {
+                if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+                if (ev.audio_href)      audioHrefs.add(ev.audio_href);
+                if (ev.transcript_href) transcriptHrefs.add(ev.transcript_href);
+            }
+            if (audioHrefs.size > 1 || transcriptHrefs.size > 1) {
+                multiAudioCases.push({
+                    number: caseEntry.number,
+                    term: c.term,
+                    title: caseEntry.title || c.title || null,
+                    audioCount:      audioHrefs.size,
+                    transcriptCount: transcriptHrefs.size,
+                });
+            }
+        }
+
+        if (multiAudioCases.length) {
+            console.log(`── Consolidated cases with multiple audio/transcript files (${multiAudioCases.length}) ──`);
+            for (const mc of multiAudioCases) {
+                const rawTitle = mc.title ? firstTitle(mc.title) : null;
+                const titleStr = rawTitle ? `  "${rawTitle.length > 60 ? rawTitle.slice(0, 60) + '\u2026' : rawTitle}"` : '';
+                const counts = [];
+                if (mc.audioCount > 1)      counts.push(`${mc.audioCount} audio`);
+                if (mc.transcriptCount > 1) counts.push(`${mc.transcriptCount} transcripts`);
+                console.log(`  No. ${mc.number}  [${mc.term}]  (${counts.join(', ')})${titleStr}`);
+            }
+            console.log();
         }
     }
 }
