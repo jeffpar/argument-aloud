@@ -10,7 +10,7 @@ According to the 2007 Journal, on March 17, 2008, after Mr. Kneedler argued in [
 
 > “Mr. Kneedler, our records reﬂect that you have now presented oral argument before this Court in 100 cases, beginning with your ﬁrst argument in October 1979. You are the ﬁrst to reach this rare milestone this Century. On behalf of the Court, I extend to you our appreciation for the many years of advocacy and service to the Court during your tenure in the Ofﬁce of the Solicitor General. We look forward to hearing from you many more times in the future. Thank you.”
 
-We assume the Chief Justice meant to say "in the October 1979 term" rather than "in October 1979."  We also believe that No. 06–1204 was his 101st argument, not his 100th.s
+We assume the Chief Justice meant to say "in the October 1979 term" rather than "in October 1979."  We also believe that No. 06–1204 was his 101st argument, not his 100th.
 
 Next, according to the 2021 Journal, on April 27, 2022, after Mr. Kneedler argued in [Oklahoma v. Victor Manuel Castro-Huerta (No. 21–429)](/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler&term=2021-10&case=21-429), the Chief Justice said:
 
