@@ -2824,7 +2824,12 @@ async function loadAudioEntry(arg, basePath) {
     ? (/^https?:\/\//i.test(arg.transcript_href) ? arg.transcript_href : (basePath + arg.transcript_href))
     : null;
 
-  // Reset transcript area
+  // Reset transcript area.
+  // Pin the current height as a minimum before clearing content so that the
+  // transcript pane doesn't collapse during the async fetch — which would
+  // cause a layout shift that briefly exposes the nav pane on mobile.
+  const _prevHeight = transcriptViewer.offsetHeight;
+  if (_prevHeight > 0) transcriptViewer.style.minHeight = _prevHeight + 'px';
   _currentLoadedEntry = null;
   turnList.style.display = 'none';
   turnList.innerHTML = '';
@@ -2927,8 +2932,10 @@ async function loadAudioEntry(arg, basePath) {
     _currentLoadedEntry = arg;
     loadingMsg.style.display = 'none';
     turnList.style.display = 'block';
+    transcriptViewer.style.minHeight = '';
     document.dispatchEvent(new Event('transcriptloaded'));
   } catch (err) {
+    transcriptViewer.style.minHeight = '';
     loadingMsg.textContent = 'Error loading transcript.';
     console.error(err);
   }
@@ -3567,6 +3574,10 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
     await loadAudioEntry(selectedEntry, _currentBasePath);
+    if (isMobile()) {
+      playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+      setMobileNavVisible(false);
+    }
   }
 });
 
