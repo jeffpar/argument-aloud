@@ -1,0 +1,544 @@
+<body eui-index="node" ng-controller="OyPageCtrl" ng-class="{home: isHome(), 'not-home': (! isHome())}" class="ng-scope not-home"> <!--[if lte IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser no longer supported by Oyez. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <!-- Add your site or application content here -->
+  <div class="container off-canvas-wrap ng-isolate-scope">
+    <div class="inner-wrap"> <!-- ngIf: (! isApp) -->
+      <div class="oy-overhead ng-scope" ng-if="(! isApp)">
+        <div class="oy-overhead-wrapper">
+          <div class="nav-bar-wrapper">
+            <nav>
+              <ul> <!-- ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="oyez"> <a ng-href="/" ng-attr-target="{{link.target || undefined}}" href="/"> <span class="caption ng-binding" ng-bind-html="link.caption">Oyez</span> </a> <!-- ngIf: link.subnav -->
+                  <ul ng-if="link.subnav" class="ng-scope"> <!-- ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="about"> <a ng-href="about" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="about"> <span class="caption ng-binding" ng-bind-html="subLink.caption">About</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="license"> <a ng-href="license" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="license"> <span class="caption ng-binding" ng-bind-html="subLink.caption">License</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="lawyer-directory"> <a ng-href="http://lawyers.oyez.org/" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="http://lawyers.oyez.org/" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Lawyer Directory</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="projects"> <a ng-href="" ng-attr-target="{{subLink.target ? subLink.target : undefined}}"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Projects</span> </a> <!-- ngIf: subLink.subnav -->
+                      <ul ng-if="subLink.subnav" class="nested-subnav ng-scope"> <!-- ngRepeat: nestedLink in subLink.subnav -->
+                        <li ng-repeat="nestedLink in subLink.subnav" class="shifting-scales"> <a ng-href="http://projects.oyez.org/shifting-scales/" ng-attr-target="{{nestedLink.target ? nestedLink.target : undefined}}" href="http://projects.oyez.org/shifting-scales/" target="_blank"> <span class="caption ng-binding" ng-bind-html="nestedLink.caption">Shifting Scales</span> </a> </li><!-- end ngRepeat: nestedLink in subLink.subnav -->
+                        <li ng-repeat="nestedLink in subLink.subnav" class="body-politic"> <a ng-href="http://projects.oyez.org/body-politic/" ng-attr-target="{{nestedLink.target ? nestedLink.target : undefined}}" href="http://projects.oyez.org/body-politic/" target="_blank"> <span class="caption ng-binding" ng-bind-html="nestedLink.caption">Body Politic</span> </a> </li><!-- end ngRepeat: nestedLink in subLink.subnav -->
+                      </ul><!-- end ngIf: subLink.subnav -->
+                    </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="advocates"> <a ng-href="advocates" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="advocates"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Advocates</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="tour"> <a ng-href="top-advocates" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="top-advocates"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Top Advocates Report</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="site-feedback"> <a ng-href="feedback" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="feedback"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Site Feedback</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="support"> <a ng-href="https://give.law.cornell.edu/campaign/563160/donate" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="https://give.law.cornell.edu/campaign/563160/donate" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Support Oyez &amp; LII</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                    <li ng-repeat="subLink in link.subnav" class="privacy-policy"> <a ng-href="privacy-policy" ng-attr-target="{{subLink.target ? subLink.target : undefined}}" href="privacy-policy"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Privacy Policy</span> </a> <!-- ngIf: subLink.subnav --> </li><!-- end ngRepeat: subLink in link.subnav -->
+                  </ul><!-- end ngIf: link.subnav -->
+                </li><!-- end ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="lii-resources"> <a ng-href="https://www.law.cornell.edu/supremecourt/text/home" ng-attr-target="{{link.target || undefined}}" href="https://www.law.cornell.edu/supremecourt/text/home" target="_blank"> <span class="caption ng-binding" ng-bind-html="link.caption">LII Supreme Court Resources</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="justia-sc-center"> <a ng-href="https://supreme.justia.com/" ng-attr-target="{{link.target || undefined}}" href="https://supreme.justia.com/" target="_blank"> <span class="caption ng-binding" ng-bind-html="link.caption">Justia Supreme Court Center</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in navLinks -->
+              </ul>
+            </nav>
+          </div>
+          <div class="search-wrapper">
+            <div class="oy-search-bar ng-isolate-scope"> <input aria-label="Search" type="search" ng-model="query" ng-keypress="onKeypress($event)" placeholder="Search" class="ng-valid ng-dirty ng-valid-parse ng-touched"> </div>
+          </div>
+        </div>
+      </div><!-- end ngIf: (! isApp) --> <!-- ngIf: (! isApp) -->
+      <div class="oy-navigation ng-scope" ng-if="(! isApp)"> <!-- Overhead navigation bar, for large screens -->
+        <div class="nav-bar">
+          <div class="inner">
+            <h1 class="logo"><a ng-href="/" href="/"> <img ng-src="images/nav/logo_black.beb12aef.png" alt="Oyez" src="images/nav/logo_black.beb12aef.png"> </a></h1>
+            <nav>
+              <ul> <!-- ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="cases"> <a ng-href="cases" ng-attr-target="{{link.target || undefined}}" href="cases"> <span class="icon"></span> <span class="caption ng-binding" ng-bind-html="link.caption">Cases</span> </a> </li><!-- end ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="justices"> <a ng-href="justices" ng-attr-target="{{link.target || undefined}}" href="justices"> <span class="icon"></span> <span class="caption ng-binding" ng-bind-html="link.caption">Justices</span> </a> </li><!-- end ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="media"> <a ng-href="media" ng-attr-target="{{link.target || undefined}}" href="media"> <span class="icon"></span> <span class="caption ng-binding" ng-bind-html="link.caption">Media</span> </a> </li><!-- end ngRepeat: link in navLinks -->
+                <li ng-repeat="link in navLinks" class="iscotus"> <a ng-href="https://newsletters.justia.com" ng-attr-target="{{link.target || undefined}}" href="https://newsletters.justia.com" target="_blank"> <span class="icon"></span> <span class="caption ng-binding" ng-bind-html="link.caption">Newsletters</span> </a> </li><!-- end ngRepeat: link in navLinks -->
+                <div style="text-align: center"> <a ng-href="https://brown.oyez.org/" target="_blank" style="font-size: 20px;padding-top: 5px;display: inline-block" href="https://brown.oyez.org/"> <span style="text-transform: none" class="caption">NEW: Brown Revisited</span> </a> </div>
+              </ul>
+            </nav>
+          </div>
+        </div> <!-- ngIf: showMediaBanner -->
+        <div ng-if="showMediaBanner" id="term-reviews-banner" class="reviews-banner ng-scope"> <a href="/media"> Watch Our Supreme Court TermPreviews &amp; Reviews &gt; </a> </div><!-- end ngIf: showMediaBanner --> <!-- Off-canvas navigation, for small screens -->
+        <div class="off-canvas-nav">
+          <div class="tab-bar">
+            <section class="left-small"> <a class="left-off-canvas-toggle" ng-click="showSearch=false"> <span class="left-menu">&nbsp;</span> </a> </section>
+            <section class="middle tab-bar-section">
+              <h1 class="logo"><a ng-href="/" href="/"> <img ng-src="images/nav/logo_white.7889f71d.png" alt="Oyez" src="images/nav/logo_white.7889f71d.png"> </a></h1>
+            </section>
+            <section class="right-small"> <a class="search-wrapper-toggle" ng-click="showSearch=!showSearch"> <span class="search-toggle">&nbsp;</span> </a> </section> <!-- ngIf: showSearch -->
+          </div>
+          <nav class="left-off-canvas-menu">
+            <ul class="off-canvas-list"> <!-- ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="cases" ng-class="{'subNav': link.subnav}"> <a ng-href="cases" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="cases"> <span class="caption ng-binding" ng-bind-html="link.caption">Cases</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="justices" ng-class="{'subNav': link.subnav}"> <a ng-href="justices" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="justices"> <span class="caption ng-binding" ng-bind-html="link.caption">Justices</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="media" ng-class="{'subNav': link.subnav}"> <a ng-href="media" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="media"> <span class="caption ng-binding" ng-bind-html="link.caption">Media</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="advocates" ng-class="{'subNav': link.subnav}"> <a ng-href="advocates" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="advocates"> <span class="caption ng-binding" ng-bind-html="link.caption">Advocates</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="about subNav" ng-class="{'subNav': link.subnav}"> <a ng-href="about" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="about" class="parentLink"> <span class="caption ng-binding" ng-bind-html="link.caption">About</span> </a> <!-- ngIf: link.subnav -->
+                <ul ng-if="link.subnav" class="ng-scope"> <!-- ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="license"> <a ng-href="license" ng-attr-target="{{subLink.target || undefined}}" href="license"> <span class="caption ng-binding" ng-bind-html="subLink.caption">License</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="site-feedback"> <a ng-href="feedback" ng-attr-target="{{subLink.target || undefined}}" href="feedback"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Site Feedback</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="support"> <a ng-href="https://give.law.cornell.edu/campaign/563160/donate" ng-attr-target="{{subLink.target || undefined}}" href="https://give.law.cornell.edu/campaign/563160/donate" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Support</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="iscotus"> <a ng-href="https://newsletters.justia.com" ng-attr-target="{{subLink.target || undefined}}" href="https://newsletters.justia.com" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Newsletters</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                </ul><!-- end ngIf: link.subnav -->
+              </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="projects subNav" ng-class="{'subNav': link.subnav}"> <a ng-href="" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" class="parentLink"> <span class="caption ng-binding" ng-bind-html="link.caption">Projects</span> </a> <!-- ngIf: link.subnav -->
+                <ul ng-if="link.subnav" class="ng-scope"> <!-- ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="shifting-scales"> <a ng-href="http://projects.oyez.org/shifting-scales/" ng-attr-target="{{subLink.target || undefined}}" href="http://projects.oyez.org/shifting-scales/" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Shifting Scales</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                  <li ng-repeat="subLink in link.subnav" class="body-politic"> <a ng-href="http://projects.oyez.org/body-politic/" ng-attr-target="{{subLink.target || undefined}}" href="http://projects.oyez.org/body-politic/" target="_blank"> <span class="caption ng-binding" ng-bind-html="subLink.caption">Body Politic</span> </a> </li><!-- end ngRepeat: subLink in link.subnav -->
+                </ul><!-- end ngIf: link.subnav -->
+              </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="tour" ng-class="{'subNav': link.subnav}"> <a ng-href="top-advocates" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="top-advocates"> <span class="caption ng-binding" ng-bind-html="link.caption">Top Advocates Report</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="argument2" ng-class="{'subNav': link.subnav}"> <a ng-href="https://argument2.oyez.org/" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="https://argument2.oyez.org/" target="_blank"> <span class="caption ng-binding" ng-bind-html="link.caption">Argument 2.0</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="lawyer-directory" ng-class="{'subNav': link.subnav}"> <a ng-href="http://lawyers.oyez.org/" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="http://lawyers.oyez.org/"> <span class="caption ng-binding" ng-bind-html="link.caption">Lawyer Directory</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="lii-resources" ng-class="{'subNav': link.subnav}"> <a ng-href="https://www.law.cornell.edu/supremecourt/text/home" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="https://www.law.cornell.edu/supremecourt/text/home" target="_blank"> <span class="caption ng-binding" ng-bind-html="link.caption">LII Supreme Court Resources</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="justia-sc-center" ng-class="{'subNav': link.subnav}"> <a ng-href="https://supreme.justia.com/" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="https://supreme.justia.com/" target="_blank"> <span class="caption ng-binding" ng-bind-html="link.caption">Justia Supreme Court Center</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+              <li ng-repeat="link in topnavLinks" class="privacy-policy" ng-class="{'subNav': link.subnav}"> <a ng-href="privacy-policy" ng-attr-target="{{link.target || undefined}}" ng-class="{'parentLink': link.subnav}" href="privacy-policy"> <span class="caption ng-binding" ng-bind-html="link.caption">Privacy Policy</span> </a> <!-- ngIf: link.subnav --> </li><!-- end ngRepeat: link in topnavLinks -->
+            </ul>
+          </nav>
+        </div>
+      </div><!-- end ngIf: (! isApp) --> <!-- ngView:  -->
+      <div class="page ng-scope" data-ng-view="" autoscroll="true">
+        <main class="person flex ng-scope">
+          <div class="oy-sidebar ng-isolate-scope" ng-class="class" title="Paul D. Clement">
+            <div class="full-sidebar">
+              <div class="inner"> <!-- ngIf: title -->
+                <h1 ng-bind-html="title" ng-if="title" class="ng-binding ng-scope">Paul D. Clement</h1><!-- end ngIf: title -->
+                <div ng-transclude=""> <!-- ngIf: person.images[0] -->
+                  <div class="gallery ng-scope" ng-if="person.images[0]"> <!-- ngRepeat: image in person.images -->
+                    <figure ng-repeat="image in person.images" class="ng-scope"> <img ng-src="https://api.oyez.org/sites/default/files/images/people/paul_d_clement/paul_d_clement.jpg" alt="Paul D. Clement" src="https://api.oyez.org/sites/default/files/images/people/paul_d_clement/paul_d_clement.jpg">
+                      <figcaption class="ng-binding"></figcaption>
+                    </figure><!-- end ngRepeat: image in person.images -->
+                  </div><!-- end ngIf: person.images[0] -->
+                  <aside class="ng-scope">
+                    <dl class="fields"> <!-- ngIf: person.date_of_birth --><!-- ngIf: person.date_of_birth --><!-- ngIf: person.place_of_birth --><!-- ngIf: person.date_of_death --><!-- ngIf: person.date_of_death --><!-- ngIf: person.place_of_death --><!-- ngIf: person.interred --><!-- ngIf: person.interred --><!-- ngIf: person.ethnicity --><!-- ngIf: person.ethnicity --><!-- ngIf: person.religion --><!-- ngIf: person.religion --><!-- ngIf: person.family_status --><!-- ngIf: person.family_status --><!-- ngIf: person.mother --><!-- ngIf: person.mother --><!-- ngIf: person.father --><!-- ngIf: person.father --><!-- ngIf: person.mothers_occupation --><!-- ngIf: person.mothers_occupation --><!-- ngIf: person.fathers_occupation --><!-- ngIf: person.fathers_occupation --></dl>
+                    <div class="roles"> <!-- ngRepeat: role in roles | orderBy:'-sort_date' --> </div>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </div>
+          <article class="content">
+            <div class="content-inner">
+              <div class="biography ng-binding" ng-bind-html="person.biography"></div> <!-- ngIf: casesArgued && casesArgued.length > 0 -->
+              <aside class="cases-argued ng-scope" ng-if="casesArgued &amp;&amp; casesArgued.length &gt; 0">
+                <h2>Cases argued</h2>
+                <ul class="index small"> <!-- ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-568" class="ng-binding" href="cases/2025/24-568">Bost v. Illinois State Board of Elections</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-813" class="ng-binding" href="cases/2025/24-813">Chevron USA Inc. v. Plaquemines Parish, Louisiana</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-171" class="ng-binding" href="cases/2025/24-171">Cox Communications, Inc. v. Sony Music Entertainment</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-345" class="ng-binding" href="cases/2025/24-345">FS Credit Opportunities Corp. v. Saba Capital Master Fund, Ltd.</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-983" class="ng-binding" href="cases/2025/24-983">Havana Docks Corporation v. Royal Caribbean Cruises, Ltd.</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-1068" class="ng-binding" href="cases/2025/24-1068">Monsanto Company v. Durnell</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-1238" class="ng-binding" href="cases/2025/24-1238">Montgomery v. Caribe Transport II, LLC</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/25A312" class="ng-binding" href="cases/2025/25A312">Trump v. Cook</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2025/24-1260" class="ng-binding" href="cases/2025/24-1260">Watson v. Republican National Committee</a>&nbsp;(2025)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2024/24-354" class="ng-binding" href="cases/2024/24-354">Federal Communications Commission v. Consumers’ Research</a>&nbsp;(2024)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2024/22-7466" class="ng-binding" href="cases/2024/22-7466">Glossip v. Oklahoma</a>&nbsp;(2024)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2024/23-975" class="ng-binding" href="cases/2024/23-975">Seven County Infrastructure Coalition v. Eagle County, Colorado</a>&nbsp;(2024)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2023/22-451" class="ng-binding" href="cases/2023/22-451">Loper Bright Enterprises v. Raimondo</a>&nbsp;(2023)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2023/22-277" class="ng-binding" href="cases/2023/22-277">Moody v. NetChoice, LLC</a>&nbsp;(2023)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2023/22-555" class="ng-binding" href="cases/2023/22-555">NetChoice, LLC v. Paxton</a>&nbsp;(2023)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2022/21-757" class="ng-binding" href="cases/2022/21-757">Amgen Inc. v. Sanofi</a>&nbsp;(2022)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2022/21-86" class="ng-binding" href="cases/2022/21-86">Axon Enterprise, Inc. v. Federal Trade Commission</a>&nbsp;(2022)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2022/21-984" class="ng-binding" href="cases/2022/21-984">Helix Energy Solutions Group, Inc. v. Hewitt</a>&nbsp;(2022)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2021/21-418" class="ng-binding" href="cases/2021/21-418">Kennedy v. Bremerton School District</a>&nbsp;(2021)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2021/21-328" class="ng-binding" href="cases/2021/21-328">Morgan v. Sundance, Inc.</a>&nbsp;(2021)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2021/20-843" class="ng-binding" href="cases/2021/20-843">New York State Rifle &amp; Pistol Association Inc. v. Bruen</a>&nbsp;(2021)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2021/20-1573" class="ng-binding" href="cases/2021/20-1573">Viking River Cruises, Inc. v. Moriana</a>&nbsp;(2021)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2020/19-511" class="ng-binding" href="cases/2020/19-511">Facebook, Inc. v. Duguid</a>&nbsp;(2020)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2020/19-1039" class="ng-binding" href="cases/2020/19-1039">PennEast Pipeline Co. v. New Jersey</a>&nbsp;(2020)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2020/20-297" class="ng-binding" href="cases/2020/20-297">TransUnion LLC v. Ramirez</a>&nbsp;(2020)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2020/20-543" class="ng-binding" href="cases/2020/20-543">Yellen v. Confederated Tribes of the Chehalis Reservation</a>&nbsp;(2020)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/19-431" class="ng-binding" href="cases/2019/19-431">Little Sisters of the Poor Saints Peter and Paul Home v. Pennsylvania</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/18-1023" class="ng-binding" href="cases/2019/18-1023">Maine Community Health Options v. United States</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/18-280" class="ng-binding" href="cases/2019/18-280">New York State Rifle &amp; Pistol Association Inc. v. City of New York</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/18-1165" class="ng-binding" href="cases/2019/18-1165">Retirement Plans Committee of IBM v. Jander</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/19-7" class="ng-binding" href="cases/2019/19-7">Seila Law LLC v. Consumer Financial Protection Bureau</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2019/18-1584" class="ng-binding" href="cases/2019/18-1584">United States Forest Service v. Cowpasture River Preservation Association</a>&nbsp;(2019)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2018/18-389" class="ng-binding" href="cases/2018/18-389">Parker Drilling Management Services, Ltd. v. Newton</a>&nbsp;(2018)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2018/17-1625" class="ng-binding" href="cases/2018/17-1625">Rimini Street, Inc. v. Oracle USA, Inc.</a>&nbsp;(2018)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2018/18-422" class="ng-binding" href="cases/2018/18-422">Rucho v. Common Cause</a>&nbsp;(2018)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2018/18-281" class="ng-binding" href="cases/2018/18-281">Virginia House of Delegates v. Bethune-Hill</a>&nbsp;(2018)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-1362" class="ng-binding" href="cases/2017/16-1362">Encino Motorcars, LLC v. Navarro</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-285" class="ng-binding" href="cases/2017/16-285">Epic Systems Corp. v. Lewis</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-499" class="ng-binding" href="cases/2017/16-499">Jesner v. Arab Bank, PLC</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-784" class="ng-binding" href="cases/2017/16-784">Merit Management Group v. FTI Consulting, Inc.</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-476" class="ng-binding" href="cases/2017/16-476">Murphy v. National Collegiate Athletic Association</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2017/16-1011" class="ng-binding" href="cases/2017/16-1011">WesternGeco LLC v. ION Geophysical Corp.</a>&nbsp;(2017)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2016/15-680" class="ng-binding" href="cases/2016/15-680">Bethune-Hill v. Virginia Board of Elections</a>&nbsp;(2016)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2016/16-373" class="ng-binding" href="cases/2016/16-373">California Public Employees’ Retirement System v. ANZ Securities, Inc.</a>&nbsp;(2016)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2016/15-1262" class="ng-binding" href="cases/2016/15-1262">Cooper v. Harris</a>&nbsp;(2016)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/15-415" class="ng-binding" href="cases/2015/15-415">Encino Motorcars v. Navarro</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/14-840" class="ng-binding" href="cases/2015/14-840">Federal Energy Regulatory Commission v. Electric Power Supply Association, et al.</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/14-1175" class="ng-binding" href="cases/2015/14-1175">Franchise Tax Board of California v. Hyatt</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/14-614" class="ng-binding" href="cases/2015/14-614">Hughes v. Talen Energy Marketing, LLC</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/14-1406" class="ng-binding" href="cases/2015/14-1406">Nebraska v. Parker</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2015/14-1418" class="ng-binding" href="cases/2015/14-1418">Zubik v. Burwell</a>&nbsp;(2015)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2014/13-1314" class="ng-binding" href="cases/2014/13-1314">Arizona State Legislature v. Arizona Independent Redistricting Commission</a>&nbsp;(2014)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2014/13-433" class="ng-binding" href="cases/2014/13-433">Integrity Staffing Solutions, Inc. v. Busk</a>&nbsp;(2014)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2014/14-6368" class="ng-binding" href="cases/2014/14-6368">Kingsley v. Hendrickson</a>&nbsp;(2014)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2013/13-461" class="ng-binding" href="cases/2013/13-461">ABC, Inc. v. Aereo, Inc.</a>&nbsp;(2013)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2013/12-158" class="ng-binding" href="cases/2013/12-158">Bond v. United States</a>&nbsp;(2013)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2013/13-354" class="ng-binding" href="cases/2013/13-354">Burwell v. Hobby Lobby Stores</a>&nbsp;(2013)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2013/12-79" class="ng-binding" href="cases/2013/12-79">Chadbourne and Parke LLP v. Troice</a>&nbsp;(2013)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2013/12-462" class="ng-binding" href="cases/2013/12-462">Northwest, Inc. v. Ginsberg</a>&nbsp;(2013)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-399" class="ng-binding" href="cases/2012/12-399">Adoptive Couple v. Baby Girl</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-133" class="ng-binding" href="cases/2012/12-133">American Express Co., et al. v. Italian Colors Restaurant</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-25" class="ng-binding" href="cases/2012/12-25">Maracich v. Spears</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-43" class="ng-binding" href="cases/2012/12-43">PPL Corporation v. Commissioner of Internal Revenue</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-357" class="ng-binding" href="cases/2012/12-357">Sekhar v. United States</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2012/12-307" class="ng-binding" href="cases/2012/12-307">United States v. Windsor</a>&nbsp;(2012)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/11-182" class="ng-binding" href="cases/2011/11-182">Arizona v. United States</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/11-161" class="ng-binding" href="cases/2011/11-161">Armour v. City of Indianapolis</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/11-204" class="ng-binding" href="cases/2011/11-204">Christopher v. SmithKline</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/11-393" class="ng-binding" href="cases/2011/11-393">National Federation of Independent Business v. Sebelius</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/10-507" class="ng-binding" href="cases/2011/10-507">Pacific Operators Offshore v. Valladolid</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/11-713" class="ng-binding" href="cases/2011/11-713">Perry v. Perez</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2011/10-218" class="ng-binding" href="cases/2011/10-218">PPL Montana v. Montana</a>&nbsp;(2011)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2010/09-1227" class="ng-binding" href="cases/2010/09-1227">Bond v. United States</a>&nbsp;(2010)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2009/08-1521" class="ng-binding" href="cases/2009/08-1521">McDonald v. Chicago</a>&nbsp;(2009)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2009/08-970" class="ng-binding" href="cases/2009/08-970">Perdue v. Kenny A.</a>&nbsp;(2009)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2009/08-1065" class="ng-binding" href="cases/2009/08-1065">Pottawattamie County v. McGhee</a>&nbsp;(2009)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/06-1195" class="ng-binding" href="cases/2007/06-1195">Boumediene v. Bush</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/06-1431" class="ng-binding" href="cases/2007/06-1431">CBOCS West, Inc. v. Humphries</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/07-21" class="ng-binding" href="cases/2007/07-21">Crawford v. Marion County Election Board</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/07-320" class="ng-binding" href="cases/2007/07-320">Davis v. Federal Election Commission</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/07-290" class="ng-binding" href="cases/2007/07-290">District of Columbia v. Heller</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/06-984" class="ng-binding" href="cases/2007/06-984">Medellin v. Texas</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2007/06-694" class="ng-binding" href="cases/2007/06-694">United States v. Williams</a>&nbsp;(2007)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-1157" class="ng-binding" href="cases/2006/05-1157">Credit Suisse Securities (USA) LLC v. Billing</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-1589" class="ng-binding" href="cases/2006/05-1589">Davenport v. Washington Education Association</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/06-969" class="ng-binding" href="cases/2006/06-969">Federal Election Commission v. Wisconsin Right to Life, Inc.</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-380" class="ng-binding" href="cases/2006/05-380">Gonzales v. Carhart</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-1382" class="ng-binding" href="cases/2006/05-1382">Gonzales v. Planned Parenthood Federation of America, Inc.</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/06-157" class="ng-binding" href="cases/2006/06-157">Hein v. Freedom From Religion Foundation, Inc.</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-915" class="ng-binding" href="cases/2006/05-915">Meredith v. Jefferson County Board of Education</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2006/05-908" class="ng-binding" href="cases/2006/05-908">Parents Involved in Community Schools v. Seattle School District No. 1</a>&nbsp;(2006)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-1144" class="ng-binding" href="cases/2005/04-1144">Ayotte v. Planned Parenthood of Northern New England</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/05-5966" class="ng-binding" href="cases/2005/05-5966">Clark v. Arizona</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-623" class="ng-binding" href="cases/2005/04-623">Gonzales v. Oregon</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/05-184" class="ng-binding" href="cases/2005/05-184">Hamdan v. Rumsfeld</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-1034" class="ng-binding" href="cases/2005/04-1034">Rapanos v. United States</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-1152" class="ng-binding" href="cases/2005/04-1152">Rumsfeld v. Forum for Academic and Institutional Rights, Inc.</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-1203" class="ng-binding" href="cases/2005/04-1203">United States v. Georgia</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2005/04-1581" class="ng-binding" href="cases/2005/04-1581">Wisconsin Right to Life, Inc. v. Federal Election Commission</a>&nbsp;(2005)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-9877" class="ng-binding" href="cases/2004/03-9877">Cutter v. Wilkinson</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-1454" class="ng-binding" href="cases/2004/03-1454">Gonzales v. Raich</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-636" class="ng-binding" href="cases/2004/03-636">Johnson v. California</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-1693" class="ng-binding" href="cases/2004/03-1693">McCreary County v. American Civil Liberties Union of Ky.</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/04-480" class="ng-binding" href="cases/2004/04-480">MGM Studios v. Grokster</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-1395" class="ng-binding" href="cases/2004/03-1395">Tenet v. Doe</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/04-104" class="ng-binding" href="cases/2004/04-104">United States v. Booker</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2004/03-1500" class="ng-binding" href="cases/2004/03-1500">Van Orden v. Perry</a>&nbsp;(2004)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/02-1080" class="ng-binding" href="cases/2003/02-1080">General Dynamics Land Systems Inc. v. Cline</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/03-6696" class="ng-binding" href="cases/2003/03-6696">Hamdi v. Rumsfeld</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/02-1674" class="ng-binding" href="cases/2003/02-1674">McConnell v. Federal Election Commission</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/02-749" class="ng-binding" href="cases/2003/02-749">Raytheon Company v. Hernandez</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/03-1027" class="ng-binding" href="cases/2003/03-1027">Rumsfeld v. Padilla</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/03-339" class="ng-binding" href="cases/2003/03-339">Sosa v. Alvarez-Machain</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2003/02-1667" class="ng-binding" href="cases/2003/02-1667">Tennessee v. Lane</a>&nbsp;(2003)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2002/01-1444" class="ng-binding" href="cases/2002/01-1444">Chavez v. Martinez</a>&nbsp;(2002)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2002/01-653" class="ng-binding" href="cases/2002/01-653">Federal Communications Commission v. Nextwave Personal Communications, Inc.</a>&nbsp;(2002)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2002/02-403" class="ng-binding" href="cases/2002/02-403">Federal Election Commission v. Beaumont</a>&nbsp;(2002)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2002/01-1806" class="ng-binding" href="cases/2002/01-1806">Illinois ex rel. Madigan v. Telemarketing Associates, Inc.</a>&nbsp;(2002)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2002/01-1229" class="ng-binding" href="cases/2002/01-1229">Pierce County v. Guillen</a>&nbsp;(2002)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2001/00-795" class="ng-binding" href="cases/2001/00-795">Ashcroft v. Free Speech Coalition</a>&nbsp;(2001)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2001/01-332" class="ng-binding" href="cases/2001/01-332">Board of Ed. of Independent School Dist. No. 92 of Pottawatomie Cty. v. Earls</a>&nbsp;(2001)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2001/99-1823" class="ng-binding" href="cases/2001/99-1823">Equal Employment Opportunity Commission v. Waffle House, Inc.</a>&nbsp;(2001)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2001/01-46" class="ng-binding" href="cases/2001/01-46">Federal Maritime Commission v. South Carolina State Ports Authority</a>&nbsp;(2001)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2001/00-1514" class="ng-binding" href="cases/2001/00-1514">Raygor v. Regents of University of Minnesota</a>&nbsp;(2001)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                  <li ng-repeat="case in casesArgued" class="ng-scope">
+                    <h2 class="ng-binding"><a ng-href="cases/2000/99-1977" class="ng-binding" href="cases/2000/99-1977">Saucier v. Katz</a>&nbsp;(2000)</h2>
+                  </li><!-- end ngRepeat: case in casesArgued -->
+                </ul>
+              </aside><!-- end ngIf: casesArgued && casesArgued.length > 0 --> <!-- ngIf: isJustice -->
+              <div class="oy-cite ng-isolate-scope" title="Paul D. Clement">
+                <h2>Cite this page</h2>
+                <ul>
+                  <li><a ng-class="{active: currentFormat == 'APA'}" ng-click="currentFormat = 'APA'">APA</a></li>
+                  <li><a ng-class="{active: currentFormat == 'Bluebook'}" ng-click="currentFormat = 'Bluebook'">Bluebook</a></li>
+                  <li><a ng-class="{active: currentFormat == 'Chicago'}" ng-click="currentFormat = 'Chicago'">Chicago</a></li>
+                  <li><a ng-class="{active: currentFormat == 'MLA'}" ng-click="currentFormat = 'MLA'" class="active">MLA</a></li>
+                </ul>
+                <div class="citations" ng-switch="currentFormat"> <!-- ngSwitchWhen: APA --> <!-- ngSwitchWhen: Bluebook --> <!-- ngSwitchWhen: Chicago --> <!-- ngSwitchWhen: MLA -->
+                  <div ng-switch-when="MLA" class="ng-binding ng-scope"> "Paul D. Clement." <i class="ng-binding">Oyez,</i> www.oyez.org/advocates/paul_d_clement. Accessed 12 May. 2026. </div><!-- end ngSwitchWhen: -->
+                </div>
+              </div>
+              <div class="ng-isolate-scope"> <br><a href="/feedback?referer=https://www.oyez.org/advocates/paul_d_clement">Report an error</a> </div>
+            </div>
+          </article>
+        </main>
+      </div>
+    </div>
+  </div> <!-- ngIf: (! isApp) -->
+  <footer oy-height-report="offsetTop" ng-if="(! isApp)" class="ng-scope ng-isolate-scope">
+    <div class="wrapper">
+      <div class="left"> <!-- ngRepeat: logo in sponsorLogos --><a ng-href="https://www.law.cornell.edu/" target="_blank" ng-repeat="logo in sponsorLogos" class="lii" href="https://www.law.cornell.edu/">
+          <picture class="sponsor-logo">
+            <source media="(min-width: 64.0625em)" ng-srcset="images/footer/lii-lg.fe92ee1c.svg" srcset="images/footer/lii-lg.fe92ee1c.svg">
+            <source ng-srcset="images/footer/lii-sm.652ab7dc.svg" srcset="images/footer/lii-sm.652ab7dc.svg"> <img ng-src="images/footer/lii-sm.652ab7dc.svg" alt="Legal Information Institute" src="images/footer/lii-sm.652ab7dc.svg">
+          </picture>
+        </a><!-- end ngRepeat: logo in sponsorLogos --><a ng-href="http://www.lawschool.cornell.edu/" target="_blank" ng-repeat="logo in sponsorLogos" class="cls" href="http://www.lawschool.cornell.edu/">
+          <picture class="sponsor-logo">
+            <source media="(min-width: 64.0625em)" ng-srcset="images/footer/cls-lg.4e012d87.png" srcset="images/footer/cls-lg.4e012d87.png">
+            <source ng-srcset="images/footer/cls-sm.adc9daa6.png" srcset="images/footer/cls-sm.adc9daa6.png"> <img ng-src="images/footer/cls-sm.adc9daa6.png" alt="Cornell Law School" src="images/footer/cls-sm.adc9daa6.png">
+          </picture>
+        </a><!-- end ngRepeat: logo in sponsorLogos --><a ng-href="https://www.justia.com/" target="_blank" ng-repeat="logo in sponsorLogos" class="justia" href="https://www.justia.com/">
+          <picture class="sponsor-logo">
+            <source media="(min-width: 64.0625em)" ng-srcset="images/footer/justia-lg.d30c9a79.svg" srcset="images/footer/justia-lg.d30c9a79.svg">
+            <source ng-srcset="images/footer/justia-sm.8fe3b97e.png" srcset="images/footer/justia-sm.8fe3b97e.png"> <img ng-src="images/footer/justia-sm.8fe3b97e.png" alt="Justia" src="images/footer/justia-sm.8fe3b97e.png">
+          </picture>
+        </a><!-- end ngRepeat: logo in sponsorLogos --><a ng-href="http://www.kentlaw.iit.edu/" target="_blank" ng-repeat="logo in sponsorLogos" class="iit" href="http://www.kentlaw.iit.edu/">
+          <picture class="sponsor-logo">
+            <source media="(min-width: 64.0625em)" ng-srcset="images/footer/iit-lg.c2647680.png" srcset="images/footer/iit-lg.c2647680.png">
+            <source ng-srcset="images/footer/iit-sm.0aefde4c.png" srcset="images/footer/iit-sm.0aefde4c.png"> <img ng-src="images/footer/iit-sm.0aefde4c.png" alt="Illinois Institute of Technology" src="images/footer/iit-sm.0aefde4c.png">
+          </picture>
+        </a><!-- end ngRepeat: logo in sponsorLogos --> </div>
+      <div class="right"> <!-- ngRepeat: icon in socialIcons --><a ng-href="https://www.facebook.com/OyezProject" target="_blank" ng-repeat="icon in socialIcons" class="social-icon ng-scope" href="https://www.facebook.com/OyezProject"> <img ng-src="/images/footer/social/facebook.48a016ac.svg" alt="Facebook" src="/images/footer/social/facebook.48a016ac.svg"> </a><!-- end ngRepeat: icon in socialIcons --><a ng-href="https://www.x.com/oyez" target="_blank" ng-repeat="icon in socialIcons" class="social-icon ng-scope" href="https://www.x.com/oyez"> <img ng-src="/images/footer/social/x.7ba7182d.svg" alt="Twitter" src="/images/footer/social/x.7ba7182d.svg"> </a><!-- end ngRepeat: icon in socialIcons --><a ng-href="https://itunes.apple.com/us/artist/oyez/id1035429757" target="_blank" ng-repeat="icon in socialIcons" class="social-icon ng-scope" href="https://itunes.apple.com/us/artist/oyez/id1035429757"> <img ng-src="/images/footer/social/podcast.ae544b59.png" alt="Podcast" src="/images/footer/social/podcast.ae544b59.png"> </a><!-- end ngRepeat: icon in socialIcons --><a ng-href="http://eepurl.com/gt517A" target="_blank" ng-repeat="icon in socialIcons" class="social-icon ng-scope" href="http://eepurl.com/gt517A"> <img ng-src="/images/footer/social/email.dcd23f4e.png" alt="Subscribe" src="/images/footer/social/email.dcd23f4e.png"> </a><!-- end ngRepeat: icon in socialIcons --> </div>
+    </div>
+  </footer><!-- end ngIf: (! isApp) --> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9XPQSX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="scripts/vendor.a07b4858.js"></script>
+  <script src="scripts/scripts.f1d0a56a.js"></script>
+</body>

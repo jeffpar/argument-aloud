@@ -42,6 +42,9 @@ const _SPEAKERS_FILE    = path.join(__dirname, 'speakers.json');
 
 // ── Small helpers ──────────────────────────────────────────────────────────
 
+/** Return the first pipe-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+
 const exists    = (p) => fs.existsSync(p);
 const readText  = (p) => fs.readFileSync(p, 'utf8');
 const writeText = (p, s) => fs.writeFileSync(p, s, 'utf8');
@@ -534,7 +537,7 @@ function _jmBuildCaseIndices(termDirs) {
             byKey.set(`${term}/${number}`, c);
             const cite = String(c.usCite || '').trim();
             if (cite) byUsCite.set(cite, [term, String(c.number || '')]);
-            const title = String(c.title || '').trim();
+            const title = firstTitle(String(c.title || '').trim());
             if (title) {
                 if (!byTitle.has(title)) byTitle.set(title, []);
                 byTitle.get(title).push([term, number]);
@@ -809,7 +812,7 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
 
             // Rebuild entry with canonical field order.
             for (const k2 of Object.keys(entry)) delete entry[k2];
-            entry.title  = cleanTitle;
+            entry.title  = firstTitle(cleanTitle);
             entry.term   = term;
             entry.number = number;
             if (dateStr) entry[type] = dateStr;
@@ -910,7 +913,7 @@ async function main() {
         }
 
         for (const c of cases) {
-            const title       = c.title || '';
+            const title       = firstTitle(c.title) || '';
             const numberRaw   = c.number || '';
             const number      = numberRaw;
             const audioEntries = c.events || [];
@@ -1461,11 +1464,11 @@ async function main() {
         for (const c of sortedCases) {
             argNum++;
             const fullNum = c._fullNumber || c.number;
-            const cit = caseCitation.get(ckCite(c.title, c.term, fullNum)) || '';
+            const cit = caseCitation.get(ckCite(firstTitle(c.title), c.term, fullNum)) || '';
             const audioIdx = c.audio;
             let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${fullNum.replace(/,/g, '%2C')}`;
             if (audioIdx) url += `&event=${audioIdx}`;
-            const caseKey = ckCase(nameUpper, c.title, c.term, fullNum);
+            const caseKey = ckCase(nameUpper, firstTitle(c.title), c.term, fullNum);
             let allDates = [];
             const anchor = c.argument || c.reargument || '';
             if (!Number.isNaN(isoToDays(anchor))) {
@@ -1475,7 +1478,7 @@ async function main() {
                 allDates = dates;
             }
             const argDate = allDates.length ? allDates.join(',') : (c.argument || c.reargument || '');
-            womenRows.push([advName, argNum, argDate, c.term, c.number, c.title, cit, url]);
+            womenRows.push([advName, argNum, argDate, c.term, c.number, firstTitle(c.title), cit, url]);
         }
     }
     womenRows.sort((a, b) => {
@@ -1678,7 +1681,7 @@ async function main() {
         if (!nameFeminine.get(nameUpper)) continue;
         if (entry.name.split(/\s+/).length <= 1) continue;
         const badCases = entry.cases.filter(c =>
-            !caseFeminineSeen.get(ckCase(nameUpper, c.title, c.term, c._fullNumber || c.number))
+            !caseFeminineSeen.get(ckCase(nameUpper, firstTitle(c.title), c.term, c._fullNumber || c.number))
         );
         if (badCases.length) failed[entry.name] = badCases;
     }
@@ -1687,7 +1690,7 @@ async function main() {
         console.log(`\nWomen advocates with cases not meeting feminine-title criteria (${failedNames.length} advocate(s)):`);
         for (const advName of failedNames) {
             console.log(`  ${advName}:`);
-            for (const c of failed[advName]) console.log(`    ${c.term}  ${c.title}  [${c.argument}]`);
+            for (const c of failed[advName]) console.log(`    ${c.term}  ${firstTitle(c.title)}  [${c.argument}]`);
         }
     }
 

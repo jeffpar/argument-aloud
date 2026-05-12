@@ -24,6 +24,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const NARA_DIR = resolve(ROOT, 'data/nara/ussc');
 
+/** Return the first pipe-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+
 const API_BASE = 'https://catalog.archives.gov/proxy/records/search';
 const ROWS_PER_PAGE = 100;
 const DELAY_MS = 300; // polite delay between requests
@@ -199,11 +202,11 @@ function buildSyntheticItemsForGoldSeries(existingSynthetics) {
     }
     for (const d of dates) {
       if (!argsByDate.has(d)) argsByDate.set(d, []);
-      argsByDate.get(d).push(`${c.title} [Case ${c.number}]`);
+      argsByDate.get(d).push(`${firstTitle(c.title)} [Case ${c.number}]`);
     }
     if (c.decision) {
       if (!decsByDate.has(c.decision)) decsByDate.set(c.decision, []);
-      decsByDate.get(c.decision).push(`${c.title} [Case ${c.number}]`);
+      decsByDate.get(c.decision).push(`${firstTitle(c.title)} [Case ${c.number}]`);
     }
   }
 

@@ -55,6 +55,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT   = path.resolve(__dirname, '..');
 export const SCOTUS_BASE = 'https://www.supremecourt.gov';
 
+/** Return the first pipe-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+
 const _OPINIONS_CACHE = new Map();   // `${year2}|${checkUrls}` -> opinions dict
 let _VERBOSE = false;
 export const setVerbose = (v) => { _VERBOSE = !!v; };
@@ -1285,7 +1288,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
     let modified = false;
     for (const c of data) {
         const label = c.number || c.id || '?';
-        const title = c.title || '';
+        const title = firstTitle(c.title) || '';
         const argDates = [], reargDates = [], opDates = [];
         const events = c.events || [];
         for (let i = 0; i < events.length; i++) {
@@ -1384,7 +1387,7 @@ function warnMissingOpinionHref(casesPath, term) {
     for (const c of data) {
         if (c.opinion_href) continue;
         const label = c.number || c.id || '?';
-        const title = c.title || '';
+        const title = firstTitle(c.title) || '';
         if (_VERBOSE) console.log(` NOTICE: ${term}/${label} (${title.slice(0,40)}): no opinion_href`);
     }
 }
@@ -1516,7 +1519,7 @@ function deduplicateCases(casesPath) {
                 else if (isStub(other) && !isStub(c)) duplicates.push([i, otherIdx]);
                 else {
                     const stem = (t) => String(t || '').split('(')[0].trim().toLowerCase();
-                    const sameTitle = stem(c.title) && stem(c.title) === stem(other.title);
+                    const sameTitle = stem(firstTitle(c.title)) && stem(firstTitle(c.title)) === stem(firstTitle(other.title));
                     if (sameTitle) {
                         // Same case split across multiple entries; skip silently.
                     } else if (term < '1955-10') {
@@ -1696,7 +1699,7 @@ function checkDuplicateCaseNumbers(termDir, term, verbose = false) {
         const key = number.toLowerCase();
         if (key in seen) {
             const prev = seen[key];
-            const sameTitle = titleStem(c.title) && titleStem(c.title) === titleStem(prev.title);
+            const sameTitle = titleStem(firstTitle(c.title)) && titleStem(firstTitle(c.title)) === titleStem(firstTitle(prev.title));
             if (sameTitle) continue;
             if (earlyTerm) {
                 if (verbose) console.log(` NOTICE: ${term}/${number}: duplicate case number in cases.json: '${prev.number}' and '${number}'`);
@@ -1930,7 +1933,7 @@ function checkDuplicateNumbers(term, cases) {
     if (!keys.length) return 0;
     console.log(`${term}: ${keys.length} duplicate docket number(s)`);
     for (const num of _sortStr(keys)) {
-        const titles = duplicates[num].map(c => `"${c.title || '?'}" (${c.number || '?'})`).join(', ');
+        const titles = duplicates[num].map(c => `"${firstTitle(c.title) || '?'}" (${c.number || '?'})`).join(', ');
         console.log(`  ${num}  →  ${titles}`);
     }
     return keys.length;
@@ -2296,7 +2299,7 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
         try { lcases = JSON.parse(fs.readFileSync(lp, 'utf8')); } catch { continue; }
         laterCasesLists[lt] = lcases;
         for (const lc of lcases) {
-            const tt = lc.title || '', nn = lc.number || '';
+            const tt = firstTitle(lc.title) || '', nn = lc.number || '';
             const key = `${tt}\u0000${nn}`;
             if (tt && nn && !laterCaseMap.has(key)) {
                 laterCaseMap.set(key, [lt, lcases, lc]);
@@ -2310,7 +2313,7 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
     const mergedTermsWritten = new Set();
     const casesToRemove = [];
     for (const oldCase of cases) {
-        const title = oldCase.title || '', number = oldCase.number || '';
+        const title = firstTitle(oldCase.title) || '', number = oldCase.number || '';
         if (!title || !number) continue;
         const match = laterCaseMap.get(`${title}\u0000${number}`);
         if (!match) continue;
@@ -2880,7 +2883,7 @@ function verifyVoteSeniority(term, cases, update) {
             c.votes = sorted;
             resorted++;
         } else {
-            console.log(`WARNING: ${term}/${cid} (${c.title || cid}): votes not in seniority order`);
+            console.log(`WARNING: ${term}/${cid} (${firstTitle(c.title) || cid}): votes not in seniority order`);
         }
     }
     return resorted;
@@ -2924,7 +2927,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
             if (minorityVotes.length !== 1) continue;
             const canonical = _scdbCanonName(minorityVotes[0].name);
             if (!canonical) continue;
-            const baseTitle = c.title || '';
+            const baseTitle = firstTitle(c.title) || '';
             const decisionDate = c.decision || '';
             const yearMatch = /^(\d{4})/.exec(decisionDate);
             const titled = (baseTitle && yearMatch) ? `${baseTitle} (${yearMatch[1]})` : baseTitle;
@@ -3072,7 +3075,7 @@ function _decisionYearOf(c) {
 
 function _setCaseEntry(c, term) {
     const year = _decisionYearOf(c);
-    const baseTitle = c.title || '';
+    const baseTitle = firstTitle(c.title) || '';
     const title = year ? `${baseTitle} (${year})` : baseTitle;
     const entry = { title, term };
     const numberVal = c.number || c.id || '';
@@ -3931,7 +3934,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     }
                 }
                 if (!cand) {
-                    const t = squashTitle(c.title);
+                    const t = squashTitle(firstTitle(c.title));
                     const got = t ? scdbByTitle.get(t) : null;
                     if (got) { cand = got; matchHow = 'title'; }
                 }
@@ -3943,7 +3946,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     const decIso = _scdbNormalizeDate(c.decision || '');
                     const candidates = decIso ? scdbByDate.get(decIso) : null;
                     if (candidates && candidates.length) {
-                        const ours = sidesOf(c.title);
+                        const ours = sidesOf(firstTitle(c.title));
                         if (ours.both.size) {
                             let best = null, bestScore = 0, secondScore = 0;
                             for (const ent of candidates) {
@@ -3972,7 +3975,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 if (!cand) {
                     const errs = String(c.scdb_errors || '').split(',').map(s => s.trim());
                     if (!c.disposition && !errs.includes('missing')) {
-                        const label = c.title || '(untitled)';
+                        const label = firstTitle(c.title) || '(untitled)';
                         const arg = Array.isArray(c.argument) ? c.argument[0] : c.argument;
                         const dec = c.decision || '';
                         const dates = [];
@@ -3998,9 +4001,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 if (cid !== caseFilter && c.id !== caseFilter && !dockets.includes(caseFilter)) continue;
             }
             matchedFromOurs.add(cid);
-            if (matchHow) matchInfo.push({ title: c.title || cid, cid, how: matchHow });
+            if (matchHow) matchInfo.push({ title: firstTitle(c.title) || cid, cid, how: matchHow });
             total++;
-            const prefix = `${term}/${cid} (${c.title || cid})`;
+            const prefix = `${term}/${cid} (${firstTitle(c.title) || cid})`;
             const noVoteData = (c.voteMajority === undefined &&
                                 c.voteMinority === undefined &&
                                 (!Array.isArray(c.votes) || c.votes.length === 0));
@@ -4507,11 +4510,11 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             const row = datesMap.get(c.id);
             if (!row) {
                 totalMissingInCsv++;
-                if (_VERBOSE) console.log(`  ${term}/${c.id} (${c.title || '?'}): not found in ussc_dates.csv`);
+                if (_VERBOSE) console.log(`  ${term}/${c.id} (${firstTitle(c.title) || '?'}): not found in ussc_dates.csv`);
                 continue;
             }
 
-            const label = `${term}/${c.id} (${c.title || '?'})`;
+            const label = `${term}/${c.id} (${firstTitle(c.title) || '?'})`;
             let discrepancy = false;
             let fixArg = null;   // sorted CSV dates to set as c.argument, if accepted
             let fixDec = null;   // CSV decision date to set as c.decision, if accepted
@@ -4730,7 +4733,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 const turnNumber = turns[matchIdx].turn ?? (matchIdx + 1);
 
                 migrateFound++;
-                const label = `${term}/${c.id} (${c.title || c.id})`;
+                const label = `${term}/${c.id} (${firstTitle(c.title) || c.id})`;
                 console.log(`  ${label}: "${ev.title}" offset=${ev.offset} -> turn=${turnNumber}`);
 
                 if (update) {
