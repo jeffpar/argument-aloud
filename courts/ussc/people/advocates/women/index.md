@@ -92,7 +92,7 @@ That spreadsheet contains all previously available data, along with any women ad
 
 All corrections (eg, fixed typos, corrected dates/citations/etc) that were made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
-It's worth noting when discussing advocate appearances that the unit of measure is typically "argument", not "case".  Sometimes multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
+It's worth noting when discussing advocate appearances that the unit of measure is generally "argument", not "case".  Sometimes multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
 
 Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, [Bessie Margolin's](/courts/ussc/?collection=women_advocates&id=bessie_margolin) arguments in the following 3 cases included 4 *consolidated* cases:
 
@@ -100,9 +100,9 @@ Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Su
   - [Powell v. United States Cartridge Co. (No. 96)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was consolidated with Aaron v. Ford, Bacon & Davis, Inc. (No. 79) and Creel v. Lone Star Defense Corp. (No. 58)
   - [Maneja v. Waialua Agricultural Co. (No. 357)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was consolidated with Waialua Agricultural Co. v. Maneja (No. 358)
 
-Those consolidations mean that, over a set of 27 cases, she argued 23 times.  However, we still attribute 24 *cases* to her, because in the first set of consolidated cases, the Court issued separate opinions, effectively "unconsolidating" them; see [Borden Co. v. Borella (No. 688)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=688) and [10 East 40th Street Building, Inc. v. Callus (No. 820)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=820).
+Those consolidations mean that, over a set of 27 cases, she argued 23 times.  However, you will see 24 *cases* attributed to her, because in the first set of consolidated cases, the Court issued separate opinions, effectively "unconsolidating" them; see [Borden Co. v. Borella (No. 688)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=688) and [10 East 40th Street Building, Inc. v. Callus (No. 820)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=820).
 
-For the sake of argument, however, "unconsolidating" two cases *after* they were argued as one does not subsequently transform one argument into two.
+We're letting that discrepancy slide, even though we believe that "unconsolidating" two cases *after* they were argued together does not subsequently transform one argument into two.  Otherwise, for consistency, we would have to change our counting methodology and count *all* consolidated cases in *all* arguments, and inflate everyone's counts accordingly.  Historically, that is not what the Court does, so neither do we.
 
 ```
 574c574
