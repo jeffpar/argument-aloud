@@ -12,13 +12,13 @@ layout: pane
 
 <script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100 });</script>
 
-A lot of research has been done by Marlene Trestman into the history of women advocates at the U. S. Supreme Court.  A good starting point is this [Supreme Court Historical Society](https://supremecourthistory.org) article, "[Trestman’s Quest to Honor Women Advocates](https://supremecourthistory.org/society-news/trestmans-quest-to-honor-women-advocates/)", which also links to this New York Times article, "[Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html)".
+A lot of research has been done by Marlene Trestman into the history of women advocates at the U. S. Supreme Court.  A good starting point is this [Supreme Court Historical Society](https://supremecourthistory.org) article, "[Trestman’s Quest to Honor Women Advocates](https://supremecourthistory.org/society-news/trestmans-quest-to-honor-women-advocates/)," which also links to a New York Times article, "[Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html)."
 
-More recently, Marlene published an article, "[Women Advocates Before the Supreme Court](https://supremecourthistory.org/oral-arguments/women-advocates-before-the-supreme-court/)", that included a Google Docs spreadsheet named [Women Advocates Through OT 24](https://docs.google.com/spreadsheets/d/1Qsu5_yl8WABum3OmNqi8wruhWXeC73n9/edit?gid=1826861058#gid=1826861058), which has been preserved [here](https://github.com/jeffpar/argument-aloud/blob/b48499ee848a389c9d6f1a2274a11c059c3424f1/courts/ussc/people/advocates/Women%20Through%20October%20Term%202024.csv).
+More recently, Marlene published an article, "[Women Advocates Before the Supreme Court](https://supremecourthistory.org/oral-arguments/women-advocates-before-the-supreme-court/)," that included a Google Docs spreadsheet (see [Women Advocates Through OT 24](https://docs.google.com/spreadsheets/d/1Qsu5_yl8WABum3OmNqi8wruhWXeC73n9/edit?gid=1826861058#gid=1826861058)) which has been preserved [here](https://github.com/jeffpar/argument-aloud/blob/b48499ee848a389c9d6f1a2274a11c059c3424f1/courts/ussc/people/advocates/Women%20Through%20October%20Term%202024.csv).
 
 To check for any mistakes or omissions, and to start the process of including all women who have argued since the spreadsheet was last updated, we created an audit script to compare the spreadsheet to all available transcript data and report any discrepancies.  The process involved running the script, tracking down the reason for each discrepancy, correcting transcript and/or spreadsheet data as needed, re-running the script, and repeating that process dozens of times until all the warnings were eliminated.
 
-As part of that process, we updated Marlene's spreadsheet ([Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv)) and made a note of all (85) changes/corrections [below](#corrections-made-to-women-advocates-through-october-term-2024).
+As part of that process, we updated Marlene's spreadsheet (see [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv)) and made a note of all (85) changes/corrections [below](#corrections-made-to-women-advocates-through-october-term-2024).
 
 All our data is stored as a collection of JSON files that are maintained by a set of scripts on [GitHub](https://github.com/jeffpar/argument-aloud) and presented here at [Argument Aloud](/).  However, as a convenience, whenever we update our advocate files, a new spreadsheet is automatically generated as well:
 
@@ -92,7 +92,7 @@ That spreadsheet contains all previously available data, along with any women ad
 
 All corrections (eg, fixed typos, corrected dates/citations/etc) that were made to [Women Advocates Through October Term 2024](https://github.com/jeffpar/argument-aloud/blob/main/data/misc/women/Women%20Advocates%20Through%20October%20Term%202024.csv) are printed below.
 
-It's worth noting when discussing advocate appearances that the unit of measure is generally "argument", not "case".  Sometimes multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
+It's worth noting when discussing advocate appearances, the unit of measure is generally "argument", not "case".  Sometimes multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.  For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her.
 
 Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972.  While "27 cases" may be technically correct, [Bessie Margolin's](/courts/ussc/?collection=women_advocates&id=bessie_margolin) arguments in the following 3 cases included 4 *consolidated* cases:
 
@@ -102,7 +102,9 @@ Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Su
 
 Those consolidations mean that, over a set of 27 cases, she argued 23 times.  However, you will see 24 *cases* attributed to her, because in the first set of consolidated cases, the Court issued separate opinions, effectively "unconsolidating" them; see [Borden Co. v. Borella (No. 688)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=688) and [10 East 40th Street Building, Inc. v. Callus (No. 820)](/courts/ussc/?id=bessie_margolin&term=1944-10&case=820).
 
-We're letting that discrepancy slide, even though we believe that "unconsolidating" two cases *after* they were argued together does not subsequently transform one argument into two.  Otherwise, for consistency, we would have to change our counting methodology and count *all* consolidated cases in *all* arguments, and inflate everyone's counts accordingly.  Historically, that is not what the Court does, so neither do we.
+We're letting that discrepancy slide, even though we believe that "unconsolidating" two cases *after* they were argued together does not subsequently transform one argument into two.  Alternatively, we could change our counting methodology and count *all* consolidated cases in *all* arguments for *all* attorneys, and inflate everyone's counts accordingly; that would certainly increase Bessie Margolin's total to 27 cases, if not more.
+
+However, obtaining accurate counts of all consolidated cases for all advocates over the history of the Court would be a significant change and large amount of work.  More importantly, that is not how the Court counts appearances, so neither do we.
 
 ```
 574c574
