@@ -1053,11 +1053,12 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
 //                       loadCase highlights only the sibling whose audioDate
 //                       matches the currently-resolved event.
 //   hasFiles   boolean — when false, the toggle (▶) is hidden by default
-function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, hasFiles, caseNumber, href }) {
+function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, hasFiles, caseNumber, href }) {
   const ci = document.createElement('li');
   ci.className = 'case-item';
   ci.dataset.caseKey = caseKey;
   if (audioDate) ci.dataset.audioDate = audioDate;
+  if (eventIdx != null) ci.dataset.eventIdx = String(eventIdx);
   if (caseNumber) ci.dataset.caseNumber = caseNumber;
 
   const header = document.createElement('div');
@@ -2317,6 +2318,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
       : (typeof caseRef.reargument === 'string' && caseRef.reargument)
         ? caseRef.reargument.split(',')[0].trim()
         : null,
+    eventIdx:  (Number.isInteger(caseRef.event) && caseRef.event >= 1) ? caseRef.event : null,
     hasFiles:  !!caseRef.files,
     caseNumber: caseRef.number || '',
     href:      buildUrlParams(
@@ -2965,9 +2967,10 @@ function loadCaseAsOpinion(term, caseEntry) {
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _navKeys.push(term + '/' + caseEntry.number);
   if (caseEntry.number) {
-    const _firstNum = caseEntry.number.split(',')[0].trim();
-    const _firstNumKey = term + '/' + _firstNum;
-    if (!_navKeys.includes(_firstNumKey)) _navKeys.push(_firstNumKey);
+    caseEntry.number.split(',').forEach(n => {
+      const numKey = term + '/' + n.trim();
+      if (!_navKeys.includes(numKey)) _navKeys.push(numKey);
+    });
   }
   _navKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
     .forEach(el => el.classList.add('active')));
@@ -3322,21 +3325,25 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _activeKeys.push(term + '/' + caseEntry.number);
   if (caseEntry.number) {
-    const _firstNum = caseEntry.number.split(',')[0].trim();
-    const _firstNumKey = term + '/' + _firstNum;
-    if (!_activeKeys.includes(_firstNumKey)) _activeKeys.push(_firstNumKey);
+    caseEntry.number.split(',').forEach(n => {
+      const numKey = term + '/' + n.trim();
+      if (!_activeKeys.includes(numKey)) _activeKeys.push(numKey);
+    });
   }
   // The active sibling among collection items for this case is the one whose
-  // audioDate matches the resolved event's date. (caseRef.event numbering is
-  // a 1-based index into the original events[] array; resolvedOptionValue
-  // indexes into dropdown entries built only from the chosen audio source —
-  // the two are not comparable, so we discriminate by date instead.)
+  // audioDate matches the resolved event's date. When multiple siblings share
+  // the same date (e.g. two consolidated dockets argued the same day), break
+  // the tie using the 1-based event index stored on the element.
   const _resolvedDate = allAudio[resolvedOptionValue - 1]?.date || null;
+  const _resolvedEventIdx = caseEntry.events.indexOf(allAudio[resolvedOptionValue - 1]) + 1; // 1-based, 0 if not found
   _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
     .forEach(el => {
       if (el.dataset.audioDate !== undefined &&
           _resolvedDate !== null &&
           el.dataset.audioDate !== _resolvedDate) return;
+      if (el.dataset.eventIdx !== undefined &&
+          _resolvedEventIdx >= 1 &&
+          parseInt(el.dataset.eventIdx, 10) !== _resolvedEventIdx) return;
       el.classList.add('active');
     }));
   // When switching cases, collapse file lists for every non-active case.
