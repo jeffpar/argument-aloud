@@ -5177,7 +5177,7 @@ function _partyReadTranscript(transcriptPath) {
         if (!n || seen.has(n)) continue;
         const title = (titles[n] || '').toUpperCase();
         if (PARTY_JUSTICE_TITLES.has(title)) continue;
-        if (title.includes('NON-ADVOCATE')) continue;
+        if (title.includes('NP')) continue;
         if (/^UNKNOWN/i.test(n)) continue;
         // Exclude court officials (e.g. "THE MARSHAL") from advocate lists.
         if (n.toUpperCase() === 'THE MARSHAL') continue;

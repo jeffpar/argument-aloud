@@ -964,7 +964,7 @@ async function main() {
                             const preT = readJson(prePath);
                             for (const sp of preT?.media?.speakers || []) {
                                 const spTitle = sp.title || '';
-                                if (!_JUSTICE_TITLES.has(spTitle) && !spTitle.toUpperCase().includes('NON-ADVOCATE')) {
+                                if (!_JUSTICE_TITLES.has(spTitle) && !spTitle.toUpperCase().includes('NP')) {
                                     const n = normalizeNameSuffix(sp.name || '').split(/\s+/).filter(Boolean).join(' ');
                                     if (n) names.add(n.toUpperCase());
                                 }
@@ -1183,7 +1183,7 @@ async function main() {
                 for (const speaker of transcript?.media?.speakers || []) {
                     const speakerTitle = speaker.title || '';
                     if (!speakerTitle || _JUSTICE_TITLES.has(speakerTitle)) continue;
-                    if (speakerTitle.toUpperCase().includes('NON-ADVOCATE')) continue;
+                    if (speakerTitle.toUpperCase().includes('NP')) continue;
                     const spRaw = (speaker.name || '').trim();
                     recordAdvocate(spRaw, speakerTitle);
                     if (spRaw && (Array.isArray(speaker.tags) || typeof speaker.tags === 'string')) {
