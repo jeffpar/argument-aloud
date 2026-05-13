@@ -22,7 +22,7 @@ Ultimately, all terms from 1889 (the earliest year for which Journals are availa
 
 Omissions discovered during the initial audit:
 
-  - [Nilva v. United States (No. 37)](/courts/ussc/?term=1956-10&case=1956-038) was argued on November 8 and 13, 1956, but apparently all audio from November 8 missing, including:
+  - [Nilva v. United States (No. 37)](/courts/ussc/?term=1956-10&case=1956-038) was argued on November 8 and 13, 1956, but apparently all audio from November 8 is missing, including:
 
       - No. 39. [United States v. Plesha](/courts/ussc/?term=1956-10&case=1956-020). Argued by Mr. Lester S. Jayson for the petitioner and by Mr. Lawrence A. Schei for the respondents.
       - No. 31. [Massachusetts Bonding and Insurance Company v. United States](/courts/ussc/?term=1956-10&case=1956-013). Argued by Mr. John R. Kewer for the petitioners and by Mr. Paul A. Sweeney for the respondent.
@@ -35,6 +35,10 @@ Omissions discovered during the initial audit:
   - [Creek Nation v. United States (No. 124)](/courts/ussc/?term=1961-10&case=124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
   - [Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company (No. 8)](/courts/ussc/?term=1966-10&case=8) and [United States v. The Atchison, Topeka & Santa Fe Railway Company (No. 23)](/courts/ussc/?term=1966-10&case=8) were argued together in the 1966 term on April 19, 1967, but all that appears in Oyez is an [incorrect page](https://www.oyez.org/cases/1966/8). [NOTE: For those interested, [Quantity of Books v. Kansas](/courts/ussc/?term=1963-10&case=449) *does* [exist](https://www.oyez.org/cases/1963/449) in Oyez as well.]
+
+  - [Arizona v. California (No. 8 Orig.)](https://www.oyez.org/cases/1978/8_orig) claims no argument took place, but that can't be correct, because a [transcript](https://www.supremecourt.gov/pdfs/transcripts/1978/8_Orig_10-10-1978.pdf) exists. TODO: Track down the audio for No. 8 Orig on October 10, 1978 from NARA.
+
+  - Oyez has no opinion announcements for [Mahmoud v. Taylor (No. 24-297)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-058) or [Trump v. CASA Inc. (No. 24A884)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-065), just oral dissents from Justice Sotomayor.
 
 Examples of anomalies uncovered in Oyez during the initial audit:
 

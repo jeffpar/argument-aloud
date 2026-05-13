@@ -18,7 +18,7 @@ Unfortunately, all those pieces (the petitions, briefs, transcripts, audio recor
 
 And there are other essential pieces of information, such as copies of statutes, records from the lower courts, and more, which can usually be found in one or more of the briefs, if you know where to look.
 
-This website does not host *any* of those pieces. It simply provides a hub for that connects those pieces for every case.  Here's just one example: an interaction between Justice Sotomayor and Paul Clement during the March 23, 2026 argument in [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+This website does not host *any* of those pieces. It simply provides a hub for that connects those pieces for every case.  Here's just one example: an interaction between Justice Sotomayor and Paul Clement during the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 
 Hopefully this gives you sense of what we're trying to accomplish, and perhaps someday in the not-too-distant future, the Supreme Court's own website will offer a similar experience.
 
