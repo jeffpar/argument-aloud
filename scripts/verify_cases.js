@@ -33,6 +33,8 @@
  *                                                   # (records date disagreements in scdb_errors;
  *                                                   #  fills in missing votes / vote counts)
  *   node verify_cases.js 2024-10 --scdb --debug     # also dump full ours/scdb JSON on mismatch
+ *   node verify_cases.js [TERM] --scdb --backfill           # list SCDB cases missing from cases.json
+ *   node verify_cases.js [TERM] --scdb --backfill --update  # add missing SCDB cases to cases.json
  *
  * Exports helpers used by import_ussc.js / import_oyez.js:
  *   - REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase
@@ -3823,7 +3825,7 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, add) {
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, backfill) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -3843,6 +3845,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
 
     let total = 0, skipped = 0, updates = 0;
     const errors = [];
+
+    const ldTitles   = (backfill && update) ? _scdbLoadLdTitles()       : {};
+    const ldDatesAll = (backfill && update) ? _scdbLoadLdDatesByCaseId() : {};
 
     for (const cf of cases_files) {
         const term = path.basename(path.dirname(cf));
@@ -4141,22 +4146,15 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         const resorted = verifyVoteSeniority(term, cases, update);
         if (resorted) termChanged = true;
 
-        // Verify cases array is in ascending order by argument date.
-        // Re-sort if --update. Cases without an argument date keep their
-        // relative position (stable sort).
-        const argKey = (c) => {
-            const a = Array.isArray(c.argument) ? c.argument[0] : c.argument;
-            return _scdbNormalizeDate(a || '') || '9999-99-99';
-        };
-        const isSorted = cases.every((c, i) => i === 0 || argKey(cases[i - 1]) <= argKey(c));
-        if (!isSorted) {
-            if (update) {
-                const decorated = cases.map((c, i) => ({ c, i, k: argKey(c) }));
-                decorated.sort((a, b) => a.k.localeCompare(b.k) || a.i - b.i);
-                cases.length = 0;
-                for (const d of decorated) cases.push(d.c);
-                termChanged = true;
-            } else {
+        // Verify cases array is sorted consistently with sortCases() — by last
+        // argument date (max of argument/reargument), then first docket number.
+        // Delegate to sortCases() directly so the key is always in sync.
+        if (update) {
+            if (sortCases(term, cases, false)) termChanged = true;
+        } else {
+            // Check-only: sort a shallow copy to detect order change without mutating.
+            const copy = [...cases];
+            if (sortCases(term, copy, false)) {
                 errors.push(`${term}/cases.json: cases not in ascending argument-date order`);
             }
         }
@@ -4169,7 +4167,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         if (unmatchedOurs.length) {
             for (const t of unmatchedOurs) console.log(t);
         }
-        if (scdbTermIds.size && add) {
+        if (scdbTermIds.size && backfill) {
             // Map any docket appearing in our cases.json (including
             // consolidated case numbers) to its disposition string, if any.
             const ourDocketDisposition = new Map();
@@ -4191,10 +4189,19 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 })
                 .sort();
             if (unmatchedScdb.length) {
-                console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) with no match in cases.json:`);
+                const verb = update ? 'adding' : 'would add';
+                console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) ${verb} (missing from cases.json):`);
                 for (const k of unmatchedScdb) {
                     const r = scdb[k];
-                    console.log(`  ${k}  ${r.docket || ''}  ${r.dateDecision || ''}  ${r.caseName || ''}`);
+                    console.log(`  ${k}  ${r.docket || ''}  ${r.dateArgument || r.dateRearg || r.datreRearg || ''}  ${r.caseName || ''}`);
+                }
+                if (update) {
+                    for (const k of unmatchedScdb) {
+                        const newCase = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
+                        cases.push(newCase);
+                    }
+                    sortCases(term, cases, false);
+                    termChanged = true;
                 }
             }
         }
@@ -4390,12 +4397,12 @@ async function runScdb(opts) {
         const yearMatch = /^(\d{4})(?:-\d{2})?$/.exec(opts.term);
         if (!yearMatch) { console.error(`ERROR: TERM must be YYYY or YYYY-MM, got ${JSON.stringify(opts.term)}`); process.exit(1); }
         _scdbAddCaseToTerm(scdb, yearMatch[1], opts.case);
-    } else if (opts.case) {
+    } else if (opts.case && !opts.backfill) {
         _scdbPrintCase(scdb, opts.case);
     } else if (opts.usscDeck) {
         _scdbVerifyUsscDeck(scdb);
     } else {
-        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.add);
+        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.backfill);
     }
 }
 
@@ -5015,6 +5022,8 @@ Examples:
                                                            #   (records date disagreements in scdb_errors;
                                                            #    fills in missing votes / vote counts)
   node verify_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch
+  node verify_cases.js [TERM] --scdb --backfill              # list SCDB cases missing from cases.json
+  node verify_cases.js [TERM] --scdb --backfill --update     # add missing SCDB cases to cases.json
 
   node verify_cases.js --dates                             # check all terms vs ussc_dates.csv
   node verify_cases.js 1793-02 --dates                     # check one term vs ussc_dates.csv
@@ -5686,6 +5695,7 @@ async function main() {
             caseFilter: positional[1] || null,
             update:   flags.has('--update'),
             add:      flags.has('--add'),
+            backfill: flags.has('--backfill'),
             usscDeck: flags.has('--ussc-deck') || flags.has('--ussc_deck'),
             noCache:  flags.has('--nocache') || flags.has('--no-cache'),
             verbose,

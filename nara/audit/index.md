@@ -38,6 +38,8 @@ Omissions discovered during the initial audit:
 
   - [Arizona v. California (No. 8 Orig.)](https://www.oyez.org/cases/1978/8_orig) claims no argument took place, but that can't be correct, because a [transcript](https://www.supremecourt.gov/pdfs/transcripts/1978/8_Orig_10-10-1978.pdf) exists. TODO: Track down the audio for No. 8 Orig on October 10, 1978 from NARA.
 
+  - Oyez seems to be missing the audio for **Colby v. Driver (No. 78-303)**, argued on April 24, 1979; track down the audio from NARA and attach it to [Stafford v. Briggs](/courts/ussc/?term=1979-10&case=77-1546).
+
   - Oyez has no opinion announcements for [Mahmoud v. Taylor (No. 24-297)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-058) or [Trump v. CASA Inc. (No. 24A884)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-065), just oral dissents from Justice Sotomayor.
 
 Examples of anomalies uncovered in Oyez during the initial audit:
