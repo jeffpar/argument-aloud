@@ -2278,7 +2278,12 @@ function sortCases(term, cases, dryRun) {
         const dates = [c.argument, c.reargument].filter(Boolean);
         return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';
     };
-    const key = (c) => { const d = lastArgDate(c); return [d ? '0' : '1', d]; };
+    const firstDocketNum = (c) => {
+        const raw = (c.number || '').split(',')[0].trim();
+        const parts = raw.split('-');
+        return parseInt(parts[parts.length - 1], 10) || 0;
+    };
+    const key = (c) => { const d = lastArgDate(c); return [d ? '0' : '1', d, firstDocketNum(c)]; };
     const sorted = [...indexed].sort(([, a], [, b]) => _cmpKeys(key(a), key(b)));
     const orderChanged = sorted.some(([oi], i) => oi !== i);
     if (orderChanged) {
