@@ -2274,7 +2274,11 @@ function sortEvents(term, cases, dryRun) {
 
 function sortCases(term, cases, dryRun) {
     const indexed = cases.map((c, i) => [i, c]);
-    const key = (c) => [(c.argument ? '0' : '1'), c.argument || ''];
+    const lastArgDate = (c) => {
+        const dates = [c.argument, c.reargument].filter(Boolean);
+        return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';
+    };
+    const key = (c) => { const d = lastArgDate(c); return [d ? '0' : '1', d]; };
     const sorted = [...indexed].sort(([, a], [, b]) => _cmpKeys(key(a), key(b)));
     const orderChanged = sorted.some(([oi], i) => oi !== i);
     if (orderChanged) {
@@ -5168,6 +5172,7 @@ function _partyReadTranscript(transcriptPath) {
         if (!n || seen.has(n)) continue;
         const title = (titles[n] || '').toUpperCase();
         if (PARTY_JUSTICE_TITLES.has(title)) continue;
+        if (title.includes('NON-ADVOCATE')) continue;
         if (/^UNKNOWN/i.test(n)) continue;
         // Exclude court officials (e.g. "THE MARSHAL") from advocate lists.
         if (n.toUpperCase() === 'THE MARSHAL') continue;
