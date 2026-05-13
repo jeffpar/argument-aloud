@@ -49,7 +49,7 @@ const exists    = (p) => fs.existsSync(p);
 const readText  = (p) => fs.readFileSync(p, 'utf8');
 const writeText = (p, s) => fs.writeFileSync(p, s, 'utf8');
 const readJson  = (p) => JSON.parse(readText(p));
-const writeJson = (p, d) => writeText(p, JSON.stringify(d, null, 2) + '\n');
+const writeJson = (p, d) => { const s = JSON.stringify(d, null, 2) + '\n'; if (exists(p) && readText(p) === s) return; writeText(p, s); };
 const ensureDir = (p) => fs.mkdirSync(p, { recursive: true });
 const unlinkSafe = (p) => { try { fs.unlinkSync(p); } catch {} };
 
@@ -296,7 +296,7 @@ function repairUpdateSpeakersJson(renames) {
         const newUpper = newName.toUpperCase();
         if (oldUpper !== newUpper) aliases[oldUpper] = newUpper;
     }
-    writeText(_SPEAKERS_FILE, JSON.stringify(data, null, 2) + '\n');
+    writeJson(_SPEAKERS_FILE, data);
 }
 
 // ── CSV utilities ──────────────────────────────────────────────────────────
@@ -1401,7 +1401,7 @@ async function main() {
             if (!('entry' in rebuilt)) rebuilt.entry = entryNum;
             return rebuilt;
         });
-        writeText(caseFile, JSON.stringify(envelope, null, 2) + '\n');
+        writeJson(caseFile, envelope);
     }
 
     // Remove orphan advocate files.
@@ -1431,17 +1431,17 @@ async function main() {
         return entry;
     });
     ensureDir(path.dirname(OUTPUT_FILE));
-    writeText(OUTPUT_FILE, JSON.stringify(index, null, 2) + '\n');
+    writeJson(OUTPUT_FILE, index);
     console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)} and ${relRepo(ADVOCATES_DIR)}/`);
 
     // Top 100 advocates index.
     const topIndex = index.slice(0, 100);
-    writeText(TOP_OUTPUT_FILE, JSON.stringify(topIndex, null, 2) + '\n');
+    writeJson(TOP_OUTPUT_FILE, topIndex);
     console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP_OUTPUT_FILE)}`);
 
     // Women advocates index.
     const womenIndex = index.filter(e => nameFeminine.get(e.name.toUpperCase()));
-    writeText(WOMEN_OUTPUT_FILE, JSON.stringify(womenIndex, null, 2) + '\n');
+    writeJson(WOMEN_OUTPUT_FILE, womenIndex);
     console.log(`Wrote ${womenIndex.length} women advocates to ${relRepo(WOMEN_OUTPUT_FILE)}`);
 
     // Transgender advocates index (anyone whose transcript speaker entry
@@ -1450,7 +1450,7 @@ async function main() {
         const tags = nameTags.get(e.name.toUpperCase());
         return tags && tags.has('transgender');
     });
-    writeText(TRANS_OUTPUT_FILE, JSON.stringify(transIndex, null, 2) + '\n');
+    writeJson(TRANS_OUTPUT_FILE, transIndex);
     console.log(`Wrote ${transIndex.length} transgender advocates to ${relRepo(TRANS_OUTPUT_FILE)}`);
 
     // ── ussc_women.csv ──────────────────────────────────────────
