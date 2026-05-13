@@ -12,17 +12,15 @@ layout: pane
 
 ## For The Sake of Argument
 
-Every U.S. Supreme Court case ends in a decision, but understanding how it started and the arguments that were made is key to understanding that decision.  This website tries to bring all those threads together.
+Every U.S. Supreme Court case ends in a decision, but it starts with arguments, and those arguments come in many forms: the initial petition, a series of briefs, and then usually oral arguments, all of which have been recorded since October 1955 and transcribed since October 1968.
 
-Arguments come in many forms. There is the initial petition, and if the Court accepts it, that's followed by a series of briefs, which usually culminates in oral argument.  Oral arguments have been routinely recorded since October 1955 and routinely transcribed since October 1968.
+Unfortunately, all those pieces (the petitions, briefs, transcripts, audio recordings, opinions, and more) tend to be scattered.  Even the Supreme Court's own [website](https://www.supremecourt.gov) directs you to different pages for *every* one of those pieces.
 
-Digital copies of all those pieces (petitions, briefs, transcripts, audio recordings, opinions, etc) are available for modern cases, but they tend to be scattered.  Even the U.S. Supreme Court's own [website](https://www.supremecourt.gov) directs you to different pages for *every* piece of information related to a case.
+And there are other essential pieces of information, such as copies of statutes, records from the lower courts, and more, which can usually be found in one or more of the briefs, if you know where to look.
 
-And there are other essential pieces of information, such as copies of statutes, records from the lower courts, and so on.  Those are often buried in one or more of the briefs (eg, joint appendices), but having links to the relevant pages in the transcripts would be even better.
+This website does not host *any* of those pieces. It simply provides a hub for that connects those pieces for every case.  Here's just one example: an interaction between Justice Sotomayor and Paul Clement during the March 23, 2026 argument in [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 
-You can find examples of how such links would work in a few cases here already, such as [Watson v. RNC](/courts/ussc/?term=2025-10&case=24-1260&turn=369).
-
-Dive in and explore!
+Hopefully this gives you sense of what we're trying to accomplish, and perhaps someday in the not-too-distant future, the Supreme Court's own website will offer a similar experience.
 
 ![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]
