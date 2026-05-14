@@ -46,35 +46,28 @@ function termDisplayName(term) {
 }
 
 function decisionTooltip(term, caseEntry, decision) {
-  const months = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
-  let s = 'Term\u00a0' + term;
+  const parts = [];
   if (caseEntry.number) {
     const numbers = caseEntry.number.split(',').map(n => n.trim());
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
-    s += ' (' + label + '\u00a0' + numbers.join(', ') + ')';
+    parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
-  if (decision) {
-    const [y, m, d] = decision.split('-');
-    s += ' Decided\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
-  }
-  return s;
+  if (caseEntry.argument)   parts.push('Argued\u00a0'   + formatArgDates(caseEntry.argument));
+  if (caseEntry.reargument) parts.push('Reargued\u00a0' + formatArgDates(caseEntry.reargument));
+  if (decision)             parts.push('Decided\u00a0'  + formatDecisionDate(decision));
+  return parts.join(';\u00a0');
 }
 
 function argumentTooltip(term, caseRef) {
-  const months = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
-  let s = 'Term\u00a0' + term;
+  const parts = [];
   if (caseRef.number) {
     const numbers = caseRef.number.split(',').map(n => n.trim());
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
-    s += ' (' + label + '\u00a0' + numbers.join(', ') + ')';
+    parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
-  if (caseRef.argument) {
-    const [y, m, d] = caseRef.argument.split('-');
-    s += ' Argued\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
-  }
-  return s;
+  if (caseRef.argument)   parts.push('Argued\u00a0'   + formatArgDates(caseRef.argument));
+  if (caseRef.reargument) parts.push('Reargued\u00a0' + formatArgDates(caseRef.reargument));
+  return parts.join(';\u00a0');
 }
 
 function toTitleCase(s) {
@@ -678,6 +671,49 @@ function formatDecisionDate(iso) {
   return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
+// Populate and show/hide the argued/decided date row below the case title.
+function _setCaseInfoRow2(caseEntry) {
+  document.getElementById('case-argued').textContent =
+    caseEntry.argument   ? 'Argued\u00a0'   + formatArgDates(caseEntry.argument)   : '';
+  document.getElementById('case-reargued').textContent =
+    caseEntry.reargument ? 'Reargued\u00a0' + formatArgDates(caseEntry.reargument) : '';
+  document.getElementById('case-decided').textContent =
+    caseEntry.decision
+      ? 'Decided\u00a0' + formatDecisionDate(caseEntry.decision)
+          + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
+      : '';
+  document.getElementById('case-info-row2').hidden =
+    !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
+}
+
+// Format a comma-separated list of ISO argument dates for display.
+// Dates in the same month/year are collapsed to a day range: "April 1–2, 1979".
+// Dates across different months are joined with "; ": "April 30, 1979; May 1, 1979".
+function formatArgDates(dateStr) {
+  if (!dateStr) return '';
+  const MONTHS = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
+  // Group by year-month, preserving insertion order
+  const groups = new Map(); // "YYYY-MM" -> { y, m, days[] }
+  for (const iso of dates) {
+    const [y, m, d] = iso.split('-');
+    const key = y + '-' + m;
+    if (!groups.has(key)) groups.set(key, { y, m, days: [] });
+    groups.get(key).days.push(parseInt(d, 10));
+  }
+  const parts = [];
+  for (const { y, m, days } of groups.values()) {
+    const month = MONTHS[parseInt(m, 10) - 1] || m;
+    days.sort((a, b) => a - b);
+    const dayStr = days.length > 1
+      ? days[0] + '\u2013' + days[days.length - 1]  // en-dash range
+      : String(days[0]);
+    parts.push(month + '\u00a0' + dayStr + ',\u00a0' + y);
+  }
+  return parts.join(';\u00a0');
+}
+
 function caseTermDate(caseEntry, term) {
   const [yearStr, monthStr] = term.split('-');
   const termStart = `${yearStr}-${monthStr}-01`;
@@ -760,7 +796,6 @@ function makeAudioRingSvg(fraction, orange) {
   svg.setAttribute('height', size);
   svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
   svg.setAttribute('class', 'case-decided-icon case-audio-icon case-audio-ring');
-  svg.setAttribute('title', 'Oral argument audio available');
 
   const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   arc.setAttribute('cx', cx);
@@ -823,12 +858,13 @@ function makeScalesSvg() {
 
 function makeScalesRingSvg(blue) {
   const size = 22, cx = 11, cy = 11, r = 9;
-  const color = blue ? '#3778A6' : '#7B5EA7';
+  const color = blue ? '#3778A6' : '#9461C8';
 
   const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
-  svg.setAttribute('title', 'Opinion audio available');
-
+  svg.setAttribute('title', blue
+    ? 'Opinion announcement audio available'
+            : 'Opinion audio available with dissent(s)');
   const arc = _svgEl('circle', { cx, cy, r, fill: 'none', stroke: color, 'stroke-width': '1.5' });
 
   // Scale the icon to ~76% so it sits comfortably inside the ring
@@ -1008,16 +1044,18 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     rawFiles.forEach(f => {
       if ((f.type || '').toLowerCase() === 'opinion') {
         const dateStr = f.date || caseEntry.decision || '';
-        f.title = dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision';
+        f.title = (dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision')
+          + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
       }
     });
   }
 
   // When opinion_href is set, append a "Decision on <Date>" entry after any transcripts.
   if (caseEntry.opinion_href) {
-    const title = caseEntry.decision
+    const title = (caseEntry.decision
       ? 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision)
-      : 'Decision';
+      : 'Decision')
+      + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
     rawFiles.push({ type: 'opinion', title, href: caseEntry.opinion_href });
   }
 
@@ -1100,14 +1138,18 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 //                  to flag missing/incomplete oyez audio
 function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
   let icon = null;
+  const audioTooltip = (ring ? ring.orange : !hasTranscript)
+    ? 'Argument audio available without aligned transcript'
+    : 'Argument audio available';
   if (hasAudio) {
     if (ring) {
       icon = makeAudioRingSvg(ring.fraction, ring.orange);
+      icon.setAttribute('title', audioTooltip);
     } else {
       icon = document.createElement('span');
       icon.className = 'case-decided-icon case-audio-icon';
       icon.textContent = '\u266b';
-      icon.title = 'Oral argument audio available';
+      icon.title = audioTooltip;
     }
   } else if (hasTranscript) {
     icon = document.createElement('span');
@@ -1130,6 +1172,13 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
       : 'Oyez audio incomplete for this case';
     wrap.appendChild(icon);
     node = wrap;
+  } else if (icon?.tagName?.toLowerCase() === 'svg') {
+    // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
+    const tip = document.createElement('span');
+    tip.title = icon.getAttribute('title') || '';
+    tip.style.display = 'contents';
+    tip.appendChild(icon);
+    node = tip;
   }
   header.appendChild(node);
   node.dataset.audioIcon = '1';
@@ -1149,8 +1198,19 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   } else {
     icon = makeScalesSvg();
   }
+  let node = icon;
   if (onClick) {
-    icon.title = 'Opinion issued';
+    const tooltipText = ring
+      ? (ring.blue
+          ? 'Opinion announcement audio available'
+          : 'Opinion audio available with dissent(s)')
+      : 'Opinion issued';
+    // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
+    const tip = document.createElement('span');
+    tip.title = tooltipText;
+    tip.style.display = 'contents';
+    tip.appendChild(icon);
+    node = tip;
     icon.style.cursor = 'pointer';
     ci.classList.add('decided');
     icon.addEventListener('click', onClick);
@@ -1158,7 +1218,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     icon.style.opacity = '0';
     icon.style.pointerEvents = 'none';
   }
-  header.appendChild(icon);
+  header.appendChild(node);
   return icon;
 }
 
@@ -2257,6 +2317,8 @@ async function loadHighlight(highlight) {
   }
   document.getElementById('case-questions').hidden = true;
   document.getElementById('case-questions').textContent = '';
+  document.getElementById('case-questions').title = '';
+  document.getElementById('case-info-row2').hidden = true;
 
   // Set title (plain text — no term link needed)
   const span = document.getElementById('case-title-label');
@@ -3095,8 +3157,11 @@ function loadCaseAsOpinion(term, caseEntry) {
     }
   }
 
+  _setCaseInfoRow2(caseEntry);
+
   const qEl = document.getElementById('case-questions');
   qEl.textContent = '';
+  qEl.title = '';
   qEl.hidden = true;
   qEl.onclick = null;
   qEl.style.cursor = '';
@@ -3142,6 +3207,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
+  _setCaseInfoRow2(caseEntry);
   _currentOpinionHref = caseEntry.opinion_href || null;
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentOtdHref     = caseEntry.otd_href || null;
@@ -3433,6 +3499,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     }
   } else {
     qEl.textContent = '';
+    qEl.title = '';
     qEl.hidden = true;
     qEl.onclick = null;
     qEl.style.cursor = '';

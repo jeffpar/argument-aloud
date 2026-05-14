@@ -813,7 +813,7 @@ button.term-case-count.sort-active:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 #case-title-label {
@@ -821,7 +821,7 @@ button.term-case-count.sort-active:hover {
   font-weight: 600;
   color: #222;
   flex: 1 1 auto;
-  max-width: 85%;
+  min-width: 0;
 }
 
 #case-title-label a.case-title-link {
@@ -862,8 +862,15 @@ button.term-case-count.sort-active:hover {
 
 #case-info-row2 {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0 12px;
   margin-top: 3px;
+}
+
+#case-argued, #case-reargued, #case-decided {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
 }
 
 #case-cite {
@@ -1635,7 +1642,31 @@ button.term-case-count.sort-active:hover {
 
   #case-info {
     cursor: default;
+    /* Become the flex container so we can order children across row1/row2 */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 12px;
   }
+
+  /* Flatten row1's children directly into #case-info's flex context */
+  #case-info-row1 {
+    display: contents;
+  }
+
+  /* 1st: title (grows to fill) + mobile back button */
+  #case-title-label  { order: 1; }
+  #mobile-back-btn   { order: 1; }
+
+  /* 2nd: argued / decided dates */
+  #case-info-row2    { order: 2; flex-basis: 100%; }
+
+  /* 3rd: audio dropdown or decision label */
+  #audio-select,
+  #decision-date-label { order: 3; margin-top: 6px; }
+
+  /* 4th: questions */
+  #case-questions    { order: 4; flex-basis: 100%; }
 
   #mobile-back-btn {
     display: inline-block;

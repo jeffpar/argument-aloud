@@ -310,6 +310,12 @@ function _writeJson(p, data) {
     fs.writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8');
 }
 
+// Returns true if writing `data` as JSON to `p` would change the file.
+function _jsonChanged(p, data) {
+    const newStr = JSON.stringify(data, null, 2) + '\n';
+    try { return fs.readFileSync(p, 'utf8') !== newStr; } catch { return true; }
+}
+
 function _writeFileSync(p, data) {
     if (_DRY_RUN) { if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, p)}`); return; }
     fs.writeFileSync(p, data);
@@ -411,7 +417,10 @@ export function syncOpinionHrefFromFiles(casesPath) {
     let modified = false;
 
     for (const c of data) {
-        if (c.opinion_href) continue;
+        const needsHref     = !c.opinion_href;
+        const needsDecision = !c.decision;
+        if (!needsHref && !needsDecision) continue;
+
         const folderName = _caseFolder(c.number || c.id || '');
         if (!folderName) continue;
         const filesPath = path.join(termDir, 'cases', folderName, 'files.json');
@@ -420,23 +429,26 @@ export function syncOpinionHrefFromFiles(casesPath) {
         try { filesData = _readJson(filesPath); } catch { continue; }
         if (!Array.isArray(filesData)) continue;
         const opinion = filesData.find(e => e?.type === 'opinion');
-        if (!opinion?.href) continue;
+        if (!opinion) continue;
 
-        const newCase = {};
-        let inserted = false;
-        for (const [k, v] of Object.entries(c)) {
-            if (k === 'files' && !inserted) {
-                newCase.opinion_href = opinion.href;
-                inserted = true;
-            }
-            newCase[k] = v;
-        }
-        if (!inserted) newCase.opinion_href = opinion.href;
-        for (const k of Object.keys(c)) delete c[k];
-        Object.assign(c, newCase);
-        modified = true;
         const label = c.number || c.id || '?';
-        console.log(`  ${label}: inserted opinion_href from files.json`);
+        let changed = false;
+        if (needsHref && opinion.href) {
+            c.opinion_href = opinion.href;
+            changed = true;
+            console.log(`  ${label}: inserted opinion_href from files.json`);
+        }
+        if (needsDecision && opinion.date) {
+            c.decision = opinion.date;
+            changed = true;
+            console.log(`  ${label}: inserted decision date from files.json`);
+        }
+        if (changed) {
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            modified = true;
+        }
     }
 
     if (modified) _writeJson(casesPath, data);
@@ -1151,12 +1163,9 @@ function checkArgumentsHaveVotes(casesPath, term) {
     let count = 0;
     for (const c of data) {
         if (Array.isArray(c.votes) && c.votes.length) continue;
-        const events = c.events || [];
-        const hasMedia = events.some(e =>
-            e && (e.audio_href || e.transcript_href || e.text_href));
-        if (!hasMedia) continue;
+        if (!c.decision) continue;
         const label = c.number || c.id || '?';
-        console.log(`WARNING: ${term}/${label}: has audio/transcript but no votes (run with --scdb)`);
+        console.log(`WARNING: ${term}/${label}: has decision but no votes (try --scdb)`);
         count++;
     }
     return count;
@@ -1392,6 +1401,17 @@ function warnMissingOpinionHref(casesPath, term) {
         const label = c.number || c.id || '?';
         const title = firstTitle(c.title) || '';
         if (_VERBOSE) console.log(` NOTICE: ${term}/${label} (${title.slice(0,40)}): no opinion_href`);
+    }
+}
+
+function warnOpinionHrefWithoutDecision(casesPath, term) {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    for (const c of data) {
+        if (!c.opinion_href || c.decision) continue;
+        const label = c.number || c.id || '?';
+        const title = firstTitle(c.title) || '';
+        console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): has opinion_href but no decision date`);
     }
 }
 
@@ -2137,6 +2157,10 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                     if (eventDates.every(d => argDates.has(d))) continue;
                 }
             }
+            // All entries share the same date → cases were argued together
+            // (consolidated argument) but decided separately. Not a duplicate.
+            const allDates = locs.map(l => l[2]);
+            if (allDates.every(Boolean) && new Set(allDates).size === 1) continue;
             // Different offset values imply different portions of the same
             // audio are used across events — not a true duplicate.
             const offsets = locs.map(l => l[6] || '0');
@@ -2989,6 +3013,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
         return la < lb ? -1 : la > lb ? 1 : 0;
     });
 
+    const indexChanged = _jsonChanged(INDEX_FILE, index);
     _writeJson(INDEX_FILE, index);
 
     // Write per-justice files, preserving any existing details / highlights.
@@ -3023,7 +3048,9 @@ function processLoneDissenters(termsToProcess, dryRun) {
     }
 
     const verb = dryRun ? 'Would update' : 'Updated';
-    console.log(`Lone dissenters: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
+    if (_VERBOSE || indexChanged) {
+        console.log(`Lone dissenters: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
+    }
 }
 
 // =====================================================================
@@ -3377,6 +3404,10 @@ function processCollectionSets(allTerms, dryRun) {
     const nGroups = noteworthy ? noteworthy.output.length : 0;
     const nCount  = noteworthy ? noteworthy.output.reduce((a, g) => a + g.cases.length, 0) : 0;
 
+    const tChanged = _jsonChanged(_TRANSCRIPTS_PATH, transcripts);
+    const bChanged = _jsonChanged(_BRIEFS_PATH, briefs);
+    const nChanged = noteworthy ? _jsonChanged(_NOTEWORTHY_PATH, noteworthy.output) : false;
+
     const verb = dryRun ? 'Would write' : 'Wrote';
     if (!dryRun) {
         _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
@@ -3384,9 +3415,9 @@ function processCollectionSets(allTerms, dryRun) {
         _writeJson(_BRIEFS_PATH,      briefs);
         if (noteworthy) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
     }
-    console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
-    console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
-    if (noteworthy) {
+    if (_VERBOSE || tChanged) console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
+    if (_VERBOSE || bChanged) console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
+    if (noteworthy && (_VERBOSE || nChanged)) {
         console.log(`Noteworthy:  ${verb} ${nGroups} subset(s) / ${nCount} case(s) → courts/ussc/collections/noteworthy.json`);
         if (noteworthy.skipped || noteworthy.unmatched) {
             console.log(`Noteworthy:  skipped ${noteworthy.skipped} row(s), unmatched ${noteworthy.unmatched} case(s).`);
@@ -5244,8 +5275,9 @@ async function runDissentCheck(termFilter) {
         finalSets = newSets;
     }
 
+    const dissentsChanged = _jsonChanged(outPath, finalSets);
     fs.writeFileSync(outPath, JSON.stringify(finalSets, null, 2) + '\n', 'utf8');
-    console.log(`Wrote ${path.relative(REPO_ROOT, outPath)} (${finalSets.length} set(s))`);
+    if (_VERBOSE || dissentsChanged) console.log(`Wrote ${path.relative(REPO_ROOT, outPath)} (${finalSets.length} set(s))`);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -5680,9 +5712,6 @@ async function processOneTerm(term, opts) {
             checkVoteTenures(casesPath, term);
             missingVotes = checkArgumentsHaveVotes(casesPath, term);
             backfillUntrackedFiles(casesPath, term, dryRun);
-            if (!dryRun) syncFilesCount(casesPath);
-            syncOpinionHrefFromFiles(casesPath);
-            warnMissingOpinionHref(casesPath, term);
         }
         pruneRedundantCitation(casesPath, term, caseFilter || '');
         if (checkUrls && !caseFilter) await checkCaseHrefs(casesPath, term, opinionsOnly);
@@ -5701,6 +5730,14 @@ async function processOneTerm(term, opts) {
         for (const d of caseDirs) {
             await verifyCase(termDir, d, checkUrls, opinionsOnly);
             applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
+        }
+        // Sync files counts, opinion hrefs, and decision dates after verifyCase
+        // loop, since checkOpinionForCase may have added new opinion entries.
+        if (fs.existsSync(casesPath)) {
+            if (!dryRun) syncFilesCount(casesPath);
+            syncOpinionHrefFromFiles(casesPath);
+            warnMissingOpinionHref(casesPath, term);
+            warnOpinionHrefWithoutDecision(casesPath, term);
         }
     }
 
@@ -5977,7 +6014,7 @@ async function main() {
     if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
     if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
     if (r.mergedCount) console.log(`Refiled cases: ${dryRun ? 'Would merge' : 'Merged'} ${r.mergedCount} case(s) into later term(s).`);
-    if (r.missingVotes) console.log(`Missing votes: ${r.missingVotes} case(s) have audio/transcript but no votes — re-run with --scdb to backfill.`);
+    if (r.missingVotes) console.log(`Missing votes: ${r.missingVotes} case(s) have decision but no votes (try --scdb).`);
     if (mediaDupes.length) {
         console.log(`Media hrefs: ${mediaDupes.length} duplicate URL(s) found across scope.`);
         for (const [field, url, locs] of mediaDupes) {
