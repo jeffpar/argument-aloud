@@ -1406,6 +1406,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       });
       if (isEmpty) toggle.style.display = 'none';
     }
+    ci._ensureFilesLoaded = ensureFilesLoaded;
 
     toggle.addEventListener('click', async (e) => {
       e.stopPropagation();
@@ -1599,7 +1600,15 @@ function buildNav(title = 'Terms') {
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
             termCount.classList.add('sort-active');
             if (_casesCache && termLi.classList.contains('open')) {
+              const activeKey = document.querySelector('.case-item.active')?.dataset?.caseKey ?? null;
               buildTermCasesSorted(term, _casesCache, ul, _sortMode, _sortAsc);
+              if (activeKey) {
+                const reactivated = ul.querySelector(`.case-item[data-case-key="${CSS.escape(activeKey)}"]`);
+                if (reactivated) {
+                  markCaseItemActive(reactivated);
+                  reactivated._ensureFilesLoaded?.();
+                }
+              }
             }
           });
           menu.appendChild(item);
