@@ -863,7 +863,7 @@ function makeScalesRingSvg(blue) {
   const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
   svg.setAttribute('title', blue
-    ? 'Opinion announcement audio available'
+    ? 'Opinion audio available'
             : 'Opinion audio available with dissent(s)');
   const arc = _svgEl('circle', { cx, cy, r, fill: 'none', stroke: color, 'stroke-width': '1.5' });
 
@@ -1202,7 +1202,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   if (onClick) {
     const tooltipText = ring
       ? (ring.blue
-          ? 'Opinion announcement audio available'
+          ? 'Opinion audio available'
           : 'Opinion audio available with dissent(s)')
       : 'Opinion issued';
     // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
@@ -1289,8 +1289,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const urlId = urlIdOf(caseEntry);
     const caseKey = term + '/' + urlId;
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
-    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href);
-    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href);
+    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'opinion');
+    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'opinion');
     const hasOpinion    = !!caseEntry.opinion_href;
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
