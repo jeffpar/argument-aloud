@@ -395,9 +395,7 @@ export function syncFilesCount(casesPath) {
                 if (Array.isArray(files)) count = files.length;
             } catch {}
         }
-        const keys = Object.keys(c);
-        if (keys[keys.length - 1] === 'files' && c.files === count) continue;
-        delete c.files;
+        if (c.files === count) continue;
         c.files = count;
         modified = true;
     }
@@ -940,25 +938,9 @@ function verifyCasesJsonArguments(casesPath, term = '', dryRun = false) {
     if (modified && !dryRun) _writeJson(casesPath, data);
 }
 
-function normalizeAudioAlignedPosition(casesPath) {
-    const data = _readJson(casesPath);
-    if (!Array.isArray(data)) return;
-    let modified = false;
-    for (const c of data) {
-        for (const arg of c.events || []) {
-            if (!('aligned' in arg)) continue;
-            const keys = Object.keys(arg);
-            if (keys[keys.length - 1] === 'aligned') continue;
-            const v = arg.aligned;
-            delete arg.aligned;
-            arg.aligned = v;
-            modified = true;
-        }
-    }
-    if (modified) {
-        _writeJson(casesPath, data);
-        if (_VERBOSE) console.log(` NOTICE: ${path.basename(path.dirname(casesPath))}/cases.json: moved "aligned" to last position in audio objects`);
-    }
+function normalizeAudioAlignedPosition(_casesPath) {
+    // Key ordering (including 'aligned') is now managed by EVENT_KEY_ORDER and
+    // fixKeyOrder() inside processTerm(); nothing to do here.
 }
 
 function removeRedundantTranscriptFiles(casesPath) {
@@ -2448,7 +2430,8 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
             || eventsSorted || casesSorted || argDatesFixed || eventTypesFixed
-            || mergedCount || hrefRedundantFixed || votesResorted)) {
+            || mergedCount || hrefRedundantFixed || votesResorted)
+            && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
@@ -3014,7 +2997,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
     });
 
     const indexChanged = _jsonChanged(INDEX_FILE, index);
-    _writeJson(INDEX_FILE, index);
+    if (indexChanged) _writeJson(INDEX_FILE, index);
 
     // Write per-justice files, preserving any existing details / highlights.
     const knownIds = new Set();
@@ -3033,7 +3016,8 @@ function processLoneDissenters(termsToProcess, dryRun) {
                 }
             } catch { /* ignore */ }
         }
-        _writeJson(file, { details, highlights, cases: list });
+        const output = { details, highlights, cases: list };
+        if (_jsonChanged(file, output)) _writeJson(file, output);
     }
 
     // Remove orphan per-justice files for justices no longer in the index.
@@ -3394,6 +3378,58 @@ function _buildNoteworthyCollection(allTerms) {
     return { output, skipped, unmatched };
 }
 
+const _PAGE_KEY_ORDER = ['title', 'term', 'file', 'cases', 'journal_cover', 'journal_href'];
+
+function syncTermsJson() {
+    let tj;
+    try { tj = _readJson(TERMS_JSON); } catch { return; }
+    if (!Array.isArray(tj)) return;
+
+    let modified = false;
+    for (const decade of tj) {
+        for (let i = 0; i < (decade.pages || []).length; i++) {
+            const page = decade.pages[i];
+            // Support both old format (cases = URL string) and new format (file = URL string).
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!m) continue;
+
+            const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', m[1], 'cases.json');
+            let count = 0;
+            if (fs.existsSync(casesPath)) {
+                try {
+                    const data = _readJson(casesPath);
+                    if (Array.isArray(data)) count = data.length;
+                } catch {}
+            }
+
+            // Rebuild page with canonical key order, file=URL, cases=count.
+            const newPage = {};
+            for (const k of _PAGE_KEY_ORDER) {
+                if (k === 'file') { newPage.file = fileUrl; continue; }
+                if (k === 'cases') { newPage.cases = count; continue; }
+                if (k === 'term') { if (page.term) newPage.term = page.term; continue; }
+                if (Object.prototype.hasOwnProperty.call(page, k)) newPage[k] = page[k];
+            }
+            // Preserve any extra keys not in the canonical order.
+            for (const k of Object.keys(page)) {
+                if (!_PAGE_KEY_ORDER.includes(k)) newPage[k] = page[k];
+            }
+
+            if (JSON.stringify(newPage) !== JSON.stringify(page)) {
+                decade.pages[i] = newPage;
+                modified = true;
+            }
+        }
+    }
+
+    if (modified) {
+        const label = path.relative(REPO_ROOT, TERMS_JSON);
+        if (!_DRY_RUN) _writeJson(TERMS_JSON, tj);
+        console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} ${label} (case counts)`);
+    }
+}
+
 function processCollectionSets(allTerms, dryRun) {
     const transcripts = _buildTranscriptsCollection(allTerms);
     const briefs      = _buildBriefsCollection(allTerms);
@@ -3411,9 +3447,9 @@ function processCollectionSets(allTerms, dryRun) {
     const verb = dryRun ? 'Would write' : 'Wrote';
     if (!dryRun) {
         _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
-        _writeJson(_TRANSCRIPTS_PATH, transcripts);
-        _writeJson(_BRIEFS_PATH,      briefs);
-        if (noteworthy) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
+        if (tChanged) _writeJson(_TRANSCRIPTS_PATH, transcripts);
+        if (bChanged) _writeJson(_BRIEFS_PATH,      briefs);
+        if (noteworthy && nChanged) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
     }
     if (_VERBOSE || tChanged) console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
     if (_VERBOSE || bChanged) console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
@@ -4512,7 +4548,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
             if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
         })).filter(Boolean);
     } catch {}
@@ -4722,7 +4758,7 @@ function runUnargued(termFilter, caseFilter) {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
             if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
         })).filter(Boolean);
     } catch {}
@@ -4828,7 +4864,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
             if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
         })).filter(Boolean);
     } catch {}
@@ -5204,7 +5240,7 @@ async function runDissentCheck(termFilter) {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         for (const decade of tj) {
             for (const page of (decade.pages || [])) {
-                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
                 const termKey = page.term || (m ? m[1] : null);
                 if (termKey && page.title) termTitleMap[termKey] = page.title;
             }
@@ -5217,7 +5253,7 @@ async function runDissentCheck(termFilter) {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
             if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
         })).filter(Boolean);
     } catch {}
@@ -5276,9 +5312,8 @@ async function runDissentCheck(termFilter) {
     }
 
     const dissentsChanged = _jsonChanged(outPath, finalSets);
-    fs.writeFileSync(outPath, JSON.stringify(finalSets, null, 2) + '\n', 'utf8');
-    if (_VERBOSE || dissentsChanged) console.log(`Wrote ${path.relative(REPO_ROOT, outPath)} (${finalSets.length} set(s))`);
-}
+    if (dissentsChanged) fs.writeFileSync(outPath, JSON.stringify(finalSets, null, 2) + '\n', 'utf8');
+    if (_VERBOSE || dissentsChanged) console.log(`Wrote ${path.relative(REPO_ROOT, outPath)} (${finalSets.length} set(s))`);}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --roles: derive event advocate roles from transcript JSON, raw transcript
@@ -5888,11 +5923,11 @@ async function main() {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        // terms.json is decade-grouped: [{title, pages:[{title, cases, term?},...]}]
-        // Derive the term key from the cases URL: /courts/ussc/terms/YYYY-MM/cases.json
+        // terms.json is decade-grouped: [{title, pages:[{title, file, cases(count), term?},...]}]
+        // Derive the term key from the file URL: /courts/ussc/terms/YYYY-MM/cases.json
         allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
             if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
         })).filter(Boolean);
     } catch {}
@@ -5974,6 +6009,10 @@ async function main() {
         } finally {
             setDryRun(prevDryRun);
         }
+    }
+
+    if (!caseFilter) {
+        syncTermsJson();
     }
 
     const r = totals;

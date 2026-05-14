@@ -79,6 +79,14 @@ function lastName(name) {
   return stripped.split(/\s+/).pop() || name;
 }
 
+// Mirrors makeAdvocateId() from scripts/update_advocates.js.
+// Converts a full name like "ALAN E. POPKIN" → "alan_e_popkin".
+function _makeAdvocateId(name) {
+  const ascii = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const noPunct = ascii.replace(/[^\w\s-]/g, '');
+  return noPunct.replace(/[\s\-_]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
 // Accepts a speaker object {name, title} (new format) or a plain name string
 // (old format, derived from display names like "CHIEF JUSTICE ROBERTS").
 function formatSpeaker(speaker) {
@@ -188,7 +196,7 @@ async function loadFiles(url) {
 }
 
 // ── Lazy term loading ────────────────────────────────────────────────────────
-let TERMS = [];         // flat array {title, cases, term(derived), journal_*} built from terms.json in init()
+let TERMS = [];         // flat array {title, file, cases(count), term(derived), journal_*} built from terms.json in init()
 let TERMS_GROUPED = []; // decade-grouped [{title, pages:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
@@ -196,7 +204,7 @@ const _termFetchPromises = new Map(); // term → inflight Promise or resolved c
 async function fetchTermCases(term) {
   if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
   const entry = TERMS.find(t => t.term === term);
-  const casesUrl = entry ? entry.cases : '/courts/ussc/terms/' + term + '/cases.json';
+  const casesUrl = entry ? (entry.file || entry.cases) : '/courts/ussc/terms/' + term + '/cases.json';
   const p = fetch(casesUrl, { cache: 'reload' })
     .then(r => r.ok ? r.json() : [])
     .catch(e => { console.warn('[cases] fetch failed for term', term, e); return []; });
@@ -646,18 +654,12 @@ function setCaseTitleLabel(term, caseEntry) {
 
   a.addEventListener('click', e => {
     e.preventDefault();
-    const key = term + '/' + caseId(caseEntry);
-    const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
-    if (!caseEl) return;
-    caseEl.closest('.terms-group')?.classList.add('open');
-    caseEl.closest('.decade-group')?.classList.add('open');
-    caseEl.closest('.term-group')?.classList.add('open');
-    caseEl.closest('.month-group')?.classList.add('open');
-    if (isMobile()) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      setMobileNavVisible(true);
-    }
-    requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    const url = buildUrlParams(
+      { term, case: caseId(caseEntry) },
+      ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'],
+    );
+    history.pushState(null, '', url);
+    restoreFromURL();
   });
   span.appendChild(a);
 }
@@ -673,12 +675,15 @@ function formatDecisionDate(iso) {
 
 // Populate and show/hide the argued/decided date row below the case title.
 function _setCaseInfoRow2(caseEntry) {
+  // When there are no audio/transcript events but a decision link is already
+  // shown on the right, the decided date is redundant — omit it.
+  const omitDecided = !caseEntry.events?.length && !!caseEntry.opinion_href;
   document.getElementById('case-argued').textContent =
     caseEntry.argument   ? 'Argued\u00a0'   + formatArgDates(caseEntry.argument)   : '';
   document.getElementById('case-reargued').textContent =
     caseEntry.reargument ? 'Reargued\u00a0' + formatArgDates(caseEntry.reargument) : '';
   document.getElementById('case-decided').textContent =
-    caseEntry.decision
+    !omitDecided && caseEntry.decision
       ? 'Decided\u00a0' + formatDecisionDate(caseEntry.decision)
           + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
       : '';
@@ -1526,8 +1531,8 @@ function buildNav(title = 'Terms') {
 
     for (const page of decade.pages || []) {
       // Derive the term identifier from the cases URL.
-      const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
-      const term = m ? m[1] : page.cases;
+      const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+      const term = m ? m[1] : (page.file || page.cases);
 
       const termLi = document.createElement('li');
       termLi.className = 'term-group';
@@ -3550,6 +3555,40 @@ function renderTranscript() {
     tx.className = 'turn-text';
     renderTurnText(tx, turn.text, null, false);
 
+    // Make non-justice speaker labels clickable links to advocate profiles.
+    const spkrTitle = typeof spkr === 'object' ? (spkr.title || '') : '';
+    const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE';
+    if (isAdvocate) {
+      sp.classList.add('speaker-link');
+      sp.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const advocateId = _makeAdvocateId(typeof spkr === 'object' ? spkr.name : String(spkr));
+        if (!advocateId) return;
+        // Build URL with turn so Back returns here.
+        const turnId = turn.turn ?? (idx + 1);
+        const activeCI = document.querySelector('.case-item.active');
+        const caseKey = activeCI?.dataset.caseKey || '';
+        const slashIdx = caseKey.indexOf('/');
+        const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
+        const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
+        const turnUrl = (ciTerm && ciCase)
+          ? buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
+              ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'])
+          : buildUrlParams({ turn: turnId });
+        history.replaceState(null, '', turnUrl);
+        const collectionId = spkrTitle.split(',').map(t => t.trim())
+          .some(t => t === 'MS.' || t === 'MRS.' || t === 'MISS') ? 'women_advocates' : 'all_advocates';
+        const advocateUrlParams = { collection: collectionId, id: advocateId };
+        if (ciTerm && ciCase) { advocateUrlParams.term = ciTerm; advocateUrlParams.case = ciCase; advocateUrlParams.turn = turnId; }
+        const advocateUrl = buildUrlParams(
+          advocateUrlParams,
+          ['event', 'file', 'highlight', 'entry', 'link'],
+        );
+        history.pushState(null, '', advocateUrl);
+        restoreFromURL();
+      });
+    }
+
     div.appendChild(sp);
     div.appendChild(tx);
     div.addEventListener('click', () => {
@@ -3586,11 +3625,18 @@ function renderTranscript() {
       const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
       let url;
       if (ciTerm && ciCase) {
+        // If we're already viewing within a collection, preserve collection/id/entry/event
+        // so the advocate context stays in the URL. The user can click the case title
+        // link to return to the plain term view.
+        const inCollection = !!new URLSearchParams(location.search).get('collection');
         url = buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
-          ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link']);
+          inCollection
+            ? ['highlight', 'file', 'link']
+            : ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link']);
         // Desktop only: keep the active case visible in the sidebar. On mobile,
         // tapping a turn should not shift the viewport or reveal the explorer pane.
-        if (activeCI && !isMobile()) {
+        // Skip when in a collection view — the collection item is already visible.
+        if (activeCI && !isMobile() && !inCollection) {
           activeCI.closest('.term-group')?.classList.add('open');
           activeCI.closest('.decade-group')?.classList.add('open');
           activeCI.closest('[data-section="terms"]')?.classList.add('open');
@@ -4306,6 +4352,51 @@ function findFileItem(param) {
   });
 })();
 
+// ── Random case picker ───────────────────────────────────────────────────────
+// Pick a random case within a term range and navigate to it.
+// startTerm / stopTerm are optional YYYY-MM strings (inclusive, lexicographic).
+async function _randomizeThenRestore(startTerm, stopTerm) {
+  // Filter the flat TERMS list to eligible pages in the requested range.
+  const eligible = TERMS.filter(p => {
+    if (!p.term || typeof p.cases !== 'number' || p.cases <= 0) return false;
+    if (!p.file && !(typeof p.cases === 'string')) return false;
+    if (startTerm && p.term < startTerm) return false;
+    if (stopTerm  && p.term > stopTerm)  return false;
+    return true;
+  });
+  if (!eligible.length) return;
+
+  // Pick a uniformly random page, then a uniformly random case within it.
+  const page    = eligible[Math.floor(Math.random() * eligible.length)];
+  const caseIdx = Math.floor(Math.random() * page.cases);
+  const term    = page.term;
+
+  const cases = await fetchTermCases(term);
+  if (!cases?.length) return;
+  const caseEntry = cases[Math.min(caseIdx, cases.length - 1)];
+  if (!caseEntry) return;
+
+  // Replace the current URL (so the action= URL is not in history) with the
+  // resolved case URL, then restore normally.
+  const caseId = _caseUrlId(caseEntry, cases);
+  const url = buildUrlParams(
+    { term, case: caseId },
+    ['action', 'start', 'stop', 'collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+  );
+  history.replaceState(null, '', url);
+  await restoreFromURL();
+}
+
+async function pickRandomCase() {
+  const btn = document.getElementById('random-case-btn');
+  if (btn) btn.disabled = true;
+  try {
+    await _randomizeThenRestore('1950-10', null);
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
 // ── Init ────────────────────────────────────────────────────────────────────
 async function init() {
   // Load nav structure from index.json, then pre-fetch any referenced data files in parallel.
@@ -4327,7 +4418,7 @@ async function init() {
         // Build flat TERMS array for lookups (term derived from cases URL).
         TERMS = data.flatMap(decade =>
           (decade.pages || []).map(page => {
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return { ...page, term: m ? m[1] : '' };
           })
         );
@@ -4340,11 +4431,23 @@ async function init() {
   }));
   buildNavFromIndex(navData);
 
+  document.getElementById('random-case-btn')?.addEventListener('click', () => pickRandomCase());
+
   await restoreFromURL();
 }
 
 async function restoreFromURL() {
   const params = new URLSearchParams(location.search);
+
+  // ── action=randomize ─────────────────────────────────────────────────────
+  // Redirect to a random case in the given term range before doing anything else.
+  if (params.get('action') === 'randomize') {
+    const startParam = params.get('start') || null;
+    const stopParam  = params.get('stop')  || null;
+    await _randomizeThenRestore(startParam, stopParam);
+    return;
+  }
+
   const linkParam       = params.get('link');
   const termParam       = params.get('term');
   const caseParam       = params.get('case');
@@ -4444,12 +4547,16 @@ async function restoreFromURL() {
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       // Ensure group cases are built before looking up the case item (both split and embedded format).
+      // When idParam is set, scope the case search to that advocate's group so we don't accidentally
+      // select the same case under a different advocate who argued the same term/case.
+      let _caseSearchRoot = collLi;
       if (idParam) {
         const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
         if (groupLi) {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
+          _caseSearchRoot = groupLi;
         }
       } else if (entryParam) {
         const groupLi = collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
@@ -4457,6 +4564,7 @@ async function restoreFromURL() {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
+          _caseSearchRoot = groupLi;
         }
       }
       // Collection case items use `caseRef.number` (the docket number) as
@@ -4464,7 +4572,18 @@ async function restoreFromURL() {
       // by the click handler. Use caseParam directly so the key always matches,
       // even when the term's full case entry has a separate `id` field.
       const caseKey = CSS.escape(termParam + '/' + caseParam);
-      const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
+      let ci = _caseSearchRoot.querySelector(`.case-item[data-case-key="${caseKey}"]`);
+      // Fallback: caseParam may be just the first docket number of a consolidated
+      // case (e.g. "77-874" when the full number is "77-874,77-1463").
+      if (!ci) {
+        const termPrefix = CSS.escape(termParam + '/');
+        ci = Array.from(_caseSearchRoot.querySelectorAll(`.case-item[data-case-key^="${termPrefix}"]`))
+          .find(el => {
+            const keyNum = (el.dataset.caseKey || '').split('/').pop();
+            return keyNum === caseParam
+              || keyNum.split(',').map(n => n.trim()).includes(caseParam);
+          }) || null;
+      }
       // Still fetch term cases so fileRestore can check events length below.
       const termCases = ci ? await fetchTermCases(termParam) : [];
       const matchedCase = termCases.find(c => {

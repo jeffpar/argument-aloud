@@ -56,6 +56,27 @@ body {
   text-overflow: ellipsis;
 }
 
+#random-case-btn {
+  flex-shrink: 0;
+  margin-left: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+#random-case-btn:hover {
+  opacity: 1;
+}
+#random-case-btn:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
 /* ── Two-panel browser ───────────────────────────────────── */
 #browser {
   display: flex;
@@ -1279,6 +1300,14 @@ button.term-case-count.sort-active:hover {
   color: #059669;
 }
 
+.speaker.speaker-link {
+  cursor: pointer;
+}
+
+.speaker.speaker-link:hover {
+  text-decoration: underline;
+}
+
 .turn-text {
   flex: 1;
   font-size: 13px;
@@ -1695,6 +1724,8 @@ button.term-case-count.sort-active:hover {
   #topbar-sep { color: #444; }
   #page-title { color: #9da5b4; }
   #topbar-term { color: #6c7280; }
+  #random-case-btn { opacity: 0.4; }
+  #random-case-btn:hover { opacity: 0.85; }
 
   /* Page viewer iframe and transcript area */
   #page-viewer-frame { background: #1a1c22; }
