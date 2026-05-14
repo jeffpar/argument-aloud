@@ -1690,6 +1690,7 @@ function buildNav(title = 'Terms') {
             url.searchParams.delete('file');
             url.searchParams.delete('turn');
             history.pushState(null, '', url);
+            document.getElementById('topbar-term').textContent = '';
             return;
           }
         } else if (termLi.classList.contains('open')) {
@@ -1704,6 +1705,7 @@ function buildNav(title = 'Terms') {
           termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         }
         updateEmptyStateForTerm(term);
+        document.getElementById('topbar-term').textContent = termDisplayName(term);
         // Update URL: set term param, clear case/audio/file/turn params.
         const url = new URL(location.href);
         url.searchParams.set('term', term);
@@ -3585,6 +3587,18 @@ function renderTranscript() {
           ['event', 'file', 'highlight', 'entry', 'link'],
         );
         history.pushState(null, '', advocateUrl);
+        // On mobile, after the transcript loads scroll the doc-browser so the
+        // selected case in the advocate's list is at the top.
+        if (isMobile()) {
+          document.addEventListener('transcriptloaded', () => {
+            const activeCase = document.querySelector('.case-item.active');
+            const docBrowser = document.getElementById('doc-browser');
+            if (activeCase && docBrowser) {
+              const caseTop = activeCase.getBoundingClientRect().top - docBrowser.getBoundingClientRect().top;
+              docBrowser.scrollTop = Math.max(0, docBrowser.scrollTop + caseTop - 8);
+            }
+          }, { once: true });
+        }
         restoreFromURL();
       });
     }
@@ -4384,6 +4398,24 @@ async function _randomizeThenRestore(startTerm, stopTerm) {
     ['action', 'start', 'stop', 'collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
   );
   history.replaceState(null, '', url);
+
+  // Collapse all open decade/term groups so only the target path is expanded.
+  document.querySelectorAll('#term-list .decade-group.open, #term-list .term-group.open, #term-list .month-group.open')
+    .forEach(el => el.classList.remove('open'));
+
+  // On mobile, after the transcript loads scroll the doc-browser so the
+  // selected case sits at the top — visible when the user swipes up.
+  if (isMobile()) {
+    document.addEventListener('transcriptloaded', () => {
+      const activeCase = document.querySelector('.case-item.active');
+      const docBrowser = document.getElementById('doc-browser');
+      if (activeCase && docBrowser) {
+        const caseTop = activeCase.getBoundingClientRect().top - docBrowser.getBoundingClientRect().top;
+        docBrowser.scrollTop = Math.max(0, docBrowser.scrollTop + caseTop - 8);
+      }
+    }, { once: true });
+  }
+
   await restoreFromURL();
 }
 
@@ -4432,6 +4464,33 @@ async function init() {
   buildNavFromIndex(navData);
 
   document.getElementById('random-case-btn')?.addEventListener('click', () => pickRandomCase());
+
+  // Spin the dice button whenever the user hovers over any action=randomize link.
+  // Must be attached to both the main document and the page-viewer-frame iframe
+  // (home content and other pages are rendered inside that iframe).
+  function _attachRandomizeHoverListeners(doc) {
+    doc.addEventListener('mouseover', (e) => {
+      if (!e.target.closest('a[href*="action=randomize"]')) return;
+      document.getElementById('random-case-btn')?.classList.add('spinning');
+    });
+    doc.addEventListener('mouseout', (e) => {
+      if (!e.target.closest('a[href*="action=randomize"]')) return;
+      if (e.relatedTarget?.closest('a[href*="action=randomize"]')) return;
+      document.getElementById('random-case-btn')?.classList.remove('spinning');
+    });
+  }
+  _attachRandomizeHoverListeners(document);
+  const pageFrame = document.getElementById('page-viewer-frame');
+  if (pageFrame) {
+    // Re-attach on every iframe navigation (content changes).
+    pageFrame.addEventListener('load', function () {
+      try { _attachRandomizeHoverListeners(this.contentDocument); } catch (_) {}
+    });
+    // Safety net: stop spinning whenever the mouse leaves the iframe entirely.
+    pageFrame.addEventListener('mouseleave', () => {
+      document.getElementById('random-case-btn')?.classList.remove('spinning');
+    });
+  }
 
   await restoreFromURL();
 }
@@ -4593,6 +4652,7 @@ async function restoreFromURL() {
           || c.number.split(',').map(n => n.trim()).includes(caseParam);
       });
       if (ci) {
+        markCaseItemActive(ci);
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
         if (fileParam != null || turnParam != null) {
@@ -4757,6 +4817,7 @@ async function restoreFromURL() {
         })();
       }
       updateEmptyStateForTerm(termParam);
+      document.getElementById('topbar-term').textContent = termDisplayName(termParam);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
   } else {

@@ -36,29 +36,23 @@ body {
   color: #1a5090;
 }
 
-#topbar-sep {
-  color: #2672b4;
-  margin: 0 10px;
-  font-size: 18px;
-}
-
 #page-title {
+  margin-left: 10px;
   color: #2672b4;
-  font-size: 13px;
+  font-size: 11px;
+  white-space: nowrap;
 }
 
 #topbar-term {
   margin-left: auto;
+  margin-right: 6px;
   color: #2672b4;
-  font-size: 12px;
+  font-size: 11px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 #random-case-btn {
   flex-shrink: 0;
-  margin-left: 12px;
   background: none;
   border: none;
   cursor: pointer;
@@ -75,6 +69,14 @@ body {
 #random-case-btn:disabled {
   cursor: default;
   opacity: 0.3;
+}
+#random-case-btn.spinning {
+  animation: dice-spin 0.7s linear infinite;
+  opacity: 1;
+}
+@keyframes dice-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ── Two-panel browser ───────────────────────────────────── */
@@ -1607,10 +1609,6 @@ button.term-case-count.sort-active:hover {
     font-size: 12px;
   }
 
-  #topbar-sep {
-    margin: 0 6px;
-  }
-
   #browser {
     flex-direction: column;
   }
@@ -1676,6 +1674,8 @@ button.term-case-count.sort-active:hover {
     flex-wrap: wrap;
     align-items: baseline;
     column-gap: 12px;
+    position: relative;
+    padding-right: 28px; /* room for the absolutely-positioned back button */
   }
 
   /* Flatten row1's children directly into #case-info's flex context */
@@ -1683,9 +1683,8 @@ button.term-case-count.sort-active:hover {
     display: contents;
   }
 
-  /* 1st: title (grows to fill) + mobile back button */
+  /* 1st: title (grows to fill) */
   #case-title-label  { order: 1; }
-  #mobile-back-btn   { order: 1; }
 
   /* 2nd: argued / decided dates */
   #case-info-row2    { order: 2; flex-basis: 100%; }
@@ -1698,15 +1697,17 @@ button.term-case-count.sort-active:hover {
   #case-questions    { order: 4; flex-basis: 100%; }
 
   #mobile-back-btn {
-    display: inline-block;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
     background: none;
     border: none;
-    padding: 0 2px;
+    padding: 2px 0;
     font-size: 11px;
     color: #aaa;
     cursor: pointer;
     line-height: 1;
-    flex-shrink: 0;
   }
 }
 
@@ -1721,7 +1722,6 @@ button.term-case-count.sort-active:hover {
   #topbar { background: #1a1c22; border-bottom-color: #2d2f38; }
   #site-link  { color: #7bc8f0; }
   #site-link:hover { color: #a8dcf4; }
-  #topbar-sep { color: #444; }
   #page-title { color: #9da5b4; }
   #topbar-term { color: #6c7280; }
   #random-case-btn { opacity: 0.4; }
