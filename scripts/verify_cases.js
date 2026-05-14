@@ -7,6 +7,7 @@
  *   node verify_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--update]
  *   node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose]
  *   node verify_cases.js [TERM [CASE]] --dates [--verbose]
+ *   node verify_cases.js [TERM [CASE]] --unargued
  *
  * Examples:
  *   node verify_cases.js                            # verify all terms (no writes)
@@ -4668,6 +4669,119 @@ function _splitPrimarySpeaker(turns) {
     return best;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// --unargued: list cases with argument-related anomalies
+//
+//   UNARGUED  term/number  title
+//       Case has no argument/reargument date fields AND no argument/reargument
+//       events — i.e. was never argued (decided on briefs, dismissed, etc.).
+//
+//   MISSING   term/number  title  [field date: reason]
+//       Case has a declared argument or reargument date but the corresponding
+//       event is missing, or exists but lacks audio and/or transcript.
+//
+//   MISDATED  term/number  title  [type event date: not in field 'dates']
+//       Case has an argument/reargument event whose date does not appear in
+//       the matching argument/reargument date field.
+// ═══════════════════════════════════════════════════════════════════════════
+
+function runUnargued(termFilter, caseFilter) {
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.cases || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+    let total = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            const number = c.number || c.id || '?';
+            if (caseFilter && c.id !== caseFilter
+                    && !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+
+            // Skip cases with a disposition — they were resolved without argument (GVRs, DIGs, etc.).
+            if (c.disposition) continue;
+
+            const title = (firstTitle(c.title) || '').slice(0, 60);
+            const label = `${term}/${number}`;
+
+            // Declared argument / reargument dates.
+            const argDates   = new Set(c.argument   ? _parseDateField(String(c.argument))   : []);
+            const reargDates = new Set(c.reargument ? _parseDateField(String(c.reargument)) : []);
+
+            // Events that are argument or reargument type.
+            const argEvents = (c.events || []).filter(e =>
+                e && (e.type === 'argument' || e.type === 'reargument'));
+
+            // ── UNARGUED ──────────────────────────────────────────────────
+            // No declared dates and no argument/reargument events at all.
+            if (argDates.size === 0 && reargDates.size === 0 && argEvents.length === 0) {
+                console.log(`UNARGUED  ${label}  ${title}`);
+                total++;
+                continue;
+            }
+
+            // ── MISDATED ──────────────────────────────────────────────────
+            // An argument/reargument event has audio/transcript but its date
+            // is not in the corresponding declared field.
+            for (const ev of argEvents) {
+                const date = ev.date || '';
+                if (!date) continue;
+                const hasMedia = !!(ev.audio_href || ev.transcript_href || ev.text_href);
+                if (!hasMedia) continue;
+                const expectedSet = ev.type === 'reargument' ? reargDates : argDates;
+                if (!expectedSet.has(date)) {
+                    const declared = [...expectedSet].sort().join(',') || '(none)';
+                    console.log(`MISDATED  ${label}  ${title}  [${ev.type} event ${date}: not in ${ev.type} field '${declared}']`);
+                    total++;
+                }
+            }
+
+            // ── MISSING ───────────────────────────────────────────────────
+            // A declared date has no corresponding event, or its event lacks
+            // audio and/or transcript coverage.
+            const checkDates = [
+                ...[...argDates].map(d => [d, 'argument']),
+                ...[...reargDates].map(d => [d, 'reargument']),
+            ];
+            for (const [date, fieldName] of checkDates) {
+                const eventsForDate = argEvents.filter(e => e.date === date);
+                if (eventsForDate.length === 0) {
+                    console.log(`MISSING   ${label}  ${title}  [${fieldName} ${date}: no event]`);
+                    total++;
+                    continue;
+                }
+                const hasAudio      = eventsForDate.some(e => !!e.audio_href);
+                const hasTranscript = eventsForDate.some(e => !!(e.transcript_href || e.text_href));
+                if (!hasAudio && !hasTranscript) {
+                    console.log(`MISSING   ${label}  ${title}  [${fieldName} ${date}: no audio or transcript]`);
+                    total++;
+                } else if (!hasAudio) {
+                    console.log(`MISSING   ${label}  ${title}  [${fieldName} ${date}: no audio]`);
+                    total++;
+                } else if (!hasTranscript) {
+                    console.log(`MISSING   ${label}  ${title}  [${fieldName} ${date}: no transcript]`);
+                    total++;
+                }
+            }
+        }
+    }
+
+    console.log(`\nTotal anomalies: ${total}`);
+}
+
 /**
  * For each opinion event whose transcript has the majority opinion writer
  * followed by additional speakers:
@@ -5000,6 +5114,7 @@ const USAGE = `Usage: node verify_cases.js                                # veri
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
        node verify_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node verify_cases.js [TERM [CASE]] --split [--update]                    # detect/split multi-speaker opinion events
+       node verify_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
 refiled-case merging, SCDB-derived corrections, etc.). Without --update, the
@@ -5035,7 +5150,11 @@ Examples:
   node verify_cases.js 2024-10 --split --update            # insert split events into cases.json
 
   node verify_cases.js --dissents                          # rebuild courts/ussc/collections/dissents.json
-  node verify_cases.js 2024-10 --dissents                  # rebuild for one term only`;
+  node verify_cases.js 2024-10 --dissents                  # rebuild for one term only
+
+  node verify_cases.js --unargued                          # list all argument anomalies across all terms
+  node verify_cases.js 2024-10 --unargued                  # list anomalies for one term
+  node verify_cases.js 2024-10 24-1260 --unargued          # check one case`;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --dissents: build courts/ussc/collections/dissents.json
@@ -5716,6 +5835,11 @@ async function main() {
 
     if (flags.has('--dissents')) {
         await runDissentCheck(positional[0] || null);
+        return;
+    }
+
+    if (flags.has('--unargued')) {
+        runUnargued(positional[0] || null, positional[1] || null);
         return;
     }
 

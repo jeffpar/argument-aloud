@@ -2822,6 +2822,19 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
 // ── Load a case ─────────────────────────────────────────────────────────────
 
+// If `arg` has no text_href, borrow one from another event in `events` that
+// shares the same date and type (e.g. a NARA audio entry paired with a USSC
+// transcript-only entry for the same argument date).
+function withTranscriptFallback(arg, events) {
+  if (arg.text_href || !events?.length) return arg;
+  const donor = events.find(e => e !== arg && e.date === arg.date && e.type === arg.type && e.text_href);
+  if (!donor) return arg;
+  const result = Object.assign({}, arg);
+  result.text_href = donor.text_href;
+  if (!result.transcript_href && donor.transcript_href) result.transcript_href = donor.transcript_href;
+  return result;
+}
+
 // Load (or switch to) a specific audio entry within the already-set-up case.
 async function loadAudioEntry(arg, basePath) {
   // text_href values are relative to the term's cases/ directory (one level up
@@ -3316,7 +3329,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
   const resolvedOptionValue = (_requestedAllAudioPos >= 1 && _dropdownValues.includes(_requestedAllAudioPos))
     ? _requestedAllAudioPos
-    : (_dropdownValues[0] ?? 1);
+    : (_dropdownValues.find(v => allAudio[v - 1]?.audio_href) ?? _dropdownValues[0] ?? 1);
   audioSelect.value = String(resolvedOptionValue);
 
   // Update nav highlight now that resolvedOptionValue is known.
@@ -3433,7 +3446,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   pageViewer.hidden = true;
   transcriptViewer.hidden = false;
   emptyState.style.display = 'none';
-  await loadAudioEntry(allAudio[resolvedOptionValue - 1], basePath);
+  await loadAudioEntry(withTranscriptFallback(allAudio[resolvedOptionValue - 1], _currentEvents), basePath);
 
   if (isMobile()) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -3591,7 +3604,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     url.searchParams.delete('turn');
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
-    await loadAudioEntry(selectedEntry, _currentBasePath);
+    await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
     if (isMobile()) {
       playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
       setMobileNavVisible(false);
