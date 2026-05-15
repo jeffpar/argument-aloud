@@ -12,6 +12,7 @@ let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentEvents    = [];    // unsorted events[] for the active case (URL `event` indexes into this)
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentLoadedEntry = null; // the audio entry object currently loaded in loadAudioEntry
+let _currentCaseEntry   = null; // the case object currently loaded
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentOtdHref     = null; // On The Docket video URL for the active case (used by audio dropdown sentinel)
@@ -673,6 +674,14 @@ function formatDecisionDate(iso) {
   return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
+// Show or hide the case/event notes line below the dates row.
+function _setCaseNotes(text) {
+  const el = document.getElementById('case-notes');
+  if (!el) return;
+  el.textContent = text || '';
+  el.hidden = !text;
+}
+
 // Populate and show/hide the argued/decided date row below the case title.
 function _setCaseInfoRow2(caseEntry) {
   // When there are no audio/transcript events but a decision link is already
@@ -689,6 +698,7 @@ function _setCaseInfoRow2(caseEntry) {
       : '';
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
+  _setCaseNotes(caseEntry.notes || '');
 }
 
 // Format a comma-separated list of ISO argument dates for display.
@@ -3176,6 +3186,7 @@ function loadCaseAsOpinion(term, caseEntry) {
     }
   }
 
+  _currentCaseEntry = caseEntry;
   _setCaseInfoRow2(caseEntry);
 
   const qEl = document.getElementById('case-questions');
@@ -3237,6 +3248,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   const SOURCE_PREF = ['oyez', 'ussc', 'nara'];
   const sourceGroups = new Map(); // source -> {alignedCount, entries[]}
   for (const a of caseEntry.events) {
+    if (!a.audio_href) continue; // transcript-only entries don't belong in the dropdown
     const src = a.source || 'unknown';
     if (!sourceGroups.has(src)) sourceGroups.set(src, { alignedCount: 0, entries: [] });
     const g = sourceGroups.get(src);
@@ -3453,6 +3465,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   _currentAudioList = allAudio;
   _currentEvents    = caseEntry.events || [];
   _currentBasePath  = basePath;
+  _currentCaseEntry = caseEntry;
 
   // Update case title
   setCaseTitleLabel(term, caseEntry);
@@ -3532,7 +3545,9 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   pageViewer.hidden = true;
   transcriptViewer.hidden = false;
   emptyState.style.display = 'none';
-  await loadAudioEntry(withTranscriptFallback(allAudio[resolvedOptionValue - 1], _currentEvents), basePath);
+  const _initialEntry = allAudio[resolvedOptionValue - 1];
+  await loadAudioEntry(withTranscriptFallback(_initialEntry, _currentEvents), basePath);
+  _setCaseNotes(_initialEntry?.notes || caseEntry.notes || '');
 
   if (isMobile()) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -3693,6 +3708,9 @@ audio.addEventListener('timeupdate', () => {
 
 // ── Audio entry dropdown ──────────────────────────────────────────────────
 document.getElementById('audio-select').addEventListener('change', async (e) => {
+  // Always reset to case-level notes first; audio entry selection below will
+  // override with event-specific notes if the chosen entry has any.
+  _setCaseNotes(_currentCaseEntry?.notes || '');
   if (e.target.value === 'opinion') {
     if (_currentOpinionHref) {
       showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' }, { force: true });
@@ -3744,6 +3762,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     url.searchParams.delete('file');
     history.replaceState(null, '', url);
     await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
+    _setCaseNotes(selectedEntry.notes || _currentCaseEntry?.notes || '');
     if (isMobile()) {
       playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
       setMobileNavVisible(false);

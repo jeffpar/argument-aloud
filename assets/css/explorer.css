@@ -893,7 +893,6 @@ button.term-case-count.sort-active:hover {
 #case-argued, #case-reargued, #case-decided {
   font-size: 12px;
   color: #888;
-  font-style: italic;
 }
 
 #case-cite {
@@ -907,6 +906,14 @@ button.term-case-count.sort-active:hover {
   color: #2672b4;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+#case-notes {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 #case-questions {
