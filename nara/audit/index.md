@@ -20,7 +20,7 @@ The goal of this initial audit was to identify issues and work out kinks in the 
 
 Ultimately, all terms from 1889 (the earliest year for which Journals are available digitally) through the present need to be audited.
 
-Omissions discovered during the initial audit:
+## NARA and Oyez Omissions 
 
   - [Nilva v. United States (No. 37)](/courts/ussc/?term=1956-10&case=1956-038) was argued on November 8 and 13, 1956, but apparently all audio from November 8 is missing, including:
 
@@ -42,7 +42,7 @@ Omissions discovered during the initial audit:
 
   - Oyez has no opinion announcements for [Mahmoud v. Taylor (No. 24-297)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-058) or [Trump v. CASA Inc. (No. 24A884)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-065), just oral dissents from Justice Sotomayor.
 
-Examples of anomalies uncovered in Oyez during the initial audit:
+## More (Mostly Oyez) Anomalies
 
   - Oyez filed a large number of reargued cases in the terms in which they were first argued, but with docket numbers from the terms in which they were reargued.  For example, [International Association of Machinists v. Street](https://www.oyez.org/cases/1959/4) was argued in the 1959 term as No. 258, and then redocketed and reargued in the 1960 term as No. 4, but Oyez filed it under the older term (1959) with the newer docket number (4).
 
