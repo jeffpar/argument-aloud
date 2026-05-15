@@ -17,9 +17,29 @@ Every U.S. Supreme Court case ends in a decision, but it starts with arguments, 
 
 Unfortunately, all those pieces tend to be scattered.  Even the Supreme Court's own [website](https://www.supremecourt.gov) directs you to different pages for *every* one of those pieces.  Other essential pieces of information, such as copies of statutes, records from the lower courts, etc, can usually be found in the briefs or elsewhere, but you have to know where to look.
 
-So we've created a "hub" to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+So we've created this "hub" to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 
-This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire other websites to "follow suit."
+This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
+
+## For The Sake of Accuracy
+
+We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov) and [The Oyez Project](https://www.oyez.org); however, authoritative does not mean error-free.  For example:
+
+  - The official transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) as argued on "11/08/00", but the correct date is November 1, 2000.
+
+  - The official transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) as argued on "12/2/1985", but the correct date is December 12, 1985.
+
+Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/nara/audit#the-supreme-court-database-revisited) has been a great way of flushing out mistakes, on all sides.
+
+And make no mistake: these are all simple, minor mistakes, so we don't mean to blow them out of proportion, but they do create problems when trying to connect all the pieces for all the cases.  We make corrections here as we find them, but without the ability to feed those corrections back to their source, disconnects will persist.
+
+## For The Sake of Completeness
+
+One type of data that [The U.S. Supreme Court](https://www.supremecourt.gov) only tracks in their [Journals](https://www.supremecourt.gov/orders/journal.aspx) are the advocates who have argued these cases.  We know the Court has that data readily available, because on rare occasions, the Court will suddenly congratulate an attorney (e.g., [Edwin Kneedler](https://argumentaloud.org/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler)) for having just argued their 100th case.  If only the Court could somehow share their database with the people.
+
+Extracting that data from printed/scanned documents is non-trivial and error-prone, so for cases from October Term 1955 onward, we rely largely on transcripts, and for certain groups of advocates, we either did our own research, as we did for [Justice Advocates](https://argumentaloud.org/courts/ussc/?collection=justice_advocates), or we have supplemented the research of others, as we did for [Women Advocates](https://argumentaloud.org/courts/ussc/?collection=women_advocates).
+
+We still have more work to do in terms of producing a complete and accurate list of [Top Advocates](https://argumentaloud.org/courts/ussc/?collection=top_advocates), but we feel that we're off to a good start.
 
 ![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]
