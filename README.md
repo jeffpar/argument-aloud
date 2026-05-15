@@ -18,7 +18,9 @@ This website barely scratches the surface of what is possible, but hopefully it 
 
 ## TODO
 
- 1. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 
+ 1. We need a simple way of capturing and then applying speaker corrections.  Let's kick this off with an [example](https://argumentaloud.org/courts/ussc/?term=1990-10&case=89-1647&turn=35), where the speaker is Justice Kennedy, not Justice White.
+
+ 2. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 
 
 ## MIT License
 

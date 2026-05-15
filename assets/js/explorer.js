@@ -1555,6 +1555,9 @@ function buildNav(title = 'Terms') {
       const termCount = document.createElement('button');
       termCount.className = 'term-case-count';
       termCount.type = 'button';
+      if (typeof page.cases === 'number') {
+        termCount.textContent = page.cases + '\u00a0Cases';
+      }
       termHeader.appendChild(termCount);
 
       termLi.appendChild(termHeader);
