@@ -153,7 +153,53 @@ function loadJusticeCanonicalNames(p) {
 }
 const JUSTICE_LONGEST_NAME = loadJusticeCanonicalNames(path.join(__dirname, 'justices.json'));
 
-// ── Advocate ID ────────────────────────────────────────────────────────────
+// Set of every last name that belongs to a justice, used to catch OCR-corrupted
+// speaker entries like "JUSTIC DOUGLAS" or "JUSTTICE WHITE" whose title field
+// was misread as "MR." instead of "JUSTICE".
+function loadJusticeLastNames(p) {
+    const lastNames = new Set();
+    if (!exists(p)) return lastNames;
+    let data;
+    try { data = readJson(p); } catch { return lastNames; }
+    for (const [key, entry] of Object.entries(data)) {
+        for (const form of [key, ...(entry.alternates || [])]) {
+            const tokens = form.trim().toUpperCase().replace(/[.,]/g, '').split(/\s+/).filter(Boolean);
+            const filtered = tokens.filter(t => !/^(?:JR|SR|II|III|IV)$/.test(t));
+            if (filtered.length >= 1) lastNames.add(filtered[filtered.length - 1]);
+        }
+    }
+    return lastNames;
+}
+const JUSTICE_LAST_NAMES = loadJusticeLastNames(path.join(__dirname, 'justices.json'));
+
+// ── OCR corruptions of "JUSTICE" that slip through as bogus advocates ──────
+// These appear in OCR'd USSC transcripts when the alignment parser mistakes
+// a justice's speaker cue for an advocate. Check first word only; last name
+// is irrelevant because the whole name is bogus.
+const _JUSTICE_CORRUPTION_PREFIXES = new Set([
+    'JUSTICE', 'CHIEF',    // exact (caught elsewhere, but cheap to include)
+    'JUSTIC', 'JUSITCE', 'JUSTTICE', 'JUTICE',  // known OCR variants
+]);
+
+/** Return true if `name` looks like a corruption of "(CHIEF) JUSTICE LASTNAME". */
+function isJusticeCorruptionName(name) {
+    if (!name) return false;
+    const toks = name.trim().toUpperCase().split(/\s+/);
+    // "CHIEF JUSTICE X" or "CHIEF JUS* X"
+    if (toks.length >= 3 && toks[0] === 'CHIEF') {
+        const second = toks[1].replace(/[.,]/g, '');
+        return _JUSTICE_CORRUPTION_PREFIXES.has(second) ||
+               (second.length >= 5 && second.length <= 9 && /^JU[ST]/i.test(second) && !/N$/i.test(second));
+    }
+    // "JUSTICE X" or "JUS* X"
+    if (toks.length >= 2) {
+        const first = toks[0].replace(/[.,]/g, '');
+        return _JUSTICE_CORRUPTION_PREFIXES.has(first) ||
+               (first.length >= 5 && first.length <= 9 && /^JU[ST]/i.test(first) && !/N$/i.test(first) &&
+                JUSTICE_LAST_NAMES.has(toks[toks.length - 1].replace(/[.,]/g, '')));
+    }
+    return false;
+}
 
 /** Strip combining marks (NFD-decomposed accents). */
 function stripDiacritics(s) {
@@ -878,6 +924,11 @@ async function main() {
     }
 
     const advocates = loadExisting();
+    // Purge any bogus justice-corruption names that may have been persisted
+    // from a previous run before this filter existed.
+    for (const key of Object.keys(advocates)) {
+        if (isJusticeCorruptionName(advocates[key].name)) delete advocates[key];
+    }
     ensureDir(ADVOCATES_DIR);
 
     /** key: name|title|term|number  -> array of date strings */
@@ -934,17 +985,44 @@ async function main() {
 
             // For terms <= 1999-10 prefer oyez transcripts when both sources cover the same date.
             const isEarlyTerm = term <= '1999-10';
+
+            // For consolidated dockets (number contains comma), an event
+            // whose title names a specific sub-docket (e.g. "in No. 54")
+            // represents a separate argument and should be counted on its
+            // own. Returns '' for non-consolidated cases or events whose
+            // title doesn't isolate one of the listed sub-dockets (e.g.
+            // multi-part argument blocks).
+            const eventSubDocket = (ev) => {
+                if (!number || !number.includes(',')) return '';
+                const m = (ev.title || '').match(/\bNo\.\s*([\w-]+)/i);
+                if (!m) return '';
+                const sub = m[1];
+                const parts = number.split(',').map(s => s.trim());
+                return parts.includes(sub) ? sub : '';
+            };
+
+            // Keyed as `${date}|${subDocket}` so that USSC events for a
+            // different sub-docket than the covering Oyez event are NOT skipped.
+            // A USSC sub-docket event is also suppressed when Oyez has a
+            // non-sub-docket entry on the same date (i.e. Oyez covers the full
+            // consolidated argument without naming a specific docket).
             const oyezDates = new Set();
             if (isEarlyTerm) {
                 for (const a of audioEntries) {
                     if (a.source === 'oyez' && a.text_href) {
                         const d = a.date || c.argument || '';
-                        if (d) oyezDates.add(d);
+                        if (d) oyezDates.add(`${d}|${eventSubDocket(a)}`);
                     }
                 }
             }
 
-            // Pre-load advocate names per audio entry.
+            // Returns true if oyezDates covers this event (same date + same or
+            // unspecified sub-docket).
+            const oyezCovers = (ev, date) => {
+                const sub = eventSubDocket(ev);
+                return oyezDates.has(`${date}|${sub}`) ||
+                       (sub !== '' && oyezDates.has(`${date}|`));
+            };
             const audioEntryAdvocates = new Map(); // origIdx -> Set<upper-name>
             for (let preIdx = 0; preIdx < audioEntries.length; preIdx++) {
                 const preAudio = audioEntries[preIdx];
@@ -956,8 +1034,9 @@ async function main() {
                 }
                 const preText = preAudio.text_href;
                 const preDate = preAudio.date || c.argument || '';
-                const skipUsscPre = isEarlyTerm && preAudio.source === 'ussc' && oyezDates.has(preDate);
-                if (preText && !skipUsscPre) {
+                const skipUsscPre = isEarlyTerm && preAudio.source === 'ussc' && oyezCovers(preAudio, preDate);
+                const hasExplicitPreAdvocates = (preAudio.advocates || []).length > 0;
+                if (preText && !skipUsscPre && !hasExplicitPreAdvocates) {
                     const prePath = path.join(termDir, 'cases', preText);
                     if (exists(prePath)) {
                         try {
@@ -1032,21 +1111,6 @@ async function main() {
                     const key = normalizeNameSuffix(rn).split(/\s+/).filter(Boolean).join(' ').toUpperCase();
                     if (key && !audioRoles.has(key)) audioRoles.set(key, role);
                 }
-
-                // For consolidated dockets (number contains comma), an event
-                // whose title names a specific sub-docket (e.g. "in No. 54")
-                // represents a separate argument and should be counted on its
-                // own. Returns '' for non-consolidated cases or events whose
-                // title doesn't isolate one of the listed sub-dockets (e.g.
-                // multi-part argument blocks).
-                const eventSubDocket = (ev) => {
-                    if (!number || !number.includes(',')) return '';
-                    const m = (ev.title || '').match(/\bNo\.\s*([\w-]+)/i);
-                    if (!m) return '';
-                    const sub = m[1];
-                    const parts = number.split(',').map(s => s.trim());
-                    return parts.includes(sub) ? sub : '';
-                };
 
                 const recordAdvocate = (rawName, advocateTitle = '', explicitRole = '') => {
                     let name = (rawName || '').split(/\s+/).filter(Boolean).join(' ');
@@ -1148,7 +1212,7 @@ async function main() {
                 // explicit advocates list too, so we don't double-record
                 // the same appearance under a slightly-different name
                 // variant (e.g. "ANN M. KAPPLER" vs "ANN MARY KAPPLER").
-                const skipUsscTranscript = isEarlyTerm && audio.source === 'ussc' && oyezDates.has(audioDate);
+                const skipUsscTranscript = isEarlyTerm && audio.source === 'ussc' && oyezCovers(audio, audioDate);
 
                 // Explicit advocates list
                 if (!skipUsscTranscript) {
@@ -1156,13 +1220,25 @@ async function main() {
                         const rawName  = (typeof raw === 'object' && raw !== null) ? raw.name  : raw;
                         const rawTitle = (typeof raw === 'object' && raw !== null) ? (raw.title || '') : '';
                         const rawRole  = (typeof raw === 'object' && raw !== null) ? (raw.role  || '') : '';
+                        const rawTags  = (typeof raw === 'object' && raw !== null) ? (raw.tags  || null) : null;
                         recordAdvocate(normalizeNameSuffix((rawName || '').trim()), rawTitle, rawRole);
+                        if (rawName && rawTags && (Array.isArray(rawTags) || typeof rawTags === 'string')) {
+                            const tagList = Array.isArray(rawTags) ? rawTags : rawTags.split(',');
+                            const norm = normalizeNameSuffix((rawName || '').trim()).split(/\s+/).filter(Boolean).join(' ').toUpperCase();
+                            const key  = NAME_ALIASES[norm] || norm;
+                            if (!nameTags.has(key)) nameTags.set(key, new Set());
+                            const set = nameTags.get(key);
+                            for (const t of tagList) {
+                                if (typeof t === 'string' && t.trim()) set.add(t.trim().toLowerCase());
+                            }
+                        }
                     }
                 }
 
                 // Transcript-based speakers
                 const textHref = audio.text_href;
-                if (!textHref || !audioDate || skipUsscTranscript) continue;
+                const hasExplicitAdvocates = (audio.advocates || []).length > 0;
+                if (!textHref || !audioDate || skipUsscTranscript || hasExplicitAdvocates) continue;
                 const transcriptPath = path.join(termDir, 'cases', textHref);
                 if (!exists(transcriptPath)) continue;
 
@@ -1185,6 +1261,11 @@ async function main() {
                     if (!speakerTitle || _JUSTICE_TITLES.has(speakerTitle)) continue;
                     if (speakerTitle.toUpperCase().includes('NP')) continue;
                     const spRaw = (speaker.name || '').trim();
+                    // OCR'd USSC transcripts sometimes embed the full title cue
+                    // in the name field (e.g. "CHIEF JUSTICE BURGER" with title
+                    // "MR."). Skip any name that is itself a justice title form
+                    // (exact or OCR corruption like "JUSITCE", "JUSTTICE", etc.).
+                    if (isJusticeCorruptionName(spRaw)) continue;
                     recordAdvocate(spRaw, speakerTitle);
                     if (spRaw && (Array.isArray(speaker.tags) || typeof speaker.tags === 'string')) {
                         const tagList = Array.isArray(speaker.tags)

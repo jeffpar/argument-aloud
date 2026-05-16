@@ -30,19 +30,19 @@ Ultimately, all terms from 1889 (the earliest year for which Journals are availa
 
   - **Stanton v. United States** (No. 546) was argued on March 24, 1960, following a related case, [Commissioner of Internal Revenue v. Duberstein (No. 376)](/courts/ussc/?term=1959-10&case=1959-099) on March 23.  However, the argument for Stanton appears to be missing.  The cases were decided together and reported in [363 U.S. 278](/courts/ussc/?term=1959-10&case=376&file=usrep363278.pdf).
 
-  - [Presser v. United States (No. 278)](/courts/ussc/?term=1962-10&case=278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez appears to provide only the 1961 argument.
+  - [Presser v. United States (No. 278)](/courts/ussc/?term=1962-10&case=278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez provides only the 1961 argument.
 
   - [Creek Nation v. United States (No. 124)](/courts/ussc/?term=1961-10&case=124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
   - [Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company (No. 8)](/courts/ussc/?term=1966-10&case=8) and [United States v. The Atchison, Topeka & Santa Fe Railway Company (No. 23)](/courts/ussc/?term=1966-10&case=8) were argued together in the 1966 term on April 19, 1967, but all that appears in Oyez is an [incorrect page](https://www.oyez.org/cases/1966/8). [NOTE: For those interested, [Quantity of Books v. Kansas](/courts/ussc/?term=1963-10&case=449) *does* [exist](https://www.oyez.org/cases/1963/449) in Oyez as well.]
 
-  - [Arizona v. California (No. 8 Orig.)](https://www.oyez.org/cases/1978/8_orig) claims no argument took place, but that can't be correct, because a [transcript](https://www.supremecourt.gov/pdfs/transcripts/1978/8_Orig_10-10-1978.pdf) exists. TODO: Track down the audio for No. 8 Orig on October 10, 1978 from NARA.
+  - [Arizona v. California (No. 8 Orig.)](https://www.oyez.org/cases/1978/8_orig) claims no argument took place, but that was incorrect, because a [transcript](https://www.supremecourt.gov/pdfs/transcripts/1978/8_Orig_10-10-1978.pdf) exists.  NARA has the audio as well.
 
-  - Oyez seems to be missing the audio for **Colby v. Driver (No. 78-303)**, argued on April 24, 1979; track down the audio from NARA and attach it to [Stafford v. Briggs](/courts/ussc/?term=1979-10&case=77-1546).
+  - At first, it appeared Oyez was missing the audio for **Colby v. Driver (No. 78-303)**, argued on April 24, 1979, following argument in [Stafford v. Briggs](/courts/ussc/?term=1979-10&case=77-1546); however, it turns out that Oyez combined the audio and transcripts for those cases.  Since the cases were argued separately, we have created separate event entries for them within the **Stafford** case, but this is a bit worrisome, as one wonders how many other times Oyez did that (clearly more than once; see [Hamm v. City of Rock Hill (No. 2)](https://www.oyez.org/cases/1964/2) below).
 
   - Oyez has no opinion announcements for [Mahmoud v. Taylor (No. 24-297)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-058) or [Trump v. CASA Inc. (No. 24A884)](https://argumentaloud.org/courts/ussc/?term=2024-10&case=2024-065), just oral dissents from Justice Sotomayor.
 
-## More (Mostly Oyez) Anomalies
+## Summary of Oyez Anomalies
 
   - Oyez filed a large number of reargued cases in the terms in which they were first argued, but with docket numbers from the terms in which they were reargued.  For example, [International Association of Machinists v. Street](https://www.oyez.org/cases/1959/4) was argued in the 1959 term as No. 258, and then redocketed and reargued in the 1960 term as No. 4, but Oyez filed it under the older term (1959) with the newer docket number (4).
 
