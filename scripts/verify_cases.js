@@ -5175,7 +5175,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// --lengths: query audio duration via ffprobe and fill in event.length
+// Audio length checking via ffprobe — runs as part of normal verification.
 // Requires ffprobe (part of ffmpeg). For well-formed MP3/audio files hosted
 // over HTTP, ffprobe uses range requests and reads only the file header —
 // it does not download the full audio file.
@@ -5229,79 +5229,64 @@ async function _ffprobeMeta(url) {
     }
 }
 
-async function runLengths(termFilter, caseFilter, update) {
-    const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-    let allTerms = [];
-    try {
-        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
-            if (page.term) return page.term;
-            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
-            return m ? m[1] : null;
-        })).filter(Boolean);
-    } catch {}
-
-    const termsToProcess = termFilter ? [termFilter] : allTerms;
+async function checkLengths(casesPath, caseFilter, update) {
+    if (!fs.existsSync(casesPath)) return;
+    const cases = _readJson(casesPath);
+    if (!Array.isArray(cases)) return;
+    let termChanged = false;
     let probed = 0, filled = 0, failed = 0;
 
-    for (const term of termsToProcess) {
-        const casesPath = path.join(termsDir, term, 'cases.json');
-        if (!fs.existsSync(casesPath)) continue;
-        const cases = _readJson(casesPath);
-        if (!Array.isArray(cases)) continue;
-        let termChanged = false;
-
-        for (const c of cases) {
-            if (caseFilter) {
-                const nums = (c.number || '').split(',').map(s => s.trim());
-                if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
-            }
-            if (!Array.isArray(c.events)) continue;
-
-            for (const ev of c.events) {
-                const audioHref = ev.audio_href || '';
-                if (!audioHref) continue;
-                // Skip only when length, size, and bitrate are all already set.
-                if ('length' in ev && 'size' in ev && 'bitrate' in ev) continue;
-
-                probed++;
-                const label = `${term}/${c.number || c.id || '?'} (${ev.date || '?'})`;
-                const urlShort = audioHref.length > 60 ? '…' + audioHref.slice(-59) : audioHref;
-                process.stdout.write(`  ${label}: ${urlShort} `);
-
-                const meta = await _ffprobeMeta(audioHref);
-                if (!meta) {
-                    console.log('FAILED');
-                    failed++;
-                    continue;
-                }
-                const parts = [meta.length];
-                if (meta.size    != null) parts.push(`${meta.size}B`);
-                if (meta.bitrate != null) parts.push(meta.bitrate);
-                console.log(parts.join('  '));
-                filled++;
-
-                if (update) {
-                    ev.length  = meta.length;
-                    if (meta.size    != null) ev.size    = meta.size;
-                    if (meta.bitrate != null) ev.bitrate = meta.bitrate;
-                    const reordered = reorderEvent({ ...ev });
-                    for (const k of Object.keys(ev)) delete ev[k];
-                    Object.assign(ev, reordered);
-                    termChanged = true;
-                }
-                // Brief courtesy delay between requests.
-                await sleep(500);
-            }
+    for (const c of cases) {
+        if (caseFilter) {
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
         }
+        if (!Array.isArray(c.events)) continue;
 
-        if (update && termChanged) {
-            _writeJson(casesPath, cases);
-            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        for (const ev of c.events) {
+            const audioHref = ev.audio_href || '';
+            if (!audioHref) continue;
+            // Skip only when length, size, and bitrate are all already set.
+            if ('length' in ev && 'size' in ev && 'bitrate' in ev) continue;
+
+            probed++;
+            const label = `${c.number || c.id || '?'} (${ev.date || '?'})`;
+            const urlShort = audioHref.length > 60 ? '…' + audioHref.slice(-59) : audioHref;
+            process.stdout.write(`  ${label}: ${urlShort} `);
+
+            const meta = await _ffprobeMeta(audioHref);
+            if (!meta) {
+                console.log('FAILED');
+                failed++;
+                continue;
+            }
+            const parts = [meta.length];
+            if (meta.size    != null) parts.push(`${meta.size}B`);
+            if (meta.bitrate != null) parts.push(meta.bitrate);
+            console.log(parts.join('  '));
+            filled++;
+
+            if (update) {
+                ev.length  = meta.length;
+                if (meta.size    != null) ev.size    = meta.size;
+                if (meta.bitrate != null) ev.bitrate = meta.bitrate;
+                const reordered = reorderEvent({ ...ev });
+                for (const k of Object.keys(ev)) delete ev[k];
+                Object.assign(ev, reordered);
+                termChanged = true;
+            }
+            // Brief courtesy delay between requests.
+            await sleep(500);
         }
     }
 
-    console.log(`\nLengths: ${probed} probed, ${filled} found, ${failed} failed.`);
+    if (update && termChanged) {
+        _writeJson(casesPath, cases);
+        console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+    }
+    if (probed > 0) {
+        console.log(`Lengths: ${probed} probed, ${filled} found, ${failed} failed.`);
+    }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -5313,7 +5298,6 @@ const USAGE = `Usage: node verify_cases.js                                # veri
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
        node verify_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node verify_cases.js [TERM [CASE]] --split [--update]                    # detect/split multi-speaker opinion events
-       node verify_cases.js [TERM [CASE]] --lengths [--update]                  # fill missing audio duration via ffprobe
        node verify_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
@@ -5348,10 +5332,6 @@ Examples:
   node verify_cases.js --split                             # find opinion events needing a split
   node verify_cases.js 2024-10 --split                     # check one term
   node verify_cases.js 2024-10 --split --update            # insert split events into cases.json
-
-  node verify_cases.js --lengths                           # probe audio durations (no writes)
-  node verify_cases.js 2025-10 --lengths                   # probe one term
-  node verify_cases.js 2025-10 --lengths --update          # fill in missing "length" fields
 
   node verify_cases.js --dissents                          # rebuild courts/ussc/collections/dissents.json
   node verify_cases.js 2024-10 --dissents                  # rebuild for one term only
@@ -5917,6 +5897,8 @@ async function processOneTerm(term, opts) {
         _partyVerifyTerm(termDir, term, caseFilter, dryRun);
     }
 
+    await checkLengths(casesPath, caseFilter, !dryRun);
+
     const result = caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
     if (result && typeof result === 'object') result.missingVotes = missingVotes;
     return result;
@@ -6044,11 +6026,6 @@ async function main() {
 
     if (flags.has('--dissents')) {
         await runDissentCheck(positional[0] || null);
-        return;
-    }
-
-    if (flags.has('--lengths')) {
-        await runLengths(positional[0] || null, positional[1] || null, update);
         return;
     }
 

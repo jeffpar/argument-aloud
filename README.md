@@ -14,9 +14,9 @@ This website barely scratches the surface of what is possible, but hopefully it 
 
 We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov) and [The Oyez Project](https://www.oyez.org); however, authoritative does not mean error-free.  For example:
 
-  - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) is dated "11/08/00", but the correct date is November 1, 2000.
+  - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [dated](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) "11/08/00", but the correct date is November 1, 2000.
 
-  - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) is dated "12/2/1985", but the correct date is December 12, 1985.
+  - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [dated](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) "12/2/1985", but the correct date is December 12, 1985.
 
 Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/nara/audit#the-supreme-court-database-revisited), has been a great way of flushing out mistakes, on all sides.
 
@@ -24,7 +24,7 @@ And make no mistake: these are all simple, minor mistakes, so we don't mean to b
 
 ## For The Sake of Completeness
 
-Missing data is occasionally a problem; for example:
+Missing data is also occasionally a problem; for example:
 
   - The transcript for [Reno v. Bossier Parish School Bd. (No. 98-405)](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998) cannot be downloaded; the URL is listed as `https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf`
 

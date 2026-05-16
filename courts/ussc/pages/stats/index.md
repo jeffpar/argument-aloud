@@ -23,24 +23,8 @@ layout: pane
       <span class="stat-label">Cases argued</span>
     </div>
     <div class="stat-card">
-      <span class="stat-value" id="stat-argument-sessions">—</span>
-      <span class="stat-label">Argument sessions</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-value" id="stat-argued-hours">—</span>
-      <span class="stat-label">Amount of audio</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-value" id="stat-avg-length">—</span>
-      <span class="stat-label">Avg. argument length</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-value" id="stat-with-audio">—</span>
-      <span class="stat-label">Cases with audio</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-value" id="stat-with-transcript">—</span>
-      <span class="stat-label">Aligned transcripts</span>
+      <span class="stat-value" id="stat-argument-days">—</span>
+      <span class="stat-label">Argument days</span>
     </div>
     <div class="stat-card">
       <span class="stat-value" id="stat-decided">—</span>
@@ -48,7 +32,31 @@ layout: pane
     </div>
     <div class="stat-card">
       <span class="stat-value" id="stat-advocates">—</span>
-      <span class="stat-label">Unique advocates</span>
+      <span class="stat-label">Advocates</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-with-audio">—</span>
+      <span class="stat-label">Cases with audio</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-with-transcript">—</span>
+      <span class="stat-label">Fully aligned</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-argued-hours">—</span>
+      <span class="stat-label">Argument audio</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-avg-length">—</span>
+      <span class="stat-label">Average argument</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-opinion-hours">—</span>
+      <span class="stat-label">Opinion audio</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-avg-opinion">—</span>
+      <span class="stat-label">Average opinion</span>
     </div>
   </div>
   <p class="stats-note" id="stats-note"></p>
@@ -92,9 +100,16 @@ layout: pane
       });
 
       var arguedCases = cases.filter(function (c) { return c.argument || c.reargument; }).length;
-      var argSessions = argEvents.length;
+      var argDays = new Set(argEvents.map(function (e) { return e.date; }).filter(Boolean)).size;
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
-      var withTx      = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.aligned; }); }).length;
+      // "Fully aligned" = cases where every audio argument/reargument event has both text_href and aligned:true
+      // (matches the blue-circle criterion; orange = any audio event missing either)
+      var withTx = cases.filter(function (c) {
+        var audioArgEvs = (c.events || []).filter(function (e) {
+          return e.audio_href && (e.type === 'argument' || e.type === 'reargument');
+        });
+        return audioArgEvs.length > 0 && audioArgEvs.every(function (e) { return e.text_href && e.aligned; });
+      }).length;
       var decided     = cases.filter(function (c) { return c.decision || c.dateDecision; }).length;
       var advSet = new Set();
       cases.forEach(function (c) {
@@ -103,24 +118,48 @@ layout: pane
         });
       });
 
-      var evLen = argEvents.filter(function (e) { return e.length; });
+      var seenArgHrefs = new Set();
+      var evLen = argEvents.filter(function (e) {
+        if (!e.length) return false;
+        if (e.audio_href) {
+          if (seenArgHrefs.has(e.audio_href)) return false;
+          seenArgHrefs.add(e.audio_href);
+        }
+        return true;
+      });
       var totalSec = 0;
       evLen.forEach(function (e) { totalSec += parseLen(e.length); });
 
-      document.getElementById('stat-argued-cases').textContent      = arguedCases || '—';
-      document.getElementById('stat-argument-sessions').textContent = argSessions  || '—';
+      var opEvents = [];
+      cases.forEach(function (c) {
+        (c.events || []).forEach(function (e) {
+          if (e.type === 'opinion' && e.audio_href) opEvents.push(e);
+        });
+      });
+      var seenOpHrefs = new Set();
+      var opLen = opEvents.filter(function (e) {
+        if (!e.length) return false;
+        if (e.audio_href) {
+          if (seenOpHrefs.has(e.audio_href)) return false;
+          seenOpHrefs.add(e.audio_href);
+        }
+        return true;
+      });
+      var opTotalSec = 0;
+      opLen.forEach(function (e) { opTotalSec += parseLen(e.length); });
+
+      document.getElementById('stat-argument-days').textContent  = argDays     || '—';
+      document.getElementById('stat-argued-cases').textContent    = arguedCases || '—';
       document.getElementById('stat-with-audio').textContent        = withAudio    || '—';
       document.getElementById('stat-with-transcript').textContent   = withTx       || '—';
-      document.getElementById('stat-decided').textContent           = decided      || '—';
+      document.getElementById('stat-opinion-hours').textContent = opLen.length > 0 ? fmtHours(opTotalSec) : '—';
+      document.getElementById('stat-avg-opinion').textContent   = opLen.length > 0 ? fmtMins(opTotalSec / opLen.length) : '—';
+      document.getElementById('stat-decided').textContent       = decided      || '—';
       document.getElementById('stat-advocates').textContent         = advSet.size  || '—';
 
       if (evLen.length > 0) {
         document.getElementById('stat-argued-hours').textContent = fmtHours(totalSec);
         document.getElementById('stat-avg-length').textContent   = fmtMins(totalSec / evLen.length);
-        if (evLen.length < argSessions) {
-          document.getElementById('stats-note').textContent =
-            'Audio lengths available for ' + evLen.length + ' of ' + argSessions + ' sessions.';
-        }
       } else {
         document.getElementById('stats-note').textContent = 'Audio length data not yet available for this term.';
       }

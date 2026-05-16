@@ -21,21 +21,20 @@ So we've created this "hub" to help connect those pieces.  Here's an example: an
 
 This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
-## For The Sake of Accuracy
+![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
+[[Source](https://www.supremecourt.gov/about/photos.aspx)]
 
 We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov) and [The Oyez Project](https://www.oyez.org); however, authoritative does not mean error-free.  For example:
 
-  - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) is dated "11/08/00", but the correct date is November 1, 2000.
+  - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [dated](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) "11/08/00", but the correct date is November 1, 2000.
 
-  - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) is dated "12/2/1985", but the correct date is December 12, 1985.
+  - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [dated](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) "12/2/1985", but the correct date is December 12, 1985.
 
 Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/nara/audit#the-supreme-court-database-revisited), has been a great way of flushing out mistakes, on all sides.
 
 And make no mistake: these are all simple, minor mistakes, so we don't mean to blow them out of proportion, but they do create problems when trying to connect all the pieces for all the cases.  We make corrections here as we find them, but without the ability to feed those corrections back to their source, disconnects will persist.
 
-## For The Sake of Completeness
-
-Missing data is occasionally a problem; for example:
+Missing data is also occasionally a problem; for example:
 
   - The transcript for [Reno v. Bossier Parish School Bd. (No. 98-405)](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998) cannot be downloaded; the URL is listed as `https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf`
 
@@ -44,6 +43,3 @@ Advocate data is another challenge, because it's not recorded anywhere as a sepa
 Extracting advocate data from printed/scanned journals and transcripts is non-trivial and error-prone, and disambiguating names (ie, understanding when two similar names are different poeple, or vice versa) requires time.  For cases from the October Term 1955 onward, we rely largely on transcripts, and for certain groups of advocates, we have either done our own research, as we did for [Justice Advocates](https://argumentaloud.org/courts/ussc/?collection=justice_advocates), or we have supplemented the research of others; see [Women Advocates](https://argumentaloud.org/courts/ussc/?collection=women_advocates).
 
 There is still more work to do in terms of producing a complete and accurate list of [Top Advocates](https://argumentaloud.org/courts/ussc/?collection=top_advocates).  Of course, if the Court shared its advocate data with the public, that would be even better.
-
-![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)  
-[[Source](https://www.supremecourt.gov/about/photos.aspx)]

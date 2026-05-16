@@ -133,12 +133,7 @@ function escapeHtml(s) {
 // Also updates the stats page if it's already shown (switching between terms).
 // Pass null when a term is collapsed (no-op; leave whatever is currently shown).
 function updateEmptyStateForTerm(term) {
-  if (!term) return;                              // term collapsed — leave current view
-  if (emptyState.style.display === 'none') return; // case transcript is active
-  const pf = document.getElementById('page-viewer-frame');
-  const isStatsPage = pf && pf.src.includes('/pages/stats/');
-  const isHomePage  = pf && pf.src.includes('/pages/home/');
-  if (!pageViewer.hidden && !isStatsPage && !isHomePage) return;  // a non-stats/home page is already displayed
+  if (!term) return; // term collapsed — leave current view
   showPageViewer('/courts/ussc/pages/stats/?term=' + encodeURIComponent(term), { pushState: false });
 }
 
@@ -1711,7 +1706,22 @@ function buildNav(title = 'Terms') {
             return;
           }
         } else if (termLi.classList.contains('open')) {
-          return; // already open, non-toggle click → no-op
+          // Already open — still show stats and reset URL to term-only.
+          updateEmptyStateForTerm(term);
+          document.getElementById('topbar-term').textContent = termDisplayName(term);
+          const url = new URL(location.href);
+          url.searchParams.set('term', term);
+          url.searchParams.delete('collection');
+          url.searchParams.delete('entry');
+          url.searchParams.delete('id');
+          url.searchParams.delete('highlight');
+          url.searchParams.delete('link');
+          url.searchParams.delete('case');
+          url.searchParams.delete('event');
+          url.searchParams.delete('file');
+          url.searchParams.delete('turn');
+          history.pushState(null, '', url);
+          return;
         } else {
           termLi.classList.add('open');
         }
