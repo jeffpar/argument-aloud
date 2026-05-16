@@ -935,6 +935,11 @@ async function main() {
     const recordedDates = new Map();
     /** key: name|title|term|number  -> Set<date string> */
     const allAppearanceDates = new Map();
+    /** `${nameKey}||${audio_href}` -> caseId of first recording — prevents
+     *  duplicate case entries when two separate cases share the same
+     *  consolidated argument audio. Intra-case duplicates (same audio_href
+     *  appearing twice within a single case) are intentional and are allowed. */
+    const seenAdvAudio = new Map();
     /** key: name|title|term|number -> bool */
     const caseFeminineSeen = new Map();
     /** name_upper -> bool */
@@ -1204,6 +1209,18 @@ async function main() {
                     }
                     const fileCount = c.files || 0;
                     if (fileCount) caseEntry.files = fileCount;
+                    // De-dup: two separate cases sharing the same audio_href
+                    // represent a single consolidated argument; record it once
+                    // per advocate. Intra-case duplicates (same audio_href used
+                    // twice within one case to denote separate sub-arguments)
+                    // are intentional and are NOT suppressed.
+                    const _advAudioKey = resolvedAudio.audio_href
+                        ? `${nameKey}||${resolvedAudio.audio_href}` : null;
+                    if (_advAudioKey) {
+                        const _firstCaseId = seenAdvAudio.get(_advAudioKey);
+                        if (_firstCaseId !== undefined && _firstCaseId !== c.id) return;
+                        if (_firstCaseId === undefined) seenAdvAudio.set(_advAudioKey, c.id);
+                    }
                     advocates[nameKey].cases.push(caseEntry);
                 };
 
