@@ -14,9 +14,9 @@ This website barely scratches the surface of what is possible, but hopefully it 
 
 We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov) and [The Oyez Project](https://www.oyez.org); however, authoritative does not mean error-free.  For example:
 
-  - The official transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) as argued on "11/08/00", but the correct date is November 1, 2000.
+  - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000) is dated "11/08/00", but the correct date is November 1, 2000.
 
-  - The official transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) as argued on "12/2/1985", but the correct date is December 12, 1985.
+  - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is [listed](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985) is dated "12/2/1985", but the correct date is December 12, 1985.
 
 Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/nara/audit#the-supreme-court-database-revisited), has been a great way of flushing out mistakes, on all sides.
 
@@ -24,23 +24,23 @@ And make no mistake: these are all simple, minor mistakes, so we don't mean to b
 
 ## For The Sake of Completeness
 
-One type of data that [The U.S. Supreme Court](https://www.supremecourt.gov) only tracks in their [Journals](https://www.supremecourt.gov/orders/journal.aspx) are the advocates who have argued these cases.  We know the Court has that data readily available, because on rare occasions, the Court will suddenly congratulate an attorney (e.g., [Edwin Kneedler](https://argumentaloud.org/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler)) for having just argued their 100th case.  If only the Court could somehow share their database with the people.
-
-Extracting that data from printed/scanned documents is non-trivial and error-prone, so for cases from October Term 1955 onward, we rely largely on transcripts, and for certain groups of advocates, we either did our own research, as we did for [Justice Advocates](https://argumentaloud.org/courts/ussc/?collection=justice_advocates), or we have supplemented the research of others, as we did for [Women Advocates](https://argumentaloud.org/courts/ussc/?collection=women_advocates).
-
-We still have more work to do in terms of producing a complete and accurate list of [Top Advocates](https://argumentaloud.org/courts/ussc/?collection=top_advocates), but we feel that we're off to a good start.
-
-## Issues
+Missing data is occasionally a problem; for example:
 
   - The transcript for [Reno v. Bossier Parish School Bd. (No. 98-405)](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1998) cannot be downloaded; the URL is listed as `https://www.supremecourt.gov/pdfs/transcripts/1998/98-405_98-406_04-26-1999.pdf`
 
-  - loc.gov currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for **Sullivan v. Florida (560 U.S. 181)**; you can only find it at the bottom of the document for [United States v. Comstock (560 U.S. 126)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep560/usrep560126/usrep560126.pdf#page=56). There are numerous other instances where opinions that should exist on loc.gov cannot be found, so at some point, a comprehensive audit should be performed.
+Advocate data is another challenge, because it's not recorded anywhere as a separate set of data.  The Court does record advocate names in various places, including transcripts and [Journals](https://www.supremecourt.gov/orders/journal.aspx), but they presumably track that information separately as well, because on rare occasions, the Chief Justice will congratulate an attorney (e.g., [Edwin Kneedler](https://argumentaloud.org/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler)) for having just argued their 100th case.
+
+Extracting advocate data from printed/scanned journals and transcripts is non-trivial and error-prone, and disambiguating names (ie, understanding when two similar names are different poeple, or vice versa) requires time.  For cases from the October Term 1955 onward, we rely largely on transcripts, and for certain groups of advocates, we have either done our own research, as we did for [Justice Advocates](https://argumentaloud.org/courts/ussc/?collection=justice_advocates), or we have supplemented the research of others; see [Women Advocates](https://argumentaloud.org/courts/ussc/?collection=women_advocates).
+
+There is still more work to do in terms of producing a complete and accurate list of [Top Advocates](https://argumentaloud.org/courts/ussc/?collection=top_advocates).  Of course, if the Court shared its advocate data with the public, that would be even better.
 
 ## TODO
 
  1. We need a simple way of capturing and then applying speaker corrections.  Let's kick this off with an [example](https://argumentaloud.org/courts/ussc/?term=1990-10&case=89-1647&turn=35), where the speaker is Justice Kennedy, not Justice White.
 
  2. Add support for `journal_href` (in audio entries) and `history_href` (in case entries), to provide more context regarding cases and arguments. 
+
+ 3. loc.gov currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for **Sullivan v. Florida (560 U.S. 181)**; you can only find it at the bottom of the document for [United States v. Comstock (560 U.S. 126)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep560/usrep560126/usrep560126.pdf#page=56). There are numerous other instances where opinions that should exist on loc.gov cannot be found, so at some point, a comprehensive audit should be performed.
 
 ## MIT License
 

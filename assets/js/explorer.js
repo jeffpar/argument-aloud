@@ -129,13 +129,17 @@ function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Show the home page when a term is opened and no other content is displayed.
+// Show the stats page when a term is opened and no other content is displayed.
+// Also updates the stats page if it's already shown (switching between terms).
 // Pass null when a term is collapsed (no-op; leave whatever is currently shown).
 function updateEmptyStateForTerm(term) {
-  if (!term) return;                         // term collapsed — leave current view
-  if (emptyState.style.display === 'none') return;  // case transcript is active
-  if (!pageViewer.hidden) return;            // a page is already displayed
-  showPageViewer('/courts/ussc/home', { pushState: false });
+  if (!term) return;                              // term collapsed — leave current view
+  if (emptyState.style.display === 'none') return; // case transcript is active
+  const pf = document.getElementById('page-viewer-frame');
+  const isStatsPage = pf && pf.src.includes('/pages/stats/');
+  const isHomePage  = pf && pf.src.includes('/pages/home/');
+  if (!pageViewer.hidden && !isStatsPage && !isHomePage) return;  // a non-stats/home page is already displayed
+  showPageViewer('/courts/ussc/pages/stats/?term=' + encodeURIComponent(term), { pushState: false });
 }
 
 function audioEntryLabel(a) {
@@ -4844,7 +4848,7 @@ async function restoreFromURL() {
     }
   } else {
     // No URL params — show the default home page.
-    showPageViewer('/courts/ussc/home', { pushState: false });
+    showPageViewer('/courts/ussc/pages/home', { pushState: false });
   }
 }
 

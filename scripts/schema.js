@@ -23,7 +23,7 @@ export const CASE_KEY_ORDER = [
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'audio_href', 'offset', 'transcript_href', 'text_href',
+    'audio_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
     'journal_ref',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view',
     'notes',

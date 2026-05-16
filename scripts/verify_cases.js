@@ -48,6 +48,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 
 import {
     CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
@@ -5173,6 +5175,136 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// --lengths: query audio duration via ffprobe and fill in event.length
+// Requires ffprobe (part of ffmpeg). For well-formed MP3/audio files hosted
+// over HTTP, ffprobe uses range requests and reads only the file header —
+// it does not download the full audio file.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const _execFile = promisify(execFile);
+
+/** Format a duration in seconds as "HH:MM:SS.NN" (NN = hundredths of a second). */
+function _formatLength(totalSecs) {
+    const rounded = Math.round(totalSecs * 100) / 100;
+    const h  = Math.floor(rounded / 3600);
+    const m  = Math.floor((rounded % 3600) / 60);
+    const s  = Math.floor(rounded % 60);
+    const nn = Math.round((rounded % 1) * 100);
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(nn).padStart(2, '0')}`;
+}
+
+/**
+ * Call ffprobe on a URL and return `{ length, size, bitrate }` from the
+ * format metadata. `length` is "HH:MM:SS.NN"; `size` is bytes (number);
+ * `bitrate` is e.g. "128kbps". Fields are null/undefined when unavailable.
+ * Returns null on complete failure.
+ */
+async function _ffprobeMeta(url) {
+    try {
+        const { stdout } = await _execFile('ffprobe', [
+            '-v', 'quiet',
+            '-print_format', 'json',
+            '-show_entries', 'format=duration,size,bit_rate',
+            '-i', url,
+        ], { timeout: 30000 });
+        const obj = JSON.parse(stdout);
+        const fmt = obj?.format;
+        if (!fmt) return null;
+
+        const dur = parseFloat(fmt.duration);
+        if (!Number.isFinite(dur) || dur <= 0) return null;
+        const length = _formatLength(dur);
+
+        const rawSize = parseInt(fmt.size, 10);
+        const size = (Number.isFinite(rawSize) && rawSize > 0) ? rawSize : null;
+
+        const rawBr = parseInt(fmt.bit_rate, 10);
+        const bitrate = (Number.isFinite(rawBr) && rawBr > 0)
+            ? `${Math.round(rawBr / 1000)}kbps`
+            : null;
+
+        return { length, size, bitrate };
+    } catch {
+        return null;
+    }
+}
+
+async function runLengths(termFilter, caseFilter, update) {
+    const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+    let probed = 0, filled = 0, failed = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        const cases = _readJson(casesPath);
+        if (!Array.isArray(cases)) continue;
+        let termChanged = false;
+
+        for (const c of cases) {
+            if (caseFilter) {
+                const nums = (c.number || '').split(',').map(s => s.trim());
+                if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
+            }
+            if (!Array.isArray(c.events)) continue;
+
+            for (const ev of c.events) {
+                const audioHref = ev.audio_href || '';
+                if (!audioHref) continue;
+                // Skip only when length, size, and bitrate are all already set.
+                if ('length' in ev && 'size' in ev && 'bitrate' in ev) continue;
+
+                probed++;
+                const label = `${term}/${c.number || c.id || '?'} (${ev.date || '?'})`;
+                const urlShort = audioHref.length > 60 ? '…' + audioHref.slice(-59) : audioHref;
+                process.stdout.write(`  ${label}: ${urlShort} `);
+
+                const meta = await _ffprobeMeta(audioHref);
+                if (!meta) {
+                    console.log('FAILED');
+                    failed++;
+                    continue;
+                }
+                const parts = [meta.length];
+                if (meta.size    != null) parts.push(`${meta.size}B`);
+                if (meta.bitrate != null) parts.push(meta.bitrate);
+                console.log(parts.join('  '));
+                filled++;
+
+                if (update) {
+                    ev.length  = meta.length;
+                    if (meta.size    != null) ev.size    = meta.size;
+                    if (meta.bitrate != null) ev.bitrate = meta.bitrate;
+                    const reordered = reorderEvent({ ...ev });
+                    for (const k of Object.keys(ev)) delete ev[k];
+                    Object.assign(ev, reordered);
+                    termChanged = true;
+                }
+                // Brief courtesy delay between requests.
+                await sleep(500);
+            }
+        }
+
+        if (update && termChanged) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+        }
+    }
+
+    console.log(`\nLengths: ${probed} probed, ${filled} found, ${failed} failed.`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -5181,6 +5313,7 @@ const USAGE = `Usage: node verify_cases.js                                # veri
        node verify_cases.js [TERM [CASE]] --scdb [--update] [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
        node verify_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node verify_cases.js [TERM [CASE]] --split [--update]                    # detect/split multi-speaker opinion events
+       node verify_cases.js [TERM [CASE]] --lengths [--update]                  # fill missing audio duration via ffprobe
        node verify_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
 
 File changes are opt-in: pass --update to write any fixes (sorts, key reordering,
@@ -5215,6 +5348,10 @@ Examples:
   node verify_cases.js --split                             # find opinion events needing a split
   node verify_cases.js 2024-10 --split                     # check one term
   node verify_cases.js 2024-10 --split --update            # insert split events into cases.json
+
+  node verify_cases.js --lengths                           # probe audio durations (no writes)
+  node verify_cases.js 2025-10 --lengths                   # probe one term
+  node verify_cases.js 2025-10 --lengths --update          # fill in missing "length" fields
 
   node verify_cases.js --dissents                          # rebuild courts/ussc/collections/dissents.json
   node verify_cases.js 2024-10 --dissents                  # rebuild for one term only
@@ -5907,6 +6044,11 @@ async function main() {
 
     if (flags.has('--dissents')) {
         await runDissentCheck(positional[0] || null);
+        return;
+    }
+
+    if (flags.has('--lengths')) {
+        await runLengths(positional[0] || null, positional[1] || null, update);
         return;
     }
 
