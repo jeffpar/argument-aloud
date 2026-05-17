@@ -56,7 +56,7 @@ That spreadsheet contains all previously available data, along with any women ad
   - [AIMEE W. BROWN](/courts/ussc/?collection=women_advocates&id=aimee_w_brown) argued on October 7, 2025 in [Barrett v. United States (No. 24-5774)](/courts/ussc/?term=2025-10&case=24-5774)
   - [SHANNON W. STEVENSON](/courts/ussc/?collection=women_advocates&id=shannon_w_stevenson) argued on October 7, 2025 in [Chiles v. Salazar (No. 24-539)](/courts/ussc/?term=2025-10&case=24-539)
   - [EASHA ANAND](/courts/ussc/?collection=women_advocates&id=easha_anand) argued on October 8, 2025 in [USPS v. Konan (No. 24-351)](/courts/ussc/?term=2025-10&case=24-351)
-  - [JANE E. NOTZ](/courts/ussc/?collection=women_advocates&id=jane_e_notz) argued on October 8, 2025 in [Bost v. IL Bd. of Elections (No. 24-568)](/courts/ussc/?term=2025-10&case=24-568)
+  - [JANE E. NOTZ](/courts/ussc/?collection=women_advocates&id=jane_e_notz) argued on October 8, 2025 in [Bost v. Illinois State Board of Elections (No. 24-568)](/courts/ussc/?term=2025-10&case=24-568)
   - [AMY M. SAHARIA](/courts/ussc/?collection=women_advocates&id=amy_m_saharia) argued on October 14, 2025 in [Ellingburg v. United States (No. 24-482)](/courts/ussc/?term=2025-10&case=24-482)
   - [ASHLEY ROBERTSON](/courts/ussc/?collection=women_advocates&id=ashley_robertson) argued on October 14, 2025 in [Ellingburg v. United States (No. 24-482)](/courts/ussc/?term=2025-10&case=24-482)
   - [KASDIN M. MITCHELL](/courts/ussc/?collection=women_advocates&id=kasdin_m_mitchell) argued on October 14, 2025 in [Bowe v. United States (No. 24-5438)](/courts/ussc/?term=2025-10&case=24-5438)
