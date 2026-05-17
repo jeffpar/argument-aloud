@@ -102,13 +102,13 @@ layout: pane
       var arguedCases = cases.filter(function (c) { return c.argument || c.reargument; }).length;
       var argDays = new Set(argEvents.map(function (e) { return e.date; }).filter(Boolean)).size;
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
-      // "Fully aligned" = cases where every audio argument/reargument event has both text_href and aligned:true
-      // (matches the blue-circle criterion; orange = any audio event missing either)
+      // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
+      // (only oyez provides aligned transcripts; ussc never does)
       var withTx = cases.filter(function (c) {
-        var audioArgEvs = (c.events || []).filter(function (e) {
-          return e.audio_href && (e.type === 'argument' || e.type === 'reargument');
+        var oyezArgEvs = (c.events || []).filter(function (e) {
+          return e.source === 'oyez' && e.audio_href && (e.type === 'argument' || e.type === 'reargument');
         });
-        return audioArgEvs.length > 0 && audioArgEvs.every(function (e) { return e.text_href && e.aligned; });
+        return oyezArgEvs.length > 0 && oyezArgEvs.every(function (e) { return e.text_href && e.aligned; });
       }).length;
       var decided     = cases.filter(function (c) { return c.decision || c.dateDecision; }).length;
       var advSet = new Set();
