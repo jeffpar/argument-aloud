@@ -118,48 +118,56 @@ layout: pane
         });
       });
 
-      var seenArgHrefs = new Set();
-      var evLen = argEvents.filter(function (e) {
-        if (!e.length) return false;
-        if (e.audio_href) {
-          if (seenArgHrefs.has(e.audio_href)) return false;
-          seenArgHrefs.add(e.audio_href);
-        }
-        return true;
-      });
+      // De-duplicate events per-case (not globally) to avoid counting
+      // both ussc and oyez sources for the same event within a case,
+      // but still count separate cases argued on the same day.
       var totalSec = 0;
-      evLen.forEach(function (e) { totalSec += parseLen(e.length); });
-
-      var opEvents = [];
+      var eventCount = 0;
       cases.forEach(function (c) {
-        (c.events || []).forEach(function (e) {
-          if (e.type === 'opinion' && e.audio_href) opEvents.push(e);
+        var caseArgEvents = (c.events || []).filter(function (e) {
+          return (e.type === 'argument' || e.type === 'reargument') && e.length;
+        });
+        var seenTitles = new Set();
+        caseArgEvents.forEach(function (e) {
+          var key = e.title || e.date || ('event-' + caseArgEvents.indexOf(e));
+          if (!seenTitles.has(key)) {
+            seenTitles.add(key);
+            totalSec += parseLen(e.length);
+            eventCount++;
+          }
         });
       });
-      var seenOpHrefs = new Set();
-      var opLen = opEvents.filter(function (e) {
-        if (!e.length) return false;
-        if (e.audio_href) {
-          if (seenOpHrefs.has(e.audio_href)) return false;
-          seenOpHrefs.add(e.audio_href);
-        }
-        return true;
-      });
+
+      // De-duplicate opinion events per-case
       var opTotalSec = 0;
-      opLen.forEach(function (e) { opTotalSec += parseLen(e.length); });
+      var opEventCount = 0;
+      cases.forEach(function (c) {
+        var caseOpEvents = (c.events || []).filter(function (e) {
+          return e.type === 'opinion' && e.audio_href && e.length;
+        });
+        var seenOpTitles = new Set();
+        caseOpEvents.forEach(function (e) {
+          var key = e.title || e.date || ('event-' + caseOpEvents.indexOf(e));
+          if (!seenOpTitles.has(key)) {
+            seenOpTitles.add(key);
+            opTotalSec += parseLen(e.length);
+            opEventCount++;
+          }
+        });
+      });
 
       document.getElementById('stat-argument-days').textContent  = argDays     || '—';
       document.getElementById('stat-argued-cases').textContent    = arguedCases || '—';
       document.getElementById('stat-with-audio').textContent        = withAudio    || '—';
       document.getElementById('stat-with-transcript').textContent   = withTx       || '—';
-      document.getElementById('stat-opinion-hours').textContent = opLen.length > 0 ? fmtHours(opTotalSec) : '—';
-      document.getElementById('stat-avg-opinion').textContent   = opLen.length > 0 ? fmtMins(opTotalSec / opLen.length) : '—';
+      document.getElementById('stat-opinion-hours').textContent = opEventCount > 0 ? fmtHours(opTotalSec) : '—';
+      document.getElementById('stat-avg-opinion').textContent   = opEventCount > 0 ? fmtMins(opTotalSec / opEventCount) : '—';
       document.getElementById('stat-decided').textContent       = decided      || '—';
       document.getElementById('stat-advocates').textContent         = advSet.size  || '—';
 
-      if (evLen.length > 0) {
+      if (eventCount > 0) {
         document.getElementById('stat-argued-hours').textContent = fmtHours(totalSec);
-        document.getElementById('stat-avg-length').textContent   = fmtMins(totalSec / evLen.length);
+        document.getElementById('stat-avg-length').textContent   = fmtMins(totalSec / eventCount);
       } else {
         document.getElementById('stats-note').textContent = 'Audio length data not yet available for this term.';
       }
