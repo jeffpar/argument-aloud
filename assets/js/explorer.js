@@ -1993,6 +1993,24 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
   showDocViewer({ href: documentUrl, title: groupName || '', view: 'pane' }, { autoScroll: false });
 }
 
+// Reset the view to its initial state: collapse all terms/collections, clear
+// the main panel, show the home page, and reset the URL to the base path.
+function resetToHome() {
+  // Collapse all open terms, decades, and collections in the nav tree.
+  document.querySelectorAll('#term-list .open').forEach(el => el.classList.remove('open'));
+  // Clear all active case selections.
+  document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
+  // Clear the topbar term label.
+  document.getElementById('topbar-term').textContent = '';
+  // Show the home page in the page viewer (right pane).
+  showPageViewer('/courts/ussc/pages/home', { pushState: false });
+  // Reset the URL to the base path without any query parameters.
+  history.pushState(null, '', location.pathname);
+  // Close mobile nav if open.
+  if (isMobile()) setMobileNavVisible(false);
+}
+
 function showPageViewer(url, { pushState = true } = {}) {
   playerSection.hidden = true;
   audioControls.hidden = true;
@@ -4500,6 +4518,12 @@ async function init() {
   buildNavFromIndex(navData);
 
   document.getElementById('random-case-btn')?.addEventListener('click', () => pickRandomCase());
+
+  // Reset view to initial state when clicking the site link.
+  document.getElementById('site-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    resetToHome();
+  });
 
   // Spin the dice button whenever the user hovers over any action=randomize link.
   // Must be attached to both the main document and the page-viewer-frame iframe
