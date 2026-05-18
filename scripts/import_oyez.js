@@ -25,8 +25,8 @@ import { syncFilesCount } from './verify_cases.js';
 const __dirname  = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT  = path.resolve(__dirname, '..');
 const OYEZ_API   = 'https://api.oyez.org';
-const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
-const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
+const _SPEAKERS_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
+const _JUSTICES_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
 
 // Set by --cases; gates creation of new case objects.
 let ADD_CASES = false;

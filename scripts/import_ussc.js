@@ -46,8 +46,8 @@ const ORIG_RE = /^(\d+)[\s-]Orig\.?$/i;
 const _TRANSCRIPT_CASE_RE = /^(\d+(?:-\d+|[\s-]?Orig\.?|A\d+)?)\.?\s*(.+)$/i;
 const _ORIG_NORM_RE       = /[\s-]*Orig\.?$/i;
 
-const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
-const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
+const _SPEAKERS_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
+const _JUSTICES_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
 
 // ── Module-level flags / state ─────────────────────────────────────────────
 

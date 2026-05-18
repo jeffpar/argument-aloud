@@ -662,8 +662,8 @@ async function _downloadFile(url, destPath) {
 // Speaker-map cleanup
 // ═══════════════════
 
-const _SPEAKERS_PATH = path.join(__dirname, 'speakers.json');
-const _JUSTICES_PATH = path.join(__dirname, 'justices.json');
+const _SPEAKERS_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
+const _JUSTICES_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
 
 function _buildJusticeRenameEntries() {
     if (!fs.existsSync(_JUSTICES_PATH)) return [];
@@ -2568,7 +2568,7 @@ const _SCDB_DECK_PATH   = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
 const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_citations.csv');
 const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
 const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
-const _SCDB_JUSTICES    = path.join(__dirname, 'justices.json');
+const _SCDB_JUSTICES    = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
 const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
 const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');

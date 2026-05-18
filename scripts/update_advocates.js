@@ -38,7 +38,7 @@ const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
 const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
-const _SPEAKERS_FILE    = path.join(__dirname, 'speakers.json');
+const _SPEAKERS_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
 
 // ── Small helpers ──────────────────────────────────────────────────────────
 
@@ -151,7 +151,7 @@ function loadJusticeCanonicalNames(p) {
     }
     return map;
 }
-const JUSTICE_LONGEST_NAME = loadJusticeCanonicalNames(path.join(__dirname, 'justices.json'));
+const JUSTICE_LONGEST_NAME = loadJusticeCanonicalNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
 
 // Set of every last name that belongs to a justice, used to catch OCR-corrupted
 // speaker entries like "JUSTIC DOUGLAS" or "JUSTTICE WHITE" whose title field
@@ -170,7 +170,7 @@ function loadJusticeLastNames(p) {
     }
     return lastNames;
 }
-const JUSTICE_LAST_NAMES = loadJusticeLastNames(path.join(__dirname, 'justices.json'));
+const JUSTICE_LAST_NAMES = loadJusticeLastNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
 
 // ── OCR corruptions of "JUSTICE" that slip through as bogus advocates ──────
 // These appear in OCR'd USSC transcripts when the alignment parser mistakes
