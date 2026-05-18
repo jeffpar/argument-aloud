@@ -170,6 +170,7 @@ justices were serving on the decision date and validates all vote counts.
 ```
 node scripts/update_cases.js TERM CASE --votes OUTCOME VOTE_STRING AUTHOR
                                       [--minority NAMES...] [--recused NAMES...]
+                                      [--dissent NAMES...]
 ```
 
 | Argument / Flag | Description |
@@ -182,6 +183,7 @@ node scripts/update_cases.js TERM CASE --votes OUTCOME VOTE_STRING AUTHOR
 | `AUTHOR` | Last name of majority opinion author |
 | `--minority` | Last names of justices in the minority (if any) |
 | `--recused` | Last names of justices who recused (if any) |
+| `--dissent` | Last names of justices who wrote dissents; adds `"dissent": true` to vote data. Dissent authors are automatically added to minority, so you don't need to list them in both flags |
 
 **Name resolution:** Justice names can be specified by last name only (e.g.,
 `kavanaugh`, `jackson`). Names are matched against justices serving on the
@@ -196,6 +198,10 @@ node scripts/update_cases.js 2024-10 2024-001 --votes win 9-0 roberts
 # 6-3 decision with liberal minority
 node scripts/update_cases.js 2024-10 2024-001 --votes win 6-3 roberts \
   --minority sotomayor kagan jackson
+
+# 6-3 decision with Kagan writing dissent
+node scripts/update_cases.js 2025-10 24-109 --votes loss 6-3 alito \
+  --dissent kagan --minority sotomayor jackson
 
 # 8-0 decision with Jackson recused
 node scripts/update_cases.js 2024-10 2024-022 --votes win 8-0 kavanaugh \
