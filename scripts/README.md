@@ -161,6 +161,49 @@ node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
 
 ---
 
+## update_cases.js
+
+Updates vote data for a specific case — result, voteMajority, voteMinority, and
+votes array with proper seniority ordering. Automatically determines which
+justices were serving on the decision date and validates all vote counts.
+
+```
+node scripts/update_cases.js TERM CASE --votes OUTCOME VOTE_STRING AUTHOR
+                                      [--minority NAMES...] [--recused NAMES...]
+```
+
+| Argument / Flag | Description |
+|---|---|
+| `TERM` | Term in `YYYY-10` format (e.g., `2024-10`) |
+| `CASE` | Case ID or docket number (e.g., `2024-001` or `23-583`) |
+| `--votes` | Begins vote specification (required) |
+| `OUTCOME` | Either `win` or `loss` for the petitioning party |
+| `VOTE_STRING` | Vote tally in format `N-N` (e.g., `6-3`, `9-0`) |
+| `AUTHOR` | Last name of majority opinion author |
+| `--minority` | Last names of justices in the minority (if any) |
+| `--recused` | Last names of justices who recused (if any) |
+
+**Name resolution:** Justice names can be specified by last name only (e.g.,
+`kavanaugh`, `jackson`). Names are matched against justices serving on the
+decision date using `data/ussc/justices.json`.
+
+**Examples:**
+
+```bash
+# Unanimous decision, Roberts authored
+node scripts/update_cases.js 2024-10 2024-001 --votes win 9-0 roberts
+
+# 6-3 decision with liberal minority
+node scripts/update_cases.js 2024-10 2024-001 --votes win 6-3 roberts \
+  --minority sotomayor kagan jackson
+
+# 8-0 decision with Jackson recused
+node scripts/update_cases.js 2024-10 2024-022 --votes win 8-0 kavanaugh \
+  --recused jackson
+```
+
+---
+
 ## download.js
 
 Downloads and caches all external assets referenced in `cases.json` files —

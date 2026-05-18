@@ -2852,6 +2852,16 @@ function _scdbIsChiefOn(name, isoDate) {
         (!r.stop  || isoDate <= r.stop));
 }
 
+function _scdbIsServingOn(canonical, isoDate) {
+    const tenures = _scdbJusticesTenures[canonical];
+    if (!tenures) return false;
+    if (!isoDate) return tenures.length > 0;
+    return tenures.some(t =>
+        (!t.start || isoDate >= t.start) &&
+        (!t.stop || isoDate <= t.stop)
+    );
+}
+
 // Sort a votes array by seniority for the given date: chief justice first,
 // then associates by ascending dateStart (ties broken by name for stability).
 function _scdbSortVotesBySeniority(votes, isoDate) {
@@ -3036,6 +3046,122 @@ function processLoneDissenters(termsToProcess, dryRun) {
     const verb = dryRun ? 'Would update' : 'Updated';
     if (_VERBOSE || indexChanged) {
         console.log(`Lone dissenters: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
+    }
+}
+
+// Scan every term's cases.json, find cases where a justice has "opinion": true,
+// and rebuild courts/ussc/people/justices/opinions.json plus per-justice
+// files in courts/ussc/people/justices/opinions/.
+function processOpinionAuthors(termsToProcess, dryRun) {
+    _ensureSeniorityLoaded();
+    const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'opinions');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'opinions.json');
+
+    // canonical name -> [case-entry, ...]
+    const byJustice = new Map();
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            if (!Array.isArray(c.votes) || !c.votes.length) continue;
+            const opinionVotes = c.votes.filter(v => v && v.opinion === true);
+            for (const vote of opinionVotes) {
+                const canonical = _scdbCanonName(vote.name);
+                if (!canonical) continue;
+                const baseTitle = firstTitle(c.title) || '';
+                const decisionDate = c.decision || '';
+                const yearMatch = /^(\d{4})/.exec(decisionDate);
+                const titled = (baseTitle && yearMatch) ? `${baseTitle} (${yearMatch[1]})` : baseTitle;
+                const entry = {
+                    title:    titled,
+                    term,
+                    number:   c.number || c.id || '',
+                    argument: c.argument || '',
+                    decision: c.decision || '',
+                };
+                if (!byJustice.has(canonical)) byJustice.set(canonical, []);
+                byJustice.get(canonical).push(entry);
+            }
+        }
+    }
+
+    if (!byJustice.size) {
+        if (_VERBOSE) console.log('Opinion authors: none found in scope.');
+        return;
+    }
+
+    if (!fs.existsSync(JUSTICES_DIR)) _mkdirSync(JUSTICES_DIR, { recursive: true });
+
+    // Build index entries.
+    const index = [];
+    for (const [canonical, list] of byJustice) {
+        list.sort((a, b) =>
+            (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
+            (a.term || '').localeCompare(b.term || '') ||
+            (a.title || '').localeCompare(b.title || ''));
+        const caseCount = list.length;
+        // list is sorted oldest→newest; [0] = oldest, [last] = newest.
+        const dateFirst = caseCount ? (list[0].decision || list[0].argument || '') : '';
+        const dateLast  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
+        const entry = {
+            id:    _justiceSlug(canonical),
+            name:  _justiceDisplayName(canonical),
+            cases: caseCount,
+        };
+        if (dateFirst) entry.dateFirst = dateFirst;
+        if (dateLast)  entry.dateLast  = dateLast;
+        index.push(entry);
+    }
+    const _opLastName = (name) => (name || '').trim().split(/\s+/).pop() || '';
+    index.sort((a, b) => {
+        if (a.cases !== b.cases) return b.cases - a.cases;
+        const la = _opLastName(a.name), lb = _opLastName(b.name);
+        return la < lb ? -1 : la > lb ? 1 : 0;
+    });
+
+    const indexChanged = _jsonChanged(INDEX_FILE, index);
+    if (indexChanged) _writeJson(INDEX_FILE, index);
+
+    // Write per-justice files, preserving any existing details / highlights.
+    const knownIds = new Set();
+    for (const [canonical, list] of byJustice) {
+        const id = _justiceSlug(canonical);
+        knownIds.add(id);
+        const file = path.join(JUSTICES_DIR, `${id}.json`);
+        let details = {};
+        let highlights = [];
+        if (fs.existsSync(file)) {
+            try {
+                const raw = _readJson(file);
+                if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+                    details    = raw.details    || {};
+                    highlights = raw.highlights || [];
+                }
+            } catch { /* ignore */ }
+        }
+        const output = { details, highlights, cases: list };
+        if (_jsonChanged(file, output)) _writeJson(file, output);
+    }
+
+    // Remove orphan per-justice files for justices no longer in the index.
+    if (fs.existsSync(JUSTICES_DIR)) {
+        for (const name of fs.readdirSync(JUSTICES_DIR)) {
+            if (!name.endsWith('.json')) continue;
+            const stem = name.slice(0, -5);
+            if (knownIds.has(stem)) continue;
+            _unlinkSync(path.join(JUSTICES_DIR, name));
+            if (_VERBOSE) console.log(`  Removed stale opinion-author file: courts/ussc/people/justices/opinions/${name}`);
+        }
+    }
+
+    const verb = dryRun ? 'Would update' : 'Updated';
+    if (_VERBOSE || indexChanged) {
+        console.log(`Opinion authors: ${verb} ${index.length} justice file(s) (${[...byJustice.values()].reduce((a, l) => a + l.length, 0)} case(s)).`);
     }
 }
 
@@ -3465,10 +3591,15 @@ function processCollectionSets(allTerms, dryRun) {
 
 function _scdbVotesSubset(row) {
     const out = [];
+    const processed = new Set(); // track which justices we've already processed
+
     for (const j of (row.justices || [])) {
         let name = (j.justiceName || '').trim().toUpperCase();
         if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
         if (!name) continue;
+
+        processed.add(name);
+
         const voteRaw = (j.vote || '').trim().toLowerCase();
         if (voteRaw === 'jurisdictional dissent') {
             out.push({ name, vote: 'jurisdictional dissent' });
@@ -3482,8 +3613,17 @@ function _scdbVotesSubset(row) {
             continue;
         }
         const maj = _scdbVoteToOurs(j.majority || '');
-        if (maj !== 'majority' && maj !== 'minority') continue;
-        out.push({ name, vote: maj });
+        if (maj === 'majority' || maj === 'minority') {
+            out.push({ name, vote: maj });
+            continue;
+        }
+
+        // No valid vote - check if justice was serving on decision date
+        // If so, mark as recused
+        const decisionDate = _scdbNormalizeDate(row.dateDecision || '');
+        if (decisionDate && _scdbIsServingOn(name, decisionDate)) {
+            out.push({ name, vote: 'recused' });
+        }
     }
     return out;
 }
@@ -6123,6 +6263,7 @@ async function main() {
         setDryRun(false);
         try {
             processLoneDissenters(allTerms, false);
+            processOpinionAuthors(allTerms, false);
             processCollectionSets(allTerms, false);
             await runDissentCheck(null);
         } finally {

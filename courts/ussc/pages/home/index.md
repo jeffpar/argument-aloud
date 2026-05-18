@@ -22,4 +22,4 @@ So we've created this "hub" to help connect those pieces.  Here's an example: an
 This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
 [![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)](https://www.supremecourt.gov/about/photos.aspx)  
-[[Repository](https://github.com/jeffpar/argument-aloud)]
+[[Repository]](https://github.com/jeffpar/argument-aloud)

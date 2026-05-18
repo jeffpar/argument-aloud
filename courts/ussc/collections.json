@@ -1,5 +1,27 @@
 [
   {
+    "title": "Justices",
+    "collections": [
+      {
+        "title": "Authored Opinions",
+        "file": "/courts/ussc/people/justices/opinions.json",
+        "folder": "/courts/ussc/people/justices/opinions",
+        "search": "name"
+      },
+      {
+        "title": "Lone Dissents",
+        "file": "/courts/ussc/people/justices/loners.json",
+        "folder": "/courts/ussc/people/justices/loners",
+        "search": "name"
+      },
+      {
+        "title": "Oral Dissents (Recorded)",
+        "file": "/courts/ussc/people/justices/dissents.json",
+        "search": "cases:title"
+      }
+    ]
+  },
+  {
     "title": "Advocates",
     "collections": [
       {
@@ -58,17 +80,6 @@
   {
     "title": "Noteworthy Cases",
     "file": "/courts/ussc/collections/noteworthy.json",
-    "search": "cases:title"
-  },
-  {
-    "title": "Lone Dissenters",
-    "file": "/courts/ussc/people/justices/loners.json",
-    "folder": "/courts/ussc/people/justices/loners",
-    "search": "name"
-  },
-  {
-    "title": "Oral Dissents",
-    "file": "/courts/ussc/people/justices/dissents.json",
     "search": "cases:title"
   }
 ]

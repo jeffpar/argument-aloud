@@ -33,6 +33,10 @@ export const ADVOCATE_KEY_ORDER = [
     'name', 'title', 'role',
 ];
 
+export const VOTE_KEY_ORDER = [
+    'name', 'vote', 'opinion', 'dissent',
+];
+
 function _reorder(obj, order) {
     const out = {};
     for (const k of order) {
@@ -47,3 +51,4 @@ function _reorder(obj, order) {
 export const reorderCase     = (obj) => _reorder(obj, CASE_KEY_ORDER);
 export const reorderEvent    = (obj) => _reorder(obj, EVENT_KEY_ORDER);
 export const reorderAdvocate = (obj) => _reorder(obj, ADVOCATE_KEY_ORDER);
+export const reorderVote     = (obj) => _reorder(obj, VOTE_KEY_ORDER);
