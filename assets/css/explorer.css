@@ -11,6 +11,9 @@ body {
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   background: #fff;
+  /* Support for notched devices and browser UI */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* ── Top bar ─────────────────────────────────────────────── */
@@ -82,7 +85,8 @@ body {
 /* ── Two-panel browser ───────────────────────────────────── */
 #browser {
   display: flex;
-  height: calc(100vh - 44px);
+  height: calc(100vh - 44px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  height: calc(100dvh - 44px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
 
 /* ── Document Browser ───────────────────────────────────── */
@@ -1601,12 +1605,12 @@ button.term-case-count.sort-active:hover {
 @media (max-width: 768px) {
   body {
     overflow: auto;
-    padding-top: 44px; /* offset for fixed topbar */
+    padding-top: calc(44px + env(safe-area-inset-top)); /* offset for fixed topbar */
   }
 
   #topbar {
     position: fixed;
-    top: 0;
+    top: env(safe-area-inset-top);
     left: 0;
     right: 0;
     z-index: 100;
@@ -1640,7 +1644,7 @@ button.term-case-count.sort-active:hover {
 
   #player-section {
     position: sticky;
-    top: 44px;
+    top: calc(44px + env(safe-area-inset-top));
     z-index: 50;
   }
 
@@ -1652,7 +1656,7 @@ button.term-case-count.sort-active:hover {
 
   #bottom-bar {
     position: sticky;
-    bottom: 0;
+    bottom: env(safe-area-inset-bottom);
     z-index: 50;
   }
 
