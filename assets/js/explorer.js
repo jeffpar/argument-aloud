@@ -92,20 +92,19 @@ function _makeAdvocateId(name) {
 // (old format, derived from display names like "CHIEF JUSTICE ROBERTS").
 function formatSpeaker(speaker) {
   const name  = typeof speaker === 'string' ? speaker : speaker.name;
-  const title = typeof speaker === 'object' ? speaker.title : undefined;
+  let title = typeof speaker === 'object' ? speaker.title : undefined;
   if (name === 'UNKNOWN JUSTICE') return 'UNKNOWN';
   if (name === 'UNKNOWN SPEAKER') return 'UNKNOWN';
   if (title !== undefined) {
+    // Default empty title to "MR."
+    if (!title) title = 'MR.';
     if (title === 'CHIEF JUSTICE') return 'C.J.\u00a0' + lastName(name);
     if (title === 'JUSTICE')       return 'J.\u00a0'   + lastName(name);
-    if (title) {
-      // Support compound titles like "MS.,GENERAL" — use the last part for display.
-      const parts = title.split(',').map(t => t.trim()).filter(Boolean);
-      const last  = parts[parts.length - 1];
-      if (last === 'GENERAL') return 'G.\u00a0' + lastName(name);
-      return last + '\u00a0' + lastName(name);
-    }
-    return name; // empty title — show full name as-is
+    // Support compound titles like "MS.,GENERAL" — use the last part for display.
+    const parts = title.split(',').map(t => t.trim()).filter(Boolean);
+    const last  = parts[parts.length - 1];
+    if (last === 'GENERAL') return 'G.\u00a0' + lastName(name);
+    return last + '\u00a0' + lastName(name);
   }
   // Old format: derive from name prefix
   if (name.startsWith('CHIEF JUSTICE ')) return 'C.J.\u00a0' + toTitleCase(name.split(' ').pop());
@@ -225,20 +224,30 @@ function buildUrlParams(updates, deletes = []) {
   url.searchParams.delete('link');
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // Ensure 'collection' is first, then 'entry'/'id', then 'highlight' (if present), then the rest.
-  const coll = url.searchParams.get('collection');
-  if (coll) {
-    const entry     = url.searchParams.get('entry');
-    const id        = url.searchParams.get('id');
-    const highlight = url.searchParams.get('highlight');
-    const rest = [...url.searchParams.entries()].filter(
-      ([k]) => k !== 'collection' && k !== 'entry' && k !== 'id' && k !== 'highlight'
-    );
-    const second  = entry != null ? [['entry', entry]] : (id != null ? [['id', id]] : []);
-    const third   = highlight != null ? [['highlight', highlight]] : [];
-    const reordered = [['collection', coll], ...second, ...third, ...rest];
-    url.search = new URLSearchParams(reordered).toString();
-  }
+  // Enforce canonical parameter order: collection, entry/id, highlight, term, case, event, turn, file, then rest.
+  const collection = url.searchParams.get('collection');
+  const entry      = url.searchParams.get('entry');
+  const id         = url.searchParams.get('id');
+  const highlight  = url.searchParams.get('highlight');
+  const term       = url.searchParams.get('term');
+  const caseParam  = url.searchParams.get('case');
+  const event      = url.searchParams.get('event');
+  const turn       = url.searchParams.get('turn');
+  const file       = url.searchParams.get('file');
+  const orderedKeys = ['collection', 'entry', 'id', 'highlight', 'term', 'case', 'event', 'turn', 'file'];
+  const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
+  const reordered = [];
+  if (collection != null) reordered.push(['collection', collection]);
+  if (entry != null) reordered.push(['entry', entry]);
+  if (id != null) reordered.push(['id', id]);
+  if (highlight != null) reordered.push(['highlight', highlight]);
+  if (term != null) reordered.push(['term', term]);
+  if (caseParam != null) reordered.push(['case', caseParam]);
+  if (event != null) reordered.push(['event', event]);
+  if (turn != null) reordered.push(['turn', turn]);
+  if (file != null) reordered.push(['file', file]);
+  reordered.push(...rest);
+  url.search = new URLSearchParams(reordered).toString();
   return url;
 }
 
@@ -3608,7 +3617,7 @@ function renderTranscript() {
     renderTurnText(tx, turn.text, null, false);
 
     // Make non-justice speaker labels clickable links to advocate profiles.
-    const spkrTitle = typeof spkr === 'object' ? (spkr.title || '') : '';
+    const spkrTitle = typeof spkr === 'object' ? (spkr.title || 'MR.') : '';
     const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE';
     if (isAdvocate) {
       sp.classList.add('speaker-link');
@@ -3623,18 +3632,30 @@ function renderTranscript() {
         const slashIdx = caseKey.indexOf('/');
         const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
         const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
+        // Get the current event index (1-based) from the audio selector
+        const audioSelect = document.getElementById('audio-select');
+        const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
+          ? parseInt(audioSelect.value, 10)
+          : 0;
         const turnUrl = (ciTerm && ciCase)
-          ? buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
-              ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'])
+          ? buildUrlParams(
+              { term: ciTerm, case: ciCase, turn: turnId, ...(currentEvent > 0 ? { event: currentEvent } : {}) },
+              ['collection', 'entry', 'id', 'highlight', 'file', 'link']
+            )
           : buildUrlParams({ turn: turnId });
         history.replaceState(null, '', turnUrl);
         const collectionId = spkrTitle.split(',').map(t => t.trim())
           .some(t => t === 'MS.' || t === 'MRS.' || t === 'MISS') ? 'women_advocates' : 'all_advocates';
         const advocateUrlParams = { collection: collectionId, id: advocateId };
-        if (ciTerm && ciCase) { advocateUrlParams.term = ciTerm; advocateUrlParams.case = ciCase; advocateUrlParams.turn = turnId; }
+        if (ciTerm && ciCase) {
+          advocateUrlParams.term = ciTerm;
+          advocateUrlParams.case = ciCase;
+          advocateUrlParams.turn = turnId;
+          if (currentEvent > 0) advocateUrlParams.event = currentEvent;
+        }
         const advocateUrl = buildUrlParams(
           advocateUrlParams,
-          ['event', 'file', 'highlight', 'entry', 'link'],
+          ['file', 'highlight', 'entry', 'link'],
         );
         history.pushState(null, '', advocateUrl);
         // On mobile, after the transcript loads scroll the doc-browser so the
@@ -3689,14 +3710,20 @@ function renderTranscript() {
       const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
       let url;
       if (ciTerm && ciCase) {
+        // Get the current event index from the audio selector
+        const audioSelect = document.getElementById('audio-select');
+        const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
+          ? parseInt(audioSelect.value, 10)
+          : 0;
         // If we're already viewing within a collection, preserve collection/id/entry/event
         // so the advocate context stays in the URL. The user can click the case title
         // link to return to the plain term view.
         const inCollection = !!new URLSearchParams(location.search).get('collection');
-        url = buildUrlParams({ term: ciTerm, case: ciCase, turn: turnId },
+        url = buildUrlParams(
+          { term: ciTerm, case: ciCase, ...(currentEvent > 0 ? { event: currentEvent } : {}), turn: turnId },
           inCollection
             ? ['highlight', 'file', 'link']
-            : ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link']);
+            : ['collection', 'entry', 'id', 'highlight', 'file', 'link']);
         // Desktop only: keep the active case visible in the sidebar. On mobile,
         // tapping a turn should not shift the viewport or reveal the explorer pane.
         // Skip when in a collection view — the collection item is already visible.
@@ -3785,14 +3812,12 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     // Translate the allAudio position back to a 1-based events[] index so the
     // URL `event` param is stable across re-sorts and matches the on-disk schema.
     const evIdx = _currentEvents.indexOf(selectedEntry) + 1;
-    if (evIdx >= 1) {
-      url.searchParams.set('event', evIdx);
-    } else {
-      url.searchParams.delete('event');
-    }
-    url.searchParams.delete('turn');
-    url.searchParams.delete('file');
-    history.replaceState(null, '', url);
+    const updates = {};
+    if (evIdx >= 1) updates.event = evIdx;
+    const deletes = ['turn', 'file'];
+    if (evIdx < 1) deletes.push('event');
+    const newUrl = buildUrlParams(updates, deletes);
+    history.replaceState(null, '', newUrl);
     await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
     _setCaseNotes(selectedEntry.notes || _currentCaseEntry?.notes || '');
     if (isMobile()) {
@@ -4691,17 +4716,29 @@ async function restoreFromURL() {
       // by the click handler. Use caseParam directly so the key always matches,
       // even when the term's full case entry has a separate `id` field.
       const caseKey = CSS.escape(termParam + '/' + caseParam);
-      let ci = _caseSearchRoot.querySelector(`.case-item[data-case-key="${caseKey}"]`);
+      let candidates = Array.from(_caseSearchRoot.querySelectorAll(`.case-item[data-case-key="${caseKey}"]`));
+
       // Fallback: caseParam may be just the first docket number of a consolidated
       // case (e.g. "77-874" when the full number is "77-874,77-1463").
-      if (!ci) {
+      if (candidates.length === 0) {
         const termPrefix = CSS.escape(termParam + '/');
-        ci = Array.from(_caseSearchRoot.querySelectorAll(`.case-item[data-case-key^="${termPrefix}"]`))
-          .find(el => {
+        candidates = Array.from(_caseSearchRoot.querySelectorAll(`.case-item[data-case-key^="${termPrefix}"]`))
+          .filter(el => {
             const keyNum = (el.dataset.caseKey || '').split('/').pop();
             return keyNum === caseParam
               || keyNum.split(',').map(n => n.trim()).includes(caseParam);
-          }) || null;
+          });
+      }
+
+      // If audioParam is specified and multiple case items exist for this case
+      // (e.g., an advocate argued the same case twice), filter by data-event-idx
+      // to select the correct one.
+      let ci = candidates[0] || null;
+      if (candidates.length > 1 && audioParam != null) {
+        const eventMatch = candidates.find(el =>
+          el.dataset.eventIdx && parseInt(el.dataset.eventIdx, 10) === audioParam
+        );
+        if (eventMatch) ci = eventMatch;
       }
       // Still fetch term cases so fileRestore can check events length below.
       const termCases = ci ? await fetchTermCases(termParam) : [];
