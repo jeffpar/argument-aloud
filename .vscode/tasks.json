@@ -2,13 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "webserver (4008)",
+      "label": "devserver (4008)",
       "type": "shell",
       "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4008 --config _developer.yml",
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen"
       },
+      "problemMatcher": []
+    },
+    {
+      "label": "webserver (4008)",
+      "type": "shell",
+      "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4008",
+      "isBackground": true,
       "problemMatcher": []
     }
   ]

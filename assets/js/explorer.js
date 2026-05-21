@@ -32,6 +32,17 @@ const _emptyStateDefault = emptyState.innerHTML;
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
+// Track page views in Google Analytics for SPA navigation
+function trackPageView(url) {
+  if (typeof gtag === 'function') {
+    const fullUrl = new URL(url, location.origin);
+    gtag('config', 'G-F4VGXJWVZL', {
+      'page_path': fullUrl.pathname + fullUrl.search,
+      'page_title': document.title
+    });
+  }
+}
+
 function parseTime(s) {
   const [h, m, sec] = s.split(':');
   return parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
@@ -668,6 +679,7 @@ function setCaseTitleLabel(term, caseEntry) {
       ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'],
     );
     history.pushState(null, '', url);
+    trackPageView(url);
     restoreFromURL();
   });
   span.appendChild(a);
@@ -1366,6 +1378,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
                 ['collection', 'event', 'file', 'turn'],
               );
               history.pushState(null, '', url);
+              trackPageView(url);
               loadCase(term, caseEntry, 0);
             }
           } : null,
@@ -1452,6 +1465,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
         );
         history.pushState(null, '', url);
+        trackPageView(url);
       } else {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
         // via an id-based param like ?case=1959-099 instead of ?case=376).
@@ -1711,6 +1725,7 @@ function buildNav(title = 'Terms') {
             url.searchParams.delete('file');
             url.searchParams.delete('turn');
             history.pushState(null, '', url);
+            trackPageView(url);
             document.getElementById('topbar-term').textContent = '';
             return;
           }
@@ -1730,6 +1745,7 @@ function buildNav(title = 'Terms') {
           url.searchParams.delete('file');
           url.searchParams.delete('turn');
           history.pushState(null, '', url);
+          trackPageView(url);
           return;
         } else {
           termLi.classList.add('open');
@@ -1755,6 +1771,7 @@ function buildNav(title = 'Terms') {
         url.searchParams.delete('file');
         url.searchParams.delete('turn');
         history.pushState(null, '', url);
+        trackPageView(url);
       });
 
       termLi.appendChild(ul);
@@ -2016,6 +2033,7 @@ function resetToHome() {
   showPageViewer('/courts/ussc/pages/home', { pushState: false });
   // Reset the URL to the base path without any query parameters.
   history.pushState(null, '', location.pathname);
+  trackPageView(location.pathname);
   // Close mobile nav if open.
   if (isMobile()) setMobileNavVisible(false);
 }
@@ -2045,6 +2063,7 @@ function showPageViewer(url, { pushState = true } = {}) {
     newUrl.searchParams.set('link', url);
     newUrl.search = newUrl.search.replace(/%2F/gi, '/');
     history.pushState(null, '', newUrl);
+    trackPageView(newUrl);
   }
   if (isMobile()) setMobileNavVisible(false);
 }
@@ -2181,6 +2200,7 @@ function buildCollectionItem(sectionUl, collEntry) {
         _onCollClose?.();
         const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
         history.pushState(null, '', url);
+        trackPageView(url);
         return;
       }
     } else if (!collLi.classList.contains('open')) {
@@ -2191,6 +2211,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
     const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight', 'link']);
     history.pushState(null, '', url);
+    trackPageView(url);
   });
 
   // ── Collection inline search ─────────────────────────────────────────────
@@ -2360,6 +2381,7 @@ function _buildHighlightItem(highlight, highlightIdx, href = null) {
         [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
       history.pushState(null, '', url);
+      trackPageView(url);
     }
     await loadHighlight(highlight);
   });
@@ -2700,6 +2722,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'turn'],
       );
       history.pushState(null, '', url);
+      trackPageView(url);
     }
     loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
@@ -3658,6 +3681,7 @@ function renderTranscript() {
           ['file', 'highlight', 'entry', 'link'],
         );
         history.pushState(null, '', advocateUrl);
+        trackPageView(advocateUrl);
         // On mobile, after the transcript loads scroll the doc-browser so the
         // selected case in the advocate's list is at the top.
         if (isMobile()) {
