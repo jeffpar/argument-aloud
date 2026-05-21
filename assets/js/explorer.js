@@ -15,7 +15,7 @@ let _currentLoadedEntry = null; // the audio entry object currently loaded in lo
 let _currentCaseEntry   = null; // the case object currently loaded
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
-let _currentOtdHref     = null; // On The Docket video URL for the active case (used by audio dropdown sentinel)
+let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
 let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
@@ -28,7 +28,6 @@ const playerSection   = document.getElementById('player-section');
 const audioControls   = document.getElementById('audio-controls');
 const pageViewer      = document.getElementById('page-viewer');
 const transcriptViewer = document.getElementById('transcript-viewer');
-const _emptyStateDefault = emptyState.innerHTML;
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
@@ -43,18 +42,24 @@ function trackPageView(url) {
   }
 }
 
+function navigate(url) {
+  history.pushState(null, '', url);
+  trackPageView(url);
+}
+
 function parseTime(s) {
   const [h, m, sec] = s.split(':');
   return parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
 }
 
+const MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+
 function termDisplayName(term) {
   const entry = TERMS.find(t => t.term === term);
   if (entry?.title) return entry.title.replace(/ /g, '\u00a0');
   const [year, month] = term.split('-');
-  const months = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
-  return (months[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
+  return (MONTHS[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
 }
 
 function decisionTooltip(term, caseEntry, decision) {
@@ -133,10 +138,6 @@ function speakerClass(speaker) {
   if (name.startsWith('CHIEF JUSTICE')) return 'chief-justice';
   if (name.startsWith('JUSTICE'))       return 'justice';
   return 'counsel';
-}
-
-function escapeHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // Show the stats page when a term is opened and no other content is displayed.
@@ -678,8 +679,7 @@ function setCaseTitleLabel(term, caseEntry) {
       { term, case: caseId(caseEntry) },
       ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'],
     );
-    history.pushState(null, '', url);
-    trackPageView(url);
+    navigate(url);
     restoreFromURL();
   });
   span.appendChild(a);
@@ -689,8 +689,6 @@ function setCaseTitleLabel(term, caseEntry) {
 function formatDecisionDate(iso) {
   if (!iso) return '';
   const [y, m, d] = iso.split('-');
-  const MONTHS = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
   return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
@@ -726,8 +724,6 @@ function _setCaseInfoRow2(caseEntry) {
 // Dates across different months are joined with "; ": "April 30, 1979; May 1, 1979".
 function formatArgDates(dateStr) {
   if (!dateStr) return '';
-  const MONTHS = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
   const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
   // Group by year-month, preserving insertion order
   const groups = new Map(); // "YYYY-MM" -> { y, m, days[] }
@@ -807,16 +803,19 @@ function oyezCircleData(caseEntry) {
   return { fraction, orange };
 }
 
-// Returns {blue} if the case has any 'opinion' events with audio_href, else
-// null. blue=true when ALL such events have a title starting with "Opinion"
-// (vs. an announcement or separate opinion reading).
+// Returns {blue, filled, hasOpinionAudio} if the case has opinion audio or OTD
+// video events, else null.
+// blue=true  → all opinion events titled "Opinion…" (blue ring)
+// filled=true → case has ≥1 OTD video event (purple filled circle)
 function opinionCircleData(caseEntry) {
   const opinionEvents = (caseEntry.events || []).filter(
     e => e.type === 'opinion' && e.audio_href,
   );
-  if (!opinionEvents.length) return null;
-  const blue = opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
-  return { blue };
+  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.video_href);
+  if (!opinionEvents.length && !hasOtd) return null;
+  const hasOpinionAudio = opinionEvents.length > 0;
+  const blue = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
+  return { blue, filled: hasOtd, hasOpinionAudio };
 }
 
 // Builds the SVG ring icon used when oyezCircleData returns a result.
@@ -891,20 +890,18 @@ function makeScalesSvg() {
   return svg;
 }
 
-function makeScalesRingSvg(blue) {
+function makeScalesRingSvg(blue, filled = false) {
   const size = 22, cx = 11, cy = 11, r = 9;
   const color = blue ? '#3778A6' : '#9461C8';
 
   const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
-  svg.setAttribute('title', blue
-    ? 'Opinion audio available'
-            : 'Opinion audio available with dissent(s)');
-  const arc = _svgEl('circle', { cx, cy, r, fill: 'none', stroke: color, 'stroke-width': '1.5' });
+  const arc = _svgEl('circle', { cx, cy, r, fill: filled ? '#9461C8' : 'none', stroke: color, 'stroke-width': '1.5' });
 
-  // Scale the icon to ~76% so it sits comfortably inside the ring
+  // Scale the icon to ~76% so it sits comfortably inside the ring.
+  // Use white stroke when filled for contrast against the purple background.
   const g = _svgEl('g', {
-    stroke: 'currentColor', 'stroke-width': '1.5', fill: 'none', 'stroke-linecap': 'round',
+    stroke: filled ? '#ffffff' : 'currentColor', 'stroke-width': '1.5', fill: 'none', 'stroke-linecap': 'round',
     transform: `translate(${cx},${cy}) scale(0.76) translate(-${cx},-${cy})`,
   });
   _appendScalesPaths(g);
@@ -1229,17 +1226,22 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
 function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   let icon;
   if (ring) {
-    icon = makeScalesRingSvg(ring.blue);
+    icon = makeScalesRingSvg(ring.blue, ring.filled);
   } else {
     icon = makeScalesSvg();
   }
   let node = icon;
   if (onClick) {
-    const tooltipText = ring
-      ? (ring.blue
-          ? 'Opinion audio available'
-          : 'Opinion audio available with dissent(s)')
-      : 'Opinion issued';
+    let tooltipText;
+    if (!ring) {
+      tooltipText = 'Opinion issued';
+    } else if (ring.filled && !ring.hasOpinionAudio) {
+      tooltipText = 'Video from On The Docket';
+    } else if (ring.filled) {
+      tooltipText = (ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)') + '; video from On The Docket';
+    } else {
+      tooltipText = ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)';
+    }
     // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
     const tip = document.createElement('span');
     tip.title = tooltipText;
@@ -1254,7 +1256,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     icon.style.pointerEvents = 'none';
   }
   header.appendChild(node);
-  return icon;
+  return node;
 }
 
 // ── Sort modes for the term case list ────────────────────────────────────────
@@ -1377,8 +1379,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
                 { term, case: urlId },
                 ['collection', 'event', 'file', 'turn'],
               );
-              history.pushState(null, '', url);
-              trackPageView(url);
+              navigate(url);
               loadCase(term, caseEntry, 0);
             }
           } : null,
@@ -1464,8 +1465,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           { term, case: urlId },
           ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
         );
-        history.pushState(null, '', url);
-        trackPageView(url);
+        navigate(url);
       } else {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
         // via an id-based param like ?case=1959-099 instead of ?case=376).
@@ -1488,6 +1488,41 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
 function buildTermCases(term, cases, ul) {
   buildTermCasesSorted(term, cases, ul, 'cases');
+}
+
+// Shared sort-menu builder used by both term and collection-group sort buttons.
+// anchorEl  — the <button> to position the menu below
+// options   — array of { mode, label }
+// getState  — () => { mode, asc } for the current sort state
+// onPick    — ({ mode, asc }) => void; updates state variables and refreshes the UI
+function _buildSortMenu(anchorEl, options, getState, onPick) {
+  document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
+  const menu = document.createElement('ul');
+  menu.className = 'term-sort-menu';
+  const { mode: curMode, asc: curAsc } = getState();
+  for (const opt of options) {
+    const isActive = opt.mode === curMode;
+    const item = document.createElement('li');
+    item.className = 'term-sort-option' + (isActive ? ' active' : '');
+    item.textContent = opt.label + (isActive ? (curAsc ? ' \u2191' : ' \u2193') : '');
+    item.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      menu.remove();
+      const { mode, asc } = getState();
+      onPick({ mode: opt.mode === mode ? mode : opt.mode, asc: opt.mode === mode ? !asc : true });
+    });
+    menu.appendChild(item);
+  }
+  document.body.appendChild(menu);
+  const rect = anchorEl.getBoundingClientRect();
+  menu.style.top  = (rect.bottom + window.scrollY) + 'px';
+  menu.style.left = (rect.left   + window.scrollX) + 'px';
+  const close = (e) => {
+    if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
+  };
+  // Small delay so the mousedown that opened the menu doesn't immediately close it.
+  setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
 function buildNav(title = 'Terms') {
@@ -1615,26 +1650,13 @@ function buildNav(title = 'Terms') {
 
       // Show/hide a small sort dropdown anchored to termCount.
       function _showSortMenu() {
-        // Remove any existing menus elsewhere.
-        document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
-
-        const menu = document.createElement('ul');
-        menu.className = 'term-sort-menu';
-        for (const opt of _SORT_OPTIONS) {
-          const isActive = opt.mode === _sortMode;
-          const item = document.createElement('li');
-          item.className = 'term-sort-option' + (isActive ? ' active' : '');
-          item.textContent = opt.label + (isActive ? (_sortAsc ? ' \u2191' : ' \u2193') : '');
-          item.addEventListener('mousedown', (e) => {
-            e.preventDefault(); // prevent blur before click registers
-            e.stopPropagation();
-            menu.remove();
-            if (opt.mode === _sortMode) {
-              _sortAsc = !_sortAsc;
-            } else {
-              _sortMode = opt.mode;
-              _sortAsc = true;
-            }
+        _buildSortMenu(
+          termCount,
+          _SORT_OPTIONS,
+          () => ({ mode: _sortMode, asc: _sortAsc }),
+          ({ mode, asc }) => {
+            _sortMode = mode;
+            _sortAsc  = asc;
             const visible = _casesCache ? _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0) : null;
             const count = visible ? visible.length : null;
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
@@ -1650,21 +1672,8 @@ function buildNav(title = 'Terms') {
                 }
               }
             }
-          });
-          menu.appendChild(item);
-        }
-
-        // Position below termCount
-        document.body.appendChild(menu);
-        const rect = termCount.getBoundingClientRect();
-        menu.style.top  = (rect.bottom + window.scrollY) + 'px';
-        menu.style.left = (rect.left   + window.scrollX) + 'px';
-
-        const close = (e) => {
-          if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
-        };
-        // Small delay so the mousedown that opened the menu doesn't immediately close it.
-        setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+          },
+        );
       }
 
       // Clicking the sort button opens the menu; stop propagation so the
@@ -1713,19 +1722,8 @@ function buildNav(title = 'Terms') {
             }
             updateEmptyStateForTerm(null);
             // Term collapsed — remove term param too.
-            const url = new URL(location.href);
-            url.searchParams.delete('collection');
-            url.searchParams.delete('entry');
-            url.searchParams.delete('id');
-            url.searchParams.delete('highlight');
-            url.searchParams.delete('link');
-            url.searchParams.delete('term');
-            url.searchParams.delete('case');
-            url.searchParams.delete('event');
-            url.searchParams.delete('file');
-            url.searchParams.delete('turn');
-            history.pushState(null, '', url);
-            trackPageView(url);
+            const url = buildUrlParams({}, ['collection', 'entry', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn']);
+            navigate(url);
             document.getElementById('topbar-term').textContent = '';
             return;
           }
@@ -1733,19 +1731,8 @@ function buildNav(title = 'Terms') {
           // Already open — still show stats and reset URL to term-only.
           updateEmptyStateForTerm(term);
           document.getElementById('topbar-term').textContent = termDisplayName(term);
-          const url = new URL(location.href);
-          url.searchParams.set('term', term);
-          url.searchParams.delete('collection');
-          url.searchParams.delete('entry');
-          url.searchParams.delete('id');
-          url.searchParams.delete('highlight');
-          url.searchParams.delete('link');
-          url.searchParams.delete('case');
-          url.searchParams.delete('event');
-          url.searchParams.delete('file');
-          url.searchParams.delete('turn');
-          history.pushState(null, '', url);
-          trackPageView(url);
+          const url = buildUrlParams({ term }, ['collection', 'entry', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+          navigate(url);
           return;
         } else {
           termLi.classList.add('open');
@@ -1759,19 +1746,8 @@ function buildNav(title = 'Terms') {
         updateEmptyStateForTerm(term);
         document.getElementById('topbar-term').textContent = termDisplayName(term);
         // Update URL: set term param, clear case/audio/file/turn params.
-        const url = new URL(location.href);
-        url.searchParams.set('term', term);
-        url.searchParams.delete('collection');
-        url.searchParams.delete('entry');
-        url.searchParams.delete('id');
-        url.searchParams.delete('highlight');
-        url.searchParams.delete('link');
-        url.searchParams.delete('case');
-        url.searchParams.delete('event');
-        url.searchParams.delete('file');
-        url.searchParams.delete('turn');
-        history.pushState(null, '', url);
-        trackPageView(url);
+        const url = buildUrlParams({ term }, ['collection', 'entry', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+        navigate(url);
       });
 
       termLi.appendChild(ul);
@@ -2032,8 +2008,7 @@ function resetToHome() {
   // Show the home page in the page viewer (right pane).
   showPageViewer('/courts/ussc/pages/home', { pushState: false });
   // Reset the URL to the base path without any query parameters.
-  history.pushState(null, '', location.pathname);
-  trackPageView(location.pathname);
+  navigate(location.pathname);
   // Close mobile nav if open.
   if (isMobile()) setMobileNavVisible(false);
 }
@@ -2062,8 +2037,7 @@ function showPageViewer(url, { pushState = true } = {}) {
     newUrl.search = '';
     newUrl.searchParams.set('link', url);
     newUrl.search = newUrl.search.replace(/%2F/gi, '/');
-    history.pushState(null, '', newUrl);
-    trackPageView(newUrl);
+    navigate(newUrl);
   }
   if (isMobile()) setMobileNavVisible(false);
 }
@@ -2199,8 +2173,7 @@ function buildCollectionItem(sectionUl, collEntry) {
       if (!collLi.classList.contains('open')) {
         _onCollClose?.();
         const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
-        history.pushState(null, '', url);
-        trackPageView(url);
+        navigate(url);
         return;
       }
     } else if (!collLi.classList.contains('open')) {
@@ -2210,8 +2183,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     await _ensureCollectionBuilt();
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
     const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight', 'link']);
-    history.pushState(null, '', url);
-    trackPageView(url);
+    navigate(url);
   });
 
   // ── Collection inline search ─────────────────────────────────────────────
@@ -2380,8 +2352,7 @@ function _buildHighlightItem(highlight, highlightIdx, href = null) {
         { ...(collId ? { collection: collId } : {}), ...entryOrId, highlight: highlightIdx + 1 },
         [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
-      history.pushState(null, '', url);
-      trackPageView(url);
+      navigate(url);
     }
     await loadHighlight(highlight);
   });
@@ -2557,9 +2528,9 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick });
   }
 
-  // Asynchronously upgrade the scales icon with an opinion ring once the full
-  // case entry is available — shows whether opinion audio exists (blue or purple).
-  if (caseRef.decision) {
+  // Asynchronously upgrade the scales icon with a ring once the full case entry
+  // is available — shows opinion audio (blue/purple stroke) or OTD video (filled).
+  if (caseRef.decision || caseRef.event) {
     _fetchCaseEntry().then(caseEntry => {
       if (!caseEntry) return;
       const ring = opinionCircleData(caseEntry);
@@ -2721,8 +2692,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'turn'],
       );
-      history.pushState(null, '', url);
-      trackPageView(url);
+      navigate(url);
     }
     loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
@@ -2852,37 +2822,17 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     }
 
     function _showGroupSortMenu() {
-      document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
-      const menu = document.createElement('ul');
-      menu.className = 'term-sort-menu';
-      for (const opt of _GROUP_SORT_OPTIONS) {
-        const isActive = opt.mode === _groupSortMode;
-        const item = document.createElement('li');
-        item.className = 'term-sort-option' + (isActive ? ' active' : '');
-        item.textContent = opt.label + (isActive ? (_groupSortAsc ? ' \u2191' : ' \u2193') : '');
-        item.addEventListener('mousedown', (ev) => {
-          ev.preventDefault();
-          ev.stopPropagation();
-          menu.remove();
-          if (opt.mode === _groupSortMode) {
-            _groupSortAsc = !_groupSortAsc;
-          } else {
-            _groupSortMode = opt.mode;
-            _groupSortAsc = true;
-          }
+      _buildSortMenu(
+        groupCount,
+        _GROUP_SORT_OPTIONS,
+        () => ({ mode: _groupSortMode, asc: _groupSortAsc }),
+        ({ mode, asc }) => {
+          _groupSortMode = mode;
+          _groupSortAsc  = asc;
           groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc);
           _applyGroupSortMode(_groupSortMode, _groupSortAsc);
-        });
-        menu.appendChild(item);
-      }
-      document.body.appendChild(menu);
-      const rect = groupCount.getBoundingClientRect();
-      menu.style.top  = (rect.bottom + window.scrollY) + 'px';
-      menu.style.left = (rect.left   + window.scrollX) + 'px';
-      const close = (ev) => {
-        if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
-      };
-      setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+        },
+      );
     }
 
     groupCount.addEventListener('click', (e) => {
@@ -3122,6 +3072,40 @@ async function loadAudioEntry(arg, basePath) {
   }
 }
 
+// Build the journal-ref Map and options array shared by loadCaseAsOpinion and loadCase.
+// Returns { map: Map<value, {href, title}>, opts: Array<{value, title}> }.
+function _buildJournalRefOptions(caseEntry, term) {
+  const map  = new Map();
+  const opts = [];
+  const seen = new Set();
+  (caseEntry.events || []).forEach((ev, i) => {
+    if (!ev.journal_ref || !ev.date) return;
+    const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
+    if (!m) return;
+    const refTerm = m[1] || term;
+    const page    = m[2].trim();
+    if (!page) return;
+    const refTermEntry = TERMS.find(t => t.term === refTerm);
+    const journalHref  = refTermEntry?.journal_href;
+    if (!journalHref) return;
+    const pageNum  = parseInt(page, 10);
+    const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
+    const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
+      ? String(pageNum + offset)
+      : page;
+    const [y, mo, d] = ev.date.split('-');
+    const dateLabel  = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+    const title      = 'Journal Entry for ' + dateLabel;
+    const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
+    if (seen.has(url)) return;
+    seen.add(url);
+    const value = 'journal:' + (i + 1);
+    map.set(value, { href: url, title });
+    opts.push({ value, title });
+  });
+  return { map, opts };
+}
+
 // Display a case in opinion-only mode: no transcript pane, no audio dropdown,
 // the opinion PDF (if any) opens full-height in the document viewer. Used for
 // historical cases without playable audio, and when a collection click forces
@@ -3174,36 +3158,8 @@ function loadCaseAsOpinion(term, caseEntry) {
 
   // Collect any events with journal_ref so we can offer them in a dropdown
   // alongside the decision/opinion.
-  const _months = ['January','February','March','April','May','June',
-                   'July','August','September','October','November','December'];
-  _currentJournalRefs = new Map();
-  const journalOpts = [];
-  const _journalSeen = new Set();
-  (caseEntry.events || []).forEach((ev, i) => {
-    if (!ev.journal_ref || !ev.date) return;
-    const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
-    if (!m) return;
-    const refTerm = m[1] || term;
-    const page    = m[2].trim();
-    if (!page) return;
-    const refTermEntry = TERMS.find(t => t.term === refTerm);
-    const journalHref  = refTermEntry?.journal_href;
-    if (!journalHref) return;
-    const pageNum  = parseInt(page, 10);
-    const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
-    const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
-      ? String(pageNum + offset)
-      : page;
-    const [y, mo, d] = ev.date.split('-');
-    const dateLabel  = (_months[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
-    const title      = 'Journal Entry for ' + dateLabel;
-    const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
-    if (_journalSeen.has(url)) return;
-    _journalSeen.add(url);
-    const value      = 'journal:' + (i + 1);
-    _currentJournalRefs.set(value, { href: url, title });
-    journalOpts.push({ value, title });
-  });
+  const { map: _jrMap, opts: journalOpts } = _buildJournalRefOptions(caseEntry, term);
+  _currentJournalRefs = _jrMap;
 
   const decisionText = caseEntry.decision
     ? 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision)
@@ -3214,8 +3170,8 @@ function loadCaseAsOpinion(term, caseEntry) {
   // than the standalone decision label.
   _currentOpinionHref = caseEntry.opinion_href || null;
   _currentOyezHref    = caseEntry.oyez_href || null;
-  _currentOtdHref     = caseEntry.otd_href || null;
-  if (journalOpts.length && (decisionText || journalOpts.length > 1)) {
+  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
+  if (journalOpts.length && (decisionText || journalOpts.length > 1) || _currentVideoEntries.length) {
     decisionLabel.hidden = true;
     audioSelect.innerHTML = '';
     journalOpts.forEach(j => {
@@ -3230,6 +3186,12 @@ function loadCaseAsOpinion(term, caseEntry) {
       opt.textContent = decisionText;
       audioSelect.appendChild(opt);
     }
+    _currentVideoEntries.forEach((v, i) => {
+      const opt = document.createElement('option');
+      opt.value = 'video:' + i;
+      opt.textContent = v.title;
+      audioSelect.appendChild(opt);
+    });
     audioSelect.hidden = false;
   } else {
     audioSelect.hidden = true;
@@ -3304,7 +3266,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   _setCaseInfoRow2(caseEntry);
   _currentOpinionHref = caseEntry.opinion_href || null;
   _currentOyezHref    = caseEntry.oyez_href || null;
-  _currentOtdHref     = caseEntry.otd_href || null;
+  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   docViewerOpenHeight = null;
 
   // Pick the best single source: prefer the source with the most aligned entries,
@@ -3405,7 +3367,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   // Build the full date-sorted audio list; sortedAudio entries are references to
   // the same objects, so indexOf comparisons work for 1-based position lookups.
-  const allAudio = [...caseEntry.events];
+  const allAudio = (caseEntry.events || []).filter(e => e.source !== 'otd');
 
   // Build audio select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).
@@ -3422,40 +3384,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // term's journal). The linked URL is `<journal_href>#page=<PAGE>`.
   // Journal entries appear before the decision sentinel so the decision is
   // always last.
-  _currentJournalRefs = new Map();
-  {
-    const _months = ['January','February','March','April','May','June',
-                     'July','August','September','October','November','December'];
-    const _journalSeen = new Set();
-    (caseEntry.events || []).forEach((ev, i) => {
-      if (!ev.journal_ref || !ev.date) return;
-      const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
-      if (!m) return;
-      const refTerm = m[1] || term;
-      const page    = m[2].trim();
-      if (!page) return;
-      const refTermEntry = TERMS.find(t => t.term === refTerm);
-      const journalHref  = refTermEntry?.journal_href;
-      if (!journalHref) return;
-      const pageNum  = parseInt(page, 10);
-      const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
-      const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
-        ? String(pageNum + offset)
-        : page;
-      const [y, mo, d] = ev.date.split('-');
-      const dateLabel  = (_months[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
-      const title      = 'Journal Entry for ' + dateLabel;
-      const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
-      if (_journalSeen.has(url)) return;
-      _journalSeen.add(url);
-      const value      = 'journal:' + (i + 1);
-      _currentJournalRefs.set(value, { href: url, title });
-      const opt = document.createElement('option');
-      opt.value = value;
-      opt.textContent = title;
-      audioSelect.appendChild(opt);
-    });
-  }
+  const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
+  _currentJournalRefs = _jrMap;
+  _journalOpts.forEach(j => {
+    const opt = document.createElement('option');
+    opt.value = j.value;
+    opt.textContent = j.title;
+    audioSelect.appendChild(opt);
+  });
   // Append sentinel option linking to the opinion, if available. (Always last.)
   if (caseEntry.opinion_href && caseEntry.decision) {
     const sentinelOpt = document.createElement('option');
@@ -3470,13 +3406,13 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
     oyezOpt.textContent = 'Description from The Oyez Project';
     audioSelect.appendChild(oyezOpt);
   }
-  // Append sentinel option linking to the On The Docket video, if available.
-  if (caseEntry.otd_href) {
-    const otdOpt = document.createElement('option');
-    otdOpt.value = 'otd-page';
-    otdOpt.textContent = 'Video generated by On The Docket';
-    audioSelect.appendChild(otdOpt);
-  }
+  // Append sentinel options linking to On The Docket videos, if available.
+  _currentVideoEntries.forEach((v, i) => {
+    const opt = document.createElement('option');
+    opt.value = 'video:' + i;
+    opt.textContent = v.title;
+    audioSelect.appendChild(opt);
+  });
   // Resolve audioIdx (1-based into caseEntry.events, or 0 = default) to a dropdown
   // option value. The dropdown values are 1-based positions within the
   // date-sorted `allAudio`, so translate via the underlying event reference.
@@ -3484,7 +3420,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'opinion' && v !== 'oyez-page' && v !== 'otd-page' && !v.startsWith('journal:'))
+    .filter(v => v !== 'opinion' && v !== 'oyez-page' && !v.startsWith('journal:') && !v.startsWith('video:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -3680,8 +3616,7 @@ function renderTranscript() {
           advocateUrlParams,
           ['file', 'highlight', 'entry', 'link'],
         );
-        history.pushState(null, '', advocateUrl);
-        trackPageView(advocateUrl);
+        navigate(advocateUrl);
         // On mobile, after the transcript loads scroll the doc-browser so the
         // selected case in the advocate's list is at the top.
         if (isMobile()) {
@@ -3806,10 +3741,10 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     }
     return;
   }
-  if (e.target.value === 'otd-page') {
-    if (_currentOtdHref) {
-      showDocViewer({ href: toEmbedUrl(_currentOtdHref), title: 'Video generated by On The Docket', view: 'pane' }, { force: true });
-    }
+  if (e.target.value.startsWith('video:')) {
+    const idx = parseInt(e.target.value.slice(6), 10);
+    const v = _currentVideoEntries[idx];
+    if (v) showDocViewer({ href: toEmbedUrl(v.href), title: v.title, view: 'pane' }, { force: true });
     return;
   }
   if (typeof e.target.value === 'string' && e.target.value.startsWith('journal:')) {
