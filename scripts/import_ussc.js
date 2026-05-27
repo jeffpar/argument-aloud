@@ -33,7 +33,7 @@ import { reorderCase, reorderEvent } from './schema.js';
 import {
     REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase,
     syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose,
-} from './verify_cases.js';
+} from './update_cases.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 

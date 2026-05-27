@@ -20,7 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { reorderEvent } from './schema.js';
-import { syncFilesCount } from './verify_cases.js';
+import { syncFilesCount } from './update_cases.js';
 
 const __dirname  = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT  = path.resolve(__dirname, '..');
