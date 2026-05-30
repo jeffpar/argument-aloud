@@ -811,7 +811,7 @@ function opinionCircleData(caseEntry) {
   const opinionEvents = (caseEntry.events || []).filter(
     e => e.type === 'opinion' && e.audio_href,
   );
-  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.video_href);
+  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'opinion' && e.video_href);
   if (!opinionEvents.length && !hasOtd) return null;
   const hasOpinionAudio = opinionEvents.length > 0;
   const blue = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
