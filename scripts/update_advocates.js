@@ -937,7 +937,7 @@ const _JNL_COMPOUND_TITLES = [
 ];
 
 const _JNL_PERSONAL_TITLE = {
-    'MR.': 'MR.', 'MS.': 'MS.', 'MRS.': 'MRS.', 'MISS': 'MS.', 'GEN.': 'GENERAL', 'GENERAL': 'GENERAL',
+    'MR.': 'MR.', 'MS.': 'MS.', 'MRS.': 'MR.', 'MISS': 'MS.', 'GEN.': 'GENERAL', 'GENERAL': 'GENERAL',
 };
 
 /** Search a journal section for a titled-name matching lastNameUpper.
@@ -956,6 +956,8 @@ function _jnlFindFullName(section, lastNameUpper) {
         }
         // Normalise internal whitespace (collapse newlines within hyphenated names)
         rest = rest.replace(/[\s\n]+/g, ' ').trim();
+        // Ensure suffix has a preceding comma: "NABRIT III" → "NABRIT, III"
+        rest = rest.replace(/\s+(Jr\.|Sr\.|II|III|IV)$/i, ', $1');
         if (_jnlLastName(rest) === lastNameUpper) return { name: rest.toUpperCase(), title: titleLabel };
     }
     return null;
@@ -1056,15 +1058,22 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
 
     console.log(`\nFound ${hits.length} single-name advocate(s) in term ${term}.`);
 
-    // Load journal
-    const journalPath = path.join(JOURNALS_DIR, `${term.slice(0, 4)}.txt`);
-    let journalText = null;
-    if (exists(journalPath)) {
-        try { journalText = readText(journalPath); } catch { /* ignore */ }
-    }
-    if (!journalText) {
-        console.warn(`  WARNING: Journal not found: ${relRepo(journalPath)}`);
-    }
+    // Journal texts are loaded on demand per event date (keyed by October Term year).
+    // An event on 1969-02-25 belongs to the Oct 1968 term → 1968.txt.
+    const journalCache = new Map();
+    const getJournal = (isoDate) => {
+        const [y, m] = isoDate.split('-').map(Number);
+        const jYear = m >= 10 ? y : y - 1;
+        if (journalCache.has(jYear)) return journalCache.get(jYear);
+        const jp = path.join(JOURNALS_DIR, `${jYear}.txt`);
+        let text = null;
+        if (exists(jp)) {
+            try { text = readText(jp); } catch { /* ignore */ }
+        }
+        if (!text) console.warn(`  WARNING: Journal not found: ${relRepo(jp)}`);
+        journalCache.set(jYear, text);
+        return text;
+    };
 
     let allFixed = true;
     let casesModified = false;
@@ -1077,19 +1086,22 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
             console.log(`\n  "${name}" — case ${c.number} (${firstTitle(c.title || '')}) on ${isoDate}`);
 
             let fullName = null;
-            if (journalText && /^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
-                const section = _jnlDateSection(journalText, isoDate);
-                if (section) {
-                    if (_jnlHasCaseNum(section, c.number || '')) {
-                        fullName = _jnlFindFullName(section, name.toUpperCase());
-                        if (!fullName) {
-                            console.log(`    No titled-name match for "${name}" near case ${c.number} on ${_jnlDateStr(isoDate)}.`);
+            if (/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
+                const journalText = getJournal(isoDate);
+                if (journalText) {
+                    const section = _jnlDateSection(journalText, isoDate);
+                    if (section) {
+                        if (_jnlHasCaseNum(section, c.number || '')) {
+                            fullName = _jnlFindFullName(section, name.toUpperCase());
+                            if (!fullName) {
+                                console.log(`    No titled-name match for "${name}" near case ${c.number} on ${_jnlDateStr(isoDate)}.`);
+                            }
+                        } else {
+                            console.log(`    Case ${c.number} not found in journal section for ${_jnlDateStr(isoDate)}.`);
                         }
                     } else {
-                        console.log(`    Case ${c.number} not found in journal section for ${_jnlDateStr(isoDate)}.`);
+                        console.log(`    No journal section found for ${_jnlDateStr(isoDate)}.`);
                     }
-                } else {
-                    console.log(`    No journal section found for ${_jnlDateStr(isoDate)}.`);
                 }
             }
 
