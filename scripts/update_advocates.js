@@ -10,8 +10,8 @@
  * is "advocate", and records which case/date they appeared in.
  *
  * Usage:
- *   node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
- *                                    [--markdown] [--singles] [--fix]
+ *   node scripts/update_advocates.js [--verbose|-v] [--women] [--markdown]
+ *                                    [TERM] [--replace OLD NEW]
  *
  * © 2026 by Jeff Parsons
  */
@@ -37,7 +37,7 @@ const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
-const SINGLES_FILE      = path.join(REPO_ROOT, 'scripts', 'python', 'singles.txt');
+const JOURNALS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
 const _SPEAKERS_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
 
 // ── Small helpers ──────────────────────────────────────────────────────────
@@ -303,46 +303,6 @@ function isoToDays(s) {
 
 function daysAbsDiff(a, b) {
     return Math.abs(isoToDays(a) - isoToDays(b));
-}
-
-// ── Repair helpers ─────────────────────────────────────────────────────────
-
-/** Rename advocate names in all transcript JSON files. Returns # files modified. */
-function repairRenameInTranscripts(renames) {
-    let modified = 0;
-    const transcripts = walkFiles(TERMS_DIR, (p) =>
-        p.endsWith('.json') && /\/cases\/[^/]+\/[^/]+\.json$/.test(p)
-    ).sort();
-    for (const tp of transcripts) {
-        let data;
-        try { data = readJson(tp); } catch { continue; }
-        if (!data || typeof data !== 'object' || Array.isArray(data)) continue;
-        let changed = false;
-        for (const sp of data?.media?.speakers || []) {
-            const newN = renames[(sp.name || '').toUpperCase()];
-            if (newN && sp.name !== newN) { sp.name = newN; changed = true; }
-        }
-        for (const turn of data?.turns || []) {
-            const newN = renames[(turn.name || '').toUpperCase()];
-            if (newN && turn.name !== newN) { turn.name = newN; changed = true; }
-        }
-        if (changed) {
-            writeText(tp, JSON.stringify(data, null, 2) + '\n');
-            modified++;
-        }
-    }
-    return modified;
-}
-
-function repairUpdateSpeakersJson(renames) {
-    if (!exists(_SPEAKERS_FILE)) return;
-    const data = readJson(_SPEAKERS_FILE);
-    const aliases = (data.alias = data.alias || {});
-    for (const [oldUpper, newName] of Object.entries(renames)) {
-        const newUpper = newName.toUpperCase();
-        if (oldUpper !== newUpper) aliases[oldUpper] = newUpper;
-    }
-    writeJson(_SPEAKERS_FILE, data);
 }
 
 // ── CSV utilities ──────────────────────────────────────────────────────────
@@ -906,16 +866,322 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
     }
 }
 
+// ── Journal helpers (single-name advocate lookup) ──────────────────────────
+
+const _JNL_WEEKDAYS = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+const _JNL_MONTHS   = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE',
+                       'JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+
+/** Convert ISO date to journal heading style, e.g. "THURSDAY, JANUARY 13, 1972". */
+function _jnlDateStr(isoDate) {
+    const [y, m, d] = isoDate.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    return `${_JNL_WEEKDAYS[dt.getUTCDay()]}, ${_JNL_MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+/** Return the journal text section for the given date, or null. */
+function _jnlDateSection(journalText, isoDate) {
+    if (!isoDate || !/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return null;
+    const heading = _jnlDateStr(isoDate);
+    const headingRe = new RegExp(heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+    const m = headingRe.exec(journalText);
+    if (!m) return null;
+    const headingUpper = heading.toUpperCase();
+    const nextDayRe = /(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY),\s+(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+\d+,\s+\d{4}/gi;
+    // The same date heading may appear many times (once per page). Skip repeated
+    // occurrences of the same date to find where a genuinely different date begins.
+    nextDayRe.lastIndex = m.index + heading.length;
+    let next;
+    while ((next = nextDayRe.exec(journalText)) !== null) {
+        if (next[0].toUpperCase() !== headingUpper) break;
+    }
+    return journalText.slice(m.index, next ? next.index : journalText.length);
+}
+
+/** Test whether a journal section contains a reference to any of the case's numbers.
+ *  Handles consolidated numbers ("70-161,70-5211") and Orig suffixes ("59-Orig"). */
+function _jnlHasCaseNum(section, caseNumber) {
+    const parts = caseNumber.split(',').map(s => s.trim()).filter(Boolean);
+    for (const part of parts) {
+        const origMatch = part.match(/^(\d+)-Orig(?:in(?:al)?)?$/i);
+        let re;
+        if (origMatch) {
+            re = new RegExp(`No\\.\\s*${origMatch[1]}[,\\s]+Orig(?:in(?:al)?)?`, 'i');
+        } else {
+            const escaped = part
+                .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+                .replace(/[-\u2013]+/g, '[-\u2013]');
+            re = new RegExp(`Nos?\\.\\s*${escaped}`, 'i');
+        }
+        if (re.test(section)) return true;
+    }
+    return false;
+}
+
+/** Return the last significant token (uppercase) from a full name, stripping suffixes. */
+function _jnlLastName(fullName) {
+    let s = fullName.trim().replace(/,?\s*(?:Jr\.|Sr\.|III?|IV)\s*$/i, '').trim();
+    s = s.replace(/,\s*$/, '').trim();
+    const words = s.split(/\s+/).filter(Boolean);
+    return words.length ? words[words.length - 1].toUpperCase().replace(/[.,]/g, '') : '';
+}
+
+/** Compound official titles that may follow a personal title (Mr./Ms./etc.) in the journal. */
+const _JNL_COMPOUND_TITLES = [
+    { re: /^Acting\s+Solicitor\s+General\s+/i,   label: 'ACTING SOLICITOR GENERAL' },
+    { re: /^Solicitor\s+General\s+/i,            label: 'SOLICITOR GENERAL' },
+    { re: /^Acting\s+Attorney\s+General\s+/i,    label: 'ACTING ATTORNEY GENERAL' },
+    { re: /^Assistant\s+Attorney\s+General\s+/i, label: 'ASSISTANT ATTORNEY GENERAL' },
+    { re: /^Deputy\s+Attorney\s+General\s+/i,    label: 'DEPUTY ATTORNEY GENERAL' },
+    { re: /^Attorney\s+General\s+/i,             label: 'ATTORNEY GENERAL' },
+];
+
+const _JNL_PERSONAL_TITLE = {
+    'MR.': 'MR.', 'MS.': 'MS.', 'MRS.': 'MRS.', 'MISS': 'MS.', 'GEN.': 'GENERAL', 'GENERAL': 'GENERAL',
+};
+
+/** Search a journal section for a titled-name matching lastNameUpper.
+ *  Returns { name, title } in uppercase (e.g. { name: "L. PATRICK GRAY, III", title: "MR." }), or null. */
+function _jnlFindFullName(section, lastNameUpper) {
+    const titlePat = /(Mr\.|Ms\.|Mrs\.|Miss\b|Gen\.|General)\s+([A-Za-z][A-Za-z.]*(?:[\s\n]+[A-Za-z][A-Za-z.]*)*(?:\s*,\s*(?:Jr\.|Sr\.|III?|IV))?)/gi;
+    let m;
+    while ((m = titlePat.exec(section)) !== null) {
+        const personalTitle = _JNL_PERSONAL_TITLE[m[1].toUpperCase()] || (m[1].toUpperCase() + '.');
+        // Trim at role separator "for …" before further processing
+        let rest = m[2].replace(/[\s\n]*\bfor\b[\s\S]*$/i, '').trim().replace(/,\s*$/, '').trim();
+        let titleLabel = personalTitle;
+        for (const ct of _JNL_COMPOUND_TITLES) {
+            const cm = ct.re.exec(rest);
+            if (cm) { titleLabel = ct.label; rest = rest.slice(cm[0].length).trim().replace(/,\s*$/, '').trim(); break; }
+        }
+        // Normalise internal whitespace (collapse newlines within hyphenated names)
+        rest = rest.replace(/[\s\n]+/g, ' ').trim();
+        if (_jnlLastName(rest) === lastNameUpper) return { name: rest.toUpperCase(), title: titleLabel };
+    }
+    return null;
+}
+
+/** Apply old→new name replacement in a term's cases.json and associated transcripts. */
+function applyReplace(term, oldName, newName) {
+    if (!oldName || !newName) {
+        console.error('--replace requires two arguments: old name and new name');
+        return;
+    }
+    const termDir   = path.join(TERMS_DIR, term);
+    const casesFile = path.join(termDir, 'cases.json');
+    if (!exists(casesFile)) {
+        console.error(`Cases file not found: ${relRepo(casesFile)}`);
+        return;
+    }
+    let cases;
+    try { cases = readJson(casesFile); }
+    catch (e) { console.error(`Could not parse ${relRepo(casesFile)}: ${e.message}`); return; }
+
+    const oldUpper = oldName.toUpperCase();
+    const newUpper = newName.toUpperCase();
+    let count = 0;
+
+    for (const c of cases) {
+        for (const ev of c.events || []) {
+            for (let ai = 0; ai < (ev.advocates || []).length; ai++) {
+                const adv = ev.advocates[ai];
+                const cur = typeof adv === 'object' ? adv.name : adv;
+                if ((cur || '').toUpperCase() !== oldUpper) continue;
+                if (typeof adv === 'object') adv.name = newUpper;
+                else ev.advocates[ai] = newUpper;
+                count++;
+                if (ev.text_href) {
+                    const tp = path.join(termDir, 'cases', ev.text_href);
+                    if (exists(tp)) {
+                        try {
+                            const t = readJson(tp);
+                            let changed = false;
+                            for (const sp of t?.media?.speakers || []) {
+                                if ((sp.name || '').toUpperCase() === oldUpper) { sp.name = newUpper; changed = true; }
+                            }
+                            for (const turn of t?.turns || []) {
+                                if ((turn.name || '').toUpperCase() === oldUpper) { turn.name = newUpper; changed = true; }
+                            }
+                            if (changed) {
+                                writeText(tp, JSON.stringify(t, null, 2) + '\n');
+                                console.log(`  Updated transcript: ${relRepo(tp)}`);
+                            }
+                        } catch (e) { console.error(`  ERROR updating transcript ${relRepo(tp)}: ${e.message}`); }
+                    }
+                }
+            }
+        }
+    }
+
+    if (count) {
+        writeJson(casesFile, cases);
+        console.log(`Replaced "${oldName}" → "${newName}" (${count} occurrence(s)) in ${relRepo(casesFile)}`);
+    } else {
+        console.log(`No occurrences of "${oldName}" found in ${relRepo(casesFile)}`);
+    }
+}
+
+/** Check single-name advocates in a term's cases.json, look them up in the journal, and
+ *  interactively prompt for replacement. Returns true if all were resolved (or none found). */
+async function checkAndFixSingleNames(term, { verbose = false } = {}) {
+    const termDir   = path.join(TERMS_DIR, term);
+    const casesFile = path.join(termDir, 'cases.json');
+    if (!exists(casesFile)) {
+        console.error(`Term not found: ${relRepo(casesFile)}`);
+        return true;
+    }
+    let cases;
+    try { cases = readJson(casesFile); }
+    catch (e) { console.error(`Could not parse ${relRepo(casesFile)}: ${e.message}`); return true; }
+
+    // Collect all single-name advocate occurrences across all events
+    const hits = [];
+    for (let ci = 0; ci < cases.length; ci++) {
+        const c = cases[ci];
+        for (let ei = 0; ei < (c.events || []).length; ei++) {
+            const ev = c.events[ei];
+            for (let ai = 0; ai < (ev.advocates || []).length; ai++) {
+                const adv = ev.advocates[ai];
+                const name = ((typeof adv === 'object' ? adv.name : adv) || '').trim();
+                if (name && name.split(/\s+/).filter(Boolean).length === 1) {
+                    hits.push({ ci, ei, ai, name, ev, c });
+                }
+            }
+        }
+    }
+
+    if (!hits.length) {
+        return 'clean';
+    }
+
+    console.log(`\nFound ${hits.length} single-name advocate(s) in term ${term}.`);
+
+    // Load journal
+    const journalPath = path.join(JOURNALS_DIR, `${term.slice(0, 4)}.txt`);
+    let journalText = null;
+    if (exists(journalPath)) {
+        try { journalText = readText(journalPath); } catch { /* ignore */ }
+    }
+    if (!journalText) {
+        console.warn(`  WARNING: Journal not found: ${relRepo(journalPath)}`);
+    }
+
+    let allFixed = true;
+    let casesModified = false;
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    const ask = (q) => new Promise(res => rl.question(q, res));
+
+    try {
+        for (const { ci, ei, ai, name, ev, c } of hits) {
+            const isoDate = ev.date || c.argument || '';
+            console.log(`\n  "${name}" — case ${c.number} (${firstTitle(c.title || '')}) on ${isoDate}`);
+
+            let fullName = null;
+            if (journalText && /^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
+                const section = _jnlDateSection(journalText, isoDate);
+                if (section) {
+                    if (_jnlHasCaseNum(section, c.number || '')) {
+                        fullName = _jnlFindFullName(section, name.toUpperCase());
+                        if (!fullName) {
+                            console.log(`    No titled-name match for "${name}" near case ${c.number} on ${_jnlDateStr(isoDate)}.`);
+                        }
+                    } else {
+                        console.log(`    Case ${c.number} not found in journal section for ${_jnlDateStr(isoDate)}.`);
+                    }
+                } else {
+                    console.log(`    No journal section found for ${_jnlDateStr(isoDate)}.`);
+                }
+            }
+
+            if (!fullName) {
+                console.warn(`    WARNING: Cannot resolve "${name}" in journal — skipping.`);
+                allFixed = false;
+                continue;
+            }
+
+            const suggestedName  = fullName.name;
+            const suggestedTitle = fullName.title;
+            console.log(`    Journal suggests: ${suggestedName} [title: ${suggestedTitle}]`);
+            let answer;
+            try { answer = (await ask(`    Replace "${name}" with "${suggestedName}" [title: ${suggestedTitle}]? [y/n]: `)).trim().toLowerCase(); }
+            catch { answer = 'n'; }
+
+            if (answer !== 'y') { allFixed = false; continue; }
+
+            // Apply in cases array (in place)
+            const adv = cases[ci].events[ei].advocates[ai];
+            if (typeof adv === 'object') { adv.name = suggestedName; adv.title = suggestedTitle; }
+            else cases[ci].events[ei].advocates[ai] = suggestedName;
+            casesModified = true;
+
+            // Apply in associated transcript
+            if (ev.text_href) {
+                const tp = path.join(termDir, 'cases', ev.text_href);
+                if (exists(tp)) {
+                    try {
+                        const t = readJson(tp);
+                        let changed = false;
+                        for (const sp of t?.media?.speakers || []) {
+                            if ((sp.name || '').toUpperCase() === name.toUpperCase()) {
+                                sp.name = suggestedName; sp.title = suggestedTitle; changed = true;
+                            }
+                        }
+                        for (const turn of t?.turns || []) {
+                            if ((turn.name || '').toUpperCase() === name.toUpperCase()) { turn.name = suggestedName; changed = true; }
+                        }
+                        if (changed) {
+                            writeText(tp, JSON.stringify(t, null, 2) + '\n');
+                            console.log(`    Updated transcript: ${relRepo(tp)}`);
+                        }
+                    } catch (e) { console.error(`    ERROR updating transcript ${relRepo(tp)}: ${e.message}`); }
+                }
+            }
+
+            console.log(`    Replaced "${name}" → "${suggestedName}" [title: ${suggestedTitle}]`);
+        }
+    } finally {
+        rl.close();
+    }
+
+    if (casesModified) {
+        writeJson(casesFile, cases);
+        console.log(`\nUpdated ${relRepo(casesFile)}`);
+    }
+
+    return allFixed;
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
     const argv = process.argv.slice(2);
     const verbose       = argv.includes('--verbose') || argv.includes('-v');
     const showWomen     = argv.includes('--women');
-    const repairMode    = argv.includes('--repair');
     const markdownMode  = argv.includes('--markdown');
-    const singlesMode   = argv.includes('--singles');
-    const fixMode       = argv.includes('--fix');
+
+    // ── Term-specific single-name advocate fix ────────────────────────────
+    const termArg     = argv.find(a => /^\d{4}-\d{2}$/.test(a));
+    const replaceIdx  = argv.indexOf('--replace');
+    const replaceMode = replaceIdx !== -1;
+    const replaceOld  = replaceMode ? (argv[replaceIdx + 1] || '').trim() : '';
+    const replaceNew  = replaceMode ? (argv[replaceIdx + 2] || '').trim() : '';
+
+    if (termArg) {
+        if (replaceMode) {
+            applyReplace(termArg, replaceOld.toUpperCase(), replaceNew.toUpperCase());
+            return;
+        } else {
+            const result = await checkAndFixSingleNames(termArg, { verbose });
+            if (result === 'clean') {
+                console.log(`No problems found in term ${termArg}`);
+                return;
+            }
+            if (!result) {
+                console.log('\nSkipping advocate file updates due to unresolved single-name advocates.');
+                return;
+            }
+        }
+    }
 
     const termDirs = listSubdirs(TERMS_DIR);
     if (termDirs.length === 0) {
@@ -948,8 +1214,6 @@ async function main() {
     const nameTags = new Map();
     /** key: title|term|number -> citation */
     const caseCitation = new Map();
-    /** name_upper -> Set<transcript_path> */
-    const singleNamePaths = new Map();
 
     const ckCase  = (n, t, term, num) => `${n}|${t}|${term}|${num}`;
     const ckCite  = (t, term, num)    => `${t}|${term}|${num}`;
@@ -1296,11 +1560,6 @@ async function main() {
                             if (typeof t === 'string' && t.trim()) set.add(t.trim().toLowerCase());
                         }
                     }
-                    if (spRaw && spRaw.split(/\s+/).length === 1) {
-                        const key = spRaw.toUpperCase();
-                        if (!singleNamePaths.has(key)) singleNamePaths.set(key, new Set());
-                        singleNamePaths.get(key).add(transcriptPath);
-                    }
                 }
             }
         }
@@ -1363,59 +1622,7 @@ async function main() {
         );
         const womenSuffix = skippedWomen.length ? `, ${skippedWomen.length} possibly women` : '';
 
-        if (fixMode) {
-            const _JT_FIX = new Set(['JUSTICE', 'CHIEF JUSTICE']);
-            for (const fixEntry of skipped) {
-                const fixNameUpper = fixEntry.name.toUpperCase();
-                const tpaths = [...(singleNamePaths.get(fixNameUpper) || [])].sort();
-                for (const tpath of tpaths) {
-                    const caseFolder = path.dirname(tpath);
-                    const siblings = listJsonFiles(caseFolder).filter(p => p !== tpath);
-                    const candidates = {}; // upper -> display
-                    for (const sib of siblings) {
-                        try {
-                            const sibData = readJson(sib);
-                            for (const s of sibData?.media?.speakers || []) {
-                                if (_JT_FIX.has(s.title || '')) continue;
-                                const sname = (s.name || '').trim();
-                                if (!sname) continue;
-                                const sup = sname.toUpperCase();
-                                const words = sup.split(/\s+/);
-                                if (words.length > 1 && words[words.length - 1] === fixNameUpper) {
-                                    candidates[sup] = sname;
-                                }
-                            }
-                        } catch { /* ignore */ }
-                    }
-                    const candEntries = Object.entries(candidates);
-                    if (candEntries.length === 1) {
-                        const [, fullDisplay] = candEntries[0];
-                        try {
-                            const t = readJson(tpath);
-                            let changed = false;
-                            for (const s of t?.media?.speakers || []) {
-                                if ((s.name || '').trim().toUpperCase() === fixNameUpper) {
-                                    s.name = fullDisplay; changed = true;
-                                }
-                            }
-                            for (const turn of t?.turns || []) {
-                                if ((turn.name || '').trim().toUpperCase() === fixNameUpper) {
-                                    turn.name = fullDisplay; changed = true;
-                                }
-                            }
-                            if (changed) {
-                                writeText(tpath, JSON.stringify(t, null, 2) + '\n');
-                                console.log(`    Fixed ${relRepo(tpath)}: ${fixEntry.name} → ${fullDisplay}`);
-                            }
-                        } catch (e) {
-                            console.error(`    ERROR fixing ${tpath}: ${e.message}`);
-                        }
-                    }
-                }
-            }
-        }
-
-        if (verbose || singlesMode) {
+        if (verbose) {
             const header = `\nSkipped ${skipped.length} one-word advocate name(s) (likely incomplete matches${womenSuffix}):`;
             const entryLines = [];
             for (const entry of skipped) {
@@ -1434,14 +1641,9 @@ async function main() {
                     entryLines.push(`  ${entry.name}${femTag}: ${casesStr}`);
                 }
             }
-            if (singlesMode) {
-                writeText(SINGLES_FILE, header + '\n' + entryLines.join('\n') + '\n\n');
-                console.log(`Wrote ${skipped.length} single-name advocate(s) to ${relRepo(SINGLES_FILE)}`);
-            } else {
-                console.log(header);
-                for (const line of entryLines) console.log(line);
-                console.log('');
-            }
+            console.log(header);
+            for (const line of entryLines) console.log(line);
+            console.log('');
         } else {
             for (const entry of skipped) {
                 const advId = entry.id || makeAdvocateId(entry.name);
@@ -1451,8 +1653,6 @@ async function main() {
             console.log(`Skipped ${skipped.length} one-word advocate name(s)${womenSuffix} (use --verbose to list them)`);
         }
     }
-
-    if (singlesMode) return;
 
     // Write per-advocate case files.
     for (const entry of output) {
@@ -1874,62 +2074,6 @@ async function main() {
         }
     }
 
-    // ── Interactive repair ───────────────────────────────────────────────
-    if (repairMode && similar.size) {
-        const allRenames = {};
-        const groupsSorted = [...similar].sort();
-        console.log(`\n── Repair mode: ${groupsSorted.length} group(s) to review ─────────────────────`);
-        const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-        const ask = (q) => new Promise(res => rl.question(q, res));
-        try {
-            for (const [key, names] of groupsSorted) {
-                const [first, last, midCh] = key.split('|');
-                const namesSorted = names.slice().sort();
-                let abbrev, options;
-                if (midCh) {
-                    abbrev = `${first} ${midCh}. ${last}`;
-                    if (!namesSorted.some(n => n.toUpperCase() === abbrev.toUpperCase())) {
-                        options = [abbrev, ...namesSorted];
-                    } else {
-                        options = namesSorted;
-                    }
-                } else {
-                    abbrev = `${first} ${last}`;
-                    options = namesSorted;
-                }
-                console.log(`\n  ${abbrev}:`);
-                options.forEach((name, i) => console.log(`    ${i + 1}. ${name}`));
-                while (true) {
-                    let raw;
-                    try { raw = (await ask(`  Preferred name [1-${options.length}, 0=skip]: `)).trim(); }
-                    catch { raw = '0'; }
-                    if (raw === '0') break;
-                    const n = Number(raw);
-                    if (Number.isInteger(n) && n >= 1 && n <= options.length) {
-                        const preferred = options[n - 1];
-                        const renamed = options.filter(name => name !== preferred);
-                        for (const name of renamed) allRenames[name.toUpperCase()] = preferred;
-                        console.log(`    → will rename ${renamed.length} name(s) to: ${preferred}`);
-                        break;
-                    }
-                    console.log(`    Please enter a number between 0 and ${options.length}.`);
-                }
-            }
-        } finally {
-            rl.close();
-        }
-
-        if (Object.keys(allRenames).length) {
-            console.log(`\nApplying ${Object.keys(allRenames).length} rename(s) to transcript files…`);
-            const nFiles = repairRenameInTranscripts(allRenames);
-            console.log(`  Modified ${nFiles} transcript file(s).`);
-            repairUpdateSpeakersJson(allRenames);
-            console.log(`  Updated ${relRepo(_SPEAKERS_FILE)} with new aliases.`);
-            console.log('  Re-run update_advocates.js (without --repair) to rebuild the index.');
-        } else {
-            console.log('\nNo renames selected; nothing changed.');
-        }
-    }
 }
 
 main().catch(err => {
