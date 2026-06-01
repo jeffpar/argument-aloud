@@ -172,6 +172,22 @@ function loadJusticeLastNames(p) {
 }
 const JUSTICE_LAST_NAMES = loadJusticeLastNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
 
+// Maps uppercase justice name → dateStart string (ISO), used for seniority ordering.
+function loadJusticeSeniority(p) {
+    const map = new Map();
+    if (!exists(p)) return map;
+    let data;
+    try { data = readJson(p); } catch { return map; }
+    for (const [key, entry] of Object.entries(data)) {
+        if (!entry.dateStart) continue;
+        for (const form of [key, ...(entry.alternates || [])]) {
+            map.set(form.trim().toUpperCase(), entry.dateStart);
+        }
+    }
+    return map;
+}
+const JUSTICE_SENIORITY = loadJusticeSeniority(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
+
 // ── OCR corruptions of "JUSTICE" that slip through as bogus advocates ──────
 // These appear in OCR'd USSC transcripts when the alignment parser mistakes
 // a justice's speaker cue for an advocate. Check first word only; last name
@@ -1163,6 +1179,108 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
     return allFixed;
 }
 
+/** Verify advocate/speaker consistency and fix speaker ordering in all transcript
+ *  files for a term. Returns true if any mismatches were reported or files were
+ *  rewritten. Speaker ordering rule:
+ *    1. CHIEF JUSTICE (original order)
+ *    2. Named JUSTICEs (original order, UNKNOWN JUSTICE last among justices)
+ *    3. Non-justice speakers (original order)
+ *    4. UNKNOWN SPEAKER (always last)
+ *  NP speakers (in media.speakers but with no turns) are ignored for mismatch
+ *  checking but retained in the output file. */
+function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
+    const termDir   = path.join(TERMS_DIR, term);
+    const casesFile = path.join(termDir, 'cases.json');
+    if (!exists(casesFile)) return false;
+    let cases;
+    try { cases = readJson(casesFile); } catch { return false; }
+
+    const isJusticeTitle = t => t === 'CHIEF JUSTICE' || t === 'JUSTICE';
+    let anyChange = false;
+
+    for (const c of cases) {
+        for (const ev of c.events || []) {
+            if (!ev.text_href) continue;
+            const advNames = new Set(
+                (ev.advocates || [])
+                    .map(a => ((typeof a === 'object' ? a.name : a) || '').toUpperCase())
+                    .filter(Boolean)
+            );
+            const tp = path.join(termDir, 'cases', ev.text_href);
+            if (!exists(tp)) continue;
+            let t;
+            try { t = readJson(tp); } catch { continue; }
+            if (!Array.isArray(t?.media?.speakers)) continue;
+
+            const speakers = t.media.speakers;
+
+            const isNP = sp => /,\s*NP$/i.test(sp.title || '');
+
+            // ── Mismatch checks (skip UNKNOWN_* placeholders) ────────────────
+            const label = `case ${c.number} (${ev.date}) ${relRepo(tp)}`;
+            if (advNames.size) {
+                // Every event advocate should be a participating transcript speaker
+                for (const name of advNames) {
+                    if (name === 'UNKNOWN JUSTICE' || name === 'UNKNOWN SPEAKER') continue;
+                    const inTranscript = speakers.some(sp => (sp.name || '').toUpperCase() === name);
+                    const participating = inTranscript && !isNP(speakers.find(sp => (sp.name || '').toUpperCase() === name));
+                    if (!inTranscript) {
+                        console.warn(`  MISMATCH: advocate "${name}" missing from transcript speakers in ${label}`);
+                        anyChange = true;
+                    } else if (!participating && verbose) {
+                        console.log(`  NOTE: advocate "${name}" is NP in transcript ${label}`);
+                    }
+                }
+                // Every participating non-justice transcript speaker should be an event advocate
+                // (or appear as an advocate in another event of the same case)
+                const allCaseAdvNames = new Set(
+                    (c.events || []).flatMap(e => (e.advocates || [])
+                        .map(a => ((typeof a === 'object' ? a.name : a) || '').toUpperCase())
+                        .filter(Boolean))
+                );
+                for (const sp of speakers) {
+                    if (isJusticeTitle(sp.title)) continue;
+                    if (sp.name === 'UNKNOWN SPEAKER') continue;
+                    if (isNP(sp)) continue;
+                    const name = (sp.name || '').toUpperCase();
+                    if (!advNames.has(name) && !allCaseAdvNames.has(name)) {
+                        console.warn(`  MISMATCH: participating speaker "${sp.name}" in transcript not in event advocates for ${label}`);
+                        anyChange = true;
+                    }
+                }
+            }
+
+            // ── Reorder speakers ────────────────────────────────────────────
+            const chiefs         = speakers.filter(sp => sp.title === 'CHIEF JUSTICE');
+            const namedJustices  = speakers.filter(sp => sp.title === 'JUSTICE' && sp.name !== 'UNKNOWN JUSTICE');
+            const unknownJustice = speakers.filter(sp => sp.name === 'UNKNOWN JUSTICE');
+            const namedAdvocs    = speakers.filter(sp => !isJusticeTitle(sp.title) && sp.name !== 'UNKNOWN SPEAKER');
+            const unknownSpeaker = speakers.filter(sp => sp.name === 'UNKNOWN SPEAKER');
+
+            // Sort named justices by seniority (earlier dateStart = more senior)
+            namedJustices.sort((a, b) => {
+                const da = JUSTICE_SENIORITY.get((a.name || '').toUpperCase()) || '9999';
+                const db = JUSTICE_SENIORITY.get((b.name || '').toUpperCase()) || '9999';
+                return da < db ? -1 : da > db ? 1 : 0;
+            });
+
+            const reordered = [...chiefs, ...namedJustices, ...unknownJustice, ...namedAdvocs, ...unknownSpeaker];
+
+            const needsReorder = reordered.length !== speakers.length ||
+                reordered.some((sp, i) => sp !== speakers[i]);
+
+            if (needsReorder) {
+                t.media.speakers = reordered;
+                writeText(tp, JSON.stringify(t, null, 2) + '\n');
+                if (verbose) console.log(`  Reordered speakers in ${relRepo(tp)}`);
+                anyChange = true;
+            }
+        }
+    }
+
+    return anyChange;
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -1183,8 +1301,9 @@ async function main() {
             applyReplace(termArg, replaceOld.toUpperCase(), replaceNew.toUpperCase());
             return;
         } else {
+            const speakerIssues = checkAndFixTranscriptSpeakers(termArg, { verbose });
             const result = await checkAndFixSingleNames(termArg, { verbose });
-            if (result === 'clean') {
+            if (result === 'clean' && !speakerIssues) {
                 console.log(`No problems found in term ${termArg}`);
                 return;
             }
