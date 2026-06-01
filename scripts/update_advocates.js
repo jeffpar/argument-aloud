@@ -1307,6 +1307,10 @@ async function main() {
                 console.log(`No problems found in term ${termArg}`);
                 return;
             }
+            if (speakerIssues) {
+                console.log('\nSkipping advocate file updates due to speaker mismatches.');
+                return;
+            }
             if (!result) {
                 console.log('\nSkipping advocate file updates due to unresolved single-name advocates.');
                 return;
