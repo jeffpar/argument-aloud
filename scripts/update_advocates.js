@@ -127,10 +127,10 @@ function loadNameAliases(p) {
 }
 const NAME_ALIASES = loadNameAliases(_SPEAKERS_FILE);
 
-// ── Justice longest-name map (justices.json) ───────────────────────────────
-// Maps every multi-word form of a justice's name to the longest multi-word
-// form so that advocates who were also justices get stored under their full
-// name (e.g. "JOHN ROBERTS" → "JOHN G. ROBERTS, JR.").
+// ── Justice canonical-name map (justices.json) ───────────────────────────────
+// Maps each multi-word alternate form of a justice's name to the canonical
+// (short) key so that advocates who were also justices are stored under their
+// short name (e.g. "SAMUEL A. ALITO, JR." → "SAMUEL ALITO").
 
 function loadJusticeCanonicalNames(p) {
     const map = {};
@@ -138,20 +138,17 @@ function loadJusticeCanonicalNames(p) {
     let data;
     try { data = readJson(p); } catch { return map; }
     for (const [key, entry] of Object.entries(data)) {
-        const allForms = [key, ...(entry.alternates || [])];
-        // Keep only multi-word forms; single-word entries are typos handled by speakers.json.
-        const multiWord = allForms.filter(n => /\s/.test(n.trim()));
-        if (multiWord.length <= 1) continue; // canonical key is already the only/longest multi-word form
-        const longest = multiWord.reduce((a, b) => a.length >= b.length ? a : b);
-        const longestUpper = longest.trim().toUpperCase();
-        for (const form of multiWord) {
-            const upper = form.trim().toUpperCase();
-            if (upper !== longestUpper) map[upper] = longestUpper;
+        const canonicalUpper = key.trim().toUpperCase();
+        for (const alt of (entry.alternates || [])) {
+            // Skip single-word entries (typos handled by speakers.json).
+            if (!/\s/.test(alt.trim())) continue;
+            const altUpper = alt.trim().toUpperCase();
+            if (altUpper !== canonicalUpper) map[altUpper] = canonicalUpper;
         }
     }
     return map;
 }
-const JUSTICE_LONGEST_NAME = loadJusticeCanonicalNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
+const JUSTICE_CANONICAL_NAME = loadJusticeCanonicalNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
 
 // Set of every last name that belongs to a justice, used to catch OCR-corrupted
 // speaker entries like "JUSTIC DOUGLAS" or "JUSTTICE WHITE" whose title field
@@ -1535,9 +1532,9 @@ async function main() {
                             prevList.push(oldUpper);
                         }
                     }
-                    // Normalize justice names to their longest known form so advocates
-                    // who were also justices are stored under their full name.
-                    const justiceCanonical = JUSTICE_LONGEST_NAME[nameKey];
+                    // Normalize justice names to their canonical (short) form so advocates
+                    // who were also justices are stored under their short name.
+                    const justiceCanonical = JUSTICE_CANONICAL_NAME[nameKey];
                     if (justiceCanonical) {
                         if (!(justiceCanonical in advocates)) {
                             advocates[justiceCanonical] = { id: makeAdvocateId(justiceCanonical), name: justiceCanonical, cases: [], previously: [] };
