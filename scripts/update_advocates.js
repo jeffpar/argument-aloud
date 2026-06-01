@@ -973,7 +973,7 @@ function _jnlFindFullName(section, lastNameUpper) {
         // Normalise internal whitespace (collapse newlines within hyphenated names)
         rest = rest.replace(/[\s\n]+/g, ' ').trim();
         // Ensure suffix has a preceding comma: "NABRIT III" → "NABRIT, III"
-        rest = rest.replace(/\s+(Jr\.|Sr\.|II|III|IV)$/i, ', $1');
+        rest = rest.replace(/,?\s+(Jr\.|Sr\.|II|III|IV)$/i, ', $1');
         if (_jnlLastName(rest) === lastNameUpper) return { name: rest.toUpperCase(), title: titleLabel };
     }
     return null;
