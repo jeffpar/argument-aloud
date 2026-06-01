@@ -1092,6 +1092,8 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
     let casesModified = false;
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
     const ask = (q) => new Promise(res => rl.question(q, res));
+    // Pending deletions: `${ci}|${ei}` -> Set<name.toUpperCase()>
+    const pendingDeletions = new Map();
 
     try {
         for (const { ci, ei, ai, name, ev, c } of hits) {
@@ -1119,6 +1121,31 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
             }
 
             if (!fullName) {
+                // If this single-name only appears in a ussc source event (and no non-ussc
+                // event for the same case lists this name), offer to delete it.
+                if (ev.source === 'ussc') {
+                    const nameUpper = name.toUpperCase();
+                    const alsoInOther = (c.events || []).some((oe, oei) =>
+                        oei !== ei && oe.source !== 'ussc' &&
+                        (oe.advocates || []).some(a => {
+                            const n = ((typeof a === 'object' ? a.name : a) || '').trim().toUpperCase();
+                            return n === nameUpper;
+                        })
+                    );
+                    if (!alsoInOther) {
+                        let answer;
+                        try { answer = (await ask(`    Cannot resolve in journal. Delete "${name}" from ussc event advocates? [y/n]: `)).trim().toLowerCase(); }
+                        catch { answer = 'n'; }
+                        if (answer === 'y') {
+                            const delKey = `${ci}|${ei}`;
+                            if (!pendingDeletions.has(delKey)) pendingDeletions.set(delKey, new Set());
+                            pendingDeletions.get(delKey).add(nameUpper);
+                            casesModified = true;
+                            console.log(`    Deleted "${name}" from ussc event advocates (transcript unchanged).`);
+                            continue;
+                        }
+                    }
+                }
                 console.warn(`    WARNING: Cannot resolve "${name}" in journal — skipping.`);
                 allFixed = false;
                 continue;
@@ -1163,6 +1190,15 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
             }
 
             console.log(`    Replaced "${name}" → "${suggestedName}" [title: ${suggestedTitle}]`);
+        }
+
+        // Apply pending deletions (filter out deleted names from each event's advocates array).
+        for (const [key, names] of pendingDeletions) {
+            const [ci, ei] = key.split('|').map(Number);
+            cases[ci].events[ei].advocates = cases[ci].events[ei].advocates.filter(a => {
+                const n = ((typeof a === 'object' ? a.name : a) || '').trim().toUpperCase();
+                return !names.has(n);
+            });
         }
     } finally {
         rl.close();
@@ -1216,12 +1252,42 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
             // ── Mismatch checks (skip UNKNOWN_* placeholders) ────────────────
             const label = `case ${c.number} (${ev.date}) ${relRepo(tp)}`;
             if (advNames.size) {
+                // For ussc events, build a set of speaker names present in any
+                // oyez transcript for the same case, and also note whether any
+                // oyez event covers the same date (audio-only oyez events still
+                // validate that the ussc OCR transcript may be incomplete).
+                let oyezSpeakerNames = null;
+                let oyezDatesForCase = null;
+                if (ev.source === 'ussc') {
+                    oyezSpeakerNames = new Set();
+                    oyezDatesForCase = new Set();
+                    for (const oe of c.events || []) {
+                        if (oe.source !== 'oyez') continue;
+                        if (oe.date) oyezDatesForCase.add(oe.date);
+                        if (!oe.text_href) continue;
+                        const op = path.join(termDir, 'cases', oe.text_href);
+                        if (!exists(op)) continue;
+                        try {
+                            const ot = readJson(op);
+                            for (const sp of ot?.media?.speakers || []) {
+                                const n = (sp.name || '').toUpperCase();
+                                if (n) oyezSpeakerNames.add(n);
+                            }
+                        } catch { /* ignore */ }
+                    }
+                }
+
                 // Every event advocate should be a participating transcript speaker
                 for (const name of advNames) {
                     if (name === 'UNKNOWN JUSTICE' || name === 'UNKNOWN SPEAKER') continue;
                     const inTranscript = speakers.some(sp => (sp.name || '').toUpperCase() === name);
                     const participating = inTranscript && !isNP(speakers.find(sp => (sp.name || '').toUpperCase() === name));
                     if (!inTranscript) {
+                        // Suppress warning for ussc transcripts when an oyez transcript
+                        // for the same case includes this speaker, or when an oyez event
+                        // covers the same date (OCR gap in the ussc transcript, not a real error).
+                        if (oyezSpeakerNames !== null &&
+                            (oyezSpeakerNames.has(name) || oyezDatesForCase.has(ev.date || ''))) continue;
                         console.warn(`  MISMATCH: advocate "${name}" missing from transcript speakers in ${label}`);
                         anyChange = true;
                     } else if (!participating && verbose) {
@@ -1239,6 +1305,8 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
                     if (isJusticeTitle(sp.title)) continue;
                     if (sp.name === 'UNKNOWN SPEAKER') continue;
                     if (isNP(sp)) continue;
+                    // Skip single-name speakers in ussc events (likely OCR artifacts).
+                    if (ev.source === 'ussc' && (sp.name || '').trim().split(/\s+/).filter(Boolean).length === 1) continue;
                     const name = (sp.name || '').toUpperCase();
                     if (!advNames.has(name) && !allCaseAdvNames.has(name)) {
                         console.warn(`  MISMATCH: participating speaker "${sp.name}" in transcript not in event advocates for ${label}`);
@@ -1446,6 +1514,8 @@ async function main() {
                                 const spTitle = sp.title || '';
                                 if (!_JUSTICE_TITLES.has(spTitle) && !spTitle.toUpperCase().includes('NP')) {
                                     const n = normalizeNameSuffix(sp.name || '').split(/\s+/).filter(Boolean).join(' ');
+                                    // Skip single-name speakers from ussc transcript files (likely OCR artifacts).
+                                    if (n && preAudio.source === 'ussc' && n.split(/\s+/).length === 1) continue;
                                     if (n) names.add(n.toUpperCase());
                                 }
                             }
