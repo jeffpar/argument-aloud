@@ -3177,10 +3177,186 @@ function processOpinionAuthors(termsToProcess, dryRun) {
 }
 
 // =====================================================================
+// Justice-advocate auto-discovery
+// =====================================================================
+
+// Scan every term's cases.json for event advocates whose names match a known
+// justice (from data/ussc/justices.json) AND whose argument date predates that
+// justice's appointment.  Adds any newly discovered cases to
+// courts/ussc/people/advocates/justices/justice_advocates.json without
+// disturbing entries that already exist there.
+function processJusticeAdvocates(allTerms, dryRun) {
+    const JUSTICE_ADVOCATES_FILE = path.join(
+        REPO_ROOT, 'courts', 'ussc', 'people', 'advocates', 'justices', 'justice_advocates.json');
+
+    // Build a name-key → canonical map from justices.json.
+    // Name key: upper-case, first + last token only (strips middle initials /
+    // generational suffixes), mirrors the logic in update_advocates.js.
+    function _nameKey(name) {
+        if (!name) return '';
+        let s = String(name).toUpperCase().trim();
+        s = s.replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '');
+        const tokens = s.replace(/[.,]/g, '').split(/\s+/).filter(Boolean);
+        if (!tokens.length) return '';
+        if (tokens.length === 1) return tokens[0];
+        return `${tokens[0]} ${tokens[tokens.length - 1]}`;
+    }
+
+    let justicesData;
+    try { justicesData = _readJson(_JUSTICES_PATH); } catch { return; }
+
+    // Map: name-key → { canonical, dateStart }
+    const nameKeyMap = new Map();
+    for (const [canonical, info] of Object.entries(justicesData)) {
+        if (!info) continue;
+        const tenures = Array.isArray(info.tenures)
+            ? info.tenures
+            : (info.dateStart !== undefined ? [info] : []);
+        if (!tenures.length) continue;
+        const dateStart = tenures[0].dateStart || '';
+        if (!dateStart) continue; // no appointment date → skip
+        const entry = { canonical, dateStart };
+        const key = _nameKey(canonical);
+        if (key) nameKeyMap.set(key, entry);
+        for (const alt of info.alternates || []) {
+            const altKey = _nameKey(alt);
+            if (altKey) nameKeyMap.set(altKey, entry);
+        }
+    }
+
+    // Scan cases: canonical → Map<termNumber, {term, number, title, decision, dates[], eventIdxs[]}>
+    const discovered = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            if (!Array.isArray(c.events)) continue;
+            for (let ei = 0; ei < c.events.length; ei++) {
+                const ev = c.events[ei];
+                if (!ev || !['argument', 'reargument'].includes(ev.type)) continue;
+                if (!Array.isArray(ev.advocates) || !ev.advocates.length) continue;
+
+                for (const adv of ev.advocates) {
+                    const advName = (typeof adv === 'object' && adv !== null) ? adv.name : adv;
+                    if (typeof advName !== 'string') continue;
+
+                    const key = _nameKey(advName);
+                    const match = nameKeyMap.get(key);
+                    if (!match) continue;
+
+                    // Only count as a "pre-court" advocate if the argument predates
+                    // the justice's appointment.
+                    const argDate = ev.date || String(c.argument || '').split(',')[0];
+                    if (!argDate || argDate >= match.dateStart) continue;
+
+                    if (!discovered.has(match.canonical)) discovered.set(match.canonical, new Map());
+                    const byCase = discovered.get(match.canonical);
+                    const caseKey = `${term}/${String(c.number || '')}`;
+                    if (!byCase.has(caseKey)) {
+                        byCase.set(caseKey, {
+                            term,
+                            number: String(c.number || ''),
+                            title:  firstTitle(c.title) || String(c.title || ''),
+                            decision: c.decision || '',
+                            dates: [],
+                            eventIdxs: [],
+                        });
+                    }
+                    const cd = byCase.get(caseKey);
+                    if (argDate && !cd.dates.includes(argDate)) cd.dates.push(argDate);
+                    if (!cd.eventIdxs.includes(ei + 1)) cd.eventIdxs.push(ei + 1);
+                }
+            }
+        }
+    }
+
+    if (!discovered.size) {
+        if (_VERBOSE) console.log('Justice advocates: none discovered in case events.');
+        return;
+    }
+
+    // Load existing file.
+    let coll = [];
+    if (fs.existsSync(JUSTICE_ADVOCATES_FILE)) {
+        try { coll = _readJson(JUSTICE_ADVOCATES_FILE); } catch { coll = []; }
+    }
+    if (!Array.isArray(coll)) coll = [];
+
+    const groupsByName = new Map(coll.map(g => [g.name, g]));
+    let totalAdded = 0;
+
+    for (const [canonical, byCase] of discovered) {
+        let group = groupsByName.get(canonical);
+        if (!group) {
+            group = { id: _justiceSlug(canonical), name: canonical, cases: [] };
+            coll.push(group);
+            groupsByName.set(canonical, group);
+        }
+        if (!Array.isArray(group.cases)) group.cases = [];
+
+        for (const cd of byCase.values()) {
+        // Check if already in group.cases (normalize to first docket number).
+            const normNum = n => String(n || '').split(',')[0].trim();
+            const already = group.cases.some(
+                e => String(e.term) === cd.term && normNum(e.number) === normNum(cd.number));
+            if (already) continue;
+
+            cd.dates.sort();
+            // Use the first docket number for consistency with README-built entries.
+            const primaryNumber = normNum(cd.number);
+            const entry = {
+                title:  cd.title,
+                term:   cd.term,
+                number: primaryNumber,
+            };
+            if (cd.dates.length) entry.argument = cd.dates.join(',');
+            if (cd.decision)     entry.decision  = cd.decision;
+            // Point to the first event that lists this justice as an advocate.
+            if (cd.eventIdxs.length) entry.event = cd.eventIdxs[0];
+
+            group.cases.push(entry);
+            totalAdded++;
+        }
+
+        // Keep cases sorted chronologically.
+        group.cases.sort((a, b) => {
+            const da = String(a.argument || a.reargument || '').split(',')[0];
+            const db = String(b.argument || b.reargument || '').split(',')[0];
+            return da < db ? -1 : da > db ? 1 : 0;
+        });
+    }
+
+    if (!totalAdded) {
+        if (_VERBOSE) console.log('Justice advocates: already up to date.');
+        return;
+    }
+
+    // Sort groups by last name.
+    const _jaLastName = n => (n || '').replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '').trim().split(/\s+/).pop() || '';
+    coll.sort((a, b) => {
+        const la = _jaLastName(a.name), lb = _jaLastName(b.name);
+        return la < lb ? -1 : la > lb ? 1 : 0;
+    });
+
+    const verb = dryRun ? 'Would add' : 'Added';
+    if (!dryRun) {
+        _mkdirSync(path.dirname(JUSTICE_ADVOCATES_FILE), { recursive: true });
+        _writeJson(JUSTICE_ADVOCATES_FILE, coll);
+    }
+    console.log(`Justice advocates: ${verb} ${totalAdded} case(s) for ${[...discovered.keys()].join(', ')}.`);
+}
+
+// =====================================================================
 // Collection-set builders: transcripts.json / briefs.json / noteworthy.json
 // =====================================================================
 
 const _COLLECTIONS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
+const _COLLECTIONS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
 const _TRANSCRIPTS_PATH = path.join(_COLLECTIONS_DIR, 'transcripts.json');
 const _BRIEFS_PATH      = path.join(_COLLECTIONS_DIR, 'briefs.json');
 const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
@@ -3569,10 +3745,83 @@ function syncTermsJson() {
     }
 }
 
+// Recursively collect all leaf collection entries (those with a 'file' key
+// and either a 'tags' array or a 'groups' array) from the nested
+// collections.json structure.
+function _collectTaggedLeafEntries(entries) {
+    const result = [];
+    for (const entry of (entries || [])) {
+        if (Array.isArray(entry.collections)) {
+            result.push(..._collectTaggedLeafEntries(entry.collections));
+        } else if (entry.file || entry.collection) {
+            const hasTagsGroup = Array.isArray(entry.tags) && entry.tags.length;
+            const hasGroups    = Array.isArray(entry.groups) && entry.groups.length;
+            if (hasTagsGroup || hasGroups) result.push(entry);
+        }
+    }
+    return result;
+}
+
+// Scan allTerms for cases that match a set of required tags; return sorted
+// case entries.
+function _casesByTags(allTerms, requiredTags) {
+    const cases = [];
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+        for (const c of termCases) {
+            if (!Array.isArray(c.tags)) continue;
+            if (!requiredTags.every(t => c.tags.includes(t))) continue;
+            cases.push(_setCaseEntry(c, term));
+        }
+    }
+    cases.sort((a, b) =>
+        (a.term      || '').localeCompare(b.term      || '') ||
+        (a.argument  || '').localeCompare(b.argument  || '') ||
+        (a.decision  || '').localeCompare(b.decision  || '') ||
+        (a.title     || '').localeCompare(b.title     || ''));
+    return cases;
+}
+
+// Build a tags-based collection. When collEntry has a 'groups' array each
+// group becomes a separate { name, cases } entry in the output; when it has
+// a flat 'tags' array the entire collection is one group named after the
+// collection itself.
+function _buildTagsCollection(allTerms, collEntry) {
+    if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
+        return collEntry.groups.map(g => ({
+            name:  g.title || '',
+            cases: (Array.isArray(g.tags) && g.tags.length)
+                ? _casesByTags(allTerms, g.tags)
+                : [],
+        }));
+    }
+    // Flat (single-group) form.
+    return [{ name: collEntry.title, cases: _casesByTags(allTerms, collEntry.tags) }];
+}
+
 function processCollectionSets(allTerms, dryRun) {
     const transcripts = _buildTranscriptsCollection(allTerms);
     const briefs      = _buildBriefsCollection(allTerms);
     const noteworthy  = _buildNoteworthyCollection(allTerms);
+
+    // Tags-based collections: read collections.json, find all leaf entries with
+    // a 'tags' array, build each from cases whose tags include all required tags.
+    const taggedCollections = [];
+    if (fs.existsSync(_COLLECTIONS_JSON)) {
+        let collDefs;
+        try { collDefs = _readJson(_COLLECTIONS_JSON); } catch { collDefs = []; }
+        for (const collEntry of _collectTaggedLeafEntries(collDefs)) {
+            const fileUrl = collEntry.file || collEntry.collection;
+            // Resolve the file URL (absolute path starting with '/') to a local path.
+            const filePath = path.join(REPO_ROOT, fileUrl.replace(/^\//, ''));
+            const output = _buildTagsCollection(allTerms, collEntry);
+            taggedCollections.push({ collEntry, filePath, output });
+        }
+    }
 
     const tCount = transcripts[0].cases.length;
     const bCount = briefs[0].cases.length;
@@ -3589,6 +3838,9 @@ function processCollectionSets(allTerms, dryRun) {
         if (tChanged) _writeJson(_TRANSCRIPTS_PATH, transcripts);
         if (bChanged) _writeJson(_BRIEFS_PATH,      briefs);
         if (noteworthy && nChanged) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
+        for (const { filePath, output } of taggedCollections) {
+            if (_jsonChanged(filePath, output)) _writeJson(filePath, output);
+        }
     }
     if (_VERBOSE || tChanged) console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
     if (_VERBOSE || bChanged) console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
@@ -3596,6 +3848,15 @@ function processCollectionSets(allTerms, dryRun) {
         console.log(`Noteworthy:  ${verb} ${nGroups} subset(s) / ${nCount} case(s) → courts/ussc/collections/noteworthy.json`);
         if (noteworthy.skipped || noteworthy.unmatched) {
             console.log(`Noteworthy:  skipped ${noteworthy.skipped} row(s), unmatched ${noteworthy.unmatched} case(s).`);
+        }
+    }
+    for (const { collEntry, filePath, output } of taggedCollections) {
+        const changed = _jsonChanged(filePath, output);
+        const count = output.reduce((s, g) => s + (g.cases?.length ?? 0), 0);
+        const rel = path.relative(REPO_ROOT, filePath);
+        if (_VERBOSE || changed) {
+            const label = collEntry.groups ? `${output.length} group(s) / ${count} case(s)` : `${count} case(s)`;
+            console.log(`Tags [${(collEntry.tags || collEntry.groups?.flatMap(g => g.tags || [])).join(',')}]: ${verb} ${label} → ${rel}`);
         }
     }
 }
@@ -6606,6 +6867,7 @@ async function main() {
     if (!dryRun) {
         processLoneDissenters(allTerms, false);
         processOpinionAuthors(allTerms, false);
+        processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
         await runDissentCheck(null);
     }

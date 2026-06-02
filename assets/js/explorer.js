@@ -2699,8 +2699,10 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     }
     loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
+    // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
+    // events (no audio_href) are also covered.
     const fileRestore = e.fileRestore ?? null;
-    if (fileRestore != null && !caseEntry.events?.length) {
+    if (fileRestore != null && !hasPlayableAudio) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -4752,7 +4754,13 @@ async function restoreFromURL() {
           }, { once: true });
         }
         const titleEl = ci.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), { fromRestore: true, ...(audioParam != null ? { audioIdx: audioParam } : {}) }));
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
+          fromRestore: true,
+          ...(audioParam != null ? { audioIdx: audioParam } : {}),
+          // Pass fileRestore so the title click handler can open the file directly
+          // for no-audio cases (where transcriptloaded never fires).
+          fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.some(a => a.audio_href)) ? String(fileParam) : null,
+        }));
       }
     }
     return;
