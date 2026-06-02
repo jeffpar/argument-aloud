@@ -21,6 +21,8 @@ import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 
+import { reorderEvent } from './schema.js';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ── Paths ──────────────────────────────────────────────────────────────────
@@ -1958,7 +1960,9 @@ async function main() {
     for (const [nameUpper, entry] of Object.entries(advocates)) {
         if (!nameFeminine.get(nameUpper)) continue;
         if (entry.name.split(/\s+/).length <= 1) continue;
-        const advName = entry.name;
+        const aliasedUpper = NAME_ALIASES[nameUpper];
+        const canonicalUpper = aliasedUpper || nameUpper;
+        const advName = canonicalUpper.replace(/\b\w+/g, w => w[0] + w.slice(1).toLowerCase());
         const sortedCases = entry.cases.slice().sort((a, b) =>
             (a.argument || a.reargument || '') < (b.argument || b.reargument || '') ? -1
             : (a.argument || a.reargument || '') > (b.argument || b.reargument || '') ? 1 : 0);
@@ -1980,7 +1984,7 @@ async function main() {
                 allDates = dates;
             }
             const argDate = allDates.length ? allDates.join(',') : (c.argument || c.reargument || '');
-            womenRows.push([advName, argNum, argDate, c.term, c.number, firstTitle(c.title), cit, url]);
+            womenRows.push([advName, argNum, argDate, c.term, c.number, firstTitle(c.title), cit, url, '']);
         }
     }
     womenRows.sort((a, b) => {
@@ -2052,7 +2056,6 @@ async function main() {
 
     if (exists(REF_CSV)) {
         const refRows = parseCsvDict(readText(REF_CSV))
-            .filter(r => (r['Advocate No.'] || '').trim() !== '-1')
             .map(r => {
                 const isoSet = refDatesToIsoSet(r['Argument Date'] || '');
                 const [first, last] = nameParts(r['Advocate Name'] || '');
@@ -2068,7 +2071,7 @@ async function main() {
         for (const r of refRows) {
             if (r._iso_set.size === 0) continue;
             addLookup(`${r._first}|${r._last}`, r);
-            const refFullUpper = normalizeName(r['Advocate Name'] || '').toUpperCase();
+            const refFullUpper = normalizeName((r['Advocate Name'] || '').replace(_ORDINAL_RE, '')).toUpperCase();
             const aliasUpper = NAME_ALIASES[`${r._first} ${r._last}`] || NAME_ALIASES[refFullUpper];
             if (aliasUpper) {
                 const [af, al] = nameParts(aliasUpper);
@@ -2076,15 +2079,113 @@ async function main() {
             }
         }
 
+        // Title-similarity helpers for disambiguating multiple date matches.
+        // Extract "significant" words: capitalized, length >= 2, not common legal/connector words.
+        const _TITLE_STOPWORDS = new Set(['Inc','LLC','Ltd','Corp','Co','The','And','For','Of','In','At','By','To','An','Or','Vs','United','States']);
+        const _titleSigWords = (s) =>
+            (s || '').split(/[\s,.()\[\]\/&+]+/)
+                .map(w => w.replace(/[^A-Za-z0-9]/g, ''))
+                .filter(w => w.length >= 2 && /^[A-Z]/.test(w) && !_TITLE_STOPWORDS.has(w));
+        const _titleSimilarity = (a, b) => {
+            const wa = new Set(_titleSigWords(a).map(w => w.toUpperCase()));
+            const wb = new Set(_titleSigWords(b).map(w => w.toUpperCase()));
+            if (wa.size === 0 || wb.size === 0) return 0;
+            let overlap = 0;
+            for (const w of wa) if (wb.has(w)) overlap++;
+            return overlap / Math.min(wa.size, wb.size);
+        };
+
+        // Citation-based fallback lookup: `${first}|${last}|${vol}|${pg}` -> [rows]
+        // Covers refRows with unparseable dates and any row missed by date matching.
+        const _US_CITE_RE = /\b(\d+)\s+U\.S\.[\s\xa0]+(\d+)\b/;
+        const refCiteLookup = new Map();
+        for (const r of refRows) {
+            const m = _US_CITE_RE.exec(r['Case Name'] || '');
+            if (!m) continue;
+            const key = `${r._first}|${r._last}|${m[1]}|${m[2]}`;
+            if (!refCiteLookup.has(key)) refCiteLookup.set(key, []);
+            refCiteLookup.get(key).push(r);
+        }
+
+        // Case-number lookup from ref's Case Name: `${first}|${last}|${num}` -> [rows]
+        // Parses "(No. 330)", "(Nos. 38 & 39)", "(No. 69-5003)", etc.
+        const _CASE_NUM_RE = /\(\s*Nos?\.\s*([\d][^)]*?)\s*\)/i;
+        const _parseCaseNums = (caseName) => {
+            const m = _CASE_NUM_RE.exec(caseName || '');
+            if (!m) return [];
+            return m[1].split(/[\s,&]+/).map(s => s.trim()).filter(s => /^\d[\d-]*$/.test(s));
+        };
+        const refCaseNumLookup = new Map();
+        for (const r of refRows) {
+            for (const num of _parseCaseNums(r['Case Name'] || '')) {
+                const key = `${r._first}|${r._last}|${num}`;
+                if (!refCaseNumLookup.has(key)) refCaseNumLookup.set(key, []);
+                const lst = refCaseNumLookup.get(key);
+                if (!lst.includes(r)) lst.push(r);
+            }
+        }
+
         const refMatched = new Set();
         const updatedRows = [];
         const ourUnmatched = [];
+        // refRow (with Source) → array of indices into updatedRows
+        const refSourceMatches = new Map();
         for (const row of womenRows) {
             const [advName, argNum, argDate, term, caseNum, title, cit, url] = row;
             const [first, last] = nameParts(advName);
             const candidates = refNameLookup.get(`${first}|${last}`) || [];
             const ourDates = new Set(argDate.split(','));
-            const dateMatches = candidates.filter(r => [...ourDates].some(d => r._iso_set.has(d)));
+            let dateMatches = candidates.filter(r => [...ourDates].some(d => r._iso_set.has(d)));
+            // Fallback: if no date match, try matching by citation extracted from Case Name.
+            if (dateMatches.length === 0) {
+                const cm = _US_CITE_RE.exec(cit || '');
+                if (cm) {
+                    const citeKey = `${first}|${last}|${cm[1]}|${cm[2]}`;
+                    dateMatches = refCiteLookup.get(citeKey) || [];
+                }
+            }
+            // Disambiguate multiple matches by case number from ref's Case Name.
+            if (dateMatches.length > 1) {
+                const ourNums = new Set(caseNum.split(',').map(s => s.trim()));
+                const numMatches = dateMatches.filter(r =>
+                    _parseCaseNums(r['Case Name'] || '').some(n => ourNums.has(n))
+                );
+                if (numMatches.length === 1) dateMatches = numMatches;
+            }
+            // Disambiguate multiple matches by title similarity.
+            if (dateMatches.length > 1) {
+                const scored = dateMatches.map(r => ({ r, score: _titleSimilarity(title, r['Case Name'] || '') }));
+                const best = scored.reduce((a, b) => a.score >= b.score ? a : b);
+                const tied = scored.filter(x => x.score === best.score);
+                if (tied.length === 1 && best.score > 0) dateMatches = [best.r];
+            }
+            // If the sole remaining match explicitly names case numbers and ours isn't among them,
+            // reject it — but only when the titles are also dissimilar (guards against ref-CSV typos
+            // where the case number is off by one but the party name is the same).
+            // Expand short ranges like "54-57" → ["54","55","56","57"] (but leave modern docket
+            // numbers like "69-5003" intact since their range span would be enormous).
+            if (dateMatches.length === 1) {
+                const refNums = _parseCaseNums(dateMatches[0]['Case Name'] || '');
+                if (refNums.length > 0) {
+                    const expanded = new Set();
+                    for (const n of refNums) {
+                        const rm = /^(\d{1,3})-(\d{1,3})$/.exec(n);
+                        if (rm) {
+                            const lo = parseInt(rm[1], 10), hi = parseInt(rm[2], 10);
+                            if (lo < hi && hi - lo <= 20) {
+                                for (let i = lo; i <= hi; i++) expanded.add(String(i));
+                                continue;
+                            }
+                        }
+                        expanded.add(n);
+                    }
+                    const ourNums = new Set(caseNum.split(',').map(s => s.trim()));
+                    if (![...ourNums].some(n => expanded.has(n))) {
+                        const sim = _titleSimilarity(title, dateMatches[0]['Case Name'] || '');
+                        if (sim < 0.5) dateMatches = [];
+                    }
+                }
+            }
             const matchedRef = dateMatches[0] || null;
             if (matchedRef) {
                 for (const r of dateMatches) refMatched.add(r);
@@ -2092,16 +2193,84 @@ async function main() {
                     .replace(_FORMERLY_RE, '')
                     .replace(_ORDINAL_RE, '')
                     .split(',')[0].trim();
-                updatedRows.push([canonical, argNum, argDate, term, caseNum, title, cit, url]);
+                // Apply speakers.json alias normalization to the ref CSV name too.
+                const canonicalAliasUpper = NAME_ALIASES[canonical.toUpperCase().replace(/\s+/g, ' ')];
+                if (canonicalAliasUpper) {
+                    canonical = canonicalAliasUpper.replace(/\b\w+/g, w => w[0] + w.slice(1).toLowerCase());
+                }
+                const refSrc = (matchedRef['Source'] || '').trim();
+                if (refSrc) {
+                    const idx = updatedRows.length;
+                    if (!refSourceMatches.has(matchedRef)) refSourceMatches.set(matchedRef, []);
+                    refSourceMatches.get(matchedRef).push(idx);
+                }
+                updatedRows.push([canonical, argNum, argDate, term, caseNum, title, cit, url, refSrc]);
             } else {
-                updatedRows.push(row);
+                updatedRows.push([...row.slice(0, 8), '']);
                 ourUnmatched.push(row);
             }
         }
         womenRows = updatedRows;
 
+        // ── Source warnings + journal_ref updates ─────────────────────────
+        // Regex for journal sources: YYYY J.? Sup.? Ct.? U.S.? PAGE
+        const _JOURNAL_SRC_RE = /^(\d{4})\s+J\.?\s*Sup\.?\s*Ct\.?\s*U\.S\.?\s*(\d+)/i;
+        const applyJournalRef = (src, idxList) => {
+            const m = _JOURNAL_SRC_RE.exec(src);
+            if (!m) return;
+            const journalTerm = `${m[1]}-10`;
+            const page = m[2];
+            // Group indices by cases.json path so each file is read/written once.
+            const byPath = new Map();
+            for (const idx of idxList) {
+                const [, , argDate, caseTerm, caseNum] = updatedRows[idx];
+                const casesPath = path.join(TERMS_DIR, caseTerm, 'cases.json');
+                if (!exists(casesPath)) continue;
+                if (!byPath.has(casesPath)) byPath.set(casesPath, []);
+                byPath.get(casesPath).push({ argDate, caseTerm, caseNum });
+            }
+            for (const [casesPath, entries] of byPath) {
+                let caseData;
+                try { caseData = readJson(casesPath); } catch { continue; }
+                let changed = false;
+                for (const { argDate, caseTerm, caseNum } of entries) {
+                    const journalRef = journalTerm === caseTerm ? page : `${journalTerm}:${page}`;
+                    const argDates = new Set(argDate.split(',').map(s => s.trim()).filter(Boolean));
+                    for (const c of caseData) {
+                        const nums = (c.number || '').split(',').map(s => s.trim());
+                        if (!nums.includes(caseNum)) continue;
+                        for (let ei = 0; ei < (c.events || []).length; ei++) {
+                            const ev = c.events[ei];
+                            if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+                            if (!argDates.has(ev.date || '')) continue;
+                            if ('journal_ref' in ev) break;
+                            c.events[ei] = reorderEvent({ ...ev, journal_ref: journalRef });
+                            changed = true;
+                        }
+                        if (changed) break;
+                    }
+                    if (changed) console.log(`  journal_ref ${journalRef} → ${caseTerm}/${caseNum} (${argDate})`);
+                }
+                if (changed) writeJson(casesPath, caseData);
+            }
+        };
+        for (const r of refRows) {
+            const src = (r['Source'] || '').trim();
+            if (!src) continue;
+            const matches = refSourceMatches.get(r) || [];
+            if (matches.length === 0) {
+                if ((r['Advocate No.'] || '').trim() === '-1') continue;
+                console.log(`  WARNING: Source row unmatched in our data — ${r['Advocate Name']}  ${r['Argument Date'] || ''}`);
+            } else {
+                if (matches.length > 1)
+                    console.log(`  NOTE: ref row covers ${matches.length} of our cases — ${r['Advocate Name']}  ${r['Argument Date'] || ''}`);
+                applyJournalRef(src, matches);
+            }
+        }
+
         const refUnmatched = refRows.filter(r =>
             !refMatched.has(r) && r._iso_set.size > 0 &&
+            (r['Advocate No.'] || '').trim() !== '-1' &&
             !(normalizeName((r['Advocate Name'] || '').replace(_ORDINAL_RE, '')).toUpperCase() in NAME_ALIASES)
         );
 
@@ -2158,7 +2327,7 @@ async function main() {
 
     ensureDir(path.dirname(WOMEN_CSV_FILE));
     const csvHeaders = ['Advocate Name', 'Advocate Argument Number', 'Argument Date',
-        'Term', 'Case Number', 'Case Title', 'Citation', 'URL'];
+        'Term', 'Case Number', 'Case Title', 'Citation', 'URL', 'Source'];
     writeText(WOMEN_CSV_FILE, writeCsvNonnumeric(csvHeaders, womenRows));
     console.log(`Wrote ${womenRows.length} rows to ${relRepo(WOMEN_CSV_FILE)}`);
 

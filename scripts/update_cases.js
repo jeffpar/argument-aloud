@@ -5,7 +5,7 @@
  *
  * Usage:
  *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--dry-run]
- *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...]
+ *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js TERM CASE --minority NAMES...
  *   node update_cases.js TERM CASE --recused NAMES...
  *   node update_cases.js [TERM [CASE]] --scdb [--ussc-deck] [--add] [--nocache] [--verbose]
@@ -5446,7 +5446,7 @@ async function checkLengths(casesPath, caseFilter, update) {
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
        node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--dry-run]
-       node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...]
+       node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
        node update_cases.js [TERM [CASE]] --scdb [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
@@ -5468,6 +5468,7 @@ Examples:
   # Vote updates
   node update_cases.js 2025-10 24-109 --votes win 9-0 roberts
   node update_cases.js 2025-10 24-109 --votes loss 6-3 alito --dissent kagan --minority sotomayor kagan jackson
+  node update_cases.js 1922-10 96 --votes loss 9-0 --result "dismissed for want of jurisdiction"
   node update_cases.js 2024-10 23-975 --recused gorsuch
   node update_cases.js 2024-10 2024-001 --minority sotomayor kagan jackson
 
@@ -6161,6 +6162,8 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
     const minority  = getValues('--minority');
     const recused   = getValues('--recused');
     const dissent   = getValues('--dissent');
+    const resultValues = getValues('--result');
+    const resultOverride = resultValues.length ? resultValues.join(' ').trim() : null;
 
     const partialUpdate = votesIdx === -1;
     if (partialUpdate && minority.length === 0 && recused.length === 0 && dissent.length === 0) {
@@ -6302,7 +6305,7 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
 
     } else {
         // ── Full update: replace all vote data ─────────────────────────────
-        const afterVotes = argv.slice(votesIdx + 1).filter(a => !a.startsWith('--'));
+        const afterVotes = getValues('--votes');
         if (afterVotes.length < 2) {
             console.error('ERROR: --votes requires: win|loss VOTE_STRING [AUTHOR]');
             process.exit(1);
@@ -6314,9 +6317,10 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         }
 
         const votes = _parseVoteString(voteString);
-        const result = outcome === 'win'
-            ? 'petitioning party received a favorable disposition'
-            : 'no favorable disposition for petitioning party apparent';
+        const result = resultOverride ??
+            (outcome === 'win'
+                ? 'petitioning party received a favorable disposition'
+                : 'no favorable disposition for petitioning party apparent');
 
         const authorCanonical   = authorRaw ? resolveName(authorRaw, 'Author') : null;
         const minorityCanonical = minority.map(n => resolveName(n, 'Minority justice'));
