@@ -2594,9 +2594,11 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
         }
 
         const opinionFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion');
+        const transcriptFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript');
         const groups = {};
         rawFiles.forEach(f => {
-          if ((f.type || '').toLowerCase() === 'opinion') return;
+          const fType = (f.type || '').toLowerCase();
+          if (fType === 'opinion' || fType === 'transcript') return;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -2629,6 +2631,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
             files: groups[typeKey],
           });
         });
+        if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 
         // Also hide the toggle when the only available files are transcript entries —
@@ -3192,6 +3195,9 @@ function loadCaseAsOpinion(term, caseEntry) {
       opt.textContent = v.title;
       audioSelect.appendChild(opt);
     });
+    // Default to the opinion entry when it exists, since that is what is
+    // displayed initially in the document viewer.
+    if (caseEntry.opinion_href) audioSelect.value = 'opinion';
     audioSelect.hidden = false;
   } else {
     audioSelect.hidden = true;
