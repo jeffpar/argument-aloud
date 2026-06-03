@@ -17,6 +17,7 @@
  *   --split            Split multi-sentence turns before aligning
  *   --model MODEL      Whisper model size (default: base; try small or medium for better accuracy)
  *   --beam-size N      Whisper beam size (default: 5; higher = slower but more accurate, e.g. 10)
+ *   --no-vad           Disable Whisper VAD filter (use when VAD cuts off audio early, e.g. at ~60 min)
  *   --dry-run          Print what would change without writing files
  *
  * Examples:
@@ -24,6 +25,7 @@
  *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign
  *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split
  *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split --realign
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign --no-vad
  *   node scripts/update_transcript.js 2014-10 14-378 oyez opinion --model small
  *
  * Requires: python3 with faster-whisper and rapidfuzz installed.
@@ -166,6 +168,53 @@ function applySplit(turns) {
     return result;
 }
 
+// ── Text scrubbing ─────────────────────────────────────────────────────────
+
+/**
+ * Scrubs problematic invisible/control Unicode characters from turn text.
+ *
+ * Characters replaced/removed:
+ *   U+00AD  SOFT HYPHEN           – one or more → U+2014 EM DASH (—)
+ *   U+200B  ZERO WIDTH SPACE      – removed
+ *   U+200C  ZERO WIDTH NON-JOINER – removed
+ *   U+200D  ZERO WIDTH JOINER     – removed
+ *   U+200E  LEFT-TO-RIGHT MARK    – removed
+ *   U+200F  RIGHT-TO-LEFT MARK    – removed
+ *   U+FEFF  BOM / ZERO WIDTH NO-BREAK SPACE – removed
+ *
+ * After removal, runs of multiple spaces are collapsed to one and the result
+ * is trimmed.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+function scrubText(text) {
+    return text
+        // One or more consecutive soft hyphens → em-dash.
+        .replace(/\u00AD+/g, '\u2014')
+        .replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '')
+        .replace(/ {2,}/g, ' ')
+        .trim();
+}
+
+/**
+ * Applies scrubText to every turn in an array. Returns a new array; turns
+ * whose text does not change are returned as-is (same object reference).
+ *
+ * @param {Array<{turn: number, name: string, text: string, time?: string}>} turns
+ * @returns {{ turns: Array, count: number }}  count = number of turns changed
+ */
+function scrubTurns(turns) {
+    let count = 0;
+    const result = turns.map(t => {
+        const clean = scrubText(t.text);
+        if (clean === t.text) return t;
+        count++;
+        return { ...t, text: clean };
+    });
+    return { turns: result, count };
+}
+
 // ── Time formatting ────────────────────────────────────────────────────────
 
 /**
@@ -199,7 +248,7 @@ function formatTime(seconds) {
  * Written to a temp file and executed as a subprocess.
  */
 const ALIGN_PY = `
-import sys, json, os, math
+import sys, json, bisect
 
 def main():
     input_data = json.loads(sys.argv[1])
@@ -208,6 +257,7 @@ def main():
     model_size = input_data.get('model_size', 'base')
     offset_secs = float(input_data.get('offset_secs', 0))
     beam_size = int(input_data.get('beam_size', 5))
+    vad_filter = bool(input_data.get('vad_filter', True))
 
     try:
         from faster_whisper import WhisperModel
@@ -219,16 +269,19 @@ def main():
     except ImportError:
         sys.exit("ERROR: rapidfuzz not installed. Run: pip install rapidfuzz")
 
-    # Use int8 on CPU for speed; upgrade to float16 on CUDA.
     model = WhisperModel(model_size, device='cpu', compute_type='int8')
 
     segments_gen, info = model.transcribe(
         audio_path,
         word_timestamps=True,
-        vad_filter=True,
+        vad_filter=vad_filter,
         beam_size=beam_size,
     )
     segments = list(segments_gen)
+
+    # info.duration is the actual audio file length in seconds, regardless of
+    # VAD. This is our ground truth for proportional estimation.
+    total_duration = info.duration
 
     # Collect word-level timestamps.
     all_words = []
@@ -246,53 +299,118 @@ def main():
                 all_words.append({'word': text, 'start': seg.start + offset_secs, 'end': seg.end + offset_secs})
 
     if not all_words:
-        # No speech detected at all; return zero times.
-        print(json.dumps([{'turn': t['turn'], 'time': 0.0} for t in turns]))
+        # No speech detected; assign proportional times based on text alone.
+        total_chars = sum(len(t['text']) for t in turns)
+        cum = 0
+        result = []
+        for t in turns:
+            frac = cum / total_chars if total_chars > 0 else 0
+            result.append({'turn': t['turn'], 'time': frac * total_duration})
+            cum += len(t['text'])
+        print(json.dumps(result))
         return
+
+    n_words = len(all_words)
+
+    # Build a sorted list of word start-times for fast bisect lookups.
+    word_starts = [w['start'] for w in all_words]
+
+    # Pre-compute the cumulative character offset before each turn. This lets
+    # us estimate the proportional position in the audio where each turn should
+    # begin, using the assumption that text and audio are roughly proportional.
+    total_chars = sum(len(t['text']) for t in turns)
+    cum_chars = []
+    acc = 0
+    for t in turns:
+        cum_chars.append(acc)
+        acc += len(t['text'])
+
+    def prop_time(turn_idx):
+        """Expected start time of turn_idx based on text proportion."""
+        frac = cum_chars[turn_idx] / total_chars if total_chars > 0 else 0
+        return frac * total_duration
+
+    def time_to_word_pos(t):
+        """Word index nearest to time t (via bisect on word_starts)."""
+        pos = bisect.bisect_left(word_starts, t)
+        return min(pos, n_words - 1)
 
     timestamps = []
     search_start = 0
-    n_words = len(all_words)
 
-    for turn in turns:
+    for idx, turn in enumerate(turns):
         text = turn['text']
-        # Use up to 15 words for matching. The transcript may not exactly match
-        # the audio (different phrasing, transcription errors), so token_set_ratio
-        # is used: it handles extra/missing words and mild reordering gracefully.
         query_words = text.split()[:15]
         query = ' '.join(query_words).lower()
         n_q = len(query_words)
 
-        best_score = -1
-        best_pos = search_start
+        # Proportional estimate: where in the audio should this turn begin.
+        # This is the primary anchor for the search window; it scales linearly
+        # with how much text has been processed so far relative to the whole
+        # transcript, mapped onto total_duration.
+        expected_time = prop_time(idx)
+        expected_pos  = time_to_word_pos(expected_time)
 
-        # Search window: allow a small look-back (in case the previous match was
-        # slightly ahead of the true start) and a generous look-ahead. The cap of
-        # 300 words covers ~2 min of speech at typical speaking rates, which is
-        # more than enough between consecutive turns.
+        # Hard upper bound: never let search_start race more than one tolerance
+        # step ahead of where proportional math says we should be.  This prevents
+        # a run of bad matches from consuming words that belong to later turns and
+        # locking the entire tail of the transcript to the end of the word list.
+        tolerance = max(50, int(0.10 * n_words))
+        search_start = min(search_start, expected_pos + tolerance)
+
+        # Exhaustion: all audio words consumed.
+        if search_start >= n_words - 1:
+            remaining = turns[idx:]
+            rem_chars = [max(1, len(t['text'])) for t in remaining]
+            total_rem  = sum(rem_chars)
+            last_time  = timestamps[-1]['time'] if timestamps else 0.0
+            span       = max(0.0, total_duration - last_time)
+            cum = 0
+            for i, rt in enumerate(remaining):
+                frac = cum / total_rem
+                timestamps.append({'turn': rt['turn'], 'time': last_time + frac * span})
+                cum += rem_chars[i]
+            break
+
+        # Search window: centred on expected_pos, but never starting before the
+        # monotonic floor (search_start) so turn order is preserved.
         look_back = min(5, search_start)
-        search_from = search_start - look_back
-        search_end = min(n_words, search_start + 300)
-        # If we're near the end, open the window fully.
-        if search_end >= n_words - n_q:
-            search_end = n_words
+        window_lo = max(search_start - look_back, expected_pos - tolerance)
+        window_hi = min(n_words, expected_pos + tolerance)
+        # Ensure there is always some window even if expected_pos is behind
+        # search_start (e.g. first few turns whose proportion is near 0).
+        if window_hi <= window_lo:
+            window_hi = min(n_words, window_lo + tolerance)
 
-        for i in range(search_from, search_end):
-            window = ' '.join(w['word'] for w in all_words[i:i + n_q]).lower()
-            score = fuzz.token_set_ratio(query, window)
+        best_score = -1
+        best_pos   = window_lo  # default: first position in window
+
+        for i in range(window_lo, window_hi):
+            window_text = ' '.join(w['word'] for w in all_words[i:i + n_q]).lower()
+            score = fuzz.token_set_ratio(query, window_text)
             if score > best_score:
                 best_score = score
-                best_pos = i
-            if score >= 70:
-                break   # good enough match found
+                best_pos   = i
+            if score >= 95 and i >= search_start:
+                break
+
+        # If no good match was found (score too low), fall back to the proportional
+        # position rather than committing a bad match that would skew search_start.
+        if best_score < 30:
+            timestamps.append({'turn': turn['turn'], 'time': expected_time})
+            # Don't advance search_start; leave it for the next turn to try again.
+            continue
 
         start_time = all_words[best_pos]['start']
         timestamps.append({'turn': turn['turn'], 'time': start_time})
-        # Advance past the matched position. Use best_pos (not search_start) so
-        # that a look-back hit doesn't cause the window to regress on the next turn.
         search_start = max(search_start, best_pos + max(n_q, 1))
         if search_start >= n_words:
             search_start = n_words - 1
+
+    # Safety net: enforce monotonically non-decreasing timestamps.
+    for i in range(1, len(timestamps)):
+        if timestamps[i]['time'] < timestamps[i - 1]['time']:
+            timestamps[i]['time'] = timestamps[i - 1]['time']
 
     print(json.dumps(timestamps))
 
@@ -321,10 +439,10 @@ async function downloadFile(url, destPath) {
  *
  * @param {string} audioPath   Path to a local audio file
  * @param {Array}  turns       Array of {turn, text} objects
- * @param {object} opts        { modelSize, offsetSecs }
+ * @param {object} opts        { modelSize, offsetSecs, vadFilter }
  * @returns {Array<{turn: number, time: number}>}
  */
-function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offsetSecs = 0 } = {}) {
+function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offsetSecs = 0, vadFilter = true } = {}) {
     // Write the Python script to a temp file.
     const pyPath = path.join(os.tmpdir(), `update_transcript_align_${process.pid}.py`);
     writeText(pyPath, ALIGN_PY);
@@ -335,6 +453,7 @@ function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offs
         model_size: modelSize,
         beam_size: beamSize,
         offset_secs: offsetSecs,
+        vad_filter: vadFilter,
     });
 
     let output;
@@ -366,6 +485,7 @@ async function main() {
     const doRealign = flags.has('--realign');
     const doSplit   = flags.has('--split');
     const dryRun    = flags.has('--dry-run');
+    const noVad     = flags.has('--no-vad');
 
     // --model MODEL
     let modelSize = 'base';
@@ -437,15 +557,36 @@ async function main() {
     // ── Check alignment status ─────────────────────────────────────────────
     const isAligned = turns.some(t => t.time !== undefined);
     if (isAligned && !doRealign && !doSplit) {
-        console.log(`Transcript is already aligned. Use --realign to overwrite.`);
+        // Still run a scrub pass in case the source had invisible characters.
+        const { turns: scrubbed, count } = scrubTurns(turns);
+        if (count > 0) {
+            console.log(`Scrubbed invisible/control characters from ${count} turn(s).`);
+            if (!dryRun) {
+                writeJson(transcriptPath, { ...transcript, turns: scrubbed });
+                console.log(`Wrote: ${path.relative(REPO_ROOT, transcriptPath)}`);
+            } else {
+                console.log('[dry-run] Would write scrubbed transcript.');
+            }
+        } else {
+            console.log(`Transcript is already aligned and clean. Use --realign to re-align.`);
+        }
         process.exit(0);
     }
 
     // If only --split (no realign, already aligned), we can still split.
     const needsAlign = !isAligned || doRealign;
 
-    // ── Sentence splitting ─────────────────────────────────────────────────
+    // ── Text scrubbing ─────────────────────────────────────────────────────
     let workingTurns = turns;
+    {
+        const { turns: scrubbed, count } = scrubTurns(workingTurns);
+        workingTurns = scrubbed;
+        if (count > 0) {
+            console.log(`Scrubbed invisible/control characters from ${count} turn(s).`);
+        }
+    }
+
+    // ── Sentence splitting ─────────────────────────────────────────────────
     if (doSplit) {
         const before = workingTurns.length;
         workingTurns = applySplit(workingTurns);
@@ -481,11 +622,11 @@ async function main() {
         console.log(`Audio saved to: ${audioPath}`);
 
         const offsetSecs = event.offset || 0;
-        console.log(`Running Whisper alignment (model=${modelSize}, beam_size=${beamSize})…`);
+        console.log(`Running Whisper alignment (model=${modelSize}, beam_size=${beamSize}, vad=${!noVad ? 'off' : 'on'})…`);
 
         let alignedTimes;
         try {
-            alignedTimes = runAlignment(audioPath, workingTurns, { modelSize, beamSize, offsetSecs });
+            alignedTimes = runAlignment(audioPath, workingTurns, { modelSize, beamSize, offsetSecs, vadFilter: !noVad });
         } finally {
             try { fs.unlinkSync(audioPath); } catch {}
         }
@@ -496,13 +637,30 @@ async function main() {
         // Apply timestamps to turns.
         workingTurns = workingTurns.map(t => {
             const secs = timeByTurn.get(t.turn);
-            if (secs !== undefined) {
+            if (secs !== undefined && secs !== null) {
                 return { ...t, time: formatTime(secs) };
             }
             return t;
         });
 
-        console.log(`Aligned ${alignedTimes.length} turns.`);
+        // JS-side monotonicity guard: the Python code already enforces this,
+        // but clamp again here in case of any floating-point edge cases.
+        for (let i = 1; i < workingTurns.length; i++) {
+            if (workingTurns[i].time !== undefined && workingTurns[i - 1].time !== undefined) {
+                if (workingTurns[i].time < workingTurns[i - 1].time) {
+                    workingTurns[i] = { ...workingTurns[i], time: workingTurns[i - 1].time };
+                }
+            }
+        }
+
+        // Every turn now gets a time (Whisper match or proportional fallback).
+        // alignedTimes.length tells us how many the Python script returned —
+        // if it's less than workingTurns.length, the JS map lookup above left
+        // some turns without a time (shouldn't happen with new Python code).
+        const matched    = alignedTimes.length;
+        const total      = workingTurns.length;
+        const propCount  = workingTurns.filter(t => t.time !== undefined).length - Math.min(matched, total);
+        console.log(`Aligned ${total} turns (${matched} Whisper-matched, ${total - matched} proportional estimate).`);
     }
 
     // ── Write transcript ───────────────────────────────────────────────────
@@ -521,10 +679,10 @@ async function main() {
 
     // ── Update aligned flag in cases.json ─────────────────────────────────
     if (needsAlign) {
-        const allAligned = workingTurns.every(t => t.time !== undefined);
-        if (allAligned && !event.aligned) {
+        const timedCount = workingTurns.filter(t => t.time !== undefined).length;
+        if (timedCount > 0 && !event.aligned) {
             if (dryRun) {
-                console.log('[dry-run] Would set aligned: true in cases.json');
+                console.log(`[dry-run] Would set aligned: true in cases.json`);
             } else {
                 event.aligned = true;
                 writeJson(casesPath, cases);

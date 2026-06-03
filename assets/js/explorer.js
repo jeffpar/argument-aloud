@@ -802,8 +802,14 @@ function oyezCircleData(caseEntry) {
 
   const withAudio = relevant.filter(e => e.audio_href);
   const fraction = withAudio.length / relevant.length;
-  // Orange when any audio event either has no transcript yet, or has one that hasn't been aligned.
-  const orange = withAudio.some(e => !e.text_href || !e.aligned);
+  // Orange when any audio event date lacks an aligned transcript from *any* source.
+  // A ussc-aligned event on the same date satisfies the alignment requirement even
+  // if the oyez event itself has no text_href.
+  const allEvents = caseEntry.events || [];
+  const orange = withAudio.some(e => {
+    const alignedOnDate = allEvents.some(ev => ev.date === e.date && ev.aligned);
+    return !alignedOnDate;
+  });
   return { fraction, orange };
 }
 
@@ -3399,18 +3405,21 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   // Build audio select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).
   // USSC audio was aligned by us (machine alignment), so always append " (USSC)"
-  // as a signal that timing may not be optimal. When multiple aligned entries share
-  // the same type+date (e.g. both oyez and ussc), also suffix the non-USSC source.
+  // as a signal that timing may not be optimal. When multiple entries for the same
+  // type+date come from *different* sources (e.g. oyez and ussc), also suffix the
+  // non-USSC source so the two can be distinguished. If all entries for a given
+  // type+date share the same source (e.g. two oyez parts), no suffix is shown.
   const _sourceSuffixes = { oyez: ' (Oyez)', ussc: ' (USSC)', nara: ' (NARA)' };
   const _dupTypeDate = new Set();
   {
-    const _seen = new Map();
+    const _seen = new Map(); // type:date → Set of distinct sources
     for (const a of sortedAudio) {
       if (a.type === 'opinion') continue;
       const k = (a.type || 'argument') + ':' + (a.date ?? '');
-      _seen.set(k, (_seen.get(k) ?? 0) + 1);
+      if (!_seen.has(k)) _seen.set(k, new Set());
+      _seen.get(k).add(a.source);
     }
-    for (const [k, n] of _seen) if (n > 1) _dupTypeDate.add(k);
+    for (const [k, sources] of _seen) if (sources.size > 1) _dupTypeDate.add(k);
   }
   const audioSelect = document.getElementById('audio-select');
   audioSelect.innerHTML = '';
