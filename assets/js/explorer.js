@@ -148,15 +148,19 @@ function updateEmptyStateForTerm(term) {
   showPageViewer('/courts/ussc/pages/stats/?term=' + encodeURIComponent(term), { pushState: false });
 }
 
-function audioEntryLabel(a) {
-  if (a.title) return a.title;
-  const dateFormatted = a.date
-    ? new Date(a.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    : '';
-  const type = a.type || 'argument';
-  if (type === 'reargument') return 'Oral Reargument on ' + dateFormatted;
-  if (type === 'opinion')    return 'Opinion Announcement on ' + dateFormatted;
-  return 'Oral Argument on ' + dateFormatted;
+function audioEntryLabel(a, suffix) {
+  let label;
+  if (a.title) { label = a.title; }
+  else {
+    const dateFormatted = a.date
+      ? new Date(a.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      : '';
+    const type = a.type || 'argument';
+    if (type === 'reargument') label = 'Oral Reargument on ' + dateFormatted;
+    else if (type === 'opinion') label = 'Opinion Announcement on ' + dateFormatted;
+    else label = 'Oral Argument on ' + dateFormatted;
+  }
+  return suffix ? label + suffix : label;
 }
 
 // Seek to a time without playing (used for URL-based turn restore).
@@ -3331,6 +3335,21 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
           if (idx !== -1) best[idx] = a;
           coveredEntryByKey.set(k, a);
         }
+
+        // If the candidate is aligned but the existing covered entry is not,
+        // replace the existing entry with the aligned candidate.
+        else if (!existing?.aligned && a.aligned) {
+          const idx = best.indexOf(existing);
+          if (idx !== -1) best[idx] = a;
+          coveredEntryByKey.set(k, a);
+        }
+
+        // If both the already-covered entry and this candidate are aligned,
+        // include the candidate alongside so the dropdown can show both with
+        // distinct source suffixes (e.g. "(Oyez)" vs "(USSC)").
+        else if (existing?.aligned && a.aligned && !best.includes(a)) {
+          best.push(a);
+        }
       }
     }
     // If the URL specified a particular event, ensure it survives the source-
@@ -3379,12 +3398,31 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
 
   // Build audio select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).
+  // USSC audio was aligned by us (machine alignment), so always append " (USSC)"
+  // as a signal that timing may not be optimal. When multiple aligned entries share
+  // the same type+date (e.g. both oyez and ussc), also suffix the non-USSC source.
+  const _sourceSuffixes = { oyez: ' (Oyez)', ussc: ' (USSC)', nara: ' (NARA)' };
+  const _dupTypeDate = new Set();
+  {
+    const _seen = new Map();
+    for (const a of sortedAudio) {
+      if (a.type === 'opinion') continue;
+      const k = (a.type || 'argument') + ':' + (a.date ?? '');
+      _seen.set(k, (_seen.get(k) ?? 0) + 1);
+    }
+    for (const [k, n] of _seen) if (n > 1) _dupTypeDate.add(k);
+  }
   const audioSelect = document.getElementById('audio-select');
   audioSelect.innerHTML = '';
   sortedAudio.forEach((a) => {
     const opt = document.createElement('option');
     opt.value = allAudio.indexOf(a) + 1;
-    opt.textContent = audioEntryLabel(a);
+    const _dtKey = (a.type || 'argument') + ':' + (a.date ?? '');
+    const _alwaysSuffix = a.source === 'ussc';
+    const _suffix = (_alwaysSuffix || _dupTypeDate.has(_dtKey))
+      ? (_sourceSuffixes[a.source] ?? (' (' + (a.source || '').toUpperCase() + ')'))
+      : '';
+    opt.textContent = audioEntryLabel(a, _suffix);
     audioSelect.appendChild(opt);
   });
   // Append a sentinel option for each event with a `journal_ref`. The ref is
