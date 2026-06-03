@@ -92,6 +92,4 @@ For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessi
   - [Powell v. United States Cartridge Co. (No. 96)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was argued with **Aaron v. Ford, Bacon & Davis, Inc. (No. 79)** and **Creel v. Lone Star Defense Corp. (No. 58)**
   - [Maneja v. Waialua Agricultural Co. (No. 357)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was argued with **Waialua Agricultural Co. v. Maneja (No. 358)**
 
-Those consolidated arguments mean that, over a set of 27 cases, she argued 23 times.  However, you will still see 24 cases attributed to her, in part because [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was decided separately from [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688).
-
-We do not agree with that last distinction, because it is inconsistent with how the Court counts appearances, but we have accepted it for historical reasons.
+Those consolidated arguments mean that, over a set of 27 cases, she argued 23 times.  However, you will still see 24 *cases* attributed to her, because [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was decided separately from [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688).
