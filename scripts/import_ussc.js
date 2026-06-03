@@ -1720,9 +1720,19 @@ async function _compareSingleUsscEvent(casesPath, _allCases, c, arg, _term) {
     const usscTh = arg.text_href || '';
     const date   = arg.date || '';
     if (!usscTh || !date) return false;
-    const oyezEv = (c.events || []).find(ev =>
+    // For consolidated cases (e.g. "13-1074,13-1075") there may be multiple
+    // Oyez events on the same date — one per docket.  Collect all of them so
+    // we compare the USSC transcript against the right counterpart.
+    const oyezEvs = (c.events || []).filter(ev =>
         ev.source === 'oyez' && ev.date === date && ev.text_href);
-    if (!oyezEv) return false;
+    if (!oyezEvs.length) return false;
+    // Prefer the Oyez event whose title mentions the same docket number as
+    // this USSC event, if that pattern is identifiable.
+    const docketMatch = (arg.title || '').match(/No\.\s*([\d-]+)/);
+    const docketNum   = docketMatch ? docketMatch[1] : null;
+    let oyezEv = docketNum
+        ? (oyezEvs.find(ev => (ev.title || '').includes(docketNum)) || oyezEvs[0])
+        : oyezEvs[0];
     const usscPath = path.join(path.dirname(casesPath), 'cases', usscTh);
     const oyezPath = path.join(path.dirname(casesPath), 'cases', oyezEv.text_href);
     const usscSpk  = _nonJusticeSpeakers(usscPath);

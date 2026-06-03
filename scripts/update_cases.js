@@ -1980,6 +1980,181 @@ function fixTextHrefs(term, cases, casesDir, dryRun) {
     return [updated, warned];
 }
 
+// ── Redundant USSC transcript detection ───────────────────────────────────
+//
+// For each USSC argument/reargument event that has a text_href, check whether
+// the non-justice advocates it lists are a subset of the advocates in the
+// corresponding Oyez event (same date). If so, the USSC transcript contains
+// no information beyond what Oyez already provides; delete the file, clear
+// text_href, and set redundant: true.
+//
+// This mirrors the logic in import_ussc.js's _compareSingleUsscEvent /
+// compareUsscOyezSpeakers, but is called from the regular update_cases run so
+// it applies automatically to all terms, not just the current import term.
+
+const _RDT_JUSTICE_TITLES = new Set(['JUSTICE', 'CHIEF JUSTICE', 'UNKNOWN JUSTICE']);
+const _RDT_SUFFIX_WORDS   = new Set(['JR', 'SR', 'II', 'III', 'IV']);
+const _RDT_FEMALE_TITLES  = new Set(['MS', 'MRS', 'MISS']);
+const _RDT_SUFFIX_RE      = /^(.+?)(?:,\s*|\s+)(JR\.?|SR\.?|II|III|IV)\.?\s*$/i;
+
+function _rdtJusticeLastNames() {
+    const map = _loadJusticeInfo();   // already built in this file
+    const lastNames = new Set();
+    for (const name of map.keys()) {
+        const words = name.toUpperCase().split(/\s+/);
+        let last = words[words.length - 1];
+        if (_RDT_SUFFIX_WORDS.has(last) && words.length > 1) last = words[words.length - 2];
+        lastNames.add(last);
+    }
+    return lastNames;
+}
+let _RDT_JUSTICE_LAST_NAMES = null;
+
+function _rdtNonJusticeSpeakers(transcriptPath) {
+    if (!fs.existsSync(transcriptPath)) return [];
+    let data;
+    try { data = _readJson(transcriptPath); } catch { return []; }
+    const speakers = data?.media?.speakers || [];
+    return speakers
+        .filter(sp => !_RDT_JUSTICE_TITLES.has(sp.title || ''))
+        .map(sp => [sp.name || '', sp.title || '']);
+}
+
+function _rdtTitleIsFemale(title) {
+    const tokens = (title || '').toUpperCase().match(/[A-Z]+/g) || [];
+    return tokens.some(t => _RDT_FEMALE_TITLES.has(t));
+}
+
+function _rdtNameKeys(name) {
+    const base = (name || '').split(/\s+/).filter(Boolean).join(' ');
+    if (!base) return new Set();
+    const keys = new Set([base]);
+    const m = _RDT_SUFFIX_RE.exec(base);
+    if (m) { const s = m[1].trim().replace(/,$/, ''); if (s) keys.add(s); }
+    return keys;
+}
+
+function _rdtLevenshtein(a, b) {
+    if (a === b) return 0;
+    if (a.length > b.length) [a, b] = [b, a];
+    const row = Array.from({ length: a.length + 1 }, (_, i) => i);
+    for (let j = 1; j <= b.length; j++) {
+        let prev = j;
+        for (let i = 1; i <= a.length; i++) {
+            const cur = a[i-1] === b[j-1] ? row[i-1] : 1 + Math.min(row[i-1], row[i], prev);
+            row[i-1] = prev; prev = cur;
+        }
+        row[a.length] = prev;
+    }
+    return row[a.length];
+}
+
+function _rdtLastToken(name) {
+    const tokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    while (tokens.length && _RDT_SUFFIX_WORDS.has(tokens[tokens.length - 1])) tokens.pop();
+    return tokens.length ? tokens[tokens.length - 1] : '';
+}
+
+function _rdtIsLikelyJustice(name, title) {
+    if (title) return false;
+    if (!_RDT_JUSTICE_LAST_NAMES) _RDT_JUSTICE_LAST_NAMES = _rdtJusticeLastNames();
+    const tokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    if (tokens.length !== 1) return false;
+    for (const last of _RDT_JUSTICE_LAST_NAMES) {
+        if (_rdtLevenshtein(tokens[0], last) <= 2) return true;
+    }
+    return false;
+}
+
+function _rdtFuzzyCandidates(name, oyezSpk) {
+    const nameTokens = (name || '').toUpperCase().match(/[A-Z]+/g) || [];
+    while (nameTokens.length && _RDT_SUFFIX_WORDS.has(nameTokens[nameTokens.length - 1])) nameTokens.pop();
+    if (nameTokens.length !== 1 && nameTokens.length !== 2) return [];
+    const query = nameTokens.join('');
+    const out = [];
+    for (const [n, t] of oyezSpk) {
+        if (_rdtLevenshtein(query, _rdtLastToken(n)) <= 2) out.push(t);
+    }
+    return out;
+}
+
+function _rdtSpeakersSubset(usscSpk, oyezSpk) {
+    const oyezByName = new Map();
+    for (const [name, title] of oyezSpk) {
+        for (const key of _rdtNameKeys(name)) {
+            if (!oyezByName.has(key)) oyezByName.set(key, []);
+            oyezByName.get(key).push(title);
+        }
+    }
+    for (const [name, title] of usscSpk) {
+        if (_rdtIsLikelyJustice(name, title)) continue;
+        let candidates = [];
+        for (const key of _rdtNameKeys(name)) {
+            if (oyezByName.has(key)) candidates.push(...oyezByName.get(key));
+        }
+        if (!candidates.length) candidates = _rdtFuzzyCandidates(name, oyezSpk);
+        if (!candidates.length) return false;
+        if (!candidates.some(t => _rdtTitleIsFemale(t) === _rdtTitleIsFemale(title))) return false;
+    }
+    return true;
+}
+
+/**
+ * For each USSC argument/reargument event with a text_href, checks whether
+ * the same date has a matching Oyez event whose advocate set is a superset.
+ * If so, marks the USSC event redundant: deletes the transcript file, clears
+ * text_href, and sets redundant: true.
+ *
+ * Returns the number of events newly marked redundant.
+ */
+function markRedundantUsscEvents(term, cases, casesDir, dryRun = false) {
+    let count = 0;
+    for (const c of cases) {
+        const label = c.number || c.id || '?';
+        for (const ev of c.events || []) {
+            if (ev.source !== 'ussc') continue;
+            if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+            if (ev.redundant) continue;
+            if (!ev.text_href) continue;
+
+            const date = ev.date || '';
+            // Find all Oyez events on the same date with a transcript.
+            const oyezEvs = (c.events || []).filter(o =>
+                o.source === 'oyez' && o.date === date && o.text_href);
+            if (!oyezEvs.length) continue;
+
+            // Prefer the Oyez event whose title matches the same docket number.
+            const docketM = (ev.title || '').match(/No\.\s*([\d-]+)/);
+            const docketNum = docketM ? docketM[1] : null;
+            const oyezEv = docketNum
+                ? (oyezEvs.find(o => (o.title || '').includes(docketNum)) || oyezEvs[0])
+                : oyezEvs[0];
+
+            const usscPath = path.join(casesDir, ev.text_href);
+            const oyezPath = path.join(casesDir, oyezEv.text_href);
+
+            const usscSpk = _rdtNonJusticeSpeakers(usscPath);
+            const oyezSpk = _rdtNonJusticeSpeakers(oyezPath);
+            if (!usscSpk.length && !oyezSpk.length) continue;
+
+            if (_rdtSpeakersSubset(usscSpk, oyezSpk)) {
+                if (dryRun) {
+                    console.log(`  WOULD MARK REDUNDANT: ${term}/${label} (${date}): ussc transcript is subset of oyez`);
+                } else {
+                    if (fs.existsSync(usscPath)) {
+                        fs.unlinkSync(usscPath);
+                    }
+                    delete ev.text_href;
+                    ev.redundant = true;
+                    console.log(`  REDUNDANT: ${term}/${label} (${date}): ussc transcript deleted (redundant with oyez)`);
+                }
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
 function checkMissingTextHrefs(term, cases, casesDir, dryRun = false) {
     let missing = 0, fixed = 0;
     for (const c of cases) {
@@ -2409,14 +2584,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
                  hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
-                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0 };
+                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const cases = _readJson(casesPath);
     if (!cases || !cases.length) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
                  hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
-                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0 };
+                 argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
     let casesReordered = 0, eventsReordered = 0;
@@ -2426,6 +2601,7 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     }
     const casesDir = path.join(TERMS_DIR, term, 'cases');
     const [hrefUpdated, hrefWarned] = !sortOnly ? fixTextHrefs(term, cases, casesDir, dryRun) : [0, 0];
+    const usscRedundant = !sortOnly ? markRedundantUsscEvents(term, cases, casesDir, dryRun) : 0;
     const [hrefMissing, hrefRedundantFixed] = !sortOnly ? checkMissingTextHrefs(term, cases, casesDir, dryRun) : [0, 0];
     const hrefOrphaned = !sortOnly ? checkOrphanedTranscripts(term, cases, casesDir) : [];
     for (const [label, date, th] of hrefOrphaned) {
@@ -2443,14 +2619,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
             || eventsSorted || casesSorted || argDatesFixed || eventTypesFixed
-            || mergedCount || hrefRedundantFixed || votesResorted)
+            || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
             && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
              hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
              hrefDupes, hrefStripped, eventsSorted, casesSorted,
-             argDatesFixed, eventTypesFixed, mergedCount };
+             argDatesFixed, eventTypesFixed, mergedCount, usscRedundant };
 }
 
 // ═════════════════════════════════
@@ -6830,7 +7006,7 @@ async function main() {
         hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
         eventsSorted: 0, casesSorted: 0,
         argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
-        missingVotes: 0,
+        missingVotes: 0, usscRedundant: 0,
     };
 
     for (const term of termsToProcess) {
@@ -6857,6 +7033,7 @@ async function main() {
         totals.eventTypesFixed     += r.eventTypesFixed;
         totals.mergedCount         += r.mergedCount;
         totals.missingVotes        += (r.missingVotes || 0);
+        totals.usscRedundant       += (r.usscRedundant || 0);
     }
 
     // Cross-scope media-href dedup check (always runs across full scope).

@@ -305,7 +305,7 @@ def main():
         result = []
         for t in turns:
             frac = cum / total_chars if total_chars > 0 else 0
-            result.append({'turn': t['turn'], 'time': frac * total_duration})
+            result.append({'turn': t['turn'], 'time': frac * total_duration, 'matched': False})
             cum += len(t['text'])
         print(json.dumps(result))
         return
@@ -335,6 +335,12 @@ def main():
         pos = bisect.bisect_left(word_starts, t)
         return min(pos, n_words - 1)
 
+    # Minimum fuzzy-match score to treat a match as a reliable timing anchor.
+    # Turns scoring below this threshold are marked as non-anchors and will have
+    # their timestamps filled in by interpolation between surrounding anchors in
+    # the second pass below.
+    HIGH_CONF = 70
+
     timestamps = []
     search_start = 0
 
@@ -345,16 +351,13 @@ def main():
         n_q = len(query_words)
 
         # Proportional estimate: where in the audio should this turn begin.
-        # This is the primary anchor for the search window; it scales linearly
-        # with how much text has been processed so far relative to the whole
-        # transcript, mapped onto total_duration.
         expected_time = prop_time(idx)
         expected_pos  = time_to_word_pos(expected_time)
 
         # Hard upper bound: never let search_start race more than one tolerance
         # step ahead of where proportional math says we should be.  This prevents
-        # a run of bad matches from consuming words that belong to later turns and
-        # locking the entire tail of the transcript to the end of the word list.
+        # a run of high-confidence (but wrong) matches from consuming words that
+        # belong to later turns.
         tolerance = max(50, int(0.10 * n_words))
         search_start = min(search_start, expected_pos + tolerance)
 
@@ -368,7 +371,7 @@ def main():
             cum = 0
             for i, rt in enumerate(remaining):
                 frac = cum / total_rem
-                timestamps.append({'turn': rt['turn'], 'time': last_time + frac * span})
+                timestamps.append({'turn': rt['turn'], 'time': last_time + frac * span, 'matched': False})
                 cum += rem_chars[i]
             break
 
@@ -394,21 +397,80 @@ def main():
             if score >= 95 and i >= search_start:
                 break
 
-        # If no good match was found (score too low), fall back to the proportional
-        # position rather than committing a bad match that would skew search_start.
-        if best_score < 30:
-            timestamps.append({'turn': turn['turn'], 'time': expected_time})
-            # Don't advance search_start; leave it for the next turn to try again.
-            continue
+        if best_score >= HIGH_CONF:
+            # High-confidence match: trust the Whisper timestamp and advance
+            # search_start so the next turn searches from here onward.
+            start_time = all_words[best_pos]['start']
+            timestamps.append({'turn': turn['turn'], 'time': start_time, 'matched': True})
+            search_start = max(search_start, best_pos + max(n_q, 1))
+            if search_start >= n_words:
+                search_start = n_words - 1
+        else:
+            # Low-confidence: store a proportional placeholder and mark as
+            # non-anchor.  Do NOT advance search_start based on best_pos (which
+            # may be wrong); instead advance only to expected_pos so the window
+            # for the next turn stays centred on proportional time.
+            timestamps.append({'turn': turn['turn'], 'time': expected_time, 'matched': False})
+            search_start = max(search_start, expected_pos)
 
-        start_time = all_words[best_pos]['start']
-        timestamps.append({'turn': turn['turn'], 'time': start_time})
-        search_start = max(search_start, best_pos + max(n_q, 1))
-        if search_start >= n_words:
-            search_start = n_words - 1
+    # ── Pass 2: fill non-anchor gaps by interpolation between anchors ─────────
+    #
+    # For each run of non-anchor turns sandwiched between two anchor turns,
+    # replace the placeholder proportional times with times that are linearly
+    # interpolated between the two anchor timestamps, weighted by character count.
+    # This is much more accurate than the global proportional estimate because it
+    # is anchored to real timestamps on both sides.
+    #
+    # The anchor turn's own character count is included in the denominator so
+    # that the first non-anchor turn after an anchor starts proportionally after
+    # the anchor's own text, rather than colliding with the anchor's timestamp.
 
-    # Safety net: enforce monotonically non-decreasing timestamps.
-    for i in range(1, len(timestamps)):
+    n = len(timestamps)
+    anchor_indices = [i for i, t in enumerate(timestamps) if t.get('matched')]
+
+    if anchor_indices:
+        # ── Before first anchor: distribute [0, t_first_anchor) ──────────────
+        first_a = anchor_indices[0]
+        if first_a > 0:
+            t1 = timestamps[first_a]['time']
+            seg_chars = [max(1, len(turns[i]['text'])) for i in range(first_a)]
+            total_c = sum(seg_chars) or 1
+            cum = 0
+            for j, i in enumerate(range(first_a)):
+                timestamps[i]['time'] = cum / total_c * t1
+                cum += seg_chars[j]
+
+        # ── Between consecutive anchors ───────────────────────────────────────
+        for k in range(len(anchor_indices) - 1):
+            a0 = anchor_indices[k]
+            a1 = anchor_indices[k + 1]
+            if a1 - a0 <= 1:
+                continue  # no gap to fill
+            t0 = timestamps[a0]['time']
+            t1 = timestamps[a1]['time']
+            if t1 <= t0:
+                continue  # non-monotonic anchor pair; skip (safety net handles it)
+            # Include a0's chars so turn a0+1 starts after a0's proportional span.
+            seg_chars = [max(1, len(turns[i]['text'])) for i in range(a0, a1)]
+            total_c = sum(seg_chars) or 1
+            cum = seg_chars[0]  # start after a0's own text
+            for j in range(1, len(seg_chars)):  # j=1 → turn a0+1
+                timestamps[a0 + j]['time'] = t0 + cum / total_c * (t1 - t0)
+                cum += seg_chars[j]
+
+        # ── After last anchor: distribute [t_last_anchor, total_duration) ────
+        last_a = anchor_indices[-1]
+        if last_a < n - 1:
+            t0 = timestamps[last_a]['time']
+            seg_chars = [max(1, len(turns[i]['text'])) for i in range(last_a, n)]
+            total_c = sum(seg_chars) or 1
+            cum = seg_chars[0]  # start after last_a's own text
+            for j in range(1, len(seg_chars)):
+                timestamps[last_a + j]['time'] = t0 + cum / total_c * (total_duration - t0)
+                cum += seg_chars[j]
+
+    # ── Safety net: enforce monotonically non-decreasing timestamps ───────────
+    for i in range(1, n):
         if timestamps[i]['time'] < timestamps[i - 1]['time']:
             timestamps[i]['time'] = timestamps[i - 1]['time']
 
@@ -653,14 +715,10 @@ async function main() {
             }
         }
 
-        // Every turn now gets a time (Whisper match or proportional fallback).
-        // alignedTimes.length tells us how many the Python script returned —
-        // if it's less than workingTurns.length, the JS map lookup above left
-        // some turns without a time (shouldn't happen with new Python code).
-        const matched    = alignedTimes.length;
-        const total      = workingTurns.length;
-        const propCount  = workingTurns.filter(t => t.time !== undefined).length - Math.min(matched, total);
-        console.log(`Aligned ${total} turns (${matched} Whisper-matched, ${total - matched} proportional estimate).`);
+        // Every turn now gets a time (Whisper anchor or interpolated estimate).
+        const matched   = alignedTimes.filter(r => r.matched).length;
+        const total     = workingTurns.length;
+        console.log(`Aligned ${total} turns (${matched} high-confidence, ${total - matched} interpolated).`);
     }
 
     // ── Write transcript ───────────────────────────────────────────────────
