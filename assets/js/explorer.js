@@ -802,15 +802,18 @@ function oyezCircleData(caseEntry) {
 
   const withAudio = relevant.filter(e => e.audio_href);
   const fraction = withAudio.length / relevant.length;
-  // Orange when any audio event date lacks an aligned transcript from *any* source.
-  // A ussc-aligned event on the same date satisfies the alignment requirement even
-  // if the oyez event itself has no text_href.
+  // Orange when any audio event date lacks a human-aligned transcript.
+  // usscOnly = true when the orange events all have a ussc (generated) aligned
+  // transcript — distinguishes "generated" from "completely missing".
   const allEvents = caseEntry.events || [];
   const orange = withAudio.some(e => {
-    const alignedOnDate = allEvents.some(ev => ev.date === e.date && ev.aligned);
-    return !alignedOnDate;
+    const humanAligned = allEvents.some(ev => ev.date === e.date && ev.aligned && ev.source !== 'ussc');
+    return !humanAligned;
   });
-  return { fraction, orange };
+  const usscOnly = orange && withAudio
+    .filter(e => !allEvents.some(ev => ev.date === e.date && ev.aligned && ev.source !== 'ussc'))
+    .every(e => allEvents.some(ev => ev.date === e.date && ev.aligned && ev.source === 'ussc'));
+  return { fraction, orange, usscOnly };
 }
 
 // Returns {blue, filled, hasOpinionAudio} if the case has opinion audio or OTD
@@ -1181,7 +1184,7 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
   let icon = null;
   const audioTooltip = (ring ? ring.orange : !hasTranscript)
-    ? 'Argument audio available without aligned transcript'
+    ? (ring?.usscOnly ? 'Argument audio available with generated transcript' : 'Argument audio available without aligned transcript')
     : 'Argument audio available';
   if (hasAudio) {
     if (ring) {

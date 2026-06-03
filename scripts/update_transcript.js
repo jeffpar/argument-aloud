@@ -8,9 +8,14 @@
  *
  * Arguments:
  *   TERM    Term in YYYY-MM format (e.g., 2014-10)
- *   CASE    Case number (e.g., 14-378)
+ *   CASE    Case number (e.g., 14-378), or - to process all eligible cases in the term
  *   SOURCE  Event source: ussc | oyez | nara
  *   TYPE    Event type:   argument | opinion | reargument
+ *
+ * Batch mode (CASE = -):
+ *   Processes every case in the term that has a SOURCE/TYPE event with a text_href
+ *   that is not yet aligned and not redundant, provided no oyez event of the same
+ *   type is already aligned for that case.
  *
  * Options:
  *   --realign          Align even if time properties are already present
@@ -538,72 +543,29 @@ function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offs
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
-async function main() {
-    // ── Parse arguments ────────────────────────────────────────────────────
-    const args = process.argv.slice(2);
-    const flags = new Set(args.filter(a => a.startsWith('--')));
-    const positional = args.filter(a => !a.startsWith('--'));
-
-    const doRealign = flags.has('--realign');
-    const doSplit   = flags.has('--split');
-    const dryRun    = flags.has('--dry-run');
-    const noVad     = flags.has('--no-vad');
-
-    // --model MODEL
-    let modelSize = 'base';
-    const modelIdx = args.indexOf('--model');
-    if (modelIdx !== -1 && args[modelIdx + 1] && !args[modelIdx + 1].startsWith('--')) {
-        modelSize = args[modelIdx + 1];
-    }
-
-    // --beam-size N
-    let beamSize = 5;
-    const beamIdx = args.indexOf('--beam-size');
-    if (beamIdx !== -1 && args[beamIdx + 1] && !args[beamIdx + 1].startsWith('--')) {
-        beamSize = parseInt(args[beamIdx + 1], 10) || 5;
-    }
-
-    if (positional.length < 4) {
-        console.error('Usage: node scripts/update_transcript.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
-        process.exit(1);
-    }
-
-    const [term, caseNumber, source, type] = positional;
-
-    // ── Locate cases.json ──────────────────────────────────────────────────
-    const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
-    if (!exists(casesPath)) {
-        console.error(`cases.json not found: ${casesPath}`);
-        process.exit(1);
-    }
-    const cases = readJson(casesPath);
-
-    // ── Find the case ──────────────────────────────────────────────────────
-    // Match by docket number (case.number) or by case id suffix.
-    const caseObj = cases.find(c =>
-        c.number === caseNumber ||
-        (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
-    );
-    if (!caseObj) {
-        console.error(`Case ${caseNumber} not found in ${term} cases.json`);
-        process.exit(1);
-    }
+/**
+ * Processes a single case: scrub, split (if --split), and align (if needed).
+ * Mutates the event's `aligned` flag in-place and writes cases.json on success.
+ * Returns true on success, false on non-fatal error (used in batch mode).
+ */
+async function processCase(term, caseObj, source, type, cases, casesPath, opts) {
+    const { doRealign, doSplit, dryRun, noVad, modelSize, beamSize } = opts;
 
     // ── Find the event ─────────────────────────────────────────────────────
     const event = (caseObj.events || []).find(
         e => e.source === source && e.type === type
     );
     if (!event) {
-        console.error(`No ${source}/${type} event found for case ${caseNumber} in term ${term}`);
-        process.exit(1);
+        console.error(`No ${source}/${type} event found for case ${caseObj.number}`);
+        return false;
     }
     if (!event.text_href) {
-        console.error(`Event ${source}/${type} has no text_href`);
-        process.exit(1);
+        console.error(`Event ${source}/${type} has no text_href for case ${caseObj.number}`);
+        return false;
     }
     if (!event.audio_href) {
-        console.error(`Event ${source}/${type} has no audio_href`);
-        process.exit(1);
+        console.error(`Event ${source}/${type} has no audio_href for case ${caseObj.number}`);
+        return false;
     }
 
     // ── Load transcript ────────────────────────────────────────────────────
@@ -611,7 +573,7 @@ async function main() {
     const transcriptPath = path.join(casesDir, event.text_href);
     if (!exists(transcriptPath)) {
         console.error(`Transcript not found: ${transcriptPath}`);
-        process.exit(1);
+        return false;
     }
     const transcript = readJson(transcriptPath);
     const turns = transcript.turns || [];
@@ -632,7 +594,7 @@ async function main() {
         } else {
             console.log(`Transcript is already aligned and clean. Use --realign to re-align.`);
         }
-        process.exit(0);
+        return true;
     }
 
     // If only --split (no realign, already aligned), we can still split.
@@ -679,7 +641,7 @@ async function main() {
             await downloadFile(event.audio_href, audioPath);
         } catch (err) {
             console.error(`Failed to download audio: ${err.message}`);
-            process.exit(1);
+            return false;
         }
         console.log(`Audio saved to: ${audioPath}`);
 
@@ -747,6 +709,96 @@ async function main() {
                 console.log(`Updated aligned: true in ${path.relative(REPO_ROOT, casesPath)}`);
             }
         }
+    }
+
+    return true;
+}
+
+async function main() {
+    // ── Parse arguments ────────────────────────────────────────────────────
+    const args = process.argv.slice(2);
+    const flags = new Set(args.filter(a => a.startsWith('--')));
+    const positional = args.filter(a => !a.startsWith('--'));
+
+    const doRealign = flags.has('--realign');
+    const doSplit   = flags.has('--split');
+    const dryRun    = flags.has('--dry-run');
+    const noVad     = flags.has('--no-vad');
+
+    // --model MODEL
+    let modelSize = 'base';
+    const modelIdx = args.indexOf('--model');
+    if (modelIdx !== -1 && args[modelIdx + 1] && !args[modelIdx + 1].startsWith('--')) {
+        modelSize = args[modelIdx + 1];
+    }
+
+    // --beam-size N
+    let beamSize = 5;
+    const beamIdx = args.indexOf('--beam-size');
+    if (beamIdx !== -1 && args[beamIdx + 1] && !args[beamIdx + 1].startsWith('--')) {
+        beamSize = parseInt(args[beamIdx + 1], 10) || 5;
+    }
+
+    if (positional.length < 4) {
+        console.error('Usage: node scripts/update_transcript.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
+        process.exit(1);
+    }
+
+    const [term, caseNumber, source, type] = positional;
+
+    // ── Locate cases.json ──────────────────────────────────────────────────
+    const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+    if (!exists(casesPath)) {
+        console.error(`cases.json not found: ${casesPath}`);
+        process.exit(1);
+    }
+    const cases = readJson(casesPath);
+
+    const opts = { doRealign, doSplit, dryRun, noVad, modelSize, beamSize };
+
+    if (caseNumber === '-') {
+        // ── Batch mode ─────────────────────────────────────────────────────
+        // Process every case in the term that has a matching SOURCE/TYPE event
+        // with a text_href that is not yet aligned and not redundant, provided
+        // no oyez event of the same type is already aligned for that case.
+        const eligible = cases.filter(c => {
+            const ev = (c.events || []).find(e => e.source === source && e.type === type);
+            if (!ev || !ev.text_href || ev.redundant || ev.aligned || !ev.audio_href) return false;
+            const hasAlignedOyez = (c.events || []).some(
+                e => e.source === 'oyez' && e.type === type && e.aligned
+            );
+            return !hasAlignedOyez;
+        });
+
+        if (eligible.length === 0) {
+            console.log(`No eligible cases found for ${source}/${type} in term ${term}.`);
+            process.exit(0);
+        }
+
+        console.log(`Found ${eligible.length} eligible case(s) for ${source}/${type} in term ${term}.`);
+
+        let processed = 0, failed = 0;
+        for (const caseObj of eligible) {
+            console.log(`\n── Case ${caseObj.number}: ${caseObj.title} ──`);
+            const ok = await processCase(term, caseObj, source, type, cases, casesPath, opts);
+            if (ok) processed++; else failed++;
+        }
+
+        console.log(`\nBatch complete: ${processed} processed, ${failed} failed.`);
+    } else {
+        // ── Single case mode ───────────────────────────────────────────────
+        // Match by docket number (case.number) or by case id suffix.
+        const caseObj = cases.find(c =>
+            c.number === caseNumber ||
+            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+        );
+        if (!caseObj) {
+            console.error(`Case ${caseNumber} not found in ${term} cases.json`);
+            process.exit(1);
+        }
+
+        const ok = await processCase(term, caseObj, source, type, cases, casesPath, opts);
+        if (!ok) process.exit(1);
     }
 
     console.log('Done.');
