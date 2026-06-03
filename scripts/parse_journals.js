@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * scripts/find_journal_offsets.js
+ * scripts/parse_journals.js
  *
  * Scans local journal PDFs to detect how many front-matter pages precede
  * the journal's actual "Page 1", then stores that count as `journal_page_offset`
@@ -17,7 +17,7 @@
  *      month-keyword filtering selects the right section.
  *
  * Usage:
- *   node scripts/find_journal_offsets.js [--dry-run] [--verbose] [YEAR]
+ *   node scripts/parse_journals.js [--dry-run] [--verbose] [YEAR]
  *
  *   --dry-run   Report changes without writing terms.json
  *   --verbose   Also print unchanged terms
