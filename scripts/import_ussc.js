@@ -888,7 +888,8 @@ function parseDocket(html, pageUrl) {
 // ── Network entry points ───────────────────────────────────────────────────
 
 async function fetchCasesFromUrl(url, yearStr = '') {
-    console.log(`Fetching ${url} ...`);
+    console.log('Checking arguments page for missing cases...');
+    vprint(`  ${url}`);
     let html;
     try {
         html = await fetchHtml(url);
@@ -923,7 +924,8 @@ function _transcriptListingUrl(yearStr) {
 }
 
 async function fetchTranscriptsFromUrl(url, yearStr = '') {
-    console.log(`Fetching transcript listing from ${url} ...`);
+    console.log('Checking transcripts page for missing cases...');
+    vprint(`  ${url}`);
     let html;
     try {
         html = await fetchHtml(url);
@@ -949,6 +951,7 @@ async function fetchDocketInfo(number, termYear = '') {
     const url = yearInt >= 2017
         ? `${BASE_URL}/docket/docketfiles/html/public/${internal}.html`
         : `${BASE_URL}/search.aspx?filename=/docketfiles/${internal}.htm`;
+    vprint(`  ${url}`);
     let html;
     try {
         html = await fetchHtml(url);
@@ -1181,22 +1184,21 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
         if (caseNumbers && !caseNumbers.has(number)) continue;
         const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');
 
-        if (c.questions_href) {
-            let hasPetitioner = false;
-            if (exists(filesPath)) {
-                try {
-                    const fdata = readJson(filesPath);
-                    hasPetitioner = fdata.some(f => f?.type === 'petitioner');
-                } catch {}
-            }
-            if (hasPetitioner || !exists(filesPath)) continue;
-        }
-
         process.stdout.write(`Fetching docket for ${number} ... `);
-        const info = await fetchDocketInfo(number, termYear);
-        await sleep(300);
+        const subNumbers = number.split(',').map(n => n.trim()).filter(Boolean);
+        const infos = [];
+        for (const sub of subNumbers) {
+            const subInfo = await fetchDocketInfo(sub, termYear);
+            await sleep(300);
+            if (subInfo) infos.push(subInfo);
+        }
+        // Merge results: first questions_href wins; proceedings are combined.
+        const info = {
+            questions_href: infos.map(i => i.questions_href).find(Boolean) || '',
+            proceedings: infos.flatMap(i => i.proceedings || []),
+        };
 
-        if (!info || (!info.questions_href && (!info.proceedings || !info.proceedings.length))) {
+        if (!info.questions_href && !info.proceedings.length) {
             console.log('skipped');
             continue;
         }
@@ -1544,13 +1546,26 @@ function migrateTranscripts(casesPath) {
 
 const _FILED_RE = /\s+filed\..*$/is;
 
+// Trailing boilerplate attachment-type labels appended by the SCOTUS docket
+// system, with or without a preceding period:
+//   ". Main Document Proof of Service Certificate of Word Count"
+//   " Main Document Proof of Service"
+//   " Certificate of Word Count Proof of Service"
+const _ATTACH_TERM = '(?:Main\\s+Document|Proof\\s+of\\s+Service|Certificate\\s+of\\s+(?:Word\\s+Count|Compliance)|Petition\\s+Appendix|Exhibits?|Other|Lower\\s+Court\\s+Orders/Opinions)';
+const _STATUS_MARK  = '(?:\\([^)]+\\)|VIDED\\.?)';
+const _ATTACH_SUFFIX_RE = new RegExp(`\\.?(?:\\s+${_STATUS_MARK})*\\s+${_ATTACH_TERM}(?:\\s+${_ATTACH_TERM})*\\s*$`, 'i');
+
 const _TYPE_PREFIXES = [
     ['amicus',     ['Brief amicus ', 'Brief amici ']],
     ['respondent', ['Brief of respondent', 'Reply of respondent']],
     ['petitioner', ['Brief of petitioner', 'Reply of petitioner']],
 ];
 
-function _cleanTitle(title) { return title.replace(_FILED_RE, '').trim(); }
+function _cleanTitle(title) {
+    let s = title.replace(_FILED_RE, '').trim();
+    s = s.replace(_ATTACH_SUFFIX_RE, '').trim();
+    return s;
+}
 
 function _inferType(title) {
     const lower = title.toLowerCase();
@@ -2072,6 +2087,123 @@ async function compareUsscOyezSpeakers(casesPath, caseFilter = null) {
     }
 }
 
+// ── usCite formatting helpers ──────────────────────────────────────────────
+
+function _isUsCitePlaceholder(cite) {
+    return /\bU\.S\.\s+___/.test(cite || '');
+}
+
+// Convert a raw citation string (as returned by the opinions page) to the
+// canonical usCite format stored in cases.json.
+//   "608/2"      → "608 U.S. ___"   (slip-citation: volume known, page not yet)
+//   "608 U.S. 5" → "608 U.S. 5"     (final paginated citation)
+//   other/empty  → ""
+function _formatUsCite(rawCite) {
+    if (!rawCite) return '';
+    // Final paginated form (may contain NBSP): "608 U.S. 1"
+    if (/^\d+ U\.S\.[\s\xa0]+\d+$/.test(rawCite)) return rawCite.replace(/\xa0/g, ' ');
+    // Slip form: "608/2" → volume known, page TBD
+    const slipM = /^(\d+)\/\d+$/.exec(rawCite);
+    if (slipM) return `${slipM[1]} U.S. ___`;
+    return '';
+}
+
+// Return true if the existing usCite should be replaced with newCite.
+// Never downgrades a real page number to a placeholder.
+function _shouldUpdateUsCite(existingCite, newCite) {
+    if (!newCite) return false;
+    if (!existingCite) return true;
+    if (existingCite === newCite) return false;
+    // Don't overwrite a real page number with a placeholder
+    if (!_isUsCitePlaceholder(existingCite) && _isUsCitePlaceholder(newCite)) return false;
+    return true;
+}
+
+// Convert a lowercase docketKey (as stored in fetchOpinions output) back to the
+// canonical normalized case number used in cases.json, e.g.:
+//   "25-580"  → "25-580"
+//   "22-orig" → "22-Orig"
+//   "25a1314" → "25A1314"
+function _docketKeyToNumber(docketKey) {
+    const origM = /^(\d+)-orig$/.exec(docketKey);
+    if (origM) return `${origM[1]}-Orig`;
+    const aM = /^(\d+)(a)(\d+)$/i.exec(docketKey);
+    if (aM) return `${aM[1]}A${aM[3]}`;
+    return docketKey;
+}
+
+// ── Step 2c: add cases from opinions page ─────────────────────────────────
+
+async function importOpinionCases(casesPath, term) {
+    const year2 = term.split('-')[0].slice(-2);
+    const opinions = await fetchOpinions(year2, CHECK_URLS);
+    if (!opinions || !Object.keys(opinions).length) {
+        vprint('No opinions found for term; skipping opinion-based case import.');
+        return;
+    }
+
+    if (!exists(casesPath)) {
+        ensureDir(path.dirname(casesPath));
+        writeText(casesPath, '[]\n');
+    }
+    const data = readJson(casesPath);
+
+    // Build a lowercase set of all normalized case numbers already present.
+    const existingLower = new Set();
+    for (const c of data) {
+        for (const part of (c.number || '').split(',')) {
+            existingLower.add(_normalizeNumber(part.trim()).toLowerCase());
+        }
+    }
+
+    const termsRoot = path.dirname(path.dirname(casesPath));
+    const yearStr   = term.split('-')[0];
+    const laterTermNumbers = _loadLaterTermNumbers(termsRoot, yearStr);
+    const laterTermLower   = new Map();
+    for (const [n, t] of laterTermNumbers) laterTermLower.set(n.toLowerCase(), t);
+
+    const addedNumbers = new Set();
+
+    for (const [docketKey, opinion] of Object.entries(opinions)) {
+        if (existingLower.has(docketKey)) continue;
+
+        if (laterTermLower.has(docketKey)) {
+            vprint(`Skipping opinion ${docketKey} (already in ${laterTermLower.get(docketKey)})`);
+            continue;
+        }
+
+        const number = _docketKeyToNumber(docketKey);
+
+        if (!ADD_CASES) {
+            console.log(`  WARNING: ${number} has an opinion but is not in cases.json; pass --cases to add it`);
+            continue;
+        }
+        const cite   = _formatUsCite(opinion.cite || '');
+
+        const newCaseObj = { title: opinion.name, number };
+        if (opinion.date)  newCaseObj.decision     = opinion.date;
+        if (cite)          newCaseObj.usCite        = cite;
+        if (opinion.href)  newCaseObj.opinion_href  = opinion.href;
+
+        data.push(reorderCase(newCaseObj));
+        existingLower.add(docketKey);
+        addedNumbers.add(number);
+        console.log(`  ${number}: added from opinions page (${opinion.date || '?'})${cite ? `, usCite=${cite}` : ''}`);
+    }
+
+    if (addedNumbers.size) {
+        writeJson(casesPath, data);
+        reportChange(`Added ${addedNumbers.size} case(s) from opinions page to cases.json.`);
+        const yearInt = parseInt(yearStr, 10);
+        if (yearInt >= 2001) {
+            console.log('Fetching docket info for newly added opinion case(s) ...');
+            await updateDocketInfo(casesPath, String(yearInt), addedNumbers);
+        }
+    } else {
+        vprint('No new opinion-only cases to add.');
+    }
+}
+
 // ── Step 7: opinion_href maintenance ───────────────────────────────────────
 
 async function upgradeDeadOpinionHrefs(casesPath) {
@@ -2158,7 +2290,7 @@ async function backfillOpinionHrefs(casesPath, term) {
         }
         if (!opinion) continue;
         const href = opinion.href;
-        const cite = opinion.cite || '';
+        const cite = _formatUsCite(opinion.cite || '');
         const date = opinion.date || '';
         const existingHref = c.opinion_href || '';
         const existingCite = c.usCite || '';
@@ -2169,40 +2301,21 @@ async function backfillOpinionHrefs(casesPath, term) {
             && !c.opinion_href_bad
             && existingHref !== href
         );
-        const updateCite = !!(cite && existingCite !== cite);
+        const updateCite = _shouldUpdateUsCite(existingCite, cite);
         const updateDate = !!(date && existingDate !== date);
 
         if (!updateHref && !updateCite && !updateDate) continue;
 
-        const newCase = {};
-        let dateInserted = false, citeInserted = false, hrefInserted = false;
-        for (const [k, v] of Object.entries(c)) {
-            // Insert decision after reargument (if present) or after argument.
-            if ((k === 'events' || k === 'reargument' || k === 'argument') && updateDate && !dateInserted) {
-                // Only insert here if this is 'events' (decision goes before events in key order).
-                if (k === 'events') {
-                    newCase.decision = date;
-                    dateInserted = true;
-                }
-            }
-            if (k === 'events' && updateCite && !citeInserted) {
-                newCase.usCite = cite;
-                citeInserted = true;
-            }
-            if (k === 'files' && updateHref && !hrefInserted) {
-                newCase.opinion_href = href;
-                hrefInserted = true;
-            }
-            if (k === 'decision' && updateDate) continue;
-            if (k === 'usCite' && updateCite) continue;
-            if (k === 'opinion_href' && updateHref) continue;
-            newCase[k] = v;
-        }
-        if (updateHref && !hrefInserted) newCase.opinion_href = href;
-        if (updateCite && !citeInserted) newCase.usCite = cite;
-        if (updateDate && !dateInserted) newCase.decision = date;
+        const updated = { ...c };
+        if (updateDate) updated.decision     = date;
+        if (updateCite) updated.usCite       = cite;
+        if (updateHref) updated.opinion_href = href;
+        // Strip fields being removed (updateX but value is falsy)
+        if (updateHref && !href) delete updated.opinion_href;
+
+        const reordered = reorderCase(updated);
         for (const k of Object.keys(c)) delete c[k];
-        Object.assign(c, newCase);
+        Object.assign(c, reordered);
         casesModified = true;
         if (updateHref) console.log(`  ${number}: opinion_href → ${href}`);
         if (updateCite) console.log(`  ${number}: usCite → ${cite}`);
@@ -2306,7 +2419,7 @@ async function main() {
         await importTranscriptPdfs(casesPath, yearStr, laterTermNumbers);
     }
 
-    if (forceReparse) console.log('Reparsing all transcripts (--reparse) ...');
+    if (forceReparse) console.log('Reparsing all transcripts (--reparse)...');
     else vprint('Checking for missing transcripts ...');
     await generateMissingTranscripts(casesPath, null, forceReparse);
 
@@ -2319,11 +2432,14 @@ async function main() {
     if (!fetchDocket) {
         console.log('Skipping docket check (pass --docket to enable).');
     } else if (parseInt(yearStr, 10) >= 2001) {
-        console.log('Fetching docket info for cases without questions_href ...');
+        console.log('Fetching docket info for all cases...');
         await updateDocketInfo(casesPath, yearStr);
     } else {
         vprint('Skipping docket check (not available before 2001 term).');
     }
+
+    console.log('Checking opinions page for missing cases...');
+    await importOpinionCases(casesPath, term);
 
     vprint('Cleaning up files.json entries ...');
     cleanFilesJson(casesPath);
@@ -2331,7 +2447,7 @@ async function main() {
     vprint('Extracting questions presented ...');
     await extractQuestions(casesPath);
 
-    console.log('Updating opinion references ...');
+    console.log('Updating opinion references...');
     await backfillOpinionHrefs(casesPath, term);
     if (CHECK_URLS) {
         await upgradeDeadOpinionHrefs(casesPath);
