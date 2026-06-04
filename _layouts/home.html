@@ -8,16 +8,31 @@
       a:hover       { color: #7bc8f0; }
       .wrapper      { color: #d0d3dc; }
     }
+    html[data-theme="dark"] h1,
+    html[data-theme="dark"] h2,
+    html[data-theme="dark"] h3,
+    html[data-theme="dark"] h4,
+    html[data-theme="dark"] h5,
+    html[data-theme="dark"] h6  { color: #d0d3dc; border-color: #2d2f38; }
+    html[data-theme="dark"] a   { color: #5eaee0; }
+    html[data-theme="dark"] a:hover { color: #7bc8f0; }
+    html[data-theme="dark"] .wrapper { color: #d0d3dc; }
+    html[data-theme="light"] h1,
+    html[data-theme="light"] h2,
+    html[data-theme="light"] h3,
+    html[data-theme="light"] h4,
+    html[data-theme="light"] h5,
+    html[data-theme="light"] h6  { color: #222; border-color: #e8e8e8; }
+    html[data-theme="light"] a   { color: #2672b4; }
+    html[data-theme="light"] a:hover { color: #1a5090; }
+    html[data-theme="light"] .wrapper { color: #333; }
   </style>
   <body style="overflow: auto;">
-    <div id="topbar">
-      <a id="site-link" href="/">Argument Aloud</a>
-      <span id="topbar-term"></span>
-      <a id="random-case-btn" href="/courts/ussc/?action=randomize&start=1955-10" title="Random case" aria-label="Random case">&#127922;</a>
-    </div>
+    {%- include topbar.html %}
     <div class="wrapper" style="padding: 20px 30px;">
       {{ content }}
     </div>
+    <script src="{{ '/assets/js/topbar.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
   </body>
 </html>

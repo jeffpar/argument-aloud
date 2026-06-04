@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script src="{{ '/assets/js/chart.js@4.4.9/dist/chart.umd.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=2"></script>
+  <script>(function(){var t=localStorage.getItem('aa-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
   <style>
     @media (prefers-color-scheme: dark) {
       body, .wrapper {
@@ -25,6 +26,40 @@
       tr:nth-child(even) { background: #1a1c22; }
       img           { opacity: 0.9; }
     }
+    html[data-theme="dark"] body, html[data-theme="dark"] .wrapper {
+      background: #1a1c22; color: #d0d3dc;
+    }
+    html[data-theme="dark"] a             { color: #5eaee0; }
+    html[data-theme="dark"] a:hover       { color: #7bc8f0; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2,
+    html[data-theme="dark"] h3, html[data-theme="dark"] h4,
+    html[data-theme="dark"] h5, html[data-theme="dark"] h6 { color: #d0d3dc; border-color: #2d2f38; }
+    html[data-theme="dark"] hr            { background: #2d2f38; }
+    html[data-theme="dark"] blockquote    { border-left-color: #404450; color: #9da5b4; }
+    html[data-theme="dark"] code, html[data-theme="dark"] pre,
+    html[data-theme="dark"] .highlight { background: #1e2028; color: #c8cad2; border-color: #404450; }
+    html[data-theme="dark"] table         { color: #d0d3dc; }
+    html[data-theme="dark"] th            { background: #21242c; border-color: #404450; }
+    html[data-theme="dark"] td            { border-color: #2d2f38; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1a1c22; }
+    html[data-theme="dark"] img           { opacity: 0.9; }
+    html[data-theme="light"] body, html[data-theme="light"] .wrapper {
+      background: #fff; color: #333;
+    }
+    html[data-theme="light"] a             { color: #2672b4; }
+    html[data-theme="light"] a:hover       { color: #1a5090; }
+    html[data-theme="light"] h1, html[data-theme="light"] h2,
+    html[data-theme="light"] h3, html[data-theme="light"] h4,
+    html[data-theme="light"] h5, html[data-theme="light"] h6 { color: #222; border-color: #e8e8e8; }
+    html[data-theme="light"] hr            { background: #e0e0e0; }
+    html[data-theme="light"] blockquote    { border-left-color: #c0c0c0; color: #555; }
+    html[data-theme="light"] code, html[data-theme="light"] pre,
+    html[data-theme="light"] .highlight { background: #f8f8f8; color: #333; border-color: #e0e0e0; }
+    html[data-theme="light"] table         { color: #333; }
+    html[data-theme="light"] th            { background: #f0f0f0; border-color: #e0e0e0; }
+    html[data-theme="light"] td            { border-color: #e8e8e8; }
+    html[data-theme="light"] tr:nth-child(even) { background: #f9f9f9; }
+    html[data-theme="light"] img           { opacity: 1; }
   </style>
 </head>
 <body>

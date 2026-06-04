@@ -5,14 +5,22 @@ layout: pane
 <style>
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
 @media (prefers-color-scheme: dark) { .term-stats h2 { border-color: #2d2f38; } }
+html[data-theme="dark"]  .term-stats h2 { border-color: #2d2f38; }
+html[data-theme="light"] .term-stats h2 { border-color: #e0e0e0; }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
 .stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
 @media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
+html[data-theme="dark"]  .stat-card { background: #21242c; }
+html[data-theme="light"] .stat-card { background: #f5f6fa; }
 .stat-value { font-size: 1.55rem; font-weight: 700; line-height: 1.1; display: block; }
 .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: #666; display: block; margin-top: 0.15rem; }
 @media (prefers-color-scheme: dark) { .stat-label { color: #9da5b4; } }
+html[data-theme="dark"]  .stat-label { color: #9da5b4; }
+html[data-theme="light"] .stat-label { color: #666; }
 .stats-note { font-size: 0.8rem; color: #888; margin: 0.25rem 0 0; }
 @media (prefers-color-scheme: dark) { .stats-note { color: #6a7080; } }
+html[data-theme="dark"]  .stats-note { color: #6a7080; }
+html[data-theme="light"] .stats-note { color: #888; }
 </style>
 
 <div class="term-stats" id="stats-container">

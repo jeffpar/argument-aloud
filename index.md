@@ -5,6 +5,8 @@ layout: home
 
 # Welcome to Argument Aloud
 
+#### A Media Hub for U.S. Supreme Court Arguments and Related Information
+
 ## U.S. Supreme Court Links
 
   - [October 2025 Term](/courts/ussc/?term=2025-10)

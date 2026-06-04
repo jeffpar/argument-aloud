@@ -4559,7 +4559,10 @@ async function init() {
   }));
   buildNavFromIndex(navData);
 
-  document.getElementById('random-case-btn')?.addEventListener('click', () => pickRandomCase());
+  document.getElementById('random-case-btn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    pickRandomCase();
+  });
 
   // Navigate to home page when clicking the site link.
   document.getElementById('site-link')?.addEventListener('click', (e) => {
@@ -4584,14 +4587,24 @@ async function init() {
   _attachRandomizeHoverListeners(document);
   const pageFrame = document.getElementById('page-viewer-frame');
   if (pageFrame) {
+    function _applyThemeToFrame(frame) {
+      try {
+        const t = document.documentElement.getAttribute('data-theme');
+        if (t) frame.contentDocument.documentElement.setAttribute('data-theme', t);
+        else frame.contentDocument.documentElement.removeAttribute('data-theme');
+      } catch (_) {}
+    }
     // Re-attach on every iframe navigation (content changes).
     pageFrame.addEventListener('load', function () {
       try { _attachRandomizeHoverListeners(this.contentDocument); } catch (_) {}
+      _applyThemeToFrame(this);
     });
     // Safety net: stop spinning whenever the mouse leaves the iframe entirely.
     pageFrame.addEventListener('mouseleave', () => {
       document.getElementById('random-case-btn')?.classList.remove('spinning');
     });
+    // Re-export for topbar.js theme switcher.
+    window._applyThemeToPageFrame = () => _applyThemeToFrame(pageFrame);
   }
 
   await restoreFromURL();
