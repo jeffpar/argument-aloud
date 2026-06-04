@@ -453,12 +453,12 @@ async function fetchOyezTranscript(argHref, justices) {
 // ── Case-number normalisation ──────────────────────────────────────────────
 
 function normalizeCaseNum(raw) {
-    const s = (raw || '').trim();
+    const s = (raw || '').trim().toUpperCase();
     let m = /^(\d+)O(\d+)$/.exec(s);
     if (m) return `${m[2]}-Orig`;
-    m = /^(.+?)[\s-]+(orig(?:inal)?)$/i.exec(s);
+    m = /^(.+?)[\s-]+(ORIG(?:INAL)?)$/i.exec(s);
     if (m) return `${m[1]}-Orig`;
-    m = /^(.+?)[\s-]+(misc(?:ellaneous)?)$/i.exec(s);
+    m = /^(.+?)[\s-]+(MISC(?:ELLANEOUS)?)$/i.exec(s);
     if (m) return `${m[1]}-Misc`;
     return s;
 }
