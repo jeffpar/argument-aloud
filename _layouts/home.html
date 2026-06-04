@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  {%- include head/default.html style="argument" %}
+  <style>
+    @media (prefers-color-scheme: dark) {
+      h1, h2, h3, h4, h5, h6 { color: #d0d3dc; border-color: #2d2f38; }
+      a             { color: #5eaee0; }
+      a:hover       { color: #7bc8f0; }
+      .wrapper      { color: #d0d3dc; }
+    }
+  </style>
+  <body style="overflow: auto;">
+    <div id="topbar">
+      <a id="site-link" href="/">Argument Aloud</a>
+      <span id="topbar-term"></span>
+      <a id="random-case-btn" href="/courts/ussc/?action=randomize&start=1955-10" title="Random case" aria-label="Random case">&#127922;</a>
+    </div>
+    <div class="wrapper" style="padding: 20px 30px;">
+      {{ content }}
+    </div>
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+  </body>
+</html>

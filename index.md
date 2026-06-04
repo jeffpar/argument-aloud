@@ -1,5 +1,6 @@
 ---
-layout: pane
+title: Argument Aloud
+layout: home
 ---
 
 # Welcome to Argument Aloud

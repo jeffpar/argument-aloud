@@ -4561,10 +4561,10 @@ async function init() {
 
   document.getElementById('random-case-btn')?.addEventListener('click', () => pickRandomCase());
 
-  // Reset view to initial state when clicking the site link.
+  // Navigate to home page when clicking the site link.
   document.getElementById('site-link')?.addEventListener('click', (e) => {
     e.preventDefault();
-    resetToHome();
+    window.location.href = '/';
   });
 
   // Spin the dice button whenever the user hovers over any action=randomize link.
