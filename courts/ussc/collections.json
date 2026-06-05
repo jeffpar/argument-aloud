@@ -83,7 +83,8 @@
     "groups": [
       {
         "title": "NLRA Cases of 1937",
-        "tags": ["nlra"]
+        "tags": ["National Labor Relations Act"],
+        "decision": "1937"
       }
     ],
     "search": "cases:title"
@@ -91,6 +92,26 @@
   {
     "title": "Other Notable Cases",
     "file": "/courts/ussc/collections/noteworthy.json",
+    "groups": [
+      {
+        "title": "*",
+        "tags": ["Noteworthy"]
+      }
+    ],
+    "search": "cases:title"
+  },
+    {
+    "title": "Outstanding Issues",
+    "file": "/courts/ussc/collections/issues.json",
+    "groups": [
+      {
+        "title": "Argued Cases Missing Audio",
+        "conditions": [
+          "argument >= '1955-10-01'",
+          "COUNT(events:audio_href) == 0"
+        ]
+      }
+    ],
     "search": "cases:title"
   }
 ]

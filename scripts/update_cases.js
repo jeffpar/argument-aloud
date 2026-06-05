@@ -8,7 +8,7 @@
  *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js TERM CASE --minority NAMES...
  *   node update_cases.js TERM CASE --recused NAMES...
- *   node update_cases.js [TERM [CASE]] --scdb [--ussc-deck] [--add] [--nocache] [--verbose]
+ *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
  *
@@ -41,7 +41,6 @@
  *   node update_cases.js 1926-10 --scdb             # verify one term against SCDB
  *   node update_cases.js 1926-10 1926-011 --scdb --verbose
  *                                                   # verify one case; show extra detail
- *   node update_cases.js --scdb --ussc-deck         # also rebuild data/aa/ussc_deck.csv
  *   node update_cases.js 2024-10 --scdb             # apply SCDB-derived fixes to cases.json
  *   node update_cases.js 2024-10 --scdb --dry-run   # report SCDB differences only
  *   node update_cases.js 2024-10 --scdb --debug     # also dump full ours/scdb JSON on mismatch
@@ -2751,7 +2750,6 @@ function processScdbDownloads(verbose) {
 
 const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-const _SCDB_DECK_PATH   = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
 const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_citations.csv');
 const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
 const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
@@ -3536,7 +3534,6 @@ const _COLLECTIONS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.js
 const _TRANSCRIPTS_PATH = path.join(_COLLECTIONS_DIR, 'transcripts.json');
 const _BRIEFS_PATH      = path.join(_COLLECTIONS_DIR, 'briefs.json');
 const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
-const _DECK_CSV_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_deck.csv');
 
 const _TRANSCRIPTS_SET_BASENAME = 'Transcripts';
 const _BRIEFS_SET_BASENAME      = 'Briefs';
@@ -3803,70 +3800,14 @@ function _findCaseInList(cases, row) {
 }
 
 function _buildNoteworthyCollection(allTerms) {
-    if (!fs.existsSync(_DECK_CSV_PATH)) {
-        console.log(`Noteworthy: deck CSV not found at ${path.relative(REPO_ROOT, _DECK_CSV_PATH)}; skipping.`);
-        return null;
-    }
-    // Load all term cases once.
-    const termCases = {};
-    for (const term of allTerms) {
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
-        if (!fs.existsSync(casesPath)) continue;
-        try { termCases[term] = _readJson(casesPath); } catch { /* ignore */ }
-    }
-
-    const { rows } = _readCsvRows(_DECK_CSV_PATH);
-    const groups = new Map(); // subset name -> [entry, ...]
-    let skipped = 0;
-    let unmatched = 0;
-
-    for (const row of rows) {
-        const caseName = _formatDeckCaseName(row);
-        const legalBasisRaw = (row.legalBasis || '').trim();
-        const subset = legalBasisRaw ? _cleanSubsetName(legalBasisRaw) : 'Other';
-
-        const year = _extractTermYear(row.term || '');
-        if (!year) { skipped++; continue; }
-
-        const candidates = _candidateTermsForYear(year, termCases);
-        if (!candidates.length) { skipped++; continue; }
-
-        let matched = null;
-        let matchedTerm = '';
-        for (const [t, cases] of candidates) {
-            const c = _findCaseInList(cases, row);
-            if (c) { matched = c; matchedTerm = t; break; }
-        }
-        if (!matched) { unmatched++; continue; }
-
-        const altTitle = (row.altTitle || '').trim();
-        let title = altTitle || caseName;
-        title = title.replace(/\\\\/g, ' ');
-
-        const decidedRaw = _firstDate(row.decided || '');
-        const decisionYear =
-            decidedRaw.slice(0, 4) ||
-            (matched.decision || '').slice(0, 4);
-        if (decisionYear) title = `${title} (${decisionYear})`;
-
-        const entry = { title, term: matchedTerm };
-        const docketNorm = _normalizeDocket((row.docket || '').trim());
-        if (docketNorm) entry.number = docketNorm;
-        const argued  = _firstDate(row.argued  || '');
-        const decided = _firstDate(row.decided || '');
-        if (argued)  entry.argument = argued;
-        if (decided) entry.decision = decided;
-        if (matched.files) entry.files = matched.files;
-
-        if (!groups.has(subset)) groups.set(subset, []);
-        groups.get(subset).push(entry);
-    }
-
-    const sortedSubsets = [...groups.keys()].sort((a, b) =>
-        _naturalSortKey(a).localeCompare(_naturalSortKey(b)));
-    const output = sortedSubsets.map(name => ({ name, cases: groups.get(name) }));
-
-    return { output, skipped, unmatched };
+    // Delegate to _buildTagsCollection using the same definition that
+    // collections.json uses: groups:[{ title:"*", tags:["Noteworthy"] }].
+    // This ensures both paths (explicit call here and the taggedCollections
+    // loop) produce identical output so the second write is always a no-op.
+    const output = _buildTagsCollection(allTerms, {
+        groups: [{ title: '*', tags: ['Noteworthy'] }],
+    });
+    return { output, skipped: 0, unmatched: 0 };
 }
 
 const _PAGE_KEY_ORDER = ['title', 'term', 'file', 'cases', 'journal_cover', 'journal_href'];
@@ -3938,9 +3879,87 @@ function _collectTaggedLeafEntries(entries) {
     return result;
 }
 
+// ---- condition-based filtering helpers ------------------------------------
+
+// Regex patterns for the two supported condition forms:
+//   property op value   e.g.  argument >= '1955-10-01'
+//   COUNT(arr:prop) op value  e.g.  COUNT(events:audio_href) == 0
+const _COND_PROP_RE  = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
+const _COND_COUNT_RE = /^COUNT\((\w+):(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
+
+function _parseCaseCondition(str) {
+    const s = (str || '').trim();
+    let m = _COND_COUNT_RE.exec(s);
+    if (m) return { type: 'count', array: m[1], subprop: m[2], op: m[3], value: parseFloat(m[4]) };
+    m = _COND_PROP_RE.exec(s);
+    if (m) {
+        const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
+        return { type: 'property', prop: m[1], op: m[2], value };
+    }
+    console.warn(`  WARNING: unrecognised condition syntax: ${JSON.stringify(str)}`);
+    return null;
+}
+
+function _applyCompOp(lhs, op, rhs) {
+    switch (op) {
+        case '>=': return lhs >= rhs;
+        case '<=': return lhs <= rhs;
+        case '>':  return lhs >  rhs;
+        case '<':  return lhs <  rhs;
+        case '==': return lhs == rhs;  // intentional == for mixed types
+        case '!=': return lhs != rhs;
+    }
+    return false;
+}
+
+function _matchesCaseConditions(c, conditions) {
+    for (const cond of conditions) {
+        if (!cond) continue;
+        if (cond.type === 'property') {
+            const val = c[cond.prop];
+            if (val == null) return false;
+            if (!_applyCompOp(val, cond.op, cond.value)) return false;
+        } else if (cond.type === 'count') {
+            const arr = Array.isArray(c[cond.array]) ? c[cond.array] : [];
+            const count = arr.filter(item => !!item[cond.subprop]).length;
+            if (!_applyCompOp(count, cond.op, cond.value)) return false;
+        }
+    }
+    return true;
+}
+
+// Scan allTerms for cases that satisfy requiredTags, filter, AND all conditions.
+function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
+    const cases = [];
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+        for (const c of termCases) {
+            if (requiredTags.length) {
+                if (!Array.isArray(c.tags)) continue;
+                if (!requiredTags.every(t => c.tags.includes(t))) continue;
+            }
+            if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
+            if (!_matchesCaseConditions(c, conditions)) continue;
+            cases.push(_setCaseEntry(c, term));
+        }
+    }
+    cases.sort((a, b) =>
+        (a.term      || '').localeCompare(b.term      || '') ||
+        (a.argument  || '').localeCompare(b.argument  || '') ||
+        (a.decision  || '').localeCompare(b.decision  || '') ||
+        (a.title     || '').localeCompare(b.title     || ''));
+    return cases;
+}
+
+// ---------------------------------------------------------------------------
+
 // Scan allTerms for cases that match a set of required tags; return sorted
 // case entries.
-function _casesByTags(allTerms, requiredTags) {
+function _casesByTags(allTerms, requiredTags, filter = {}) {
     const cases = [];
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -3951,6 +3970,7 @@ function _casesByTags(allTerms, requiredTags) {
         for (const c of termCases) {
             if (!Array.isArray(c.tags)) continue;
             if (!requiredTags.every(t => c.tags.includes(t))) continue;
+            if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             cases.push(_setCaseEntry(c, term));
         }
     }
@@ -3966,17 +3986,66 @@ function _casesByTags(allTerms, requiredTags) {
 // group becomes a separate { name, cases } entry in the output; when it has
 // a flat 'tags' array the entire collection is one group named after the
 // collection itself.
+//
+// Special case: when a group's "title" is "*", the group fans out into one
+// output-group per unique tag found on matching cases that is NOT in the
+// group's required "tags" list. This lets collections.json express "one group
+// per topic tag, for every case tagged Noteworthy" without enumerating every
+// topic in advance.
 function _buildTagsCollection(allTerms, collEntry) {
     if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
-        return collEntry.groups.map(g => ({
-            name:  g.title || '',
-            cases: (Array.isArray(g.tags) && g.tags.length)
-                ? _casesByTags(allTerms, g.tags)
-                : [],
-        }));
+        const output = [];
+        for (const g of collEntry.groups) {
+            const requiredTags = Array.isArray(g.tags) && g.tags.length ? g.tags : [];
+            if (g.title === '*') {
+                // Fan-out: one group per unique non-required tag on matching cases.
+                const filter = g.decision ? { decision: g.decision } : {};
+                const fanOut = new Map(); // tag name -> [entry, ...]
+                for (const term of allTerms) {
+                    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+                    if (!fs.existsSync(casesPath)) continue;
+                    let termCases;
+                    try { termCases = _readJson(casesPath); } catch { continue; }
+                    if (!Array.isArray(termCases)) continue;
+                    for (const c of termCases) {
+                        if (!Array.isArray(c.tags)) continue;
+                        if (!requiredTags.every(t => c.tags.includes(t))) continue;
+                        if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
+                        const entry = _setCaseEntry(c, term);
+                        for (const tag of c.tags) {
+                            if (requiredTags.includes(tag)) continue;
+                            if (!fanOut.has(tag)) fanOut.set(tag, []);
+                            fanOut.get(tag).push(entry);
+                        }
+                    }
+                }
+                const sortedNames = [...fanOut.keys()].sort((a, b) =>
+                    _naturalSortKey(a).localeCompare(_naturalSortKey(b)));
+                for (const name of sortedNames) {
+                    const cases = fanOut.get(name);
+                    cases.sort((a, b) =>
+                        (a.term      || '').localeCompare(b.term      || '') ||
+                        (a.argument  || '').localeCompare(b.argument  || '') ||
+                        (a.decision  || '').localeCompare(b.decision  || '') ||
+                        (a.title     || '').localeCompare(b.title     || ''));
+                    output.push({ name, cases });
+                }
+            } else {
+                const filter = g.decision ? { decision: g.decision } : {};
+                let cases;
+                if (Array.isArray(g.conditions) && g.conditions.length) {
+                    const parsed = g.conditions.map(_parseCaseCondition).filter(Boolean);
+                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter);
+                } else {
+                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter) : [];
+                }
+                output.push({ name: g.title || '', cases });
+            }
+        }
+        return output;
     }
     // Flat (single-group) form.
-    return [{ name: collEntry.title, cases: _casesByTags(allTerms, collEntry.tags) }];
+    return [{ name: collEntry.title, cases: _casesByTags(allTerms, collEntry.tags || []) }];
 }
 
 function processCollectionSets(allTerms, dryRun) {
@@ -4881,68 +4950,6 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     }
 }
 
-function _scdbVerifyUsscDeck(scdb) {
-    if (!fs.existsSync(_SCDB_DECK_PATH)) {
-        console.error(`ERROR: ussc_deck.csv not found at ${_SCDB_DECK_PATH}`);
-        process.exit(1);
-    }
-    const yearCache = new Map();
-    const getCaseIdsForYear = (year) => {
-        if (yearCache.has(year)) return yearCache.get(year);
-        const ids = new Set();
-        const y = parseInt(year, 10);
-        for (const yr of [y - 1, y, y + 1]) {
-            const dirs = fs.readdirSync(_SCDB_TERMS_DIR).filter(d => d.startsWith(`${yr}-`));
-            for (const d of dirs) {
-                const p = path.join(_SCDB_TERMS_DIR, d, 'cases.json');
-                if (!fs.existsSync(p)) continue;
-                try {
-                    const cases = JSON.parse(fs.readFileSync(p, 'utf8'));
-                    for (const c of cases) if (c.id) ids.add(c.id);
-                } catch {}
-            }
-        }
-        yearCache.set(year, ids);
-        return ids;
-    };
-
-    let checked = 0;
-    const notInScdb = [], notInCases = [];
-    const { rows } = _readCsvRows(_SCDB_DECK_PATH, 'utf8');
-    for (const r of rows) {
-        const raw = (r.scdb || '').trim();
-        if (!raw) continue;
-        const term = (r.term || '').trim();
-        for (const sid of raw.split(',').map(s => s.trim()).filter(Boolean)) {
-            checked++;
-            if (!scdb[sid]) { notInScdb.push(`  ${sid}: ${term}`); continue; }
-            const s = scdb[sid];
-            const year = (s.term || '').trim();
-            if (!/^\d{4}$/.test(year)) {
-                notInCases.push(`  ${sid}: unrecognized SCDB term value ${JSON.stringify(year)}`);
-                continue;
-            }
-            const ids = getCaseIdsForYear(year);
-            if (!ids.size) {
-                notInCases.push(`  ${sid}: no cases.json found for ${+year - 1}-*, ${year}-*, or ${+year + 1}-*`);
-                continue;
-            }
-            if (!ids.has(sid)) {
-                const summary = `${year} | ${s.caseName || ''} | docket=${s.docket || ''} | decided=${s.dateDecision || ''}`;
-                notInCases.push(`  ${sid}: ${summary}`);
-            }
-        }
-    }
-    console.log(`Checked ${checked} SCDB id(s) across ussc_deck rows.`);
-    if (notInScdb.length) {
-        console.log(`\n${notInScdb.length} caseId(s) not found in SCDB:`);
-        for (const m of notInScdb) console.log(m);
-    } else console.log('All SCDB ids found in SCDB data.');
-    if (notInCases.length) {
-        console.log(`\n${notInCases.length} caseId(s) not found in our cases.json:`);
-        for (const m of notInCases) console.log(m);
-    } else console.log('All SCDB ids found in cases.json.');
-}
 
 function _scdbPrintCase(scdb, caseId) {
     const c = scdb[caseId];
@@ -5057,8 +5064,6 @@ async function runScdb(opts) {
         _scdbAddCaseToTerm(scdb, yearMatch[1], opts.case);
     } else if (opts.case && !opts.backfill) {
         _scdbPrintCase(scdb, opts.case);
-    } else if (opts.usscDeck) {
-        _scdbVerifyUsscDeck(scdb);
     } else {
         _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.backfill);
     }
@@ -5886,7 +5891,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
-       node update_cases.js [TERM [CASE]] --scdb [--ussc-deck] [--add] [--nocache] [--verbose] [--debug]
+       node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose] [--debug]
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
@@ -5913,7 +5918,6 @@ Examples:
   node update_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
   node update_cases.js 1926-10 --scdb                      # verify one term vs SCDB
   node update_cases.js 1926-10 1926-011 --scdb --verbose   # verify one case; show extra detail
-  node update_cases.js --scdb --ussc-deck                  # also rebuild data/aa/ussc_deck.csv
   node update_cases.js 2024-10 --scdb                      # apply SCDB-derived fixes to cases.json
                                                            #   (records date disagreements in scdb_errors;
                                                            #    fills in missing votes / vote counts)
@@ -6932,7 +6936,6 @@ async function main() {
             update:   !dryRun,
             add:      flags.has('--add'),
             backfill: flags.has('--backfill'),
-            usscDeck: flags.has('--ussc-deck') || flags.has('--ussc_deck'),
             noCache:  flags.has('--nocache') || flags.has('--no-cache'),
             verbose,
             debug:    flags.has('--debug'),

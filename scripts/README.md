@@ -124,7 +124,6 @@ node scripts/verify_cases.js [TERM [CASE]] --dates [--verbose]
 | `--roles` | Derive petitioner / respondent / etc. roles for each argument event |
 | `--verbose` | Print extra detail |
 | `--scdb` | Cross-check against the Supreme Court Database (SCDB) |
-| `--ussc-deck` | Rebuild `data/aa/ussc_deck.csv` during SCDB check |
 | `--add` | Add missing SCDB-derived fields to cases |
 | `--nocache` | Ignore cached SCDB data |
 | `--dates` | Check argument and decision dates for consistency |
