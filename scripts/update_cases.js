@@ -7293,7 +7293,6 @@ async function main() {
     };
 
     for (const term of termsToProcess) {
-        if (termsToProcess.length > 1) console.log(term);
         const r = await processOneTerm(term, {
             checkUrls, opinionsOnly, verbose, dryRun, allTerms,
             caseFilter: termsToProcess.length === 1 ? caseFilter : null,

@@ -233,7 +233,7 @@ async function fetchTermCases(term) {
 
 // Called when nav search opens: loads all not-yet-built term case lists.
 // ── URL param helper ─────────────────────────────────────────────────────────
-// Rebuilds URLSearchParams so that 'collection' is always first, and 'entry' or 'id' is second.
+// Rebuilds URLSearchParams so that 'collection' is always first, and 'group' or 'id' is second.
 function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
   // Apply deletes first.
@@ -242,9 +242,9 @@ function buildUrlParams(updates, deletes = []) {
   url.searchParams.delete('link');
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // Enforce canonical parameter order: collection, entry/id, highlight, term, case, event, turn, file, then rest.
+  // Enforce canonical parameter order: collection, group/id, highlight, term, case, event, turn, file, then rest.
   const collection = url.searchParams.get('collection');
-  const entry      = url.searchParams.get('entry');
+  const group      = url.searchParams.get('group');
   const id         = url.searchParams.get('id');
   const highlight  = url.searchParams.get('highlight');
   const term       = url.searchParams.get('term');
@@ -252,11 +252,11 @@ function buildUrlParams(updates, deletes = []) {
   const event      = url.searchParams.get('event');
   const turn       = url.searchParams.get('turn');
   const file       = url.searchParams.get('file');
-  const orderedKeys = ['collection', 'entry', 'id', 'highlight', 'term', 'case', 'event', 'turn', 'file'];
+  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'turn', 'file'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
-  if (entry != null) reordered.push(['entry', entry]);
+  if (group != null) reordered.push(['group', group]);
   if (id != null) reordered.push(['id', id]);
   if (highlight != null) reordered.push(['highlight', highlight]);
   if (term != null) reordered.push(['term', term]);
@@ -683,7 +683,7 @@ function setCaseTitleLabel(term, caseEntry) {
     e.preventDefault();
     const url = buildUrlParams(
       { term, case: caseId(caseEntry) },
-      ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'link'],
+      ['collection', 'group', 'id', 'highlight', 'event', 'file', 'link'],
     );
     navigate(url);
     restoreFromURL();
@@ -1358,7 +1358,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       caseNumber: caseEntry.number || '',
       href:     buildUrlParams(
         { term, case: urlId },
-        ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+        ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
       ),
     });
 
@@ -1483,7 +1483,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       if (!fromRestore) {
         const url = buildUrlParams(
           { term, case: urlId },
-          ['collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+          ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
         );
         navigate(url);
       } else {
@@ -1742,7 +1742,7 @@ function buildNav(title = 'Terms') {
             }
             updateEmptyStateForTerm(null);
             // Term collapsed — remove term param too.
-            const url = buildUrlParams({}, ['collection', 'entry', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn']);
+            const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn']);
             navigate(url);
             document.getElementById('topbar-term').textContent = '';
             return;
@@ -1751,7 +1751,7 @@ function buildNav(title = 'Terms') {
           // Already open — still show stats and reset URL to term-only.
           updateEmptyStateForTerm(term);
           document.getElementById('topbar-term').textContent = termDisplayName(term);
-          const url = buildUrlParams({ term }, ['collection', 'entry', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+          const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
           navigate(url);
           return;
         } else {
@@ -1766,7 +1766,7 @@ function buildNav(title = 'Terms') {
         updateEmptyStateForTerm(term);
         document.getElementById('topbar-term').textContent = termDisplayName(term);
         // Update URL: set term param, clear case/audio/file/turn params.
-        const url = buildUrlParams({ term }, ['collection', 'entry', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+        const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
         navigate(url);
       });
 
@@ -2193,7 +2193,7 @@ function buildCollectionItem(sectionUl, collEntry) {
       collLi.classList.toggle('open');
       if (!collLi.classList.contains('open')) {
         _onCollClose?.();
-        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight']);
+        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight']);
         navigate(url);
         return;
       }
@@ -2203,7 +2203,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     // Open (or already open): build, navigate, show page.
     await _ensureCollectionBuilt();
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
-    const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'entry', 'id', 'highlight', 'link']);
+    const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link']);
     navigate(url);
   });
 
@@ -2365,12 +2365,12 @@ function _buildHighlightItem(highlight, highlightIdx, href = null) {
       const groupLi = ci.closest('.month-group');
       const collLi  = ci.closest('.term-group[data-collection-url]');
       const collId  = collLi?.dataset.collectionUrl?.split('/').pop().replace('.json', '');
-      const groupId = groupLi?.dataset.entryId ?? null;
-      const entryIdx = groupLi?.dataset.entryIdx ?? null;
-      const entryOrId = groupId != null ? { id: groupId } : (entryIdx != null ? { entry: entryIdx } : {});
-      const deleteOther = groupId != null ? ['entry'] : ['id'];
+      const groupId = groupLi?.dataset.groupId ?? null;
+      const groupIdx = groupLi?.dataset.groupIdx ?? null;
+      const groupOrId = groupId != null ? { id: groupId } : (groupIdx != null ? { group: groupIdx } : {});
+      const deleteOther = groupId != null ? ['group'] : ['id'];
       const url = buildUrlParams(
-        { ...(collId ? { collection: collId } : {}), ...entryOrId, highlight: highlightIdx + 1 },
+        { ...(collId ? { collection: collId } : {}), ...groupOrId, highlight: highlightIdx + 1 },
         [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
       navigate(url);
@@ -2446,12 +2446,12 @@ async function loadHighlight(highlight) {
   }
 }
 
-function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categories) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categories) {
   const caseKey = caseRef.term + '/' + caseRef.number;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
-  const _ciEntryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };
-  const _ciDeleteOther = groupId != null ? 'entry' : 'id';
+  const _ciGroupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
+  const _ciDeleteOther = groupId != null ? 'group' : 'id';
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
     title:     caseTitle(caseRef.title),
@@ -2468,7 +2468,7 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     hasFiles:  !!caseRef.files,
     caseNumber: caseRef.number || '',
     href:      buildUrlParams(
-      { collection: collId, ..._ciEntryOrId, term: caseRef.term, case: caseRef.number },
+      { collection: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number },
       [_ciDeleteOther, 'highlight', 'event', 'file', 'turn'],
     ),
   });
@@ -2704,12 +2704,12 @@ function _buildCollectionCaseItem(caseRef, collId, entryNumber, groupId, categor
     const hasPlayableAudio = sortedAudio.some(a => a.audio_href);
 
     if (!fromRestore) {
-      const entryOrId = groupId != null ? { id: groupId } : { entry: entryNumber };
-      const deleteOther = groupId != null ? ['entry'] : ['id'];
+      const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
+      const deleteOther = groupId != null ? ['group'] : ['id'];
       const url = buildUrlParams(
         {
           collection: collId,
-          ...entryOrId,
+          ...groupOrId,
           term: caseRef.term,
           case: caseRef.number,
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
@@ -2756,12 +2756,12 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
   for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
     const group = groups[groupIdx];
-    const entryNumber = groupIdx + 1; // 1-based index within the collection
+    const groupNumber = groupIdx + 1; // 1-based index within the collection
     // Each group (e.g. "Abe Fortas") — styled like a month group
     const groupLi = document.createElement('li');
     groupLi.className = 'month-group';
-    groupLi.dataset.entryIdx = String(entryNumber);
-    if (group.id != null) groupLi.dataset.entryId = group.id;
+    groupLi.dataset.groupIdx = String(groupNumber);
+    if (group.id != null) groupLi.dataset.groupId = group.id;
 
     // Precompute search text for collection filtering (used by inline search).
     {
@@ -2879,7 +2879,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       if (Array.isArray(group.cases)) {
         // Embedded format: build case items from the in-memory array.
         for (const caseRef of group.cases) {
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
         }
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
       } else if (group.id) {
@@ -2896,16 +2896,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
             groupLi._groupDocument = _groupDocument;
             for (const [hlIdx, hl] of highlights.entries()) {
               const _hlGroupId = group.id ?? null;
-              const _hlEntryOrId = _hlGroupId != null ? { id: _hlGroupId } : { entry: entryNumber };
-              const _hlDeleteOther = _hlGroupId != null ? 'entry' : 'id';
+              const _hlGroupOrId = _hlGroupId != null ? { id: _hlGroupId } : { group: groupNumber };
+              const _hlDeleteOther = _hlGroupId != null ? 'group' : 'id';
               const hlHref = buildUrlParams(
-                { collection: collId, ..._hlEntryOrId, highlight: hlIdx + 1 },
+                { collection: collId, ..._hlGroupOrId, highlight: hlIdx + 1 },
                 [_hlDeleteOther, 'term', 'case', 'event', 'file', 'turn'],
               );
               groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
             }
             for (const caseRef of advocateCases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, entryNumber, group.id, collEntry.categories));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
             }
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
           }
@@ -2932,10 +2932,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       // Open (or already open): update URL, load cases, show page.
       groupCount.classList.add('sort-active');
       groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc);
-      const entryOrId = group.id != null ? { id: group.id } : { entry: entryNumber };
-      const deleteOther = group.id != null ? ['entry'] : ['id'];
+      const groupOrId = group.id != null ? { id: group.id } : { group: groupNumber };
+      const deleteOther = group.id != null ? ['group'] : ['id'];
       const url = buildUrlParams(
-        { collection: collId, ...entryOrId },
+        { collection: collId, ...groupOrId },
         [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn'],
       );
       history.replaceState(null, '', url);
@@ -3665,7 +3665,7 @@ function renderTranscript() {
         const turnUrl = (ciTerm && ciCase)
           ? buildUrlParams(
               { term: ciTerm, case: ciCase, turn: turnId, ...(currentEvent > 0 ? { event: currentEvent } : {}) },
-              ['collection', 'entry', 'id', 'highlight', 'file', 'link']
+              ['collection', 'group', 'id', 'highlight', 'file', 'link']
             )
           : buildUrlParams({ turn: turnId });
         history.replaceState(null, '', turnUrl);
@@ -3680,7 +3680,7 @@ function renderTranscript() {
         }
         const advocateUrl = buildUrlParams(
           advocateUrlParams,
-          ['file', 'highlight', 'entry', 'link'],
+          ['file', 'highlight', 'group', 'link'],
         );
         navigate(advocateUrl);
         // On mobile, after the transcript loads scroll the doc-browser so the
@@ -3740,7 +3740,7 @@ function renderTranscript() {
         const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
           ? parseInt(audioSelect.value, 10)
           : 0;
-        // If we're already viewing within a collection, preserve collection/id/entry/event
+        // If we're already viewing within a collection, preserve collection/id/group/event
         // so the advocate context stays in the URL. The user can click the case title
         // link to return to the plain term view.
         const inCollection = !!new URLSearchParams(location.search).get('collection');
@@ -3748,7 +3748,7 @@ function renderTranscript() {
           { term: ciTerm, case: ciCase, ...(currentEvent > 0 ? { event: currentEvent } : {}), turn: turnId },
           inCollection
             ? ['highlight', 'file', 'link']
-            : ['collection', 'entry', 'id', 'highlight', 'file', 'link']);
+            : ['collection', 'group', 'id', 'highlight', 'file', 'link']);
         // Desktop only: keep the active case visible in the sidebar. On mobile,
         // tapping a turn should not shift the viewport or reveal the explorer pane.
         // Skip when in a collection view — the collection item is already visible.
@@ -4499,7 +4499,7 @@ async function _randomizeThenRestore(startTerm, stopTerm) {
   const caseId = _caseUrlId(caseEntry, cases);
   const url = buildUrlParams(
     { term, case: caseId },
-    ['action', 'start', 'stop', 'collection', 'entry', 'id', 'highlight', 'event', 'file', 'turn'],
+    ['action', 'start', 'stop', 'collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
   );
   history.replaceState(null, '', url);
 
@@ -4637,7 +4637,7 @@ async function restoreFromURL() {
   if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const caseParam       = params.get('case');
   const collectionParam = params.get('collection');
-  const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
+  const groupParam      = params.get('group') != null ? parseInt(params.get('group'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
   const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into caseEntry.events (original on-disk order)
@@ -4663,7 +4663,7 @@ async function restoreFromURL() {
 
   // Collection-only: just open/expand the collection in the nav.
   const _anySectionLi = _collectionsSectionLi || _topicsSectionLi;
-  if (collectionParam && !entryParam && !idParam && highlightParam == null && !termParam && !caseParam && _anySectionLi) {
+  if (collectionParam && !groupParam && !idParam && highlightParam == null && !termParam && !caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
@@ -4692,7 +4692,7 @@ async function restoreFromURL() {
       while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
-      const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
+      const groupLi = collLi.querySelector(`.month-group[data-group-id="${CSS.escape(idParam)}"]`);
       if (groupLi) {
         groupLi.classList.add('open');
         await groupLi._ensureCases?.();
@@ -4707,8 +4707,8 @@ async function restoreFromURL() {
     return;
   }
 
-  // Entry-only: collection + entry/id but no specific case selected.
-  if (collectionParam && (entryParam || idParam) && !termParam && !caseParam && _anySectionLi) {
+  // Group-only: collection + group/id but no specific case selected.
+  if (collectionParam && (groupParam || idParam) && !termParam && !caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
@@ -4719,8 +4719,8 @@ async function restoreFromURL() {
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       const groupLi = idParam
-        ? collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`)
-        : collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
+        ? collLi.querySelector(`.month-group[data-group-id="${CSS.escape(idParam)}"]`)
+        : collLi.querySelector(`.month-group[data-group-idx="${groupParam}"]`);
       if (groupLi) {
         groupLi.classList.add('open');
         await groupLi._ensureCases?.();
@@ -4749,15 +4749,15 @@ async function restoreFromURL() {
       // select the same case under a different advocate who argued the same term/case.
       let _caseSearchRoot = collLi;
       if (idParam) {
-        const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
+        const groupLi = collLi.querySelector(`.month-group[data-group-id="${CSS.escape(idParam)}"]`);
         if (groupLi) {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
           _caseSearchRoot = groupLi;
         }
-      } else if (entryParam) {
-        const groupLi = collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
+      } else if (groupParam) {
+        const groupLi = collLi.querySelector(`.month-group[data-group-idx="${groupParam}"]`);
         if (groupLi) {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
