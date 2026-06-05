@@ -3188,19 +3188,17 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
             const turns    = Array.isArray(transcript.turns) ? transcript.turns : [];
             const label    = `${term}/${relPath}`;
 
-            // Cross-check: warn about any turn speaker not listed in speakers array.
-            const existingSpeakerNames = new Set(speakers.map(sp => sp.name || ''));
+            // Collect turn speaker names in first-appearance order.
+            const turnSpeakerNames = [];
             const seenInTurns = new Set();
             for (const turn of turns) {
                 const name = turn.name || '';
-                if (!name || seenInTurns.has(name)) continue;
-                seenInTurns.add(name);
-                if (!existingSpeakerNames.has(name)) {
-                    console.log(`  WARNING: ${label}: turns speaker '${name}' not listed in speakers`);
+                if (name && !seenInTurns.has(name)) {
+                    seenInTurns.add(name);
+                    turnSpeakerNames.push(name);
                 }
             }
 
-            // Check whether any turn references UNKNOWN JUSTICE.
             const hasUnknownInTurns = seenInTurns.has('UNKNOWN JUSTICE');
 
             // Map serving-justice canonical names → existing speaker objects.
@@ -3218,14 +3216,19 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
                 if (canon && !existingCanonicals.has(canon)) existingCanonicals.set(canon, sp);
             }
 
-            const serving     = _getServingJusticesSorted(argDate);
+            const serving = _getServingJusticesSorted(argDate);
+
+            // Sanity-check: more than 9 serving justices indicates a data problem.
+            if (serving.length > 9) {
+                console.log(`  WARNING: ${label}: ${serving.length} justices found serving on ${argDate} (expected ≤ 9) — skipping`);
+                continue;
+            }
+
             const missing     = serving.filter(j => !existingCanonicals.has(j.canonical));
             const needUnknown = (hasUnknownInTurns || unknownJusticeSpeaker) && !unknownJusticeSpeaker;
 
-            if (missing.length === 0 && !needUnknown) continue;
-
-            // Justice block: serving justices in seniority order, then UNKNOWN JUSTICE last
-            // (when turns reference it, or it was already present in speakers).
+            // Build the complete expected justice block now (used for cross-check and
+            // for writing). Serving justices in seniority order, UNKNOWN JUSTICE last.
             const justiceSpeakers = serving.map(j =>
                 existingCanonicals.has(j.canonical)
                     ? existingCanonicals.get(j.canonical)
@@ -3235,8 +3238,8 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
                 justiceSpeakers.push(unknownJusticeSpeaker || { name: 'UNKNOWN JUSTICE', title: 'JUSTICE' });
             }
 
-            // Non-justice speakers: ordered by first appearance in turns, with any
-            // speakers present in the array but absent from turns appended at the end.
+            // Build the complete expected non-justice block. Ordered by first appearance
+            // in turns, with speakers absent from turns appended at the end.
             // UNKNOWN SPEAKER is always placed last, regardless of turn order.
             const justiceCanonicalSet = new Set(serving.map(j => j.canonical));
             justiceCanonicalSet.add('UNKNOWN JUSTICE');
@@ -3257,19 +3260,33 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
 
             const nonJusticeSpeakers = [];
             const seenNonJustice = new Set();
-            for (const turn of turns) {
-                const name = turn.name || '';
-                if (!name || seenNonJustice.has(name)) continue;
+            for (const name of turnSpeakerNames) {
                 if (justiceCanonicalSet.has(_scdbCanonName(name))) continue;
                 if (name.toUpperCase() === 'UNKNOWN SPEAKER') continue; // always last
+                if (seenNonJustice.has(name)) continue;
                 seenNonJustice.add(name);
                 const sp = nonJusticeByName.get(name);
                 if (sp) { nonJusticeSpeakers.push(sp); nonJusticeByName.delete(name); }
             }
-            // Append any non-justice speakers not seen in turns (preserve relative order).
+            // Append non-justice speakers absent from turns (preserve relative order).
             for (const sp of nonJusticeByName.values()) nonJusticeSpeakers.push(sp);
             // UNKNOWN SPEAKER always goes last.
             if (unknownSpeakerObj) nonJusticeSpeakers.push(unknownSpeakerObj);
+
+            // Cross-check: every turn speaker must appear in the final speakers array.
+            // Check against the fully-rebuilt list so we don't warn about justices we're
+            // about to add.
+            const finalSpeakerNames = new Set([
+                ...justiceSpeakers.map(sp => sp.name || ''),
+                ...nonJusticeSpeakers.map(sp => sp.name || ''),
+            ]);
+            for (const name of turnSpeakerNames) {
+                if (!finalSpeakerNames.has(name)) {
+                    console.log(`  WARNING: ${label}: turns speaker '${name}' not listed in speakers`);
+                }
+            }
+
+            if (missing.length === 0 && !needUnknown) continue;
 
             if (dryRun) {
                 const parts = [];
