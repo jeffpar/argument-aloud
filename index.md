@@ -9,8 +9,7 @@ layout: home
 
 ## Highlights
 
-  - [Browse All Cases](/courts/ussc)
-  - [October 2025 Term](/courts/ussc/?term=2025-10)
+  - [All Cases](/courts/ussc)
   - [Top Advocates](/courts/ussc/?collection=top_advocates)
   - [Women Advocates](/courts/ussc/?collection=women_advocates)
   - *NEW*! [Roll the Supreme Court Dice](/courts/ussc/?action=randomize&start=1955-10)

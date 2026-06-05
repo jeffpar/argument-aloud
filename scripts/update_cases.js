@@ -3824,8 +3824,8 @@ function syncTermsJson() {
 
     let modified = false;
     for (const decade of tj) {
-        for (let i = 0; i < (decade.pages || []).length; i++) {
-            const page = decade.pages[i];
+        for (let i = 0; i < (decade.groups || []).length; i++) {
+            const page = decade.groups[i];
             // Support both old format (cases = URL string) and new format (file = URL string).
             const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
@@ -3854,7 +3854,7 @@ function syncTermsJson() {
             }
 
             if (JSON.stringify(newPage) !== JSON.stringify(page)) {
-                decade.pages[i] = newPage;
+                decade.groups[i] = newPage;
                 modified = true;
             }
         }
@@ -5228,7 +5228,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -5438,7 +5438,7 @@ function runUnargued(termFilter, caseFilter) {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -5544,7 +5544,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -6045,7 +6045,7 @@ async function runDissentCheck(termFilter) {
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         for (const decade of tj) {
-            for (const page of (decade.pages || [])) {
+            for (const page of (decade.groups || [])) {
                 const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
                 const termKey = page.term || (m ? m[1] : null);
                 if (termKey && (page.name || page.title)) termTitleMap[termKey] = page.name || page.title;
@@ -6057,7 +6057,7 @@ async function runDissentCheck(termFilter) {
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -7060,7 +7060,7 @@ async function main() {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         // terms.json is decade-grouped: [{title, pages:[{title, file, cases(count), term?},...]}]
         // Derive the term key from the file URL: /courts/ussc/terms/YYYY-MM/cases.json
-        allTerms = tj.flatMap(decade => (decade.pages || []).map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;

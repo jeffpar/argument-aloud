@@ -1,5 +1,7 @@
 # U.S. Supreme Court Justices
 
+NOTE: Since this list was compiled, we've discovered other Justice Advocates, such as STANLEY REED, which is why our scripts no longer rely on this file.  However, it is still a useful reference.
+
 ## JUSTICE ABE FORTAS
 
 ### Cases Argued

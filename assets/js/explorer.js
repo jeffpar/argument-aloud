@@ -213,7 +213,7 @@ async function loadFiles(url) {
 
 // ── Lazy term loading ────────────────────────────────────────────────────────
 let TERMS = [];         // flat array {name, file, cases(count), term(derived), journal_*} built from terms.json in init()
-let TERMS_GROUPED = []; // decade-grouped [{title, pages:[...]}] from terms.json
+let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
@@ -1616,7 +1616,7 @@ function buildNav(title = 'Terms') {
     const decUl = document.createElement('ul');
     decUl.className = 'term-list-inner';
 
-    for (const page of decade.pages || []) {
+    for (const page of decade.groups || []) {
       // Derive the term identifier from the cases URL.
       const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
       const term = m ? m[1] : (page.file || page.cases);
@@ -1856,7 +1856,7 @@ function buildNavFromIndex(navData) {
       if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms');
       else if (entry.file.endsWith('collections.json')) _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS);
       else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS);
-    } else if (entry.pages) {
+    } else if (entry.groups) {
       buildStaticNavSection(termListEl, entry);
     }
   }
@@ -1887,7 +1887,7 @@ function buildStaticNavSection(termListEl, entry) {
   const ul = document.createElement('ul');
   ul.className = 'terms-list-inner';
 
-  for (const page of entry.pages || []) {
+  for (const page of entry.groups || []) {
     if (page.hidden) continue;
     buildStaticPageItem(ul, page);
   }
@@ -1900,7 +1900,7 @@ function buildStaticNavSection(termListEl, entry) {
 function buildStaticPageItem(parentUl, page) {
   if (page.hidden) return;
   const li = document.createElement('li');
-  const hasSubPages = Array.isArray(page.pages) && page.pages.length > 0;
+  const hasSubPages = Array.isArray(page.groups) && page.groups.length > 0;
 
   if (hasSubPages) {
     li.className = 'term-group';
@@ -1949,7 +1949,7 @@ function buildStaticPageItem(parentUl, page) {
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';
-    for (const subPage of page.pages) {
+    for (const subPage of page.groups) {
       buildStaticPageItem(ul, subPage);
     }
 
@@ -4550,10 +4550,10 @@ async function init() {
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {
-        TERMS_GROUPED = [...data].reverse().map(d => ({ ...d, pages: [...(d.pages || [])].reverse() }));
+        TERMS_GROUPED = [...data].reverse().map(d => ({ ...d, groups: [...(d.groups || [])].reverse() }));
         // Build flat TERMS array for lookups (term derived from cases URL).
         TERMS = data.flatMap(decade =>
-          (decade.pages || []).map(page => {
+          (decade.groups || []).map(page => {
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return { ...page, term: m ? m[1] : '' };
           })
@@ -4633,7 +4633,8 @@ async function restoreFromURL() {
   }
 
   const linkParam       = params.get('link');
-  const termParam       = params.get('term');
+  let termParam         = params.get('term');
+  if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const caseParam       = params.get('case');
   const collectionParam = params.get('collection');
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
