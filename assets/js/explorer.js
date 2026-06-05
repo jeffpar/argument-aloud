@@ -18,7 +18,8 @@ let _currentOyezHref    = null; // oyez URL for the active case (used by audio d
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
-let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
+let _collectionsSectionLi = null; // top-level Collections <li>
+let _topicsSectionLi      = null; // top-level Topics <li>
 
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
@@ -57,7 +58,7 @@ const MONTHS = ['January','February','March','April','May','June',
 
 function termDisplayName(term) {
   const entry = TERMS.find(t => t.term === term);
-  if (entry?.title) return entry.title.replace(/ /g, '\u00a0');
+  if (entry?.name) return entry.name.replace(/ /g, '\u00a0');
   const [year, month] = term.split('-');
   return (MONTHS[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
 }
@@ -211,9 +212,10 @@ async function loadFiles(url) {
 }
 
 // ── Lazy term loading ────────────────────────────────────────────────────────
-let TERMS = [];         // flat array {title, file, cases(count), term(derived), journal_*} built from terms.json in init()
+let TERMS = [];         // flat array {name, file, cases(count), term(derived), journal_*} built from terms.json in init()
 let TERMS_GROUPED = []; // decade-grouped [{title, pages:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
+let TOPICS      = []; // populated from topics.json in init()
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 
 async function fetchTermCases(term) {
@@ -1587,7 +1589,7 @@ function buildNav(title = 'Terms') {
 
     const decLabel = document.createElement('span');
     decLabel.className = 'decade-label';
-    decLabel.textContent = decade.title;
+    decLabel.textContent = decade.name;
 
     decHeader.appendChild(decTog);
     decHeader.appendChild(decLabel);
@@ -1632,7 +1634,7 @@ function buildNav(title = 'Terms') {
 
       const label = document.createElement('span');
       label.className = 'term-label';
-      label.textContent = page.title;
+      label.textContent = page.name;
 
       termHeader.appendChild(termTog);
       termHeader.appendChild(label);
@@ -1792,8 +1794,8 @@ function _findCollectionEntry(entries, collId) {
   return null;
 }
 
-function buildCollectionsNav(title = 'Collections') {
-  if (typeof COLLECTIONS === 'undefined' || !COLLECTIONS.length) return;
+function buildCollectionsNav(title = 'Collections', data = COLLECTIONS) {
+  if (!data || !data.length) return null;
 
   const termListEl = document.getElementById('term-list');
 
@@ -1822,7 +1824,7 @@ function buildCollectionsNav(title = 'Collections') {
   function _doSectionBuild() {
     if (_sectionBuilt) return;
     _sectionBuilt = true;
-    for (const collEntry of COLLECTIONS) {
+    for (const collEntry of data) {
       if (collEntry.hidden) continue;
       buildCollectionItem(sectionUl, collEntry);
     }
@@ -1837,10 +1839,10 @@ function buildCollectionsNav(title = 'Collections') {
     }
   });
 
-  _collectionsSectionLi = sectionLi;
   sectionLi.appendChild(sectionHeader);
   sectionLi.appendChild(sectionUl);
   termListEl.appendChild(sectionLi);
+  return sectionLi;
 }
 
 // ── Nav from index.json ───────────────────────────────────────────────────────
@@ -1851,8 +1853,9 @@ function buildNavFromIndex(navData) {
   for (const entry of navData) {
     if (entry.hidden) continue;
     if (entry.file) {
-      if (entry.file.endsWith('terms.json')) buildNav(entry.title || 'Terms');
-      else if (entry.file.endsWith('collections.json')) buildCollectionsNav(entry.title || 'Collections');
+      if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms');
+      else if (entry.file.endsWith('collections.json')) _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS);
+      else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS);
     } else if (entry.pages) {
       buildStaticNavSection(termListEl, entry);
     }
@@ -1872,7 +1875,7 @@ function buildStaticNavSection(termListEl, entry) {
 
   const label = document.createElement('span');
   label.className = 'terms-label';
-  label.textContent = entry.title;
+  label.textContent = entry.name;
 
   header.appendChild(tog);
   header.appendChild(label);
@@ -1914,7 +1917,7 @@ function buildStaticPageItem(parentUl, page) {
     if (page.link) {
       label = document.createElement('a');
       label.className = 'term-label';
-      label.textContent = page.title;
+      label.textContent = page.name;
       label.style.cursor = 'pointer';
       const _lu = new URL(location.href);
       _lu.search = '';
@@ -1924,7 +1927,7 @@ function buildStaticPageItem(parentUl, page) {
     } else {
       label = document.createElement('span');
       label.className = 'term-label';
-      label.textContent = page.title;
+      label.textContent = page.name;
     }
 
     header.appendChild(tog);
@@ -1963,7 +1966,7 @@ function buildStaticPageItem(parentUl, page) {
     if (page.link) {
       titleSpan = document.createElement('a');
       titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = page.title;
+      titleSpan.textContent = page.name;
       titleSpan.style.cursor = 'pointer';
       const _pu = new URL(location.href);
       _pu.search = '';
@@ -1974,7 +1977,7 @@ function buildStaticPageItem(parentUl, page) {
     } else {
       titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = page.title;
+      titleSpan.textContent = page.name;
     }
 
     header.appendChild(titleSpan);
@@ -2072,7 +2075,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     groupTog.textContent = '▶';
     const groupLabel = document.createElement('span');
     groupLabel.className = 'term-label';
-    groupLabel.textContent = collEntry.title;
+    groupLabel.textContent = collEntry.name;
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupLabel);
     const groupUl = document.createElement('ul');
@@ -2108,7 +2111,7 @@ function buildCollectionItem(sectionUl, collEntry) {
 
   const collLabel = document.createElement('span');
   collLabel.className = 'term-label';
-  collLabel.textContent = collEntry.title;
+  collLabel.textContent = collEntry.name;
 
   collHeader.appendChild(collTog);
   collHeader.appendChild(collLabel);
@@ -2211,8 +2214,8 @@ function buildCollectionItem(sectionUl, collEntry) {
     _collSearchBtn.type = 'button';
     _collSearchBtn.className = 'coll-search-btn';
     _collSearchBtn.textContent = '\u{1F50D}';
-    _collSearchBtn.title = 'Search ' + collEntry.title;
-    _collSearchBtn.setAttribute('aria-label', 'Search ' + collEntry.title);
+    _collSearchBtn.title = 'Search ' + collEntry.name;
+    _collSearchBtn.setAttribute('aria-label', 'Search ' + collEntry.name);
     collHeader.appendChild(_collSearchBtn);
 
     _collSearchRow = document.createElement('div');
@@ -4557,6 +4560,8 @@ async function init() {
         );
       } else if (entry.file.endsWith('collections.json')) {
         COLLECTIONS = data;
+      } else if (entry.file.endsWith('topics.json')) {
+        TOPICS = data;
       }
     } catch (e) {
       console.warn('[nav] failed to load', entry.file, e);
@@ -4639,36 +4644,51 @@ async function restoreFromURL() {
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
+
+  // Returns the section <li> that contains the given collection, opened and built.
+  // Checks _collectionsSectionLi then _topicsSectionLi so both sources are routable.
+  async function _openCollectionSection(collId) {
+    for (const sLi of [_collectionsSectionLi, _topicsSectionLi]) {
+      if (!sLi) continue;
+      sLi.classList.add('open');
+      await sLi._ensureBuilt();
+      if (sLi.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`)) return sLi;
+    }
+    return null;
+  }
+  function _findAnyCollectionEntry(collId) {
+    return _findCollectionEntry(COLLECTIONS, collId) ?? _findCollectionEntry(TOPICS, collId);
+  }
+
   // Collection-only: just open/expand the collection in the nav.
-  if (collectionParam && !entryParam && !idParam && highlightParam == null && !termParam && !caseParam && _collectionsSectionLi) {
-    _collectionsSectionLi.classList.add('open');
-    await _collectionsSectionLi._ensureBuilt();
-    const collLi = _collectionsSectionLi.querySelector(
+  const _anySectionLi = _collectionsSectionLi || _topicsSectionLi;
+  if (collectionParam && !entryParam && !idParam && highlightParam == null && !termParam && !caseParam && _anySectionLi) {
+    const _sLi = await _openCollectionSection(collectionParam);
+    const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
-      while (_ag && _collectionsSectionLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
+      while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
-    const collEntry = _findCollectionEntry(COLLECTIONS, collectionParam);
+    const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.link || null;
     if (resolvedLink) showPageViewer(resolvedLink, { pushState: false });
     return;
   }
 
   // Highlight: collection + id + highlight index
-  if (collectionParam && idParam && highlightParam != null && !termParam && !caseParam && _collectionsSectionLi) {
-    _collectionsSectionLi.classList.add('open');
-    await _collectionsSectionLi._ensureBuilt();
-    const collLi = _collectionsSectionLi.querySelector(
+  if (collectionParam && idParam && highlightParam != null && !termParam && !caseParam && _anySectionLi) {
+    const _sLi = await _openCollectionSection(collectionParam);
+    const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
-      while (_ag && _collectionsSectionLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
+      while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       const groupLi = collLi.querySelector(`.month-group[data-entry-id="${CSS.escape(idParam)}"]`);
@@ -4687,15 +4707,14 @@ async function restoreFromURL() {
   }
 
   // Entry-only: collection + entry/id but no specific case selected.
-  if (collectionParam && (entryParam || idParam) && !termParam && !caseParam && _collectionsSectionLi) {
-    _collectionsSectionLi.classList.add('open');
-    await _collectionsSectionLi._ensureBuilt();
-    const collLi = _collectionsSectionLi.querySelector(
+  if (collectionParam && (entryParam || idParam) && !termParam && !caseParam && _anySectionLi) {
+    const _sLi = await _openCollectionSection(collectionParam);
+    const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
-      while (_ag && _collectionsSectionLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
+      while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       const groupLi = idParam
@@ -4714,15 +4733,14 @@ async function restoreFromURL() {
     return;
   }
 
-  if (collectionParam && termParam && caseParam && _collectionsSectionLi) {
-    _collectionsSectionLi.classList.add('open');
-    await _collectionsSectionLi._ensureBuilt();
-    const collLi = _collectionsSectionLi.querySelector(
+  if (collectionParam && termParam && caseParam && _anySectionLi) {
+    const _sLi = await _openCollectionSection(collectionParam);
+    const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
-      while (_ag && _collectionsSectionLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
+      while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
       // Ensure group cases are built before looking up the case item (both split and embedded format).

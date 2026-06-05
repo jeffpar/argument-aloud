@@ -601,7 +601,9 @@ function _isTranscriptAligned(transcriptPath) {
     try {
         const data = JSON.parse(fs.readFileSync(transcriptPath, 'utf8'));
         const turns = Array.isArray(data) ? data : (data?.turns || []);
-        return turns.some(t => t && t.time);
+        // A single-turn transcript is always aligned (no relative timing needed).
+        // A multi-turn transcript is only aligned if at least one turn has a non-zero timestamp.
+        return turns.length === 1 || turns.some(t => t && t.time && /[1-9]/.test(t.time));
     } catch { return false; }
 }
 
@@ -3530,7 +3532,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
 // =====================================================================
 
 const _COLLECTIONS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
-const _COLLECTIONS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
+const _INDEX_JSON       = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
 const _TRANSCRIPTS_PATH = path.join(_COLLECTIONS_DIR, 'transcripts.json');
 const _BRIEFS_PATH      = path.join(_COLLECTIONS_DIR, 'briefs.json');
 const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
@@ -3813,7 +3815,7 @@ function _buildNoteworthyCollection(allTerms) {
     return { output, skipped: 0, unmatched: 0 };
 }
 
-const _PAGE_KEY_ORDER = ['title', 'term', 'file', 'cases', 'journal_cover', 'journal_href'];
+const _PAGE_KEY_ORDER = ['name', 'term', 'file', 'cases', 'journal_cover', 'journal_href'];
 
 function syncTermsJson() {
     let tj;
@@ -4075,7 +4077,7 @@ function _buildTagsCollection(allTerms, collEntry) {
         const output = [];
         for (const g of collEntry.groups) {
             const requiredTags = Array.isArray(g.tags) && g.tags.length ? g.tags : [];
-            if (g.title === '*') {
+            if ((g.name ?? g.title) === '*') {
                 // Fan-out: one group per unique non-required tag on matching cases.
                 const filter = g.decision ? { decision: g.decision } : {};
                 const fanOut = new Map(); // tag name -> [entry, ...]
@@ -4117,13 +4119,13 @@ function _buildTagsCollection(allTerms, collEntry) {
                 } else {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter) : [];
                 }
-                output.push({ name: g.title || '', cases });
+                output.push({ name: g.name || g.title || '', cases });
             }
         }
         return output;
     }
     // Flat (single-group) form.
-    return [{ name: collEntry.title, cases: _casesByTags(allTerms, collEntry.tags || []) }];
+    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || []) }];
 }
 
 function processCollectionSets(allTerms, dryRun) {
@@ -4131,12 +4133,19 @@ function processCollectionSets(allTerms, dryRun) {
     const briefs      = _buildBriefsCollection(allTerms);
     const noteworthy  = _buildNoteworthyCollection(allTerms);
 
-    // Tags-based collections: read collections.json, find all leaf entries with
-    // a 'tags' array, build each from cases whose tags include all required tags.
+    // Tags/conditions-based collections: walk index.json to discover all
+    // collection-definition files (collections.json, topics.json, etc.), then
+    // find all leaf entries with 'tags' or 'groups' and build each one.
     const taggedCollections = [];
-    if (fs.existsSync(_COLLECTIONS_JSON)) {
+    let indexEntries = [];
+    try { indexEntries = _readJson(_INDEX_JSON); } catch { /* ignore */ }
+    const collDefFiles = indexEntries
+        .filter(e => e.file && !e.file.endsWith('terms.json'))
+        .map(e => path.join(REPO_ROOT, e.file.replace(/^\//, '')));
+    for (const collDefsPath of collDefFiles) {
+        if (!fs.existsSync(collDefsPath)) continue;
         let collDefs;
-        try { collDefs = _readJson(_COLLECTIONS_JSON); } catch { collDefs = []; }
+        try { collDefs = _readJson(collDefsPath); } catch { continue; }
         for (const collEntry of _collectTaggedLeafEntries(collDefs)) {
             const fileUrl = collEntry.file || collEntry.collection;
             // Resolve the file URL (absolute path starting with '/') to a local path.
@@ -6039,7 +6048,7 @@ async function runDissentCheck(termFilter) {
             for (const page of (decade.pages || [])) {
                 const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
                 const termKey = page.term || (m ? m[1] : null);
-                if (termKey && page.title) termTitleMap[termKey] = page.title;
+                if (termKey && (page.name || page.title)) termTitleMap[termKey] = page.name || page.title;
             }
         }
     } catch {}

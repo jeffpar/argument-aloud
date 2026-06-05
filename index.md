@@ -7,9 +7,9 @@ layout: home
 
 #### A Media Hub for U.S. Supreme Court Arguments and Related Information
 
-## U.S. Supreme Court Links
+## Highlights
 
-  - [Browse All The Things](/courts/ussc)
+  - [Browse All Cases](/courts/ussc)
   - [October 2025 Term](/courts/ussc/?term=2025-10)
   - [Top Advocates](/courts/ussc/?collection=top_advocates)
   - [Women Advocates](/courts/ussc/?collection=women_advocates)
