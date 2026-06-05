@@ -2,7 +2,7 @@
 layout: pane
 ---
 
-# Welcome to our Media Hub for the U.S. Supreme Court
+# Media Hub for the U.S. Supreme Court
 
 ## U.S. Supreme Court Links
 
