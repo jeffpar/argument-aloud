@@ -90,6 +90,18 @@
     "search": "cases:title"
   },
   {
+    "title": "Racial Discrimination Cases",
+    "file": "/courts/ussc/collections/racial.json",
+    "groups": [
+      {
+        "title": "Segregation Cases of 1964",
+        "tags": ["Segregation"],
+        "decision": "1964"
+      }
+    ],
+    "search": "cases:title"
+  },
+  {
     "title": "Other Notable Cases",
     "file": "/courts/ussc/collections/noteworthy.json",
     "groups": [
@@ -105,10 +117,22 @@
     "file": "/courts/ussc/collections/issues.json",
     "groups": [
       {
-        "title": "Argued Cases Missing Audio",
+        "title": "Cases Missing Audio",
         "conditions": [
           "argument >= '1955-10-01'",
-          "COUNT(events:audio_href) == 0"
+          "COUNT(event.audio_href) == 0"
+        ]
+      },
+      {
+        "title": "Cases with Unaligned Audio",
+        "conditions": [
+          "event.source == 'oyez' && event.audio_href && !event.aligned"
+        ]
+      },
+      {
+        "title": "Cases with Unidentified Speakers",
+        "conditions": [
+          "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
         ]
       }
     ],

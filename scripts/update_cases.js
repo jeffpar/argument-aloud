@@ -3595,6 +3595,9 @@ function _setCaseEntry(c, term) {
     if (c.reargument) entry.reargument = c.reargument;
     if (c.decision)   entry.decision   = c.decision;
     if (c.files)      entry.files      = c.files;
+    const events = Array.isArray(c.events) ? c.events : [];
+    if (events.some(e => e.audio_href))  entry.event      = true;
+    if (events.some(e => e.text_href))   entry.transcript = true;
     return entry;
 }
 
@@ -3881,20 +3884,66 @@ function _collectTaggedLeafEntries(entries) {
 
 // ---- condition-based filtering helpers ------------------------------------
 
-// Regex patterns for the two supported condition forms:
-//   property op value   e.g.  argument >= '1955-10-01'
-//   COUNT(arr:prop) op value  e.g.  COUNT(events:audio_href) == 0
-const _COND_PROP_RE  = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
-const _COND_COUNT_RE = /^COUNT\((\w+):(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
+// Regex patterns for the supported condition forms:
+//   property op value            e.g.  argument >= '1955-10-01'
+//   COUNT(event.prop) op value   e.g.  COUNT(event.audio_href) == 0
+//   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_href && !event.aligned
+const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
+const _COND_COUNT_RE       = /^COUNT\(event\.(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
+const _COND_EV_PROP_RE     = /^event\.(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
+const _COND_EV_TRUTHY_RE   = /^event\.(\w+)$/;
+const _COND_EV_FALSY_RE    = /^!event\.(\w+)$/;
+// event.fileProp.singular.itemProp contains 'value'
+// e.g. event.text_href.turn.name contains 'UNKNOWN'
+// COUNT(event.fileProp.singular.itemProp contains 'value') op number
+// e.g. COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100
+const _COND_EV_FILE_RE       = /^event\.(\w+)\.(\w+)\.(\w+)\s+contains\s+'([^']*)'$/;
+const _COND_EV_FILE_COUNT_RE = /^COUNT\(event\.(\w+)\.(\w+)\.(\w+)\s+contains\s+'([^']*)'\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
+
+const _transcriptCache = new Map();
+
+function _loadTranscriptCached(filePath) {
+    if (_transcriptCache.has(filePath)) return _transcriptCache.get(filePath);
+    let data = null;
+    try { data = _readJson(filePath); } catch { /* file missing or invalid */ }
+    _transcriptCache.set(filePath, data);
+    return data;
+}
+
+function _parseEventSubcondition(s) {
+    s = s.trim();
+    // singular (e.g. "turn") maps to arrayName (e.g. "turns") by appending 's'
+    let m = _COND_EV_FILE_COUNT_RE.exec(s);
+    if (m) return { type: 'eventFileCount', fileProp: m[1], arrayName: m[2] + 's', itemProp: m[3], value: m[4], op: m[5], threshold: parseFloat(m[6]) };
+    m = _COND_EV_FILE_RE.exec(s);
+    if (m) {
+        return { type: 'eventFileContains', fileProp: m[1], arrayName: m[2] + 's', itemProp: m[3], value: m[4] };
+    }
+    m = _COND_EV_PROP_RE.exec(s);
+    if (m) {
+        const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
+        return { type: 'eventProp', prop: m[1], op: m[2], value };
+    }
+    m = _COND_EV_FALSY_RE.exec(s);
+    if (m) return { type: 'eventFalsy', prop: m[1] };
+    m = _COND_EV_TRUTHY_RE.exec(s);
+    if (m) return { type: 'eventTruthy', prop: m[1] };
+    return null;
+}
 
 function _parseCaseCondition(str) {
     const s = (str || '').trim();
     let m = _COND_COUNT_RE.exec(s);
-    if (m) return { type: 'count', array: m[1], subprop: m[2], op: m[3], value: parseFloat(m[4]) };
+    if (m) return { type: 'count', array: 'events', subprop: m[1], op: m[2], value: parseFloat(m[3]) };
     m = _COND_PROP_RE.exec(s);
     if (m) {
         const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
         return { type: 'property', prop: m[1], op: m[2], value };
+    }
+    if (s.includes('event.')) {
+        const parts = s.split(/\s*&&\s*/);
+        const subconditions = parts.map(_parseEventSubcondition);
+        if (subconditions.every(Boolean)) return { type: 'eventMatch', subconditions };
     }
     console.warn(`  WARNING: unrecognised condition syntax: ${JSON.stringify(str)}`);
     return null;
@@ -3912,7 +3961,7 @@ function _applyCompOp(lhs, op, rhs) {
     return false;
 }
 
-function _matchesCaseConditions(c, conditions) {
+function _matchesCaseConditions(c, conditions, termDir = '') {
     for (const cond of conditions) {
         if (!cond) continue;
         if (cond.type === 'property') {
@@ -3923,6 +3972,34 @@ function _matchesCaseConditions(c, conditions) {
             const arr = Array.isArray(c[cond.array]) ? c[cond.array] : [];
             const count = arr.filter(item => !!item[cond.subprop]).length;
             if (!_applyCompOp(count, cond.op, cond.value)) return false;
+        } else if (cond.type === 'eventMatch') {
+            const events = Array.isArray(c.events) ? c.events : [];
+            const matched = events.some(ev => cond.subconditions.every(sub => {
+                if (sub.type === 'eventTruthy') return !!ev[sub.prop];
+                if (sub.type === 'eventFalsy')  return !ev[sub.prop];
+                if (sub.type === 'eventProp')   return _applyCompOp(ev[sub.prop], sub.op, sub.value);
+                if (sub.type === 'eventFileContains') {
+                    const href = ev[sub.fileProp];
+                    if (!href) return false;
+                    const filePath = path.join(termDir, 'cases', href);
+                    const json = _loadTranscriptCached(filePath);
+                    if (!json) return false;
+                    const arr = Array.isArray(json[sub.arrayName]) ? json[sub.arrayName] : [];
+                    return arr.some(item => String(item[sub.itemProp] || '').includes(sub.value));
+                }
+                if (sub.type === 'eventFileCount') {
+                    const href = ev[sub.fileProp];
+                    if (!href) return false;
+                    const filePath = path.join(termDir, 'cases', href);
+                    const json = _loadTranscriptCached(filePath);
+                    if (!json) return false;
+                    const arr = Array.isArray(json[sub.arrayName]) ? json[sub.arrayName] : [];
+                    const count = arr.filter(item => String(item[sub.itemProp] || '').includes(sub.value)).length;
+                    return _applyCompOp(count, sub.op, sub.threshold);
+                }
+                return false;
+            }));
+            if (!matched) return false;
         }
     }
     return true;
@@ -3937,13 +4014,14 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
         let termCases;
         try { termCases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(termCases)) continue;
+        const termDir = path.join(TERMS_DIR, term);
         for (const c of termCases) {
             if (requiredTags.length) {
                 if (!Array.isArray(c.tags)) continue;
                 if (!requiredTags.every(t => c.tags.includes(t))) continue;
             }
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-            if (!_matchesCaseConditions(c, conditions)) continue;
+            if (!_matchesCaseConditions(c, conditions, termDir)) continue;
             cases.push(_setCaseEntry(c, term));
         }
     }

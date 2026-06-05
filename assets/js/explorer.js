@@ -816,9 +816,10 @@ function oyezCircleData(caseEntry) {
   return { fraction, orange, usscOnly };
 }
 
-// Returns {blue, filled, hasOpinionAudio} if the case has opinion audio or OTD
-// video events, else null.
-// blue=true  → all opinion events titled "Opinion…" (blue ring)
+// Returns {blue, orange, filled, hasOpinionAudio} if the case has opinion audio
+// or OTD video events, else null.
+// blue=true   → all opinion events titled "Opinion…" (blue ring)
+// orange=true → any opinion audio event lacks an aligned transcript (orange ring)
 // filled=true → case has ≥1 OTD video event (purple filled circle)
 function opinionCircleData(caseEntry) {
   const opinionEvents = (caseEntry.events || []).filter(
@@ -827,8 +828,9 @@ function opinionCircleData(caseEntry) {
   const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'opinion' && e.video_href);
   if (!opinionEvents.length && !hasOtd) return null;
   const hasOpinionAudio = opinionEvents.length > 0;
-  const blue = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
-  return { blue, filled: hasOtd, hasOpinionAudio };
+  const blue   = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
+  const orange = hasOpinionAudio && opinionEvents.some(e => !e.aligned);
+  return { blue, orange, filled: hasOtd, hasOpinionAudio };
 }
 
 // Builds the SVG ring icon used when oyezCircleData returns a result.
@@ -903,9 +905,9 @@ function makeScalesSvg() {
   return svg;
 }
 
-function makeScalesRingSvg(blue, filled = false) {
+function makeScalesRingSvg(blue, filled = false, orange = false) {
   const size = 22, cx = 11, cy = 11, r = 9;
-  const color = blue ? '#3778A6' : '#9461C8';
+  const color = orange ? '#E07820' : (blue ? '#3778A6' : '#9461C8');
 
   const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
@@ -1239,7 +1241,7 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
 function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   let icon;
   if (ring) {
-    icon = makeScalesRingSvg(ring.blue, ring.filled);
+    icon = makeScalesRingSvg(ring.blue, ring.filled, ring.orange);
   } else {
     icon = makeScalesSvg();
   }
@@ -1251,9 +1253,12 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     } else if (ring.filled && !ring.hasOpinionAudio) {
       tooltipText = 'Video from On The Docket';
     } else if (ring.filled) {
-      tooltipText = (ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)') + '; video from On The Docket';
+      const audioLabel = ring.orange ? 'Opinion audio available without aligned transcript'
+        : (ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)');
+      tooltipText = audioLabel + '; video from On The Docket';
     } else {
-      tooltipText = ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)';
+      tooltipText = ring.orange ? 'Opinion audio available without aligned transcript'
+        : (ring.blue ? 'Opinion audio available' : 'Opinion audio available with dissent(s)');
     }
     // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
     const tip = document.createElement('span');
