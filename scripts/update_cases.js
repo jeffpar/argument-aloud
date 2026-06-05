@@ -4,7 +4,7 @@
  * by default. Pass --dry-run to suppress all file writes.
  *
  * Usage:
- *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--dry-run]
+ *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--verbose] [--dry-run]
  *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js TERM CASE --minority NAMES...
  *   node update_cases.js TERM CASE --recused NAMES...
@@ -3121,6 +3121,175 @@ function _justiceDisplayName(canonical) {
         .replace(/\b([a-z])/g, (_, c) => c.toUpperCase());
 }
 
+// Return all justices serving on `isoDate` sorted by seniority:
+// Chief Justice first, then Associates by ascending dateStart.
+function _getServingJusticesSorted(isoDate) {
+    const result = [];
+    for (const canonical of Object.keys(_scdbJusticesStart)) {
+        if (!_scdbIsServingOn(canonical, isoDate)) continue;
+        const isChief = _scdbIsChiefOn(canonical, isoDate);
+        result.push({
+            canonical,
+            title:   isChief ? 'CHIEF JUSTICE' : 'JUSTICE',
+            start:   _scdbJusticesStart[canonical] || '9999-99-99',
+            isChief,
+        });
+    }
+    result.sort((a, b) => {
+        if (a.isChief !== b.isChief) return a.isChief ? -1 : 1;
+        return a.start.localeCompare(b.start) || a.canonical.localeCompare(b.canonical);
+    });
+    return result;
+}
+
+// For each case (optionally filtered to `caseFilter`) in cases.json, open every
+// text_href transcript and ensure every justice serving on the argument date is
+// listed in media.speakers (as JUSTICE or CHIEF JUSTICE). Missing justices are
+// inserted in seniority order (Chief first, then by dateStart). Non-justice
+// speakers retain their original positions, appended after the justice block.
+function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
+    _ensureSeniorityLoaded();
+
+    if (!fs.existsSync(casesPath)) return;
+    let cases;
+    try { cases = _readJson(casesPath); } catch { return; }
+    if (!Array.isArray(cases)) return;
+
+    const casesDir = path.join(path.dirname(casesPath), 'cases');
+
+    for (const c of cases) {
+        const folder = _caseFolder(c.number || c.id || '');
+        if (caseFilter && folder !== caseFilter && c.id !== caseFilter &&
+            !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+
+        for (const ev of c.events || []) {
+            const th = ev.text_href || '';
+            if (!th || /^https?:\/\//.test(th)) continue;
+
+            const relPath = th.includes('/') ? th : `${folder}/${th}`;
+            const transcriptPath = path.join(casesDir, relPath);
+            if (!fs.existsSync(transcriptPath)) continue;
+
+            // Derive argument date from event field, falling back to filename.
+            let argDate = ev.date || '';
+            if (!argDate) {
+                const dm = path.basename(th).match(/^(\d{4}-\d{2}-\d{2})/);
+                if (dm) argDate = dm[1];
+            }
+            if (!argDate) continue;
+
+            let transcript;
+            try { transcript = JSON.parse(fs.readFileSync(transcriptPath, 'utf8')); }
+            catch { continue; }
+            if (!transcript || typeof transcript !== 'object' || !transcript.media) continue;
+            if (!Array.isArray(transcript.media.speakers)) continue;
+
+            const speakers = transcript.media.speakers;
+            const turns    = Array.isArray(transcript.turns) ? transcript.turns : [];
+            const label    = `${term}/${relPath}`;
+
+            // Cross-check: warn about any turn speaker not listed in speakers array.
+            const existingSpeakerNames = new Set(speakers.map(sp => sp.name || ''));
+            const seenInTurns = new Set();
+            for (const turn of turns) {
+                const name = turn.name || '';
+                if (!name || seenInTurns.has(name)) continue;
+                seenInTurns.add(name);
+                if (!existingSpeakerNames.has(name)) {
+                    console.log(`  WARNING: ${label}: turns speaker '${name}' not listed in speakers`);
+                }
+            }
+
+            // Check whether any turn references UNKNOWN JUSTICE.
+            const hasUnknownInTurns = seenInTurns.has('UNKNOWN JUSTICE');
+
+            // Map serving-justice canonical names → existing speaker objects.
+            // Track UNKNOWN JUSTICE separately (it is not a resolvable canonical name).
+            const existingCanonicals = new Map();
+            let unknownJusticeSpeaker = null;
+            for (const sp of speakers) {
+                const t = (sp.title || '').toUpperCase();
+                if (t !== 'JUSTICE' && t !== 'CHIEF JUSTICE') continue;
+                if ((sp.name || '').toUpperCase() === 'UNKNOWN JUSTICE') {
+                    unknownJusticeSpeaker = sp;
+                    continue;
+                }
+                const canon = _scdbCanonName(sp.name);
+                if (canon && !existingCanonicals.has(canon)) existingCanonicals.set(canon, sp);
+            }
+
+            const serving     = _getServingJusticesSorted(argDate);
+            const missing     = serving.filter(j => !existingCanonicals.has(j.canonical));
+            const needUnknown = (hasUnknownInTurns || unknownJusticeSpeaker) && !unknownJusticeSpeaker;
+
+            if (missing.length === 0 && !needUnknown) continue;
+
+            // Justice block: serving justices in seniority order, then UNKNOWN JUSTICE last
+            // (when turns reference it, or it was already present in speakers).
+            const justiceSpeakers = serving.map(j =>
+                existingCanonicals.has(j.canonical)
+                    ? existingCanonicals.get(j.canonical)
+                    : { name: j.canonical, title: j.title }
+            );
+            if (hasUnknownInTurns || unknownJusticeSpeaker) {
+                justiceSpeakers.push(unknownJusticeSpeaker || { name: 'UNKNOWN JUSTICE', title: 'JUSTICE' });
+            }
+
+            // Non-justice speakers: ordered by first appearance in turns, with any
+            // speakers present in the array but absent from turns appended at the end.
+            // UNKNOWN SPEAKER is always placed last, regardless of turn order.
+            const justiceCanonicalSet = new Set(serving.map(j => j.canonical));
+            justiceCanonicalSet.add('UNKNOWN JUSTICE');
+
+            const nonJusticeByName = new Map();
+            let unknownSpeakerObj = null;
+            for (const sp of speakers) {
+                const t = (sp.title || '').toUpperCase();
+                if (t === 'JUSTICE' || t === 'CHIEF JUSTICE') continue;
+                const name = sp.name || '';
+                if (!name) continue;
+                if (name.toUpperCase() === 'UNKNOWN SPEAKER') {
+                    unknownSpeakerObj = unknownSpeakerObj || sp;
+                    continue;
+                }
+                if (!nonJusticeByName.has(name)) nonJusticeByName.set(name, sp);
+            }
+
+            const nonJusticeSpeakers = [];
+            const seenNonJustice = new Set();
+            for (const turn of turns) {
+                const name = turn.name || '';
+                if (!name || seenNonJustice.has(name)) continue;
+                if (justiceCanonicalSet.has(_scdbCanonName(name))) continue;
+                if (name.toUpperCase() === 'UNKNOWN SPEAKER') continue; // always last
+                seenNonJustice.add(name);
+                const sp = nonJusticeByName.get(name);
+                if (sp) { nonJusticeSpeakers.push(sp); nonJusticeByName.delete(name); }
+            }
+            // Append any non-justice speakers not seen in turns (preserve relative order).
+            for (const sp of nonJusticeByName.values()) nonJusticeSpeakers.push(sp);
+            // UNKNOWN SPEAKER always goes last.
+            if (unknownSpeakerObj) nonJusticeSpeakers.push(unknownSpeakerObj);
+
+            if (dryRun) {
+                const parts = [];
+                if (missing.length) parts.push(`would add ${missing.length} missing justice(s): ${missing.map(j => j.canonical).join(', ')}`);
+                if (needUnknown) parts.push('would add UNKNOWN JUSTICE');
+                console.log(`  [dry-run] ${label}: ${parts.join('; ')}`);
+            } else {
+                transcript.media.speakers = [...justiceSpeakers, ...nonJusticeSpeakers];
+                _writeJson(transcriptPath, transcript);
+                if (_VERBOSE) {
+                    const parts = [];
+                    if (missing.length) parts.push(`added ${missing.length} missing justice(s): ${missing.map(j => j.canonical).join(', ')}`);
+                    if (needUnknown) parts.push('added UNKNOWN JUSTICE');
+                    console.log(`  ${label}: ${parts.join('; ')}`);
+                }
+            }
+        }
+    }
+}
+
 // Scan every term's cases.json, find cases with exactly one "minority" vote,
 // and rebuild courts/ussc/people/lonedissent_justices.json plus per-justice
 // files in courts/ussc/people/justices/.
@@ -5974,7 +6143,7 @@ async function checkLengths(casesPath, caseFilter, update) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
-       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--verbose] [--dry-run]
+       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--verbose] [--dry-run]
        node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
@@ -5993,6 +6162,8 @@ Examples:
   node update_cases.js 2025-10 --dry-run                   # report only, no writes
   node update_cases.js 1979-10 --roles                     # derive event advocate roles
   node update_cases.js 1979-10 78-1014 --roles             #   ... and write them to cases.json
+  node update_cases.js 2016-10 --speakers                  # add missing justices to transcript speakers
+  node update_cases.js 2016-10 15-537 --speakers --dry-run #   ... preview changes without writing
 
   # Vote updates
   node update_cases.js 2025-10 24-109 --votes win 9-0 roberts
@@ -6503,7 +6674,7 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
 }
 
 async function processOneTerm(term, opts) {
-    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, speakerMapBase, roles } = opts;
+    const { checkUrls, opinionsOnly, verbose, dryRun, allTerms, speakerMapBase, roles, speakers } = opts;
     let { caseFilter } = opts;
     const termDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term);
     if (!isDir(termDir)) {
@@ -6584,6 +6755,10 @@ async function processOneTerm(term, opts) {
 
     if (roles) {
         _partyVerifyTerm(termDir, term, caseFilter, dryRun);
+    }
+
+    if (speakers && fs.existsSync(casesPath)) {
+        verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun);
     }
 
     await checkLengths(casesPath, caseFilter, !dryRun);
@@ -6965,6 +7140,7 @@ async function main() {
     const dryRun       = flags.has('--dry-run') || flags.has('--dry_run');
     const scdb         = flags.has('--scdb');
     const roles        = flags.has('--roles');
+    const speakers     = flags.has('--speakers');
     setVerbose(verbose);
     setDryRun(dryRun);
 
@@ -7100,10 +7276,11 @@ async function main() {
     };
 
     for (const term of termsToProcess) {
+        if (termsToProcess.length > 1) console.log(term);
         const r = await processOneTerm(term, {
             checkUrls, opinionsOnly, verbose, dryRun, allTerms,
             caseFilter: termsToProcess.length === 1 ? caseFilter : null,
-            speakerMapBase, roles,
+            speakerMapBase, roles, speakers,
         });
         if (!r) continue;
         totals.casesReordered    += r.casesReordered;
