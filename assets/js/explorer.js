@@ -2818,7 +2818,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupCount.type = 'button';
     groupCount.className = 'term-case-count';
     // Split format: cases is a number (precomputed count). Embedded format: cases is an array.
-    const n = typeof group.cases === 'number' ? group.cases : (Array.isArray(group.cases) ? group.cases.length : 0);
+    // Using `let` so _ensureGroupCases can correct it after loading when the index lacks a count.
+    let n = typeof group.cases === 'number' ? group.cases : (Array.isArray(group.cases) ? group.cases.length : 0);
     // Vocal-style groups have a `total` (HH:MM:SS.NN) instead of a case count.
     const hoursLabel = (() => {
       if (typeof group.total !== 'string' || !group.total) return null;
@@ -2930,6 +2931,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         for (const caseRef of group.cases) {
           groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
         }
+        n = group.cases.length;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
       } else if (group.id) {
         // Split format: fetch the per-group JSON file.
@@ -2956,7 +2958,12 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
             for (const caseRef of advocateCases) {
               groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
             }
+            n = advocateCases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+            // Refresh the count button now that we know the actual case count.
+            if (groupCount.classList.contains('sort-active')) {
+              groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
+            }
           }
         } catch (err) {
           console.warn('[collections] advocate cases fetch failed:', group.id, err);

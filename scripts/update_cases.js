@@ -3313,8 +3313,8 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
 function processLoneDissenters(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
-    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'loners');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'loners.json');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'lone');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'lone_justices.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();
@@ -3412,7 +3412,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
             const stem = name.slice(0, -5);
             if (knownIds.has(stem)) continue;
             _unlinkSync(path.join(JUSTICES_DIR, name));
-            if (_VERBOSE) console.log(`  Removed stale lone-dissenter file: courts/ussc/people/justices/loners/${name}`);
+            if (_VERBOSE) console.log(`  Removed stale lone-dissenter file: courts/ussc/people/justices/lone/${name}`);
         }
     }
 
@@ -3423,13 +3423,13 @@ function processLoneDissenters(termsToProcess, dryRun) {
 }
 
 // Scan every term's cases.json, find cases where a justice has "opinion": true,
-// and rebuild courts/ussc/people/justices/opinions.json plus per-justice
-// files in courts/ussc/people/justices/opinions/.
+// and rebuild courts/ussc/people/justices/author_justices.json plus per-justice
+// files in courts/ussc/people/justices/author/.
 function processOpinionAuthors(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
-    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'opinions');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'opinions.json');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'author');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'author_justices.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();
@@ -3528,7 +3528,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
             const stem = name.slice(0, -5);
             if (knownIds.has(stem)) continue;
             _unlinkSync(path.join(JUSTICES_DIR, name));
-            if (_VERBOSE) console.log(`  Removed stale opinion-author file: courts/ussc/people/justices/opinions/${name}`);
+            if (_VERBOSE) console.log(`  Removed stale opinion-author file: courts/ussc/people/justices/author/${name}`);
         }
     }
 
@@ -3563,13 +3563,13 @@ function _formatTimeSecs(secs) {
 
 // Scan every term's cases.json, open every time-aligned text_href transcript,
 // compute how long each justice spoke (sum of turn durations), and write:
-//   courts/ussc/people/justices/vocal.json          — index sorted by total desc
+//   courts/ussc/people/justices/vocal_justices.json          — index sorted by total desc
 //   courts/ussc/people/justices/vocal/<id>.json     — per-justice, cases sorted by vocal desc
 function processVocalJustices(allTerms, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
     const JUSTICES_DIR = path.join(PEOPLE_DIR, 'justices', 'vocal');
-    const INDEX_FILE   = path.join(PEOPLE_DIR, 'justices', 'vocal.json');
+    const INDEX_FILE   = path.join(PEOPLE_DIR, 'justices', 'vocal_justices.json');
 
     // canonical → { totalSecs, cases: Map<caseUniqueKey, caseAccum> }
     // caseAccum: { meta (title/term/number/argument/decision), totalSecs, firstEventIdx, firstTurnNum }
@@ -6413,7 +6413,7 @@ Examples:
   node update_cases.js 2024-10 --split                     # check one term
   node update_cases.js 2024-10 --split --dry-run           # preview splits without writing
 
-  node update_cases.js --dissents                          # rebuild courts/ussc/collections/dissents.json
+  node update_cases.js --dissents                          # rebuild courts/ussc/people/justices/oral_dissents.json
   node update_cases.js 2024-10 --dissents                  # rebuild for one term only
 
   node update_cases.js --unargued                          # list all argument anomalies across all terms
@@ -6421,7 +6421,7 @@ Examples:
   node update_cases.js 2024-10 24-1260 --unargued          # check one case`;
 
 // ═══════════════════════════════════════════════════════════════════════════
-// --dissents: build courts/ussc/collections/dissents.json
+// --dissents: build courts/ussc/people/justices/oral_dissents.json
 // Contains sets per term for any "opinion" event whose title does not start
 // with "Opinion". Each set is named "October Term YYYY" and its cases list
 // objects: { title, term, number, decision, event (1-based index) }.
@@ -6429,7 +6429,7 @@ Examples:
 
 async function runDissentCheck(termFilter) {
     const termsDir   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-    const outPath    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'dissents.json');
+    const outPath    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'oral_dissents.json');
 
     // Build term→title map from terms.json.
     let termTitleMap = {};
