@@ -4,6 +4,7 @@ let turnTimes = [];   // each turn's start time in seconds
 let hasTimes = false; // whether current transcript has real time values
 let activeTurnIdx = -1;
 let _suppressTimeupdateBeforeSeek = false; // true while waiting for a deferred seek to complete
+let _pendingSeekListener = null;           // seeked listener waiting to re-affirm the initial turn
 let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
@@ -1537,8 +1538,7 @@ function _buildSortMenu(anchorEl, options, getState, onPick) {
     const item = document.createElement('li');
     item.className = 'term-sort-option' + (isActive ? ' active' : '');
     item.textContent = opt.label + (isActive ? (curAsc ? ' \u2191' : ' \u2193') : '');
-    item.addEventListener('mousedown', (e) => {
-      e.preventDefault();
+    item.addEventListener('click', (e) => {
       e.stopPropagation();
       menu.remove();
       const { mode, asc } = getState();
@@ -2716,7 +2716,9 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     // the dropdown selection accordingly).
     const hasPlayableAudio = sortedAudio.some(a => a.audio_href);
 
-    const initialTurn = Number.isInteger(caseRef.turn) && caseRef.turn > 0 ? caseRef.turn : null;
+    const initialTurn = (fromRestore && Number.isInteger(e.initialTurn) && e.initialTurn > 0)
+      ? e.initialTurn
+      : (Number.isInteger(caseRef.turn) && caseRef.turn > 0 ? caseRef.turn : null);
     if (!fromRestore) {
       const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
       const deleteOther = groupId != null ? ['group'] : ['id'];
@@ -2851,10 +2853,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       { mode: 'decided', label: 'Decided' },
     ];
 
-    function _applyGroupSortMode(mode, asc) {
+    function _applyGroupSortMode(mode, asc, { reversal = false } = {}) {
       const allItems = Array.from(groupUl.querySelectorAll('.case-item'));
       const highlights = allItems.filter(ci => ci.classList.contains('highlight-item'));
       const items = allItems.filter(ci => !ci.classList.contains('highlight-item'));
+      if (reversal) {
+        // Only direction changed: items are already sorted, just flip them.
+        items.reverse();
+        groupUl.replaceChildren(...highlights, ...items);
+        return;
+      }
       items.forEach(ci => {
         const lbl = ci.querySelector('.case-sort-label');
         if (!lbl) return;
@@ -2864,7 +2872,12 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         } else if (mode === 'hours') {
           const secs = _parseVocalSecs(ci.dataset.vocal || '');
           const mins = Math.round(secs / 60);
-          lbl.textContent = mins > 0 ? (mins + '\u00a0' + (mins === 1 ? 'min' : 'mins')) : '';
+          if (mins > 0) {
+            lbl.textContent = mins + '\u00a0' + (mins === 1 ? 'min' : 'mins');
+          } else {
+            const s = Math.round(secs);
+            lbl.textContent = s + '\u00a0' + (s === 1 ? 'sec' : 'secs');
+          }
         } else {
           lbl.textContent = '';
         }
@@ -2882,19 +2895,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         items.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'cases') {
-        items.sort((a, b) => {
-          const at = a.querySelector('.case-title-nav')?.textContent || '';
-          const bt = b.querySelector('.case-title-nav')?.textContent || '';
-          return at.localeCompare(bt);
-        });
+        // Pre-compute keys once (O(n)) to avoid O(n log n) querySelector calls in the comparator.
+        const keyMap = new Map(items.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
+        items.sort((a, b) => keyMap.get(a).localeCompare(keyMap.get(b)));
         groupUl.classList.remove('coll-sort-date');
       } else {
         // 'none': preserve original insertion order (no-op on items array).
         groupUl.classList.remove('coll-sort-date');
       }
       if (!asc) items.reverse();
-      highlights.forEach(ci => groupUl.appendChild(ci));
-      items.forEach(ci => groupUl.appendChild(ci));
+      groupUl.replaceChildren(...highlights, ...items);
     }
 
     function _showGroupSortMenu() {
@@ -2903,10 +2913,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         _GROUP_SORT_OPTIONS,
         () => ({ mode: _groupSortMode, asc: _groupSortAsc }),
         ({ mode, asc }) => {
+          const reversal = mode === _groupSortMode;
           _groupSortMode = mode;
           _groupSortAsc  = asc;
           groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
-          _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+          _applyGroupSortMode(_groupSortMode, _groupSortAsc, { reversal });
         },
       );
     }
@@ -3095,8 +3106,10 @@ async function loadAudioEntry(arg, basePath) {
     // treated as unaligned to avoid scrolling to the last turn on timeupdate.
     hasTimes = turnTimes.some(t => t > 0);
     unalignedNote.hidden = hasTimes;
+    document.getElementById('prev-speaker-btn').disabled = !turns.length;
     document.getElementById('prev-turn-btn').disabled = !turns.length;
     document.getElementById('next-turn-btn').disabled = !turns.length;
+    document.getElementById('next-speaker-btn').disabled = !turns.length;
 
     _currentTextHref = arg.text_href || '';
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
@@ -3130,7 +3143,14 @@ async function loadAudioEntry(arg, basePath) {
       // browser fires timeupdate when audio.load() resets currentTime) and
       // browsers don't reliably fire timeupdate after a paused seek. Using
       // 'seeked' avoids both races.
-      audio.addEventListener('seeked', () => {
+      // Store a reference so jumpToTurn() can cancel this if the user navigates
+      // away before the initial seek completes (otherwise the listener fires for
+      // the user-triggered seek and incorrectly reverts activeTurnIdx).
+      if (_pendingSeekListener) {
+        audio.removeEventListener('seeked', _pendingSeekListener);
+      }
+      _pendingSeekListener = () => {
+        _pendingSeekListener = null;
         _suppressTimeupdateBeforeSeek = false;
         if (activeTurnIdx !== initialIdx) {
           document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
@@ -3140,7 +3160,8 @@ async function loadAudioEntry(arg, basePath) {
             activeTurnIdx = initialIdx;
           }
         }
-      }, { once: true });
+      };
+      audio.addEventListener('seeked', _pendingSeekListener, { once: true });
     }
 
     _currentLoadedEntry = arg;
@@ -3826,7 +3847,7 @@ function renderTranscript() {
               )
             : buildUrlParams({ turn: turnId });
           history.replaceState(null, '', turnUrl);
-          const justiceUrlParams = { collection: 'vocal', id: justiceId };
+          const justiceUrlParams = { collection: 'vocal_justices', id: justiceId };
           if (ciTerm && ciCase) {
             justiceUrlParams.term = ciTerm;
             justiceUrlParams.case = ciCase;
@@ -4008,6 +4029,13 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
 
 // ── Prev / Next turn buttons ──────────────────────────────────────────────
 function jumpToTurn(target) {
+  // Cancel any pending initial-seek re-affirmation: the user has explicitly
+  // navigated, so the seeked listener must not revert activeTurnIdx afterward.
+  if (_pendingSeekListener) {
+    audio.removeEventListener('seeked', _pendingSeekListener);
+    _pendingSeekListener = null;
+    _suppressTimeupdateBeforeSeek = false;
+  }
   if (activeTurnIdx >= 0) {
     document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
   }
@@ -4018,6 +4046,10 @@ function jumpToTurn(target) {
   }
   activeTurnIdx = target;
   checkLinksForActiveTurn(target);
+  const _turnNum = turns[target]?.turn ?? (target + 1);
+  const _turnUrl = new URL(location.href);
+  _turnUrl.searchParams.set('turn', _turnNum);
+  history.replaceState(null, '', _turnUrl);
   if (turns[target]?.time != null) {
     const wasPlaying = !audio.paused;
     audio.currentTime = turnTimes[target];
@@ -4035,6 +4067,27 @@ document.getElementById('next-turn-btn').addEventListener('click', () => {
   if (!turns.length) return;
   const current = activeTurnIdx >= 0 ? activeTurnIdx : (hasTimes ? findCurrentTurn(audio.currentTime) : -1);
   jumpToTurn(Math.min(turns.length - 1, current + 1));
+});
+
+// ── Prev / Next speaker buttons ───────────────────────────────────────────
+document.getElementById('prev-speaker-btn').addEventListener('click', () => {
+  const current = activeTurnIdx >= 0 ? activeTurnIdx : (hasTimes ? findCurrentTurn(audio.currentTime) : -1);
+  if (current < 0) return;
+  const speaker = turns[current]?.name;
+  if (!speaker) return;
+  for (let i = current - 1; i >= 0; i--) {
+    if (turns[i]?.name === speaker) { jumpToTurn(i); return; }
+  }
+});
+
+document.getElementById('next-speaker-btn').addEventListener('click', () => {
+  const current = activeTurnIdx >= 0 ? activeTurnIdx : (hasTimes ? findCurrentTurn(audio.currentTime) : -1);
+  if (current < 0) return;
+  const speaker = turns[current]?.name;
+  if (!speaker) return;
+  for (let i = current + 1; i < turns.length; i++) {
+    if (turns[i]?.name === speaker) { jumpToTurn(i); return; }
+  }
 });
 
 // ── Case info: tap to scroll back to document browser on mobile ──────────
@@ -4362,7 +4415,6 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   // Open
   searchTrigger.addEventListener('click', openSearch);
-  document.getElementById('unknown-turn-btn')?.addEventListener('click', _scrollToNextUnknown);
 
   // Close on overlay backdrop click
   overlay.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
@@ -4965,13 +5017,21 @@ async function restoreFromURL() {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
-              if (turnIdx >= 0) {
+              if (turnIdx >= 0 && activeTurnIdx !== turnIdx) {
                 if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
                 const el = document.getElementById('turn-' + turnIdx);
                 if (el) {
                   el.classList.add('active');
                   activeTurnIdx = turnIdx;
-                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
+                  // Cancel loadAudioEntry's pending seeked re-affirmation so it
+                  // cannot revert activeTurnIdx back to caseRef.turn after we
+                  // seek to the URL's turn param below.
+                  if (_pendingSeekListener) {
+                    audio.removeEventListener('seeked', _pendingSeekListener);
+                    _pendingSeekListener = null;
+                    _suppressTimeupdateBeforeSeek = false;
+                  }
+                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx] + 0.01);
                   requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
                   const url = new URL(location.href);
                   url.searchParams.set('turn', turnParam);
@@ -4999,6 +5059,7 @@ async function restoreFromURL() {
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
           fromRestore: true,
           ...(audioParam != null ? { audioIdx: audioParam } : {}),
+          ...(turnParam != null ? { initialTurn: turnParam } : {}),
           // Pass fileRestore so the title click handler can open the file directly
           // for no-audio cases (where transcriptloaded never fires).
           fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.some(a => a.audio_href)) ? String(fileParam) : null,
@@ -5047,13 +5108,21 @@ async function restoreFromURL() {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
-              if (turnIdx >= 0) {
+              if (turnIdx >= 0 && activeTurnIdx !== turnIdx) {
                 if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
                 const el = document.getElementById('turn-' + turnIdx);
                 if (el) {
                   el.classList.add('active');
                   activeTurnIdx = turnIdx;
-                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
+                  // Cancel loadAudioEntry's pending seeked re-affirmation so it
+                  // cannot revert activeTurnIdx back to caseRef.turn after we
+                  // seek to the URL's turn param below.
+                  if (_pendingSeekListener) {
+                    audio.removeEventListener('seeked', _pendingSeekListener);
+                    _pendingSeekListener = null;
+                    _suppressTimeupdateBeforeSeek = false;
+                  }
+                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx] + 0.01);
                   requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
                   const url = new URL(location.href);
                   url.searchParams.set('turn', turnParam);
@@ -5213,34 +5282,11 @@ function _generateEditsJson() {
 
 const _unknownSpeakerNames = new Set(['UNKNOWN JUSTICE', 'UNKNOWN SPEAKER']);
 
-function _scrollToNextUnknown() {
-  const unknownIndices = [];
-  turns.forEach((turn, idx) => {
-    const effectiveName = _getEditedTurn(idx)?.name ?? turn.name;
-    if (_unknownSpeakerNames.has(effectiveName)) unknownIndices.push(idx);
-  });
-  if (!unknownIndices.length) return;
-
-  // Find the first unknown whose top edge is below the viewport midpoint; wrap if none.
-  const viewerRect = transcriptViewer.getBoundingClientRect();
-  const viewMidY   = viewerRect.top + transcriptViewer.clientHeight / 2;
-  let targetIdx = unknownIndices.find(idx => {
-    const el = document.getElementById('turn-' + idx);
-    return el && el.getBoundingClientRect().top > viewMidY;
-  });
-  if (targetIdx === undefined) targetIdx = unknownIndices[0];
-
-  document.getElementById('turn-' + targetIdx)
-    ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
 function _updateEditModeMenu() {
-  const editBtn    = document.getElementById('edit-transcripts-btn');
-  const finishBtn  = document.getElementById('finish-editing-btn');
-  const unknownBtn = document.getElementById('unknown-turn-btn');
-  if (editBtn)    editBtn.hidden    = _editMode;
-  if (finishBtn)  finishBtn.hidden  = !_editMode;
-  if (unknownBtn) unknownBtn.hidden = !_editMode;
+  const editBtn   = document.getElementById('edit-transcripts-btn');
+  const finishBtn = document.getElementById('finish-editing-btn');
+  if (editBtn)   editBtn.hidden   = _editMode;
+  if (finishBtn) finishBtn.hidden = !_editMode;
 }
 
 function startEditTranscripts() {
