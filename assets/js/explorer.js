@@ -5381,7 +5381,7 @@ function finishEditTranscripts() {
   }
   turnList.innerHTML = '';
   renderTranscript();
-  alert('Note: Send the downloaded edits to clerk@lonedissent.org for processing. Thank you for taking the time to make these corrections.');
+  alert('Note: Send the downloaded edits to admin@argumentaloud.org for processing. Thank you for taking the time to make these corrections.');
 }
 
 window._startEditTranscripts  = startEditTranscripts;
