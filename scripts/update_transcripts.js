@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * update_transcript.js - Align transcript turns with audio using Whisper, and/or
+ * update_transcripts.js - Align transcript turns with audio using Whisper, and/or
  * split multi-sentence turns into individual turns.
  *
  * Usage:
- *   node scripts/update_transcript.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL]
+ *   node scripts/update_transcripts.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL]
  *
  * Arguments:
  *   TERM    Term in YYYY-MM format (e.g., 2014-10)
@@ -26,12 +26,12 @@
  *   --dry-run          Print what would change without writing files
  *
  * Examples:
- *   node scripts/update_transcript.js 2014-10 14-378 ussc argument
- *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign
- *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split
- *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split --realign
- *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign --no-vad
- *   node scripts/update_transcript.js 2014-10 14-378 oyez opinion --model small
+ *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument
+ *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --realign
+ *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --split
+ *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --split --realign
+ *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --realign --no-vad
+ *   node scripts/update_transcripts.js 2014-10 14-378 oyez opinion --model small
  *
  * Requires: python3 with faster-whisper and rapidfuzz installed.
  *   pip install faster-whisper rapidfuzz
@@ -492,7 +492,7 @@ main()
  */
 async function downloadFile(url, destPath) {
     const resp = await fetch(url, {
-        headers: { 'User-Agent': 'update_transcript/1.0' },
+        headers: { 'User-Agent': 'update_transcripts/1.0' },
     });
     if (!resp.ok) {
         throw new Error(`HTTP ${resp.status} fetching ${url}`);
@@ -511,7 +511,7 @@ async function downloadFile(url, destPath) {
  */
 function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offsetSecs = 0, vadFilter = true } = {}) {
     // Write the Python script to a temp file.
-    const pyPath = path.join(os.tmpdir(), `update_transcript_align_${process.pid}.py`);
+    const pyPath = path.join(os.tmpdir(), `update_transcripts_align_${process.pid}.py`);
     writeText(pyPath, ALIGN_PY);
 
     const inputJson = JSON.stringify({
@@ -634,7 +634,7 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
 
         // Download audio to a temp file.
         const audioExt  = path.extname(new URL(event.audio_href).pathname) || '.mp3';
-        const audioPath = path.join(os.tmpdir(), `update_transcript_audio_${process.pid}${audioExt}`);
+        const audioPath = path.join(os.tmpdir(), `update_transcripts_audio_${process.pid}${audioExt}`);
 
         console.log(`Downloading audio: ${event.audio_href}`);
         try {
@@ -889,8 +889,8 @@ async function main() {
     }
 
     if (positional.length < 4) {
-        console.error('Usage: node scripts/update_transcripts.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
-        console.error('       node scripts/update_transcripts.js transcript-edits.json');
+        console.error('Usage: node scripts/update_transcriptss.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
+        console.error('       node scripts/update_transcriptss.js transcript-edits.json');
         process.exit(1);
     }
 
