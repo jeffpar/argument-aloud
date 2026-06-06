@@ -7,19 +7,7 @@ description: >-
   records.
 ---
 
-<div id="topbar">
-  <a id="site-link" href="/">Argument Aloud</a>
-  <a id="page-title" href="/courts/ussc/">U.S. Supreme Court</a>
-  <span id="topbar-term"></span>
-  <button id="random-case-btn" title="Random case" aria-label="Random case">&#127922;</button>
-  <button id="menu-btn" title="Menu" aria-label="Open menu" aria-expanded="false" aria-controls="topbar-menu">&#8942;</button>
-  <div id="topbar-menu" role="menu" aria-hidden="true">
-    <div class="menu-section-label">Appearance</div>
-    <button class="menu-item" role="menuitem" data-theme-value="default"><span class="menu-check">&#10003;</span>Default</button>
-    <button class="menu-item" role="menuitem" data-theme-value="light"><span class="menu-check">&#10003;</span>Light</button>
-    <button class="menu-item" role="menuitem" data-theme-value="dark"><span class="menu-check">&#10003;</span>Dark</button>
-  </div>
-</div>
+{%- include topbar.html court_title="U.S. Supreme Court" court_href="/courts/ussc/" %}
 
 <div id="browser">
   <nav id="doc-browser">
@@ -117,6 +105,7 @@ description: >-
         <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
         <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
         <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+        <button id="unknown-turn-btn" title="Next unknown speaker" aria-label="Next unknown speaker" hidden>🤷</button>
       </div>
       <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
     </div>

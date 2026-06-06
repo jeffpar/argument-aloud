@@ -3539,6 +3539,208 @@ function processOpinionAuthors(termsToProcess, dryRun) {
 }
 
 // =====================================================================
+// Vocal-justice aggregation
+// =====================================================================
+
+// Parse "HH:MM:SS.NN" (or "HH:MM:SS") to total seconds (float).
+function _parseTimeSecs(s) {
+    if (!s) return 0;
+    const m = /^(\d+):(\d{2}):(\d{2}(?:\.\d+)?)$/.exec(String(s).trim());
+    if (!m) return 0;
+    return parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseFloat(m[3]);
+}
+
+// Format total seconds to "HH:MM:SS.NN".
+function _formatTimeSecs(secs) {
+    if (secs < 0) secs = 0;
+    const h  = Math.floor(secs / 3600);
+    const m  = Math.floor((secs % 3600) / 60);
+    const s  = secs % 60;
+    const ws = Math.floor(s);
+    const nn = Math.min(99, Math.round((s - ws) * 100));
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(ws).padStart(2, '0')}.${String(nn).padStart(2, '0')}`;
+}
+
+// Scan every term's cases.json, open every time-aligned text_href transcript,
+// compute how long each justice spoke (sum of turn durations), and write:
+//   courts/ussc/people/justices/vocal.json          — index sorted by total desc
+//   courts/ussc/people/justices/vocal/<id>.json     — per-justice, cases sorted by vocal desc
+function processVocalJustices(allTerms, dryRun) {
+    _ensureSeniorityLoaded();
+    const PEOPLE_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
+    const JUSTICES_DIR = path.join(PEOPLE_DIR, 'justices', 'vocal');
+    const INDEX_FILE   = path.join(PEOPLE_DIR, 'justices', 'vocal.json');
+
+    // canonical → { totalSecs, cases: Map<caseUniqueKey, caseAccum> }
+    // caseAccum: { meta (title/term/number/argument/decision), totalSecs, firstEventIdx, firstTurnNum }
+    const byJustice = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const casesDir = path.join(TERMS_DIR, term, 'cases');
+
+        for (const c of cases) {
+            const folder     = _caseFolder(c.number || c.id || '');
+            const baseTitle  = firstTitle(c.title) || '';
+            const decMatch   = /^(\d{4})/.exec(c.decision || '');
+            const titled     = (baseTitle && decMatch) ? `${baseTitle} (${decMatch[1]})` : baseTitle;
+            const caseMeta   = {
+                title:    titled,
+                term,
+                number:   c.number || c.id || '',
+                argument: c.argument || '',
+                decision: c.decision || '',
+            };
+
+            // canonical → { totalSecs, firstEventIdx, firstTurnNum } — accumulated within this case
+            const caseAccum = new Map();
+
+            let eventIdx = 0;
+            for (const ev of (c.events || [])) {
+                eventIdx++;
+                const th = ev.text_href || '';
+                if (!th || /^https?:\/\//.test(th)) continue;
+
+                const relPath = th.includes('/') ? th : `${folder}/${th}`;
+                const tPath   = path.join(casesDir, relPath);
+                if (!fs.existsSync(tPath)) continue;
+
+                let transcript;
+                try { transcript = JSON.parse(fs.readFileSync(tPath, 'utf8')); } catch { continue; }
+                if (!transcript || typeof transcript !== 'object' || Array.isArray(transcript)) continue;
+
+                const rawTurns = Array.isArray(transcript.turns) ? transcript.turns : [];
+                if (!rawTurns.length) continue;
+
+                // Skip unaligned transcripts — all-zero times carry no duration information.
+                const isAligned = rawTurns.length === 1 ||
+                    rawTurns.some(t => t?.time && /[1-9]/.test(t.time));
+                if (!isAligned) continue;
+
+                // Build turn-name → canonical map from media.speakers.
+                const nameToCanon = new Map();
+                for (const sp of (transcript.media?.speakers || [])) {
+                    const title = (sp.title || '').toUpperCase();
+                    if (title !== 'JUSTICE' && title !== 'CHIEF JUSTICE') continue;
+                    const nm = (sp.name || '').toUpperCase();
+                    if (nm === 'UNKNOWN JUSTICE' || nm === 'UNKNOWN SPEAKER') continue;
+                    const canon = _scdbCanonName(sp.name);
+                    if (canon && _scdbJusticesTenures[canon]) nameToCanon.set(nm, canon);
+                }
+
+                // Parse all turn start times once.
+                const times = rawTurns.map(t => _parseTimeSecs(t?.time));
+
+                for (let i = 0; i < rawTurns.length; i++) {
+                    const turn = rawTurns[i];
+                    const nm   = (turn?.name || '').toUpperCase();
+                    if (!nm) continue;
+
+                    const canon = nameToCanon.get(nm);
+                    if (!canon) continue;
+
+                    // Duration = next turn start − this turn start (last turn contributes 0).
+                    const duration = (i + 1 < rawTurns.length)
+                        ? Math.max(0, times[i + 1] - times[i])
+                        : 0;
+
+                    const turnNum = turn.turn ?? (i + 1);
+
+                    if (!caseAccum.has(canon)) {
+                        caseAccum.set(canon, { totalSecs: 0, firstEventIdx: eventIdx, firstTurnNum: turnNum });
+                    }
+                    caseAccum.get(canon).totalSecs += duration;
+                }
+            }
+
+            // Merge this case's accum into the per-justice global map.
+            for (const [canon, accum] of caseAccum) {
+                if (accum.totalSecs <= 0) continue;
+                if (!byJustice.has(canon)) byJustice.set(canon, { totalSecs: 0, cases: new Map() });
+                const jEntry = byJustice.get(canon);
+                jEntry.totalSecs += accum.totalSecs;
+                jEntry.cases.set(`${term}/${folder}`, { meta: caseMeta, ...accum });
+            }
+        }
+    }
+
+    if (!byJustice.size) {
+        if (_VERBOSE) console.log('Vocal justices: none found in scope.');
+        return;
+    }
+
+    if (!fs.existsSync(JUSTICES_DIR)) _mkdirSync(JUSTICES_DIR, { recursive: true });
+
+    // Build and write per-justice files.
+    const knownIds = new Set();
+    let totalCases = 0;
+    for (const [canon, jEntry] of byJustice) {
+        const id = _justiceSlug(canon);
+        knownIds.add(id);
+
+        // Sort cases by totalSecs desc.
+        const sorted = [...jEntry.cases.values()]
+            .sort((a, b) => b.totalSecs - a.totalSecs);
+        totalCases += sorted.length;
+
+        const cases = sorted.map(({ meta, totalSecs, firstEventIdx, firstTurnNum }) => ({
+            ...meta,
+            vocal: _formatTimeSecs(totalSecs),
+            event: firstEventIdx,
+            turn:  firstTurnNum,
+        }));
+
+        const file = path.join(JUSTICES_DIR, `${id}.json`);
+        let details = {}, highlights = [];
+        if (fs.existsSync(file)) {
+            try {
+                const raw = _readJson(file);
+                if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+                    details    = raw.details    || {};
+                    highlights = raw.highlights || [];
+                }
+            } catch { /* ignore */ }
+        }
+        const output = { details, highlights, cases };
+        if (_jsonChanged(file, output)) _writeJson(file, output);
+    }
+
+    // Build index sorted by totalSecs desc.
+    const index = [...byJustice.entries()]
+        .sort(([, a], [, b]) => b.totalSecs - a.totalSecs)
+        .map(([canon, jEntry]) => ({
+            id:    _justiceSlug(canon),
+            name:  _justiceDisplayName(canon),
+            cases: jEntry.cases.size,
+            total: _formatTimeSecs(jEntry.totalSecs),
+        }));
+
+    const indexChanged = _jsonChanged(INDEX_FILE, index);
+    if (indexChanged) _writeJson(INDEX_FILE, index);
+
+    // Remove orphan per-justice files.
+    if (fs.existsSync(JUSTICES_DIR)) {
+        for (const name of fs.readdirSync(JUSTICES_DIR)) {
+            if (!name.endsWith('.json')) continue;
+            const stem = name.slice(0, -5);
+            if (knownIds.has(stem)) continue;
+            _unlinkSync(path.join(JUSTICES_DIR, name));
+            if (_VERBOSE) console.log(`  Removed stale vocal-justice file: courts/ussc/people/justices/vocal/${name}`);
+        }
+    }
+
+    const verb = dryRun ? 'Would update' : 'Updated';
+    if (_VERBOSE || indexChanged) {
+        console.log(`Vocal justices: ${verb} ${index.length} justice file(s) (${totalCases} case(s)).`);
+    }
+}
+
+// =====================================================================
 // Justice-advocate auto-discovery
 // =====================================================================
 
@@ -3693,17 +3895,18 @@ function processJusticeAdvocates(allTerms, dryRun) {
         });
     }
 
+    // Sort groups by case count descending, then last name ascending.
+    const _jaLastName = n => (n || '').replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '').trim().split(/\s+/).pop() || '';
+    coll.sort((a, b) => {
+        const ca = a.cases?.length ?? 0, cb = b.cases?.length ?? 0;
+        if (ca !== cb) return cb - ca;
+        return _jaLastName(a.name) < _jaLastName(b.name) ? -1 : _jaLastName(a.name) > _jaLastName(b.name) ? 1 : 0;
+    });
+
     if (!totalAdded) {
         if (_VERBOSE) console.log('Justice advocates: already up to date.');
         return;
     }
-
-    // Sort groups by last name.
-    const _jaLastName = n => (n || '').replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '').trim().split(/\s+/).pop() || '';
-    coll.sort((a, b) => {
-        const la = _jaLastName(a.name), lb = _jaLastName(b.name);
-        return la < lb ? -1 : la > lb ? 1 : 0;
-    });
 
     const verb = dryRun ? 'Would add' : 'Added';
     if (!dryRun) {
@@ -7327,6 +7530,7 @@ async function main() {
     if (!dryRun) {
         processLoneDissenters(allTerms, false);
         processOpinionAuthors(allTerms, false);
+        processVocalJustices(allTerms, false);
         processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
         await runDissentCheck(null);

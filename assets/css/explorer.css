@@ -139,6 +139,7 @@ body {
   font-family: inherit;
 }
 .menu-item:hover { background: #f0f4f8; }
+.menu-item[hidden] { display: none; }
 .menu-check {
   width: 14px;
   text-align: center;
@@ -1034,7 +1035,8 @@ button.term-case-count.sort-active:hover {
 
 #prev-turn-btn,
 #next-turn-btn,
-#search-btn {
+#search-btn,
+#unknown-turn-btn {
   flex-shrink: 0;
   background: none;
   border: 1px solid #ccc;
@@ -1055,7 +1057,8 @@ button.term-case-count.sort-active:hover {
 
 #prev-turn-btn:hover:not(:disabled),
 #next-turn-btn:hover:not(:disabled),
-#search-btn:hover {
+#search-btn:hover,
+#unknown-turn-btn:hover {
   background: #e4eef8;
   color: #2672b4;
   border-color: #a8c8e8;
@@ -1392,6 +1395,49 @@ button.term-case-count.sort-active:hover {
   font-size: 13px;
   line-height: 1.6;
   color: #333;
+}
+
+/* ── Transcript edit mode ────────────────────────────────── */
+.menu-divider {
+  height: 1px;
+  background: #e0e4ea;
+  margin: 4px 0;
+}
+
+.speaker.speaker-unknown { color: #E07820 !important; }
+
+.edit-mode .turn { cursor: default; }
+
+.edit-mode .speaker-edit-select {
+  width: 110px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 2px;
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+.edit-mode .turn.chief-justice .speaker-edit-select { color: #7c3aed; border-color: #7c3aed; }
+.edit-mode .turn.justice .speaker-edit-select        { color: #2563eb; border-color: #2563eb; }
+.edit-mode .turn.counsel .speaker-edit-select        { color: #059669; border-color: #059669; }
+.edit-mode .speaker-edit-select.speaker-unknown      { color: #E07820 !important; border-color: #E07820 !important; }
+
+.edit-mode .turn-text[contenteditable="true"] {
+  outline: none;
+  border-bottom: 1px dashed #aaa;
+  cursor: text;
+  white-space: pre-wrap;
+}
+
+.edit-mode .turn-text[contenteditable="true"]:focus {
+  background: #fffde7;
+  border-bottom-color: #e6a817;
+  border-radius: 2px;
+  padding: 0 2px;
 }
 
 /* ── Annotated link spans ────────────────────────────────── */
@@ -2008,6 +2054,13 @@ button.term-case-count.sort-active:hover {
   .turn.chief-justice .speaker   { color: #9b72ff; }
   .turn.justice .speaker         { color: #6090f0; }
   .turn.counsel .speaker         { color: #34c48a; }
+  .edit-mode .speaker-edit-select { background: #252a35; color: #c8cad2; border-color: #444; }
+  .edit-mode .turn.chief-justice .speaker-edit-select { color: #9b72ff; border-color: #9b72ff; }
+  .edit-mode .turn.justice .speaker-edit-select        { color: #6090f0; border-color: #6090f0; }
+  .edit-mode .turn.counsel .speaker-edit-select        { color: #34c48a; border-color: #34c48a; }
+  .edit-mode .speaker-edit-select.speaker-unknown      { color: #E07820 !important; border-color: #E07820 !important; }
+  .edit-mode .turn-text[contenteditable="true"]:focus  { background: #282c18; border-bottom-color: #c8940a; }
+  .menu-divider { background: #3a3d4a; }
 
   /* Annotated link spans */
   .link-mark--bottom {
@@ -2216,6 +2269,13 @@ html[data-theme="dark"] .turn.counsel                  { border-left-color: #34c
 html[data-theme="dark"] .turn.chief-justice .speaker   { color: #9b72ff; }
 html[data-theme="dark"] .turn.justice .speaker         { color: #6090f0; }
 html[data-theme="dark"] .turn.counsel .speaker         { color: #34c48a; }
+html[data-theme="dark"] .edit-mode .speaker-edit-select { background: #252a35; color: #c8cad2; border-color: #444; }
+html[data-theme="dark"] .edit-mode .turn.chief-justice .speaker-edit-select { color: #9b72ff; border-color: #9b72ff; }
+html[data-theme="dark"] .edit-mode .turn.justice .speaker-edit-select        { color: #6090f0; border-color: #6090f0; }
+html[data-theme="dark"] .edit-mode .turn.counsel .speaker-edit-select        { color: #34c48a; border-color: #34c48a; }
+html[data-theme="dark"] .edit-mode .speaker-edit-select.speaker-unknown      { color: #E07820 !important; border-color: #E07820 !important; }
+html[data-theme="dark"] .edit-mode .turn-text[contenteditable="true"]:focus  { background: #282c18; border-bottom-color: #c8940a; }
+html[data-theme="dark"] .menu-divider { background: #3a3d4a; }
 
 html[data-theme="dark"] .link-mark--bottom { background: #2a2200; color: #c8a040; border-bottom-color: #8a6a20; }
 html[data-theme="dark"] .link-mark--bottom:hover { background: #352c00; }

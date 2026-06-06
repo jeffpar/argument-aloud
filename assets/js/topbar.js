@@ -58,5 +58,20 @@
     });
 
     updateThemeMenu();
+
+    var editBtn   = document.getElementById('edit-transcripts-btn');
+    var finishBtn = document.getElementById('finish-editing-btn');
+    if (editBtn) {
+      editBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._startEditTranscripts === 'function') window._startEditTranscripts();
+      });
+    }
+    if (finishBtn) {
+      finishBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._finishEditTranscripts === 'function') window._finishEditTranscripts();
+      });
+    }
   });
 }());

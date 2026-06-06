@@ -21,6 +21,12 @@ let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for jo
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
 
+// ── Transcript edit mode state ──────────────────────────────────────────────
+let _editMode = false;
+// caseKey -> { title, number?, id?, eventEdits: Map<text_href, Map<turnIdx, {turnNum,name,text?}>> }
+let _transcriptEdits = new Map();
+let _currentTextHref = ''; // text_href of the currently loaded transcript
+
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
 const emptyState  = document.getElementById('empty-state');
@@ -127,6 +133,12 @@ function formatSpeaker(speaker) {
   if (name.startsWith('CHIEF JUSTICE ')) return 'C.J.\u00a0' + toTitleCase(name.split(' ').pop());
   if (name.startsWith('JUSTICE '))       return 'J.\u00a0'   + toTitleCase(name.split(' ').pop());
   return name.split(' ').map(toTitleCase).join(' ').replace('General ', 'Gen. ');
+}
+
+// Full name for use where abbreviations are unwanted (e.g. edit-mode dropdowns).
+function formatSpeakerFull(speaker) {
+  const name = typeof speaker === 'string' ? speaker : speaker.name;
+  return name.split(' ').map(toTitleCase).join(' ');
 }
 
 function speakerClass(speaker) {
@@ -2475,6 +2487,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
 
   ci.dataset.argued  = (typeof caseRef.argument === 'string' ? caseRef.argument.split(',')[0].trim() : '') || (typeof caseRef.reargument === 'string' ? caseRef.reargument.split(',')[0].trim() : '') || '';
   ci.dataset.decided = caseRef.decision || '';
+  if (caseRef.vocal) ci.dataset.vocal = caseRef.vocal;
   const _sortLabel = document.createElement('span');
   _sortLabel.className = 'case-sort-label';
   header.appendChild(_sortLabel);
@@ -2703,6 +2716,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     // the dropdown selection accordingly).
     const hasPlayableAudio = sortedAudio.some(a => a.audio_href);
 
+    const initialTurn = Number.isInteger(caseRef.turn) && caseRef.turn > 0 ? caseRef.turn : null;
     if (!fromRestore) {
       const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
       const deleteOther = groupId != null ? ['group'] : ['id'];
@@ -2713,12 +2727,13 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
           term: caseRef.term,
           case: caseRef.number,
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
+          ...(initialTurn ? { turn: initialTurn } : {}),
         },
-        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'turn'],
+        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', ...(initialTurn ? [] : ['turn'])],
       );
       navigate(url);
     }
-    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio });
+    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn });
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
@@ -2735,6 +2750,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
   return ci;
 }
 
+function _parseVocalSecs(s) {
+  const m = /^(\d+):(\d{2}):(\d{2}(?:\.\d+)?)/.exec(String(s).trim());
+  if (!m) return 0;
+  return parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseFloat(m[3]);
+}
+
 function _populateCollectionGroups(collUl, groups, collEntry, collId) {
   // Base path for per-advocate JSON files (split format): collectionDir/folder/
   // Uses collEntry.folder if specified, otherwise falls back to collId.
@@ -2745,8 +2766,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
   const folderVal = collEntry.folder || collId;
   const splitBase = folderVal.startsWith('/') ? (folderVal + '/') : (collBase + '/' + folderVal + '/');
 
-  // Parse the collection-level default sort order, e.g. "argued:descending"
-  let _defaultSortMode = 'cases';
+  // Parse the collection-level default sort order, e.g. "argued:descending".
+  // When no order is specified, preserve the JSON file order ('none').
+  let _defaultSortMode = 'none';
   let _defaultSortAsc  = true;
   if (collEntry.order) {
     const [om, od] = collEntry.order.split(':');
@@ -2797,7 +2819,20 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupCount.className = 'term-case-count';
     // Split format: cases is a number (precomputed count). Embedded format: cases is an array.
     const n = typeof group.cases === 'number' ? group.cases : (Array.isArray(group.cases) ? group.cases.length : 0);
-    groupCount.textContent = n + '\u00a0Cases';
+    // Vocal-style groups have a `total` (HH:MM:SS.NN) instead of a case count.
+    const hoursLabel = (() => {
+      if (typeof group.total !== 'string' || !group.total) return null;
+      const m = /^(\d+):\d{2}:\d{2}/.exec(group.total);
+      return m ? (parseInt(m[1], 10) + '\u00a0hrs') : null;
+    })();
+    const _groupSortModeLabel = (mode, asc) => {
+      if (mode === 'none') return hoursLabel || (n + '\u00a0Cases');
+      const arrow = asc ? '\u00a0\u2191' : '\u00a0\u2193';
+      if (mode === 'hours') return (hoursLabel || 'Hours') + arrow;
+      if (mode === 'cases') return (n + '\u00a0Cases') + arrow;
+      return _sortModeLabel(mode, n, asc);
+    };
+    groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
 
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupName);
@@ -2809,6 +2844,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     let _groupSortMode = _defaultSortMode;
     let _groupSortAsc  = _defaultSortAsc;
     const _GROUP_SORT_OPTIONS = [
+      ...(_defaultSortMode === 'hours' ? [{ mode: 'hours', label: 'Hours' }] : []),
       { mode: 'cases',   label: 'Cases'   },
       { mode: 'argued',  label: 'Argued'  },
       { mode: 'decided', label: 'Decided' },
@@ -2821,9 +2857,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       items.forEach(ci => {
         const lbl = ci.querySelector('.case-sort-label');
         if (!lbl) return;
-        const raw = mode === 'argued'  ? (ci.dataset.argued  || '')
-                 : mode === 'decided' ? (ci.dataset.decided || '') : '';
-        lbl.textContent = raw ? _fmtMonthDay(raw, true) : '';
+        if (mode === 'argued' || mode === 'decided') {
+          const raw = mode === 'argued' ? (ci.dataset.argued || '') : (ci.dataset.decided || '');
+          lbl.textContent = raw ? _fmtMonthDay(raw, true) : '';
+        } else if (mode === 'hours') {
+          const secs = _parseVocalSecs(ci.dataset.vocal || '');
+          const mins = Math.round(secs / 60);
+          lbl.textContent = mins > 0 ? (mins + '\u00a0' + (mins === 1 ? 'min' : 'mins')) : '';
+        } else {
+          lbl.textContent = '';
+        }
       });
       // Re-sort non-highlight items; highlights always stay first.
       if (mode === 'argued' || mode === 'decided') {
@@ -2834,12 +2877,18 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           return av < bv ? -1 : av > bv ? 1 : 0;
         });
         groupUl.classList.add('coll-sort-date');
-      } else {
+      } else if (mode === 'hours') {
+        items.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
+        groupUl.classList.add('coll-sort-date');
+      } else if (mode === 'cases') {
         items.sort((a, b) => {
           const at = a.querySelector('.case-title-nav')?.textContent || '';
           const bt = b.querySelector('.case-title-nav')?.textContent || '';
           return at.localeCompare(bt);
         });
+        groupUl.classList.remove('coll-sort-date');
+      } else {
+        // 'none': preserve original insertion order (no-op on items array).
         groupUl.classList.remove('coll-sort-date');
       }
       if (!asc) items.reverse();
@@ -2855,7 +2904,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         ({ mode, asc }) => {
           _groupSortMode = mode;
           _groupSortAsc  = asc;
-          groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc);
+          groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
           _applyGroupSortMode(_groupSortMode, _groupSortAsc);
         },
       );
@@ -2916,14 +2965,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     };
     groupLi._ensureCases = _ensureGroupCases;
     groupLi._rawCases = Array.isArray(group.cases) ? group.cases : null;
-    groupLi._activateCount = () => { groupCount.classList.add('sort-active'); groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc); };
+    groupLi._activateCount = () => { groupCount.classList.add('sort-active'); groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc); };
 
     groupHeader.addEventListener('click', async (e) => {
       if (groupTog.contains(e.target)) {
         groupLi.classList.toggle('open');
         if (!groupLi.classList.contains('open')) {
           groupCount.classList.remove('sort-active');
-          groupCount.textContent = n + '\u00a0Cases';
+          groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
           return;
         }
       } else if (!groupLi.classList.contains('open')) {
@@ -2931,7 +2980,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       }
       // Open (or already open): update URL, load cases, show page.
       groupCount.classList.add('sort-active');
-      groupCount.textContent = _sortModeLabel(_groupSortMode, n, _groupSortAsc);
+      groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
       const groupOrId = group.id != null ? { id: group.id } : { group: groupNumber };
       const deleteOther = group.id != null ? ['group'] : ['id'];
       const url = buildUrlParams(
@@ -3042,6 +3091,7 @@ async function loadAudioEntry(arg, basePath) {
     document.getElementById('prev-turn-btn').disabled = !turns.length;
     document.getElementById('next-turn-btn').disabled = !turns.length;
 
+    _currentTextHref = arg.text_href || '';
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
       ? transcriptData.media.speakers
       : [...new Map(turns.map(t => [t.name, { name: t.name }])).values()];
@@ -3271,7 +3321,7 @@ function loadCaseAsOpinion(term, caseEntry) {
   }
 }
 
-async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } = {}) {
+async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null } = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
@@ -3612,7 +3662,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false } 
   transcriptViewer.hidden = false;
   emptyState.style.display = 'none';
   const _initialEntry = allAudio[resolvedOptionValue - 1];
-  await loadAudioEntry(withTranscriptFallback(_initialEntry, _currentEvents), basePath);
+  const _entryForLoad = (Number.isInteger(initialTurn) && initialTurn > 0)
+    ? { ...withTranscriptFallback(_initialEntry, _currentEvents), turn: initialTurn }
+    : withTranscriptFallback(_initialEntry, _currentEvents);
+  await loadAudioEntry(_entryForLoad, basePath);
   _setCaseNotes(_initialEntry?.notes || caseEntry.notes || '');
 
   if (isMobile()) {
@@ -3635,68 +3688,162 @@ function renderTranscript() {
 
     const sp = document.createElement('span');
     sp.className = 'speaker';
-    sp.textContent = formatSpeaker(spkr);
 
     const tx = document.createElement('span');
     tx.className = 'turn-text';
-    renderTurnText(tx, turn.text, null, false);
 
-    // Make non-justice speaker labels clickable links to advocate profiles.
-    const spkrTitle = typeof spkr === 'object' ? (spkr.title || 'MR.') : '';
-    const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE';
-    if (isAdvocate) {
-      sp.classList.add('speaker-link');
-      sp.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const advocateId = _makeAdvocateId(typeof spkr === 'object' ? spkr.name : String(spkr));
-        if (!advocateId) return;
-        // Build URL with turn so Back returns here.
-        const turnId = turn.turn ?? (idx + 1);
-        const activeCI = document.querySelector('.case-item.active');
-        const caseKey = activeCI?.dataset.caseKey || '';
-        const slashIdx = caseKey.indexOf('/');
-        const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
-        const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
-        // Get the current event index (1-based) from the audio selector
-        const audioSelect = document.getElementById('audio-select');
-        const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
-          ? parseInt(audioSelect.value, 10)
-          : 0;
-        const turnUrl = (ciTerm && ciCase)
-          ? buildUrlParams(
-              { term: ciTerm, case: ciCase, turn: turnId, ...(currentEvent > 0 ? { event: currentEvent } : {}) },
-              ['collection', 'group', 'id', 'highlight', 'file', 'link']
-            )
-          : buildUrlParams({ turn: turnId });
-        history.replaceState(null, '', turnUrl);
-        const collectionId = spkrTitle.split(',').map(t => t.trim())
-          .some(t => t === 'MS.' || t === 'MRS.' || t === 'MISS') ? 'women_advocates' : 'all_advocates';
-        const advocateUrlParams = { collection: collectionId, id: advocateId };
-        if (ciTerm && ciCase) {
-          advocateUrlParams.term = ciTerm;
-          advocateUrlParams.case = ciCase;
-          advocateUrlParams.turn = turnId;
-          if (currentEvent > 0) advocateUrlParams.event = currentEvent;
-        }
-        const advocateUrl = buildUrlParams(
-          advocateUrlParams,
-          ['file', 'highlight', 'group', 'link'],
-        );
-        navigate(advocateUrl);
-        // On mobile, after the transcript loads scroll the doc-browser so the
-        // selected case in the advocate's list is at the top.
-        if (isMobile()) {
-          document.addEventListener('transcriptloaded', () => {
-            const activeCase = document.querySelector('.case-item.active');
-            const docBrowser = document.getElementById('doc-browser');
-            if (activeCase && docBrowser) {
-              const caseTop = activeCase.getBoundingClientRect().top - docBrowser.getBoundingClientRect().top;
-              docBrowser.scrollTop = Math.max(0, docBrowser.scrollTop + caseTop - 8);
-            }
-          }, { once: true });
-        }
-        restoreFromURL();
+    if (_editMode) {
+      // Speaker: dropdown of all speakers in this transcript
+      const editedTurn = _getEditedTurn(idx);
+      const currentName = editedTurn?.name ?? turn.name;
+      const sel = document.createElement('select');
+      sel.className = 'speaker-edit-select';
+      if (_unknownSpeakerNames.has(currentName)) sel.classList.add('speaker-unknown');
+      caseSpeakers.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.name;
+        opt.textContent = formatSpeakerFull(s);
+        if (s.name === currentName) opt.selected = true;
+        sel.appendChild(opt);
       });
+      sel.addEventListener('click', e => e.stopPropagation());
+      sel.addEventListener('change', () => {
+        const newName = sel.value;
+        sel.classList.toggle('speaker-unknown', _unknownSpeakerNames.has(newName));
+        _saveEditedTurn(idx, { name: newName });
+        const newSpkr = new Map(caseSpeakers.map(s => [s.name, s])).get(newName) || { name: newName };
+        div.className = 'turn ' + speakerClass(newSpkr);
+      });
+      sp.appendChild(sel);
+
+      // Turn text: contenteditable
+      tx.textContent = editedTurn?.text ?? turn.text;
+      tx.contentEditable = 'true';
+      tx.spellcheck = false;
+      tx.addEventListener('click', e => {
+        e.stopPropagation();
+        if (turn.time != null) audio.currentTime = turnTimes[idx];
+      });
+      tx.addEventListener('blur', () => {
+        _saveEditedTurn(idx, { text: tx.textContent });
+      });
+      tx.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); tx.blur(); }
+      });
+    } else {
+      // Normal mode: static speaker label
+      sp.textContent = formatSpeaker(spkr);
+      if (_unknownSpeakerNames.has(typeof spkr === 'string' ? spkr : spkr.name)) sp.classList.add('speaker-unknown');
+      renderTurnText(tx, turn.text, null, false);
+
+      // Make non-justice speaker labels clickable links to advocate profiles.
+      const spkrTitle = typeof spkr === 'object' ? (spkr.title || 'MR.') : '';
+      const spkrName  = typeof spkr === 'object' ? spkr.name : spkr;
+      const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE'
+                         && !_unknownSpeakerNames.has(spkrName);
+      const isJustice = (spkrTitle === 'CHIEF JUSTICE' || spkrTitle === 'JUSTICE')
+                        && !_unknownSpeakerNames.has(spkrName);
+      if (isAdvocate) {
+        sp.classList.add('speaker-link');
+        sp.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const advocateId = _makeAdvocateId(typeof spkr === 'object' ? spkr.name : String(spkr));
+          if (!advocateId) return;
+          // Build URL with turn so Back returns here.
+          const turnId = turn.turn ?? (idx + 1);
+          const activeCI = document.querySelector('.case-item.active');
+          const caseKey = activeCI?.dataset.caseKey || '';
+          const slashIdx = caseKey.indexOf('/');
+          const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
+          const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
+          // Get the current event index (1-based) from the audio selector
+          const audioSelect = document.getElementById('audio-select');
+          const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
+            ? parseInt(audioSelect.value, 10)
+            : 0;
+          const turnUrl = (ciTerm && ciCase)
+            ? buildUrlParams(
+                { term: ciTerm, case: ciCase, turn: turnId, ...(currentEvent > 0 ? { event: currentEvent } : {}) },
+                ['collection', 'group', 'id', 'highlight', 'file', 'link']
+              )
+            : buildUrlParams({ turn: turnId });
+          history.replaceState(null, '', turnUrl);
+          const collectionId = spkrTitle.split(',').map(t => t.trim())
+            .some(t => t === 'MS.' || t === 'MRS.' || t === 'MISS') ? 'women_advocates' : 'all_advocates';
+          const advocateUrlParams = { collection: collectionId, id: advocateId };
+          if (ciTerm && ciCase) {
+            advocateUrlParams.term = ciTerm;
+            advocateUrlParams.case = ciCase;
+            advocateUrlParams.turn = turnId;
+            if (currentEvent > 0) advocateUrlParams.event = currentEvent;
+          }
+          const advocateUrl = buildUrlParams(
+            advocateUrlParams,
+            ['file', 'highlight', 'group', 'link'],
+          );
+          navigate(advocateUrl);
+          // On mobile, after the transcript loads scroll the doc-browser so the
+          // selected case in the advocate's list is at the top.
+          if (isMobile()) {
+            document.addEventListener('transcriptloaded', () => {
+              const activeCase = document.querySelector('.case-item.active');
+              const docBrowser = document.getElementById('doc-browser');
+              if (activeCase && docBrowser) {
+                const caseTop = activeCase.getBoundingClientRect().top - docBrowser.getBoundingClientRect().top;
+                docBrowser.scrollTop = Math.max(0, docBrowser.scrollTop + caseTop - 8);
+              }
+            }, { once: true });
+          }
+          restoreFromURL();
+        });
+      } else if (isJustice) {
+        sp.classList.add('speaker-link');
+        sp.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const justiceId = _makeAdvocateId(spkrName);
+          if (!justiceId) return;
+          const turnId = turn.turn ?? (idx + 1);
+          const activeCI = document.querySelector('.case-item.active');
+          const caseKey = activeCI?.dataset.caseKey || '';
+          const slashIdx = caseKey.indexOf('/');
+          const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
+          const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
+          const audioSelect = document.getElementById('audio-select');
+          const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
+            ? parseInt(audioSelect.value, 10)
+            : 0;
+          const turnUrl = (ciTerm && ciCase)
+            ? buildUrlParams(
+                { term: ciTerm, case: ciCase, turn: turnId, ...(currentEvent > 0 ? { event: currentEvent } : {}) },
+                ['collection', 'group', 'id', 'highlight', 'file', 'link']
+              )
+            : buildUrlParams({ turn: turnId });
+          history.replaceState(null, '', turnUrl);
+          const justiceUrlParams = { collection: 'vocal', id: justiceId };
+          if (ciTerm && ciCase) {
+            justiceUrlParams.term = ciTerm;
+            justiceUrlParams.case = ciCase;
+            justiceUrlParams.turn = turnId;
+            if (currentEvent > 0) justiceUrlParams.event = currentEvent;
+          }
+          const justiceUrl = buildUrlParams(
+            justiceUrlParams,
+            ['file', 'highlight', 'group', 'link'],
+          );
+          navigate(justiceUrl);
+          if (isMobile()) {
+            document.addEventListener('transcriptloaded', () => {
+              const activeCase = document.querySelector('.case-item.active');
+              const docBrowser = document.getElementById('doc-browser');
+              if (activeCase && docBrowser) {
+                const caseTop = activeCase.getBoundingClientRect().top - docBrowser.getBoundingClientRect().top;
+                docBrowser.scrollTop = Math.max(0, docBrowser.scrollTop + caseTop - 8);
+              }
+            }, { once: true });
+          }
+          restoreFromURL();
+        });
+      }
     }
 
     div.appendChild(sp);
@@ -4208,6 +4355,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   // Open
   searchTrigger.addEventListener('click', openSearch);
+  document.getElementById('unknown-turn-btn')?.addEventListener('click', _scrollToNextUnknown);
 
   // Close on overlay backdrop click
   overlay.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
@@ -4984,4 +5132,142 @@ async function restoreFromURL() {
 }
 
 window.addEventListener('popstate', () => restoreFromURL());
+
+// ── Transcript edit mode ────────────────────────────────────────────────────
+
+function _getEditedTurn(turnIdx) {
+  const caseKey = document.querySelector('.case-item.active')?.dataset.caseKey || '';
+  return _transcriptEdits.get(caseKey)?.eventEdits.get(_currentTextHref)?.get(turnIdx) ?? null;
+}
+
+function _saveEditedTurn(turnIdx, changes) {
+  const caseKey = document.querySelector('.case-item.active')?.dataset.caseKey || '';
+  if (!caseKey || !_currentTextHref) return;
+
+  if (!_transcriptEdits.has(caseKey)) {
+    _transcriptEdits.set(caseKey, {
+      title: _currentCaseEntry?.title || '',
+      number: _currentCaseEntry?.number,
+      id: _currentCaseEntry?.id,
+      eventEdits: new Map()
+    });
+  }
+  const caseData = _transcriptEdits.get(caseKey);
+  if (!caseData.eventEdits.has(_currentTextHref)) {
+    caseData.eventEdits.set(_currentTextHref, new Map());
+  }
+  const eventEdits = caseData.eventEdits.get(_currentTextHref);
+
+  const origTurn = turns[turnIdx];
+  const existing = eventEdits.get(turnIdx) || {};
+  const newName = changes.name !== undefined ? changes.name : (existing.name ?? origTurn.name);
+  const newText = changes.text !== undefined ? changes.text : existing.text;
+
+  const nameChanged = newName !== origTurn.name;
+  const textChanged = newText !== undefined && newText !== origTurn.text;
+
+  if (!nameChanged && !textChanged) {
+    eventEdits.delete(turnIdx);
+  } else {
+    eventEdits.set(turnIdx, {
+      turnNum: origTurn.turn ?? (turnIdx + 1),
+      name: newName,
+      ...(textChanged ? { text: newText } : {})
+    });
+  }
+
+  if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
+  if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
+}
+
+function _generateEditsJson() {
+  const result = [];
+  for (const [, caseData] of _transcriptEdits) {
+    if (!caseData.eventEdits.size) continue;
+    const events = [];
+    for (const [textHref, turnEdits] of caseData.eventEdits) {
+      if (!turnEdits.size) continue;
+      events.push({
+        text_href: textHref,
+        turns: [...turnEdits.values()]
+          .map(e => ({ turn: e.turnNum, name: e.name, ...(e.text !== undefined ? { text: e.text } : {}) }))
+          .sort((a, b) => a.turn - b.turn)
+      });
+    }
+    if (!events.length) continue;
+    const obj = { title: caseData.title };
+    if (caseData.number) obj.number = caseData.number;
+    else if (caseData.id) obj.id = caseData.id;
+    obj.events = events;
+    result.push(obj);
+  }
+  return result;
+}
+
+const _unknownSpeakerNames = new Set(['UNKNOWN JUSTICE', 'UNKNOWN SPEAKER']);
+
+function _scrollToNextUnknown() {
+  const unknownIndices = [];
+  turns.forEach((turn, idx) => {
+    const effectiveName = _getEditedTurn(idx)?.name ?? turn.name;
+    if (_unknownSpeakerNames.has(effectiveName)) unknownIndices.push(idx);
+  });
+  if (!unknownIndices.length) return;
+
+  // Find the first unknown whose top edge is below the viewport midpoint; wrap if none.
+  const viewerRect = transcriptViewer.getBoundingClientRect();
+  const viewMidY   = viewerRect.top + transcriptViewer.clientHeight / 2;
+  let targetIdx = unknownIndices.find(idx => {
+    const el = document.getElementById('turn-' + idx);
+    return el && el.getBoundingClientRect().top > viewMidY;
+  });
+  if (targetIdx === undefined) targetIdx = unknownIndices[0];
+
+  document.getElementById('turn-' + targetIdx)
+    ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function _updateEditModeMenu() {
+  const editBtn    = document.getElementById('edit-transcripts-btn');
+  const finishBtn  = document.getElementById('finish-editing-btn');
+  const unknownBtn = document.getElementById('unknown-turn-btn');
+  if (editBtn)    editBtn.hidden    = _editMode;
+  if (finishBtn)  finishBtn.hidden  = !_editMode;
+  if (unknownBtn) unknownBtn.hidden = !_editMode;
+}
+
+function startEditTranscripts() {
+  alert('Note: all edits will be recorded in your web browser until you have selected “Editing Finished”, and then your edits will be downloaded. If you close your browser before you have finished, your edits will be lost.');
+  _editMode = true;
+  _updateEditModeMenu();
+  transcriptViewer.classList.add('edit-mode');
+  turnList.innerHTML = '';
+  renderTranscript();
+}
+
+function finishEditTranscripts() {
+  const edits = _generateEditsJson();
+  _editMode = false;
+  _transcriptEdits.clear();
+  _updateEditModeMenu();
+  transcriptViewer.classList.remove('edit-mode');
+  if (edits.length) {
+    const blob = new Blob([JSON.stringify(edits, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'transcript-edits.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+  turnList.innerHTML = '';
+  renderTranscript();
+  alert('Note: Send the downloaded edits to clerk@lonedissent.org for processing. Thank you for taking the time to make these corrections.');
+}
+
+window._startEditTranscripts  = startEditTranscripts;
+window._finishEditTranscripts = finishEditTranscripts;
+
 init();

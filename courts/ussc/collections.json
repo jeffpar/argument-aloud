@@ -6,18 +6,28 @@
         "name": "Authored Opinions",
         "file": "/courts/ussc/people/justices/opinions.json",
         "folder": "/courts/ussc/people/justices/opinions",
+        "order": "decided:ascending",
         "search": "name"
       },
       {
         "name": "Lone Dissents",
         "file": "/courts/ussc/people/justices/loners.json",
         "folder": "/courts/ussc/people/justices/loners",
+        "order": "decided:ascending",
         "search": "name"
       },
       {
         "name": "Oral Dissents (Recorded)",
         "file": "/courts/ussc/people/justices/dissents.json",
+        "order": "decided:ascending",
         "search": "cases:title"
+      },
+      {
+        "name": "Vocal Justices",
+        "file": "/courts/ussc/people/justices/vocal.json",
+        "folder": "/courts/ussc/people/justices/vocal",
+        "order": "hours:descending",
+        "search": "name"
       }
     ]
   },
@@ -45,7 +55,7 @@
         "name": "Justice Advocates",
         "file": "/courts/ussc/people/advocates/justices/justice_advocates.json",
         "link": "/courts/ussc/people/advocates/justices",
-        "order": "argued:ascending",
+        "order": "argued:descending",
         "search": "name"
       },
       {
@@ -69,12 +79,14 @@
     "name": "Historical Briefs",
     "file": "/courts/ussc/collections/briefs.json",
     "search": "cases:title",
+    "order": "argued:ascending",
     "categories": ["Petitioner", "Respondent", "Amicus", "Briefs", "Transcripts", "Other"]
   },
   {
     "name": "Historical Transcripts",
     "file": "/courts/ussc/collections/transcripts.json",
     "search": "cases:title",
+    "order": "argued:ascending",
     "categories": ["Briefs", "Transcripts", "Other"]
   },
   {

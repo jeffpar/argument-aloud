@@ -569,7 +569,6 @@ function _jmBuildCaseIndices(termDirs) {
 }
 
 function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
-    if (exists(JUSTICE_ADVOCATES_FILE)) return;
     if (verbose) console.log('\n── Building justice_advocates.json ──');
     const justices = _jmLoadJustices();
     if (!justices.length) {
@@ -864,11 +863,12 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         }
     }
 
-    // Sort groups by last name, stripping generational suffixes.
+    // Sort groups by case count descending, then last name ascending.
+    const _jaLastName = n => (n || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
     coll.sort((a, b) => {
-        const aLast = (a.name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
-        const bLast = (b.name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
-        return aLast < bLast ? -1 : aLast > bLast ? 1 : 0;
+        const ca = a.cases?.length ?? 0, cb = b.cases?.length ?? 0;
+        if (ca !== cb) return cb - ca;
+        return _jaLastName(a.name) < _jaLastName(b.name) ? -1 : _jaLastName(a.name) > _jaLastName(b.name) ? 1 : 0;
     });
 
     const newJson = JSON.stringify(coll, null, 2) + '\n';
