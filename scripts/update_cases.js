@@ -4396,8 +4396,82 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
     return true;
 }
 
+// For conditions containing an eventFileCount subcondition, find the 1-based
+// index of the first chronological event that satisfies the full eventMatch,
+// and the 1-based turn number of the first item in that event's file that
+// matches the fileCount value.  Returns null if no event qualifies.
+function _findFirstEventAndTurn(c, conditions, termDir) {
+    for (const cond of conditions) {
+        if (cond.type !== 'eventMatch') continue;
+        const fileCountSub = cond.subconditions.find(sub => sub.type === 'eventFileCount');
+        if (!fileCountSub) continue;
+        const nonFileSubs = cond.subconditions.filter(sub => sub.type !== 'eventFileCount');
+        const events = Array.isArray(c.events) ? c.events : [];
+        const sorted = [...events].sort((a, b) =>
+            (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0
+        );
+        for (let ei = 0; ei < sorted.length; ei++) {
+            const ev = sorted[ei];
+            const basicOk = nonFileSubs.every(sub => {
+                if (sub.type === 'eventTruthy') return !!ev[sub.prop];
+                if (sub.type === 'eventFalsy')  return !ev[sub.prop];
+                if (sub.type === 'eventProp')   return _applyCompOp(ev[sub.prop], sub.op, sub.value);
+                return false;
+            });
+            if (!basicOk) continue;
+            const href = ev[fileCountSub.fileProp];
+            if (!href) continue;
+            const json = _loadTranscriptCached(path.join(termDir, 'cases', href));
+            if (!json) continue;
+            const arr = Array.isArray(json[fileCountSub.arrayName]) ? json[fileCountSub.arrayName] : [];
+            const count = arr.filter(item =>
+                String(item[fileCountSub.itemProp] || '').includes(fileCountSub.value)).length;
+            if (!_applyCompOp(count, fileCountSub.op, fileCountSub.threshold)) continue;
+            const firstIdx = arr.findIndex(item =>
+                String(item[fileCountSub.itemProp] || '').includes(fileCountSub.value));
+            if (firstIdx < 0) continue;
+            return { event: events.indexOf(ev) + 1, turn: arr[firstIdx].turn ?? (firstIdx + 1) };
+        }
+    }
+    return null;
+}
+
+// For an eventMatch condition without a fileCount subcondition, find the
+// 1-based original index (in the events array) of the first chronological
+// event that satisfies all subconditions.  Returns null if none qualifies.
+function _findFirstMatchingEventOrigIdx(events, eventMatchCond) {
+    if (!Array.isArray(events) || !events.length) return null;
+    const sorted = [...events].sort((a, b) =>
+        (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0
+    );
+    for (const ev of sorted) {
+        const ok = eventMatchCond.subconditions.every(sub => {
+            if (sub.type === 'eventTruthy') return !!ev[sub.prop];
+            if (sub.type === 'eventFalsy')  return !ev[sub.prop];
+            if (sub.type === 'eventProp')   return _applyCompOp(ev[sub.prop], sub.op, sub.value);
+            return false;
+        });
+        if (ok) return events.indexOf(ev) + 1;
+    }
+    return null;
+}
+
 // Scan allTerms for cases that satisfy requiredTags, filter, AND all conditions.
 function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
+    const hasFileCount = conditions.some(cond =>
+        cond.type === 'eventMatch' &&
+        cond.subconditions.some(sub => sub.type === 'eventFileCount')
+    );
+    // eventMatch without fileCount (e.g. "Cases with Unaligned Audio"):
+    // find the first chronological event that satisfies the match.
+    const eventMatchCond = !hasFileCount
+        ? conditions.find(cond => cond.type === 'eventMatch')
+        : null;
+    // count == 0 condition (e.g. "Cases Missing Audio"):
+    // find the first chronological event (since none have the counted property).
+    const countZeroCond = conditions.find(cond =>
+        cond.type === 'count' && cond.op === '==' && cond.value === 0
+    );
     const cases = [];
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -4413,7 +4487,32 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
             }
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             if (!_matchesCaseConditions(c, conditions, termDir)) continue;
-            cases.push(_setCaseEntry(c, term));
+            const entry = _setCaseEntry(c, term);
+            if (hasFileCount) {
+                const info = _findFirstEventAndTurn(c, conditions, termDir);
+                if (info) {
+                    entry.event = info.event;
+                    entry.turn  = info.turn;
+                    delete entry.transcript;
+                }
+            } else if (eventMatchCond) {
+                const events = Array.isArray(c.events) ? c.events : [];
+                const idx = _findFirstMatchingEventOrigIdx(events, eventMatchCond);
+                if (idx !== null) entry.event = idx;
+                delete entry.transcript;
+            } else if (countZeroCond) {
+                const events = Array.isArray(c.events) ? c.events : [];
+                if (events.length > 0) {
+                    const sorted = [...events].sort((a, b) =>
+                        (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0
+                    );
+                    entry.event = events.indexOf(sorted[0]) + 1;
+                } else {
+                    delete entry.event;
+                }
+                delete entry.transcript;
+            }
+            cases.push(entry);
         }
     }
     cases.sort((a, b) =>

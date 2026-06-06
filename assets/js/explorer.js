@@ -27,6 +27,7 @@ let _editMode = false;
 // caseKey -> { title, number?, id?, eventEdits: Map<text_href, Map<turnIdx, {turnNum,name,text?}>> }
 let _transcriptEdits = new Map();
 let _currentTextHref = ''; // text_href of the currently loaded transcript
+let _currentCaseKey  = ''; // caseKey of the currently loaded case
 
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
@@ -2826,7 +2827,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     const hoursLabel = (() => {
       if (typeof group.total !== 'string' || !group.total) return null;
       const m = /^(\d+):\d{2}:\d{2}/.exec(group.total);
-      return m ? (parseInt(m[1], 10) + '\u00a0hrs') : null;
+      if (!m) return null; const h = parseInt(m[1], 10); return h + '\u00a0' + (h === 1 ? 'hr' : 'hrs');
     })();
     const _groupSortModeLabel = (mode, asc) => {
       if (mode === 'none') return hoursLabel || (n + '\u00a0Cases');
@@ -2853,17 +2854,68 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       { mode: 'decided', label: 'Decided' },
     ];
 
+    const PAGE_SIZE = 20;
+    const HALF_PAGE = PAGE_SIZE >> 1;
+    let _pageStart = 0;
+    let _highlights = [];
+    let _sortedItems = [];
+
+    const prevSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
+    const prevBtn = prevSentinel.appendChild(document.createElement('button'));
+    prevBtn.className = 'page-sentinel-btn';
+    prevBtn.addEventListener('click', () => {
+      _pageStart = Math.max(0, _pageStart - PAGE_SIZE);
+      _renderGroupPage();
+      requestAnimationFrame(() => nextSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    });
+
+    const nextSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
+    const nextBtn = nextSentinel.appendChild(document.createElement('button'));
+    nextBtn.className = 'page-sentinel-btn';
+    nextBtn.addEventListener('click', () => {
+      _pageStart += PAGE_SIZE;
+      _renderGroupPage();
+      requestAnimationFrame(() => prevSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    });
+
+    function _renderGroupPage() {
+      const pageEnd = _pageStart + PAGE_SIZE;
+      const prevCount = _pageStart;
+      const nextCount = Math.max(0, _sortedItems.length - pageEnd);
+      for (let i = 0; i < _sortedItems.length; i++) {
+        _sortedItems[i].hidden = (i < _pageStart || i >= pageEnd);
+      }
+      prevSentinel.hidden = prevCount === 0;
+      nextSentinel.hidden = nextCount === 0;
+      if (prevCount > 0) {
+        const show = Math.min(prevCount, PAGE_SIZE);
+        prevBtn.textContent = `(Previous ${show} case${show !== 1 ? 's' : ''}...)`;
+      }
+      if (nextCount > 0) {
+        const show = Math.min(nextCount, PAGE_SIZE);
+        nextBtn.textContent = `(Next ${show} case${show !== 1 ? 's' : ''}...)`;
+      }
+      groupUl.replaceChildren(
+        ..._highlights,
+        ...(prevCount > 0 ? [prevSentinel] : []),
+        ..._sortedItems.slice(0, pageEnd),
+        ...(nextCount > 0 ? [nextSentinel] : []),
+        ..._sortedItems.slice(pageEnd),
+      );
+    }
+
     function _applyGroupSortMode(mode, asc, { reversal = false } = {}) {
       const allItems = Array.from(groupUl.querySelectorAll('.case-item'));
-      const highlights = allItems.filter(ci => ci.classList.contains('highlight-item'));
-      const items = allItems.filter(ci => !ci.classList.contains('highlight-item'));
+      _highlights = allItems.filter(ci => ci.classList.contains('highlight-item'));
+      _sortedItems = allItems.filter(ci => !ci.classList.contains('highlight-item'));
+      _pageStart = 0;
       if (reversal) {
         // Only direction changed: items are already sorted, just flip them.
-        items.reverse();
-        groupUl.replaceChildren(...highlights, ...items);
+        _sortedItems.reverse();
+        _renderGroupPage();
         return;
       }
-      items.forEach(ci => {
+      _sortedItems.forEach(ci => {
         const lbl = ci.querySelector('.case-sort-label');
         if (!lbl) return;
         if (mode === 'argued' || mode === 'decided') {
@@ -2873,10 +2925,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           const secs = _parseVocalSecs(ci.dataset.vocal || '');
           const mins = Math.round(secs / 60);
           if (mins > 0) {
-            lbl.textContent = mins + '\u00a0' + (mins === 1 ? 'min' : 'mins');
+            lbl.textContent = mins + '\u00a0min';
           } else {
             const s = Math.round(secs);
-            lbl.textContent = s + '\u00a0' + (s === 1 ? 'sec' : 'secs');
+            lbl.textContent = s + '\u00a0sec';
           }
         } else {
           lbl.textContent = '';
@@ -2885,26 +2937,26 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       // Re-sort non-highlight items; highlights always stay first.
       if (mode === 'argued' || mode === 'decided') {
         const key = mode === 'argued' ? 'argued' : 'decided';
-        items.sort((a, b) => {
+        _sortedItems.sort((a, b) => {
           const av = a.dataset[key] || '';
           const bv = b.dataset[key] || '';
           return av < bv ? -1 : av > bv ? 1 : 0;
         });
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'hours') {
-        items.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
+        _sortedItems.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'cases') {
         // Pre-compute keys once (O(n)) to avoid O(n log n) querySelector calls in the comparator.
-        const keyMap = new Map(items.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
-        items.sort((a, b) => keyMap.get(a).localeCompare(keyMap.get(b)));
+        const keyMap = new Map(_sortedItems.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
+        _sortedItems.sort((a, b) => keyMap.get(a).localeCompare(keyMap.get(b)));
         groupUl.classList.remove('coll-sort-date');
       } else {
         // 'none': preserve original insertion order (no-op on items array).
         groupUl.classList.remove('coll-sort-date');
       }
-      if (!asc) items.reverse();
-      groupUl.replaceChildren(...highlights, ...items);
+      if (!asc) _sortedItems.reverse();
+      _renderGroupPage();
     }
 
     function _showGroupSortMenu() {
@@ -2984,6 +3036,12 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupLi._ensureCases = _ensureGroupCases;
     groupLi._rawCases = Array.isArray(group.cases) ? group.cases : null;
     groupLi._activateCount = () => { groupCount.classList.add('sort-active'); groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc); };
+    groupLi._centerOnItem = (item) => {
+      const idx = _sortedItems.indexOf(item);
+      if (idx < 0) return;
+      _pageStart = Math.max(0, Math.min(idx - HALF_PAGE, Math.max(0, _sortedItems.length - PAGE_SIZE)));
+      _renderGroupPage();
+    };
 
     groupHeader.addEventListener('click', async (e) => {
       if (groupTog.contains(e.target)) {
@@ -3216,6 +3274,7 @@ function _buildJournalRefOptions(caseEntry, term) {
 // no-audio display (forceNoAudio: true).
 function loadCaseAsOpinion(term, caseEntry) {
   const caseKey = term + '/' + caseId(caseEntry);
+  _currentCaseKey = caseKey;
 
   // Update nav highlight (no audio-index disambiguation needed in this path).
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
@@ -3351,6 +3410,7 @@ function loadCaseAsOpinion(term, caseEntry) {
 
 async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null } = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
+  _currentCaseKey = caseKey;
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
   // Update topbar term label
@@ -3723,6 +3783,7 @@ function renderTranscript() {
     if (_editMode) {
       // Speaker: dropdown of all speakers in this transcript
       const editedTurn = _getEditedTurn(idx);
+      if (editedTurn) div.classList.add('turn-modified');
       const currentName = editedTurn?.name ?? turn.name;
       const sel = document.createElement('select');
       sel.className = 'speaker-edit-select';
@@ -3740,7 +3801,7 @@ function renderTranscript() {
         sel.classList.toggle('speaker-unknown', _unknownSpeakerNames.has(newName));
         _saveEditedTurn(idx, { name: newName });
         const newSpkr = new Map(caseSpeakers.map(s => [s.name, s])).get(newName) || { name: newName };
-        div.className = 'turn ' + speakerClass(newSpkr);
+        div.className = 'turn ' + speakerClass(newSpkr) + (_getEditedTurn(idx) ? ' turn-modified' : '');
       });
       sp.appendChild(sel);
 
@@ -3754,6 +3815,7 @@ function renderTranscript() {
       });
       tx.addEventListener('blur', () => {
         _saveEditedTurn(idx, { text: tx.textContent });
+        div.classList.toggle('turn-modified', _getEditedTurn(idx) !== null);
       });
       tx.addEventListener('keydown', e => {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); tx.blur(); }
@@ -5010,6 +5072,7 @@ async function restoreFromURL() {
           || c.number.split(',').map(n => n.trim()).includes(caseParam);
       });
       if (ci) {
+        ci.closest('.month-group')?._centerOnItem?.(ci);
         markCaseItemActive(ci);
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
@@ -5212,17 +5275,17 @@ window.addEventListener('popstate', () => restoreFromURL());
 // ── Transcript edit mode ────────────────────────────────────────────────────
 
 function _getEditedTurn(turnIdx) {
-  const caseKey = document.querySelector('.case-item.active')?.dataset.caseKey || '';
-  return _transcriptEdits.get(caseKey)?.eventEdits.get(_currentTextHref)?.get(turnIdx) ?? null;
+  return _transcriptEdits.get(_currentCaseKey)?.eventEdits.get(_currentTextHref)?.get(turnIdx) ?? null;
 }
 
 function _saveEditedTurn(turnIdx, changes) {
-  const caseKey = document.querySelector('.case-item.active')?.dataset.caseKey || '';
-  if (!caseKey || !_currentTextHref) return;
+  if (!_currentCaseKey || !_currentTextHref) return;
+  const caseKey = _currentCaseKey;
 
   if (!_transcriptEdits.has(caseKey)) {
     _transcriptEdits.set(caseKey, {
       title: _currentCaseEntry?.title || '',
+      term: _currentCaseKey.split('/')[0],
       number: _currentCaseEntry?.number,
       id: _currentCaseEntry?.id,
       eventEdits: new Map()
@@ -5272,6 +5335,7 @@ function _generateEditsJson() {
     }
     if (!events.length) continue;
     const obj = { title: caseData.title };
+    if (caseData.term)   obj.term   = caseData.term;
     if (caseData.number) obj.number = caseData.number;
     else if (caseData.id) obj.id = caseData.id;
     obj.events = events;

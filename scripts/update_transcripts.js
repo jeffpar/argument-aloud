@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * update_transcripts.js - Align transcript turns with audio using Whisper, and/or
+ * update_transcript.js - Align transcript turns with audio using Whisper, and/or
  * split multi-sentence turns into individual turns.
  *
  * Usage:
- *   node scripts/update_transcripts.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL]
+ *   node scripts/update_transcript.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL]
  *
  * Arguments:
  *   TERM    Term in YYYY-MM format (e.g., 2014-10)
@@ -26,12 +26,12 @@
  *   --dry-run          Print what would change without writing files
  *
  * Examples:
- *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument
- *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --realign
- *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --split
- *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --split --realign
- *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --realign --no-vad
- *   node scripts/update_transcripts.js 2014-10 14-378 oyez opinion --model small
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --split --realign
+ *   node scripts/update_transcript.js 2014-10 14-378 ussc argument --realign --no-vad
+ *   node scripts/update_transcript.js 2014-10 14-378 oyez opinion --model small
  *
  * Requires: python3 with faster-whisper and rapidfuzz installed.
  *   pip install faster-whisper rapidfuzz
@@ -492,7 +492,7 @@ main()
  */
 async function downloadFile(url, destPath) {
     const resp = await fetch(url, {
-        headers: { 'User-Agent': 'update_transcripts/1.0' },
+        headers: { 'User-Agent': 'update_transcript/1.0' },
     });
     if (!resp.ok) {
         throw new Error(`HTTP ${resp.status} fetching ${url}`);
@@ -511,7 +511,7 @@ async function downloadFile(url, destPath) {
  */
 function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offsetSecs = 0, vadFilter = true } = {}) {
     // Write the Python script to a temp file.
-    const pyPath = path.join(os.tmpdir(), `update_transcripts_align_${process.pid}.py`);
+    const pyPath = path.join(os.tmpdir(), `update_transcript_align_${process.pid}.py`);
     writeText(pyPath, ALIGN_PY);
 
     const inputJson = JSON.stringify({
@@ -634,7 +634,7 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
 
         // Download audio to a temp file.
         const audioExt  = path.extname(new URL(event.audio_href).pathname) || '.mp3';
-        const audioPath = path.join(os.tmpdir(), `update_transcripts_audio_${process.pid}${audioExt}`);
+        const audioPath = path.join(os.tmpdir(), `update_transcript_audio_${process.pid}${audioExt}`);
 
         console.log(`Downloading audio: ${event.audio_href}`);
         try {
@@ -714,6 +714,149 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
     return true;
 }
 
+// ── Apply speaker/text edits from a transcript-edits JSON file ─────────────
+
+function _formatTimestamp(date) {
+    const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        month: 'long', day: 'numeric', year: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true,
+    });
+    const tzf = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles', timeZoneName: 'short',
+    });
+    const parts = dtf.formatToParts(date);
+    const tz    = tzf.formatToParts(date).find(p => p.type === 'timeZoneName')?.value ?? 'PT';
+    const get = (t) => parts.find(p => p.type === t)?.value ?? '';
+    return `${get('month')} ${get('day')}, ${get('year')} at ${get('hour')}:${get('minute')}${get('dayPeriod').toLowerCase()} ${tz}`;
+}
+
+async function applyEditsFromFile(filePath) {
+    const absPath = path.resolve(filePath);
+    if (!exists(absPath)) {
+        console.error(`File not found: ${absPath}`);
+        process.exit(1);
+    }
+
+    let edits;
+    try { edits = readJson(absPath); } catch (e) {
+        console.error(`Failed to parse JSON: ${e.message}`);
+        process.exit(1);
+    }
+    if (!Array.isArray(edits)) {
+        console.error('Expected a JSON array of case objects');
+        process.exit(1);
+    }
+
+    const TERMS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const INDEX_PATH = path.join(REPO_ROOT, 'courts', 'ussc', 'transcripts', 'updates', 'index.md');
+    const timestamp  = _formatTimestamp(new Date());
+    const logLines   = [];
+
+    for (const caseEdit of edits) {
+        const { title = '', term, events: eventEdits } = caseEdit;
+        const caseRef = caseEdit.number || caseEdit.id || '';
+
+        if (!term) {
+            console.warn(`Skipping case with no "term": ${title}`);
+            continue;
+        }
+        if (!Array.isArray(eventEdits) || !eventEdits.length) continue;
+
+        // Load cases.json once per case (for event-index lookup).
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        let termCases = null;
+        if (exists(casesPath)) {
+            try { termCases = readJson(casesPath); } catch { /* leave null */ }
+        }
+
+        for (const eventEdit of eventEdits) {
+            const { text_href, turns: turnEdits } = eventEdit;
+            if (!text_href || !Array.isArray(turnEdits) || !turnEdits.length) continue;
+
+            const transcriptPath = path.join(TERMS_DIR, term, 'cases', text_href);
+            if (!exists(transcriptPath)) {
+                console.warn(`Transcript not found: ${path.relative(REPO_ROOT, transcriptPath)}`);
+                continue;
+            }
+
+            let transcript;
+            try { transcript = readJson(transcriptPath); } catch (e) {
+                console.warn(`Failed to parse transcript: ${e.message}`);
+                continue;
+            }
+
+            // Support both envelope format ({ turns: [...] }) and flat array.
+            const isEnvelope = !Array.isArray(transcript);
+            const turns = isEnvelope ? (transcript.turns ?? []) : transcript;
+
+            let changesApplied = 0;
+            for (const edit of turnEdits) {
+                const turnNum = edit.turn;
+                // Find turn by its 1-based "turn" field (falling back to positional index+1).
+                const t = turns.find((t, i) => (t.turn ?? (i + 1)) === turnNum);
+                if (!t) {
+                    console.warn(`  Turn ${turnNum} not found in ${text_href}`);
+                    continue;
+                }
+                let changed = false;
+                if (edit.name !== undefined && t.name !== edit.name) {
+                    t.name = edit.name;
+                    changed = true;
+                }
+                if (edit.text !== undefined && t.text !== edit.text) {
+                    t.text = edit.text;
+                    changed = true;
+                }
+                if (changed) { t.modified = true; changesApplied++; }
+            }
+
+            if (changesApplied === 0) {
+                console.log(`No new changes in ${path.relative(REPO_ROOT, transcriptPath)}`);
+                continue;
+            }
+
+            const transcriptJson = JSON.stringify(transcript, null, 2).replace(/[“”]/g, '\\"') + '\n';
+            writeText(transcriptPath, transcriptJson);
+            console.log(`Applied ${changesApplied} change(s) → ${path.relative(REPO_ROOT, transcriptPath)}`);
+
+            // Find 1-based event index for the URL.
+            let eventIdx = null;
+            if (termCases) {
+                const caseEntry = termCases.find(c =>
+                    c.number === caseRef ||
+                    c.id     === caseRef ||
+                    (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef))
+                );
+                if (caseEntry?.events) {
+                    const idx = caseEntry.events.findIndex(e => e.text_href === text_href);
+                    if (idx >= 0) eventIdx = idx + 1;
+                }
+            }
+
+            // Build display title: strip decision year, append docket number.
+            const bareTitle = title.replace(/\s*\(\d{4}\)\s*$/, '').trim();
+            const displayTitle = caseRef ? `${bareTitle} (No. ${caseRef})` : bareTitle;
+            const url = `/courts/ussc/?term=${term}&case=${caseRef}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
+            const noun = changesApplied === 1 ? 'correction' : 'corrections';
+            logLines.push(`  - [${displayTitle}](${url}): ${changesApplied} ${noun} applied on ${timestamp}`);
+        }
+    }
+
+    if (logLines.length === 0) {
+        console.log('No new changes to record.');
+        return;
+    }
+
+    // Append log lines to index.md.
+    let md = exists(INDEX_PATH) ? readText(INDEX_PATH) : '';
+    // Ensure single trailing newline before appending.
+    if (!md.endsWith('\n')) md += '\n';
+    md += logLines.join('\n') + '\n';
+    writeText(INDEX_PATH, md);
+    console.log(`\nRecorded ${logLines.length} update(s) in ${path.relative(REPO_ROOT, INDEX_PATH)}`);
+}
+
 async function main() {
     // ── Parse arguments ────────────────────────────────────────────────────
     const args = process.argv.slice(2);
@@ -739,8 +882,15 @@ async function main() {
         beamSize = parseInt(args[beamIdx + 1], 10) || 5;
     }
 
+    // ── JSON edits mode ────────────────────────────────────────────────────
+    if (positional.length === 1 && positional[0].endsWith('.json')) {
+        await applyEditsFromFile(positional[0]);
+        return;
+    }
+
     if (positional.length < 4) {
         console.error('Usage: node scripts/update_transcripts.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
+        console.error('       node scripts/update_transcripts.js transcript-edits.json');
         process.exit(1);
     }
 
