@@ -2203,6 +2203,14 @@ function buildCollectionItem(sectionUl, collEntry) {
         const res = await fetch(fileUrl, { cache: 'reload' });
         if (!res.ok) return;
         let groups = await res.json();
+        // Merge extra properties (e.g. 'link') from collEntry.groups definitions into fetched groups.
+        if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
+          const defs = new Map(collEntry.groups.map(g => [g.name, g]));
+          groups = groups.map(g => {
+            const def = defs.get(g.name);
+            return def ? { ...def, ...g } : g;
+          });
+        }
         // Detect split-advocate format: {id, name, cases: <number>} (no embedded cases array).
         // Embedded format has cases as an array; split format has cases as a number count.
         const isSplitFormat = groups.length > 0 && groups[0].id !== undefined
@@ -3042,8 +3050,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     // For embedded format (cases is an array): build items from the in-memory array.
     // For split format (cases is a count, id is set): fetch the per-group JSON file.
     let _casesLoaded = false;
-    let _groupLink = null;
+    let _groupLink = group.link ?? null;
     let _groupDocument = null;
+    groupLi._groupLink = _groupLink;
     const _ensureGroupCases = async () => {
       if (_casesLoaded) return;
       _casesLoaded = true;
