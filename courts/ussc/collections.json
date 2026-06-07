@@ -110,7 +110,8 @@
         "name": "Cases with Unidentified Speakers",
         "conditions": [
           "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
-        ]
+        ],
+        "link": "/courts/ussc/transcripts/updates"
       }
     ],
     "search": "cases:title"

@@ -29,6 +29,64 @@ let _transcriptEdits = new Map();
 let _currentTextHref = ''; // text_href of the currently loaded transcript
 let _currentCaseKey  = ''; // caseKey of the currently loaded case
 
+const _LS_EDITS_KEY = 'aa-transcript-edits';
+
+function _persistEditsToStorage() {
+  if (!_transcriptEdits.size) {
+    localStorage.removeItem(_LS_EDITS_KEY);
+    return;
+  }
+  const obj = {};
+  for (const [caseKey, caseData] of _transcriptEdits) {
+    const eventEditsObj = {};
+    for (const [textHref, turnEdits] of caseData.eventEdits) {
+      const turnsObj = {};
+      for (const [turnIdx, turnEdit] of turnEdits) turnsObj[turnIdx] = turnEdit;
+      eventEditsObj[textHref] = turnsObj;
+    }
+    obj[caseKey] = {
+      title: caseData.title,
+      term: caseData.term,
+      ...(caseData.number !== undefined ? { number: caseData.number } : {}),
+      ...(caseData.id     !== undefined ? { id:     caseData.id     } : {}),
+      eventEdits: eventEditsObj
+    };
+  }
+  try { localStorage.setItem(_LS_EDITS_KEY, JSON.stringify(obj)); } catch { /* quota exceeded */ }
+}
+
+function _loadEditsFromStorage() {
+  let raw;
+  try { raw = localStorage.getItem(_LS_EDITS_KEY); } catch { return; }
+  if (!raw) return;
+  let obj;
+  try { obj = JSON.parse(raw); } catch { return; }
+  if (!obj || typeof obj !== 'object') return;
+  _transcriptEdits.clear();
+  for (const [caseKey, caseData] of Object.entries(obj)) {
+    if (!caseData || typeof caseData !== 'object') continue;
+    const eventEditsMap = new Map();
+    for (const [textHref, turnsObj] of Object.entries(caseData.eventEdits || {})) {
+      if (!turnsObj || typeof turnsObj !== 'object') continue;
+      const turnEditsMap = new Map();
+      for (const [idxStr, edit] of Object.entries(turnsObj)) {
+        const idx = parseInt(idxStr, 10);
+        if (!isNaN(idx) && edit && typeof edit === 'object') turnEditsMap.set(idx, edit);
+      }
+      if (turnEditsMap.size) eventEditsMap.set(textHref, turnEditsMap);
+    }
+    if (eventEditsMap.size) {
+      _transcriptEdits.set(caseKey, {
+        title: caseData.title || '',
+        term:  caseData.term  || '',
+        ...(caseData.number !== undefined ? { number: caseData.number } : {}),
+        ...(caseData.id     !== undefined ? { id:     caseData.id     } : {}),
+        eventEdits: eventEditsMap
+      });
+    }
+  }
+}
+
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
 const emptyState  = document.getElementById('empty-state');
@@ -3791,7 +3849,7 @@ function renderTranscript() {
       caseSpeakers.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.name;
-        opt.textContent = formatSpeakerFull(s);
+        opt.textContent = s.name;
         if (s.name === currentName) opt.selected = true;
         sel.appendChild(opt);
       });
@@ -5317,6 +5375,7 @@ function _saveEditedTurn(turnIdx, changes) {
 
   if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
   if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
+  _persistEditsToStorage();
 }
 
 function _generateEditsJson() {
@@ -5348,13 +5407,13 @@ const _unknownSpeakerNames = new Set(['UNKNOWN JUSTICE', 'UNKNOWN SPEAKER']);
 
 function _updateEditModeMenu() {
   const editBtn   = document.getElementById('edit-transcripts-btn');
-  const finishBtn = document.getElementById('finish-editing-btn');
-  if (editBtn)   editBtn.hidden   = _editMode;
-  if (finishBtn) finishBtn.hidden = !_editMode;
+  const endBtn    = document.getElementById('end-editing-btn');
+  if (editBtn) editBtn.hidden = _editMode;
+  if (endBtn)  endBtn.hidden  = !_editMode;
 }
 
 function startEditTranscripts() {
-  alert('Note: all edits will be recorded in your web browser until you have selected “Editing Finished”, and then your edits will be downloaded. If you close your browser before you have finished, your edits will be lost.');
+  alert('Your edits are saved in your browser. Use "Download Transcript Edits" from the menu when you\'re ready to submit them.');
   _editMode = true;
   _updateEditModeMenu();
   transcriptViewer.classList.add('edit-mode');
@@ -5362,29 +5421,38 @@ function startEditTranscripts() {
   renderTranscript();
 }
 
-function finishEditTranscripts() {
-  const edits = _generateEditsJson();
+function endEditTranscripts() {
   _editMode = false;
-  _transcriptEdits.clear();
   _updateEditModeMenu();
   transcriptViewer.classList.remove('edit-mode');
-  if (edits.length) {
-    const blob = new Blob([JSON.stringify(edits, null, 2)], { type: 'application/json' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href     = url;
-    a.download = 'transcript-edits.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
   turnList.innerHTML = '';
   renderTranscript();
+}
+
+function downloadTranscriptEdits() {
+  if (_editMode) endEditTranscripts();
+  const edits = _generateEditsJson();
+  if (!edits.length) {
+    alert('All transcript edits have already been downloaded.');
+    return;
+  }
+  const blob = new Blob([JSON.stringify(edits, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'transcript-edits.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  _transcriptEdits.clear();
+  localStorage.removeItem(_LS_EDITS_KEY);
   alert('Note: Send the downloaded edits to admin@argumentaloud.org for processing. Thank you for taking the time to make these corrections.');
 }
 
-window._startEditTranscripts  = startEditTranscripts;
-window._finishEditTranscripts = finishEditTranscripts;
+window._startEditTranscripts    = startEditTranscripts;
+window._endEditTranscripts      = endEditTranscripts;
+window._downloadTranscriptEdits = downloadTranscriptEdits;
 
+_loadEditsFromStorage();
 init();

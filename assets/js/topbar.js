@@ -28,6 +28,18 @@
     menu.setAttribute('aria-hidden', 'true');
   }
 
+  function isUsscPage() {
+    return window.location.pathname.startsWith('/courts/ussc');
+  }
+
+  function syncEditTranscriptsBtn() {
+    var onUssc = isUsscPage();
+    var editBtn     = document.getElementById('edit-transcripts-btn');
+    var downloadBtn = document.getElementById('download-edits-btn');
+    if (editBtn)     editBtn.disabled     = !onUssc;
+    if (downloadBtn) downloadBtn.disabled = !onUssc;
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('menu-btn');
     var menu    = document.getElementById('topbar-menu');
@@ -35,6 +47,7 @@
 
     menuBtn.addEventListener('click', function (e) {
       e.stopPropagation();
+      syncEditTranscriptsBtn();
       var open = menu.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
       menu.setAttribute('aria-hidden', String(!open));
@@ -48,6 +61,8 @@
       if (e.key === 'Escape') { closeMenu(); menuBtn.focus(); }
     });
 
+    window.addEventListener('popstate', syncEditTranscriptsBtn);
+
     document.querySelectorAll('[data-theme-value]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         setTheme(btn.dataset.themeValue);
@@ -58,19 +73,29 @@
     });
 
     updateThemeMenu();
+    syncEditTranscriptsBtn();
 
-    var editBtn   = document.getElementById('edit-transcripts-btn');
-    var finishBtn = document.getElementById('finish-editing-btn');
+    var editBtn        = document.getElementById('edit-transcripts-btn');
+    var endEditBtn     = document.getElementById('end-editing-btn');
+    var downloadBtn    = document.getElementById('download-edits-btn');
+
     if (editBtn) {
       editBtn.addEventListener('click', function () {
+        if (editBtn.disabled) return;
         closeMenu();
         if (typeof window._startEditTranscripts === 'function') window._startEditTranscripts();
       });
     }
-    if (finishBtn) {
-      finishBtn.addEventListener('click', function () {
+    if (endEditBtn) {
+      endEditBtn.addEventListener('click', function () {
         closeMenu();
-        if (typeof window._finishEditTranscripts === 'function') window._finishEditTranscripts();
+        if (typeof window._endEditTranscripts === 'function') window._endEditTranscripts();
+      });
+    }
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._downloadTranscriptEdits === 'function') window._downloadTranscriptEdits();
       });
     }
   });

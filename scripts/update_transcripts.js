@@ -716,19 +716,97 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
 
 // ── Apply speaker/text edits from a transcript-edits JSON file ─────────────
 
-function _formatTimestamp(date) {
-    const dtf = new Intl.DateTimeFormat('en-US', {
+function _formatDate(date) {
+    return new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/Los_Angeles',
         month: 'long', day: 'numeric', year: 'numeric',
-        hour: 'numeric', minute: '2-digit', hour12: true,
-    });
-    const tzf = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Los_Angeles', timeZoneName: 'short',
-    });
-    const parts = dtf.formatToParts(date);
-    const tz    = tzf.formatToParts(date).find(p => p.type === 'timeZoneName')?.value ?? 'PT';
-    const get = (t) => parts.find(p => p.type === t)?.value ?? '';
-    return `${get('month')} ${get('day')}, ${get('year')} at ${get('hour')}:${get('minute')}${get('dayPeriod').toLowerCase()} ${tz}`;
+    }).format(date);
+}
+
+// Returns ops array: [{type:'eq'|'del'|'ins', oi?, ni?}]
+function _lcsOps(a, b) {
+    const n = a.length, m = b.length;
+    const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= m; j++) {
+            dp[i][j] = a[i - 1] === b[j - 1]
+                ? dp[i - 1][j - 1] + 1
+                : Math.max(dp[i - 1][j], dp[i][j - 1]);
+        }
+    }
+    const ops = [];
+    let i = n, j = m;
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
+            ops.unshift({ type: 'eq', oi: i - 1, ni: j - 1 });
+            i--; j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+            ops.unshift({ type: 'ins', ni: j - 1 });
+            j--;
+        } else {
+            ops.unshift({ type: 'del', oi: i - 1 });
+            i--;
+        }
+    }
+    return ops;
+}
+
+// Summarises text changes as contextual word-level diff segments.
+// Returns a string like `"...old words..." -> "...new words..."` or null if unchanged.
+function _textDiffSummary(oldText, newText, ctx = 2) {
+    if (oldText === newText) return null;
+    const oldW = (oldText || '').match(/\S+/g) || [];
+    const newW = (newText || '').match(/\S+/g) || [];
+    if (!oldW.length && !newW.length) return null;
+
+    const ops = _lcsOps(oldW, newW);
+
+    // Collect change regions, merging adjacent ones separated by <= ctx equal words
+    // so nearby changes appear as one contextual snippet.
+    const regions = [];
+    let region = null;
+    let eqPending = 0;
+    for (const op of ops) {
+        if (op.type === 'eq') {
+            if (region !== null) eqPending++;
+        } else {
+            if (region !== null) {
+                if (eqPending <= ctx) {
+                    eqPending = 0; // gap is small — merge into current region
+                } else {
+                    regions.push(region); // gap is large — start a new region
+                    region = null;
+                    eqPending = 0;
+                }
+            }
+            if (!region) region = { delOis: [], insNis: [] };
+            if (op.type === 'del') region.delOis.push(op.oi);
+            else                   region.insNis.push(op.ni);
+        }
+    }
+    if (region) regions.push(region);
+    if (!regions.length) return null;
+
+    function snippet(words, firstIdx, lastIdx) {
+        const start = Math.max(0, firstIdx - ctx);
+        const end   = lastIdx + 1 + ctx;
+        const slice = words.slice(start, end);
+        const pre   = start > 0            ? '...' : '';
+        const post  = end < words.length   ? '...' : '';
+        return '"' + [pre, ...slice, post].filter(Boolean).join(' ') + '"';
+    }
+
+    return regions.map(r => {
+        const oldPart = r.delOis.length
+            ? snippet(oldW, r.delOis[0], r.delOis[r.delOis.length - 1])
+            : null;
+        const newPart = r.insNis.length
+            ? snippet(newW, r.insNis[0], r.insNis[r.insNis.length - 1])
+            : null;
+        if (oldPart && newPart) return `${oldPart} -> ${newPart}`;
+        if (oldPart)            return `${oldPart} -> [deleted]`;
+        return `[inserted] -> ${newPart}`;
+    }).join('; ');
 }
 
 async function applyEditsFromFile(filePath) {
@@ -750,7 +828,7 @@ async function applyEditsFromFile(filePath) {
 
     const TERMS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
     const INDEX_PATH = path.join(REPO_ROOT, 'courts', 'ussc', 'transcripts', 'updates', 'index.md');
-    const timestamp  = _formatTimestamp(new Date());
+    const date       = _formatDate(new Date());
     const logLines   = [];
 
     for (const caseEdit of edits) {
@@ -758,7 +836,7 @@ async function applyEditsFromFile(filePath) {
         const caseRef = caseEdit.number || caseEdit.id || '';
 
         if (!term) {
-            console.warn(`Skipping case with no "term": ${title}`);
+            console.warn(`Skipping case with no “term”: ${title}`);
             continue;
         }
         if (!Array.isArray(eventEdits) || !eventEdits.length) continue;
@@ -790,15 +868,17 @@ async function applyEditsFromFile(filePath) {
             const isEnvelope = !Array.isArray(transcript);
             const turns = isEnvelope ? (transcript.turns ?? []) : transcript;
 
-            let changesApplied = 0;
+            const turnChanges = [];
             for (const edit of turnEdits) {
                 const turnNum = edit.turn;
-                // Find turn by its 1-based "turn" field (falling back to positional index+1).
+                // Find turn by its 1-based “turn” field (falling back to positional index+1).
                 const t = turns.find((t, i) => (t.turn ?? (i + 1)) === turnNum);
                 if (!t) {
                     console.warn(`  Turn ${turnNum} not found in ${text_href}`);
                     continue;
                 }
+                const oldName = t.name;
+                const oldText = t.text;
                 let changed = false;
                 if (edit.name !== undefined && t.name !== edit.name) {
                     t.name = edit.name;
@@ -808,17 +888,20 @@ async function applyEditsFromFile(filePath) {
                     t.text = edit.text;
                     changed = true;
                 }
-                if (changed) { t.modified = true; changesApplied++; }
+                if (changed) {
+                    t.modified = true;
+                    turnChanges.push({ turnNum, oldName, newName: t.name, oldText, newText: t.text });
+                }
             }
 
-            if (changesApplied === 0) {
+            if (turnChanges.length === 0) {
                 console.log(`No new changes in ${path.relative(REPO_ROOT, transcriptPath)}`);
                 continue;
             }
 
-            const transcriptJson = JSON.stringify(transcript, null, 2).replace(/[“”]/g, '\\"') + '\n';
+            const transcriptJson = JSON.stringify(transcript, null, 2).replace(/[“”]/g, '\\”') + '\n';
             writeText(transcriptPath, transcriptJson);
-            console.log(`Applied ${changesApplied} change(s) → ${path.relative(REPO_ROOT, transcriptPath)}`);
+            console.log(`Applied ${turnChanges.length} change(s) → ${path.relative(REPO_ROOT, transcriptPath)}`);
 
             // Find 1-based event index for the URL.
             let eventIdx = null;
@@ -837,9 +920,20 @@ async function applyEditsFromFile(filePath) {
             // Build display title: strip decision year, append docket number.
             const bareTitle = title.replace(/\s*\(\d{4}\)\s*$/, '').trim();
             const displayTitle = caseRef ? `${bareTitle} (No. ${caseRef})` : bareTitle;
-            const url = `/courts/ussc/?term=${term}&case=${caseRef}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
-            const noun = changesApplied === 1 ? 'correction' : 'corrections';
-            logLines.push(`  - [${displayTitle}](${url}): ${changesApplied} ${noun} applied on ${timestamp}`);
+            const caseUrl = `/courts/ussc/?term=${term}&case=${caseRef}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
+
+            // Case-level heading
+            logLines.push(`  - [${displayTitle}](${caseUrl}) [Updated ${date}]`);
+
+            // Per-turn detail lines
+            for (const tc of turnChanges) {
+                const turnUrl = `${caseUrl}&turn=${tc.turnNum}`;
+                const parts = [];
+                if (tc.oldName !== tc.newName) parts.push(`${tc.oldName} -> ${tc.newName}`);
+                const textDiff = _textDiffSummary(tc.oldText, tc.newText);
+                if (textDiff) parts.push(textDiff);
+                logLines.push(`      - [Turn ${tc.turnNum}](${turnUrl}): ${parts.join('; ')}`);
+            }
         }
     }
 
@@ -852,9 +946,28 @@ async function applyEditsFromFile(filePath) {
     let md = exists(INDEX_PATH) ? readText(INDEX_PATH) : '';
     // Ensure single trailing newline before appending.
     if (!md.endsWith('\n')) md += '\n';
+
+    // If the first new case heading matches the last case heading already in the
+    // file, skip re-adding the heading and just append the turn lines beneath it.
+    const caseHeadingRe = /^  - (\[.+?\]\(.+?\)) \[Updated /;
+    const firstNewMatch = logLines[0]?.match(caseHeadingRe);
+    if (firstNewMatch) {
+        const existingLines = md.trimEnd().split('\n');
+        for (let i = existingLines.length - 1; i >= 0; i--) {
+            const m = existingLines[i].match(caseHeadingRe);
+            if (m) {
+                if (m[1] === firstNewMatch[1]) logLines.shift();
+                break;
+            }
+        }
+    }
+
     md += logLines.join('\n') + '\n';
     writeText(INDEX_PATH, md);
     console.log(`\nRecorded ${logLines.length} update(s) in ${path.relative(REPO_ROOT, INDEX_PATH)}`);
+
+    fs.unlinkSync(absPath);
+    console.log(`Deleted ${path.relative(REPO_ROOT, absPath)}`);
 }
 
 async function main() {
@@ -889,8 +1002,8 @@ async function main() {
     }
 
     if (positional.length < 4) {
-        console.error('Usage: node scripts/update_transcriptss.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
-        console.error('       node scripts/update_transcriptss.js transcript-edits.json');
+        console.error('Usage: node scripts/update_transcripts.js TERM CASE SOURCE TYPE [--realign] [--split] [--model MODEL] [--beam-size N] [--dry-run]');
+        console.error('       node scripts/update_transcripts.js transcript-edits.json');
         process.exit(1);
     }
 
