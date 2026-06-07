@@ -1410,6 +1410,8 @@ button.term-case-count.sort-active:hover {
   color: #059669;
 }
 
+.turn.turn-modified .speaker { color: #c0266a !important; }
+
 .speaker.speaker-link {
   cursor: pointer;
 }
@@ -2087,6 +2089,7 @@ button.term-case-count.sort-active:hover {
   .turn.chief-justice .speaker   { color: #9b72ff; }
   .turn.justice .speaker         { color: #6090f0; }
   .turn.counsel .speaker         { color: #34c48a; }
+  .turn.turn-modified .speaker   { color: #f472b6 !important; }
   .edit-mode .speaker-edit-select { background: #252a35; color: #c8cad2; border-color: #444; }
   .edit-mode .turn.chief-justice .speaker-edit-select  { color: #9b72ff; border-color: #9b72ff; }
   .edit-mode .turn.justice .speaker-edit-select         { color: #6090f0; border-color: #6090f0; }
@@ -2309,6 +2312,7 @@ html[data-theme="dark"] .turn.counsel                  { border-left-color: #34c
 html[data-theme="dark"] .turn.chief-justice .speaker   { color: #9b72ff; }
 html[data-theme="dark"] .turn.justice .speaker         { color: #6090f0; }
 html[data-theme="dark"] .turn.counsel .speaker         { color: #34c48a; }
+html[data-theme="dark"] .turn.turn-modified .speaker   { color: #f472b6 !important; }
 html[data-theme="dark"] .edit-mode .speaker-edit-select { background: #252a35; color: #c8cad2; border-color: #444; }
 html[data-theme="dark"] .edit-mode .turn.chief-justice .speaker-edit-select  { color: #9b72ff; border-color: #9b72ff; }
 html[data-theme="dark"] .edit-mode .turn.justice .speaker-edit-select         { color: #6090f0; border-color: #6090f0; }
@@ -2489,6 +2493,7 @@ html[data-theme="light"] .turn.counsel                  { border-left-color: #05
 html[data-theme="light"] .turn.chief-justice .speaker   { color: #7c3aed; }
 html[data-theme="light"] .turn.justice .speaker         { color: #2563eb; }
 html[data-theme="light"] .turn.counsel .speaker         { color: #059669; }
+html[data-theme="light"] .turn.turn-modified .speaker   { color: #c0266a !important; }
 
 html[data-theme="light"] .link-mark--bottom { background: #fef9e7; color: #7d6608; border-bottom-color: #b7950b; }
 html[data-theme="light"] .link-mark--bottom:hover { background: #fdebd0; }

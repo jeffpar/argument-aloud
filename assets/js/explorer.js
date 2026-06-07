@@ -3823,6 +3823,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
 // ── Render transcript ───────────────────────────────────────────────────────
 
 function renderTranscript() {
+  if (!_editMode) _pruneStaleEditsForCurrentTranscript();
   const frag = document.createDocumentFragment();
   const speakerMap = new Map(caseSpeakers.map(s => [s.name, s]));
   turns.forEach((turn, idx) => {
@@ -3879,14 +3880,19 @@ function renderTranscript() {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); tx.blur(); }
       });
     } else {
-      // Normal mode: static speaker label
-      sp.textContent = formatSpeaker(spkr);
-      if (_unknownSpeakerNames.has(typeof spkr === 'string' ? spkr : spkr.name)) sp.classList.add('speaker-unknown');
-      renderTurnText(tx, turn.text, null, false);
+      // Non-edit mode: overlay any pending local edits (stale ones pruned at start of renderTranscript).
+      const localEdit = _getEditedTurn(idx);
+      const viewSpkr  = localEdit ? (speakerMap.get(localEdit.name) || { name: localEdit.name }) : spkr;
+      const viewText  = localEdit?.text ?? turn.text;
+      if (localEdit) div.className = 'turn ' + speakerClass(viewSpkr) + ' turn-modified';
+
+      sp.textContent = formatSpeaker(viewSpkr);
+      if (_unknownSpeakerNames.has(typeof viewSpkr === 'string' ? viewSpkr : viewSpkr.name)) sp.classList.add('speaker-unknown');
+      renderTurnText(tx, viewText, null, false);
 
       // Make non-justice speaker labels clickable links to advocate profiles.
-      const spkrTitle = typeof spkr === 'object' ? (spkr.title || 'MR.') : '';
-      const spkrName  = typeof spkr === 'object' ? spkr.name : spkr;
+      const spkrTitle = typeof viewSpkr === 'object' ? (viewSpkr.title || 'MR.') : '';
+      const spkrName  = typeof viewSpkr === 'object' ? viewSpkr.name : viewSpkr;
       const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE'
                          && !_unknownSpeakerNames.has(spkrName);
       const isJustice = (spkrTitle === 'CHIEF JUSTICE' || spkrTitle === 'JUSTICE')
@@ -3895,7 +3901,7 @@ function renderTranscript() {
         sp.classList.add('speaker-link');
         sp.addEventListener('click', (e) => {
           e.stopPropagation();
-          const advocateId = _makeAdvocateId(typeof spkr === 'object' ? spkr.name : String(spkr));
+          const advocateId = _makeAdvocateId(typeof viewSpkr === 'object' ? viewSpkr.name : String(viewSpkr));
           if (!advocateId) return;
           // Build URL with turn so Back returns here.
           const turnId = turn.turn ?? (idx + 1);
@@ -5378,6 +5384,26 @@ function _saveEditedTurn(turnIdx, changes) {
   _persistEditsToStorage();
 }
 
+// Remove stored edits for the current transcript that already match the server data.
+function _pruneStaleEditsForCurrentTranscript() {
+  if (!_currentCaseKey || !_currentTextHref) return;
+  const caseData = _transcriptEdits.get(_currentCaseKey);
+  if (!caseData) return;
+  const eventEdits = caseData.eventEdits.get(_currentTextHref);
+  if (!eventEdits) return;
+  let changed = false;
+  for (const [turnIdx, edit] of eventEdits) {
+    const turn = turns[turnIdx];
+    if (!turn) { eventEdits.delete(turnIdx); changed = true; continue; }
+    const nameApplied = edit.name === turn.name;
+    const textApplied = edit.text === undefined || edit.text === turn.text;
+    if (nameApplied && textApplied) { eventEdits.delete(turnIdx); changed = true; }
+  }
+  if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
+  if (!caseData.eventEdits.size) _transcriptEdits.delete(_currentCaseKey);
+  if (changed) _persistEditsToStorage();
+}
+
 function _generateEditsJson() {
   const result = [];
   for (const [, caseData] of _transcriptEdits) {
@@ -5412,8 +5438,13 @@ function _updateEditModeMenu() {
   if (endBtn)  endBtn.hidden  = !_editMode;
 }
 
+let _editAlertShown = false;
+
 function startEditTranscripts() {
-  alert('Your edits are saved in your browser. Use "Download Transcript Edits" from the menu when you\'re ready to submit them.');
+  if (!_editAlertShown) {
+    alert('Your edits are saved in your browser. Use "Download Edits" from the menu when you\'re ready to submit them.');
+    _editAlertShown = true;
+  }
   _editMode = true;
   _updateEditModeMenu();
   transcriptViewer.classList.add('edit-mode');
@@ -5429,13 +5460,49 @@ function endEditTranscripts() {
   renderTranscript();
 }
 
-function downloadTranscriptEdits() {
-  if (_editMode) endEditTranscripts();
+async function downloadTranscriptEdits() {
+  if (_editMode) {
+    _editMode = false;
+    _updateEditModeMenu();
+    transcriptViewer.classList.remove('edit-mode');
+  }
+
+  // Validate each stored edit against the current server transcript.
+  // Remove any that have already been applied on the server.
+  for (const [caseKey, caseData] of _transcriptEdits) {
+    const term = caseData.term;
+    for (const [textHref, turnEdits] of caseData.eventEdits) {
+      let serverTurns;
+      try {
+        const resp = await fetch(`/courts/ussc/terms/${term}/cases/${textHref}`);
+        if (!resp.ok) continue;
+        const data = await resp.json();
+        serverTurns = Array.isArray(data) ? data : (data.turns ?? []);
+      } catch { continue; }
+
+      for (const [turnIdx, edit] of turnEdits) {
+        const serverTurn = serverTurns.find((t, i) => (t.turn ?? (i + 1)) === edit.turnNum);
+        if (!serverTurn) continue;
+        const nameApplied = edit.name === serverTurn.name;
+        const textApplied = edit.text === undefined || edit.text === serverTurn.text;
+        if (nameApplied && textApplied) turnEdits.delete(turnIdx);
+      }
+      if (!turnEdits.size) caseData.eventEdits.delete(textHref);
+    }
+    if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
+  }
+  _persistEditsToStorage();
+
+  // Re-render in case we just pruned edits for the currently visible transcript.
+  turnList.innerHTML = '';
+  renderTranscript();
+
   const edits = _generateEditsJson();
   if (!edits.length) {
-    alert('All transcript edits have already been downloaded.');
+    alert('All transcript edits have already been applied to the server.');
     return;
   }
+
   const blob = new Blob([JSON.stringify(edits, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
@@ -5445,8 +5512,7 @@ function downloadTranscriptEdits() {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  _transcriptEdits.clear();
-  localStorage.removeItem(_LS_EDITS_KEY);
+  // Edits remain in local storage — they persist until applied on the server.
   alert('Note: Send the downloaded edits to admin@argumentaloud.org for processing. Thank you for taking the time to make these corrections.');
 }
 
