@@ -2993,6 +2993,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
     let _groupSortMode = _defaultSortMode;
     let _groupSortAsc  = _defaultSortAsc;
+    if (group.order) {
+      const [gom, god] = group.order.split(':');
+      if (gom) _groupSortMode = gom.trim().toLowerCase();
+      if (god) _groupSortAsc  = god.trim().toLowerCase() !== 'descending';
+    }
     const _GROUP_SORT_OPTIONS = [
       ...(_defaultSortMode === 'hours' ? [{ mode: 'hours', label: 'Hours' }] : []),
       { mode: 'cases',   label: 'Cases'   },

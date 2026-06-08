@@ -12,7 +12,7 @@
       },
       {
         "name": "Lone Dissents",
-        "file": "/courts/ussc/people/justices/lone_justices.json",
+        "file": "/courts/ussc/people/justices/lone_dissents.json",
         "folder": "/courts/ussc/people/justices/lone",
         "order": "decided:ascending",
         "search": "name",
@@ -106,19 +106,22 @@
         "conditions": [
           "argument >= '1955-10-01'",
           "COUNT(event.audio_href) == 0"
-        ]
+        ],
+        "order": "argued:ascending"
       },
       {
         "name": "Cases with Unaligned Audio",
         "conditions": [
           "event.source == 'oyez' && event.audio_href && !event.aligned"
-        ]
+        ],
+        "order": "argued:ascending"
       },
       {
         "name": "Cases with Unidentified Speakers",
         "conditions": [
           "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
         ],
+        "order": "argued:ascending",
         "link": "/courts/ussc/transcripts/updates"
       }
     ],

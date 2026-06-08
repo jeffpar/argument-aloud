@@ -3314,7 +3314,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
     const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'lone');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'lone_justices.json');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'lone_dissents.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();
