@@ -28,6 +28,7 @@ let _editMode = false;
 let _transcriptEdits = new Map();
 let _currentTextHref = ''; // text_href of the currently loaded transcript
 let _currentCaseKey  = ''; // caseKey of the currently loaded case
+const _caseSessionState = new Map(); // caseKey -> { eventIdx, turnNum } — session memory, cleared on reload
 
 const _LS_EDITS_KEY = 'aa-transcript-edits';
 
@@ -1544,7 +1545,6 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
     titleSpan.addEventListener('click', async (e) => {
       const fromRestore = !!e.fromRestore;
-      const audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
       const fileRestore = e.fileRestore ?? null;
       if (!fromRestore && ci.classList.contains('active')) {
         if (ci.classList.toggle('open')) await ensureFilesLoaded();
@@ -1552,12 +1552,19 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       }
       markCaseItemActive(ci);
       await ensureFilesLoaded();
+      let audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
+      let initialTurn = null;
       if (!fromRestore) {
-        const url = buildUrlParams(
-          { term, case: urlId },
-          ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
-        );
-        navigate(url);
+        const saved = _caseSessionState.get(term + '/' + caseId(caseEntry));
+        if (saved) {
+          if (saved.eventIdx >= 1) audioIdx = saved.eventIdx;
+          initialTurn = saved.turnNum ?? null;
+        }
+        const urlParams  = { term, case: urlId };
+        const urlDeletes = ['collection', 'group', 'id', 'highlight', 'file'];
+        if (audioIdx >= 1) urlParams.event = audioIdx; else urlDeletes.push('event');
+        if (initialTurn != null) urlParams.turn = initialTurn; else urlDeletes.push('turn');
+        navigate(buildUrlParams(urlParams, urlDeletes));
       } else {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
         // via an id-based param like ?case=1959-099 instead of ?case=376).
@@ -1567,7 +1574,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           history.replaceState(null, '', url);
         }
       }
-      loadCase(term, caseEntry, audioIdx);
+      loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
       if (fileRestore != null && !caseEntry.events?.length) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
@@ -2833,9 +2840,17 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     }
     // caseRef.event is a 1-based index into caseEntry.events (original order).
     const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
-    const audioIdx = fromRestore
-      ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
-      : defaultAudioIdx;
+    const defaultTurn     = Number.isInteger(caseRef.turn)  && caseRef.turn  >= 1 ? caseRef.turn  : null;
+    let audioIdx;
+    let initialTurn;
+    if (fromRestore) {
+      audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx;
+      initialTurn = (Number.isInteger(e.initialTurn) && e.initialTurn > 0) ? e.initialTurn : defaultTurn;
+    } else {
+      const saved = _caseSessionState.get(caseRef.term + '/' + caseId(caseEntry));
+      audioIdx    = (saved?.eventIdx >= 1) ? saved.eventIdx : defaultAudioIdx;
+      initialTurn = saved ? (saved.turnNum ?? null) : defaultTurn;
+    }
 
     // Sort the case's audio entries by date (same order as the 1-based index).
     const sortedAudio = [...(caseEntry.events || [])].sort(
@@ -2851,10 +2866,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     // placeholder (loadCase will pick the audio-bearing sibling and update
     // the dropdown selection accordingly).
     const hasPlayableAudio = sortedAudio.some(a => a.audio_href);
-
-    const initialTurn = (fromRestore && Number.isInteger(e.initialTurn) && e.initialTurn > 0)
-      ? e.initialTurn
-      : (Number.isInteger(caseRef.turn) && caseRef.turn > 0 ? caseRef.turn : null);
     if (!fromRestore) {
       const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
       const deleteOther = groupId != null ? ['group'] : ['id'];
@@ -3947,8 +3958,14 @@ function renderTranscript() {
       tx.contentEditable = 'true';
       tx.spellcheck = false;
       tx.addEventListener('click', e => {
-        e.stopPropagation();
-        if (turn.time != null) audio.currentTime = turnTimes[idx];
+        if (idx === activeTurnIdx) {
+          e.stopPropagation();
+          if (turn.time != null) {
+            audio.paused ? audio.play().catch(() => {}) : audio.pause();
+          }
+        }
+        // Otherwise let the click bubble to the div handler, which sets the
+        // active turn, updates the URL, and seeks audio (matching non-edit behavior).
       });
       tx.addEventListener('blur', () => {
         _saveEditedTurn(idx, { text: tx.textContent });
@@ -4141,6 +4158,17 @@ function renderTranscript() {
         url = buildUrlParams({ turn: turnId });
       }
       history.replaceState(null, '', url);
+      if (_currentCaseKey) {
+        const _audioSel  = document.getElementById('audio-select');
+        const _selVal    = parseInt(_audioSel?.value ?? '0', 10);
+        const _selEntry  = _selVal >= 1 ? _currentAudioList[_selVal - 1] : null;
+        const _evIdx     = _selEntry ? _currentEvents.indexOf(_selEntry) + 1 : 0;
+        const _prevState = _caseSessionState.get(_currentCaseKey) ?? {};
+        _caseSessionState.set(_currentCaseKey, {
+          eventIdx: _evIdx > 0 ? _evIdx : (_prevState.eventIdx ?? 0),
+          turnNum: turnId,
+        });
+      }
     });
     frag.appendChild(div);
   });
@@ -4222,6 +4250,9 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     if (evIdx < 1) deletes.push('event');
     const newUrl = buildUrlParams(updates, deletes);
     history.replaceState(null, '', newUrl);
+    if (_currentCaseKey && evIdx >= 1) {
+      _caseSessionState.set(_currentCaseKey, { eventIdx: evIdx, turnNum: null });
+    }
     await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
     _setCaseNotes(selectedEntry.notes || _currentCaseEntry?.notes || '');
     if (isMobile()) {
