@@ -28,6 +28,7 @@ let _editMode = false;
 let _transcriptEdits = new Map();
 let _currentTextHref = ''; // text_href of the currently loaded transcript
 let _currentCaseKey  = ''; // caseKey of the currently loaded case
+let _currentTerm     = ''; // term of the currently loaded case
 const _caseSessionState = new Map(); // caseKey -> { eventIdx, turnNum } — session memory, cleared on reload
 
 const _LS_EDITS_KEY     = 'aa-transcript-edits';
@@ -1214,29 +1215,53 @@ function caseTitle(raw) {
   return idx === -1 ? raw : raw.slice(0, idx);
 }
 
+// For a consolidated case (multiple titles separated by '|' and numbers by ','),
+// return the { title, number } sub-case whose docket number appears as "No. X" in
+// optionText. Defaults to the first sub-case when no match. Returns null for
+// non-consolidated cases (title/number counts differ or only one part each).
+function _subCaseForOption(caseEntry, optionText) {
+  const titles  = (caseEntry.title  || '').split('|');
+  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  if (titles.length < 2 || numbers.length !== titles.length) return null;
+  if (optionText) {
+    const m = /\bNo\.\s*(\d+)\b/.exec(optionText);
+    if (m) {
+      const idx = numbers.indexOf(m[1]);
+      if (idx !== -1) return { title: titles[idx], number: numbers[idx] };
+    }
+  }
+  return { title: titles[0], number: numbers[0] };
+}
+
 // Build the text for the case‑title label above the transcript pane.
+// subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
 // Priority for parenthesised annotation: docket number → usCite → nothing.
-function caseTitleLabel(caseEntry) {
+function caseTitleLabel(caseEntry, subCase) {
+  const title  = subCase ? subCase.title  : caseTitle(caseEntry.title);
+  const number = subCase ? subCase.number : caseEntry.number;
   let suffix = '';
-  if (caseEntry.number) {
-    const isMulti = /,/.test(caseEntry.number);
-    const displayNumber = caseEntry.number.replace(/,\s*/g, ', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
+  if (number) {
+    const isMulti = /,/.test(number);
+    const displayNumber = number.replace(/,\s*/g, ', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
     suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + displayNumber + ')';
-  } else if (caseEntry.usCite) {
+  } else if (!subCase && caseEntry.usCite) {
     suffix = '\u00a0(' + caseEntry.usCite + ')';
   }
-  return caseTitle(caseEntry.title) + suffix;
+  return title + suffix;
 }
 
 // Set the case-title-label element to a link that reveals the case in the nav pane.
-function setCaseTitleLabel(term, caseEntry) {
+// optionText: text of the currently selected audio dropdown option — used to resolve
+// the matching sub-case title for consolidated cases.
+function setCaseTitleLabel(term, caseEntry, optionText) {
+  const subCase = _subCaseForOption(caseEntry, optionText);
   const span = document.getElementById('case-title-label');
   span.innerHTML = '';
   const urlParams = new URLSearchParams({ term, case: caseId(caseEntry) });
   const a = document.createElement('a');
   a.href = '?' + urlParams.toString();
   a.className = 'case-title-link';
-  a.textContent = caseTitleLabel(caseEntry);
+  a.textContent = caseTitleLabel(caseEntry, subCase);
 
   a.addEventListener('click', e => {
     e.preventDefault();
@@ -1282,6 +1307,38 @@ function _setCaseInfoRow2(caseEntry) {
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
+  _setCaseInfoRow3(caseEntry);
+}
+
+function _voteName(allCapsName) {
+  // Strip generational suffixes and extract last word, then title-case it.
+  // e.g. "JOHN HARLAN, II" → "Harlan", "THURGOOD MARSHALL" → "Marshall"
+  const base = allCapsName.replace(/,?\s+(II|III|IV|JR\.?|SR\.?)$/i, '').trim();
+  const last = base.split(/\s+/).pop();
+  return last.charAt(0).toUpperCase() + last.slice(1).toLowerCase();
+}
+
+function _setCaseInfoRow3(caseEntry) {
+  const row = document.getElementById('case-info-row3');
+  const span = document.getElementById('case-vote');
+  if (!caseEntry.voteMajority || !caseEntry.voteMinority || !caseEntry.votes?.length) {
+    row.hidden = true;
+    return;
+  }
+  const majority = caseEntry.votes
+    .filter(v => v.vote === 'majority')
+    .map(v => _voteName(v.name));
+  const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
+  const firstTitle = (caseEntry.title || '').split('|')[0];
+  let party;
+  if (caseEntry.result === 'petitioning party received a favorable disposition') {
+    party = firstTitle.split(' v. ')[0].trim();
+  } else {
+    const parts = firstTitle.split(' v. ');
+    party = (parts[1] || parts[0]).trim();
+  }
+  span.textContent = score + ' (' + majority.join(', ') + ') in favor of ' + party;
+  row.hidden = false;
 }
 
 // Format a comma-separated list of ISO argument dates for display.
@@ -3056,6 +3113,7 @@ async function loadHighlight(highlight) {
   document.getElementById('case-questions').textContent = '';
   document.getElementById('case-questions').title = '';
   document.getElementById('case-info-row2').hidden = true;
+  document.getElementById('case-info-row3').hidden = true;
 
   // Set title (plain text — no term link needed)
   const span = document.getElementById('case-title-label');
@@ -4063,6 +4121,7 @@ function loadCaseAsOpinion(term, caseEntry) {
 async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null } = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
+  _currentTerm    = term;
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
   // Update topbar term label
@@ -4324,9 +4383,11 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _currentCaseEntry = caseEntry;
   _updateFavoriteBtn();
 
-  // Update case title
-  setCaseTitleLabel(term, caseEntry);
-  document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
+  // Update case title — for consolidated cases, reflect the selected sub-case.
+  const _selOptText = audioSelect.options[audioSelect.selectedIndex]?.textContent || '';
+  setCaseTitleLabel(term, caseEntry, _selOptText);
+  const _selSub = _subCaseForOption(caseEntry, _selOptText);
+  document.title = (_selSub ? _selSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud';
 
   const qEl = document.getElementById('case-questions');
   if (caseEntry.questions) {
@@ -4670,9 +4731,13 @@ function renderTranscript() {
         const _selEntry  = _selVal >= 1 ? _currentAudioList[_selVal - 1] : null;
         const _evIdx     = _selEntry ? _currentEvents.indexOf(_selEntry) + 1 : 0;
         const _prevState = _caseSessionState.get(_currentCaseKey) ?? {};
+        const _resolvedEvIdx = _evIdx > 0 ? _evIdx : (_prevState.eventIdx ?? 0);
+        const _perEvTurn = { ...(_prevState.perEventTurn || {}) };
+        if (_resolvedEvIdx >= 1) _perEvTurn[_resolvedEvIdx] = turnId;
         _caseSessionState.set(_currentCaseKey, {
-          eventIdx: _evIdx > 0 ? _evIdx : (_prevState.eventIdx ?? 0),
+          eventIdx: _resolvedEvIdx,
           turnNum: turnId,
+          perEventTurn: _perEvTurn,
         });
       }
     });
@@ -4750,17 +4815,42 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     // Translate the allAudio position back to a 1-based events[] index so the
     // URL `event` param is stable across re-sorts and matches the on-disk schema.
     const evIdx = _currentEvents.indexOf(selectedEntry) + 1;
+
+    // Save the departing event's current turn before overwriting session state.
+    const _leavingEvIdx  = _currentLoadedEntry ? _currentEvents.indexOf(_currentLoadedEntry) + 1 : 0;
+    const _leavingTurn   = activeTurnIdx >= 0 ? (turns[activeTurnIdx]?.turn ?? (activeTurnIdx + 1)) : null;
+    const _prevCaseState = _caseSessionState.get(_currentCaseKey) ?? {};
+    const _perEvTurn     = { ...(_prevCaseState.perEventTurn || {}) };
+    if (_leavingEvIdx >= 1 && _leavingTurn != null) _perEvTurn[_leavingEvIdx] = _leavingTurn;
+
+    // Restore the saved turn for the incoming event, if any.
+    const _restoredTurn = evIdx >= 1 ? (_perEvTurn[evIdx] ?? null) : null;
+
     const updates = {};
     if (evIdx >= 1) updates.event = evIdx;
-    const deletes = ['turn', 'file'];
+    if (_restoredTurn != null) updates.turn = _restoredTurn;
+    const deletes = ['file'];
     if (evIdx < 1) deletes.push('event');
+    if (_restoredTurn == null) deletes.push('turn');
     const newUrl = buildUrlParams(updates, deletes);
     history.replaceState(null, '', newUrl);
-    if (_currentCaseKey && evIdx >= 1) {
-      _caseSessionState.set(_currentCaseKey, { eventIdx: evIdx, turnNum: null });
+    if (_currentCaseKey) {
+      _caseSessionState.set(_currentCaseKey, {
+        eventIdx: evIdx >= 1 ? evIdx : (_prevCaseState.eventIdx ?? 0),
+        turnNum: _restoredTurn,
+        perEventTurn: _perEvTurn,
+      });
     }
-    await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
+    const _entryToLoad = _restoredTurn != null
+      ? { ...withTranscriptFallback(selectedEntry, _currentEvents), turn: _restoredTurn }
+      : withTranscriptFallback(selectedEntry, _currentEvents);
+    await loadAudioEntry(_entryToLoad, _currentBasePath);
     _setCaseNotes(selectedEntry.notes || _currentCaseEntry?.notes || '');
+    // Update title to reflect the selected sub-case for consolidated cases.
+    const _chgOptText = e.target.options[e.target.selectedIndex]?.textContent || '';
+    setCaseTitleLabel(_currentTerm, _currentCaseEntry, _chgOptText);
+    const _chgSub = _subCaseForOption(_currentCaseEntry, _chgOptText);
+    document.title = (_chgSub ? _chgSub.title : caseTitle(_currentCaseEntry?.title || '')) + ' | Argument Aloud';
     _updateFavoriteBtn();
     if (isMobile()) {
       playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -5690,6 +5780,7 @@ async function restoreFromURL() {
     const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
+    let _collCaseFocused = false;
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
       while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
@@ -5756,6 +5847,7 @@ async function restoreFromURL() {
           || c.number.split(',').map(n => n.trim()).includes(caseParam);
       });
       if (ci) {
+        _collCaseFocused = true;
         ci.closest('.month-group')?._centerOnItem?.(ci);
         markCaseItemActive(ci);
         ci.closest('.month-group')?.classList.add('open');
@@ -5813,7 +5905,14 @@ async function restoreFromURL() {
         }));
       }
     }
-    return;
+    // For favorites: if the case wasn't found (unfavorited or no favorites), fall through
+    // to the plain term+case handler so the case still loads.
+    if (_collCaseFocused || collectionParam !== 'favorites') return;
+    // Strip collection/group from the URL before falling through.
+    const _fbUrl = new URL(location.href);
+    _fbUrl.searchParams.delete('collection');
+    _fbUrl.searchParams.delete('group');
+    history.replaceState(null, '', _fbUrl);
   }
 
   if (termParam && caseParam) {
