@@ -988,6 +988,25 @@ button.term-case-count.sort-active:hover {
   color: #888;
 }
 
+#favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  line-height: 1;
+  flex-shrink: 0;
+  align-self: center;
+  display: flex;
+}
+#favorite-btn svg path {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5;
+}
+#favorite-btn:hover svg path { stroke: #d66; }
+#favorite-btn.favorited svg path { fill: #d44; stroke: #d44; }
+
 #case-cite {
   font-size: 12px;
   color: #888;

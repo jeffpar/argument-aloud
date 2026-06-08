@@ -30,7 +30,8 @@ let _currentTextHref = ''; // text_href of the currently loaded transcript
 let _currentCaseKey  = ''; // caseKey of the currently loaded case
 const _caseSessionState = new Map(); // caseKey -> { eventIdx, turnNum } — session memory, cleared on reload
 
-const _LS_EDITS_KEY = 'aa-transcript-edits';
+const _LS_EDITS_KEY     = 'aa-transcript-edits';
+const _LS_FAVORITES_KEY = 'aa-favorites';
 
 function _persistEditsToStorage() {
   if (!_transcriptEdits.size) {
@@ -86,6 +87,224 @@ function _loadEditsFromStorage() {
       });
     }
   }
+}
+
+// ── Favorites ─────────────────────────────────────────────────────────────────
+// Each favorite: { court, caseRef: { term, number, title, argument, reargument?, event, files, decision? } }
+
+function _getFavorites() {
+  try { return JSON.parse(localStorage.getItem(_LS_FAVORITES_KEY) || '[]'); }
+  catch { return []; }
+}
+
+function _setFavorites(favs) {
+  try { localStorage.setItem(_LS_FAVORITES_KEY, JSON.stringify(favs)); }
+  catch { /* quota exceeded */ }
+}
+
+function _favKey(fav) {
+  return `${fav.court}:${fav.caseRef.term}:${fav.caseRef.number}:${fav.caseRef.event ?? 0}`;
+}
+
+function _currentFavKey() {
+  if (!_currentCaseEntry || !_currentCaseKey) return null;
+  const term   = _currentCaseKey.split('/')[0];
+  const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
+  const audioSel = document.getElementById('audio-select');
+  let evIdx = 0;
+  if (!audioSel?.hidden) {
+    const selVal   = parseInt(audioSel?.value ?? '0', 10);
+    const selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
+    evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
+  }
+  return `ussc:${term}:${number}:${evIdx}`;
+}
+
+function _updateFavoriteBtn() {
+  const btn = document.getElementById('favorite-btn');
+  if (!btn) return;
+  if (!_currentCaseEntry || !_currentCaseKey) { btn.hidden = true; return; }
+  const key   = _currentFavKey();
+  const isFav = key ? _getFavorites().some(f => _favKey(f) === key) : false;
+  btn.hidden = false;
+  btn.classList.toggle('favorited', isFav);
+  btn.title = isFav ? 'Remove from Favorites' : 'Add to Favorites';
+}
+
+function _toggleFavorite() {
+  if (!_currentCaseEntry || !_currentCaseKey) return;
+  const key = _currentFavKey();
+  if (!key) return;
+  const favs = _getFavorites();
+  const idx  = favs.findIndex(f => _favKey(f) === key);
+  if (idx >= 0) {
+    favs.splice(idx, 1);
+  } else {
+    const term   = _currentCaseKey.split('/')[0];
+    const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
+    const audioSel = document.getElementById('audio-select');
+    let evIdx = 0;
+    if (!audioSel?.hidden) {
+      const selVal   = parseInt(audioSel?.value ?? '0', 10);
+      const selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
+      evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
+    }
+    const ce = _currentCaseEntry;
+    const _activeTurn = (activeTurnIdx >= 0 && turns[activeTurnIdx])
+      ? (turns[activeTurnIdx].turn ?? (activeTurnIdx + 1))
+      : null;
+    const caseRef = {
+      term,
+      number,
+      title:    ce.title || number,
+      argument: ce.argument || '',
+      ...(ce.reargument ? { reargument: ce.reargument } : {}),
+      ...(evIdx > 0 ? { event: evIdx } : {}),
+      ...(_activeTurn != null ? { turn: _activeTurn } : {}),
+      files:    !!ce.files,
+      ...(ce.decision ? { decision: ce.decision } : {}),
+    };
+    favs.push({ court: 'ussc', caseRef });
+  }
+  _setFavorites(favs);
+  _updateFavoriteBtn();
+  _refreshFavoritesNav();
+}
+
+// ── Favorites collection nav ───────────────────────────────────────────────────
+let _favoritesLi         = null;
+let _favoritesUl         = null;
+let _favoritesCountBtn   = null;
+let _favoritesItemsBuilt = false;
+let _favSortMode         = 'none';
+let _favSortAsc          = true;
+
+const _FAV_SORT_OPTIONS = [
+  { mode: 'cases',   label: 'Case'    },
+  { mode: 'argued',  label: 'Argued'  },
+  { mode: 'decided', label: 'Decided' },
+];
+
+function _favCountLabel(n) {
+  if (_favSortMode !== 'none') return _sortModeLabel(_favSortMode, n, _favSortAsc);
+  return n + ' ' + (n === 1 ? 'Case' : 'Cases');
+}
+
+function _applyFavSortMode(mode, asc, { reversal = false } = {}) {
+  if (!_favoritesUl) return;
+  _favSortMode = mode;
+  _favSortAsc  = asc;
+  const items = Array.from(_favoritesUl.querySelectorAll('.case-item'));
+  items.forEach(ci => {
+    const lbl = ci.querySelector('.case-sort-label');
+    if (!lbl) return;
+    if (mode === 'argued' || mode === 'decided') {
+      lbl.textContent = _fmtMonthDay(ci.dataset[mode] || '', true);
+    } else {
+      lbl.textContent = '';
+    }
+  });
+  if (!reversal) {
+    if (mode === 'argued' || mode === 'decided') {
+      items.sort((a, b) => {
+        const av = a.dataset[mode] || '', bv = b.dataset[mode] || '';
+        return av < bv ? -1 : av > bv ? 1 : 0;
+      });
+    } else if (mode === 'cases') {
+      const keyMap = new Map(items.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
+      items.sort((a, b) => keyMap.get(a).localeCompare(keyMap.get(b)));
+    }
+  } else {
+    items.reverse();
+  }
+  if (!asc) items.reverse();
+  _favoritesUl.replaceChildren(...items);
+  if (_favoritesCountBtn) {
+    _favoritesCountBtn.classList.toggle('sort-active', mode !== 'none');
+    _favoritesCountBtn.textContent = _favCountLabel(items.length);
+  }
+}
+
+function _initFavoritesCollectionItem(sectionLi) {
+  if (_favoritesLi) return;
+  const sectionUl = sectionLi.querySelector('ul.terms-list-inner');
+  if (!sectionUl) return;
+
+  _favoritesLi = document.createElement('li');
+  _favoritesLi.className = 'term-group';
+  _favoritesLi.dataset.collectionUrl = '/courts/ussc/collections/favorites.json';
+
+  const header = document.createElement('div');
+  header.className = 'term-header';
+
+  const tog = document.createElement('span');
+  tog.className = 'term-toggle';
+  tog.textContent = '▶';
+
+  const label = document.createElement('span');
+  label.className = 'term-label';
+  label.textContent = 'Favorites';
+
+  _favoritesCountBtn = document.createElement('button');
+  _favoritesCountBtn.type = 'button';
+  _favoritesCountBtn.className = 'term-case-count';
+  _favoritesCountBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!_favoritesLi.classList.contains('open')) return;
+    _buildSortMenu(
+      _favoritesCountBtn,
+      _FAV_SORT_OPTIONS,
+      () => ({ mode: _favSortMode, asc: _favSortAsc }),
+      ({ mode, asc }) => _applyFavSortMode(mode, asc, { reversal: mode === _favSortMode }),
+    );
+  });
+
+  header.appendChild(tog);
+  header.appendChild(label);
+  header.appendChild(_favoritesCountBtn);
+
+  _favoritesUl = document.createElement('ul');
+  _favoritesUl.className = 'case-list';
+
+  _favoritesLi._ensureBuilt = () => {
+    if (_favoritesItemsBuilt) return;
+    _favoritesItemsBuilt = true;
+    _rebuildFavoritesItems();
+  };
+
+  header.addEventListener('click', (e) => {
+    if (_favoritesCountBtn.contains(e.target)) return;
+    _favoritesLi.classList.toggle('open');
+    if (_favoritesLi.classList.contains('open')) _favoritesLi._ensureBuilt();
+  });
+
+  _favoritesLi.appendChild(header);
+  _favoritesLi.appendChild(_favoritesUl);
+  sectionUl.appendChild(_favoritesLi);
+
+  _refreshFavoritesNav();
+}
+
+function _rebuildFavoritesItems() {
+  if (!_favoritesUl) return;
+  _favoritesUl.innerHTML = '';
+  for (const fav of _getFavorites()) {
+    const item = _buildCollectionCaseItem(fav.caseRef, 'favorites', 1, null, null);
+    item._upgradeIcons?.();
+    _favoritesUl.appendChild(item);
+  }
+  if (_favSortMode !== 'none') _applyFavSortMode(_favSortMode, _favSortAsc);
+}
+
+function _refreshFavoritesNav() {
+  if (!_favoritesLi) return;
+  const n = _getFavorites().length;
+  _favoritesLi.hidden = n === 0;
+  if (_favoritesCountBtn) {
+    _favoritesCountBtn.classList.toggle('sort-active', _favSortMode !== 'none');
+    _favoritesCountBtn.textContent = _favCountLabel(n);
+  }
+  if (_favoritesItemsBuilt) _rebuildFavoritesItems();
 }
 
 const audio       = document.getElementById('audio-player');
@@ -1932,7 +2151,17 @@ function buildNavFromIndex(navData) {
     if (entry.hidden) continue;
     if (entry.file) {
       if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms');
-      else if (entry.file.endsWith('collections.json')) _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS);
+      else if (entry.file.endsWith('collections.json')) {
+        _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS);
+        if (_collectionsSectionLi) {
+          const _origCollEnsure = _collectionsSectionLi._ensureBuilt;
+          let _favHooked = false;
+          _collectionsSectionLi._ensureBuilt = () => {
+            _origCollEnsure();
+            if (!_favHooked) { _favHooked = true; _initFavoritesCollectionItem(_collectionsSectionLi); }
+          };
+        }
+      }
       else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS);
     } else if (entry.groups) {
       buildStaticNavSection(termListEl, entry);
@@ -2273,7 +2502,9 @@ function buildCollectionItem(sectionUl, collEntry) {
   collLi._ensureBuilt = _ensureCollectionBuilt;
 
   // ── Collection-level pagination ──────────────────────────────────────────
-  const COLL_PAGE_SIZE = 20;
+  // chunk:0 in the collection entry disables pagination (show all groups at once).
+  // chunk:N uses N as the page size. Omitted or non-number defaults to 20.
+  const COLL_PAGE_SIZE = (() => { const c = collEntry.chunk; return (typeof c === 'number') ? (c === 0 ? Infinity : c) : 20; })();
   const COLL_HALF_PAGE = COLL_PAGE_SIZE >> 1;
   const _collItemLabel = collEntry.pageLabel || 'items';
   let _collPageStart = 0;
@@ -2653,32 +2884,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     ring:          null,
   });
 
-  // Asynchronously upgrade the audio icon with oyez ring/deficit data once
-  // the full case entry is available — keeps collection UI in sync with the
-  // term-list rendering.
-  if (caseRef.event) {
-    _fetchCaseEntry().then(caseEntry => {
-      if (!caseEntry) return;
-      const ring    = oyezCircleData(caseEntry);
-      const deficit = oyezDeficitClass(caseEntry);
-      if (!ring && !deficit) return;
-      const nextSibling = _audioIconNode ? _audioIconNode.nextSibling : null;
-      if (_audioIconNode && _audioIconNode.parentNode === header) {
-        header.removeChild(_audioIconNode);
-      }
-      _audioIconNode = _attachAudioIcon(header, {
-        hasAudio:      true,
-        hasTranscript: !!caseRef.transcript,
-        ring,
-        deficit,
-      });
-      // Preserve original position relative to other header icons (e.g. scales).
-      if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
-        header.insertBefore(_audioIconNode, nextSibling);
-      }
-    }).catch(() => { /* ignore */ });
-  }
-
   // ── Scales icon: shown if audio or decision; clickable iff decision ──
   let _scalesIconNode = null;
   const _scalesOnClick = caseRef.decision ? async (e) => {
@@ -2705,17 +2910,41 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick });
   }
 
-  // Asynchronously upgrade the scales icon with a ring once the full case entry
-  // is available — shows opinion audio (blue/purple stroke) or OTD video (filled).
-  if (caseRef.decision || caseRef.event) {
-    _fetchCaseEntry().then(caseEntry => {
-      if (!caseEntry) return;
-      const ring = opinionCircleData(caseEntry);
-      if (!ring) return;
-      if (_scalesIconNode?.parentNode === header) header.removeChild(_scalesIconNode);
-      _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick, ring });
-    }).catch(() => { /* ignore */ });
-  }
+  // Deferred icon upgrade — called the first time this item becomes visible.
+  // Avoids fetching cases.json for off-screen paginated items.
+  let _iconsUpgraded = false;
+  ci._upgradeIcons = () => {
+    if (_iconsUpgraded) return;
+    _iconsUpgraded = true;
+    if (caseRef.event) {
+      _fetchCaseEntry().then(caseEntry => {
+        if (!caseEntry) return;
+        const ring    = oyezCircleData(caseEntry);
+        const deficit = oyezDeficitClass(caseEntry);
+        if (!ring && !deficit) return;
+        const nextSibling = _audioIconNode ? _audioIconNode.nextSibling : null;
+        if (_audioIconNode && _audioIconNode.parentNode === header) header.removeChild(_audioIconNode);
+        _audioIconNode = _attachAudioIcon(header, {
+          hasAudio:      true,
+          hasTranscript: !!caseRef.transcript,
+          ring,
+          deficit,
+        });
+        if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
+          header.insertBefore(_audioIconNode, nextSibling);
+        }
+      }).catch(() => { /* ignore */ });
+    }
+    if (caseRef.decision || caseRef.event) {
+      _fetchCaseEntry().then(caseEntry => {
+        if (!caseEntry) return;
+        const ring = opinionCircleData(caseEntry);
+        if (!ring) return;
+        if (_scalesIconNode?.parentNode === header) header.removeChild(_scalesIconNode);
+        _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick, ring });
+      }).catch(() => { /* ignore */ });
+    }
+  };
 
   let fileListBuilt = false;
 
@@ -3034,7 +3263,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       const prevCount = _pageStart;
       const nextCount = Math.max(0, _sortedItems.length - pageEnd);
       for (let i = 0; i < _sortedItems.length; i++) {
-        _sortedItems[i].hidden = (i < _pageStart || i >= pageEnd);
+        const item = _sortedItems[i];
+        const visible = (i >= _pageStart && i < pageEnd);
+        item.hidden = !visible;
+        if (visible) item._upgradeIcons?.();
       }
       prevSentinel.hidden = prevCount === 0;
       nextSentinel.hidden = nextCount === 0;
@@ -3532,6 +3764,7 @@ function loadCaseAsOpinion(term, caseEntry) {
 
   _currentCaseEntry = caseEntry;
   _setCaseInfoRow2(caseEntry);
+  _updateFavoriteBtn();
 
   const qEl = document.getElementById('case-questions');
   qEl.textContent = '';
@@ -3822,6 +4055,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _currentEvents    = caseEntry.events || [];
   _currentBasePath  = basePath;
   _currentCaseEntry = caseEntry;
+  _updateFavoriteBtn();
 
   // Update case title
   setCaseTitleLabel(term, caseEntry);
@@ -4260,12 +4494,15 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     }
     await loadAudioEntry(withTranscriptFallback(selectedEntry, _currentEvents), _currentBasePath);
     _setCaseNotes(selectedEntry.notes || _currentCaseEntry?.notes || '');
+    _updateFavoriteBtn();
     if (isMobile()) {
       playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
       setMobileNavVisible(false);
     }
   }
 });
+
+document.getElementById('favorite-btn')?.addEventListener('click', _toggleFavorite);
 
 // ── Prev / Next turn buttons ──────────────────────────────────────────────
 function jumpToTurn(target) {

@@ -863,12 +863,11 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         }
     }
 
-    // Sort groups by case count descending, then last name ascending.
-    const _jaLastName = n => (n || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
+    // Sort groups by case count descending, then first name ascending.
     coll.sort((a, b) => {
         const ca = a.cases?.length ?? 0, cb = b.cases?.length ?? 0;
         if (ca !== cb) return cb - ca;
-        return _jaLastName(a.name) < _jaLastName(b.name) ? -1 : _jaLastName(a.name) > _jaLastName(b.name) ? 1 : 0;
+        return (a.name || '').localeCompare(b.name || '');
     });
 
     const newJson = JSON.stringify(coll, null, 2) + '\n';
@@ -1790,15 +1789,13 @@ async function main() {
         }
     }
 
-    // Output sorted by cases (descending) then last name.
-    const _advLastName = (name) => (name || '').replace(_JM_SUFFIX_RE, '').trim().split(/\s+/).pop() || '';
+    // Output sorted by cases (descending) then first name.
     let output = Object.values(advocates)
         .filter(e => e.cases.length > 0)
         .sort((a, b) => {
             const ca = a.cases.length, cb = b.cases.length;
             if (ca !== cb) return cb - ca;
-            const la = _advLastName(a.name), lb = _advLastName(b.name);
-            return la < lb ? -1 : la > lb ? 1 : 0;
+            return (a.name || '').localeCompare(b.name || '');
         });
 
     // Skip one-word names.
@@ -1920,28 +1917,28 @@ async function main() {
         if (e.previously) entry.previously = [...new Set(e.previously)].sort();
         return entry;
     });
-    ensureDir(path.dirname(OUTPUT_FILE));
-    writeJson(OUTPUT_FILE, index);
-    console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)} and ${relRepo(ADVOCATES_DIR)}/`);
-
-    // Top 100 advocates index.
+    // Top 100 advocates index (preserves cases-descending sort from `output`).
     const topIndex = index.slice(0, 100);
     writeJson(TOP_OUTPUT_FILE, topIndex);
     console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP_OUTPUT_FILE)}`);
 
-    // Women advocates index.
+    // Women and transgender indices preserve the cases-descending sort from `output`.
     const womenIndex = index.filter(e => nameFeminine.get(e.name.toUpperCase()));
     writeJson(WOMEN_OUTPUT_FILE, womenIndex);
     console.log(`Wrote ${womenIndex.length} women advocates to ${relRepo(WOMEN_OUTPUT_FILE)}`);
 
-    // Transgender advocates index (anyone whose transcript speaker entry
-    // carries a 'transgender' tag).
     const transIndex = index.filter(e => {
         const tags = nameTags.get(e.name.toUpperCase());
         return tags && tags.has('transgender');
     });
     writeJson(TRANS_OUTPUT_FILE, transIndex);
     console.log(`Wrote ${transIndex.length} transgender advocates to ${relRepo(TRANS_OUTPUT_FILE)}`);
+
+    // All-advocates index sorted by name.
+    index.sort((a, b) => a.name.localeCompare(b.name));
+    ensureDir(path.dirname(OUTPUT_FILE));
+    writeJson(OUTPUT_FILE, index);
+    console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)} and ${relRepo(ADVOCATES_DIR)}/`);
 
     // ── ussc_women.csv ──────────────────────────────────────────
     let womenRows = [];
