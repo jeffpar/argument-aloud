@@ -1017,6 +1017,15 @@ button.term-case-count.sort-active:hover {
 #favorite-btn.favorited svg path { fill: #d44; stroke: #d44; }
 
 /* ── Favorites groups ──────────────────────────────────────────────────────── */
+.edits-case-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 4px;
+}
+.term-group.open > .edits-case-list {
+  display: block;
+}
 .fav-groups-list {
   display: none;
   list-style: none;
@@ -1549,6 +1558,39 @@ button.term-case-count.sort-active:hover {
   border-radius: 2px;
   padding: 0 2px;
 }
+
+.edit-mode .turn { position: relative; }
+
+.turn-edit-actions {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  flex-direction: row;
+  gap: 5px;
+  z-index: 5;
+}
+.edit-mode .turn:focus-within .turn-edit-actions { display: flex; }
+
+.turn-edit-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.55;
+  font-family: inherit;
+}
+.turn-edit-btn:hover { opacity: 1; }
+.turn-edit-btn-revert  { color: #c0266a; }
+.turn-edit-btn-confirm { color: #059669; }
 
 /* ── Annotated link spans ────────────────────────────────── */
 .link-mark {
@@ -2402,6 +2444,8 @@ html[data-theme="dark"] .edit-mode .turn.counsel .speaker-edit-select         { 
 html[data-theme="dark"] .edit-mode .turn.turn-modified .speaker-edit-select   { color: #f472b6; border-color: #f472b6; }
 html[data-theme="dark"] .edit-mode .speaker-edit-select.speaker-unknown       { color: #E07820 !important; border-color: #E07820 !important; }
 html[data-theme="dark"] .edit-mode .turn-text[contenteditable="true"]:focus  { background: #282c18; border-bottom-color: #c8940a; }
+html[data-theme="dark"] .turn-edit-btn { background: #1e2028; }
+html[data-theme="dark"] .turn-edit-btn:hover { background: #252a35; }
 html[data-theme="dark"] .menu-divider { background: #3a3d4a; }
 
 html[data-theme="dark"] .link-mark--bottom { background: #2a2200; color: #c8a040; border-bottom-color: #8a6a20; }

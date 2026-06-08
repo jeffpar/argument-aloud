@@ -37,6 +37,7 @@ const _LS_FAVORITES_KEY = 'aa-favorites';
 function _persistEditsToStorage() {
   if (!_transcriptEdits.size) {
     localStorage.removeItem(_LS_EDITS_KEY);
+    _refreshEditsNav();
     return;
   }
   const obj = {};
@@ -56,6 +57,7 @@ function _persistEditsToStorage() {
     };
   }
   try { localStorage.setItem(_LS_EDITS_KEY, JSON.stringify(obj)); } catch { /* quota exceeded */ }
+  _refreshEditsNav();
 }
 
 function _loadEditsFromStorage() {
@@ -193,6 +195,11 @@ function _toggleFavorite() {
   _updateFavoriteBtn();
   _refreshFavoritesNav();
 }
+
+// ── Edits nav (virtual collection) ───────────────────────────────────────────
+let _editsLi         = null;
+let _editsUl         = null;
+let _editsItemsBuilt = false;
 
 // ── Favorites collection nav ───────────────────────────────────────────────────
 let _favoritesLi         = null;
@@ -573,6 +580,176 @@ function _refreshFavoritesNav() {
   const hasContent = data.items.length > 0 || data.groups.some(g => g.id !== 'unfiled');
   _favoritesLi.hidden = !hasContent;
   if (_favoritesItemsBuilt) _rebuildFavoritesItems();
+}
+
+function _initEditsNavItem(sectionLi) {
+  if (_editsLi) return;
+  const sectionUl = sectionLi.querySelector('ul.terms-list-inner');
+  if (!sectionUl) return;
+
+  _editsLi = document.createElement('li');
+  _editsLi.className = 'term-group';
+  _editsLi.dataset.collectionUrl = '/courts/ussc/collections/edits.json';
+
+  const header = document.createElement('div');
+  header.className = 'term-header';
+
+  const tog = document.createElement('span');
+  tog.className = 'term-toggle';
+  tog.textContent = '▶';
+
+  const label = document.createElement('span');
+  label.className = 'term-label';
+  label.textContent = 'Edits';
+
+  header.appendChild(tog);
+  header.appendChild(label);
+
+  _editsUl = document.createElement('ul');
+  _editsUl.className = 'edits-case-list';
+
+  _editsLi._ensureBuilt = () => {
+    if (_editsItemsBuilt) return;
+    _editsItemsBuilt = true;
+    _rebuildEditsItems();
+  };
+
+  header.addEventListener('click', () => {
+    _editsLi.classList.toggle('open');
+    if (_editsLi.classList.contains('open')) _editsLi._ensureBuilt();
+  });
+
+  _editsLi.appendChild(header);
+  _editsLi.appendChild(_editsUl);
+  sectionUl.appendChild(_editsLi);
+
+  _refreshEditsNav();
+}
+
+function _refreshEditsNav() {
+  if (!_editsLi) return;
+  _editsLi.hidden = !_transcriptEdits.size;
+  if (_editsItemsBuilt) _rebuildEditsItems();
+}
+
+function _rebuildEditsItems() {
+  if (!_editsUl) return;
+  _editsUl.innerHTML = '';
+
+  // Group cases by term (ascending order).
+  const byTerm = new Map();
+  for (const [, caseData] of _transcriptEdits) {
+    if (!byTerm.has(caseData.term)) byTerm.set(caseData.term, []);
+    byTerm.get(caseData.term).push(caseData);
+  }
+
+  for (const term of [...byTerm.keys()].sort()) {
+    const termLi = document.createElement('li');
+    termLi.className = 'term-group open';
+
+    const termHeader = document.createElement('div');
+    termHeader.className = 'term-header';
+
+    const termTog = document.createElement('span');
+    termTog.className = 'term-toggle';
+    termTog.textContent = '▶';
+
+    const termLabel = document.createElement('span');
+    termLabel.className = 'term-label';
+    termLabel.textContent = termDisplayName(term);
+
+    termHeader.appendChild(termTog);
+    termHeader.appendChild(termLabel);
+    termHeader.addEventListener('click', () => termLi.classList.toggle('open'));
+
+    const caseUl = document.createElement('ul');
+    caseUl.className = 'case-list';
+
+    termLi.appendChild(termHeader);
+    termLi.appendChild(caseUl);
+    _editsUl.appendChild(termLi);
+
+    for (const caseData of byTerm.get(term)) {
+      const li = document.createElement('li');
+      li.className = 'case-item';
+
+      const header = document.createElement('div');
+      header.className = 'case-header';
+
+      const tog = document.createElement('span');
+      tog.className = 'case-toggle';
+      tog.style.display = 'none';
+
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'case-title-nav';
+      titleSpan.style.cursor = 'pointer';
+      titleSpan.textContent = caseTitle(caseData.title || '')
+        + (caseData.number ? ' (No. ' + caseData.number.split(',')[0].trim() + ')' : '');
+
+      header.appendChild(tog);
+      header.appendChild(titleSpan);
+      li.appendChild(header);
+      caseUl.appendChild(li);
+
+      // Find the event+turn of the earliest (smallest turnNum) edit across all events.
+      let bestTurnNum  = Infinity;
+      let bestTextHref = null;
+      for (const [textHref, turnEdits] of caseData.eventEdits) {
+        for (const [, edit] of turnEdits) {
+          const tn = edit.turnNum ?? Infinity;
+          if (tn < bestTurnNum) { bestTurnNum = tn; bestTextHref = textHref; }
+        }
+      }
+
+      const caseParamId    = caseData.id || (caseData.number ? caseData.number.split(',')[0].trim() : '');
+      let resolvedEventIdx = null;
+      let resolvedTurnNum  = bestTurnNum < Infinity ? bestTurnNum : null;
+
+      // data-case-key lets restoreFromURL find this item inside the Edits collection.
+      li.dataset.caseKey = caseData.term + '/' + caseParamId;
+
+      titleSpan.addEventListener('click', async (e) => {
+        const fromRestore = !!e.fromRestore;
+        if (!fromRestore) markCaseItemActive(li);
+
+        const cases = await fetchTermCases(caseData.term);
+        const entry = cases.find(c =>
+          (caseData.id     && c.id     === caseData.id)     ||
+          (caseData.number && c.number === caseData.number)
+        );
+        if (!entry) return;
+
+        const audioIdx    = (fromRestore && Number.isInteger(e.audioIdx))
+          ? e.audioIdx : (resolvedEventIdx || 0);
+        const initialTurn = (fromRestore && Number.isInteger(e.initialTurn) && e.initialTurn > 0)
+          ? e.initialTurn : resolvedTurnNum;
+
+        if (!fromRestore) {
+          const params    = { collection: 'edits', term: caseData.term, case: caseParamId };
+          const deletions = ['group', 'id', 'highlight', 'file'];
+          if (audioIdx)    { params.event = audioIdx;    } else { deletions.push('event'); }
+          if (initialTurn) { params.turn  = initialTurn; } else { deletions.push('turn'); }
+          navigate(buildUrlParams(params, deletions));
+        }
+
+        const hasPlayableAudio = (entry.events || []).some(a => a.audio_href);
+        loadCase(caseData.term, entry, audioIdx || 0, { forceNoAudio: !hasPlayableAudio, initialTurn });
+      });
+
+      // Async: resolve textHref -> 1-based event index via the term's case data.
+      if (bestTextHref) {
+        fetchTermCases(caseData.term).then(cases => {
+          const entry = cases.find(c =>
+            (caseData.id     && c.id     === caseData.id)     ||
+            (caseData.number && c.number === caseData.number)
+          );
+          if (!entry) return;
+          const evIdx = (entry.events || []).findIndex(ev => ev.text_href === bestTextHref);
+          resolvedEventIdx = evIdx >= 0 ? evIdx + 1 : 0;
+        });
+      }
+    }
+  }
 }
 
 const audio       = document.getElementById('audio-player');
@@ -2482,7 +2659,7 @@ function buildNavFromIndex(navData) {
           let _favHooked = false;
           _collectionsSectionLi._ensureBuilt = () => {
             _origCollEnsure();
-            if (!_favHooked) { _favHooked = true; _initFavoritesCollectionItem(_collectionsSectionLi); }
+            if (!_favHooked) { _favHooked = true; _initEditsNavItem(_collectionsSectionLi); _initFavoritesCollectionItem(_collectionsSectionLi); }
           };
         }
       }
@@ -4539,8 +4716,56 @@ function renderTranscript() {
         div.classList.toggle('turn-modified', _getEditedTurn(idx) !== null);
       });
       tx.addEventListener('keydown', e => {
-        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); tx.blur(); }
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          tx.blur(); // plain Enter or Cmd+Enter = confirm
+        } else if (e.key === 'Enter' && e.shiftKey) {
+          // Shift+Enter inserts a literal newline at the cursor.
+          e.preventDefault();
+          const wSel = window.getSelection();
+          if (wSel.rangeCount > 0) {
+            const range = wSel.getRangeAt(0);
+            range.deleteContents();
+            const nl = document.createTextNode('\n');
+            range.insertNode(nl);
+            range.setStartAfter(nl);
+            range.collapse(true);
+            wSel.removeAllRanges();
+            wSel.addRange(range);
+          }
+        }
       });
+
+      // Confirm / revert action buttons (top-right corner, shown on focus-within).
+      const actions = document.createElement('div');
+      actions.className = 'turn-edit-actions';
+      // Prevent mousedown from stealing focus away from the text/select.
+      actions.addEventListener('mousedown', e => e.preventDefault());
+
+      const revertBtn = document.createElement('button');
+      revertBtn.type = 'button';
+      revertBtn.className = 'turn-edit-btn turn-edit-btn-revert';
+      revertBtn.title = 'Revert all changes to this turn';
+      revertBtn.textContent = '✕';
+      revertBtn.addEventListener('click', () => {
+        _removeEditedTurn(idx);
+        tx.textContent = turn.text;
+        sel.value = turn.name;
+        sel.classList.toggle('speaker-unknown', _unknownSpeakerNames.has(turn.name));
+        const origSpkr = speakerMap.get(turn.name) || turn.name;
+        div.className = 'turn ' + speakerClass(origSpkr);
+      });
+
+      const confirmBtn = document.createElement('button');
+      confirmBtn.type = 'button';
+      confirmBtn.className = 'turn-edit-btn turn-edit-btn-confirm';
+      confirmBtn.title = 'Confirm changes (Enter)';
+      confirmBtn.textContent = '✓';
+      confirmBtn.addEventListener('click', () => tx.blur());
+
+      actions.appendChild(revertBtn);
+      actions.appendChild(confirmBtn);
+      div.appendChild(actions);
     } else {
       // Non-edit mode: overlay any pending local edits (stale ones pruned at start of renderTranscript).
       const localEdit = _getEditedTurn(idx);
@@ -5262,6 +5487,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     if (e.key === ' ' && !overlay.classList.contains('open')) {
       const tag = document.activeElement?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON') return;
+      if (document.activeElement?.isContentEditable) return;
       if (audio.src && !playerSection.hidden) {
         e.preventDefault();
         audio.paused ? audio.play().catch(() => {}) : audio.pause();
@@ -5905,14 +6131,16 @@ async function restoreFromURL() {
         }));
       }
     }
-    // For favorites: if the case wasn't found (unfavorited or no favorites), fall through
-    // to the plain term+case handler so the case still loads.
-    if (_collCaseFocused || collectionParam !== 'favorites') return;
-    // Strip collection/group from the URL before falling through.
-    const _fbUrl = new URL(location.href);
-    _fbUrl.searchParams.delete('collection');
-    _fbUrl.searchParams.delete('group');
-    history.replaceState(null, '', _fbUrl);
+    // For favorites/edits: if the case wasn't found, fall through to the plain
+    // term+case handler so the case still loads.
+    if (_collCaseFocused || (collectionParam !== 'favorites' && collectionParam !== 'edits')) return;
+    // For favorites only: strip collection/group from the URL before falling through.
+    if (collectionParam === 'favorites') {
+      const _fbUrl = new URL(location.href);
+      _fbUrl.searchParams.delete('collection');
+      _fbUrl.searchParams.delete('group');
+      history.replaceState(null, '', _fbUrl);
+    }
   }
 
   if (termParam && caseParam) {
@@ -6100,6 +6328,18 @@ function _saveEditedTurn(turnIdx, changes) {
 
   if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
   if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
+  _persistEditsToStorage();
+}
+
+function _removeEditedTurn(turnIdx) {
+  if (!_currentCaseKey || !_currentTextHref) return;
+  const caseData = _transcriptEdits.get(_currentCaseKey);
+  if (!caseData) return;
+  const eventEdits = caseData.eventEdits.get(_currentTextHref);
+  if (!eventEdits) return;
+  eventEdits.delete(turnIdx);
+  if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
+  if (!caseData.eventEdits.size) _transcriptEdits.delete(_currentCaseKey);
   _persistEditsToStorage();
 }
 
