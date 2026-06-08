@@ -34,10 +34,14 @@
 
   function syncEditTranscriptsBtn() {
     var onUssc = isUsscPage();
-    var editBtn     = document.getElementById('edit-transcripts-btn');
-    var downloadBtn = document.getElementById('download-edits-btn');
-    if (editBtn)     editBtn.disabled     = !onUssc;
-    if (downloadBtn) downloadBtn.disabled = !onUssc;
+    var editBtn         = document.getElementById('edit-transcripts-btn');
+    var downloadBtn     = document.getElementById('download-edits-btn');
+    var saveFavBtn      = document.getElementById('save-favorites-btn');
+    var restoreFavBtn   = document.getElementById('restore-favorites-btn');
+    if (editBtn)       editBtn.disabled       = !onUssc;
+    if (downloadBtn)   downloadBtn.disabled   = !onUssc;
+    if (saveFavBtn)    saveFavBtn.disabled    = !onUssc;
+    if (restoreFavBtn) restoreFavBtn.disabled = !onUssc;
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -96,6 +100,21 @@
       downloadBtn.addEventListener('click', function () {
         closeMenu();
         if (typeof window._downloadTranscriptEdits === 'function') window._downloadTranscriptEdits();
+      });
+    }
+
+    var saveFavBtn    = document.getElementById('save-favorites-btn');
+    var restoreFavBtn = document.getElementById('restore-favorites-btn');
+    if (saveFavBtn) {
+      saveFavBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._saveFavorites === 'function') window._saveFavorites();
+      });
+    }
+    if (restoreFavBtn) {
+      restoreFavBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._restoreFavorites === 'function') window._restoreFavorites();
       });
     }
   });

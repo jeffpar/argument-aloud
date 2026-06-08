@@ -1007,6 +1007,56 @@ button.term-case-count.sort-active:hover {
 #favorite-btn:hover svg path { stroke: #d66; }
 #favorite-btn.favorited svg path { fill: #d44; stroke: #d44; }
 
+/* ── Favorites groups ──────────────────────────────────────────────────────── */
+.fav-groups-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+.term-group.open > .fav-groups-list {
+  display: block;
+}
+.fav-header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+.fav-header-btn:hover { color: #444; }
+.fav-active-dot {
+  font-size: 7px;
+  color: #d44;
+  margin-left: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+  align-self: center;
+}
+.fav-group-rename-input {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: inherit;
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  background: inherit;
+}
+.fav-drop-target {
+  background: rgba(38, 114, 180, 0.12) !important;
+  outline: 2px dashed #2672b4;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+.fav-dragging { opacity: 0.45; }
+
 #case-cite {
   font-size: 12px;
   color: #888;
@@ -2252,6 +2302,9 @@ html[data-theme="dark"] .term-sort-option    { color: #c8ccd8; }
 html[data-theme="dark"] .term-sort-option:hover   { background: #252a3a; }
 html[data-theme="dark"] .term-sort-option.active  { color: #7bc8f0; }
 html[data-theme="dark"] .case-sort-label     { color: #6c7280; }
+html[data-theme="dark"] .fav-header-btn      { color: #6c7280; }
+html[data-theme="dark"] .fav-header-btn:hover { color: #c8cdd8; }
+html[data-theme="dark"] .fav-group-rename-input { background: #1a1e2a; border-color: #3a3d4a; color: #c8ccd8; }
 html[data-theme="dark"] .month-header:hover  { background: #252a35; }
 html[data-theme="dark"] .month-name          { color: #6c7280; }
 html[data-theme="dark"] .page-sentinel-btn   { color: #6c7280; }
@@ -2433,6 +2486,9 @@ html[data-theme="light"] .term-sort-option    { color: #222; }
 html[data-theme="light"] .term-sort-option:hover   { background: #f0f4ff; }
 html[data-theme="light"] .term-sort-option.active  { color: #2672b4; }
 html[data-theme="light"] .case-sort-label     { color: #888; }
+html[data-theme="light"] .fav-header-btn      { color: #aaa; }
+html[data-theme="light"] .fav-header-btn:hover { color: #333; }
+html[data-theme="light"] .fav-group-rename-input { background: #fff; border-color: #aaa; color: #222; }
 html[data-theme="light"] .month-header:hover  { background: #eef3f8; }
 html[data-theme="light"] .month-name          { color: #888; }
 html[data-theme="light"] .page-sentinel-btn   { color: #888; }

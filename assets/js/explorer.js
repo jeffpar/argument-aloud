@@ -90,16 +90,32 @@ function _loadEditsFromStorage() {
 }
 
 // ── Favorites ─────────────────────────────────────────────────────────────────
-// Each favorite: { court, caseRef: { term, number, title, argument, reargument?, event, files, decision? } }
+// Storage format v2:
+// { groups: [{ id, name }, ...], items: [{ court, groupId, caseRef }, ...] }
+// The "unfiled" group always exists and is the default target for new favorites.
 
-function _getFavorites() {
-  try { return JSON.parse(localStorage.getItem(_LS_FAVORITES_KEY) || '[]'); }
-  catch { return []; }
+function _getFavData() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(_LS_FAVORITES_KEY) || 'null');
+    if (!raw) return { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: [] };
+    if (Array.isArray(raw)) {
+      // Migrate v1 (plain array) → v2
+      return { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: raw.map(f => ({ ...f, groupId: 'unfiled' })) };
+    }
+    if (!raw.groups?.some(g => g.id === 'unfiled')) {
+      raw.groups = [{ id: 'unfiled', name: 'Unfiled' }, ...(raw.groups || [])];
+    }
+    return raw;
+  } catch { return { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: [] }; }
 }
 
-function _setFavorites(favs) {
-  try { localStorage.setItem(_LS_FAVORITES_KEY, JSON.stringify(favs)); }
+function _setFavData(data) {
+  try { localStorage.setItem(_LS_FAVORITES_KEY, JSON.stringify(data)); }
   catch { /* quota exceeded */ }
+}
+
+function _getFavorites() {
+  return _getFavData().items;
 }
 
 function _favKey(fav) {
@@ -135,10 +151,15 @@ function _toggleFavorite() {
   if (!_currentCaseEntry || !_currentCaseKey) return;
   const key = _currentFavKey();
   if (!key) return;
-  const favs = _getFavorites();
-  const idx  = favs.findIndex(f => _favKey(f) === key);
+  const data = _getFavData();
+  const idx  = data.items.findIndex(f => _favKey(f) === key);
   if (idx >= 0) {
-    favs.splice(idx, 1);
+    data.items.splice(idx, 1);
+    // Auto-remove empty non-unfiled groups
+    const used = new Set(data.items.map(f => f.groupId));
+    data.groups = data.groups.filter(g => g.id === 'unfiled' || used.has(g.id));
+    // Reset active group if it was removed
+    if (!data.groups.some(g => g.id === _activeFavGroupId)) _activeFavGroupId = 'unfiled';
   } else {
     const term   = _currentCaseKey.split('/')[0];
     const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
@@ -164,9 +185,10 @@ function _toggleFavorite() {
       files:    !!ce.files,
       ...(ce.decision ? { decision: ce.decision } : {}),
     };
-    favs.push({ court: 'ussc', caseRef });
+    const targetGroupId = data.groups.some(g => g.id === _activeFavGroupId) ? _activeFavGroupId : 'unfiled';
+    data.items.push({ court: 'ussc', groupId: targetGroupId, caseRef });
   }
-  _setFavorites(favs);
+  _setFavData(data);
   _updateFavoriteBtn();
   _refreshFavoritesNav();
 }
@@ -174,10 +196,12 @@ function _toggleFavorite() {
 // ── Favorites collection nav ───────────────────────────────────────────────────
 let _favoritesLi         = null;
 let _favoritesUl         = null;
-let _favoritesCountBtn   = null;
 let _favoritesItemsBuilt = false;
-let _favSortMode         = 'none';
-let _favSortAsc          = true;
+let _activeFavGroupId    = 'unfiled';
+let _favGroupEls         = new Map(); // groupId → { li, ul, countBtn, activeDot, sortMode, sortAsc }
+let _favSearchRow        = null;
+let _favSearchInput      = null;
+let _favSearchBtn        = null;
 
 const _FAV_SORT_OPTIONS = [
   { mode: 'cases',   label: 'Case'    },
@@ -185,16 +209,18 @@ const _FAV_SORT_OPTIONS = [
   { mode: 'decided', label: 'Decided' },
 ];
 
-function _favCountLabel(n) {
-  if (_favSortMode !== 'none') return _sortModeLabel(_favSortMode, n, _favSortAsc);
-  return n + ' ' + (n === 1 ? 'Case' : 'Cases');
+function _favGroupCountLabel(groupId, n) {
+  const g = _favGroupEls.get(groupId);
+  if (g?.sortMode && g.sortMode !== 'none') return _sortModeLabel(g.sortMode, n, g.sortAsc ?? true);
+  return n + ' ' + (n === 1 ? 'Case' : 'Cases');
 }
 
-function _applyFavSortMode(mode, asc, { reversal = false } = {}) {
-  if (!_favoritesUl) return;
-  _favSortMode = mode;
-  _favSortAsc  = asc;
-  const items = Array.from(_favoritesUl.querySelectorAll('.case-item'));
+function _applyFavGroupSort(groupId, mode, asc, { reversal = false } = {}) {
+  const g = _favGroupEls.get(groupId);
+  if (!g?.ul) return;
+  g.sortMode = mode;
+  g.sortAsc  = asc;
+  const items = Array.from(g.ul.querySelectorAll('.case-item'));
   items.forEach(ci => {
     const lbl = ci.querySelector('.case-sort-label');
     if (!lbl) return;
@@ -218,10 +244,192 @@ function _applyFavSortMode(mode, asc, { reversal = false } = {}) {
     items.reverse();
   }
   if (!asc) items.reverse();
-  _favoritesUl.replaceChildren(...items);
-  if (_favoritesCountBtn) {
-    _favoritesCountBtn.classList.toggle('sort-active', mode !== 'none');
-    _favoritesCountBtn.textContent = _favCountLabel(items.length);
+  g.ul.replaceChildren(...items);
+  if (g.countBtn) {
+    g.countBtn.classList.toggle('sort-active', mode !== 'none');
+    g.countBtn.textContent = _favGroupCountLabel(groupId, items.length);
+  }
+}
+
+function _setActiveFavGroup(groupId) {
+  _activeFavGroupId = groupId;
+  for (const [gid, g] of _favGroupEls) {
+    if (g.activeDot) g.activeDot.hidden = gid !== groupId;
+  }
+}
+
+function _moveFavToGroup(key, targetGroupId) {
+  const data = _getFavData();
+  const item = data.items.find(f => _favKey(f) === key);
+  if (!item || item.groupId === targetGroupId) return;
+  item.groupId = targetGroupId;
+  _setFavData(data);
+  _refreshFavoritesNav();
+}
+
+function _startGroupRename(groupId, labelEl) {
+  const data = _getFavData();
+  const grp  = data.groups.find(g => g.id === groupId);
+  if (!grp) return;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'fav-group-rename-input';
+  input.value = grp.name;
+  labelEl.replaceWith(input);
+  input.focus();
+  input.select();
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    const newName = input.value.trim() || grp.name;
+    grp.name = newName;
+    _setFavData(data);
+    input.replaceWith(labelEl);
+    labelEl.textContent = newName;
+  };
+  input.addEventListener('blur', finish);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+    if (e.key === 'Escape') { input.value = grp.name; input.blur(); }
+  });
+}
+
+function _buildFavGroupEl(groupId, groupName) {
+  const g = { li: null, ul: null, countBtn: null, activeDot: null, sortMode: 'none', sortAsc: true };
+
+  const li = document.createElement('li');
+  li.className = 'term-group fav-group';
+  li.dataset.favGroupId = groupId;
+
+  const header = document.createElement('div');
+  header.className = 'term-header';
+
+  const tog = document.createElement('span');
+  tog.className = 'term-toggle';
+  tog.textContent = '▶';
+
+  const label = document.createElement('span');
+  label.className = 'term-label fav-group-label';
+  label.textContent = groupName;
+  label.title = 'Double-click to rename';
+  label.addEventListener('dblclick', (e) => { e.stopPropagation(); _startGroupRename(groupId, label); });
+
+  const activeDot = document.createElement('span');
+  activeDot.className = 'fav-active-dot';
+  activeDot.title = 'Active group — new favorites go here';
+  activeDot.textContent = '●';
+  activeDot.hidden = groupId !== _activeFavGroupId;
+
+  const countBtn = document.createElement('button');
+  countBtn.type = 'button';
+  countBtn.className = 'term-case-count';
+  countBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!li.classList.contains('open')) return;
+    _buildSortMenu(
+      countBtn,
+      _FAV_SORT_OPTIONS,
+      () => ({ mode: g.sortMode, asc: g.sortAsc }),
+      ({ mode, asc }) => _applyFavGroupSort(groupId, mode, asc, { reversal: mode === g.sortMode }),
+    );
+  });
+
+  header.appendChild(tog);
+  header.appendChild(label);
+  header.appendChild(activeDot);
+  header.appendChild(countBtn);
+
+  const ul = document.createElement('ul');
+  ul.className = 'case-list';
+
+  header.addEventListener('click', (e) => {
+    if (countBtn.contains(e.target)) return;
+    li.classList.toggle('open');
+    if (li.classList.contains('open')) _setActiveFavGroup(groupId);
+  });
+
+  for (const dropTarget of [ul, header]) {
+    dropTarget.addEventListener('dragover', (e) => {
+      if (e.dataTransfer.types.includes('text/fav-key')) { e.preventDefault(); dropTarget.classList.add('fav-drop-target'); }
+    });
+    dropTarget.addEventListener('dragleave', () => dropTarget.classList.remove('fav-drop-target'));
+    dropTarget.addEventListener('drop', (e) => {
+      dropTarget.classList.remove('fav-drop-target');
+      const key = e.dataTransfer.getData('text/fav-key');
+      if (!key) return;
+      e.preventDefault();
+      _moveFavToGroup(key, groupId);
+    });
+  }
+
+  li.appendChild(header);
+  li.appendChild(ul);
+
+  g.li = li; g.ul = ul; g.countBtn = countBtn; g.activeDot = activeDot;
+  _favGroupEls.set(groupId, g);
+  return li;
+}
+
+function _uniqueGroupName(groups) {
+  const names = new Set(groups.map(g => g.name));
+  let n = 1;
+  while (names.has('Group ' + n)) n++;
+  return 'Group ' + n;
+}
+
+function _addFavGroup() {
+  if (!_favoritesItemsBuilt) _favoritesLi?._ensureBuilt();
+  const data = _getFavData();
+  const id   = 'g_' + Date.now();
+  data.groups.push({ id, name: _uniqueGroupName(data.groups) });
+  _setFavData(data);
+  if (_favoritesLi) { _favoritesLi.hidden = false; _favoritesLi.classList.add('open'); }
+  _rebuildFavoritesItems();
+  const g = _favGroupEls.get(id);
+  if (g) {
+    g.li.classList.add('open');
+    _setActiveFavGroup(id);
+    requestAnimationFrame(() => {
+      const lbl = g.li.querySelector('.fav-group-label');
+      if (lbl) _startGroupRename(id, lbl);
+    });
+  }
+}
+
+function _closeFavSearch() {
+  if (!_favSearchRow) return;
+  _favSearchRow.hidden = true;
+  if (_favSearchBtn) _favSearchBtn.classList.remove('active');
+  if (_favSearchInput) { _favSearchInput.value = ''; _applyFavSearch(); }
+}
+
+function _toggleFavSearch() {
+  if (!_favSearchRow || !_favSearchInput) return;
+  if (_favSearchRow.hidden) {
+    _favSearchRow.hidden = false;
+    if (_favSearchBtn) _favSearchBtn.classList.add('active');
+    // Ensure Favorites is open and items are built so search has something to filter.
+    if (_favoritesLi && !_favoritesLi.classList.contains('open')) _favoritesLi.classList.add('open');
+    _favoritesLi?._ensureBuilt();
+    _favSearchInput.focus();
+  } else {
+    _closeFavSearch();
+  }
+}
+
+function _applyFavSearch() {
+  const q = (_favSearchInput?.value || '').trim().toLowerCase();
+  for (const [, g] of _favGroupEls) {
+    if (!g.ul || !g.li) continue;
+    let anyVisible = false;
+    for (const ci of g.ul.querySelectorAll('.case-item')) {
+      const title = (ci.querySelector('.case-title-nav')?.textContent || '').toLowerCase();
+      const match = !q || title.includes(q);
+      ci.hidden = !match;
+      if (match) anyVisible = true;
+    }
+    g.li.hidden = !anyVisible;
   }
 }
 
@@ -245,26 +453,52 @@ function _initFavoritesCollectionItem(sectionLi) {
   label.className = 'term-label';
   label.textContent = 'Favorites';
 
-  _favoritesCountBtn = document.createElement('button');
-  _favoritesCountBtn.type = 'button';
-  _favoritesCountBtn.className = 'term-case-count';
-  _favoritesCountBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (!_favoritesLi.classList.contains('open')) return;
-    _buildSortMenu(
-      _favoritesCountBtn,
-      _FAV_SORT_OPTIONS,
-      () => ({ mode: _favSortMode, asc: _favSortAsc }),
-      ({ mode, asc }) => _applyFavSortMode(mode, asc, { reversal: mode === _favSortMode }),
-    );
-  });
+  const addBtn = document.createElement('button');
+  addBtn.type = 'button';
+  addBtn.className = 'fav-header-btn';
+  addBtn.title = 'Add group';
+  addBtn.textContent = '+';
+  addBtn.addEventListener('click', (e) => { e.stopPropagation(); _addFavGroup(); });
+
+  _favSearchBtn = document.createElement('button');
+  _favSearchBtn.type = 'button';
+  _favSearchBtn.className = 'fav-header-btn';
+  _favSearchBtn.title = 'Search favorites';
+  _favSearchBtn.innerHTML = '&#128269;';
+  _favSearchBtn.addEventListener('click', (e) => { e.stopPropagation(); _toggleFavSearch(); });
 
   header.appendChild(tog);
   header.appendChild(label);
-  header.appendChild(_favoritesCountBtn);
+  header.appendChild(addBtn);
+  header.appendChild(_favSearchBtn);
+
+  _favSearchRow = document.createElement('div');
+  _favSearchRow.className = 'coll-search-row';
+  _favSearchRow.hidden = true;
+  _favSearchRow.addEventListener('click', e => e.stopPropagation());
+
+  _favSearchInput = document.createElement('input');
+  _favSearchInput.type = 'search';
+  _favSearchInput.className = 'coll-search-input';
+  _favSearchInput.placeholder = 'Search favorites…';
+  _favSearchInput.autocomplete = 'off';
+  _favSearchInput.spellcheck = false;
+  _favSearchInput.addEventListener('input', _applyFavSearch);
+  _favSearchInput.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); _closeFavSearch(); } });
+
+  const _favSearchClose = document.createElement('button');
+  _favSearchClose.type = 'button';
+  _favSearchClose.className = 'coll-search-clear';
+  _favSearchClose.textContent = '×';
+  _favSearchClose.title = 'Close search';
+  _favSearchClose.setAttribute('aria-label', 'Close search');
+  _favSearchClose.addEventListener('click', (e) => { e.stopPropagation(); _closeFavSearch(); });
+
+  _favSearchRow.appendChild(_favSearchInput);
+  _favSearchRow.appendChild(_favSearchClose);
 
   _favoritesUl = document.createElement('ul');
-  _favoritesUl.className = 'case-list';
+  _favoritesUl.className = 'fav-groups-list';
 
   _favoritesLi._ensureBuilt = () => {
     if (_favoritesItemsBuilt) return;
@@ -273,12 +507,13 @@ function _initFavoritesCollectionItem(sectionLi) {
   };
 
   header.addEventListener('click', (e) => {
-    if (_favoritesCountBtn.contains(e.target)) return;
+    if (addBtn.contains(e.target) || _favSearchBtn.contains(e.target)) return;
     _favoritesLi.classList.toggle('open');
     if (_favoritesLi.classList.contains('open')) _favoritesLi._ensureBuilt();
   });
 
   _favoritesLi.appendChild(header);
+  _favoritesLi.appendChild(_favSearchRow);
   _favoritesLi.appendChild(_favoritesUl);
   sectionUl.appendChild(_favoritesLi);
 
@@ -287,23 +522,55 @@ function _initFavoritesCollectionItem(sectionLi) {
 
 function _rebuildFavoritesItems() {
   if (!_favoritesUl) return;
-  _favoritesUl.innerHTML = '';
-  for (const fav of _getFavorites()) {
-    const item = _buildCollectionCaseItem(fav.caseRef, 'favorites', 1, null, null);
-    item._upgradeIcons?.();
-    _favoritesUl.appendChild(item);
+  // Snapshot sort states and open groups before clearing
+  const prevSort = new Map();
+  const prevOpen = new Set();
+  for (const [gid, g] of _favGroupEls) {
+    prevSort.set(gid, { mode: g.sortMode, asc: g.sortAsc });
+    if (g.li?.classList.contains('open')) prevOpen.add(gid);
   }
-  if (_favSortMode !== 'none') _applyFavSortMode(_favSortMode, _favSortAsc);
+  _favoritesUl.innerHTML = '';
+  _favGroupEls.clear();
+  const data = _getFavData();
+  for (const grp of data.groups) {
+    const groupEl = _buildFavGroupEl(grp.id, grp.name);
+    _favoritesUl.appendChild(groupEl);
+    const g = _favGroupEls.get(grp.id);
+    const groupItems = data.items.filter(f => f.groupId === grp.id);
+    for (const fav of groupItems) {
+      const item = _buildCollectionCaseItem(fav.caseRef, 'favorites', 1, null, null);
+      item._upgradeIcons?.();
+      _makeFavItemDraggable(item, _favKey(fav));
+      g?.ul?.appendChild(item);
+    }
+    if (g?.countBtn) g.countBtn.textContent = _favGroupCountLabel(grp.id, groupItems.length);
+    if (prevOpen.has(grp.id) && g?.li) g.li.classList.add('open');
+    const prev = prevSort.get(grp.id);
+    if (prev && prev.mode !== 'none') _applyFavGroupSort(grp.id, prev.mode, prev.asc);
+  }
+  // Re-apply active group indicator after rebuild
+  for (const [gid, g] of _favGroupEls) {
+    if (g.activeDot) g.activeDot.hidden = gid !== _activeFavGroupId;
+  }
+  // Re-apply search filter if active
+  if (_favSearchInput && !_favSearchRow?.hidden && _favSearchInput.value) _applyFavSearch();
+}
+
+function _makeFavItemDraggable(item, favKey) {
+  item.draggable = true;
+  item.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/fav-key', favKey);
+    e.dataTransfer.effectAllowed = 'move';
+    item.classList.add('fav-dragging');
+  });
+  item.addEventListener('dragend', () => item.classList.remove('fav-dragging'));
 }
 
 function _refreshFavoritesNav() {
   if (!_favoritesLi) return;
-  const n = _getFavorites().length;
-  _favoritesLi.hidden = n === 0;
-  if (_favoritesCountBtn) {
-    _favoritesCountBtn.classList.toggle('sort-active', _favSortMode !== 'none');
-    _favoritesCountBtn.textContent = _favCountLabel(n);
-  }
+  const data = _getFavData();
+  const hasContent = data.items.length > 0 || data.groups.some(g => g.id !== 'unfiled');
+  _favoritesLi.hidden = !hasContent;
   if (_favoritesItemsBuilt) _rebuildFavoritesItems();
 }
 
@@ -5860,7 +6127,7 @@ async function downloadTranscriptEdits() {
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href     = url;
-  a.download = 'transcript-edits.json';
+  a.download = 'ussc-edits.json';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -5869,9 +6136,63 @@ async function downloadTranscriptEdits() {
   alert('Note: Send the downloaded edits to admin@argumentaloud.org for processing. Thank you for taking the time to make these corrections.');
 }
 
+function saveFavorites() {
+  const data = _getFavData();
+  if (!data.items.length && !data.groups.some(g => g.id !== 'unfiled')) {
+    alert('No favorites to save.');
+    return;
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'ussc-favorites.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function restoreFavorites() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json,application/json';
+  input.addEventListener('change', () => {
+    const file = input.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const parsed = JSON.parse(ev.target.result);
+        let data;
+        if (Array.isArray(parsed)) {
+          // Accept v1 plain array
+          data = { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: parsed.map(f => ({ ...f, groupId: 'unfiled' })) };
+        } else if (parsed && typeof parsed === 'object' && Array.isArray(parsed.items)) {
+          data = parsed;
+          if (!data.groups?.some(g => g.id === 'unfiled')) {
+            data.groups = [{ id: 'unfiled', name: 'Unfiled' }, ...(data.groups || [])];
+          }
+        } else {
+          alert('Invalid favorites file.');
+          return;
+        }
+        _setFavData(data);
+        _activeFavGroupId = 'unfiled';
+        _favoritesItemsBuilt = false;
+        _refreshFavoritesNav();
+        _updateFavoriteBtn();
+      } catch {
+        alert('Could not read favorites file.');
+      }
+    };
+    reader.readAsText(file);
+  });
+  document.body.appendChild(input); input.click(); document.body.removeChild(input);
+}
+
 window._startEditTranscripts    = startEditTranscripts;
 window._endEditTranscripts      = endEditTranscripts;
 window._downloadTranscriptEdits = downloadTranscriptEdits;
+window._saveFavorites           = saveFavorites;
+window._restoreFavorites        = restoreFavorites;
 
 _loadEditsFromStorage();
 init();
