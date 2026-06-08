@@ -3342,6 +3342,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
+            if (c.files) entry.files = c.files;
             if (!byJustice.has(canonical)) byJustice.set(canonical, []);
             byJustice.get(canonical).push(entry);
         }
@@ -3457,6 +3458,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
                     argument: c.argument || '',
                     decision: c.decision || '',
                 };
+                if (c.files) entry.files = c.files;
                 if (!byJustice.has(canonical)) byJustice.set(canonical, []);
                 byJustice.get(canonical).push(entry);
             }
@@ -3596,6 +3598,7 @@ function processVocalJustices(allTerms, dryRun) {
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
+            if (c.files) caseMeta.files = c.files;
 
             // canonical → { totalSecs, firstEventIdx, firstTurnNum } — accumulated within this case
             const caseAccum = new Map();

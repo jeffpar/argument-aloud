@@ -1890,19 +1890,7 @@ async function main() {
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
         }
-        // Assign entry numbers (1 = earliest argument, N = most recent) and
-        // insert after `event` in the key order.
-        const total = entry.cases.length;
-        envelope.cases = entry.cases.map((c, i) => {
-            const entryNum = total - i; // cases are sorted most-recent-first
-            const rebuilt = {};
-            for (const k of Object.keys(c)) {
-                rebuilt[k] = c[k];
-                if (k === 'event') rebuilt.entry = entryNum;
-            }
-            if (!('entry' in rebuilt)) rebuilt.entry = entryNum;
-            return rebuilt;
-        });
+        envelope.cases = entry.cases;
         writeJson(caseFile, envelope);
     }
 

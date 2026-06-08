@@ -2254,6 +2254,8 @@ function buildCollectionItem(sectionUl, collEntry) {
           }
         }
         _populateCollectionGroups(collUl, groups, collEntry, collId);
+        _collAllGroups = Array.from(collUl.querySelectorAll(':scope > .month-group'));
+        if (_collAllGroups.length > COLL_PAGE_SIZE) _renderCollPage();
       } catch (e) {
         console.warn('[collections] fetch failed:', fileUrl, e);
       }
@@ -2262,6 +2264,65 @@ function buildCollectionItem(sectionUl, collEntry) {
   }
 
   collLi._ensureBuilt = _ensureCollectionBuilt;
+
+  // ── Collection-level pagination ──────────────────────────────────────────
+  const COLL_PAGE_SIZE = 20;
+  const COLL_HALF_PAGE = COLL_PAGE_SIZE >> 1;
+  const _collItemLabel = collEntry.pageLabel || 'items';
+  let _collPageStart = 0;
+  let _collAllGroups = [];
+  let _collSearchActive = false;
+
+  const _collPrevSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
+  const _collPrevBtn = _collPrevSentinel.appendChild(document.createElement('button'));
+  _collPrevBtn.className = 'page-sentinel-btn';
+  _collPrevBtn.addEventListener('click', () => {
+    _collPageStart = Math.max(0, _collPageStart - COLL_PAGE_SIZE);
+    _renderCollPage();
+    requestAnimationFrame(() => _collNextSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+  });
+
+  const _collNextSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
+  const _collNextBtn = _collNextSentinel.appendChild(document.createElement('button'));
+  _collNextBtn.className = 'page-sentinel-btn';
+  _collNextBtn.addEventListener('click', () => {
+    _collPageStart += COLL_PAGE_SIZE;
+    _renderCollPage();
+    requestAnimationFrame(() => _collPrevSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+  });
+
+  function _renderCollPage() {
+    if (_collAllGroups.length <= COLL_PAGE_SIZE || _collSearchActive) return;
+    const pageEnd = _collPageStart + COLL_PAGE_SIZE;
+    const prevCount = _collPageStart;
+    const nextCount = Math.max(0, _collAllGroups.length - pageEnd);
+    for (let i = 0; i < _collAllGroups.length; i++) {
+      _collAllGroups[i].hidden = (i < _collPageStart || i >= pageEnd);
+    }
+    _collPrevSentinel.hidden = prevCount === 0;
+    _collNextSentinel.hidden = nextCount === 0;
+    if (prevCount > 0) {
+      const show = Math.min(prevCount, COLL_PAGE_SIZE);
+      _collPrevBtn.textContent = `(Previous ${show} ${_collItemLabel}...)`;
+    }
+    if (nextCount > 0) {
+      const show = Math.min(nextCount, COLL_PAGE_SIZE);
+      _collNextBtn.textContent = `(Next ${show} ${_collItemLabel}...)`;
+    }
+    collUl.replaceChildren(
+      ...(_collPageStart > 0 ? [_collPrevSentinel] : []),
+      ..._collAllGroups.slice(0, pageEnd),
+      ...(nextCount > 0 ? [_collNextSentinel] : []),
+      ..._collAllGroups.slice(pageEnd),
+    );
+  }
+
+  collLi._centerOnGroup = (groupLi) => {
+    const idx = _collAllGroups.indexOf(groupLi);
+    if (idx < 0 || _collAllGroups.length <= COLL_PAGE_SIZE) return;
+    _collPageStart = Math.max(0, Math.min(idx - COLL_HALF_PAGE, _collAllGroups.length - COLL_PAGE_SIZE));
+    _renderCollPage();
+  };
 
   let _onCollClose = null;
 
@@ -2325,12 +2386,21 @@ function buildCollectionItem(sectionUl, collEntry) {
       const _groups = collUl.querySelectorAll('.month-group');
       if (!q) {
         // Collapse all groups and restore all items — clean slate.
+        _collSearchActive = false;
         _groups.forEach(g => {
           g.style.display = '';
           g.classList.remove('open');
           if (_searchIsCompound) g.querySelectorAll('.case-item').forEach(ci => { ci.style.display = ''; });
         });
+        _renderCollPage();
         return;
+      }
+      // Suspend collection-level pagination so all groups are accessible for filtering.
+      if (_collAllGroups.length > COLL_PAGE_SIZE && !_collSearchActive) {
+        _collSearchActive = true;
+        _collAllGroups.forEach(g => { g.hidden = false; });
+        _collPrevSentinel.hidden = true;
+        _collNextSentinel.hidden = true;
       }
       const _ql = q.toLowerCase();
       if (_searchIsCompound) {
@@ -2348,10 +2418,9 @@ function buildCollectionItem(sectionUl, collEntry) {
         });
       } else {
         // Filter at the group level using the precomputed search text.
+        // Don't add 'open' — leave groups collapsed so one click expands them.
         _groups.forEach(g => {
-          const _matches = (g.dataset.searchText || '').includes(_ql);
-          g.style.display = _matches ? '' : 'none';
-          if (_matches) g.classList.add('open');
+          g.style.display = (g.dataset.searchText || '').includes(_ql) ? '' : 'none';
         });
       }
     }
@@ -4637,7 +4706,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         .forEach(speaker => {
         const opt = document.createElement('option');
         opt.value = speaker.name;
-        opt.textContent = formatSpeaker(speaker);
+        opt.textContent = formatSpeakerFull(speaker);
         opt.title = speaker.name;
         speakerSelect.appendChild(opt);
       });
@@ -5093,6 +5162,7 @@ async function restoreFromURL() {
       if (idParam) {
         const groupLi = collLi.querySelector(`.month-group[data-group-id="${CSS.escape(idParam)}"]`);
         if (groupLi) {
+          collLi._centerOnGroup?.(groupLi);
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
@@ -5101,6 +5171,7 @@ async function restoreFromURL() {
       } else if (groupParam) {
         const groupLi = collLi.querySelector(`.month-group[data-group-idx="${groupParam}"]`);
         if (groupLi) {
+          collLi._centerOnGroup?.(groupLi);
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
