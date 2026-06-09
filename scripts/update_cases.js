@@ -6445,6 +6445,52 @@ async function checkLengths(casesPath, caseFilter, update) {
     }
 }
 
+function checkAlignedTranscriptLengths(casesPath, caseFilter) {
+    if (!fs.existsSync(casesPath)) return;
+    const cases = _readJson(casesPath);
+    if (!Array.isArray(cases)) return;
+    const casesDir = path.join(path.dirname(casesPath), 'cases');
+    const term = path.basename(path.dirname(casesPath));
+
+    for (const c of cases) {
+        if (caseFilter) {
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
+        }
+        for (const ev of c.events || []) {
+            const evType = ev.type || '';
+            if (evType !== 'argument' && evType !== 'reargument') continue;
+            if (!ev.audio_href || !ev.text_href || !ev.aligned) continue;
+            if (!ev.length) continue;
+
+            const transcriptPath = path.join(casesDir, ev.text_href);
+            if (!fs.existsSync(transcriptPath)) continue;
+
+            const transcript = _readJson(transcriptPath);
+            const turns = transcript?.turns;
+            if (!Array.isArray(turns) || !turns.length) continue;
+
+            let lastTime = null;
+            for (let i = turns.length - 1; i >= 0; i--) {
+                if (turns[i].time != null) { lastTime = turns[i].time; break; }
+            }
+            if (lastTime == null) continue;
+
+            const audioSecs    = _parseTimeSecs(ev.length);
+            const lastTurnSecs = _parseTimeSecs(String(lastTime));
+            const label = `${term}/${c.number || c.id || '?'} "${c.title || '?'}" (${ev.date || '?'}) ${path.basename(ev.text_href)}`;
+
+            if (_VERBOSE) {
+                if (audioSecs < lastTurnSecs - 60) {
+                    console.log(`WARNING: ${label}: audio length ${ev.length} is more than 1 minute shorter than last transcript timestamp ${lastTime}`);
+                } else if (audioSecs > lastTurnSecs + 600) {
+                    console.log(`WARNING: ${label}: audio length ${ev.length} exceeds last transcript timestamp ${lastTime} by more than 10 minutes`);
+                }
+            }
+        }
+    }
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
@@ -7070,6 +7116,7 @@ async function processOneTerm(term, opts) {
     }
 
     await checkLengths(casesPath, caseFilter, !dryRun);
+    checkAlignedTranscriptLengths(casesPath, caseFilter);
 
     const result = caseFilter ? runPerCaseChecks(casesPath, term, caseFilter, dryRun) : processTerm(term, dryRun, false, allTerms, false);
     if (result && typeof result === 'object') result.missingVotes = missingVotes;

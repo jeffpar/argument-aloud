@@ -786,11 +786,40 @@
         "redundant": true
       },
       {
+        "source": "nara",
+        "type": "argument",
+        "date": "2001-10-09",
+        "title": "Oral Argument on October 9, 2001",
+        "audio_href": "https://s3.amazonaws.com/NARAprodstorage/lz/mopix/267a/RED/267-1192.mp3",
+        "length": "01:59:17.87",
+        "size": 114528046,
+        "bitrate": "128kbps",
+        "offset": "00:59:20.00",
+        "text_href": "00-1045/2001-10-09-oyez.json",
+        "advocates": [
+          {
+            "name": "GLEN D. NAGER",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "ANDREW R. HENDERSON",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "KENT L. JONES",
+            "title": "MR.",
+            "role": "petitioner*"
+          }
+        ],
+        "aligned": true
+      },
+      {
         "source": "oyez",
         "type": "argument",
         "date": "2001-10-09",
         "title": "Oral Argument on October 9, 2001",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2001/00-1045/20011009a_00-1045.delivery.mp3",
         "length": "00:40:26.46",
         "size": 9860048,
         "bitrate": "33kbps",
@@ -812,7 +841,9 @@
             "role": "petitioner*"
           }
         ],
-        "aligned": true
+        "aligned": true,
+        "note": "Oyez audio is incomplete",
+        "bad_audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2001/00-1045/20011009a_00-1045.delivery.mp3"
       },
       {
         "source": "oyez",

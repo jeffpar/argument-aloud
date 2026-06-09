@@ -819,7 +819,7 @@ function argumentTooltip(term, caseRef) {
 }
 
 function toTitleCase(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  return s.toLowerCase().replace(/(^|')(\S)/g, (_, pre, ch) => pre + ch.toUpperCase());
 }
 
 function lastName(name) {
@@ -1507,13 +1507,13 @@ function _voteName(allCapsName) {
   // e.g. "JOHN HARLAN, II" → "Harlan", "THURGOOD MARSHALL" → "Marshall"
   const base = allCapsName.replace(/,?\s+(II|III|IV|JR\.?|SR\.?)$/i, '').trim();
   const last = base.split(/\s+/).pop();
-  return last.charAt(0).toUpperCase() + last.slice(1).toLowerCase();
+  return toTitleCase(last);
 }
 
 function _setCaseInfoRow3(caseEntry) {
   const row = document.getElementById('case-info-row3');
   const span = document.getElementById('case-vote');
-  if (!caseEntry.voteMajority || !caseEntry.voteMinority || !caseEntry.votes?.length) {
+  if (!caseEntry.voteMajority || caseEntry.voteMinority == null || !caseEntry.votes?.length) {
     row.hidden = true;
     return;
   }
@@ -3984,10 +3984,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
 
 // If `arg` has no text_href, borrow one from another event in `events` that
 // shares the same date and type (e.g. a NARA audio entry paired with a USSC
-// transcript-only entry for the same argument date).
+// transcript-only entry for the same argument date). Aligned transcripts are
+// not borrowed — they are specific to their own audio source.
 function withTranscriptFallback(arg, events) {
   if (arg.text_href || !events?.length) return arg;
-  const donor = events.find(e => e !== arg && e.date === arg.date && e.type === arg.type && e.text_href);
+  const donor = events.find(e => e !== arg && e.date === arg.date && e.type === arg.type && e.text_href && !e.aligned);
   if (!donor) return arg;
   const result = Object.assign({}, arg);
   result.text_href = donor.text_href;
@@ -4037,6 +4038,13 @@ async function loadAudioEntry(arg, basePath) {
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
+    // Check alignment before applying any offset: an unaligned transcript whose
+    // event has an offset should not be mistaken for an aligned one.
+    const hasRelativeTimes = turnTimes.some(t => t > 0);
+    if (arg.offset) {
+      const offsetSecs = parseTime(arg.offset);
+      turnTimes = turnTimes.map(t => t + offsetSecs);
+    }
 
     // Always prefer the event's audio_href; fall back to media.url in the
     // transcript envelope only when the event has no audio_href of its own.
@@ -4048,25 +4056,23 @@ async function loadAudioEntry(arg, basePath) {
     }
     audio.load();
 
-    // If the entry has an offset (e.g. NARA files covering multiple cases),
-    // seek to that position after metadata is ready.
-    if (arg.offset) {
-      seekOnly(parseTime(arg.offset));
-    } else if (Number.isInteger(arg.turn) && arg.turn > 0 && arg.turn <= turnTimes.length) {
-      // `turn` is a 1-based index into the aligned transcript; used when
-      // multiple arguments share a single audio file. Seek to that turn's time.
+    // Seek to the right position after metadata is ready. A specific turn takes
+    // priority over a bare offset seek since turnTimes already includes the offset.
+    if (Number.isInteger(arg.turn) && arg.turn > 0 && arg.turn <= turnTimes.length) {
       // Add a tiny epsilon so audio.currentTime lands above the turn boundary
       // after the browser quantizes the seek, ensuring findCurrentTurn returns
       // the correct turn on the first timeupdate.
       seekOnly(turnTimes[arg.turn - 1] + 0.01);
       _suppressTimeupdateBeforeSeek = true;
+    } else if (arg.offset) {
+      seekOnly(parseTime(arg.offset));
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
     // Only treat as time-aligned if at least one turn has a non-zero timestamp.
     // All-zero timestamps (e.g. Oyez data where alignment failed) should be
     // treated as unaligned to avoid scrolling to the last turn on timeupdate.
-    hasTimes = turnTimes.some(t => t > 0);
+    hasTimes = hasRelativeTimes;
     unalignedNote.hidden = hasTimes;
     document.getElementById('prev-speaker-btn').disabled = !turns.length;
     document.getElementById('prev-turn-btn').disabled = !turns.length;
