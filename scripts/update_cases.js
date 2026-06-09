@@ -6,8 +6,6 @@
  * Usage:
  *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--verbose] [--dry-run]
  *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
- *   node update_cases.js TERM CASE --minority NAMES...
- *   node update_cases.js TERM CASE --recused NAMES...
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
@@ -1873,7 +1871,6 @@ function checkCasesSync(termDir, verbose = false) {
 
 const _NON_TRANSCRIPT_NAMES    = new Set(['files.json']);
 const _NON_TRANSCRIPT_SUFFIXES = ['--whisper'];
-const _SOURCE_ORDER = { ussc: 0, nara: 1, oyez: 2 };
 
 function _reorderWithUnknowns(obj, order) {
     const known = {};
@@ -2383,12 +2380,6 @@ function fixArgumentDates(term, cases, dryRun) {
     return fixed;
 }
 
-function _eventSortKey(event) {
-    const date   = event.date || '';
-    const source = event.source || '';
-    return [date, _SOURCE_ORDER[source] ?? 99, source];
-}
-
 function _cmpKeys(a, b) {
     for (let i = 0; i < a.length; i++) {
         if (a[i] < b[i]) return -1;
@@ -2401,6 +2392,19 @@ function fixEventTypes(term, cases, dryRun) {
     let fixed = 0;
     for (const c of cases) {
         const number = c.number || '?';
+        const titleSourceCounts = new Map();
+        for (const ev of c.events || []) {
+            if (ev.title) {
+                const key = `${ev.source || ''}\0${ev.title}`;
+                titleSourceCounts.set(key, (titleSourceCounts.get(key) || 0) + 1);
+            }
+        }
+        for (const [key, count] of titleSourceCounts) {
+            if (count > 1) {
+                const [src, t] = key.split('\0');
+                console.log(`WARNING: ${term}/${number}: event title "${t}" (source: ${src || 'none'}) appears ${count} times`);
+            }
+        }
         const argDates      = c.argument   ? new Set(_parseDateField(String(c.argument)))   : new Set();
         const reargDates    = c.reargument ? new Set(_parseDateField(String(c.reargument))) : new Set();
         const decisionDates = c.decision   ? new Set(_parseDateField(String(c.decision)))   : new Set();
@@ -2450,24 +2454,6 @@ function fixEventTypes(term, cases, dryRun) {
         }
     }
     return fixed;
-}
-
-function sortEvents(term, cases, dryRun) {
-    let changed = 0;
-    for (const c of cases) {
-        const events = c.events;
-        if (!events || events.length < 2) continue;
-        const indexed = events.map((e, i) => [i, e]);
-        const sorted = [...indexed].sort(([, a], [, b]) =>
-            _cmpKeys(_eventSortKey(a), _eventSortKey(b)));
-        const orderChanged = sorted.some(([oi], i) => oi !== i);
-        if (orderChanged) {
-            changed++;
-            if (dryRun) console.log(`  SORT events ${term}/${c.number || '?'}`);
-            else c.events = sorted.map(([, e]) => e);
-        }
-    }
-    return changed;
 }
 
 function sortCases(term, cases, dryRun) {
@@ -2549,7 +2535,6 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
             }
             const newEvents = newCase.events = newCase.events || [];
             newEvents.push(...eventsToMove);
-            newEvents.sort((a, b) => _cmpKeys(_eventSortKey(a), _eventSortKey(b)));
             newCase.previouslyFiled = `${term}/${number}`;
             const [reordered] = _reorderWithUnknowns(newCase, CASE_KEY_ORDER);
             for (const k of Object.keys(newCase)) delete newCase[k];
@@ -2584,14 +2569,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     if (!fs.existsSync(casesPath)) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const cases = _readJson(casesPath);
     if (!cases || !cases.length) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, eventsSorted: 0, casesSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
@@ -2611,7 +2596,7 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     }
     const hrefDupes    = (checkDups && !sortOnly) ? checkDuplicateTextHrefs(term, cases) : 0;
     const hrefStripped = !sortOnly ? fixOyezTranscriptHrefs(term, cases, dryRun) : 0;
-    const eventsSorted = sortEvents(term, cases, dryRun);
+    const eventsSorted = 0;
     const casesSorted  = sortCases(term, cases, dryRun);
     const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
     const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
@@ -2619,14 +2604,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     const votesResorted   = !sortOnly ? verifyVoteSeniority(term, cases, !dryRun) : 0;
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
-            || eventsSorted || casesSorted || argDatesFixed || eventTypesFixed
+            || casesSorted || argDatesFixed || eventTypesFixed
             || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
             && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
              hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
-             hrefDupes, hrefStripped, eventsSorted, casesSorted,
+             hrefDupes, hrefStripped, casesSorted,
              argDatesFixed, eventTypesFixed, mergedCount, usscRedundant };
 }
 
@@ -6188,7 +6173,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 if (newTitle === ev.title) continue;
 
                 renameFound++;
-                const label = `${term}/${c.id} (${c.title || c.id})`;
+                const label = `${term}/${c.id} (${firstTitle(c.title) || c.id})`;
                 console.log(`  ${label}: "${ev.title}" -> "${newTitle}"`);
 
                 if (update) {
@@ -6296,7 +6281,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 if (alreadySplit) continue;
 
                 totalFound++;
-                const label = `${term}/${c.id} (${c.title || c.id})`;
+                const label = `${term}/${c.id} (${firstTitle(c.title) || c.id})`;
                 console.log(`  ${label}: ${ev.text_href} — ${additionalSpeakers.length} additional speaker(s) after writer (${writerName})`);
 
                 if (update) {
@@ -6522,6 +6507,7 @@ Examples:
   node update_cases.js 2024-10 --unargued                  # list anomalies for one term
   node update_cases.js 2024-10 24-1260 --unargued          # check one case`;
 
+
 // ═══════════════════════════════════════════════════════════════════════════
 // --dissents: build courts/ussc/people/justices/oral_dissents.json
 // Contains sets per term for any "opinion" event whose title does not start
@@ -6583,7 +6569,7 @@ async function runDissentCheck(termFilter) {
                 if (title.startsWith('Opinion')) continue;
                 // This opinion event's title is non-standard.
                 termCases.push({
-                    title:    `${c.title || c.id}: ${title}`,
+                    title:    `${firstTitle(c.title) || c.id}: ${title}`,
                     term,
                     number:   c.number || c.id || undefined,
                     decision: c.decision || undefined,
@@ -7592,7 +7578,7 @@ async function main() {
         unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
         hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0,
         hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
-        eventsSorted: 0, casesSorted: 0,
+        casesSorted: 0,
         argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
         missingVotes: 0, usscRedundant: 0,
     };
@@ -7615,7 +7601,6 @@ async function main() {
         totals.hrefOrphaned.push(...r.hrefOrphaned);
         totals.hrefDupes           += r.hrefDupes;
         totals.hrefStripped        += r.hrefStripped;
-        totals.eventsSorted        += r.eventsSorted;
         totals.casesSorted         += r.casesSorted;
         totals.argDatesFixed       += r.argDatesFixed;
         totals.eventTypesFixed     += r.eventTypesFixed;
@@ -7675,7 +7660,6 @@ async function main() {
     }
     if (r.hrefDupes)    console.log(`text_href: ${r.hrefDupes} duplicate value(s) found.`);
     if (r.hrefStripped) console.log(`transcript_href: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
-    if (r.eventsSorted) console.log(`Event order: ${dryRun ? 'Would sort' : 'Sorted'} events in ${r.eventsSorted} case(s).`);
     if (r.casesSorted)  console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
     if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
     if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
@@ -7713,6 +7697,6 @@ export {
     checkDuplicateCaseIds, checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
     fixKeyOrder, fixTextHrefs, checkMissingTextHrefs, checkOrphanedTranscripts,
     checkDuplicateTextHrefs, fixOyezTranscriptHrefs, checkDuplicateMediaHrefs,
-    fixArgumentDates, fixEventTypes, sortEvents, sortCases,
+    fixArgumentDates, fixEventTypes, sortCases,
     mergeRefiledCases, processTerm,
 };
