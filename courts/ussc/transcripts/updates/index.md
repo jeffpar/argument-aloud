@@ -6,7 +6,7 @@ layout: pane
 
 Below is a list of all transcripts updates that have been applied to the server since transcript editing was implemented on June 6, 2026.
 
-  - [Anderson v. Alabama (No. 326)](/courts/ussc/?term=1960-10&case=326&event=2) [Updated June 6, 2026]
+  - [Anderson v. Alabama (No. 326)](/courts/ussc/?term=1960-10&case=326&event=2)
       - [Turn 11](/courts/ussc/?term=1960-10&case=326&event=2&turn=11): UNKNOWN JUSTICE -> HUGO BLACK
       - [Turn 13](/courts/ussc/?term=1960-10&case=326&event=2&turn=13): UNKNOWN JUSTICE -> HUGO BLACK
       - [Turn 15](/courts/ussc/?term=1960-10&case=326&event=2&turn=15): UNKNOWN JUSTICE -> HUGO BLACK
@@ -48,3 +48,123 @@ Below is a list of all transcripts updates that have been applied to the server 
       - [Turn 89](/courts/ussc/?term=1960-10&case=326&event=2&turn=89): UNKNOWN JUSTICE -> HUGO BLACK
       - [Turn 91](/courts/ussc/?term=1960-10&case=326&event=2&turn=91): UNKNOWN JUSTICE -> HUGO BLACK
       - [Turn 93](/courts/ussc/?term=1960-10&case=326&event=2&turn=93): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 9](/courts/ussc/?term=1960-10&case=326&event=2&turn=9): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 41](/courts/ussc/?term=1960-10&case=326&event=2&turn=41): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 95](/courts/ussc/?term=1960-10&case=326&event=2&turn=95): UNKNOWN JUSTICE -> POTTER STEWART; "What the term is where -- ..." -> "What determines where -- ..."
+      - [Turn 97](/courts/ussc/?term=1960-10&case=326&event=2&turn=97): UNKNOWN JUSTICE -> POTTER STEWART
+      - [Turn 101](/courts/ussc/?term=1960-10&case=326&event=2&turn=101): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 103](/courts/ussc/?term=1960-10&case=326&event=2&turn=103): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 105](/courts/ussc/?term=1960-10&case=326&event=2&turn=105): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 114](/courts/ussc/?term=1960-10&case=326&event=2&turn=114): UNKNOWN SPEAKER -> HUGO BLACK
+      - [Turn 116](/courts/ussc/?term=1960-10&case=326&event=2&turn=116): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 118](/courts/ussc/?term=1960-10&case=326&event=2&turn=118): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 120](/courts/ussc/?term=1960-10&case=326&event=2&turn=120): UNKNOWN JUSTICE -> HUGO BLACK
+      - [Turn 122](/courts/ussc/?term=1960-10&case=326&event=2&turn=122): UNKNOWN JUSTICE -> HUGO BLACK
+  - [Vignera v. New York (No. 760)](/courts/ussc/?term=1965-10&case=759,760,761,584&event=3)
+      - [Turn 2](/courts/ussc/?term=1965-10&case=759,760,761,584&event=3&turn=2): "... facts are these, sometime during ..." -> "... facts are these: sometime during ..."
+  - [Frazier v. Heebe (No. 86-475)](/courts/ussc/?term=1986-10&case=86-475&event=2)
+      - [Turn 3](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=3): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 5](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=5): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 7](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=7): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 9](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=9): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 11](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=11): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 13](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=13): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 15](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=15): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 17](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=17): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 19](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=19): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 21](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=21): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 23](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=23): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 25](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=25): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 27](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=27): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 29](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=29): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 31](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=31): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 33](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=33): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 35](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=35): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 37](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=37): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 39](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=39): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 41](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=41): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 43](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=43): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 45](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=45): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 47](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=47): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 49](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=49): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 51](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=51): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 53](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=53): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 55](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=55): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 57](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=57): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 59](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=59): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 61](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=61): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 63](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=63): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 65](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=65): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 67](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=67): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 69](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=69): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 71](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=71): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 73](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=73): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 75](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=75): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 77](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=77): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 79](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=79): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 81](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=81): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 83](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=83): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 85](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=85): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 87](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=87): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 89](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=89): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 91](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=91): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 93](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=93): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 95](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=95): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 97](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=97): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 99](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=99): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 101](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=101): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 105](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=105): UNKNOWN JUSTICE -> HARRY BLACKMUN
+      - [Turn 107](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=107): UNKNOWN JUSTICE -> HARRY BLACKMUN
+      - [Turn 109](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=109): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 111](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=111): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 113](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=113): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 115](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=115): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 117](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=117): UNKNOWN JUSTICE -> WILLIAM REHNQUIST
+      - [Turn 119](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=119): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 121](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=121): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 123](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=123): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 125](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=125): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 127](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=127): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 129](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=129): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 131](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=131): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 133](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=133): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 135](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=135): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 137](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=137): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 139](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=139): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 141](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=141): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 143](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=143): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 145](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=145): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 147](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=147): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 149](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=149): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 151](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=151): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 153](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=153): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 155](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=155): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 157](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=157): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 159](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=159): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 161](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=161): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 163](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=163): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 165](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=165): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 167](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=167): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 169](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=169): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 171](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=171): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 173](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=173): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 175](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=175): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 177](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=177): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 179](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=179): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 181](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=181): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 183](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=183): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 185](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=185): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 187](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=187): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 189](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=189): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 191](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=191): UNKNOWN JUSTICE -> ANTONIN SCALIA
+      - [Turn 193](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=193): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 195](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=195): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 197](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=197): UNKNOWN JUSTICE -> THURGOOD MARSHALL
+      - [Turn 199](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=199): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 201](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=201): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 203](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=203): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 205](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=205): UNKNOWN JUSTICE -> BYRON WHITE
+      - [Turn 211](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=211): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 213](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=213): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 215](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=215): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
+      - [Turn 217](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=217): UNKNOWN JUSTICE -> ANTONIN SCALIA

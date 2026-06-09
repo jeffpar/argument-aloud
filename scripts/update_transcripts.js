@@ -828,7 +828,6 @@ async function applyEditsFromFile(filePath) {
 
     const TERMS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
     const INDEX_PATH = path.join(REPO_ROOT, 'courts', 'ussc', 'transcripts', 'updates', 'index.md');
-    const date       = _formatDate(new Date());
     const logLines   = [];
 
     for (const caseEdit of edits) {
@@ -917,13 +916,16 @@ async function applyEditsFromFile(filePath) {
                 }
             }
 
-            // Build display title: strip decision year, append docket number.
+            // Build display title: strip decision year, append docket number only
+            // if the title doesn't already contain a "(No. ...)" suffix.
             const bareTitle = title.replace(/\s*\(\d{4}\)\s*$/, '').trim();
-            const displayTitle = caseRef ? `${bareTitle} (No. ${caseRef})` : bareTitle;
+            const displayTitle = (caseRef && !/\(No\.\s/.test(bareTitle))
+                ? `${bareTitle} (No. ${caseRef})`
+                : bareTitle;
             const caseUrl = `/courts/ussc/?term=${term}&case=${caseRef}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
 
             // Case-level heading
-            logLines.push(`  - [${displayTitle}](${caseUrl}) [Updated ${date}]`);
+            logLines.push(`  - [${displayTitle}](${caseUrl})`);
 
             // Per-turn detail lines
             for (const tc of turnChanges) {
@@ -942,27 +944,44 @@ async function applyEditsFromFile(filePath) {
         return;
     }
 
-    // Append log lines to index.md.
+    // Merge log lines into index.md. For each new case heading, find the
+    // matching entry in the file by URL and append the new turn lines under
+    // it. If no match is found, append a new case block at the end.
     let md = exists(INDEX_PATH) ? readText(INDEX_PATH) : '';
-    // Ensure single trailing newline before appending.
     if (!md.endsWith('\n')) md += '\n';
 
-    // If the first new case heading matches the last case heading already in the
-    // file, skip re-adding the heading and just append the turn lines beneath it.
-    const caseHeadingRe = /^  - (\[.+?\]\(.+?\)) \[Updated /;
-    const firstNewMatch = logLines[0]?.match(caseHeadingRe);
-    if (firstNewMatch) {
-        const existingLines = md.trimEnd().split('\n');
-        for (let i = existingLines.length - 1; i >= 0; i--) {
-            const m = existingLines[i].match(caseHeadingRe);
-            if (m) {
-                if (m[1] === firstNewMatch[1]) logLines.shift();
-                break;
+    // Extract the URL from a case-heading line "  - [Title](URL) [Updated ...]".
+    const urlOf = s => { const m = s.match(/^  - \[.+?\]\(([^)]+)\)/); return m?.[1] ?? null; };
+
+    // Split logLines into per-case blocks: [[heading, turn, turn, ...], ...]
+    const blocks = [];
+    for (const line of logLines) {
+        if (/^  - \[/.test(line)) blocks.push([line]);
+        else if (blocks.length) blocks[blocks.length - 1].push(line);
+    }
+
+    const mdLines = md.split('\n');
+    if (mdLines[mdLines.length - 1] === '') mdLines.pop();
+
+    for (const [heading, ...turnLines] of blocks) {
+        const newUrl = urlOf(heading);
+        let matchIdx = -1;
+        if (newUrl) {
+            for (let i = 0; i < mdLines.length; i++) {
+                if (urlOf(mdLines[i]) === newUrl) { matchIdx = i; break; }
             }
+        }
+        if (matchIdx >= 0) {
+            // Insert turn lines at the end of this case's section.
+            let insertIdx = matchIdx + 1;
+            while (insertIdx < mdLines.length && !/^  - \[/.test(mdLines[insertIdx])) insertIdx++;
+            mdLines.splice(insertIdx, 0, ...turnLines);
+        } else {
+            mdLines.push(heading, ...turnLines);
         }
     }
 
-    md += logLines.join('\n') + '\n';
+    md = mdLines.join('\n') + '\n';
     writeText(INDEX_PATH, md);
     console.log(`\nRecorded ${logLines.length} update(s) in ${path.relative(REPO_ROOT, INDEX_PATH)}`);
 
