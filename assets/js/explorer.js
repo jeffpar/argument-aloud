@@ -167,10 +167,10 @@ function _toggleFavorite() {
     const term   = _currentCaseKey.split('/')[0];
     const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
     const audioSel = document.getElementById('audio-select');
-    let evIdx = 0;
+    let evIdx = 0, selEntry = null;
     if (!audioSel?.hidden) {
-      const selVal   = parseInt(audioSel?.value ?? '0', 10);
-      const selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
+      const selVal = parseInt(audioSel?.value ?? '0', 10);
+      selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
       evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
     }
     const ce = _currentCaseEntry;
@@ -180,7 +180,7 @@ function _toggleFavorite() {
     const caseRef = {
       term,
       number,
-      title:    ce.title || number,
+      title:    _caseDisplayTitle(ce, selEntry || _currentLoadedEntry),
       argument: ce.argument || '',
       ...(ce.reargument ? { reargument: ce.reargument } : {}),
       ...(evIdx > 0 ? { event: evIdx } : {}),
@@ -683,8 +683,7 @@ function _rebuildEditsItems() {
       const titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
       titleSpan.style.cursor = 'pointer';
-      titleSpan.textContent = caseTitle(caseData.title || '')
-        + (caseData.number ? ' (No. ' + caseData.number.split(',')[0].trim() + ')' : '');
+      titleSpan.textContent = caseTitle(caseData.title || '');
 
       header.appendChild(tog);
       header.appendChild(titleSpan);
@@ -1392,6 +1391,22 @@ function caseTitle(raw) {
   return idx === -1 ? raw : raw.slice(0, idx);
 }
 
+// Returns a display title for use in the Edits/Favorites nav.
+// When the event title contains "No. N", finds the matching '|'-split case title
+// at the same index as N in the ','-split number field, then formats as
+// "Sub-case Title (No. N)". Falls back to the first title with "(No. N)" if N
+// isn't in the number field. Returns just the first title when no "No. N" present.
+function _caseDisplayTitle(caseEntry, eventEntry) {
+  const m = /\bNo\.\s*([\d][\d-]*)/i.exec(eventEntry?.title || '');
+  if (!m) return caseTitle(caseEntry.title);
+  const num     = m[1];
+  const titles  = (caseEntry.title  || '').split('|');
+  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  const idx     = numbers.indexOf(num);
+  const base    = (idx !== -1 && idx < titles.length) ? titles[idx] : titles[0];
+  return `${base} (No. ${num})`;
+}
+
 // For a consolidated case (multiple titles separated by '|' and numbers by ','),
 // return the { title, number } sub-case whose docket number appears as "No. X" in
 // optionText. Defaults to the first sub-case when no match. Returns null for
@@ -1503,7 +1518,7 @@ function _setCaseInfoRow3(caseEntry) {
     return;
   }
   const majority = caseEntry.votes
-    .filter(v => v.vote === 'majority')
+    .filter(v => v.vote !== 'minority')
     .map(v => _voteName(v.name));
   const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
   const firstTitle = (caseEntry.title || '').split('|')[0];
@@ -3344,15 +3359,16 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     caseKey,
     title:     caseTitle(caseRef.title),
     tooltip:   argumentTooltip(caseRef.term, caseRef),
-    // First date in caseRef.argument (or reargument) is the event this
-    // collection entry represents — used by loadCase to highlight the correct
-    // sibling when the same case has multiple collection items.
-    audioDate: (typeof caseRef.argument === 'string' && caseRef.argument)
-      ? caseRef.argument.split(',')[0].trim()
-      : (typeof caseRef.reargument === 'string' && caseRef.reargument)
-        ? caseRef.reargument.split(',')[0].trim()
-        : null,
+    // When a specific event index is stored, use it as the sole disambiguator
+    // so the audioDate filter in loadCase doesn't block activation. Fall back
+    // to the first argument/reargument date only when no event index is set.
     eventIdx:  (Number.isInteger(caseRef.event) && caseRef.event >= 1) ? caseRef.event : null,
+    audioDate: (Number.isInteger(caseRef.event) && caseRef.event >= 1) ? null
+      : (typeof caseRef.argument === 'string' && caseRef.argument)
+        ? caseRef.argument.split(',')[0].trim()
+        : (typeof caseRef.reargument === 'string' && caseRef.reargument)
+          ? caseRef.reargument.split(',')[0].trim()
+          : null,
     hasFiles:  !!caseRef.files,
     caseNumber: caseRef.number || '',
     href:      buildUrlParams(
@@ -3579,8 +3595,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
       initialTurn = (Number.isInteger(e.initialTurn) && e.initialTurn > 0) ? e.initialTurn : defaultTurn;
     } else {
       const saved = _caseSessionState.get(caseRef.term + '/' + caseId(caseEntry));
-      audioIdx    = (saved?.eventIdx >= 1) ? saved.eventIdx : defaultAudioIdx;
-      initialTurn = saved ? (saved.turnNum ?? null) : defaultTurn;
+      // A collection item with a stored event always loads that event; session
+      // state only fills in when no specific event was saved in the item.
+      audioIdx    = (defaultAudioIdx >= 1) ? defaultAudioIdx : (saved?.eventIdx >= 1 ? saved.eventIdx : 0);
+      initialTurn = defaultTurn ?? (saved ? (saved.turnNum ?? null) : null);
     }
 
     // Sort the case's audio entries by date (same order as the 1-based index).
@@ -6295,7 +6313,7 @@ function _saveEditedTurn(turnIdx, changes) {
 
   if (!_transcriptEdits.has(caseKey)) {
     _transcriptEdits.set(caseKey, {
-      title: _currentCaseEntry?.title || '',
+      title: _caseDisplayTitle(_currentCaseEntry, _currentLoadedEntry),
       term: _currentCaseKey.split('/')[0],
       number: _currentCaseEntry?.number,
       id: _currentCaseEntry?.id,

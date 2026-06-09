@@ -1494,6 +1494,9 @@ async function main() {
                        (sub !== '' && oyezDates.has(`${date}|`));
             };
             const audioEntryAdvocates = new Map(); // origIdx -> Set<upper-name>
+            // Tracks advocates seen in argument/reargument events so journal
+            // events don't generate a duplicate entry for the same advocate.
+            const advocateArgSeen = new Set(); // nameKey||term||number
             for (let preIdx = 0; preIdx < audioEntries.length; preIdx++) {
                 const preAudio = audioEntries[preIdx];
                 const names = new Set();
@@ -1617,6 +1620,14 @@ async function main() {
                         name = justiceCanonical;
                         nameKey = justiceCanonical;
                     }
+                    // Skip journal-sourced events when an argument/reargument
+                    // event already recorded this advocate for the same case.
+                    const _argSeenKey = `${nameKey}||${term}||${number}`;
+                    if (audio.source === 'journal') {
+                        if (advocateArgSeen.has(_argSeenKey)) return;
+                    } else {
+                        advocateArgSeen.add(_argSeenKey);
+                    }
                     const subKey = eventSubDocket(audio);
                     const caseKey = ckCase(nameKey, title, term, number + (subKey ? `#${subKey}` : ''));
                     // Feminine tracking ignores subKey: the warning is per
@@ -1651,8 +1662,15 @@ async function main() {
                            ?? origIdx);
                     const resolvedAudio = audioEntries[resolvedOrigIdx] || audio;
                     const dateFieldName = resolvedAudio.type === 'reargument' ? 'reargument' : 'argument';
+                    let entryTitle = title;
+                    if (subKey) {
+                        const numParts   = number.split(',').map(n => n.trim());
+                        const titleParts = (c.title || '').split('|');
+                        const subIdx     = numParts.indexOf(subKey);
+                        if (subIdx !== -1 && subIdx < titleParts.length) entryTitle = titleParts[subIdx];
+                    }
                     const caseEntry = {
-                        title,
+                        title: entryTitle,
                         term,
                         number: subKey || number,
                         [dateFieldName]: audioDate,
@@ -1660,7 +1678,10 @@ async function main() {
                     // Internal-only: original consolidated number (used for
                     // citation lookup, dedup, and URL building); stripped
                     // before the case entry is serialized to disk.
-                    if (subKey) Object.defineProperty(caseEntry, '_fullNumber', { value: number, enumerable: false });
+                    if (subKey) {
+                        Object.defineProperty(caseEntry, '_fullNumber', { value: number,        enumerable: false });
+                        Object.defineProperty(caseEntry, '_fullTitle',  { value: c.title || '', enumerable: false });
+                    }
                     if (decision) caseEntry.decision = decision;
                     const advRole = (explicitRole
                         || audioRoles.get(nameKey)
@@ -1955,11 +1976,12 @@ async function main() {
         for (const c of sortedCases) {
             argNum++;
             const fullNum = c._fullNumber || c.number;
-            const cit = caseCitation.get(ckCite(firstTitle(c.title), c.term, fullNum)) || '';
+            const lookupTitle = firstTitle(c._fullTitle || c.title);
+            const cit = caseCitation.get(ckCite(lookupTitle, c.term, fullNum)) || '';
             const audioIdx = c.audio;
             let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${fullNum.replace(/,/g, '%2C')}`;
             if (audioIdx) url += `&event=${audioIdx}`;
-            const caseKey = ckCase(nameUpper, firstTitle(c.title), c.term, fullNum);
+            const caseKey = ckCase(nameUpper, lookupTitle, c.term, fullNum);
             let allDates = [];
             const anchor = c.argument || c.reargument || '';
             if (!Number.isNaN(isoToDays(anchor))) {
@@ -1969,7 +1991,7 @@ async function main() {
                 allDates = dates;
             }
             const argDate = allDates.length ? allDates.join(',') : (c.argument || c.reargument || '');
-            womenRows.push([advName, argNum, argDate, c.term, c.number, firstTitle(c.title), cit, url, '']);
+            womenRows.push([advName, argNum, argDate, c.term, c.number, c.title, cit, url, '']);
         }
     }
     womenRows.sort((a, b) => {
@@ -2337,7 +2359,7 @@ async function main() {
         if (!nameFeminine.get(nameUpper)) continue;
         if (entry.name.split(/\s+/).length <= 1) continue;
         const badCases = entry.cases.filter(c =>
-            !caseFeminineSeen.get(ckCase(nameUpper, firstTitle(c.title), c.term, c._fullNumber || c.number))
+            !caseFeminineSeen.get(ckCase(nameUpper, firstTitle(c._fullTitle || c.title), c.term, c._fullNumber || c.number))
         );
         if (badCases.length) failed[entry.name] = badCases;
     }
