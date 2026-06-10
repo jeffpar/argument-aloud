@@ -2456,6 +2456,18 @@ function fixEventTypes(term, cases, dryRun) {
     return fixed;
 }
 
+// Extract a numeric sort key from a "No. X" fragment in an event title.
+// Plain numbers return as-is; "YY-NNNN" form returns YY*10000+NNNN.
+// Titles without a "No. X" return Infinity so they sort last.
+function _eventTitleSortKey(title) {
+    const m = /\bNo\.\s+(\d+(?:-\d+)?)/i.exec(title || '');
+    if (!m) return Infinity;
+    const parts = m[1].split('-');
+    return parts.length === 2
+        ? parseInt(parts[0], 10) * 10000 + parseInt(parts[1], 10)
+        : parseInt(parts[0], 10);
+}
+
 function sortEvents(term, cases, dryRun) {
     let changed = 0;
     for (const c of cases) {
@@ -2471,14 +2483,17 @@ function sortEvents(term, cases, dryRun) {
             groups.get(key).push(i);
         }
 
-        // Within each multi-event group, sort by title and slot back in.
+        // Within each multi-event group, sort by "No. X" numeric value, then title.
         const newOrder = [...events];
         let caseChanged = false;
         for (const indices of groups.values()) {
             if (indices.length < 2) continue;
-            const byTitle = [...indices].sort((a, b) =>
-                (events[a].title || '').localeCompare(events[b].title || '')
-            );
+            const byTitle = [...indices].sort((a, b) => {
+                const ka = _eventTitleSortKey(events[a].title);
+                const kb = _eventTitleSortKey(events[b].title);
+                if (ka !== kb) return ka - kb;
+                return (events[a].title || '').localeCompare(events[b].title || '');
+            });
             if (byTitle.some((si, pos) => si !== indices[pos])) {
                 for (let pos = 0; pos < indices.length; pos++) {
                     newOrder[indices[pos]] = events[byTitle[pos]];

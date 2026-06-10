@@ -24,11 +24,10 @@
  *   --beam-size N      Whisper beam size (default: 5; higher = slower but more accurate, e.g. 10)
  *   --no-vad           Disable Whisper VAD filter (use when VAD cuts off audio early, e.g. at ~60 min)
  *   --dry-run          Print what would change without writing files
- *   --organize         Check that each text_href is in a folder matching the audio_href basename
- *                      number (use CASE = - to check all cases in the term)
- *   --fix              With --organize: move misplaced text_href files to the correct folder,
- *                      then strip redundant numeric suffixes from filenames where all dates in
- *                      a folder are unique. Use --dry-run to preview without writing.
+ *   --organize         Move misplaced text_href files to the folder matching the audio_href
+ *                      basename number, then strip redundant numeric suffixes where all dates
+ *                      in a folder are unique. Use --dry-run to preview without writing.
+ *                      (use CASE = - to process all cases in the term)
  *
  * Examples:
  *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument
@@ -1035,6 +1034,7 @@ function organizeCheck(term, caseNumber, cases) {
             if (!caseAudioNums.has(audioNum)) {
                 console.log(`  ${label} [${ev.date}]: audio basename number '${audioNum}' not found in case number '${c.number}'`);
                 issues++;
+                continue; // folder mismatch is not meaningful when the audio doesn't belong to this case
             }
             if (toAudioNum(folder) !== audioNum) {
                 console.log(`  ${label} [${ev.date}]: text_href folder '${folder}' does not match audio basename number '${audioNum}'`);
@@ -1083,9 +1083,14 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
         }
         if (toMove.length === 0) continue;
 
-        // ── Verify target folders are empty ───────────────────────────────
+        // ── Verify all audio numbers are known and target folders are empty ─
         let ok = true;
-        for (const { targetFolder } of toMove) {
+        for (const { audioNum, targetFolder } of toMove) {
+            if (!audioNumToFolder.has(audioNum)) {
+                console.error(`ERROR: ${label}: audio basename number '${audioNum}' not found in case number '${c.number}' — skipping case`);
+                ok = false;
+                break;
+            }
             const targetDir = path.join(casesDir, targetFolder);
             if (exists(targetDir)) {
                 const files = fs.readdirSync(targetDir).filter(f => f !== 'files.json');
@@ -1164,7 +1169,6 @@ async function main() {
     const dryRun     = flags.has('--dry-run');
     const noVad      = flags.has('--no-vad');
     const doOrganize = flags.has('--organize');
-    const doFix      = flags.has('--fix');
 
     // --model MODEL
     let modelSize = 'base';
@@ -1189,7 +1193,7 @@ async function main() {
     // ── Organize mode ──────────────────────────────────────────────────────
     if (doOrganize) {
         if (positional.length < 2) {
-            console.error('Usage: node scripts/update_transcripts.js TERM CASE --organize [--fix] [--dry-run]');
+            console.error('Usage: node scripts/update_transcripts.js TERM CASE --organize [--dry-run]');
             console.error('       (use - as CASE to check all cases in the term)');
             process.exit(1);
         }
@@ -1199,12 +1203,7 @@ async function main() {
             console.error(`cases.json not found: ${casesPath}`);
             process.exit(1);
         }
-        const cases = readJson(casesPath);
-        if (doFix) {
-            organizeFix(term, caseNumber, cases, casesPath, dryRun);
-        } else {
-            organizeCheck(term, caseNumber, cases);
-        }
+        organizeFix(term, caseNumber, readJson(casesPath), casesPath, dryRun);
         return;
     }
 
