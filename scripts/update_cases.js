@@ -61,7 +61,7 @@ import { promisify } from 'node:util';
 
 import {
     CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
-    reorderCase, reorderEvent, reorderAdvocate, reorderVote,
+    caseKeyOrder, reorderCase, reorderEvent, reorderAdvocate, reorderVote,
 } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1918,7 +1918,7 @@ function fixKeyOrder(term, cases, dryRun) {
                 }
             }
         }
-        const [newCase, unknown] = _reorderWithUnknowns(c, CASE_KEY_ORDER);
+        const [newCase, unknown] = _reorderWithUnknowns(c, caseKeyOrder(c));
         for (const k of unknown) unknownCaseKeys.add(k);
         if (Object.keys(newCase).join('|') !== Object.keys(c).join('|')) {
             casesChanged++;
@@ -2536,7 +2536,7 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
             const newEvents = newCase.events = newCase.events || [];
             newEvents.push(...eventsToMove);
             newCase.previouslyFiled = `${term}/${number}`;
-            const [reordered] = _reorderWithUnknowns(newCase, CASE_KEY_ORDER);
+            const [reordered] = _reorderWithUnknowns(newCase, caseKeyOrder(newCase));
             for (const k of Object.keys(newCase)) delete newCase[k];
             Object.assign(newCase, reordered);
             for (const ev of newCase.events || []) {
@@ -6529,10 +6529,10 @@ function _parseTogetherWith(text) {
     // end of the string.
     const content = flat.slice(anchor.index + anchor[0].length);
     const results = [];
-    const re = /\bNo\.\s*(\d+(?:-(?:Orig|Misc))?),\s*(.+?)(?=[;,]\s*(?:and\s+)?\bNo\.\s*\d|,\s*(?:also|all)\s+on|$)/gi;
+    const re = /\bNo\.\s*(\d+(?:[-,]\s*(?:Orig|Misc)\.?)?),\s*(.+?)(?=[;,]\s*(?:and\s+)?\bNo\.\s*\d|,\s*(?:also|all)\s+on|$)/gi;
     let hit;
     while ((hit = re.exec(content)) !== null) {
-        const num   = hit[1].trim();
+        const num   = hit[1].trim().replace(/,\s*(Orig|Misc)\.?$/i, '-$1');
         const title = hit[2].trim()
             .replace(/[,.]\s*(?:also\s+)?on (?:appeals?|certiorari)\b.*/i, '')
             .replace(/,?\s*\bet al\.?/gi, '')

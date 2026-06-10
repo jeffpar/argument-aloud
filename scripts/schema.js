@@ -12,18 +12,18 @@
  */
 
 export const CASE_KEY_ORDER = [
-    'id', 'title', 'tags', 'number', 'oyez_href', 'oyez_alt', 'previouslyFiled',
+    'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'questions', 'questions_href',
     'argument', 'reargument', 'decision',
-    'volume', 'page', 'usCite', 'result', 'disposition',
+    'volume', 'page', 'usCite', 'opinion_href', 'opinion_href_bad', 'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
-    'events', 'opinion_href', 'opinion_href_bad', 'history_href', 'scdb_errors', 'files',
+    'events', 'history_href', 'scdb_errors',
     'notes',
 ];
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
+    'audio_href', 'audio_href_bad', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
     'journal_ref',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view',
     'notes',
@@ -48,7 +48,18 @@ function _reorder(obj, order) {
     return out;
 }
 
-export const reorderCase     = (obj) => _reorder(obj, CASE_KEY_ORDER);
+// When usCite is absent, opinion_href/opinion_href_bad belong right after decision.
+export function caseKeyOrder(obj) {
+    if (!obj.usCite && ('opinion_href' in obj || 'opinion_href_bad' in obj)) {
+        const order = CASE_KEY_ORDER.filter(k => k !== 'opinion_href' && k !== 'opinion_href_bad');
+        const decIdx = order.indexOf('decision');
+        order.splice(decIdx + 1, 0, 'opinion_href', 'opinion_href_bad');
+        return order;
+    }
+    return CASE_KEY_ORDER;
+}
+
+export const reorderCase     = (obj) => _reorder(obj, caseKeyOrder(obj));
 export const reorderEvent    = (obj) => _reorder(obj, EVENT_KEY_ORDER);
 export const reorderAdvocate = (obj) => _reorder(obj, ADVOCATE_KEY_ORDER);
 export const reorderVote     = (obj) => _reorder(obj, VOTE_KEY_ORDER);
