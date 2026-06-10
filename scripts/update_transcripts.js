@@ -995,12 +995,41 @@ async function applyEditsFromFile(filePath) {
 
 // ── --organize ─────────────────────────────────────────────────────────────
 
-const AUDIO_ORGANIZE_RE = /^([0-9]+)[aro]_([0-9a-z-]+)/i;
+const AUDIO_ORGANIZE_RE    = /^([0-9]+)[aro]_([0-9a-z-]+)/i;
+const TRANSCRIPT_FOLDER_RE = /^(\d{2})-(\d+)/;
 
 // "11-Orig" → "11orig", "1-Misc" → "1misc" — matches how audio filenames encode these suffixes.
 const toAudioNum = (s) => s.replace(/-([A-Za-z]+)$/, (_, suffix) => suffix.toLowerCase());
 
+// Returns the expected text_href folder number encoded in a ussc transcript_href basename.
+// Pre-1971 terms store transcripts as "YY-NNN_date.pdf" but the folder is just NNN;
+// 1971+ terms use "YY-NNN" as the actual docket number so the full form is the folder.
+function _transcriptFolder(transcriptHref, termYear) {
+    const base = (transcriptHref || '').split('/').pop().split('?')[0];
+    const m = TRANSCRIPT_FOLDER_RE.exec(base);
+    if (!m) return null;
+    return termYear >= 1971 ? `${m[1]}-${m[2]}` : m[2];
+}
+
+// Extracts the media number and source kind from an event, for folder-consistency checks.
+// Returns { mediaNum, kind } or null if the event has no checkable media reference.
+function _mediaInfo(ev, termYear) {
+    if (ev.audio_href) {
+        const basename = ev.audio_href.split('/').pop().split('?')[0];
+        const m = AUDIO_ORGANIZE_RE.exec(basename);
+        if (!m) return null;
+        return { mediaNum: m[2], dateStr: m[1], kind: 'audio basename' };
+    }
+    if (ev.source === 'ussc' && ev.transcript_href) {
+        const mediaNum = _transcriptFolder(ev.transcript_href, termYear);
+        if (!mediaNum) return null;
+        return { mediaNum, dateStr: null, kind: 'transcript' };
+    }
+    return null;
+}
+
 function organizeCheck(term, caseNumber, cases) {
+    const termYear = parseInt(term.split('-')[0], 10);
     const toCheck = caseNumber === '-'
         ? cases
         : cases.filter(c =>
@@ -1016,28 +1045,25 @@ function organizeCheck(term, caseNumber, cases) {
         const label = c.number || c.id || '?';
 
         for (const ev of (c.events || [])) {
-            if (!ev.text_href || !ev.audio_href) continue;
+            if (!ev.text_href) continue;
+            const info = _mediaInfo(ev, termYear);
+            if (!info) continue;
 
-            const folder   = ev.text_href.split('/')[0];
-            const basename = ev.audio_href.split('/').pop().split('?')[0];
-            const m = AUDIO_ORGANIZE_RE.exec(basename);
-            if (!m) continue; // non-matching format (e.g. opinion audio) — skip
-
-            const audioDateStr = m[1];
-            const audioNum     = m[2];
+            const { mediaNum, dateStr, kind } = info;
+            const folder       = ev.text_href.split('/')[0];
             const eventDateStr = (ev.date || '').replace(/-/g, '');
 
-            if (audioDateStr !== eventDateStr) {
-                console.log(`  ${label} [${ev.date}]: audio basename date '${audioDateStr}' does not match event date '${eventDateStr}'`);
+            if (dateStr && dateStr !== eventDateStr) {
+                console.log(`  ${label} [${ev.date}]: ${kind} date '${dateStr}' does not match event date '${eventDateStr}'`);
                 issues++;
             }
-            if (!caseAudioNums.has(audioNum)) {
-                console.log(`  ${label} [${ev.date}]: audio basename number '${audioNum}' not found in case number '${c.number}'`);
+            if (!caseAudioNums.has(mediaNum)) {
+                console.log(`  ${label} [${ev.date}]: ${kind} number '${mediaNum}' not found in case number '${c.number}'`);
                 issues++;
-                continue; // folder mismatch is not meaningful when the audio doesn't belong to this case
+                continue; // folder mismatch is not meaningful when the media doesn't belong to this case
             }
-            if (toAudioNum(folder) !== audioNum) {
-                console.log(`  ${label} [${ev.date}]: text_href folder '${folder}' does not match audio basename number '${audioNum}'`);
+            if (toAudioNum(folder) !== mediaNum) {
+                console.log(`  ${label} [${ev.date}]: text_href folder '${folder}' does not match ${kind} number '${mediaNum}'`);
                 issues++;
             }
         }
@@ -1051,6 +1077,7 @@ function organizeCheck(term, caseNumber, cases) {
 }
 
 function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
+    const termYear = parseInt(term.split('-')[0], 10);
     const casesDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases');
 
     const toFix = caseNumber === '-'
@@ -1064,30 +1091,29 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
 
     for (const c of toFix) {
         const caseNums = (c.number || '').split(',').map(n => n.trim()).filter(Boolean);
-        const audioNumToFolder = new Map(caseNums.map(n => [toAudioNum(n), n]));
+        const mediaNumToFolder = new Map(caseNums.map(n => [toAudioNum(n), n]));
         const label = c.number || c.id || '?';
 
         // ── Find misplaced events ──────────────────────────────────────────
         const toMove = [];
         for (const ev of (c.events || [])) {
-            if (!ev.text_href || !ev.audio_href) continue;
-            const folder   = ev.text_href.split('/')[0];
-            const basename = ev.audio_href.split('/').pop().split('?')[0];
-            const m = AUDIO_ORGANIZE_RE.exec(basename);
-            if (!m) continue;
-            const audioNum = m[2];
-            if (toAudioNum(folder) !== audioNum) {
-                const targetFolder = audioNumToFolder.get(audioNum) || audioNum;
-                toMove.push({ ev, audioNum, targetFolder, currentFolder: folder });
+            if (!ev.text_href) continue;
+            const info = _mediaInfo(ev, termYear);
+            if (!info) continue;
+            const { mediaNum, kind } = info;
+            const folder = ev.text_href.split('/')[0];
+            if (toAudioNum(folder) !== mediaNum) {
+                const targetFolder = mediaNumToFolder.get(mediaNum) || mediaNum;
+                toMove.push({ ev, mediaNum, kind, targetFolder, currentFolder: folder });
             }
         }
         if (toMove.length === 0) continue;
 
-        // ── Verify all audio numbers are known and target folders are empty ─
+        // ── Verify all media numbers are known and target folders are empty ─
         let ok = true;
-        for (const { audioNum, targetFolder } of toMove) {
-            if (!audioNumToFolder.has(audioNum)) {
-                console.error(`ERROR: ${label}: audio basename number '${audioNum}' not found in case number '${c.number}' — skipping case`);
+        for (const { mediaNum, kind, targetFolder } of toMove) {
+            if (!mediaNumToFolder.has(mediaNum)) {
+                console.error(`ERROR: ${label}: ${kind} number '${mediaNum}' not found in case number '${c.number}' — skipping case`);
                 ok = false;
                 break;
             }
