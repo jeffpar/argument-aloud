@@ -24,6 +24,11 @@
  *   --beam-size N      Whisper beam size (default: 5; higher = slower but more accurate, e.g. 10)
  *   --no-vad           Disable Whisper VAD filter (use when VAD cuts off audio early, e.g. at ~60 min)
  *   --dry-run          Print what would change without writing files
+ *   --organize         Check that each text_href is in a folder matching the audio_href basename
+ *                      number (use CASE = - to check all cases in the term)
+ *   --fix              With --organize: move misplaced text_href files to the correct folder,
+ *                      then strip redundant numeric suffixes from filenames where all dates in
+ *                      a folder are unique. Use --dry-run to preview without writing.
  *
  * Examples:
  *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument
@@ -989,16 +994,177 @@ async function applyEditsFromFile(filePath) {
     console.log(`Deleted ${path.relative(REPO_ROOT, absPath)}`);
 }
 
+// ── --organize ─────────────────────────────────────────────────────────────
+
+const AUDIO_ORGANIZE_RE = /^([0-9]+)[aro]_([0-9a-z-]+)/i;
+
+// "11-Orig" → "11orig", "1-Misc" → "1misc" — matches how audio filenames encode these suffixes.
+const toAudioNum = (s) => s.replace(/-([A-Za-z]+)$/, (_, suffix) => suffix.toLowerCase());
+
+function organizeCheck(term, caseNumber, cases) {
+    const toCheck = caseNumber === '-'
+        ? cases
+        : cases.filter(c =>
+            c.number === caseNumber ||
+            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+          );
+
+    let issues = 0;
+    for (const c of toCheck) {
+        const caseAudioNums = new Set(
+            (c.number || '').split(',').map(n => toAudioNum(n.trim())).filter(Boolean)
+        );
+        const label = c.number || c.id || '?';
+
+        for (const ev of (c.events || [])) {
+            if (!ev.text_href || !ev.audio_href) continue;
+
+            const folder   = ev.text_href.split('/')[0];
+            const basename = ev.audio_href.split('/').pop().split('?')[0];
+            const m = AUDIO_ORGANIZE_RE.exec(basename);
+            if (!m) continue; // non-matching format (e.g. opinion audio) — skip
+
+            const audioDateStr = m[1];
+            const audioNum     = m[2];
+            const eventDateStr = (ev.date || '').replace(/-/g, '');
+
+            if (audioDateStr !== eventDateStr) {
+                console.log(`  ${label} [${ev.date}]: audio basename date '${audioDateStr}' does not match event date '${eventDateStr}'`);
+                issues++;
+            }
+            if (!caseAudioNums.has(audioNum)) {
+                console.log(`  ${label} [${ev.date}]: audio basename number '${audioNum}' not found in case number '${c.number}'`);
+                issues++;
+            }
+            if (toAudioNum(folder) !== audioNum) {
+                console.log(`  ${label} [${ev.date}]: text_href folder '${folder}' does not match audio basename number '${audioNum}'`);
+                issues++;
+            }
+        }
+    }
+
+    if (issues === 0) {
+        console.log(`No discrepancies found in ${term}.`);
+    } else {
+        console.log(`\n${issues} discrepancy(ies) found in ${term}.`);
+    }
+}
+
+function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
+    const casesDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases');
+
+    const toFix = caseNumber === '-'
+        ? cases
+        : cases.filter(c =>
+            c.number === caseNumber ||
+            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+          );
+
+    let casesModified = 0;
+
+    for (const c of toFix) {
+        const caseNums = (c.number || '').split(',').map(n => n.trim()).filter(Boolean);
+        const audioNumToFolder = new Map(caseNums.map(n => [toAudioNum(n), n]));
+        const label = c.number || c.id || '?';
+
+        // ── Find misplaced events ──────────────────────────────────────────
+        const toMove = [];
+        for (const ev of (c.events || [])) {
+            if (!ev.text_href || !ev.audio_href) continue;
+            const folder   = ev.text_href.split('/')[0];
+            const basename = ev.audio_href.split('/').pop().split('?')[0];
+            const m = AUDIO_ORGANIZE_RE.exec(basename);
+            if (!m) continue;
+            const audioNum = m[2];
+            if (toAudioNum(folder) !== audioNum) {
+                const targetFolder = audioNumToFolder.get(audioNum) || audioNum;
+                toMove.push({ ev, audioNum, targetFolder, currentFolder: folder });
+            }
+        }
+        if (toMove.length === 0) continue;
+
+        // ── Verify target folders are empty ───────────────────────────────
+        let ok = true;
+        for (const { targetFolder } of toMove) {
+            const targetDir = path.join(casesDir, targetFolder);
+            if (exists(targetDir)) {
+                const files = fs.readdirSync(targetDir).filter(f => f !== 'files.json');
+                if (files.length > 0) {
+                    console.error(`ERROR: ${label}: target folder '${targetFolder}' already exists and is non-empty — skipping case`);
+                    ok = false;
+                    break;
+                }
+            }
+        }
+        if (!ok) continue;
+
+        // ── Move files ────────────────────────────────────────────────────
+        for (const { ev, targetFolder, currentFolder } of toMove) {
+            const filename  = ev.text_href.split('/')[1];
+            const srcPath   = path.join(casesDir, currentFolder, filename);
+            const dstDir    = path.join(casesDir, targetFolder);
+            const dstPath   = path.join(dstDir, filename);
+            const newHref   = `${targetFolder}/${filename}`;
+            console.log(`  ${label}: ${dryRun ? '[dry-run] would move' : 'move'} ${ev.text_href} → ${newHref}`);
+            if (!dryRun) {
+                if (!exists(dstDir)) fs.mkdirSync(dstDir);
+                fs.renameSync(srcPath, dstPath);
+            }
+            ev.text_href = newHref; // update in memory (for cleanup pass below)
+        }
+
+        // ── Cleanup: strip redundant numeric suffixes ─────────────────────
+        // Group text_href files by folder across all events in the case.
+        const folderEntries = new Map(); // folder → [{ ev, filename, date }]
+        for (const ev of (c.events || [])) {
+            if (!ev.text_href) continue;
+            const [folder, filename] = ev.text_href.split('/');
+            const dm = /^(\d{4}-\d{2}-\d{2})/.exec(filename);
+            if (!dm) continue;
+            if (!folderEntries.has(folder)) folderEntries.set(folder, []);
+            folderEntries.get(folder).push({ ev, filename, date: dm[1] });
+        }
+        for (const [folder, entries] of folderEntries) {
+            const dates = entries.map(e => e.date);
+            if (new Set(dates).size !== dates.length) continue; // duplicate dates — skip
+            for (const { ev, filename } of entries) {
+                const newFilename = filename.replace(/-(\d+)(\.json)$/, '$2');
+                if (newFilename === filename) continue;
+                const srcPath = path.join(casesDir, folder, filename);
+                const dstPath = path.join(casesDir, folder, newFilename);
+                const newHref = `${folder}/${newFilename}`;
+                console.log(`  ${label}: ${dryRun ? '[dry-run] would rename' : 'rename'} ${ev.text_href} → ${newHref}`);
+                if (!dryRun) fs.renameSync(srcPath, dstPath);
+                ev.text_href = newHref;
+            }
+        }
+
+        casesModified++;
+    }
+
+    if (!dryRun && casesModified > 0) writeJson(casesPath, cases);
+
+    if (casesModified === 0) {
+        console.log(`No fixes needed in ${term}.`);
+    } else if (dryRun) {
+        console.log(`\n[dry-run] ${casesModified} case(s) would be updated in ${term}.`);
+    } else {
+        console.log(`\nFixed ${casesModified} case(s) in ${term}.`);
+    }
+}
+
 async function main() {
     // ── Parse arguments ────────────────────────────────────────────────────
     const args = process.argv.slice(2);
     const flags = new Set(args.filter(a => a.startsWith('--')));
     const positional = args.filter(a => !a.startsWith('--'));
 
-    const doRealign = flags.has('--realign');
-    const doSplit   = flags.has('--split');
-    const dryRun    = flags.has('--dry-run');
-    const noVad     = flags.has('--no-vad');
+    const doRealign  = flags.has('--realign');
+    const doSplit    = flags.has('--split');
+    const dryRun     = flags.has('--dry-run');
+    const noVad      = flags.has('--no-vad');
+    const doOrganize = flags.has('--organize');
+    const doFix      = flags.has('--fix');
 
     // --model MODEL
     let modelSize = 'base';
@@ -1017,6 +1183,28 @@ async function main() {
     // ── JSON edits mode ────────────────────────────────────────────────────
     if (positional.length === 1 && positional[0].endsWith('.json')) {
         await applyEditsFromFile(positional[0]);
+        return;
+    }
+
+    // ── Organize mode ──────────────────────────────────────────────────────
+    if (doOrganize) {
+        if (positional.length < 2) {
+            console.error('Usage: node scripts/update_transcripts.js TERM CASE --organize [--fix] [--dry-run]');
+            console.error('       (use - as CASE to check all cases in the term)');
+            process.exit(1);
+        }
+        const [term, caseNumber = '-'] = positional;
+        const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+        if (!exists(casesPath)) {
+            console.error(`cases.json not found: ${casesPath}`);
+            process.exit(1);
+        }
+        const cases = readJson(casesPath);
+        if (doFix) {
+            organizeFix(term, caseNumber, cases, casesPath, dryRun);
+        } else {
+            organizeCheck(term, caseNumber, cases);
+        }
         return;
     }
 

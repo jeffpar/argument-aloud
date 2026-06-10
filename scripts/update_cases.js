@@ -2456,6 +2456,46 @@ function fixEventTypes(term, cases, dryRun) {
     return fixed;
 }
 
+function sortEvents(term, cases, dryRun) {
+    let changed = 0;
+    for (const c of cases) {
+        const events = c.events;
+        if (!Array.isArray(events) || events.length < 2) continue;
+
+        // Collect indices per (source, type, date) group.
+        const groups = new Map();
+        for (let i = 0; i < events.length; i++) {
+            const ev = events[i];
+            const key = `${ev.source || ''}\0${ev.type || ''}\0${ev.date || ''}`;
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(i);
+        }
+
+        // Within each multi-event group, sort by title and slot back in.
+        const newOrder = [...events];
+        let caseChanged = false;
+        for (const indices of groups.values()) {
+            if (indices.length < 2) continue;
+            const byTitle = [...indices].sort((a, b) =>
+                (events[a].title || '').localeCompare(events[b].title || '')
+            );
+            if (byTitle.some((si, pos) => si !== indices[pos])) {
+                for (let pos = 0; pos < indices.length; pos++) {
+                    newOrder[indices[pos]] = events[byTitle[pos]];
+                }
+                caseChanged = true;
+            }
+        }
+
+        if (caseChanged) {
+            if (dryRun) console.log(`  SORT events ${term}/${c.number || c.id || '?'}`);
+            else c.events = newOrder;
+            changed++;
+        }
+    }
+    return changed;
+}
+
 function sortCases(term, cases, dryRun) {
     const indexed = cases.map((c, i) => [i, c]);
     const lastArgDate = (c) => {
@@ -2569,14 +2609,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     if (!fs.existsSync(casesPath)) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const cases = _readJson(casesPath);
     if (!cases || !cases.length) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
@@ -2596,7 +2636,7 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     }
     const hrefDupes    = (checkDups && !sortOnly) ? checkDuplicateTextHrefs(term, cases) : 0;
     const hrefStripped = !sortOnly ? fixOyezTranscriptHrefs(term, cases, dryRun) : 0;
-    const eventsSorted = 0;
+    const eventsSorted = !sortOnly ? sortEvents(term, cases, dryRun) : 0;
     const casesSorted  = sortCases(term, cases, dryRun);
     const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
     const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
@@ -2604,14 +2644,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     const votesResorted   = !sortOnly ? verifyVoteSeniority(term, cases, !dryRun) : 0;
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
-            || casesSorted || argDatesFixed || eventTypesFixed
+            || casesSorted || eventsSorted || argDatesFixed || eventTypesFixed
             || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
             && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
              hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
-             hrefDupes, hrefStripped, casesSorted,
+             hrefDupes, hrefStripped, casesSorted, eventsSorted,
              argDatesFixed, eventTypesFixed, mergedCount, usscRedundant };
 }
 
@@ -7768,7 +7808,7 @@ async function main() {
         unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
         hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0,
         hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
-        casesSorted: 0,
+        casesSorted: 0, eventsSorted: 0,
         argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
         missingVotes: 0, usscRedundant: 0,
     };
@@ -7792,6 +7832,7 @@ async function main() {
         totals.hrefDupes           += r.hrefDupes;
         totals.hrefStripped        += r.hrefStripped;
         totals.casesSorted         += r.casesSorted;
+        totals.eventsSorted        += (r.eventsSorted || 0);
         totals.argDatesFixed       += r.argDatesFixed;
         totals.eventTypesFixed     += r.eventTypesFixed;
         totals.mergedCount         += r.mergedCount;
@@ -7850,7 +7891,8 @@ async function main() {
     }
     if (r.hrefDupes)    console.log(`text_href: ${r.hrefDupes} duplicate value(s) found.`);
     if (r.hrefStripped) console.log(`transcript_href: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
-    if (r.casesSorted)  console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
+    if (r.casesSorted)   console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
+    if (r.eventsSorted)  console.log(`Event order: ${dryRun ? 'Would sort' : 'Sorted'} events in ${r.eventsSorted} case(s).`);
     if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
     if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
     if (r.mergedCount) console.log(`Refiled cases: ${dryRun ? 'Would merge' : 'Merged'} ${r.mergedCount} case(s) into later term(s).`);
