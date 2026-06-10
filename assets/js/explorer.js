@@ -796,7 +796,7 @@ function termDisplayName(term) {
 function decisionTooltip(term, caseEntry, decision) {
   const parts = [];
   if (caseEntry.number) {
-    const numbers = caseEntry.number.split(',').map(n => n.trim());
+    const numbers = caseEntry.number.split(',').map(n => _normNum(n.trim()));
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
     parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
@@ -809,7 +809,7 @@ function decisionTooltip(term, caseEntry, decision) {
 function argumentTooltip(term, caseRef) {
   const parts = [];
   if (caseRef.number) {
-    const numbers = caseRef.number.split(',').map(n => n.trim());
+    const numbers = caseRef.number.split(',').map(n => _normNum(n.trim()));
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
     parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
@@ -1396,13 +1396,20 @@ function caseTitle(raw) {
 // at the same index as N in the ','-split number field, then formats as
 // "Sub-case Title (No. N)". Falls back to the first title with "(No. N)" if N
 // isn't in the number field. Returns just the first title when no "No. N" present.
+// Strip the hyphen from Orig/Misc case numbers for display (e.g. "14-Orig" → "14 Orig").
+const _normNum = n => n.replace(/-(?=Orig|Misc)/i, ' ');
+
 function _caseDisplayTitle(caseEntry, eventEntry) {
   const m = /\bNo\.\s*([\d][\d-]*)/i.exec(eventEntry?.title || '');
-  if (!m) return caseTitle(caseEntry.title);
-  const num     = m[1];
+  if (!m) {
+    const base = caseTitle(caseEntry.title);
+    const num  = _normNum((caseEntry.number || '').split(',')[0].trim());
+    return num ? `${base} (No. ${num})` : base;
+  }
+  const num     = _normNum(m[1]);
   const titles  = (caseEntry.title  || '').split('|');
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
-  const idx     = numbers.indexOf(num);
+  const idx     = numbers.indexOf(m[1]);
   const base    = (idx !== -1 && idx < titles.length) ? titles[idx] : titles[0];
   return `${base} (No. ${num})`;
 }

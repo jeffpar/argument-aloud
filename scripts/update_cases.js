@@ -42,7 +42,7 @@
  *   node update_cases.js 2024-10 --scdb             # apply SCDB-derived fixes to cases.json
  *   node update_cases.js 2024-10 --scdb --dry-run   # report SCDB differences only
  *   node update_cases.js 2024-10 --scdb --debug     # also dump full ours/scdb JSON on mismatch
- *   node update_cases.js [TERM] --scdb --backfill           # list SCDB cases missing from cases.json
+ *   node update_cases.js [TERM] --scdb --backfill   # list SCDB cases missing from cases.json
  *   node update_cases.js [TERM] --scdb --backfill --dry-run # preview missing cases without adding
  *
  * Exports helpers used by import_ussc.js / import_oyez.js:
@@ -6492,6 +6492,134 @@ function checkAlignedTranscriptLengths(casesPath, caseFilter) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// --loc --backfill: fill missing pipe-separated sub-titles from LOC PDFs
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Extract text from the first page of a PDF at `url` using pdftotext.
+ * Returns null on failure.
+ */
+async function _pdfFirstPageText(url) {
+    const tmp = path.join(REPO_ROOT, `_tmp_pdf_${process.pid}.pdf`);
+    try {
+        const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+        if (!res.ok) return null;
+        fs.writeFileSync(tmp, Buffer.from(await res.arrayBuffer()));
+        const { stdout } = await _execFile('pdftotext', ['-f', '1', '-l', '1', tmp, '-']);
+        return stdout;
+    } catch {
+        return null;
+    } finally {
+        try { fs.unlinkSync(tmp); } catch {}
+    }
+}
+
+/**
+ * Parse "Together with No. X, Title; No. Y, Title..." from the first-page
+ * text of a SCOTUS opinion. Returns [{num, title}, ...].
+ */
+function _parseTogetherWith(text) {
+    // Normalize whitespace (pdftotext may wrap lines mid-phrase).
+    const flat = text.replace(/\s+/g, ' ');
+    const anchor = /Together with\s+/i.exec(flat);
+    if (!anchor) return [];
+
+    // Search for "No. N, Title" segments in the text following the anchor.
+    // Each title ends at the next "; No.", ", also on", ", all on", or the
+    // end of the string.
+    const content = flat.slice(anchor.index + anchor[0].length);
+    const results = [];
+    const re = /\bNo\.\s*(\d+(?:-(?:Orig|Misc))?),\s*(.+?)(?=[;,]\s*(?:and\s+)?\bNo\.\s*\d|,\s*(?:also|all)\s+on|$)/gi;
+    let hit;
+    while ((hit = re.exec(content)) !== null) {
+        const num   = hit[1].trim();
+        const title = hit[2].trim()
+            .replace(/[,.]\s*(?:also\s+)?on (?:appeals?|certiorari)\b.*/i, '')
+            .replace(/,?\s*\bet al\.?/gi, '')
+            .replace(/,?\s*\bet ux\.?/gi, '')
+            .replace(/\.{2,}/g, '.')
+            .replace(/,+$/, '').trim();
+        if (num && title) results.push({ num, title });
+    }
+    return results;
+}
+
+/**
+ * For cases in cases.json where the number field has more comma-separated
+ * values than the title field has pipe-separated values, fetch the LOC
+ * opinion PDF and parse "Together with" footnotes to fill in the gaps.
+ */
+async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
+    if (!fs.existsSync(casesPath)) return;
+    const cases = _readJson(casesPath);
+    if (!Array.isArray(cases)) return;
+    let termChanged = false;
+
+    for (const c of cases) {
+        if (caseFilter) {
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
+        }
+
+        const numbers = (c.number || '').split(',').map(s => s.trim()).filter(Boolean);
+        const titles  = (c.title  || '').split('|');
+        if (numbers.length <= titles.length) continue;
+
+        const href = c.opinion_href || '';
+        if (!href || !href.includes('loc.gov')) {
+            if (caseFilter) console.log(`  ${term}/${c.number || c.id}: no loc.gov opinion_href, skipping`);
+            continue;
+        }
+
+        const label = `${term}/${c.number || c.id}`;
+        const text = await _pdfFirstPageText(href);
+        if (!text) {
+            console.log(`${label}: FAILED to fetch ${href}`);
+            continue;
+        }
+
+        const found = _parseTogetherWith(text);
+        if (!found.length) {
+            console.log(`${label}: no "Together with" footnote found`);
+            continue;
+        }
+
+        // Pad titles array to match numbers length, then fill gaps.
+        const newTitles = [...titles];
+        while (newTitles.length < numbers.length) newTitles.push('');
+
+        let caseChanged = false;
+        console.log(`${label}:`);
+        for (const { num, title } of found) {
+            const idx = numbers.indexOf(num);
+            if (idx < 0) { console.log(`  No. ${num}: not in case number field (${numbers.join(',')}), skipping`); continue; }
+            if (newTitles[idx]) continue;
+            console.log(`  No. ${num}: ${title}`);
+            newTitles[idx] = title;
+            caseChanged = true;
+        }
+
+        if (!caseChanged) continue;
+
+        // Drop any trailing empty slots.
+        while (newTitles.length > 1 && !newTitles[newTitles.length - 1]) newTitles.pop();
+
+        const newTitle = newTitles.join('|');
+        if (dryRun) {
+            console.log(`  [dry-run] would set title: "${newTitle}"`);
+        } else {
+            c.title = newTitle;
+            termChanged = true;
+        }
+    }
+
+    if (termChanged) {
+        _writeJson(casesPath, cases);
+        console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}`);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CLI / main
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -6504,6 +6632,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
+       node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -7578,6 +7707,20 @@ async function main() {
 
     if (flags.has('--unargued')) {
         runUnargued(positional[0] || null, positional[1] || null);
+        return;
+    }
+
+    if (flags.has('--loc') && flags.has('--backfill')) {
+        const termFilter = positional[0] || null;
+        const cf         = positional[1] || null;
+        const termsDir   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+        const termDirs   = termFilter
+            ? [termFilter]
+            : fs.readdirSync(termsDir).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+        for (const t of termDirs) {
+            const cp = path.join(termsDir, t, 'cases.json');
+            await backfillTitlesFromLoc(cp, t, cf, dryRun);
+        }
         return;
     }
 

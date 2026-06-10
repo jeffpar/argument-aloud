@@ -898,7 +898,7 @@ async function applyEditsFromFile(filePath) {
                 continue;
             }
 
-            const transcriptJson = JSON.stringify(transcript, null, 2).replace(/[“”]/g, '\\”') + '\n';
+            const transcriptJson = JSON.stringify(transcript, null, 2) + '\n';
             writeText(transcriptPath, transcriptJson);
             console.log(`Applied ${turnChanges.length} change(s) → ${path.relative(REPO_ROOT, transcriptPath)}`);
 
