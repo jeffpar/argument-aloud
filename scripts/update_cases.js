@@ -2468,6 +2468,89 @@ function _eventTitleSortKey(title) {
         : parseInt(parts[0], 10);
 }
 
+// Matches YYYY-MM-DD[-source]-N.json — the suffix after the optional source tag.
+// Does NOT match the day component of a bare YYYY-MM-DD.json name.
+const _SUFFIX_FILE_RE = /^(\d{4}-\d{2}-\d{2}(?:-[a-z]+)?)-(\d+)\.json$/i;
+
+function fixTranscriptSuffixes(term, cases, casesDir, dryRun) {
+    let fixed = 0;
+    if (!isDir(casesDir)) return fixed;
+
+    // renameMap: old relative path → new relative path (folder/file)
+    const renameMap = new Map();
+
+    const folders = fs.readdirSync(casesDir).filter(n => isDir(path.join(casesDir, n))).sort();
+    for (const folder of folders) {
+        const folderPath = path.join(casesDir, folder);
+        const files = fs.readdirSync(folderPath).filter(n => n.endsWith('.json')).sort();
+        const fileSet = new Set(files);
+
+        // Group suffixed files by their base name.
+        const byBase = new Map();
+        for (const f of files) {
+            const m = _SUFFIX_FILE_RE.exec(f);
+            if (!m) continue;
+            const base = m[1];
+            const suffix = parseInt(m[2], 10);
+            if (!byBase.has(base)) byBase.set(base, []);
+            byBase.get(base).push({ file: f, suffix });
+        }
+
+        for (const [base, suffixed] of byBase) {
+            if (fileSet.has(`${base}.json`)) continue;  // unsuffixed already exists
+
+            suffixed.sort((a, b) => a.suffix - b.suffix);
+            const suffixNums = new Set(suffixed.map(s => s.suffix));
+            const byNum     = new Map(suffixed.map(s => [s.suffix, s.file]));
+
+            const doRename = (oldFile, newFile) => {
+                const oldRel = `${folder}/${oldFile}`;
+                const newRel = `${folder}/${newFile}`;
+                renameMap.set(oldRel, newRel);
+                if (dryRun) {
+                    console.log(`  SUFFIX: ${term}/${folder}: would rename '${oldFile}' → '${newFile}'`);
+                } else {
+                    fs.renameSync(path.join(folderPath, oldFile), path.join(folderPath, newFile));
+                }
+                fixed++;
+            };
+
+            // Lone -1 with nothing else → rename to base.json
+            if (suffixNums.size === 1 && suffixNums.has(1)) {
+                doRename(byNum.get(1), `${base}.json`);
+                continue;
+            }
+
+            // -2 without -1 → rename -2 to -1
+            if (suffixNums.has(2) && !suffixNums.has(1)) {
+                const oldFile = byNum.get(2);
+                const newFile = `${base}-1.json`;
+                doRename(oldFile, newFile);
+                suffixNums.delete(2);
+                suffixNums.add(1);
+            }
+
+            // -3 without -2 → rename -3 to -2
+            if (suffixNums.has(3) && !suffixNums.has(2)) {
+                doRename(byNum.get(3), `${base}-2.json`);
+            }
+        }
+    }
+
+    // Update text_href references in cases for every renamed file.
+    if (!dryRun && renameMap.size > 0) {
+        for (const c of cases) {
+            for (const ev of c.events || []) {
+                if (ev.text_href && renameMap.has(ev.text_href)) {
+                    ev.text_href = renameMap.get(ev.text_href);
+                }
+            }
+        }
+    }
+
+    return fixed;
+}
+
 function sortEvents(term, cases, dryRun) {
     let changed = 0;
     for (const c of cases) {
@@ -2624,14 +2707,14 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     if (!fs.existsSync(casesPath)) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0, suffixesFixed: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const cases = _readJson(casesPath);
     if (!cases || !cases.length) {
         return { dupCount: 0, casesReordered: 0, eventsReordered: 0, unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
                  hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0, hrefOrphaned: [],
-                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0,
+                 hrefDupes: 0, hrefStripped: 0, casesSorted: 0, eventsSorted: 0, suffixesFixed: 0,
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
@@ -2650,23 +2733,24 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
         console.log(`  ORPHAN:  ${label}${detail}`);
     }
     const hrefDupes    = (checkDups && !sortOnly) ? checkDuplicateTextHrefs(term, cases) : 0;
-    const hrefStripped = !sortOnly ? fixOyezTranscriptHrefs(term, cases, dryRun) : 0;
-    const eventsSorted = !sortOnly ? sortEvents(term, cases, dryRun) : 0;
-    const casesSorted  = sortCases(term, cases, dryRun);
+    const hrefStripped  = !sortOnly ? fixOyezTranscriptHrefs(term, cases, dryRun) : 0;
+    const suffixesFixed = !sortOnly ? fixTranscriptSuffixes(term, cases, casesDir, dryRun) : 0;
+    const eventsSorted  = !sortOnly ? sortEvents(term, cases, dryRun) : 0;
+    const casesSorted   = sortCases(term, cases, dryRun);
     const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
     const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
     const mergedCount     = !sortOnly ? mergeRefiledCases(term, cases, allTerms || [], dryRun) : 0;
     const votesResorted   = !sortOnly ? verifyVoteSeniority(term, cases, !dryRun) : 0;
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
-            || casesSorted || eventsSorted || argDatesFixed || eventTypesFixed
+            || casesSorted || eventsSorted || suffixesFixed || argDatesFixed || eventTypesFixed
             || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
             && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
              hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
-             hrefDupes, hrefStripped, casesSorted, eventsSorted,
+             hrefDupes, hrefStripped, casesSorted, eventsSorted, suffixesFixed,
              argDatesFixed, eventTypesFixed, mergedCount, usscRedundant };
 }
 
@@ -7823,7 +7907,7 @@ async function main() {
         unknownCaseKeys: new Set(), unknownEventKeys: new Set(),
         hrefUpdated: 0, hrefWarned: 0, hrefMissing: 0, hrefRedundantFixed: 0,
         hrefOrphaned: [], hrefDupes: 0, hrefStripped: 0,
-        casesSorted: 0, eventsSorted: 0,
+        casesSorted: 0, eventsSorted: 0, suffixesFixed: 0,
         argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0,
         missingVotes: 0, usscRedundant: 0,
     };
@@ -7848,6 +7932,7 @@ async function main() {
         totals.hrefStripped        += r.hrefStripped;
         totals.casesSorted         += r.casesSorted;
         totals.eventsSorted        += (r.eventsSorted || 0);
+        totals.suffixesFixed       += (r.suffixesFixed || 0);
         totals.argDatesFixed       += r.argDatesFixed;
         totals.eventTypesFixed     += r.eventTypesFixed;
         totals.mergedCount         += r.mergedCount;
@@ -7908,6 +7993,7 @@ async function main() {
     if (r.hrefStripped) console.log(`transcript_href: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
     if (r.casesSorted)   console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
     if (r.eventsSorted)  console.log(`Event order: ${dryRun ? 'Would sort' : 'Sorted'} events in ${r.eventsSorted} case(s).`);
+    if (r.suffixesFixed) console.log(`Transcript suffixes: ${dryRun ? 'Would fix' : 'Fixed'} ${r.suffixesFixed} file(s).`);
     if (r.argDatesFixed) console.log(`Argument dates: ${dryRun ? 'Would fix' : 'Fixed'} ${r.argDatesFixed} case(s).`);
     if (r.eventTypesFixed) console.log(`Event types: ${dryRun ? 'Would fix' : 'Fixed'} ${r.eventTypesFixed} event(s).`);
     if (r.mergedCount) console.log(`Refiled cases: ${dryRun ? 'Would merge' : 'Merged'} ${r.mergedCount} case(s) into later term(s).`);
