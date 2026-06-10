@@ -2515,9 +2515,9 @@ function fixTranscriptSuffixes(term, cases, casesDir, dryRun) {
                 fixed++;
             };
 
-            // Lone -1 with nothing else → rename to base.json
-            if (suffixNums.size === 1 && suffixNums.has(1)) {
-                doRename(byNum.get(1), `${base}.json`);
+            // Lone suffixed file with no unsuffixed version and no siblings → strip suffix
+            if (suffixNums.size === 1) {
+                doRename(suffixed[0].file, `${base}.json`);
                 continue;
             }
 
