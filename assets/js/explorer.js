@@ -2176,6 +2176,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
       ),
     });
+    if (caseEntry.title?.includes('|')) ci.dataset.rawTitle = caseEntry.title.toLowerCase();
 
     if (mode === 'argued' || mode === 'decided') {
       // Replace icons with a compact date label
@@ -5725,7 +5726,8 @@ function findFileItem(param) {
       const title      = ci.querySelector('.case-title-nav')?.textContent.toLowerCase() || '';
       const caseKeyTail = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
       const caseNumber = (ci.dataset.caseNumber || '').toLowerCase();
-      const matches    = title.includes(q) || caseKeyTail.includes(q) || caseNumber.includes(q);
+      const rawTitle   = ci.dataset.rawTitle || '';
+      const matches    = title.includes(q) || caseKeyTail.includes(q) || caseNumber.includes(q) || rawTitle.includes(q);
 
       ci.classList.toggle('nav-search-match', matches);
       ci.style.display = matches ? '' : 'none';
