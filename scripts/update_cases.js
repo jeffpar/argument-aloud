@@ -6884,6 +6884,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
+       node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -6931,7 +6932,106 @@ Examples:
 
   node update_cases.js --unargued                          # list all argument anomalies across all terms
   node update_cases.js 2024-10 --unargued                  # list anomalies for one term
-  node update_cases.js 2024-10 24-1260 --unargued          # check one case`;
+  node update_cases.js 2024-10 24-1260 --unargued          # check one case
+
+  # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
+  node update_cases.js --import ~/Downloads/ussc-favorites.json
+  node update_cases.js --import ~/Downloads/ussc-favorites.json --dry-run`;
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// --import FILE: read a JSON file containing { tags: { "ussc:TERM:NUMBER": [tag, ...] } }
+// and apply any new tags to the matching cases.json entries.  The input file
+// is deleted after a successful (non-dry-run) import.
+
+async function runImportTags(filePath, dryRun) {
+    const absPath = path.resolve(filePath);
+    let parsed;
+    try {
+        parsed = JSON.parse(fs.readFileSync(absPath, 'utf8'));
+    } catch (err) {
+        console.error(`ERROR: Could not read ${absPath}: ${err.message}`);
+        process.exit(1);
+    }
+
+    const tagsMap = parsed?.tags;
+    if (!tagsMap || typeof tagsMap !== 'object' || Array.isArray(tagsMap)) {
+        console.error(`ERROR: ${absPath} must contain a "tags" object.`);
+        process.exit(1);
+    }
+
+    // Group entries by term so each cases.json is loaded and written at most once.
+    const byTerm = new Map(); // term -> Map(number -> string[])
+    for (const [key, tags] of Object.entries(tagsMap)) {
+        if (!Array.isArray(tags) || !tags.length) continue;
+        const parts = key.split(':');
+        if (parts.length < 3) { console.log(`  WARNING: skipping malformed key "${key}"`); continue; }
+        const [court, term, ...rest] = parts;
+        if (court !== 'ussc') { console.log(`  WARNING: skipping non-ussc key "${key}"`); continue; }
+        const number = rest.join(':');
+        if (!byTerm.has(term)) byTerm.set(term, new Map());
+        byTerm.get(term).set(number, tags);
+    }
+
+    if (!byTerm.size) {
+        console.log('No tags to import.');
+        if (!dryRun) fs.unlinkSync(absPath);
+        return;
+    }
+
+    let totalAdded = 0;
+    let totalCases = 0;
+
+    for (const [term, numberMap] of [...byTerm].sort(([a], [b]) => a.localeCompare(b))) {
+        const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+        let cases;
+        try {
+            cases = _readJson(casesPath);
+        } catch {
+            console.log(`  WARNING: could not read ${path.relative(REPO_ROOT, casesPath)} — skipping`);
+            continue;
+        }
+        if (!Array.isArray(cases)) continue;
+
+        let modified = false;
+        for (const [number, newTags] of numberMap) {
+            const c = cases.find(x => x && (x.number === number || x.id === number));
+            if (!c) {
+                console.log(`  WARNING: ${term}: case "${number}" not found`);
+                continue;
+            }
+            const existing = Array.isArray(c.tags) ? c.tags : [];
+            const toAdd = newTags.filter(t => typeof t === 'string' && t && !existing.includes(t));
+            if (!toAdd.length) continue;
+
+            const label = c.number || c.id || '?';
+            console.log(`  ${term}/${label}: +[${toAdd.join(', ')}]`);
+            c.tags = [...existing, ...toAdd];
+            // Reorder keys in-place to keep tags in schema position.
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            modified = true;
+            totalAdded += toAdd.length;
+            totalCases++;
+        }
+
+        if (modified) _writeJson(casesPath, cases);
+    }
+
+    if (totalAdded) {
+        console.log(`Tags: ${dryRun ? 'Would add' : 'Added'} ${totalAdded} tag(s) to ${totalCases} case(s).`);
+    } else {
+        console.log('Tags: all specified tags already present; nothing to do.');
+    }
+
+    if (!dryRun) {
+        try { fs.unlinkSync(absPath); console.log(`Deleted ${absPath}`); }
+        catch (err) { console.error(`WARNING: could not delete ${absPath}: ${err.message}`); }
+    } else {
+        console.log(`[dry-run] Would delete ${absPath}`);
+    }
+}
 
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -7850,7 +7950,7 @@ async function main() {
             } else {
                 const key = a.slice(2);
                 // Flags that take a value
-                if (['case'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                if (['case', 'import'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
                     flagValues[key] = argv[++i];
                 } else {
                     boolFlags.add(key);
@@ -7972,6 +8072,11 @@ async function main() {
             const cp = path.join(termsDir, t, 'cases.json');
             await backfillTitlesFromLoc(cp, t, cf, dryRun);
         }
+        return;
+    }
+
+    if (flagValues.import) {
+        await runImportTags(flagValues.import, dryRun);
         return;
     }
 

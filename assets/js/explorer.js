@@ -33,6 +33,7 @@ const _caseSessionState = new Map(); // caseKey -> { eventIdx, turnNum } — ses
 
 const _LS_EDITS_KEY     = 'aa-transcript-edits';
 const _LS_FAVORITES_KEY = 'aa-favorites';
+const _LS_TAGS_KEY      = 'aa-tags';
 
 function _persistEditsToStorage() {
   if (!_transcriptEdits.size) {
@@ -194,6 +195,164 @@ function _toggleFavorite() {
   _setFavData(data);
   _updateFavoriteBtn();
   _refreshFavoritesNav();
+}
+
+// ── Tags ──────────────────────────────────────────────────────────────────────
+// Storage: { "ussc:term:number": ["UserTag1", …] }
+// Hard-coded case tags come from caseEntry.tags; user tags overlay them.
+
+function _getTagData() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(_LS_TAGS_KEY) || 'null');
+    return (raw && typeof raw === 'object' && !Array.isArray(raw)) ? raw : {};
+  } catch { return {}; }
+}
+
+function _setTagData(data) {
+  try {
+    if (!Object.keys(data).length) localStorage.removeItem(_LS_TAGS_KEY);
+    else localStorage.setItem(_LS_TAGS_KEY, JSON.stringify(data));
+  } catch { /* quota exceeded */ }
+}
+
+function _currentTagKey() {
+  if (!_currentCaseEntry || !_currentCaseKey) return null;
+  const term   = _currentCaseKey.split('/')[0];
+  const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
+  return `ussc:${term}:${number}`;
+}
+
+function _getBuiltinTags() {
+  const t = _currentCaseEntry?.tags;
+  if (!t) return [];
+  return Array.isArray(t) ? t.slice() : [String(t)];
+}
+
+function _getUserTags() {
+  const key = _currentTagKey();
+  if (!key) return [];
+  return (_getTagData()[key] || []).slice();
+}
+
+function _addUserTag(tag) {
+  const key = _currentTagKey();
+  if (!key) return;
+  const trimmed = tag.trim();
+  if (!trimmed) return;
+  const data = _getTagData();
+  if (!data[key]) data[key] = [];
+  if (!data[key].includes(trimmed)) { data[key].push(trimmed); _setTagData(data); _updateTagsBtn(); }
+}
+
+function _removeUserTag(tag) {
+  const key = _currentTagKey();
+  if (!key) return;
+  const data = _getTagData();
+  if (!data[key]) return;
+  data[key] = data[key].filter(t => t !== tag);
+  if (!data[key].length) delete data[key];
+  _setTagData(data);
+  _updateTagsBtn();
+}
+
+function _updateTagsBtn() {
+  const row = document.getElementById('case-info-row3');
+  const btn = document.getElementById('tags-btn');
+  if (!row || !btn) return;
+  if (!_currentCaseEntry || !_currentCaseKey) { btn.hidden = true; return; }
+  const total = _getBuiltinTags().length + _getUserTags().length;
+  btn.textContent = total ? 'Tags (' + total + ')' : 'Tags';
+  btn.hidden = false;
+  row.hidden = false;
+}
+
+function _buildTagsMenu(anchorEl) {
+  const existing = document.querySelector('.tags-menu');
+  if (existing) { existing.remove(); return; }
+
+  const menu = document.createElement('ul');
+  menu.className = 'term-sort-menu tags-menu';
+
+  const addLi      = document.createElement('li');
+  const addInput   = document.createElement('input');
+  const addSaveBtn = document.createElement('button');
+  addInput.type = 'text';
+  addInput.className = 'tag-add-input';
+  addInput.placeholder = 'New tag…';
+  addSaveBtn.className = 'tag-add-save-btn';
+  addSaveBtn.textContent = 'Add';
+  let addOpen = false;
+
+  function showAddInput() {
+    addOpen = true;
+    addLi.textContent = '';
+    addLi.appendChild(addInput);
+    addLi.appendChild(addSaveBtn);
+    addInput.value = '';
+    requestAnimationFrame(() => addInput.focus());
+  }
+
+  function hideAddInput() {
+    addOpen = false;
+    addLi.textContent = 'Add…';
+  }
+
+  function doAdd() {
+    const val = addInput.value.trim();
+    if (val) { _addUserTag(val); renderUserTags(); addInput.value = ''; }
+    requestAnimationFrame(() => addInput.focus());
+  }
+
+  function renderUserTags() {
+    menu.querySelectorAll('.tag-user').forEach(el => el.remove());
+    for (const tag of _getUserTags()) {
+      const item = document.createElement('li');
+      item.className = 'term-sort-option tag-user';
+      const span = document.createElement('span');
+      span.className = 'tag-label';
+      span.textContent = tag;
+      const del = document.createElement('button');
+      del.className = 'tag-delete-btn';
+      del.textContent = '×';
+      del.title = 'Remove tag';
+      del.addEventListener('click', (e) => { e.stopPropagation(); _removeUserTag(tag); renderUserTags(); });
+      item.appendChild(span);
+      item.appendChild(del);
+      menu.insertBefore(item, addLi);
+    }
+  }
+
+  for (const tag of _getBuiltinTags()) {
+    const item = document.createElement('li');
+    item.className = 'term-sort-option tag-builtin';
+    item.textContent = tag;
+    menu.appendChild(item);
+  }
+
+  addLi.className = 'term-sort-option tag-add-item';
+  addLi.textContent = 'Add…';
+  addLi.addEventListener('click', (e) => { e.stopPropagation(); if (!addOpen) showAddInput(); });
+  addSaveBtn.addEventListener('click', (e) => { e.stopPropagation(); doAdd(); });
+  addInput.addEventListener('click', (e) => e.stopPropagation());
+  addInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.stopPropagation(); doAdd(); }
+    else if (e.key === 'Escape') { e.stopPropagation(); hideAddInput(); }
+  });
+  menu.appendChild(addLi);
+  renderUserTags();
+
+  document.body.appendChild(menu);
+  const rect = anchorEl.getBoundingClientRect();
+  menu.style.top  = (rect.bottom + window.scrollY) + 'px';
+  menu.style.left = Math.max(0, rect.right + window.scrollX - menu.offsetWidth) + 'px';
+
+  const close = (e) => {
+    if (!menu.contains(e.target) && e.target !== anchorEl) {
+      menu.remove();
+      document.removeEventListener('mousedown', close, true);
+    }
+  };
+  setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
 // ── Edits nav (virtual collection) ───────────────────────────────────────────
@@ -1522,6 +1681,7 @@ function _setCaseInfoRow3(caseEntry) {
   const row = document.getElementById('case-info-row3');
   const span = document.getElementById('case-vote');
   if (!caseEntry.voteMajority || caseEntry.voteMinority == null || !caseEntry.votes?.length) {
+    span.textContent = '';
     row.hidden = true;
     return;
   }
@@ -4300,6 +4460,7 @@ function loadCaseAsOpinion(term, caseEntry) {
   _currentCaseEntry = caseEntry;
   _setCaseInfoRow2(caseEntry);
   _updateFavoriteBtn();
+  _updateTagsBtn();
 
   const qEl = document.getElementById('case-questions');
   qEl.textContent = '';
@@ -4592,6 +4753,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _currentBasePath  = basePath;
   _currentCaseEntry = caseEntry;
   _updateFavoriteBtn();
+  _updateTagsBtn();
 
   // Update case title — for consolidated cases, reflect the selected sub-case.
   const _selOptText = audioSelect.options[audioSelect.selectedIndex]?.textContent || '';
@@ -5118,6 +5280,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
 });
 
 document.getElementById('favorite-btn')?.addEventListener('click', _toggleFavorite);
+document.getElementById('tags-btn')?.addEventListener('click', (e) => { e.stopPropagation(); _buildTagsMenu(e.currentTarget); });
 
 // ── Prev / Next turn buttons ──────────────────────────────────────────────
 function jumpToTurn(target) {
@@ -6515,12 +6678,17 @@ async function downloadTranscriptEdits() {
 }
 
 function saveFavorites() {
-  const data = _getFavData();
-  if (!data.items.length && !data.groups.some(g => g.id !== 'unfiled')) {
-    alert('No favorites to save.');
+  const favData = _getFavData();
+  const tagData = _getTagData();
+  const hasItems  = favData.items.length > 0;
+  const hasGroups = favData.groups.some(g => g.id !== 'unfiled');
+  const hasTags   = Object.keys(tagData).length > 0;
+  if (!hasItems && !hasGroups && !hasTags) {
+    alert('No favorites or tags to save.');
     return;
   }
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const bundle = { favorites: favData, tags: tagData };
+  const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href = url; a.download = 'ussc-favorites.json';
@@ -6539,24 +6707,33 @@ function restoreFavorites() {
     reader.onload = (ev) => {
       try {
         const parsed = JSON.parse(ev.target.result);
-        let data;
-        if (Array.isArray(parsed)) {
+        let favData, tagData;
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed) && parsed.favorites) {
+          // Bundled format: { favorites: {...}, tags: {...} }
+          favData = parsed.favorites;
+          tagData = (parsed.tags && typeof parsed.tags === 'object' && !Array.isArray(parsed.tags))
+            ? parsed.tags : {};
+        } else if (Array.isArray(parsed)) {
           // Accept v1 plain array
-          data = { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: parsed.map(f => ({ ...f, groupId: 'unfiled' })) };
+          favData = { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: parsed.map(f => ({ ...f, groupId: 'unfiled' })) };
+          tagData = {};
         } else if (parsed && typeof parsed === 'object' && Array.isArray(parsed.items)) {
-          data = parsed;
-          if (!data.groups?.some(g => g.id === 'unfiled')) {
-            data.groups = [{ id: 'unfiled', name: 'Unfiled' }, ...(data.groups || [])];
-          }
+          favData = parsed;
+          tagData = {};
         } else {
           alert('Invalid favorites file.');
           return;
         }
-        _setFavData(data);
+        if (!favData.groups?.some(g => g.id === 'unfiled')) {
+          favData.groups = [{ id: 'unfiled', name: 'Unfiled' }, ...(favData.groups || [])];
+        }
+        _setFavData(favData);
+        _setTagData(tagData);
         _activeFavGroupId = 'unfiled';
         _favoritesItemsBuilt = false;
         _refreshFavoritesNav();
         _updateFavoriteBtn();
+        _updateTagsBtn();
       } catch {
         alert('Could not read favorites file.');
       }
