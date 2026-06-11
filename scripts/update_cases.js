@@ -5152,6 +5152,42 @@ function _scdbArgnum(r) {
     return Number.isFinite(n) ? n : 1;
 }
 
+// Acronyms that must remain ALL-CAPS in title-cased case names.
+// Expand this list as new acronyms are encountered in practice.
+const _SCDB_TITLE_ACRONYMS = new Set([
+    // Federal agencies & regulatory bodies
+    'CAA', 'CAB', 'CIA', 'EEOC', 'EPA', 'FAA', 'FBI', 'FCC', 'FDA', 'FDIC',
+    'FERC', 'FHA', 'FPC', 'FRB', 'FTC', 'HEW', 'HHS', 'ICC', 'IRS', 'NASA',
+    'NLRA', 'NLRB', 'NSA', 'OSHA', 'SEC', 'SSA', 'TVA', 'VA',
+    // Labor organizations
+    'AFL', 'CIO', 'CWA', 'IBEW', 'ILGWU', 'NAACP', 'UAW', 'UMW',
+    // Business / legal abbreviations
+    'DBA', 'LLC', 'RICO',
+]);
+
+// Clean a raw SCDB case name for use as a title:
+//   - removes all "et al." variants (with optional comma and/or period)
+//   - title-cases each word (first letter upper, rest lower)
+//   - preserves acronyms in _SCDB_TITLE_ACRONYMS as all-caps
+//   - preserves tokens that are already entirely lowercase (e.g. "v.", "ex", "rel.")
+//   - handles hyphenated words by applying the same rules to each segment
+function _scdbCleanTitle(title) {
+    if (!title) return title;
+    let s = title.replace(/,?\s*\bet\s+al\.?/gi, '').trim().replace(/\s+/g, ' ');
+    s = s.replace(/\S+/g, token => {
+        const m = token.match(/^([^A-Za-z0-9]*)([A-Za-z0-9][A-Za-z0-9'-]*)([^A-Za-z0-9]*)$/);
+        if (!m) return token;
+        const [, pre, word, post] = m;
+        const cased = word.split('-').map(part => {
+            if (_SCDB_TITLE_ACRONYMS.has(part.toUpperCase())) return part.toUpperCase();
+            if (part === part.toLowerCase()) return part;
+            return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+        }).join('-');
+        return pre + cased + post;
+    });
+    return s;
+}
+
 function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     let usCite     = _scdbNormalizeCite(scdbCase.usCite || '');
     let docket     = (scdbCase.docket || '').trim();
@@ -5180,6 +5216,7 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
 
     if (usCite && ldTitles[usCite]) title = ldTitles[usCite];
     else if (ldTitle) title = ldTitle;
+    title = _scdbCleanTitle(title);
 
     if (ldArgDates.length) {
         const ldArg = ldArgDates.join(',');
@@ -5338,7 +5375,8 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
 
         // Build per-term SCDB lookup tables for matching cases that don't yet
         // have a c.id (e.g. recently imported terms).
-        const termYear = (term.match(/^(\d{4})/) || [])[1] || '';
+        const termYear  = (term.match(/^(\d{4})/)      || [])[1] || '';
+        const termMonth = (term.match(/^\d{4}-(\d{2})$/) || [])[1] || '';
         const scdbByCite       = new Map(); // normalized usCite -> caseId | null(=ambiguous)
         const scdbByDocketDate = new Map(); // "docket\u0000YYYY-MM-DD" -> caseId | null
         const scdbByDocket     = new Map(); // docket -> caseId | null
@@ -5662,6 +5700,16 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 .filter(k => {
                     const r = scdb[k];
                     return (r.dateArgument || r.dateRearg || r.datreRearg);
+                })
+                .filter(k => {
+                    // For non-October special terms, exclude cases whose argument
+                    // date falls in or after the regular October term of the same year.
+                    if (termMonth && termMonth !== '10') {
+                        const r = scdb[k];
+                        const argDate = _scdbNormalizeDate(r.dateArgument || r.dateRearg || r.datreRearg || '');
+                        if (argDate && argDate >= `${termYear}-10-01`) return false;
+                    }
+                    return true;
                 })
                 .filter(k => {
                     const r = scdb[k];
