@@ -5158,34 +5158,48 @@ const _SCDB_TITLE_ACRONYMS = new Set([
     // Federal agencies & regulatory bodies
     'CAA', 'CAB', 'CIA', 'EEOC', 'EPA', 'FAA', 'FBI', 'FCC', 'FDA', 'FDIC',
     'FERC', 'FHA', 'FPC', 'FRB', 'FTC', 'HEW', 'HHS', 'ICC', 'IRS', 'NASA',
-    'NLRA', 'NLRB', 'NSA', 'OSHA', 'SEC', 'SSA', 'TVA', 'VA',
+    'NLRA', 'NLRB', 'NRSC', 'NSA', 'OSHA', 'SEC', 'SSA', 'TVA', 'VA',
+    // Civil-rights & political organizations
+    'ACLU', 'NAACP',
     // Labor organizations
-    'AFL', 'CIO', 'CWA', 'IBEW', 'ILGWU', 'NAACP', 'UAW', 'UMW',
+    'AFL', 'CIO', 'CWA', 'FEC', 'IBEW', 'ILGWU', 'UAW', 'UMW',
+    // Sports / other organizations
+    'BNSF', 'PGA',
     // Business / legal abbreviations
     'DBA', 'LLC', 'RICO',
+]);
+
+// Articles, conjunctions, and short prepositions that are lowercase in title case
+// (except when they are the first word of the title).
+const _SCDB_TITLE_LOWERCASE = new Set([
+    'and', 'as', 'at', 'but', 'by', 'for',
+    'in', 'nor', 'of', 'on', 'or', 'so', 'to', 'up', 'yet',
 ]);
 
 // Clean a raw SCDB case name for use as a title:
 //   - removes all "et al." variants (with optional comma and/or period)
 //   - title-cases each word (first letter upper, rest lower)
+//   - common articles/conjunctions/prepositions stay lowercase (except first word)
 //   - preserves acronyms in _SCDB_TITLE_ACRONYMS as all-caps
 //   - preserves tokens that are already entirely lowercase (e.g. "v.", "ex", "rel.")
 //   - handles hyphenated words by applying the same rules to each segment
 function _scdbCleanTitle(title) {
     if (!title) return title;
     let s = title.replace(/,?\s*\bet\s+al\.?/gi, '').trim().replace(/\s+/g, ' ');
-    s = s.replace(/\S+/g, token => {
+    const tokens = s.split(' ');
+    return tokens.map((token, i) => {
         const m = token.match(/^([^A-Za-z0-9]*)([A-Za-z0-9][A-Za-z0-9'-]*)([^A-Za-z0-9]*)$/);
         if (!m) return token;
         const [, pre, word, post] = m;
         const cased = word.split('-').map(part => {
             if (_SCDB_TITLE_ACRONYMS.has(part.toUpperCase())) return part.toUpperCase();
-            if (part === part.toLowerCase()) return part;
+            if (part === part.toLowerCase()) return part; // already lowercase (e.g. "v.", "ex")
+            const lower = part.toLowerCase();
+            if (i > 0 && _SCDB_TITLE_LOWERCASE.has(lower)) return lower;
             return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
         }).join('-');
         return pre + cased + post;
-    });
-    return s;
+    }).join(' ');
 }
 
 function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
@@ -5445,6 +5459,30 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         const unmatchedOurs = [];            // titles of our cases that couldn't match
 
         for (const c of cases) {
+            // Clean up titles on existing cases that contain all-caps words which
+            // aren't known acronyms — a reliable sign the title came from a raw
+            // SCDB dump and hasn't been title-cased yet.
+            // Split on '|' so compound titles are handled part by part.
+            if (backfill && c.title) {
+                const rawTitle = String(c.title);
+                const hasMessyWord = rawTitle.split('|').some(part =>
+                    part.split(/\s+/).some(token => {
+                        const m = token.match(/^[^A-Za-z]*([A-Za-z][A-Za-z'-]*)([^A-Za-z]*)$/);
+                        if (!m) return false;
+                        return m[1].split('-').some(p =>
+                            p.length >= 2 && p === p.toUpperCase() && !_SCDB_TITLE_ACRONYMS.has(p)
+                        );
+                    })
+                );
+                if (hasMessyWord) {
+                    const cleaned = rawTitle.split('|').map(_scdbCleanTitle).join('|');
+                    if (cleaned !== rawTitle) {
+                        if (verbose) console.log(`[${term}] title: ${JSON.stringify(rawTitle)} → ${JSON.stringify(cleaned)}`);
+                        if (update) { c.title = cleaned; termChanged = true; }
+                    }
+                }
+            }
+
             let cid = c.id;
             let matchHow = '';
             if (!cid) {
