@@ -4810,39 +4810,46 @@ function processCollectionSets(allTerms, dryRun) {
 
 function _scdbVotesSubset(row) {
     const out = [];
-    const processed = new Set(); // track which justices we've already processed
 
     for (const j of (row.justices || [])) {
         let name = (j.justiceName || '').trim().toUpperCase();
         if (_scdbJusticesMap[name]) name = _scdbJusticesMap[name];
         if (!name) continue;
 
-        processed.add(name);
+        const majorityRaw = (j.majority || '').trim().toLowerCase();
+        const voteRaw     = (j.vote     || '').trim().toLowerCase();
+        const opinionRaw  = (j.opinion  || '').trim().toLowerCase();
 
-        const voteRaw = (j.vote || '').trim().toLowerCase();
-        if (voteRaw === 'jurisdictional dissent') {
-            out.push({ name, vote: 'jurisdictional dissent' });
-            continue;
-        }
-        // SCDB sometimes leaves `majority` blank for procedural dissents
-        // (e.g. "dissent from a denial or dismissal of certiorari, or dissent
-        // from summary affirmation of an appeal"). Treat as minority.
-        if (voteRaw.startsWith('dissent from')) {
-            out.push({ name, vote: 'minority' });
-            continue;
-        }
-        const maj = _scdbVoteToOurs(j.majority || '');
-        if (maj === 'majority' || maj === 'minority') {
-            out.push({ name, vote: maj });
-            continue;
+        // Derive our vote value from the SCDB majority field (codes: 2=majority, 1=dissent).
+        let vote;
+        if (majorityRaw === 'majority' || majorityRaw === '2') {
+            vote = 'majority';
+        } else if (majorityRaw === 'dissent' || majorityRaw === '1') {
+            vote = 'minority';
+        } else {
+            // majority is blank — expect vote code 8 (equally divided) or blank (none)
+            if (voteRaw === 'justice participated in an equally divided vote' || voteRaw === '8') {
+                vote = 'unknown';
+            } else if (!voteRaw) {
+                vote = 'none';
+            } else {
+                // majority blank with an unexpected vote value — treat as unknown and warn
+                console.log(`WARNING: ${name}: majority field is blank but vote="${j.vote}" (expected blank or equally-divided)`);
+                vote = 'unknown';
+            }
         }
 
-        // No valid vote - check if justice was serving on decision date
-        // If so, mark as recused
-        const decisionDate = _scdbNormalizeDate(row.dateDecision || '');
-        if (decisionDate && _scdbIsServingOn(name, decisionDate)) {
-            out.push({ name, vote: 'recused' });
+        const entry = { name, vote };
+
+        // Derive action from the SCDB opinion field (codes: 2=wrote, 3=co-authored).
+        const voteLabel = j.vote.trim().replace(/^voted with majority or plurality$/i, 'majority or plurality');
+        if (opinionRaw === 'justice wrote an opinion' || opinionRaw === '2') {
+            entry.action = 'wrote an opinion' + (voteRaw ? ': ' + voteLabel : '');
+        } else if (opinionRaw === 'justice co-authored an opinion' || opinionRaw === '3') {
+            entry.action = 'co-authored an opinion' + (voteRaw ? ': ' + voteLabel : '');
         }
+
+        out.push(entry);
     }
     return out;
 }
@@ -4868,13 +4875,14 @@ function _scdbOurVotesSubset(c) {
         const name = (v.name || '').trim().toUpperCase();
         const raw  = (v.vote || '').trim().toLowerCase();
         if (!name) continue;
-        if (raw === 'jurisdictional dissent') {
-            out.push({ name, vote: 'jurisdictional dissent' });
+        // Accept the four canonical vote values directly.
+        if (raw === 'majority' || raw === 'minority' || raw === 'unknown' || raw === 'none') {
+            out.push({ name, vote: raw });
             continue;
         }
+        // Normalize legacy vote strings for comparison with SCDB-derived data.
         const vote = _scdbVoteTypeToMajority(raw) || _scdbVoteToOurs(raw);
-        if (vote !== 'majority' && vote !== 'minority') continue;
-        out.push({ name, vote });
+        if (vote === 'majority' || vote === 'minority') out.push({ name, vote });
     }
     return out;
 }
@@ -5004,16 +5012,30 @@ function _scdbApplyXUpdate(c, row, mm) {
     if (mm.argument)   addToErrors('argument');
     if (mm.reargument) addToErrors('reargument');
 
-    if (mm.missingVotes && mm.missingVotes.length && !ignored.has('votes')) {
+    const votesToApply = mm.scdbVotes || mm.missingVotes;
+    if (votesToApply && votesToApply.length && !ignored.has('votes')) {
         const list = Array.isArray(c.votes) ? c.votes.slice() : [];
-        const seen = new Set(
-            list.filter(v => v && v.name).map(v => String(v.name).trim().toUpperCase())
-        );
-        for (const v of mm.missingVotes) {
-            if (seen.has(v.name)) continue;
-            seen.add(v.name);
-            list.push({ name: v.name, vote: v.vote });
-            changed = true;
+        const idxByName = new Map();
+        for (let i = 0; i < list.length; i++) {
+            const n = String(list[i]?.name || '').trim().toUpperCase();
+            if (n) idxByName.set(n, i);
+        }
+        for (const sv of votesToApply) {
+            const idx = idxByName.get(sv.name);
+            if (idx !== undefined) {
+                if (list[idx].vote !== sv.vote) { list[idx].vote = sv.vote; changed = true; }
+                if (sv.action && list[idx].action !== sv.action) { list[idx].action = sv.action; changed = true; }
+                if (!sv.action && list[idx].action !== undefined) { delete list[idx].action; changed = true; }
+                const _reorderedEntry = reorderVote(list[idx]);
+                if (Object.keys(_reorderedEntry).join() !== Object.keys(list[idx]).join()) changed = true;
+                list[idx] = _reorderedEntry;
+            } else {
+                const entry = { name: sv.name, vote: sv.vote };
+                if (sv.action) entry.action = sv.action;
+                list.push(reorderVote(entry));
+                idxByName.set(sv.name, list.length - 1);
+                changed = true;
+            }
         }
         c.votes = list;
     }
@@ -5275,8 +5297,8 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     let total = 0, skipped = 0, updates = 0;
     const errors = [];
 
-    const ldTitles   = (backfill && update) ? _scdbLoadLdTitles()       : {};
-    const ldDatesAll = (backfill && update) ? _scdbLoadLdDatesByCaseId() : {};
+    const ldTitles   = backfill ? _scdbLoadLdTitles()       : {};
+    const ldDatesAll = backfill ? _scdbLoadLdDatesByCaseId() : {};
 
     for (const cf of cases_files) {
         const term = path.basename(path.dirname(cf));
@@ -5488,7 +5510,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             }
 
             const mm = { decision: false, argument: false, reargument: false,
-                         voteMajority: null, voteMinority: null, missingVotes: [] };
+                         voteMajority: null, voteMinority: null, missingVotes: [], scdbVotes: null };
 
             const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
             if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
@@ -5515,7 +5537,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     if (maj !== null) mm.voteMajority = maj;
                     if (minv !== null) mm.voteMinority = minv;
                     const sVall = _scdbVotesSubset(row);
-                    if (sVall.length) mm.missingVotes = sVall;
+                    if (sVall.length) { mm.missingVotes = sVall; mm.scdbVotes = sVall; }
                     if (maj !== null || minv !== null || sVall.length) {
                         pushErr('votes', `${prefix}: missing vote data`);
                     }
@@ -5530,6 +5552,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 }
 
                 const sV = _scdbVotesSubset(row);
+                // Always store sV so _scdbApplyXUpdate can reconcile action values
+                // even when vote values already match.
+                if (sV.length) mm.scdbVotes = sV;
                 let oV = _scdbOurVotesSubset(c);
                 // If SCDB explicitly lists a justice on the case but with no
                 // participating vote, treat them as non-participating and drop
@@ -5621,14 +5646,12 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 const verb = update ? 'adding' : 'would add';
                 console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) ${verb} (missing from cases.json):`);
                 for (const k of unmatchedScdb) {
-                    const r = scdb[k];
-                    console.log(`  ${k}  ${r.docket || ''}  ${r.dateArgument || r.dateRearg || r.datreRearg || ''}  ${r.caseName || ''}`);
+                    const built = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
+                    const dateStr = [built.argument, built.reargument].filter(Boolean).join(' / rearg: ');
+                    console.log(`  ${k}  ${built.number || ''}  ${dateStr || ''}  ${built.title || ''}`);
+                    if (update) cases.push(built);
                 }
                 if (update) {
-                    for (const k of unmatchedScdb) {
-                        const newCase = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
-                        cases.push(newCase);
-                    }
                     sortCases(term, cases, false);
                     termChanged = true;
                 }
@@ -7601,8 +7624,8 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
             else voteMap.set(c, { name: c, vote: 'minority' });
         }
         for (const c of recusedCanonical) {
-            if (voteMap.has(c)) voteMap.get(c).vote = 'recused';
-            else voteMap.set(c, { name: c, vote: 'recused' });
+            if (voteMap.has(c)) voteMap.get(c).vote = 'none';
+            else voteMap.set(c, { name: c, vote: 'none' });
         }
         for (const c of dissentCanonical) {
             const entry = voteMap.get(c);
@@ -7621,13 +7644,13 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         );
         theCase.voteMajority = theCase.votes.filter(v => v.vote === 'majority').length;
         theCase.voteMinority = theCase.votes.filter(v => v.vote === 'minority').length;
-        const recusedCount   = theCase.votes.filter(v => v.vote === 'recused').length;
+        const noneCount      = theCase.votes.filter(v => v.vote === 'none').length;
 
         console.log(`\nUpdated vote breakdown:`);
         console.log(`  Majority: ${theCase.voteMajority}`);
         console.log(`  Minority: ${theCase.voteMinority}`);
-        console.log(`  Recused:  ${recusedCount}`);
-        console.log(`  Total:    ${theCase.voteMajority + theCase.voteMinority + recusedCount} of ${servingJustices.length} serving`);
+        console.log(`  None:     ${noneCount}`);
+        console.log(`  Total:    ${theCase.voteMajority + theCase.voteMinority + noneCount} of ${servingJustices.length} serving`);
 
     } else {
         // ── Full update: replace all vote data ─────────────────────────────
@@ -7669,7 +7692,7 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         const dissentSet  = new Set(dissentCanonical);
 
         const voteEntries = servingJustices.map(c => {
-            const vote = recusedSet.has(c) ? 'recused' : minoritySet.has(c) ? 'minority' : 'majority';
+            const vote = recusedSet.has(c) ? 'none' : minoritySet.has(c) ? 'minority' : 'majority';
             const entry = { name: c, vote };
             if (authorCanonical && c === authorCanonical && vote === 'majority') entry.opinion = true;
             if (dissentSet.has(c) && vote === 'minority') entry.dissent = true;
@@ -7679,7 +7702,7 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         const sorted = _scdbSortVotesBySeniority(voteEntries, decisionDate);
         const majorityCount = sorted.filter(v => v.vote === 'majority').length;
         const minorityCount = sorted.filter(v => v.vote === 'minority').length;
-        const recusedCount  = sorted.filter(v => v.vote === 'recused').length;
+        const noneCount     = sorted.filter(v => v.vote === 'none').length;
 
         if (majorityCount !== votes.majority) {
             console.error(`ERROR: Expected ${votes.majority} majority votes, got ${majorityCount}`);
@@ -7693,8 +7716,8 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         console.log(`\nVote breakdown:`);
         console.log(`  Majority: ${majorityCount}`);
         console.log(`  Minority: ${minorityCount}`);
-        console.log(`  Recused:  ${recusedCount}`);
-        console.log(`  Total:    ${majorityCount + minorityCount + recusedCount} of ${servingJustices.length} serving`);
+        console.log(`  None:     ${noneCount}`);
+        console.log(`  Total:    ${majorityCount + minorityCount + noneCount} of ${servingJustices.length} serving`);
         console.log(`\nOpinion author: ${authorCanonical ? _justiceDisplayName(authorCanonical) : 'Per curiam'}`);
 
         theCase.result       = result;

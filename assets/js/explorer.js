@@ -952,6 +952,7 @@ let TERMS = [];         // flat array {name, file, cases(count), term(derived), 
 let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
+const _COLLECTION_ALIASES = { loners: 'lone_dissents' };
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 
 async function fetchTermCases(term) {
@@ -1525,7 +1526,7 @@ function _setCaseInfoRow3(caseEntry) {
     return;
   }
   const majority = caseEntry.votes
-    .filter(v => v.vote !== 'minority')
+    .filter(v => v.vote === 'majority')
     .map(v => _voteName(v.name));
   const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
   const firstTitle = (caseEntry.title || '').split('|')[0];
@@ -5936,7 +5937,12 @@ async function restoreFromURL() {
   let termParam         = params.get('term');
   if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const caseParam       = params.get('case');
-  const collectionParam = params.get('collection');
+  let collectionParam = params.get('collection');
+  if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
+    collectionParam = _COLLECTION_ALIASES[collectionParam];
+    params.set('collection', collectionParam);
+    history.replaceState(null, '', '?' + params.toString());
+  }
   const groupParam      = params.get('group') != null ? parseInt(params.get('group'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;

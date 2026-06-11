@@ -34,7 +34,7 @@ export const ADVOCATE_KEY_ORDER = [
 ];
 
 export const VOTE_KEY_ORDER = [
-    'name', 'vote', 'opinion', 'dissent',
+    'name', 'vote', 'action', 'opinion', 'dissent',
 ];
 
 function _reorder(obj, order) {
