@@ -5459,30 +5459,6 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         const unmatchedOurs = [];            // titles of our cases that couldn't match
 
         for (const c of cases) {
-            // Clean up titles on existing cases that contain all-caps words which
-            // aren't known acronyms — a reliable sign the title came from a raw
-            // SCDB dump and hasn't been title-cased yet.
-            // Split on '|' so compound titles are handled part by part.
-            if (backfill && c.title) {
-                const rawTitle = String(c.title);
-                const hasMessyWord = rawTitle.split('|').some(part =>
-                    part.split(/\s+/).some(token => {
-                        const m = token.match(/^[^A-Za-z]*([A-Za-z][A-Za-z'-]*)([^A-Za-z]*)$/);
-                        if (!m) return false;
-                        return m[1].split('-').some(p =>
-                            p.length >= 2 && p === p.toUpperCase() && !_SCDB_TITLE_ACRONYMS.has(p)
-                        );
-                    })
-                );
-                if (hasMessyWord) {
-                    const cleaned = rawTitle.split('|').map(_scdbCleanTitle).join('|');
-                    if (cleaned !== rawTitle) {
-                        if (verbose) console.log(`[${term}] title: ${JSON.stringify(rawTitle)} → ${JSON.stringify(cleaned)}`);
-                        if (update) { c.title = cleaned; termChanged = true; }
-                    }
-                }
-            }
-
             let cid = c.id;
             let matchHow = '';
             if (!cid) {
