@@ -3071,6 +3071,18 @@ function _scdbContainsDate(ourValue, scdbDate) {
 
 function _scdbNormalizeCite(s) { return (s || '').split(/\s+/).filter(Boolean).join(' '); }
 
+// Convert SCDB docket formats to our conventions:
+//   "N ORIG" / "N, ORIG." / "N (ORIGINAL)" → "N-Orig"
+//   "N MISC" / "N, MISC."                   → "N-Misc"
+function _scdbNormalizeDocket(docket) {
+    const s = (docket || '').trim();
+    const m = s.match(/^(\d+)?\s*[,.(]?\s*(ORIGINAL|ORIG|MISC)\s*[.)]*$/i);
+    if (!m) return s;
+    const n      = (m[1] || '').trim();
+    const suffix = /^orig/i.test(m[2]) ? 'Orig' : 'Misc';
+    return n ? `${n}-${suffix}` : suffix;
+}
+
 function _scdbParseUsCite(usCite) {
     const m = _US_CITE_RE.exec(_scdbNormalizeCite(usCite));
     if (!m) return ['', ''];
@@ -4832,8 +4844,9 @@ function _scdbVotesSubset(row) {
                 vote = 'unknown';
             } else if (!voteRaw) {
                 vote = 'none';
+            } else if (_SCDB_MIN_VOTE_TYPES.has(voteRaw) || voteRaw.startsWith('dissent from')) {
+                vote = 'minority';
             } else {
-                // majority blank with an unexpected vote value — treat as unknown and warn
                 console.log(`WARNING: ${name}: majority field is blank but vote="${j.vote}" (expected blank or equally-divided)`);
                 vote = 'unknown';
             }
@@ -5182,7 +5195,7 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     const votes = _scdbVotesSubset(scdbCase);
 
     const obj = { id: caseId, title, files: 0, votes };
-    if (docket && docket !== '0')     obj.number = docket;
+    if (docket && docket !== '0')     obj.number = _scdbNormalizeDocket(docket);
     if (argument && argument !== '0') obj.argument = argument;
     if (reargument && reargument !== '0') obj.reargument = reargument;
     if (decision && decision !== '0') {
@@ -5299,6 +5312,21 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
 
     const ldTitles   = backfill ? _scdbLoadLdTitles()       : {};
     const ldDatesAll = backfill ? _scdbLoadLdDatesByCaseId() : {};
+
+    // Pre-build a global set of every SCDB case id already tracked in ANY term
+    // directory so backfill never re-adds a case that lives in a different term
+    // (e.g. special terms like 1958-08 share the same year prefix as 1958-10).
+    const allTrackedIds = new Set();
+    if (backfill) {
+        for (const d of fs.readdirSync(_SCDB_TERMS_DIR).sort()) {
+            const p = path.join(_SCDB_TERMS_DIR, d, 'cases.json');
+            if (!fs.existsSync(p)) continue;
+            try {
+                const cs = JSON.parse(fs.readFileSync(p, 'utf8'));
+                for (const c of cs) if (c.id) allTrackedIds.add(c.id);
+            } catch { /* ignore parse errors — they'll be caught per-term below */ }
+        }
+    }
 
     for (const cf of cases_files) {
         const term = path.basename(path.dirname(cf));
@@ -5622,24 +5650,23 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             for (const t of unmatchedOurs) console.log(t);
         }
         if (scdbTermIds.size && backfill) {
-            // Map any docket appearing in our cases.json (including
-            // consolidated case numbers) to its disposition string, if any.
-            const ourDocketDisposition = new Map();
+            // Collect every docket token from our existing cases in this term
+            // so we can skip SCDB cases whose number is already represented.
+            const ourDockets = new Set();
             for (const c of cases) {
-                if (!c.disposition) continue;
-                for (const d of splitDocket(c.number)) {
-                    if (!ourDocketDisposition.has(d)) ourDocketDisposition.set(d, c.disposition);
-                }
+                for (const d of splitDocket(c.number)) ourDockets.add(d);
             }
             const unmatchedScdb = [...scdbTermIds]
                 .filter(k => !matchedFromOurs.has(k))
+                .filter(k => !allTrackedIds.has(k))
                 .filter(k => {
                     const r = scdb[k];
                     return (r.dateArgument || r.dateRearg || r.datreRearg);
                 })
                 .filter(k => {
                     const r = scdb[k];
-                    return !splitDocket(r.docket).some(d => ourDocketDisposition.has(d));
+                    const normalizedDocket = _scdbNormalizeDocket((r.docket || '').trim());
+                    return !splitDocket(normalizedDocket).some(d => ourDockets.has(d));
                 })
                 .sort();
             if (unmatchedScdb.length) {
