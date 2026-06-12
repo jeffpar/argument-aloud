@@ -208,10 +208,23 @@ function _getTagData() {
   } catch { return {}; }
 }
 
+function _sortedTagData(data) {
+  return Object.fromEntries(
+    Object.keys(data).sort((a, b) => {
+      const [, termA, numA = ''] = a.split(':');
+      const [, termB, numB = ''] = b.split(':');
+      if (termA !== termB) return termA < termB ? -1 : 1;
+      const nA = parseInt(numA, 10), nB = parseInt(numB, 10);
+      if (!isNaN(nA) && !isNaN(nB)) return nA - nB;
+      return numA < numB ? -1 : numA > numB ? 1 : 0;
+    }).map(k => [k, data[k]])
+  );
+}
+
 function _setTagData(data) {
   try {
     if (!Object.keys(data).length) localStorage.removeItem(_LS_TAGS_KEY);
-    else localStorage.setItem(_LS_TAGS_KEY, JSON.stringify(data));
+    else localStorage.setItem(_LS_TAGS_KEY, JSON.stringify(_sortedTagData(data)));
   } catch { /* quota exceeded */ }
 }
 
@@ -253,6 +266,20 @@ function _removeUserTag(tag) {
   if (!data[key].length) delete data[key];
   _setTagData(data);
   _updateTagsBtn();
+}
+
+function _pruneRedundantUserTags() {
+  const key = _currentTagKey();
+  if (!key) return;
+  const builtin = _getBuiltinTags();
+  if (!builtin.length) return;
+  const data = _getTagData();
+  if (!data[key]) return;
+  const pruned = data[key].filter(t => !builtin.includes(t));
+  if (pruned.length === data[key].length) return;
+  if (pruned.length) data[key] = pruned;
+  else delete data[key];
+  _setTagData(data);
 }
 
 function _updateTagsBtn() {
@@ -4458,6 +4485,7 @@ function loadCaseAsOpinion(term, caseEntry) {
   }
 
   _currentCaseEntry = caseEntry;
+  _pruneRedundantUserTags();
   _setCaseInfoRow2(caseEntry);
   _updateFavoriteBtn();
   _updateTagsBtn();
@@ -4752,6 +4780,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _currentEvents    = caseEntry.events || [];
   _currentBasePath  = basePath;
   _currentCaseEntry = caseEntry;
+  _pruneRedundantUserTags();
   _updateFavoriteBtn();
   _updateTagsBtn();
 
@@ -6677,9 +6706,42 @@ async function downloadTranscriptEdits() {
   alert('Note: Send the downloaded edits to admin@argumentaloud.org for processing. Thank you for taking the time to make these corrections.');
 }
 
-function saveFavorites() {
+async function _filterBuiltinTagsForExport(tagData) {
+  // Group case keys by term so we fetch each cases.json once.
+  const byTerm = {};
+  for (const key of Object.keys(tagData)) {
+    const [, term, number] = key.split(':');
+    if (!byTerm[term]) byTerm[term] = [];
+    byTerm[term].push({ key, number });
+  }
+
+  // Fetch all relevant cases.json files in parallel.
+  const builtinMap = {};
+  await Promise.all(Object.entries(byTerm).map(async ([term, entries]) => {
+    try {
+      const resp = await fetch(`/courts/ussc/terms/${term}/cases.json`);
+      if (!resp.ok) return;
+      const cases = await resp.json();
+      for (const { key, number } of entries) {
+        const c = cases.find(c => (c.number || c.id || '') === number);
+        if (c?.tags) builtinMap[key] = Array.isArray(c.tags) ? c.tags : [String(c.tags)];
+      }
+    } catch { /* ignore network errors — keep all user tags for that term */ }
+  }));
+
+  // Strip any user tag that already exists as a built-in tag on the server.
+  const filtered = {};
+  for (const [key, userTags] of Object.entries(tagData)) {
+    const builtin = builtinMap[key] || [];
+    const toExport = userTags.filter(t => !builtin.includes(t));
+    if (toExport.length) filtered[key] = toExport;
+  }
+  return _sortedTagData(filtered);
+}
+
+async function saveFavorites() {
   const favData = _getFavData();
-  const tagData = _getTagData();
+  const tagData = await _filterBuiltinTagsForExport(_getTagData());
   const hasItems  = favData.items.length > 0;
   const hasGroups = favData.groups.some(g => g.id !== 'unfiled');
   const hasTags   = Object.keys(tagData).length > 0;
