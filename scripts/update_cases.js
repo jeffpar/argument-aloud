@@ -2605,7 +2605,7 @@ function sortCases(term, cases, dryRun) {
         const parts = raw.split('-');
         return parseInt(parts[parts.length - 1], 10) || 0;
     };
-    const key = (c) => { const d = lastArgDate(c); return [d ? '0' : '1', d, firstDocketNum(c)]; };
+    const key = (c) => { const d = lastArgDate(c); return [d ? '0' : '1', d || (c.decision || '2199-12-31'), firstDocketNum(c)]; };
     const sorted = [...indexed].sort(([, a], [, b]) => _cmpKeys(key(a), key(b)));
     const orderChanged = sorted.some(([oi], i) => oi !== i);
     if (orderChanged) {
@@ -2884,6 +2884,7 @@ const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
 const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
 const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
+const _SCDB_ERRORS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'scdb_errors.json');
 
 const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
 const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
@@ -5340,7 +5341,7 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, backfill) {
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, backfill, all) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -5361,8 +5362,27 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     let total = 0, skipped = 0, updates = 0;
     const errors = [];
 
+    // Load scdb_errors.json if it exists (provides skip set); otherwise build it.
+    let scdbErrorsMap = {};
+    const buildErrors = !fs.existsSync(_SCDB_ERRORS_PATH);
+    if (!buildErrors) {
+        try {
+            scdbErrorsMap = JSON.parse(fs.readFileSync(_SCDB_ERRORS_PATH, 'utf8'));
+        } catch (e) {
+            console.log(`WARNING: could not read ${path.relative(REPO_ROOT, _SCDB_ERRORS_PATH)}: ${e.message}`);
+        }
+    }
+    const scdbSkipSet = new Set(Object.keys(scdbErrorsMap).filter(k => scdbErrorsMap[k].skip));
+    const errorsAccum = {};
+
     const ldTitles   = backfill ? _scdbLoadLdTitles()       : {};
     const ldDatesAll = backfill ? _scdbLoadLdDatesByCaseId() : {};
+
+    let backfillDatesMap = null;
+    if (backfill) {
+        try { backfillDatesMap = _loadDatesCsv(); }
+        catch (e) { console.log(`WARNING: could not load ussc_dates.csv for backfill date checks: ${e.message}`); }
+    }
 
     // Pre-build a global set of every SCDB case id already tracked in ANY term
     // directory so backfill never re-adds a case that lives in a different term
@@ -5546,6 +5566,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 if (cid !== caseFilter && c.id !== caseFilter && !dockets.includes(caseFilter)) continue;
             }
             matchedFromOurs.add(cid);
+            if (scdbSkipSet.has(cid)) { skipped++; continue; }
             if (matchHow) matchInfo.push({ title: firstTitle(c.title) || cid, cid, how: matchHow });
             total++;
             const prefix = `${term}/${cid} (${firstTitle(c.title) || cid})`;
@@ -5609,6 +5630,23 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             if (scdbDec && ourDec && scdbDec !== ourDec) {
                 mm.decision = true;
                 pushErr('decision', `${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
+            }
+
+            if (buildErrors && c.scdb_errors) {
+                const errorFields = new Set(String(c.scdb_errors).split(',').map(s => s.trim()).filter(Boolean));
+                const entry = {};
+                if (errorFields.has('argument') && scdbArg) {
+                    const ourArg = Array.isArray(c.argument) ? c.argument.join(', ') : (c.argument || '');
+                    entry.dateArgument = `${scdbArg} -> ${ourArg}`;
+                }
+                if (errorFields.has('reargument') && scdbRe) {
+                    const ourRe = Array.isArray(c.reargument) ? c.reargument.join(', ') : (c.reargument || '');
+                    entry.dateRearg = `${scdbRe} -> ${ourRe}`;
+                }
+                if (errorFields.has('decision') && scdbDec && ourDec) {
+                    entry.dateDecision = `${scdbDec} -> ${ourDec}`;
+                }
+                if (Object.keys(entry).length) errorsAccum[cid] = entry;
             }
 
             if (_scdbHasImportedOpinion(c) || noVoteData) {
@@ -5711,7 +5749,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             const unmatchedScdb = [...scdbTermIds]
                 .filter(k => !matchedFromOurs.has(k))
                 .filter(k => !allTrackedIds.has(k))
+                .filter(k => !scdbSkipSet.has(k))
                 .filter(k => {
+                    if (all) return true;
                     const r = scdb[k];
                     return (r.dateArgument || r.dateRearg || r.datreRearg);
                 })
@@ -5735,9 +5775,40 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 const verb = update ? 'adding' : 'would add';
                 console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) ${verb} (missing from cases.json):`);
                 for (const k of unmatchedScdb) {
-                    const built = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
+                    let built = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
+                    // Check built dates against ussc_dates.csv (scotus source) and record/apply any differences.
+                    if (backfillDatesMap && backfillDatesMap.has(k)) {
+                        const csv = backfillDatesMap.get(k);
+                        const errFields = [];
+                        const errEntry = errorsAccum[k] ? { ...errorsAccum[k] } : {};
+
+                        const csvDec = _scdbNormalizeDate(csv.dateDecision || '');
+                        if (csvDec && built.decision && csvDec !== built.decision) {
+                            errEntry.dateDecision = `${built.decision} -> ${csvDec}`;
+                            errFields.push('decision');
+                            built = reorderCase(Object.assign({}, built, { decision: csvDec }));
+                        }
+
+                        const csvArgDates = (csv.dateArguments || []).slice().sort();
+                        const builtArgDates = _scdbSplitCsvDates(built.argument || '').sort();
+                        if (csvArgDates.length && (
+                            csvArgDates.length !== builtArgDates.length ||
+                            csvArgDates.some((d, i) => d !== builtArgDates[i])
+                        )) {
+                            errEntry.dateArgument = `${built.argument || ''} -> ${csvArgDates.join(',')}`;
+                            errFields.push('argument');
+                            built = reorderCase(Object.assign({}, built, { argument: csvArgDates.join(',') }));
+                        }
+
+                        if (errFields.length) {
+                            const existingErrs = String(built.scdb_errors || '').split(',').map(s => s.trim()).filter(Boolean);
+                            const combined = [...new Set([...existingErrs, ...errFields])].join(',');
+                            built = reorderCase(Object.assign({}, built, { scdb_errors: combined }));
+                            errorsAccum[k] = errEntry;
+                        }
+                    }
                     const dateStr = [built.argument, built.reargument].filter(Boolean).join(' / rearg: ');
-                    console.log(`  ${k}  ${built.number || ''}  ${dateStr || ''}  ${built.title || ''}`);
+                    console.log(`  ${k}  ${built.number || ''}  ${dateStr || built.decision || ''}  ${built.title || ''}`);
                     if (update) cases.push(built);
                 }
                 if (update) {
@@ -5755,6 +5826,17 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
 
     console.log(`Checked ${total} cases with SCDB ids (${skipped} cases skipped — no id).`);
     if (update) console.log(`Applied SCDB opinion metadata updates to ${updates} case(s).`);
+
+    if (Object.keys(errorsAccum).length) {
+        Object.assign(scdbErrorsMap, errorsAccum);
+        const sorted = {};
+        for (const k of Object.keys(scdbErrorsMap).sort()) sorted[k] = scdbErrorsMap[k];
+        const dir = path.dirname(_SCDB_ERRORS_PATH);
+        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(_SCDB_ERRORS_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+        const verb = buildErrors ? 'Wrote' : 'Updated';
+        console.log(`${verb} ${Object.keys(sorted).length} entries in ${path.relative(REPO_ROOT, _SCDB_ERRORS_PATH)}.`);
+    }
 
     if (errors.length) {
         console.log(`\n${errors.length} issue(s) found:\n`);
@@ -5879,7 +5961,7 @@ async function runScdb(opts) {
     } else if (opts.case && !opts.backfill) {
         _scdbPrintCase(scdb, opts.case);
     } else {
-        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.backfill);
+        _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.backfill, !!opts.all);
     }
 }
 
@@ -6915,8 +6997,10 @@ Examples:
                                                            #    fills in missing votes / vote counts)
   node update_cases.js 2024-10 --scdb --dry-run            # report SCDB differences, no writes
   node update_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch
-  node update_cases.js [TERM] --scdb --backfill              # list SCDB cases missing from cases.json
+  node update_cases.js [TERM] --scdb --backfill              # list argued SCDB cases missing from cases.json
+  node update_cases.js [TERM] --scdb --backfill --all        # list ALL missing SCDB cases (including unargu cases)
   node update_cases.js [TERM] --scdb --backfill --dry-run    # preview missing cases without adding
+  node update_cases.js [TERM] --scdb --backfill --all --dry-run
 
   node update_cases.js --dates                             # check all terms vs ussc_dates.csv
   node update_cases.js 1793-02 --dates                     # check one term vs ussc_dates.csv
@@ -8034,6 +8118,7 @@ async function main() {
             update:   !dryRun,
             add:      flags.has('--add'),
             backfill: flags.has('--backfill'),
+            all:      flags.has('--all'),
             noCache:  flags.has('--nocache') || flags.has('--no-cache'),
             verbose,
             debug:    flags.has('--debug'),
