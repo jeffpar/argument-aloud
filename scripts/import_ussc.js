@@ -32,7 +32,7 @@ import { parse as parseHtml } from 'node-html-parser';
 import { reorderCase, reorderEvent } from './schema.js';
 import {
     REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase,
-    syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose,
+    syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose, sortCases,
 } from './update_cases.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1267,6 +1267,7 @@ async function generateMissingTranscripts(casesPath, caseFilter = null, force = 
         const byDate = new Map();
         for (const arg of (c.events || [])) {
             if ((arg.source || 'ussc') !== 'ussc') continue;
+            if (arg.redundant) continue;
             const t = arg.type;
             if (!(t === undefined || t === null || t === 'argument' || t === 'reargument')) continue;
             if (!arg.transcript_href || !arg.date) continue;
@@ -2202,6 +2203,7 @@ async function importOpinionCases(casesPath, term) {
     }
 
     if (addedNumbers.size) {
+        sortCases(term, data, false);
         writeJson(casesPath, data);
         reportChange(`Added ${addedNumbers.size} case(s) from opinions page to cases.json.`);
         const yearInt = parseInt(yearStr, 10);
