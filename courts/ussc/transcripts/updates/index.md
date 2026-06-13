@@ -168,3 +168,5 @@ Below is a list of all transcripts updates that have been applied to the server 
       - [Turn 213](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=213): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
       - [Turn 215](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=215): UNKNOWN JUSTICE -> JOHN PAUL STEVENS
       - [Turn 217](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=217): UNKNOWN JUSTICE -> ANTONIN SCALIA
+  - [Carnival Cruise Lines, Inc. v. Shute (No. 89-1647)](/courts/ussc/?term=1990-10&case=89-1647&event=2)
+      - [Turn 35](/courts/ussc/?term=1990-10&case=89-1647&event=2&turn=35): BYRON WHITE -> ANTHONY KENNEDY
