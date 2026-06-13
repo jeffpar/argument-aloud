@@ -1204,15 +1204,6 @@ function buildUrlParams(updates, deletes = []) {
   return url;
 }
 
-async function loadAllTermsForSearch() {
-  const termEls = document.querySelectorAll('.term-group[data-term]');
-  await Promise.all([...termEls].map(el => el._ensureBuilt?.()));
-  // Re-run any active query now that all cases are in the DOM.
-  const navSearchInput = document.getElementById('nav-search-input');
-  if (navSearchInput?.value.trim()) {
-    navSearchInput.dispatchEvent(new Event('input'));
-  }
-}
 
 // Normalise link.refs (string or array) to an array of strings.
 function getRefs(link) {
@@ -1700,7 +1691,6 @@ function _setCaseInfoRow2(caseEntry) {
   document.getElementById('case-decided').textContent =
     !omitDecided && caseEntry.decision
       ? 'Decided\u00a0' + formatDecisionDate(caseEntry.decision)
-          + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
       : '';
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
@@ -2155,13 +2145,12 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
 //                       loadCase highlights only the sibling whose audioDate
 //                       matches the currently-resolved event.
 //   hasFiles   boolean — when false, the toggle (▶) is hidden by default
-function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, hasFiles, caseNumber, href }) {
+function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, hasFiles, href }) {
   const ci = document.createElement('li');
   ci.className = 'case-item';
   ci.dataset.caseKey = caseKey;
   if (audioDate) ci.dataset.audioDate = audioDate;
   if (eventIdx != null) ci.dataset.eventIdx = String(eventIdx);
-  if (caseNumber) ci.dataset.caseNumber = caseNumber;
 
   const header = document.createElement('div');
   header.className = 'case-header';
@@ -2370,13 +2359,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       title:    caseTitle(caseEntry.title),
       tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
       hasFiles: !!caseEntry.files,
-      caseNumber: caseEntry.number || '',
       href:     buildUrlParams(
         { term, case: urlId },
         ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
       ),
     });
-    if (caseEntry.title?.includes('|')) ci.dataset.rawTitle = caseEntry.title.toLowerCase();
 
     if (mode === 'argued' || mode === 'decided') {
       // Replace icons with a compact date label
@@ -3578,7 +3565,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
           ? caseRef.reargument.split(',')[0].trim()
           : null,
     hasFiles:  !!caseRef.files,
-    caseNumber: caseRef.number || '',
     href:      buildUrlParams(
       { collection: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number },
       [_ciDeleteOther, 'highlight', 'event', 'file', 'turn'],
@@ -5902,20 +5888,31 @@ function findFileItem(param) {
     return ul;
   }
 
-  // Same tokenisation rules as the index builder: strip punct, lowercase, ≥2 chars, [a-z1-9] first char.
+  // Tokenise a raw query into search tokens.
+  // Any non-alphanumeric character (including hyphens) is a word break, matching
+  // the index builder.  A trailing '*' is preserved as a wildcard marker.
+  // Tokens shorter than 3 chars (excluding the '*') are dropped.
   function _tokens(q) {
+    // Preserve trailing '*' on each word before splitting.
     return q.toLowerCase()
-      .replace(/[^a-z0-9'\s-]/g, ' ')
-      .split(/\s+/)
-      .map(t => t.replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''))
-      .filter(t => t.length >= 2 && /^[a-z1-9]/.test(t));
+      .split(/[^a-z0-9*]+/)
+      .map(t => t.replace(/\*+$/, m => m ? '*' : '').replace(/\*/g, (_, i, s) => i === s.length - 1 ? '*' : ''))
+      .map(t => { const bare = t.endsWith('*') ? t.slice(0, -1) : t; return bare.length >= 3 ? t : ''; })
+      .filter(t => t.length >= 3 && /^[a-z1-9]/.test(t));
   }
 
-  // Collect every ref whose index key starts with `token` (prefix match).
-  function _prefixRefs(index, token) {
+  // Return refs for `token` from `index`.
+  // If `token` ends with '*' do a prefix search; otherwise require an exact match.
+  function _refsForToken(index, token) {
     const out = new Set();
-    for (const [k, arr] of Object.entries(index)) {
-      if (k.startsWith(token)) for (const r of arr) out.add(r);
+    if (token.endsWith('*')) {
+      const prefix = token.slice(0, -1);
+      for (const [k, arr] of Object.entries(index)) {
+        if (k.startsWith(prefix)) for (const r of arr) out.add(r);
+      }
+    } else {
+      const arr = index[token];
+      if (arr) for (const r of arr) out.add(r);
     }
     return out;
   }
@@ -5953,7 +5950,7 @@ function findFileItem(param) {
     }
 
     // Fetch required index files in parallel (cached after first load).
-    const chars = [...new Set(toks.map(t => t[0]))];
+    const chars = [...new Set(toks.map(t => t[0]))]; // first char is always a-z or 1-9 (never *)
     const indexMap = Object.fromEntries(
       await Promise.all(chars.map(async ch => [ch, await _fetchTitleIndex(ch)]))
     );
@@ -5961,7 +5958,7 @@ function findFileItem(param) {
     // Intersect ref sets across all tokens.
     let combined = null;
     for (const tok of toks) {
-      const refs = _prefixRefs(indexMap[tok[0]] || {}, tok);
+      const refs = _refsForToken(indexMap[tok[0]] || {}, tok);
       combined = combined === null ? refs : new Set([...combined].filter(r => refs.has(r)));
       if (!combined.size) break;
     }

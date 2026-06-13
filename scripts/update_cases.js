@@ -4825,7 +4825,8 @@ function processCollectionSets(allTerms, dryRun) {
 // Builds courts/ussc/indexes/cases/titles/{a-z,1-9}.json.
 // Each file maps every word that begins with that letter/digit (across all
 // case titles in every term) to a sorted array of "term/id" reference strings.
-// Words are lowercased; punctuation stripped; single-character tokens skipped.
+// Words are lowercased; any non-alphanumeric character is treated as a word
+// break; words shorter than 3 characters are omitted.
 // Files are written compact (no indentation).
 
 function processTitleIndex(allTerms, dryRun) {
@@ -4848,11 +4849,9 @@ function processTitleIndex(allTerms, dryRun) {
             const title = c.title;
             if (!title) continue;
             const ref = `${term}/${c.id || c.number}`;
-            const words = title.toLowerCase().replace(/[^a-z0-9'\s-]/g, ' ').split(/\s+/);
-            for (const raw of words) {
-                // Strip leading/trailing punctuation from each token.
-                const word = raw.replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, '');
-                if (word.length < 2) continue;
+            const words = title.toLowerCase().split(/[^a-z0-9]+/);
+            for (const word of words) {
+                if (word.length < 3) continue;
                 const ch = word[0];
                 if (!/[a-z1-9]/.test(ch)) continue;
                 if (!wordRefs.has(word)) wordRefs.set(word, new Set());

@@ -2068,7 +2068,6 @@ button.term-case-count.sort-active:hover {
     align-items: baseline;
     column-gap: 12px;
     position: relative;
-    padding-right: 28px; /* room for the absolutely-positioned back button */
   }
 
   /* Flatten row1's children directly into #case-info's flex context */
@@ -2076,18 +2075,21 @@ button.term-case-count.sort-active:hover {
     display: contents;
   }
 
-  /* 1st: title (grows to fill) */
-  #case-title-label  { order: 1; }
+  /* 1st: title (grows to fill); right padding makes room for the back button */
+  #case-title-label  { order: 1; flex-basis: 100%; padding-right: 28px; }
 
-  /* 2nd: argued / decided dates */
-  #case-info-row2    { order: 2; flex-basis: 100%; }
-
-  /* 3rd: audio dropdown or decision label */
+  /* 2nd: audio dropdown or decision label */
   #audio-select,
-  #decision-date-label { order: 3; margin-top: 6px; }
+  #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
 
-  /* 4th: questions */
-  #case-questions    { order: 4; flex-basis: 100%; }
+  /* 3rd: argued / decided dates */
+  #case-info-row2    { order: 3; flex-basis: 100%; }
+
+  /* 4th: votes + tags row */
+  #case-info-row3    { order: 4; flex-basis: 100%; }
+
+  /* 5th: questions */
+  #case-questions    { order: 5; flex-basis: 100%; }
 
   #mobile-back-btn {
     display: block;
