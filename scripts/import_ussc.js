@@ -841,12 +841,17 @@ function parseDocket(html, pageUrl) {
     let questionsHref = null;
     const proceedings = [];
 
-    // First pass: pull out the questions_href anywhere on the page.
+    // First pass: pull out the questions_href and opinion PDF link anywhere on the page.
+    let opinionHref = null;
     for (const a of root.querySelectorAll('a')) {
         const text = (a.text || '').trim();
+        const rawHref = a.getAttribute('href') || '';
         if (text === 'Questions Presented') {
-            const href = _resolveHref(a.getAttribute('href'), pageUrl);
+            const href = _resolveHref(rawHref, pageUrl);
             if (href && questionsHref === null) questionsHref = href;
+        }
+        if (opinionHref === null && /\/opinions\/\d+pdf\//i.test(rawHref)) {
+            opinionHref = _resolveHref(rawHref, pageUrl);
         }
     }
 
@@ -882,7 +887,7 @@ function parseDocket(html, pageUrl) {
             });
         }
     }
-    return { questionsHref, proceedings };
+    return { questionsHref, opinionHref, proceedings };
 }
 
 // ── Network entry points ───────────────────────────────────────────────────
@@ -946,7 +951,8 @@ async function fetchTranscriptsFromUrl(url, yearStr = '') {
 }
 
 async function fetchDocketInfo(number, termYear = '') {
-    const internal = _docketNumber(number, termYear);
+    const primary = number.split(',')[0].trim();
+    const internal = _docketNumber(primary, termYear);
     const yearInt = /^\d+$/.test(termYear) ? parseInt(termYear, 10) : 0;
     const url = yearInt >= 2017
         ? `${BASE_URL}/docket/docketfiles/html/public/${internal}.html`
@@ -959,8 +965,8 @@ async function fetchDocketInfo(number, termYear = '') {
         console.log(`Warning: could not fetch docket for ${number}: ${exc.message || exc}`);
         return {};
     }
-    const { questionsHref, proceedings } = parseDocket(html, url);
-    return { questions_href: questionsHref, proceedings };
+    const { questionsHref, opinionHref, proceedings } = parseDocket(html, url);
+    return { questions_href: questionsHref, opinion_href: opinionHref, proceedings };
 }
 
 // ── cases.json updates ─────────────────────────────────────────────────────
@@ -2301,12 +2307,25 @@ async function backfillOpinionHrefs(casesPath, term) {
             if (opinion) break;
         }
         if (!opinion) continue;
-        const href = opinion.href;
+        let href = opinion.href;
         const cite = _formatUsCite(opinion.cite || '');
         const date = opinion.date || '';
         const existingHref = c.opinion_href || '';
         const existingCite = c.usCite || '';
         const existingDate = c.decision || '';
+
+        // The slip-opinions index for older terms may now link to preliminary
+        // print PDFs (e.g. /opinions/preliminaryprint/584US1PP_final.pdf#page=N)
+        // which are no longer accessible. Fall back to the docket page to get
+        // the individual opinion PDF (/opinions/YYpdf/DOCKET_hash.pdf).
+        if (href && href.includes('/preliminaryprint/')) {
+            const termYear = term.split('-')[0];
+            const docketInfo = await fetchDocketInfo(number, termYear);
+            if (docketInfo.opinion_href) {
+                vprint(`  ${number}: replacing preliminaryprint href with docket opinion PDF`);
+                href = docketInfo.opinion_href;
+            }
+        }
 
         const updateHref = (
             !existingHref.startsWith('https://web.archive.org/')

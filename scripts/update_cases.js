@@ -5121,9 +5121,12 @@ function _scdbLoadLdTitles() {
     if (!fs.existsSync(_LD_CITES_PATH)) return out;
     const { rows } = _readCsvRows(_LD_CITES_PATH, 'utf8');
     for (const r of rows) {
-        const cite = _scdbNormalizeCite(r.usCite || '');
+        const cite  = _scdbNormalizeCite(r.usCite || '');
         const title = (r.caseTitle || '').trim();
-        if (cite && title && !out[cite]) out[cite] = title;
+        const year  = (r.year || '').trim();
+        if (!cite || !title) continue;
+        if (!out[cite]) out[cite] = [];
+        out[cite].push({ title, year });
     }
     return out;
 }
@@ -5194,8 +5197,12 @@ function _scdbCleanTitle(title) {
         const [, pre, word, post] = m;
         const cased = word.split('-').map(part => {
             if (_SCDB_TITLE_ACRONYMS.has(part.toUpperCase())) return part.toUpperCase();
-            if (part === part.toLowerCase()) return part; // already lowercase (e.g. "v.", "ex")
             const lower = part.toLowerCase();
+            if (lower.startsWith('mc') && lower.length > 2)
+                return 'M' + 'c' + part.charAt(2).toUpperCase() + part.slice(3).toLowerCase();
+            if (lower.startsWith("o'") && lower.length > 2)
+                return "O'" + part.charAt(2).toUpperCase() + part.slice(3).toLowerCase();
+            if (part === part.toLowerCase()) return part; // already lowercase (e.g. "v.", "ex")
             if (i > 0 && _SCDB_TITLE_LOWERCASE.has(lower)) return lower;
             return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
         }).join('-');
@@ -5229,8 +5236,20 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     if (!usCite && ldUsCite) usCite = ldUsCite;
     if ((!docket || docket === '0') && ldDocket && ldDocket !== '0') docket = ldDocket;
 
-    if (usCite && ldTitles[usCite]) title = ldTitles[usCite];
-    else if (ldTitle) title = ldTitle;
+    if (usCite && ldTitles[usCite]) {
+        const decYear = decision.slice(0, 4);
+        const entries = ldTitles[usCite];
+        const yearMatches = entries.filter(e => e.year === decYear);
+        const candidates = yearMatches.length ? yearMatches : entries;
+        if (candidates.length === 1) {
+            title = candidates[0].title;
+        } else if (ldTitle) {
+            // Multiple cases share this cite — use the caseId-keyed ldTitle instead
+            title = ldTitle;
+        } else {
+            title = candidates[0].title;
+        }
+    } else if (ldTitle) title = ldTitle;
     title = _scdbCleanTitle(title);
 
     if (ldArgDates.length) {
@@ -5756,14 +5775,19 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     return (r.dateArgument || r.dateRearg || r.datreRearg);
                 })
                 .filter(k => {
-                    // For non-October special terms, exclude cases whose argument
-                    // date falls in or after the regular October term of the same year.
-                    if (termMonth && termMonth !== '10') {
-                        const r = scdb[k];
-                        const argDate = _scdbNormalizeDate(r.dateArgument || r.dateRearg || r.datreRearg || '');
-                        if (argDate && argDate >= `${termYear}-10-01`) return false;
-                    }
-                    return true;
+                    // For special (non-October) terms, only include cases whose effective
+                    // date falls within [YYYY-MM-01, YYYY-10-01). Effective date is the
+                    // earliest argument date if the case was argued, otherwise the decision
+                    // date. Cases with no usable date are excluded.
+                    if (!termMonth || termMonth === '10') return true;
+                    const r = scdb[k];
+                    const argDate = _scdbNormalizeDate(r.dateArgument || r.dateRearg || r.datreRearg || '');
+                    const decDate = _scdbNormalizeDate(r.dateDecision || '');
+                    const effectiveDate = argDate || decDate;
+                    if (!effectiveDate) return false;
+                    const termStart = `${termYear}-${termMonth}-01`;
+                    const termEnd   = `${termYear}-10-01`;
+                    return effectiveDate >= termStart && effectiveDate < termEnd;
                 })
                 .filter(k => {
                     const r = scdb[k];
