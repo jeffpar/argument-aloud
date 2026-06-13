@@ -3,10 +3,15 @@ layout: pane
 ---
 
 <style>
-.term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
-@media (prefers-color-scheme: dark) { .term-stats h2 { border-color: #2d2f38; } }
-html[data-theme="dark"]  .term-stats h2 { border-color: #2d2f38; }
-html[data-theme="light"] .term-stats h2 { border-color: #e0e0e0; }
+.stats-title-row { display: flex; justify-content: space-between; align-items: flex-start; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+@media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
+html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
+html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
+.term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
+#journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; flex-shrink: 0; margin-left: 8px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+#journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
+#journal-cover-btn:hover #journal-cover-img { opacity: 0.8; }
+#journal-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
 .stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
 @media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
@@ -35,9 +40,16 @@ html[data-theme="light"] .date-section h3 { color: #888; }
 </style>
 
 <div class="term-stats" id="stats-container">
-  <h2 id="stat-term-title"></h2>
+  <div class="stats-title-row">
+    <h2 id="stat-term-title"></h2>
+    <button id="journal-cover-btn" hidden title="Open journal">
+      <img id="journal-cover-img" alt="Journal cover">
+      <span id="journal-cover-label">Journal</span>
+    </button>
+  </div>
 
   <div class="date-section" id="date-section" hidden>
+    <h2 id="stat-date-title"></h2>
     <div id="date-argued-section" hidden>
       <h3>Argued</h3>
       <ul id="date-argued-list" class="date-case-list"></ul>
@@ -139,8 +151,38 @@ html[data-theme="light"] .date-section h3 { color: #888; }
   var term = params.get('term');
   var date = params.get('date');
   if (!term) return;
-  document.getElementById('stat-term-title').textContent =
-    date ? fmtDate(date) : termTitle(term);
+  document.getElementById('stat-term-title').textContent = termTitle(term);
+  if (date) document.getElementById('stat-date-title').textContent = fmtDate(date);
+
+  // Load journal cover if available for this term.
+  fetch('/courts/ussc/terms.json')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (decades) {
+      var entry = null;
+      decades.forEach(function (d) {
+        (d.groups || []).forEach(function (g) {
+          if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
+        });
+      });
+      if (!entry || !entry.journal_cover || !entry.journal_href) return;
+      var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
+      var btn = document.getElementById('journal-cover-btn');
+      var img = document.getElementById('journal-cover-img');
+      img.src = coverUrl;
+      btn.hidden = false;
+      btn.addEventListener('click', function () {
+        if (window.parent !== window) {
+          window.parent.postMessage({
+            type: 'ussc-open-doc',
+            href: entry.journal_href,
+            title: termTitle(term) + ' Journal'
+          }, location.origin);
+        } else {
+          window.open(entry.journal_href, '_blank', 'noopener,noreferrer');
+        }
+      });
+    })
+    .catch(function () {});
 
   fetch('/courts/ussc/terms/' + term + '/cases.json')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
@@ -198,7 +240,15 @@ html[data-theme="light"] .date-section h3 { color: #888; }
       });
 
       var arguedCases = cases.filter(function (c) { return c.argument || c.reargument; }).length;
-      var argDays = new Set(argEvents.map(function (e) { return e.date; }).filter(Boolean)).size;
+      // Count unique argument days from both event records and the argument/reargument
+      // date fields, since older terms may have date fields but no event records.
+      var argDaySet = new Set(argEvents.map(function (e) { return e.date; }).filter(Boolean));
+      cases.forEach(function (c) {
+        ['argument', 'reargument'].forEach(function (field) {
+          if (c[field]) c[field].split(',').forEach(function (d) { var t = d.trim(); if (t) argDaySet.add(t); });
+        });
+      });
+      var argDays = argDaySet.size;
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
       // (only oyez provides aligned transcripts; ussc never does)

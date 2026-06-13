@@ -1686,16 +1686,14 @@ function _setCaseNotes(text) {
 
 // Populate and show/hide the argued/decided date row below the case title.
 function _setCaseInfoRow2(caseEntry) {
-  // When there are no audio/transcript events but a decision link is already
-  // shown on the right, the decided date is redundant — omit it.
-  const omitDecided = !caseEntry.events?.length && !!caseEntry.opinion_href;
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
 
   // Replaces the contents of `el` with a prefix label followed by one
   // clickable <a> per individual ISO date in the comma-separated dateStr.
   function _setDateLinks(el, prefix, dateStr) {
     while (el.firstChild) el.removeChild(el.firstChild);
-    if (!dateStr) return;
+    if (!dateStr) { el.hidden = true; return; }
+    el.hidden = false;
     const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
     el.appendChild(document.createTextNode(prefix + '\u00a0'));
     dates.forEach((iso, i) => {
@@ -1715,12 +1713,7 @@ function _setCaseInfoRow2(caseEntry) {
 
   _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
-  if (!omitDecided && caseEntry.decision) {
-    _setDateLinks(document.getElementById('case-decided'), 'Decided', caseEntry.decision);
-  } else {
-    const el = document.getElementById('case-decided');
-    while (el.firstChild) el.removeChild(el.firstChild);
-  }
+  _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
@@ -2788,7 +2781,7 @@ function buildNav(title = 'Terms') {
           // Already open — still show stats and reset URL to term-only.
           updateEmptyStateForTerm(term);
           document.getElementById('topbar-term').textContent = termDisplayName(term);
-          const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+          const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn']);
           navigate(url);
           return;
         } else {
@@ -2802,8 +2795,8 @@ function buildNav(title = 'Terms') {
         }
         updateEmptyStateForTerm(term);
         document.getElementById('topbar-term').textContent = termDisplayName(term);
-        // Update URL: set term param, clear case/audio/file/turn params.
-        const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'case', 'event', 'file', 'turn']);
+        // Update URL: set term param, clear case/audio/file/turn/date params.
+        const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn']);
         navigate(url);
       });
 
@@ -6657,6 +6650,8 @@ window.addEventListener('message', async (e) => {
     const url = new URL(location.pathname + e.data.search, location.href);
     navigate(url);
     await restoreFromURL();
+  } else if (e.data?.type === 'ussc-open-doc' && e.data.href) {
+    showDocViewer({ href: e.data.href, title: e.data.title || '' });
   }
 });
 
