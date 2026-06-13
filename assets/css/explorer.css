@@ -227,6 +227,31 @@ body {
   background: #2672b4;
 }
 
+#nav-search-results {
+  list-style: none;
+  margin: 0 0 6px 0;
+  padding: 0;
+}
+
+#nav-search-results[hidden] {
+  display: none;
+}
+
+.nav-search-term-label {
+  flex-shrink: 0;
+  font-size: 10px;
+  color: #999;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.nav-search-no-results {
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
 /* ── Collection inline search ───────────────────────────── */
 .coll-search-btn {
   display: none;
@@ -2431,6 +2456,8 @@ html[data-theme="dark"] #nav-search-input:focus { border-color: #5eaee0; box-sha
 html[data-theme="dark"] .nav-search-match > .case-header         { background: #302c00; }
 html[data-theme="dark"] .nav-search-match > .case-header:hover   { background: #3a3500; }
 html[data-theme="dark"] .nav-search-match.active > .case-header  { background: #1e4d7a; }
+html[data-theme="dark"] .nav-search-term-label { color: #6c7280; }
+html[data-theme="dark"] .nav-search-no-results { color: #6c7280; }
 
 html[data-theme="dark"] .coll-search-btn:hover,
 html[data-theme="dark"] .coll-search-btn.active { background: #252a35; color: #5eaee0; }
@@ -2626,6 +2653,8 @@ html[data-theme="light"] #nav-search-input:focus { border-color: #2672b4; box-sh
 html[data-theme="light"] .nav-search-match > .case-header         { background: #fff8c5; }
 html[data-theme="light"] .nav-search-match > .case-header:hover   { background: #fef0a0; }
 html[data-theme="light"] .nav-search-match.active > .case-header  { background: #2672b4; }
+html[data-theme="light"] .nav-search-term-label { color: #aaa; }
+html[data-theme="light"] .nav-search-no-results { color: #aaa; }
 
 html[data-theme="light"] .coll-search-btn:hover,
 html[data-theme="light"] .coll-search-btn.active { background: #eef3f8; color: #2672b4; }

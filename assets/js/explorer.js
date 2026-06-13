@@ -1140,6 +1140,7 @@ let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
 const _COLLECTION_ALIASES = { loners: 'lone_dissents' };
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
+const _titleIndexCache   = new Map(); // first-char → inflight Promise or resolved index object
 
 async function fetchTermCases(term) {
   if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
@@ -1152,6 +1153,17 @@ async function fetchTermCases(term) {
   const cases = await p;
   _termFetchPromises.set(term, cases);
   return cases;
+}
+
+async function _fetchTitleIndex(ch) {
+  if (_titleIndexCache.has(ch)) return _titleIndexCache.get(ch);
+  const p = fetch('/courts/ussc/indexes/cases/titles/' + ch + '.json')
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}));
+  _titleIndexCache.set(ch, p);
+  const data = await p;
+  _titleIndexCache.set(ch, data);
+  return data;
 }
 
 // Called when nav search opens: loads all not-yet-built term case lists.
@@ -5873,81 +5885,174 @@ function findFileItem(param) {
   const navSearchInput = document.getElementById('nav-search-input');
   const navSearchClear = document.getElementById('nav-search-clear');
 
+  let _resultsEl      = null;
+  let _searchDebounce = null;
+
+  // Lazily inject the results <ul> after the search row inside the terms section.
+  function _ensureResultsEl() {
+    if (_resultsEl) return _resultsEl;
+    const termsLi = document.querySelector('[data-section="terms"]');
+    if (!termsLi) return null;
+    const ul = document.createElement('ul');
+    ul.id = 'nav-search-results';
+    ul.hidden = true;
+    const row = termsLi.querySelector('#nav-search-row');
+    if (row) row.after(ul); else termsLi.prepend(ul);
+    _resultsEl = ul;
+    return ul;
+  }
+
+  // Same tokenisation rules as the index builder: strip punct, lowercase, ≥2 chars, [a-z1-9] first char.
+  function _tokens(q) {
+    return q.toLowerCase()
+      .replace(/[^a-z0-9'\s-]/g, ' ')
+      .split(/\s+/)
+      .map(t => t.replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''))
+      .filter(t => t.length >= 2 && /^[a-z1-9]/.test(t));
+  }
+
+  // Collect every ref whose index key starts with `token` (prefix match).
+  function _prefixRefs(index, token) {
+    const out = new Set();
+    for (const [k, arr] of Object.entries(index)) {
+      if (k.startsWith(token)) for (const r of arr) out.add(r);
+    }
+    return out;
+  }
+
+  function _showNormal() {
+    const termsSectionEl = document.querySelector('[data-section="terms"]');
+    if (!termsSectionEl) return;
+    const inner = termsSectionEl.querySelector('.terms-list-inner');
+    if (inner) inner.hidden = false;
+    if (_resultsEl) { _resultsEl.hidden = true; _resultsEl.innerHTML = ''; }
+    const activeCase = document.querySelector('.case-item.active');
+    if (activeCase) {
+      activeCase.closest('.term-group')?.classList.add('open');
+      activeCase.closest('.decade-group')?.classList.add('open');
+      termsSectionEl.classList.add('open');
+      requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    }
+  }
+
+  async function runNavSearch(query) {
+    const termsSectionEl = document.querySelector('[data-section="terms"]');
+    if (!termsSectionEl) return;
+    const inner    = termsSectionEl.querySelector('.terms-list-inner');
+    const resultsEl = _ensureResultsEl();
+
+    const q = query.trim();
+    if (!q) { _showNormal(); return; }
+
+    const toks = _tokens(q);
+    if (!toks.length) {
+      // Query has content but every token is too short to be in the index.
+      if (inner) inner.hidden = true;
+      if (resultsEl) { resultsEl.hidden = false; resultsEl.innerHTML = ''; }
+      return;
+    }
+
+    // Fetch required index files in parallel (cached after first load).
+    const chars = [...new Set(toks.map(t => t[0]))];
+    const indexMap = Object.fromEntries(
+      await Promise.all(chars.map(async ch => [ch, await _fetchTitleIndex(ch)]))
+    );
+
+    // Intersect ref sets across all tokens.
+    let combined = null;
+    for (const tok of toks) {
+      const refs = _prefixRefs(indexMap[tok[0]] || {}, tok);
+      combined = combined === null ? refs : new Set([...combined].filter(r => refs.has(r)));
+      if (!combined.size) break;
+    }
+
+    // Group matched refs by term.
+    const byTerm = new Map();
+    for (const ref of (combined || [])) {
+      const i = ref.indexOf('/');
+      const term = ref.slice(0, i), id = ref.slice(i + 1);
+      if (!byTerm.has(term)) byTerm.set(term, []);
+      byTerm.get(term).push(id);
+    }
+
+    // Fetch only the cases.json files for terms that have matches.
+    const results = [];
+    await Promise.all([...byTerm].map(async ([term, ids]) => {
+      const cases = await fetchTermCases(term);
+      const idSet = new Set(ids);
+      for (const c of cases) {
+        if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+      }
+    }));
+
+    // Sort most-recent term first, then by title within a term.
+    results.sort((a, b) =>
+      b.term.localeCompare(a.term) ||
+      (caseTitle(a.c.title) || '').localeCompare(caseTitle(b.c.title) || '')
+    );
+
+    // Switch the display from the normal terms tree to the flat results list.
+    if (inner) inner.hidden = true;
+    if (!resultsEl) return;
+    resultsEl.innerHTML = '';
+
+    const MAX = 200;
+    if (!results.length) {
+      const li = document.createElement('li');
+      li.className = 'nav-search-no-results';
+      li.textContent = 'No matches found';
+      resultsEl.appendChild(li);
+    } else {
+      for (const { term, c } of results.slice(0, MAX)) {
+        const urlId = c.id || (c.number ? c.number.split(',')[0].trim() : '');
+        const href  = buildUrlParams({ term, case: urlId },
+          ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn']);
+        const li  = document.createElement('li');
+        li.className = 'case-item';
+        const div = document.createElement('div');
+        div.className = 'case-header';
+        const a = document.createElement('a');
+        a.className = 'case-title-nav';
+        a.textContent = caseTitle(c.title) || urlId;
+        a.href = href;
+        a.title = (c.number || c.id || '') + '  ·  ' + term;
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          navigate(href);
+          restoreFromURL();
+          closeNavSearch();
+        });
+        const lbl = document.createElement('span');
+        lbl.className = 'nav-search-term-label';
+        lbl.textContent = term;
+        div.appendChild(a);
+        div.appendChild(lbl);
+        li.appendChild(div);
+        resultsEl.appendChild(li);
+      }
+      if (results.length > MAX) {
+        const li = document.createElement('li');
+        li.className = 'nav-search-no-results';
+        li.textContent = '… and ' + (results.length - MAX) + ' more';
+        resultsEl.appendChild(li);
+      }
+    }
+
+    resultsEl.hidden = false;
+  }
+
   function openNavSearch() {
     navSearchRow.hidden = false;
     navSearchBtn.classList.add('active');
     navSearchInput.focus();
     navSearchInput.select();
-    loadAllTermsForSearch();
   }
 
   function closeNavSearch() {
     navSearchRow.hidden = true;
     navSearchBtn.classList.remove('active');
     navSearchInput.value = '';
-    runNavSearch('');
-  }
-
-  function runNavSearch(query) {
-    const q = query.trim().toLowerCase();
-    const termsSectionEl = document.querySelector('[data-section="terms"]');
-    if (!termsSectionEl) return;
-
-    if (!q) {
-      termsSectionEl.querySelectorAll('.case-item').forEach(ci => {
-        ci.classList.remove('nav-search-match');
-        ci.style.display = '';
-      });
-      termsSectionEl.querySelectorAll('.term-group, .decade-group').forEach(g => {
-        g.style.display = '';
-        g.classList.remove('open');
-      });
-      termsSectionEl.style.display = '';
-      termsSectionEl.classList.remove('open');
-      // Expand only the groups containing the currently active case
-      const activeCase = document.querySelector('.case-item.active');
-      if (activeCase) {
-        activeCase.closest('.term-group')?.classList.add('open');
-        activeCase.closest('.decade-group')?.classList.add('open');
-        activeCase.closest('[data-section="terms"]')?.classList.add('open');
-        requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
-      }
-      return;
-    }
-
-    termsSectionEl.querySelectorAll('.case-item').forEach(ci => {
-      const title      = ci.querySelector('.case-title-nav')?.textContent.toLowerCase() || '';
-      const caseKeyTail = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
-      const caseNumber = (ci.dataset.caseNumber || '').toLowerCase();
-      const rawTitle   = ci.dataset.rawTitle || '';
-      const matches    = title.includes(q) || caseKeyTail.includes(q) || caseNumber.includes(q) || rawTitle.includes(q);
-
-      ci.classList.toggle('nav-search-match', matches);
-      ci.style.display = matches ? '' : 'none';
-      if (matches) {
-        ci.closest('.term-group')?.classList.add('open');
-        ci.closest('.decade-group')?.classList.add('open');
-        termsSectionEl.classList.add('open');
-      }
-    });
-
-    // Hide term-groups with no matching cases
-    termsSectionEl.querySelectorAll('.term-group').forEach(tg => {
-      tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
-    });
-
-    // Hide decade-groups whose term-groups all got filtered out
-    termsSectionEl.querySelectorAll('.decade-group').forEach(dg => {
-      dg.style.display = dg.querySelector('.nav-search-match') ? '' : 'none';
-    });
-
-    // Keep the Terms section (including the search UI) visible even when
-    // there are no matches; only inner groups/cases are filtered.
-    termsSectionEl.style.display = '';
-
-    // Scroll first match into view
-    const firstMatch = document.querySelector('.nav-search-match');
-    if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    _showNormal();
   }
 
   navSearchBtn.addEventListener('click', () => {
@@ -5956,7 +6061,10 @@ function findFileItem(param) {
 
   navSearchClear.addEventListener('click', () => closeNavSearch());
 
-  navSearchInput.addEventListener('input', () => runNavSearch(navSearchInput.value));
+  navSearchInput.addEventListener('input', () => {
+    clearTimeout(_searchDebounce);
+    _searchDebounce = setTimeout(() => runNavSearch(navSearchInput.value), 150);
+  });
 
   navSearchInput.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeNavSearch();

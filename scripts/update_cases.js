@@ -4821,6 +4821,71 @@ function processCollectionSets(allTerms, dryRun) {
     }
 }
 
+// ── Title word index ──────────────────────────────────────────────────────────
+// Builds courts/ussc/indexes/cases/titles/{a-z,1-9}.json.
+// Each file maps every word that begins with that letter/digit (across all
+// case titles in every term) to a sorted array of "term/id" reference strings.
+// Words are lowercased; punctuation stripped; single-character tokens skipped.
+// Files are written compact (no indentation).
+
+function processTitleIndex(allTerms, dryRun) {
+    const INDEX_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'titles');
+    if (!dryRun && !fs.existsSync(INDEX_DIR)) {
+        fs.mkdirSync(INDEX_DIR, { recursive: true });
+    }
+
+    // word → Set of "term/ref" strings
+    const wordRefs = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            const title = c.title;
+            if (!title) continue;
+            const ref = `${term}/${c.id || c.number}`;
+            const words = title.toLowerCase().replace(/[^a-z0-9'\s-]/g, ' ').split(/\s+/);
+            for (const raw of words) {
+                // Strip leading/trailing punctuation from each token.
+                const word = raw.replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, '');
+                if (word.length < 2) continue;
+                const ch = word[0];
+                if (!/[a-z1-9]/.test(ch)) continue;
+                if (!wordRefs.has(word)) wordRefs.set(word, new Set());
+                wordRefs.get(word).add(ref);
+            }
+        }
+    }
+
+    // Group words by their first character, then write one file per character.
+    const byChar = new Map();
+    for (const [word, refs] of wordRefs) {
+        const ch = word[0];
+        if (!byChar.has(ch)) byChar.set(ch, {});
+        byChar.get(ch)[word] = [...refs].sort();
+    }
+
+    let written = 0;
+    for (const [ch, index] of byChar) {
+        const outPath = path.join(INDEX_DIR, `${ch}.json`);
+        const sorted = Object.fromEntries(Object.keys(index).sort().map(k => [k, index[k]]));
+        const content = JSON.stringify(sorted);
+        if (dryRun) {
+            if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, outPath)}`);
+        } else {
+            let changed = true;
+            try { changed = fs.readFileSync(outPath, 'utf8') !== content; } catch { /* new file */ }
+            if (changed) { fs.writeFileSync(outPath, content, 'utf8'); written++; }
+        }
+    }
+
+    if (written) console.log(`Title index: wrote ${written} file(s) in courts/ussc/indexes/cases/titles/`);
+}
+
 function _scdbVotesSubset(row) {
     const out = [];
 
@@ -8277,6 +8342,7 @@ async function main() {
         processVocalJustices(allTerms, false);
         processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
+        processTitleIndex(allTerms, false);
         await runDissentCheck(null);
     }
 
