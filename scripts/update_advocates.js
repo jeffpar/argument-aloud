@@ -380,7 +380,7 @@ function writeCsvNonnumeric(headers, rows) {
     return lines.join('\r\n') + '\r\n';
 }
 
-// ── Justice-advocates sync (from courts/ussc/people/justices/README.md) ────
+// ── Justice-advocates sync (event-driven) ────────────────────────────────────
 
 const _JM_HEADING_RE  = /^## ((?:CHIEF )?JUSTICE .+)$/;
 const _JM_OYEZ_URL_RE = /https:\/\/www\.oyez\.org\/cases\/(\d{4})\/([^\s)]+)/g;
@@ -443,6 +443,26 @@ function _jmNameKey(name) {
     if (tokens.length === 0) return '';
     if (tokens.length === 1) return tokens[0];
     return `${tokens[0]} ${tokens[tokens.length - 1]}`;
+}
+
+// Returns true only when advocateName is compatible with canonicalName after suffix/period
+// normalization: the advocate may have FEWER tokens than the canonical (e.g. "WILLIAM REHNQUIST"
+// matching "WILLIAM H. REHNQUIST"), but NOT more — so "JOHN E. ROBERTS" never matches "JOHN ROBERTS".
+function _jmNameMatchesCanonical(advocateName, canonicalName) {
+    const norm = (s) => {
+        s = String(s).toUpperCase().trim();
+        s = s.replace(/,?\s+(JR|SR|II|III|IV)\.?\s*$/i, '');
+        return s.replace(/\./g, '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+    };
+    const adv = norm(advocateName);
+    const can = norm(canonicalName);
+    if (adv.length < 2 || can.length < 2) return false;
+    if (adv[0] !== can[0] || adv[adv.length - 1] !== can[can.length - 1]) return false;
+    if (adv.length > can.length) return false;
+    for (let i = 1; i < adv.length - 1; i++) {
+        if (adv[i] !== can[i]) return false;
+    }
+    return true;
 }
 
 function _jmOyezTermCase(url) {
@@ -568,15 +588,31 @@ function _jmBuildCaseIndices(termDirs) {
     return { byKey, byUsCite, byTitle };
 }
 
+/** Build a map from _jmNameKey(name) → canonical uppercase justice display name,
+ *  covering all name variants in justices.json. */
+function _jmBuildJusticeMap() {
+    const justicesPath = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
+    const map = new Map();
+    let data;
+    try { data = readJson(justicesPath); } catch { return map; }
+    for (const [canonicalName, entry] of Object.entries(data)) {
+        const upper = canonicalName.trim().toUpperCase();
+        map.set(_jmNameKey(upper), upper);
+        for (const alt of (entry.alternates || [])) {
+            const altUpper = alt.trim().toUpperCase();
+            if (!map.has(_jmNameKey(altUpper))) map.set(_jmNameKey(altUpper), upper);
+        }
+    }
+    return map;
+}
+
 function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
     if (verbose) console.log('\n── Building justice_advocates.json ──');
-    const justices = _jmLoadJustices();
-    if (!justices.length) {
-        console.log(`  No justices loaded from ${relRepo(JUSTICES_README)}`);
-        return;
-    }
 
-    const { byKey, byUsCite, byTitle } = _jmBuildCaseIndices(termDirs);
+    // Map from _jmNameKey(name) → canonical uppercase justice display name.
+    const justiceByKey = _jmBuildJusticeMap();
+
+    const { byKey } = _jmBuildCaseIndices(termDirs);
 
     let coll = [];
     if (exists(JUSTICE_ADVOCATES_FILE)) {
@@ -587,129 +623,86 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
     const groupsByName = new Map(coll.map(g => [g.name, g]));
     let totalAdded = 0;
 
-    for (const j of justices) {
-        const disp = j.displayName;
-        const justiceUpper = (j.fullName || disp).toUpperCase();
+    // Scan every argument/reargument event across all terms to discover
+    // cases argued by people who later became justices.
+    // mdCasesByJustice: justiceDisplayName -> [{name, term, number, type, dates[], event}]
+    const mdCasesByJustice = new Map();
 
-        // Resolve each markdown case to one or more {name, term, number, type, dates}
-        // entries. The split between argument vs. reargument (and the dates kept
-        // for each) comes from the case's events[]: every argument/reargument
-        // event whose advocates list names this justice contributes its date.
-        const mdCases = [];
-        for (const c of j.cases) {
-            let term, number;
-            const tc = _jmOyezTermCase(c.url);
-            if (tc) {
-                term = tc[0];
-                number = _jmNormalizeCaseNumber(tc[1]);
-            } else {
-                const vp = _jmVolPageFromUrl(c.url);
-                if (!vp) continue;
-                const cite = `${vp[0]} U.S. ${vp[1]}`;
-                const hit = byUsCite.get(cite);
-                if (!hit) {
-                    console.log(`  [${disp}] WARN: no local case for ${cite} (${c.name})`);
-                    continue;
-                }
-                term = hit[0];
-                number = _jmNormalizeCaseNumber(hit[1]);
-            }
+    for (const termDir of termDirs) {
+        const term = path.basename(termDir);
+        const cf = path.join(termDir, 'cases.json');
+        if (!exists(cf)) continue;
+        let cases;
+        try { cases = readJson(cf); } catch { continue; }
 
-            // If the (term, number) doesn't resolve, or resolves to a case
-            // whose title doesn't match the README's, try to find the case by
-            // title. Required for cases where the README's oyez URL points at
-            // a different term than where the case actually lives (e.g. the
-            // 1958-08 special-session cases referenced via /cases/1958/1) or
-            // to a different case entirely (oyez sometimes reuses a docket).
-            const stripped = c.name.replace(_JM_YEAR_SUFFIX_RE, '').trim();
-            const resolved = byKey.get(`${term}/${number}`);
-            if (!resolved || (resolved.title || '') !== stripped) {
-                const hits = byTitle.get(stripped) || [];
-                if (hits.length === 1) {
-                    [term, number] = hits[0];
-                } else if (hits.length > 1) {
-                    // Prefer a hit whose term year matches the README's year suffix.
-                    const ym = c.name.match(_JM_YEAR_SUFFIX_RE);
-                    const wantedYear = ym ? ym[1] : null;
-                    const liveHit = hits
-                        .map(([t, n]) => [t, n, byKey.get(`${t}/${n}`)])
-                        .find(([, , l]) => l && wantedYear
-                              && (l.decision || '').slice(0, 4) === wantedYear);
-                    if (liveHit) [term, number] = [liveHit[0], liveHit[1]];
-                    else         [term, number] = hits[0];
-                }
-            }
-            const live = byKey.get(`${term}/${number}`);
-            const events = (live && live.events) || [];
-            const termDir = path.join(TERMS_DIR, term);
-            const justiceKey = _jmNameKey(justiceUpper);
-            const datesByType = { argument: [], reargument: [] };
-            const eventsByType = { argument: [], reargument: [] };
+        for (const c of cases) {
+            const events = c.events || [];
+            const number = String(c.number || '').split(',')[0].trim();
+            // Accumulate per-justice, per-type: dates and event indices for this case.
+            const accumByJustice = new Map(); // justiceDisp -> {argument:{dates,idxs}, reargument:{dates,idxs}}
+
             for (let i = 0; i < events.length; i++) {
                 const ev = events[i];
-                if (!ev || (ev.type !== 'argument' && ev.type !== 'reargument')) continue;
-                let matched = (ev.advocates || []).some(a => {
-                    const n = (typeof a === 'object' && a !== null) ? a.name : a;
-                    return typeof n === 'string' && _jmNameKey(n) === justiceKey;
-                });
-                // Fall back to scanning the transcript's media.speakers for
-                // cases where events[].advocates is empty (e.g. older imports).
-                if (!matched && ev.text_href) {
+                if (!ev?.date) continue;
+                if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
+
+                const matchedJustices = new Set();
+
+                for (const a of (ev.advocates || [])) {
+                    const n = typeof a === 'object' && a !== null ? a.name : a;
+                    if (typeof n !== 'string') continue;
+                    const jDisp = justiceByKey.get(_jmNameKey(n.toUpperCase()));
+                    if (jDisp && _jmNameMatchesCanonical(n, jDisp)) matchedJustices.add(jDisp);
+                }
+
+                // Fall back to transcript speakers when the advocates list is empty.
+                if (!matchedJustices.size && ev.text_href) {
                     const tp = path.join(termDir, 'cases', ev.text_href);
                     if (exists(tp)) {
                         try {
                             const tj = readJson(tp);
                             for (const sp of tj?.media?.speakers || []) {
                                 if (_JUSTICE_SPEAKER_TITLES.has(sp.title || '')) continue;
-                                if (_jmNameKey(sp.name || '') === justiceKey) {
-                                    matched = true; break;
-                                }
+                                const jDisp = justiceByKey.get(_jmNameKey((sp.name || '').toUpperCase()));
+                                if (jDisp && _jmNameMatchesCanonical(sp.name || '', jDisp)) matchedJustices.add(jDisp);
                             }
                         } catch { /* ignore */ }
                     }
                 }
-                if (!matched || !ev.date) continue;
-                const bucket = datesByType[ev.type];
-                if (!bucket.includes(ev.date)) bucket.push(ev.date);
-                eventsByType[ev.type].push(i);
-            }
-            for (const t of ['argument', 'reargument']) datesByType[t].sort();
 
-            // Pick the best event index (1-based) per type: prefer aligned,
-            // then audio_href, else the first matched event.
-            const bestEventIdx = {};
-            for (const t of ['argument', 'reargument']) {
-                const idxs = eventsByType[t];
-                if (!idxs.length) continue;
-                const aligned   = idxs.filter(i => events[i].aligned);
-                const withAudio = idxs.filter(i => events[i].audio_href);
-                bestEventIdx[t] = (aligned[0] ?? withAudio[0] ?? idxs[0]) + 1;
-            }
-
-            const haveAny = datesByType.argument.length || datesByType.reargument.length;
-            if (haveAny) {
-                for (const t of ['argument', 'reargument']) {
-                    if (datesByType[t].length) {
-                        mdCases.push({
-                            name: c.name, term, number: String(number),
-                            type: t, dates: datesByType[t],
-                            event: bestEventIdx[t] ?? null,
+                for (const jDisp of matchedJustices) {
+                    if (!accumByJustice.has(jDisp)) {
+                        accumByJustice.set(jDisp, {
+                            argument:   { dates: [], idxs: [] },
+                            reargument: { dates: [], idxs: [] },
                         });
                     }
+                    const bucket = accumByJustice.get(jDisp)[ev.type];
+                    if (!bucket.dates.includes(ev.date)) bucket.dates.push(ev.date);
+                    bucket.idxs.push(i);
                 }
-            } else {
-                // No events list this justice — fall back to a single
-                // argument-typed entry using the case-level argument date.
-                mdCases.push({
-                    name: c.name, term, number: String(number),
-                    type: 'argument',
-                    dates: live && live.argument ? [live.argument] : [],
-                    event: events.length ? 1 : null,
-                });
+            }
+
+            for (const [jDisp, byType] of accumByJustice) {
+                for (const type of ['argument', 'reargument']) {
+                    const { dates, idxs } = byType[type];
+                    if (!dates.length) continue;
+                    const aligned   = idxs.filter(i => events[i].aligned);
+                    const withAudio = idxs.filter(i => events[i].audio_href);
+                    const bestIdx   = (aligned[0] ?? withAudio[0] ?? idxs[0]) + 1;
+                    if (!mdCasesByJustice.has(jDisp)) mdCasesByJustice.set(jDisp, []);
+                    mdCasesByJustice.get(jDisp).push({
+                        name: firstTitle(String(c.title || '')),
+                        term, number, type,
+                        dates: [...dates].sort(),
+                        event: bestIdx,
+                    });
+                }
             }
         }
-        if (!mdCases.length) continue;
+    }
 
+    for (const [disp, mdCases] of mdCasesByJustice) {
         let group = groupsByName.get(disp);
         if (!group) {
             group = { id: makeAdvocateId(disp), name: disp, cases: [] };
@@ -727,13 +720,18 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                 Object.assign(group, rest);
             }
         }
-        const existing = group.cases || [];
-
         // A "slot" is keyed by (term, number, type). Existing entries are
         // classified by which date field they carry (reargument vs. argument).
         const slotKey = (term, number, type) =>
             `${term}/${_jmNormalizeCaseNumber(String(number))}#${type}`;
         const existingType = (e) => (e && 'reargument' in e) ? 'reargument' : 'argument';
+
+        // Drop existing entries that have no event support (e.g. formerly
+        // added from the README with no transcript evidence).
+        const mdSlots = new Set(mdCases.map(mc => slotKey(mc.term, mc.number, mc.type)));
+        const existing = (group.cases || []).filter(e =>
+            mdSlots.has(slotKey(e.term || '', e.number || '', existingType(e)))
+        );
 
         // Counts to compute deficit (per slot).
         const mdCounts = new Map();
@@ -861,6 +859,11 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                 + (toAdd.length > 4 ? `, … (+${toAdd.length - 4} more)` : '');
             console.log(`  [${disp}] Added ${toAdd.length}: ${names}`);
         }
+    }
+
+    // Remove groups that ended up with no event-supported cases.
+    for (let i = coll.length - 1; i >= 0; i--) {
+        if (!coll[i].cases?.length) coll.splice(i, 1);
     }
 
     // Sort groups by case count descending, then first name ascending.
