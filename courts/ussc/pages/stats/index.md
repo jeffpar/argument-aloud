@@ -21,10 +21,37 @@ html[data-theme="light"] .stat-label { color: #666; }
 @media (prefers-color-scheme: dark) { .stats-note { color: #6a7080; } }
 html[data-theme="dark"]  .stats-note { color: #6a7080; }
 html[data-theme="light"] .stats-note { color: #888; }
+
+/* Date-specific case list */
+.date-section { margin-bottom: 1.25rem; }
+.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 0.6rem 0 0.35rem; }
+.date-case-list { list-style: none; margin: 0; padding: 0; }
+.date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
+.date-case-list a { color: inherit; text-decoration: none; }
+.date-case-list a:hover { text-decoration: underline; color: #4a9eff; }
+@media (prefers-color-scheme: dark) { .date-section h3 { color: #6a7080; } }
+html[data-theme="dark"]  .date-section h3 { color: #6a7080; }
+html[data-theme="light"] .date-section h3 { color: #888; }
 </style>
 
 <div class="term-stats" id="stats-container">
   <h2 id="stat-term-title"></h2>
+
+  <div class="date-section" id="date-section" hidden>
+    <div id="date-argued-section" hidden>
+      <h3>Argued</h3>
+      <ul id="date-argued-list" class="date-case-list"></ul>
+    </div>
+    <div id="date-reargued-section" hidden>
+      <h3>Reargued</h3>
+      <ul id="date-reargued-list" class="date-case-list"></ul>
+    </div>
+    <div id="date-decided-section" hidden>
+      <h3>Decided</h3>
+      <ul id="date-decided-list" class="date-case-list"></ul>
+    </div>
+  </div>
+
   <div class="stats-grid">
     <div class="stat-card">
       <span class="stat-value" id="stat-argued-cases">—</span>
@@ -90,16 +117,79 @@ html[data-theme="light"] .stats-note { color: #888; }
     var m = Math.round(sec / 60);
     if (m < 60) return m + 'm';
     var h = Math.floor(m / 60), rem = m % 60;
-    return h + 'h\u00a0' + rem + 'm';
+    return h + 'h ' + rem + 'm';
+  }
+  function fmtDate(iso) {
+    var MONTHS = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+    var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var p = iso.split('-');
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    if (isNaN(d)) return iso;
+    return DAYS[d.getUTCDay()] + ', ' + MONTHS[+p[1] - 1] + ' ' + d.getUTCDate() + ', ' + p[0];
+  }
+  function caseDisplayTitle(c) {
+    return (c.title || c.number || c.id || '(unknown)').split('|')[0].trim();
+  }
+  function caseUrlId(c) {
+    return c.id || (c.number || '').split(',')[0].trim() || '';
   }
 
-  var term = new URLSearchParams(location.search).get('term');
+  var params = new URLSearchParams(location.search);
+  var term = params.get('term');
+  var date = params.get('date');
   if (!term) return;
-  document.getElementById('stat-term-title').textContent = termTitle(term);
+  document.getElementById('stat-term-title').textContent =
+    date ? fmtDate(date) : termTitle(term);
 
   fetch('/courts/ussc/terms/' + term + '/cases.json')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function (cases) {
+
+      // ── Date section ────────────────────────────────────────────────────────
+      if (date) {
+        var dateSection = document.getElementById('date-section');
+        dateSection.hidden = false;
+
+        function casesOnDate(field) {
+          return cases.filter(function (c) {
+            if (!c[field]) return false;
+            return c[field].split(',').map(function (d) { return d.trim(); }).indexOf(date) >= 0;
+          });
+        }
+
+        function fillGroup(sectionId, listId, group) {
+          if (!group.length) return;
+          var ul = document.getElementById(listId);
+          group.forEach(function (c) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            var id = caseUrlId(c);
+            a.textContent = caseDisplayTitle(c);
+            a.href = '/courts/ussc/?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(id);
+            a.addEventListener('click', function (e) {
+              e.preventDefault();
+              if (window.parent !== window) {
+                window.parent.postMessage({
+                  type: 'ussc-navigate',
+                  search: '?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(id)
+                }, location.origin);
+              } else {
+                location.href = a.href;
+              }
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+          document.getElementById(sectionId).hidden = false;
+        }
+
+        fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument'));
+        fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument'));
+        fillGroup('date-decided-section',  'date-decided-list',  casesOnDate('decision'));
+      }
+
+      // ── Term stats ──────────────────────────────────────────────────────────
       var argEvents = [];
       cases.forEach(function (c) {
         (c.events || []).forEach(function (e) {

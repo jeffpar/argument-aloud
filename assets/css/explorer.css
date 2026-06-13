@@ -1013,6 +1013,18 @@ button.term-case-count.sort-active:hover {
   color: #888;
 }
 
+#case-argued .date-link, #case-reargued .date-link, #case-decided .date-link {
+  color: #888;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+#case-argued .date-link:hover, #case-reargued .date-link:hover, #case-decided .date-link:hover {
+  color: #4a9eff;
+  text-decoration-color: #4a9eff;
+}
+
 #case-info-row3 {
   display: flex;
   align-items: center;
@@ -1466,10 +1478,10 @@ button.term-case-count.sort-active:hover {
 }
 
 /* In no-audio mode the doc viewer should fill all remaining space. */
-#transcript-viewer.no-audio ~ #bottom-bar {
+#transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar {
   flex: 1;
 }
-#transcript-viewer.no-audio ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
+#transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
   flex: 1;
   height: auto !important;
 }
@@ -1482,10 +1494,10 @@ button.term-case-count.sort-active:hover {
   padding: 0;
 }
 
-#transcript-viewer.no-transcript ~ #bottom-bar {
+#transcript-viewer.no-transcript:not([hidden]) ~ #bottom-bar {
   flex: 1;
 }
-#transcript-viewer.no-transcript ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
+#transcript-viewer.no-transcript:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
   flex: 1;
   height: auto !important;
 }

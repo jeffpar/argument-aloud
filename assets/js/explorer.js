@@ -1066,9 +1066,12 @@ function speakerClass(speaker) {
 // Show the stats page when a term is opened and no other content is displayed.
 // Also updates the stats page if it's already shown (switching between terms).
 // Pass null when a term is collapsed (no-op; leave whatever is currently shown).
-function updateEmptyStateForTerm(term) {
+// Pass date (YYYY-MM-DD) to show the cases-for-a-day view above the stats.
+function updateEmptyStateForTerm(term, date = null) {
   if (!term) return; // term collapsed — leave current view
-  showPageViewer('/courts/ussc/pages/stats/?term=' + encodeURIComponent(term), { pushState: false });
+  const statsUrl = '/courts/ussc/pages/stats/?term=' + encodeURIComponent(term)
+    + (date ? '&date=' + encodeURIComponent(date) : '');
+  showPageViewer(statsUrl, { pushState: false });
 }
 
 function audioEntryLabel(a, suffix) {
@@ -1183,11 +1186,12 @@ function buildUrlParams(updates, deletes = []) {
   const id         = url.searchParams.get('id');
   const highlight  = url.searchParams.get('highlight');
   const term       = url.searchParams.get('term');
+  const datePrm    = url.searchParams.get('date');
   const caseParam  = url.searchParams.get('case');
   const event      = url.searchParams.get('event');
   const turn       = url.searchParams.get('turn');
   const file       = url.searchParams.get('file');
-  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'turn', 'file'];
+  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
@@ -1195,6 +1199,7 @@ function buildUrlParams(updates, deletes = []) {
   if (id != null) reordered.push(['id', id]);
   if (highlight != null) reordered.push(['highlight', highlight]);
   if (term != null) reordered.push(['term', term]);
+  if (datePrm != null) reordered.push(['date', datePrm]);
   if (caseParam != null) reordered.push(['case', caseParam]);
   if (event != null) reordered.push(['event', event]);
   if (turn != null) reordered.push(['turn', turn]);
@@ -1684,14 +1689,38 @@ function _setCaseInfoRow2(caseEntry) {
   // When there are no audio/transcript events but a decision link is already
   // shown on the right, the decided date is redundant — omit it.
   const omitDecided = !caseEntry.events?.length && !!caseEntry.opinion_href;
-  document.getElementById('case-argued').textContent =
-    caseEntry.argument   ? 'Argued\u00a0'   + formatArgDates(caseEntry.argument)   : '';
-  document.getElementById('case-reargued').textContent =
-    caseEntry.reargument ? 'Reargued\u00a0' + formatArgDates(caseEntry.reargument) : '';
-  document.getElementById('case-decided').textContent =
-    !omitDecided && caseEntry.decision
-      ? 'Decided\u00a0' + formatDecisionDate(caseEntry.decision)
-      : '';
+  const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
+
+  // Replaces the contents of `el` with a prefix label followed by one
+  // clickable <a> per individual ISO date in the comma-separated dateStr.
+  function _setDateLinks(el, prefix, dateStr) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+    if (!dateStr) return;
+    const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
+    el.appendChild(document.createTextNode(prefix + '\u00a0'));
+    dates.forEach((iso, i) => {
+      if (i > 0) el.appendChild(document.createTextNode('\u00a0\u00b7\u00a0'));
+      const a = document.createElement('a');
+      a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(iso);
+      a.className = 'date-link';
+      a.textContent = formatDecisionDate(iso);
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigate(buildUrlParams({ term, date: iso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
+        updateEmptyStateForTerm(term, iso);
+      });
+      el.appendChild(a);
+    });
+  }
+
+  _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
+  _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
+  if (!omitDecided && caseEntry.decision) {
+    _setDateLinks(document.getElementById('case-decided'), 'Decided', caseEntry.decision);
+  } else {
+    const el = document.getElementById('case-decided');
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
@@ -6233,6 +6262,7 @@ async function restoreFromURL() {
   const linkParam       = params.get('link');
   let termParam         = params.get('term');
   if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
+  const dateParam       = params.get('date') ?? null;
   const caseParam       = params.get('case');
   let collectionParam = params.get('collection');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
@@ -6607,7 +6637,7 @@ async function restoreFromURL() {
           }
         })();
       }
-      updateEmptyStateForTerm(termParam);
+      updateEmptyStateForTerm(termParam, dateParam);
       document.getElementById('topbar-term').textContent = termDisplayName(termParam);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
@@ -6618,6 +6648,17 @@ async function restoreFromURL() {
 }
 
 window.addEventListener('popstate', () => restoreFromURL());
+
+// Handle navigation messages posted from pages running inside the page-viewer
+// iframe (e.g., the stats page linking to a specific case).
+window.addEventListener('message', async (e) => {
+  if (e.origin !== location.origin) return;
+  if (e.data?.type === 'ussc-navigate' && e.data.search) {
+    const url = new URL(location.pathname + e.data.search, location.href);
+    navigate(url);
+    await restoreFromURL();
+  }
+});
 
 // ── Transcript edit mode ────────────────────────────────────────────────────
 

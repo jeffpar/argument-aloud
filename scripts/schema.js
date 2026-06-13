@@ -14,7 +14,7 @@
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'questions', 'questions_href',
-    'argument', 'reargument', 'decision',
+    'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
     'volume', 'page', 'usCite', 'opinion_href', 'opinion_href_bad', 'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_errors',

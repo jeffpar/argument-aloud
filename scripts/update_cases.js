@@ -470,6 +470,24 @@ const _MONTHS = ['January','February','March','April','May','June',
                  'July','August','September','October','November','December'];
 const _DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
+// Convert a YYYY-MM-DD string to "Weekday, Month Day, Year".
+// Returns null for any string that doesn't parse as a valid date.
+function _formatDay(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if (!m) return null;
+    const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    if (isNaN(d)) return null;
+    return `${_DAYS[d.getUTCDay()]}, ${_MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
+}
+
+// Build the "days" string for a comma-delimited date field (e.g. argument).
+// Returns the semicolon-delimited formatted dates, or '' if none are valid.
+function _computeDays(rawDateField) {
+    if (!rawDateField) return '';
+    const parts = String(rawDateField).split(',').map(s => s.trim()).filter(Boolean);
+    return parts.map(_formatDay).filter(Boolean).join('; ');
+}
+
 const _DATE_DEC_PARSE_RE = new RegExp(
     '^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+'
   + '(January|February|March|April|May|June|July|August|September|'
@@ -2380,6 +2398,34 @@ function fixArgumentDates(term, cases, dryRun) {
     return fixed;
 }
 
+// Keep argument_days / reargument_days / decision_days in sync with their
+// source date fields.  Adds the property when the source exists and has valid
+// dates; removes it when the source is absent.
+function fixDayLabels(term, cases, dryRun) {
+    let fixed = 0;
+    for (const c of cases) {
+        let changed = false;
+        for (const [src, dst] of [
+            ['argument',   'argument_days'],
+            ['reargument', 'reargument_days'],
+            ['decision',   'decision_days'],
+        ]) {
+            const expected = c[src] ? _computeDays(c[src]) : undefined;
+            if (expected === undefined) {
+                if (Object.prototype.hasOwnProperty.call(c, dst)) {
+                    if (!dryRun) delete c[dst];
+                    changed = true;
+                }
+            } else if (c[dst] !== expected) {
+                if (!dryRun) c[dst] = expected;
+                changed = true;
+            }
+        }
+        if (changed) fixed++;
+    }
+    return fixed;
+}
+
 function _cmpKeys(a, b) {
     for (let i = 0; i < a.length; i++) {
         if (a[i] < b[i]) return -1;
@@ -2718,6 +2764,10 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
+    // Normalize date fields and compute *_days labels before fixKeyOrder so the
+    // new keys are present when key ordering runs and land in the right positions.
+    const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
+    const dayLabelsFixed  = !sortOnly ? fixDayLabels(term, cases, dryRun)     : 0;
     let casesReordered = 0, eventsReordered = 0;
     let unknownCaseKeys = new Set(), unknownEventKeys = new Set();
     if (!sortOnly) {
@@ -2737,21 +2787,20 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
     const suffixesFixed = !sortOnly ? fixTranscriptSuffixes(term, cases, casesDir, dryRun) : 0;
     const eventsSorted  = !sortOnly ? sortEvents(term, cases, dryRun) : 0;
     const casesSorted   = sortCases(term, cases, dryRun);
-    const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
     const eventTypesFixed = !sortOnly ? fixEventTypes(term, cases, dryRun)    : 0;
     const mergedCount     = !sortOnly ? mergeRefiledCases(term, cases, allTerms || [], dryRun) : 0;
     const votesResorted   = !sortOnly ? verifyVoteSeniority(term, cases, !dryRun) : 0;
 
     if (!dryRun && (casesReordered || eventsReordered || hrefUpdated || hrefStripped
-            || casesSorted || eventsSorted || suffixesFixed || argDatesFixed || eventTypesFixed
-            || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
+            || casesSorted || eventsSorted || suffixesFixed || argDatesFixed || dayLabelsFixed
+            || eventTypesFixed || mergedCount || hrefRedundantFixed || votesResorted || usscRedundant)
             && _jsonChanged(casesPath, cases)) {
         _writeJson(casesPath, cases);
     }
     return { dupCount, casesReordered, eventsReordered, unknownCaseKeys, unknownEventKeys,
              hrefUpdated, hrefWarned, hrefMissing, hrefRedundantFixed, hrefOrphaned,
              hrefDupes, hrefStripped, casesSorted, eventsSorted, suffixesFixed,
-             argDatesFixed, eventTypesFixed, mergedCount, usscRedundant };
+             argDatesFixed, dayLabelsFixed, eventTypesFixed, mergedCount, usscRedundant };
 }
 
 // ═════════════════════════════════
@@ -8421,6 +8470,6 @@ export {
     checkDuplicateCaseIds, checkDuplicateCaseNumbers, checkDuplicateAudioHrefs, checkCasesSync,
     fixKeyOrder, fixTextHrefs, checkMissingTextHrefs, checkOrphanedTranscripts,
     checkDuplicateTextHrefs, fixOyezTranscriptHrefs, checkDuplicateMediaHrefs,
-    fixArgumentDates, fixEventTypes, sortCases,
+    fixArgumentDates, fixDayLabels, fixEventTypes, sortCases,
     mergeRefiledCases, processTerm,
 };
