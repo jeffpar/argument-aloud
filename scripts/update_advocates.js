@@ -796,7 +796,7 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                 console.log(`  [${disp}] WARNING: case not found in cases.json: ${lookupKey}`);
                 delete entry.argument; delete entry.reargument;
                 delete entry.decision; delete entry.event;
-                delete entry.audio;    delete entry.opinion_href;
+                delete entry.audio;    delete entry.decision_loc; delete entry.decision_ussc; delete entry.decision_reports;
                 continue;
             }
 
@@ -809,9 +809,9 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
             if (titleYear && decision && titleYear !== decision.slice(0, 4)) {
                 console.log(`  WARNING: year mismatch for ${lookupKey}: title year=${titleYear}, decision=${decision}`);
             }
-            // Verify opinion_href if both present.
-            if (live.opinion_href && entry.opinion_href && live.opinion_href !== entry.opinion_href) {
-                console.log(`  WARNING: opinion_href mismatch for ${lookupKey}`);
+            // Verify decision_ussc if both present.
+            if (live.decision_ussc && entry.decision_ussc && live.decision_ussc !== entry.decision_ussc) {
+                console.log(`  WARNING: decision_ussc mismatch for ${lookupKey}`);
             }
 
             // Pick the dates and event for this slot.

@@ -416,6 +416,11 @@ export function syncFilesCount(casesPath) {
     }
 }
 
+function _classifyDecisionHref(url) {
+    if ((url || '').includes('tile.loc.gov')) return 'decision_loc';
+    return 'decision_ussc';
+}
+
 export function syncOpinionHrefFromFiles(casesPath) {
     let data;
     try { data = _readJson(casesPath); } catch { return; }
@@ -425,7 +430,8 @@ export function syncOpinionHrefFromFiles(casesPath) {
     let modified = false;
 
     for (const c of data) {
-        const needsHref     = !c.opinion_href;
+        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_reports;
+        const needsHref     = !hasDecisionHref;
         const needsDecision = !c.decision;
         if (!needsHref && !needsDecision) continue;
 
@@ -442,9 +448,10 @@ export function syncOpinionHrefFromFiles(casesPath) {
         const label = c.number || c.id || '?';
         let changed = false;
         if (needsHref && opinion.href) {
-            c.opinion_href = opinion.href;
+            const hrefKey = _classifyDecisionHref(opinion.href);
+            c[hrefKey] = opinion.href;
             changed = true;
-            console.log(`  ${label}: inserted opinion_href from files.json`);
+            console.log(`  ${label}: inserted ${hrefKey} from files.json`);
         }
         if (needsDecision && opinion.date) {
             c.decision = opinion.date;
@@ -495,7 +502,7 @@ const _DATE_DEC_PARSE_RE = new RegExp(
 );
 
 const TERMS_JSON   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
-const REPORTS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'reports.json');
+const REPORTS_JSON = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 const TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const PDFS_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'pdfs');
 
@@ -1196,17 +1203,26 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
             if (!headerPrinted) { console.log(`${caseLabel}:`); headerPrinted = true; }
         };
 
-        const oh = c.opinion_href || '';
-        if (oh && /^https?:\/\//.test(oh)) {
+        for (const [hrefKey, badKey, tag] of [
+            ['decision_loc',  'decision_loc_bad',  'loc'],
+            ['decision_ussc', 'decision_ussc_bad', 'ussc'],
+            ['decision_reports', null,              'rpt'],
+        ]) {
+            const oh = c[hrefKey] || '';
+            if (!oh || !/^https?:\/\//.test(oh)) continue;
             printHeader();
             const lbl = oh.length <= 80 ? oh : oh.slice(0, 77) + '…';
-            process.stdout.write(`  [o] ${lbl} `);
+            process.stdout.write(`  [${tag}] ${lbl} `);
             const [ok, headers] = await checkUrl(oh);
             await _politeDelay(oh);
             if (!ok) {
                 const status = headers._status || headers._error || 'unknown';
-                console.log(`✗ UNREACHABLE (${status}) — renaming to opinion_href_bad`);
-                _renameKey(c, 'opinion_href', 'opinion_href_bad');
+                if (badKey) {
+                    console.log(`✗ UNREACHABLE (${status}) — renaming to ${badKey}`);
+                    _renameKey(c, hrefKey, badKey);
+                } else {
+                    console.log(`✗ UNREACHABLE (${status})`);
+                }
                 dirty = true;
             } else {
                 console.log('✓');
@@ -1406,15 +1422,19 @@ function checkAudioDates(casesPath, term, dryRun = false) {
     }
 }
 
+function _hasDecisionHref(c) {
+    return !!(c.decision_loc || c.decision_ussc || c.decision_reports);
+}
+
 function warnMissingOpinionHref(casesPath, term) {
     if (_isCurrentTerm(term)) return;
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
     for (const c of data) {
-        if (c.opinion_href) continue;
+        if (_hasDecisionHref(c)) continue;
         const label = c.number || c.id || '?';
         const title = firstTitle(c.title) || '';
-        if (_VERBOSE) console.log(` NOTICE: ${term}/${label} (${title.slice(0,40)}): no opinion_href`);
+        if (_VERBOSE) console.log(` NOTICE: ${term}/${label} (${title.slice(0,40)}): no decision href`);
     }
 }
 
@@ -1422,11 +1442,50 @@ function warnOpinionHrefWithoutDecision(casesPath, term) {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
     for (const c of data) {
-        if (!c.opinion_href || c.decision) continue;
+        if (!_hasDecisionHref(c) || c.decision) continue;
         const label = c.number || c.id || '?';
         const title = firstTitle(c.title) || '';
-        console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): has opinion_href but no decision date`);
+        console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): has decision href but no decision date`);
     }
+}
+
+// Build/update the decision_reports field on each case whose usCite contains
+// "<volume> U.S. <page>" and whose volume matches an entry in the term's reports
+// array. The value is reports[].href + "#page=<page + page_offset>".
+function addDecisionReports(casesPath, termEntry, caseFilter = '') {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const reports = termEntry?.reports || [];
+    if (!reports.length) return;
+
+    // Build a lookup from volume number to report entry.
+    const byVolume = new Map();
+    for (const r of reports) {
+        if (r.volume != null) byVolume.set(Number(r.volume), r);
+    }
+
+    let modified = false;
+    for (const c of data) {
+        if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
+        const usCite = (c.usCite || '').trim();
+        if (!usCite) continue;
+        const m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite);
+        if (!m) continue;
+        const vol  = parseInt(m[1], 10);
+        const page = parseInt(m[2], 10);
+        const report = byVolume.get(vol);
+        if (!report) continue;
+        if (typeof report.page_offset !== 'number') continue;
+        const pdfPage = page + report.page_offset;
+        const url = report.href + '#page=' + pdfPage;
+        if (c.decision_reports === url) continue;
+        c.decision_reports = url;
+        const reordered = reorderCase(c);
+        for (const k of Object.keys(c)) delete c[k];
+        Object.assign(c, reordered);
+        modified = true;
+    }
+    if (modified) _writeJson(casesPath, data);
 }
 
 // Remove redundant `volume`/`page` properties when they match the first/second
@@ -4608,6 +4667,28 @@ async function syncTermsReports(termFilter) {
     if (_VERBOSE)
         console.log(`  Found ${urlMap.size} bound volume URLs (${Math.min(...urlMap.keys())}–${Math.max(...urlMap.keys())})`);
 
+    // Pre-pass: build a registry of the earliest term where each volume's
+    // cover image already exists on disk. Later terms referencing the same
+    // volume will use a relative path instead of a duplicate file.
+    const coverRegistry = new Map(); // vol (number) → { term: string, coverName: string }
+    for (const decade of tj) {
+        for (const page of (decade.groups || [])) {
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const termMatch = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!termMatch) continue;
+            const pageTerm = termMatch[1];
+            const pageTermDir = path.join(TERMS_DIR, pageTerm);
+            for (const r of (page.reports || [])) {
+                if (!r.volume || coverRegistry.has(r.volume)) continue;
+                const cover = r.cover || '';
+                if (cover.startsWith('../')) continue; // already a relative reference
+                if (fs.existsSync(path.join(pageTermDir, cover))) {
+                    coverRegistry.set(r.volume, { term: pageTerm, coverName: cover });
+                }
+            }
+        }
+    }
+
     let modified = false;
 
     for (const decade of tj) {
@@ -4706,20 +4787,37 @@ async function syncTermsReports(termFilter) {
                     }
                 }
 
-                // Generate (or regenerate) the cover image from the page
-                // numbered "1" in the volume (PDF page = page_offset + 1).
-                if (!fs.existsSync(coverPath)) {
-                    const coverPdfPage = pageOffset != null ? pageOffset + 1 : 1;
-                    console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
-                    if (!_DRY_RUN) {
-                        await _generateReportCover(pdfPath, coverPath, coverPdfPage);
-                    } else {
-                        console.log(`  [dry-run] would generate ${path.relative(REPO_ROOT, coverPath)}`);
+                // If an earlier term already has the canonical cover for this
+                // volume, point to it with a relative path and delete any local
+                // duplicate. Otherwise generate the cover normally and register it.
+                const priorCover = coverRegistry.get(vol);
+                if (priorCover && priorCover.term !== term) {
+                    if (fs.existsSync(coverPath)) {
+                        if (!_DRY_RUN) {
+                            fs.unlinkSync(coverPath);
+                            console.log(`  ${term}: deleted duplicate ${coverName} (canonical in ${priorCover.term})`);
+                        } else {
+                            console.log(`  [dry-run] would delete duplicate ${path.relative(REPO_ROOT, coverPath)}`);
+                        }
                     }
+                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, page_offset: pageOffset ?? -1 });
+                } else {
+                    // Generate (or regenerate) the cover image from the page
+                    // numbered "1" in the volume (PDF page = page_offset + 1).
+                    if (!fs.existsSync(coverPath)) {
+                        const coverPdfPage = pageOffset != null ? pageOffset + 1 : 1;
+                        console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
+                        if (!_DRY_RUN) {
+                            await _generateReportCover(pdfPath, coverPath, coverPdfPage);
+                        } else {
+                            console.log(`  [dry-run] would generate ${path.relative(REPO_ROOT, coverPath)}`);
+                        }
+                    }
+                    if (!coverRegistry.has(vol)) {
+                        coverRegistry.set(vol, { term, coverName });
+                    }
+                    reports.push({ volume: vol, cover: coverName, href, page_offset: pageOffset ?? -1 });
                 }
-
-                const report = { volume: vol, cover: coverName, href, page_offset: pageOffset ?? -1 };
-                reports.push(report);
             }
 
             if (!reports.length) continue;
@@ -5341,7 +5439,7 @@ function _scdbFieldPresent(c, key) {
 }
 
 function _scdbHasImportedOpinion(c) {
-    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','opinion_href']) {
+    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_reports']) {
         if (_scdbFieldPresent(c, k)) return true;
     }
     return false;
@@ -5393,7 +5491,7 @@ function _scdbApplyOpinionUpdate(c, row) {
             if (merged.added) next.votes = merged.votes;
         }
     }
-    if (opinionHref  && !_scdbFieldPresent(c, 'opinion_href')) next.opinion_href = opinionHref;
+    if (opinionHref  && !_scdbFieldPresent(c, 'decision_loc')) next.decision_loc = opinionHref;
 
     // Strip redundant volume/page if usCite already implies them.
     if (_scdbFieldPresent(next, 'usCite')) {
@@ -5486,10 +5584,10 @@ function _scdbApplyXUpdate(c, row, mm) {
         if (!cur && scdbCite) {
             c.usCite = scdbCite;
             changed = true;
-            if (!c.opinion_href && !ignored.has('opinion_href')) {
+            if (!c.decision_loc && !ignored.has('decision_loc')) {
                 const [vol, pg] = _scdbParseUsCite(scdbCite);
                 const href = _scdbLocOpinionHref(vol, pg);
-                if (href) { c.opinion_href = href; }
+                if (href) { c.decision_loc = href; }
             }
         }
     }
@@ -5688,7 +5786,7 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
         if (volume) obj.volume = volume;
         if (page)   obj.page = page;
         const href = _scdbLocOpinionHref(volume, page);
-        if (href)   obj.opinion_href = href;
+        if (href)   obj.decision_loc = href;
     }
     return reorderCase(obj);
 }
@@ -6013,7 +6111,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             );
             const pushErr = (field, msg) => {
                 if (ignored.has(field)) return;
-                if (verbose) msg += `\n${' '.repeat(21)}${c.opinion_href || ''}\n`;
+                if (verbose) msg += `\n${' '.repeat(21)}${c.decision_loc || c.decision_ussc || ''}\n`;
                 caseErrors.push(msg);
             };
 
@@ -6568,7 +6666,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             if (discrepancy) {
                 totalDiscrepancies++;
                 if (update) {
-                    console.log(`                  ${c.opinion_href || '(no opinion_href)'}`);
+                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_reports || '(no decision href)'}`);
                     console.log();
                     const answer = await _ask('  Change to CSV date? (y/N) ');
                     if (answer.toLowerCase() === 'y') {
@@ -7330,9 +7428,9 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
         const titles  = (c.title  || '').split('|');
         if (numbers.length <= titles.length) continue;
 
-        const href = c.opinion_href || '';
-        if (!href || !href.includes('loc.gov')) {
-            if (caseFilter) console.log(`  ${term}/${c.number || c.id}: no loc.gov opinion_href, skipping`);
+        const href = c.decision_loc || '';
+        if (!href) {
+            if (caseFilter) console.log(`  ${term}/${c.number || c.id}: no decision_loc, skipping`);
             continue;
         }
 
@@ -8076,6 +8174,14 @@ async function processOneTerm(term, opts) {
             backfillUntrackedFiles(casesPath, term, dryRun);
         }
         pruneRedundantCitation(casesPath, term, caseFilter || '');
+        if (!dryRun) {
+            const _tj = (() => { try { return _readJson(TERMS_JSON); } catch { return []; } })();
+            const _termEntry = _tj.flatMap(d => d.groups || []).find(g => {
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(g.file || '');
+                return m && m[1] === term;
+            });
+            if (_termEntry?.reports?.length) addDecisionReports(casesPath, _termEntry, caseFilter || '');
+        }
         if (checkUrls && !caseFilter) await checkCaseHrefs(casesPath, term, opinionsOnly);
     }
 
@@ -8093,7 +8199,7 @@ async function processOneTerm(term, opts) {
             await verifyCase(termDir, d, checkUrls, opinionsOnly);
             applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
         }
-        // Sync files counts, opinion hrefs, and decision dates after verifyCase
+        // Sync files counts, decision hrefs, and decision dates after verifyCase
         // loop, since checkOpinionForCase may have added new opinion entries.
         if (fs.existsSync(casesPath)) {
             if (!dryRun) syncFilesCount(casesPath);
@@ -8186,7 +8292,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
             entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
         }
     }
-    entry.opinion_href = opinion.href;
+    entry.decision_ussc = opinion.href;
     entry.files        = 0;
 
     const ordered = reorderCase(entry);

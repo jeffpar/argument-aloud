@@ -15,7 +15,9 @@ export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'questions', 'questions_href',
     'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
-    'volume', 'page', 'usCite', 'opinion_href', 'opinion_href_bad', 'result', 'disposition',
+    'volume', 'page', 'usCite',
+    'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
+    'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_errors',
     'notes',
@@ -48,12 +50,15 @@ function _reorder(obj, order) {
     return out;
 }
 
-// When usCite is absent, opinion_href/opinion_href_bad belong right after decision.
+const _DECISION_HREF_KEYS = ['decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports'];
+
+// When usCite is absent, decision href keys belong right after decision_days (or decision).
 export function caseKeyOrder(obj) {
-    if (!obj.usCite && ('opinion_href' in obj || 'opinion_href_bad' in obj)) {
-        const order = CASE_KEY_ORDER.filter(k => k !== 'opinion_href' && k !== 'opinion_href_bad');
-        const decIdx = order.indexOf('decision');
-        order.splice(decIdx + 1, 0, 'opinion_href', 'opinion_href_bad');
+    if (!obj.usCite && _DECISION_HREF_KEYS.some(k => k in obj)) {
+        const order = CASE_KEY_ORDER.filter(k => !_DECISION_HREF_KEYS.includes(k));
+        const anchorIdx = order.indexOf('decision_days');
+        const insertAt = anchorIdx !== -1 ? anchorIdx + 1 : order.indexOf('decision') + 1;
+        order.splice(insertAt, 0, ..._DECISION_HREF_KEYS);
         return order;
     }
     return CASE_KEY_ORDER;

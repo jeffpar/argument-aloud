@@ -8,11 +8,16 @@ layout: pane
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
-#journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; flex-shrink: 0; margin-left: 8px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+#covers-row { display: flex; gap: 8px; align-items: flex-start; flex-shrink: 0; margin-left: 8px; }
+#journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
 #journal-cover-btn[hidden] { display: none; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
 #journal-cover-btn:hover #journal-cover-img { opacity: 0.8; }
 #journal-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.report-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.report-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
+.report-cover-btn:hover .report-cover-img { opacity: 0.8; }
+.report-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
 .stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
 @media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
@@ -43,10 +48,12 @@ html[data-theme="light"] .date-section h3 { color: #888; }
 <div class="term-stats" id="stats-container">
   <div class="stats-title-row">
     <h2 id="stat-term-title"></h2>
-    <button id="journal-cover-btn" hidden title="Open journal">
-      <img id="journal-cover-img" alt="Journal cover">
-      <span id="journal-cover-label">Journal</span>
-    </button>
+    <div id="covers-row">
+      <button id="journal-cover-btn" hidden title="Open journal">
+        <img id="journal-cover-img" alt="Journal cover">
+        <span id="journal-cover-label">Journal</span>
+      </button>
+    </div>
   </div>
 
   <div class="date-section" id="date-section" hidden>
@@ -165,22 +172,52 @@ html[data-theme="light"] .date-section h3 { color: #888; }
           if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
         });
       });
-      if (!entry || !entry.journal_cover || !entry.journal_href) return;
-      var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
-      var btn = document.getElementById('journal-cover-btn');
-      var img = document.getElementById('journal-cover-img');
-      img.src = coverUrl;
-      btn.hidden = false;
-      btn.addEventListener('click', function () {
-        if (window.parent !== window) {
-          window.parent.postMessage({
-            type: 'ussc-open-doc',
-            href: entry.journal_href,
-            title: termTitle(term) + ' Journal'
-          }, location.origin);
-        } else {
-          window.open(entry.journal_href, '_blank', 'noopener,noreferrer');
-        }
+      if (!entry) return;
+      if (entry.journal_cover && entry.journal_href) {
+        var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
+        var btn = document.getElementById('journal-cover-btn');
+        var img = document.getElementById('journal-cover-img');
+        img.src = coverUrl;
+        btn.hidden = false;
+        btn.addEventListener('click', function () {
+          if (window.parent !== window) {
+            window.parent.postMessage({
+              type: 'ussc-open-doc',
+              href: entry.journal_href,
+              title: termTitle(term) + ' Journal'
+            }, location.origin);
+          } else {
+            window.open(entry.journal_href, '_blank', 'noopener,noreferrer');
+          }
+        });
+      }
+      var coversRow = document.getElementById('covers-row');
+      (entry.reports || []).forEach(function (report) {
+        if (!report.cover || !report.href) return;
+        var rBtn = document.createElement('button');
+        rBtn.className = 'report-cover-btn';
+        rBtn.title = 'Open U.S. Reports vol. ' + (report.volume || '');
+        var rImg = document.createElement('img');
+        rImg.className = 'report-cover-img';
+        rImg.src = '/courts/ussc/terms/' + term + '/' + report.cover;
+        rImg.alt = 'Vol. ' + (report.volume || '');
+        var rLabel = document.createElement('span');
+        rLabel.className = 'report-cover-label';
+        rLabel.textContent = (report.volume || '') + ' U.S.';
+        rBtn.appendChild(rImg);
+        rBtn.appendChild(rLabel);
+        rBtn.addEventListener('click', function () {
+          if (window.parent !== window) {
+            window.parent.postMessage({
+              type: 'ussc-open-doc',
+              href: report.href,
+              title: termTitle(term) + ' U.S. Reports, Vol. ' + (report.volume || '')
+            }, location.origin);
+          } else {
+            window.open(report.href, '_blank', 'noopener,noreferrer');
+          }
+        });
+        coversRow.appendChild(rBtn);
       });
     })
     .catch(function () {});

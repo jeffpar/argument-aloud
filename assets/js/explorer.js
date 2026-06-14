@@ -14,7 +14,8 @@ let _currentEvents    = [];    // unsorted events[] for the active case (URL `ev
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentLoadedEntry = null; // the audio entry object currently loaded in loadAudioEntry
 let _currentCaseEntry   = null; // the case object currently loaded
-let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
+let _currentDecisionEntries    = []; // decision entries [{value,href,title}] for the active case (audio dropdown sentinels)
+let _currentTranscriptEntries  = []; // transcript PDF entries [{value,href,title}] for the active case
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
@@ -1677,6 +1678,44 @@ function formatDecisionDate(iso) {
   return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
+function hasDecisionHref(c) {
+  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_reports));
+}
+
+// Returns [{value, href, title}] in display order: LOC, USSC, US Reports.
+function _buildDecisionEntries(caseEntry) {
+  if (!caseEntry) return [];
+  const dateStr  = caseEntry.decision || '';
+  const dateLabel = dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision';
+  const entries = [];
+  if (caseEntry.decision_loc)
+    entries.push({ value: 'decision_loc',     href: caseEntry.decision_loc,
+                   title: dateLabel + '\u00a0(LOC)' });
+  if (caseEntry.decision_ussc)
+    entries.push({ value: 'decision_ussc',    href: caseEntry.decision_ussc,
+                   title: dateLabel + '\u00a0(USSC)' });
+  if (caseEntry.decision_reports)
+    entries.push({ value: 'decision_reports', href: caseEntry.decision_reports,
+                   title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
+  return entries;
+}
+
+// Returns [{value, href, title}] for each unique transcript_href across events, date-sorted.
+function _buildTranscriptEntries(caseEntry) {
+  const entries = [];
+  const seen = new Set();
+  const sorted = [...(caseEntry.events || [])].sort(
+    (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0
+  );
+  for (const a of sorted) {
+    if (!a.transcript_href || seen.has(a.transcript_href)) continue;
+    seen.add(a.transcript_href);
+    entries.push({ value: 'transcript:' + entries.length, href: a.transcript_href,
+                   title: 'Transcript\u00a0of\u00a0' + (a.title || '') });
+  }
+  return entries;
+}
+
 // Show or hide the case/event notes line below the dates row.
 function _setCaseNotes(text) {
   const el = document.getElementById('case-notes');
@@ -2112,9 +2151,10 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
   _applyTranscriptViews(rawFiles, caseEntry);
   _injectVirtualTranscripts(rawFiles, caseEntry, opts.argumentDates ?? null);
 
-  // When opinion_href is set, drop any opinion entries from files.json (prefer opinion_href).
-  // When no opinion_href, normalise files.json opinion titles to "Decision on <date>".
-  if (caseEntry.opinion_href) {
+  // When decision hrefs are present, drop any opinion entries from files.json (prefer decision hrefs).
+  // When none are present, normalise files.json opinion titles to "Decision on <date>".
+  const _decisionFileEntries = _buildDecisionEntries(caseEntry);
+  if (_decisionFileEntries.length) {
     const idx = rawFiles.findIndex(f => (f.type || '').toLowerCase() === 'opinion');
     if (idx !== -1) rawFiles.splice(idx, 1);
   } else {
@@ -2127,13 +2167,9 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     });
   }
 
-  // When opinion_href is set, append a "Decision on <Date>" entry after any transcripts.
-  if (caseEntry.opinion_href) {
-    const title = (caseEntry.decision
-      ? 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision)
-      : 'Decision')
-      + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
-    rawFiles.push({ type: 'opinion', title, href: caseEntry.opinion_href });
+  // Append one "Decision on <Date> (<source>)" entry per available decision href.
+  for (const de of _decisionFileEntries) {
+    rawFiles.push({ type: 'opinion', title: de.title, href: de.href });
   }
 
   const { entries, hideToggle = false } = opts.computeEntries(rawFiles);
@@ -2333,7 +2369,7 @@ function _fmtMonthDay(dateStr, withYear = false) {
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
-  const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+  const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
 
   // Precompute URL ids for all cases in the term (not just visible) so the
   // uniqueness check is accurate and stable across sort modes.
@@ -2375,7 +2411,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
     const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'opinion');
     const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'opinion');
-    const hasOpinion    = !!caseEntry.opinion_href;
+    const hasOpinion    = hasDecisionHref(caseEntry);
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
@@ -2415,7 +2451,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ring: opinionCircleData(caseEntry),
           onClick: hasOpinion ? (e) => {
             e.stopPropagation();
-            const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseEntry.title || '') };
+            const _firstDecision = _buildDecisionEntries(caseEntry)[0];
+            const opinionFile = _firstDecision
+              ? { href: _firstDecision.href, title: _firstDecision.title }
+              : null;
+            if (!opinionFile) return;
             if (caseEntry.events?.length) {
               document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
               showDocViewer(opinionFile, { autoScroll: true });
@@ -2708,7 +2748,7 @@ function buildNav(title = 'Terms') {
           ({ mode, asc }) => {
             _sortMode = mode;
             _sortAsc  = asc;
-            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0) : null;
+            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0) : null;
             const count = visible ? visible.length : null;
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
             termCount.classList.add('sort-active');
@@ -2742,7 +2782,7 @@ function buildNav(title = 'Terms') {
         const cases = await fetchTermCases(term);
         _casesCache = cases;
         buildTermCasesSorted(term, cases, ul, _sortMode, _sortAsc);
-        const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
@@ -2750,14 +2790,14 @@ function buildNav(title = 'Terms') {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
         _casesCache = cases;
-        const visible = cases.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
         termCount.textContent = visible.length + '\u00a0Cases';
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
       termLi._showSortLabel = () => {
         if (!_casesCache) return;
-        const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+        const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         termCount.classList.add('sort-active');
       };
@@ -2768,7 +2808,7 @@ function buildNav(title = 'Terms') {
             termCount.classList.remove('sort-active');
             // Reset to plain count label when collapsed
             if (_casesCache) {
-              const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+              const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
               termCount.textContent = visible.length + '\u00a0Cases';
             }
             updateEmptyStateForTerm(null);
@@ -2791,7 +2831,7 @@ function buildNav(title = 'Terms') {
         await ensureBuilt();
         termCount.classList.add('sort-active');
         if (_casesCache) {
-          const visible = _casesCache.filter(c => c.events?.length || c.opinion_href || c.files > 0);
+          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
           termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         }
         updateEmptyStateForTerm(term);
@@ -3557,7 +3597,8 @@ async function loadHighlight(highlight) {
 
   _currentAudioList = [syntheticArg];
   _currentBasePath  = '/';
-  _currentOpinionHref = null;
+  _currentDecisionEntries   = [];
+  _currentTranscriptEntries = [];
 
   await loadAudioEntry(syntheticArg, '/');
 
@@ -3626,8 +3667,9 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
     // Synchronous selection feedback before any async fetch.
     if (!ci.classList.contains('active')) markCaseItemActive(ci);
     const caseEntry = await _fetchCaseEntry();
-    if (!caseEntry?.opinion_href) return;
-    const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseRef.title) };
+    const _firstDE = _buildDecisionEntries(caseEntry)[0];
+    if (!_firstDE) return;
+    const opinionFile = { href: _firstDE.href, title: _firstDE.title };
     if (caseRef.event) {
       // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
       if (!ci.classList.contains('active')) {
@@ -4458,7 +4500,8 @@ async function loadCaseAsOpinion(term, caseEntry) {
 
   // If there are extra documents to choose from, surface a dropdown rather
   // than the standalone decision label.
-  _currentOpinionHref = caseEntry.opinion_href || null;
+  _currentDecisionEntries   = _buildDecisionEntries(caseEntry);
+  _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
@@ -4467,41 +4510,48 @@ async function loadCaseAsOpinion(term, caseEntry) {
   if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length) {
     decisionLabel.hidden = true;
     audioSelect.innerHTML = '';
-    _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
-      const opt = document.createElement('option');
-      opt.value = 'file:' + f.file;
-      const t = f.title || '';
-      opt.textContent = t.length > 40 ? t.slice(0, 40) + '…' : t;
-      audioSelect.appendChild(opt);
-    });
     journalOpts.forEach(j => {
       const opt = document.createElement('option');
       opt.value = j.value;
       opt.textContent = j.title;
       audioSelect.appendChild(opt);
     });
-    if (decisionText && caseEntry.opinion_href) {
+    _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
+      if ((f.type || '').toLowerCase() === 'opinion' && caseEntry.decision_ussc) return;
       const opt = document.createElement('option');
-      opt.value = 'opinion';
-      opt.textContent = decisionText;
+      opt.value = 'file:' + f.file;
+      const t = f.title || '';
+      opt.textContent = t.length > 40 ? t.slice(0, 40) + '…' : t;
       audioSelect.appendChild(opt);
-    }
+    });
+    _currentTranscriptEntries.forEach(te => {
+      const opt = document.createElement('option');
+      opt.value = te.value;
+      opt.textContent = te.title;
+      audioSelect.appendChild(opt);
+    });
+    _currentDecisionEntries.forEach(de => {
+      const opt = document.createElement('option');
+      opt.value = de.value;
+      opt.textContent = de.title;
+      audioSelect.appendChild(opt);
+    });
     _currentVideoEntries.forEach((v, i) => {
       const opt = document.createElement('option');
       opt.value = 'video:' + i;
       opt.textContent = v.title;
       audioSelect.appendChild(opt);
     });
-    // Default to the opinion entry when it exists, since that is what is
-    // displayed initially in the document viewer.
-    if (caseEntry.opinion_href) audioSelect.value = 'opinion';
+    // Default to the first decision entry when present, since it opens in the document viewer.
+    if (_currentDecisionEntries.length) audioSelect.value = _currentDecisionEntries[0].value;
     audioSelect.hidden = false;
   } else {
     audioSelect.hidden = true;
     if (decisionText) {
       decisionLabel.textContent = decisionText;
-      if (caseEntry.opinion_href) {
-        decisionLabel.href = caseEntry.opinion_href;
+      const _firstDE = _currentDecisionEntries[0];
+      if (_firstDE) {
+        decisionLabel.href = _firstDE.href;
         decisionLabel.target = '_blank';
         decisionLabel.rel = 'noopener noreferrer';
       } else {
@@ -4530,15 +4580,13 @@ async function loadCaseAsOpinion(term, caseEntry) {
 
   playerSection.hidden = false;
 
-  // Open opinion full-height in the document viewer. Use a local override so
-  // this large height doesn't persist for the next audio case.
-  if (caseEntry.opinion_href) {
+  // Open the first decision href full-height in the document viewer. Use a local
+  // override so this large height doesn't persist for the next audio case.
+  const _primaryDE = _currentDecisionEntries[0];
+  if (_primaryDE) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-    showDocViewer(
-      { href: caseEntry.opinion_href, title: 'Opinion in ' + caseTitle(caseEntry.title) },
-      { autoScroll: true }
-    );
+    showDocViewer({ href: _primaryDE.href, title: _primaryDE.title }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
   }
 
@@ -4572,7 +4620,8 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
   _setCaseInfoRow2(caseEntry);
-  _currentOpinionHref = caseEntry.opinion_href || null;
+  _currentDecisionEntries   = _buildDecisionEntries(caseEntry);
+  _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   docViewerOpenHeight = null;
@@ -4713,6 +4762,15 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   }
   const audioSelect = document.getElementById('audio-select');
   audioSelect.innerHTML = '';
+  // Journal entries appear first, before audio.
+  const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
+  _currentJournalRefs = _jrMap;
+  _journalOpts.forEach(j => {
+    const opt = document.createElement('option');
+    opt.value = j.value;
+    opt.textContent = j.title;
+    audioSelect.appendChild(opt);
+  });
   sortedAudio.forEach((a) => {
     const opt = document.createElement('option');
     opt.value = allAudio.indexOf(a) + 1;
@@ -4724,26 +4782,20 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     opt.textContent = audioEntryLabel(a, _suffix);
     audioSelect.appendChild(opt);
   });
-  // Append a sentinel option for each event with a `journal_ref`. The ref is
-  // either "PAGE" (use the case's term journal) or "TERM:PAGE" (use a different
-  // term's journal). The linked URL is `<journal_href>#page=<PAGE>`.
-  // Journal entries appear before the decision sentinel so the decision is
-  // always last.
-  const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
-  _currentJournalRefs = _jrMap;
-  _journalOpts.forEach(j => {
+  // Transcript PDF sentinels appear after audio entries.
+  _currentTranscriptEntries.forEach(te => {
     const opt = document.createElement('option');
-    opt.value = j.value;
-    opt.textContent = j.title;
+    opt.value = te.value;
+    opt.textContent = te.title;
     audioSelect.appendChild(opt);
   });
-  // Append sentinel option linking to the opinion, if available. (Always last.)
-  if (caseEntry.opinion_href && caseEntry.decision) {
+  // Append sentinel options linking to decision PDFs, in order: LOC, USSC, US Reports.
+  _currentDecisionEntries.forEach(de => {
     const sentinelOpt = document.createElement('option');
-    sentinelOpt.value = 'opinion';
-    sentinelOpt.textContent = 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision) + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
+    sentinelOpt.value = de.value;
+    sentinelOpt.textContent = de.title;
     audioSelect.appendChild(sentinelOpt);
-  }
+  });
   // Append sentinel option linking to the Oyez case page, if available.
   if (caseEntry.oyez_href) {
     const oyezOpt = document.createElement('option');
@@ -4765,7 +4817,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'opinion' && v !== 'oyez-page' && !v.startsWith('journal:') && !v.startsWith('video:'))
+    .filter(v => v !== 'oyez-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -5266,10 +5318,14 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   // Always reset to case-level notes first; audio entry selection below will
   // override with event-specific notes if the chosen entry has any.
   _setCaseNotes(_currentCaseEntry?.notes || '');
-  if (e.target.value === 'opinion') {
-    if (_currentOpinionHref) {
-      showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' }, { force: true });
-    }
+  if (e.target.value.startsWith('decision_')) {
+    const de = _currentDecisionEntries.find(d => d.value === e.target.value);
+    if (de) showDocViewer({ href: de.href, title: de.title }, { force: true });
+    return;
+  }
+  if (e.target.value.startsWith('transcript:')) {
+    const te = _currentTranscriptEntries.find(t => t.value === e.target.value);
+    if (te) showDocViewer({ href: te.href, title: te.title }, { force: true });
     return;
   }
   if (e.target.value === 'oyez-page') {

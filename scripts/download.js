@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Downloads and caches external assets referenced in cases.json files:
- *   - opinion_href  → PDF opinion
+ *   - decision_loc / decision_ussc / decision_reports  → PDF opinion
  *   - audio_href    → MP3 audio (from each event)
  *   - transcript_href → PDF transcript (from each event)
  *
@@ -192,10 +192,10 @@ async function processCase(term, c, folderKey, opts) {
 
     const tasks = [];
 
-    // opinion_href
-    if (c.opinion_href) {
-        tasks.push({ url: c.opinion_href });
-    }
+    // decision hrefs
+    if (c.decision_loc)     tasks.push({ url: c.decision_loc });
+    if (c.decision_ussc)    tasks.push({ url: c.decision_ussc });
+    if (c.decision_reports) tasks.push({ url: c.decision_reports });
 
     // event assets: audio_href, transcript_href
     for (const ev of c.events || []) {
