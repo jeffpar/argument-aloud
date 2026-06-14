@@ -16,6 +16,38 @@ let _currentLoadedEntry = null; // the audio entry object currently loaded in lo
 let _currentCaseEntry   = null; // the case object currently loaded
 let _currentDecisionEntries    = []; // decision entries [{value,href,title}] for the active case (audio dropdown sentinels)
 let _currentTranscriptEntries  = []; // transcript PDF entries [{value,href,title}] for the active case
+// Pool of persistent PDF iframes keyed by full src URL (including #page fragment).
+// Switching between entries is a pure show/hide — no reload, no about:blank bounce.
+// LRU eviction keeps the pool bounded.
+const _pdfIframePool = new Map();   // src → <iframe>  (insertion order == LRU)
+const _PDF_POOL_MAX  = 5;
+
+function _getOrCreatePdfIframe(src) {
+  if (_pdfIframePool.has(src)) {
+    // Refresh to most-recently-used position.
+    const el = _pdfIframePool.get(src);
+    _pdfIframePool.delete(src);
+    _pdfIframePool.set(src, el);
+    return el;
+  }
+  if (_pdfIframePool.size >= _PDF_POOL_MAX) {
+    const { value: [lruSrc, lruEl] } = _pdfIframePool.entries().next();
+    _pdfIframePool.delete(lruSrc);
+    lruEl.remove();
+  }
+  const el = document.createElement('iframe');
+  el.title = 'PDF document';
+  el.setAttribute('allow', 'fullscreen');
+  el.className = 'pdf-iframe';
+  document.getElementById('doc-viewer-pdf').insertAdjacentElement('afterend', el);
+  _pdfIframePool.set(src, el);
+  return el;
+}
+
+function _clearPdfIframePool() {
+  for (const el of _pdfIframePool.values()) el.remove();
+  _pdfIframePool.clear();
+}
 let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
@@ -1447,7 +1479,6 @@ function toEmbedUrl(href) {
 
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {  const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
-  const pdfEl  = document.getElementById('doc-viewer-pdf');
   const isPdf  = /\.pdf(#|\?|$)/i.test(link.href);
   const inPane = isPdf || link.view === 'pane';
 
@@ -1484,26 +1515,14 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 
   if (inPane) {
     card.style.display = 'none';
-    pdfEl.style.display = 'block';
     const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
-    if (force || pdfEl.src !== src) {
-      // Browsers won't navigate an iframe when only the fragment changes (same-PDF, different page).
-      // Force a real reload by going to about:blank first, then setting the real src only
-      // after the blank navigation has fully committed (load event).
-      if (pdfEl.src.split('#')[0] === src.split('#')[0] || force) {
-        const targetSrc = src;
-        pdfEl.addEventListener('load', function onBlankLoad() {
-          pdfEl.removeEventListener('load', onBlankLoad);
-          pdfEl.src = targetSrc;
-        }, { once: true });
-        pdfEl.src = 'about:blank';
-      } else {
-        pdfEl.src = src;
-      }
-    }
+    const isNew = !_pdfIframePool.has(src);
+    const iframe = _getOrCreatePdfIframe(src);
+    // Show only this iframe; others stay hidden but alive — no reload needed on return.
+    for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
+    if (isNew) iframe.src = src;
   } else {
-    pdfEl.style.display = 'none';
-    pdfEl.src = '';
+    for (const el of _pdfIframePool.values()) el.style.display = 'none';
     card.style.display = '';
     document.getElementById('doc-viewer-card-title').textContent = link.title || getRefTexts(link)[0] || '';
     document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
