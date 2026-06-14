@@ -3,7 +3,10 @@ layout: pane
 ---
 
 <style>
-.stats-title-row { display: flex; justify-content: space-between; align-items: flex-start; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+.stats-title-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+.stats-term-nav { width: 100%; display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.72rem; }
+.stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; }
+.stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
 @media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
@@ -35,7 +38,7 @@ html[data-theme="light"] .stats-note { color: #888; }
 
 /* Date-specific case list */
 .date-section { margin-bottom: 1.25rem; }
-.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 0.6rem 0 0.35rem; }
+.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
 .date-case-list { list-style: none; margin: 0; padding: 0; }
 .date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
 .date-case-list a { color: inherit; text-decoration: none; }
@@ -53,6 +56,10 @@ html[data-theme="light"] .date-section h3 { color: #888; }
         <img id="journal-cover-img" alt="Journal cover">
         <span id="journal-cover-label">Journal</span>
       </button>
+    </div>
+    <div class="stats-term-nav" id="stats-term-nav" hidden>
+      <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
+      <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
     </div>
   </div>
 
@@ -167,11 +174,41 @@ html[data-theme="light"] .date-section h3 { color: #888; }
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function (decades) {
       var entry = null;
+      var allTerms = [];
       decades.forEach(function (d) {
         (d.groups || []).forEach(function (g) {
+          var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
+          if (m) allTerms.push({ id: m[1], name: g.name || termTitle(m[1]) });
           if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
         });
       });
+      var idx = allTerms.findIndex(function (t) { return t.id === term; });
+      if (idx >= 0) document.getElementById('stat-term-title').textContent = allTerms[idx].name;
+      var prevEntry = idx > 0 ? allTerms[idx - 1] : null;
+      var nextEntry = idx < allTerms.length - 1 ? allTerms[idx + 1] : null;
+      if (prevEntry || nextEntry) {
+        document.getElementById('stats-term-nav').hidden = false;
+        if (prevEntry) {
+          var prevBtn = document.getElementById('stat-prev-term');
+          prevBtn.textContent = '« ' + prevEntry.name;
+          prevBtn.hidden = false;
+          prevBtn.addEventListener('click', function () {
+            var s = '?term=' + encodeURIComponent(prevEntry.id);
+            if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
+            else { location.href = s; }
+          });
+        }
+        if (nextEntry) {
+          var nextBtn = document.getElementById('stat-next-term');
+          nextBtn.textContent = nextEntry.name + ' »';
+          nextBtn.hidden = false;
+          nextBtn.addEventListener('click', function () {
+            var s = '?term=' + encodeURIComponent(nextEntry.id);
+            if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
+            else { location.href = s; }
+          });
+        }
+      }
       if (!entry) return;
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
@@ -241,11 +278,15 @@ html[data-theme="light"] .date-section h3 { color: #888; }
         function fillGroup(sectionId, listId, group) {
           if (!group.length) return;
           var ul = document.getElementById(listId);
-          group.forEach(function (c) {
+          var sorted = group.slice().sort(function (a, b) {
+            var ta = caseDisplayTitle(a).toLowerCase(), tb = caseDisplayTitle(b).toLowerCase();
+            return ta < tb ? -1 : ta > tb ? 1 : 0;
+          });
+          sorted.forEach(function (c) {
             var li = document.createElement('li');
             var a = document.createElement('a');
             var id = caseUrlId(c);
-            a.textContent = caseDisplayTitle(c);
+            a.textContent = caseDisplayTitle(c) + (c.usCite ? ' (' + c.usCite + ')' : '');
             a.href = '/courts/ussc/?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(id);
             a.addEventListener('click', function (e) {
               e.preventDefault();
