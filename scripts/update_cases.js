@@ -4,7 +4,7 @@
  * by default. Pass --dry-run to suppress all file writes.
  *
  * Usage:
- *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--verbose] [--dry-run]
+ *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports] [--verbose] [--dry-run]
  *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
@@ -494,8 +494,10 @@ const _DATE_DEC_PARSE_RE = new RegExp(
   + 'October|November|December)\\s+(\\d{1,2}),\\s+(\\d{4})$'
 );
 
-const TERMS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
-const TERMS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+const TERMS_JSON   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
+const REPORTS_JSON = path.join(REPO_ROOT, 'courts', 'ussc', 'reports.json');
+const TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+const PDFS_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'pdfs');
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -4393,7 +4395,7 @@ function _buildNoteworthyCollection(allTerms) {
     return { output, skipped: 0, unmatched: 0 };
 }
 
-const _PAGE_KEY_ORDER = ['name', 'term', 'file', 'cases', 'journal_cover', 'journal_href'];
+const _PAGE_KEY_ORDER = ['name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports'];
 
 function syncTermsJson() {
     let tj;
@@ -4442,6 +4444,299 @@ function syncTermsJson() {
         const label = path.relative(REPO_ROOT, TERMS_JSON);
         if (!_DRY_RUN) _writeJson(TERMS_JSON, tj);
         console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} ${label} (case counts)`);
+    }
+}
+
+// ── U.S. Reports sync ────────────────────────────────────────────────────────
+
+// Cache: Map<volumeNum, absoluteUrl> built from USReports.aspx, null = not yet fetched.
+let _US_REPORTS_URL_MAP = null;
+
+// Cache: Map<pdfPath, page_offset|null> so each PDF is scanned at most once per run.
+const _PAGE_OFFSET_CACHE = new Map();
+
+// Fetch USReports.aspx and return a Map<volumeNum, absoluteUrl> for all
+// bound volumes (2–587). Excludes preliminary-print and PP files.
+async function _fetchUsReportsUrlMap() {
+    if (_US_REPORTS_URL_MAP) return _US_REPORTS_URL_MAP;
+
+    const aspxUrl = `${SCOTUS_BASE}/opinions/USReports.aspx`;
+    let html;
+    try {
+        html = await _fetchHtml(aspxUrl, 30000);
+    } catch (e) {
+        console.log(`  Warning: could not fetch USReports.aspx: ${e.message || e}`);
+        _US_REPORTS_URL_MAP = new Map();
+        return _US_REPORTS_URL_MAP;
+    }
+
+    const map = new Map();
+
+    // Volumes 2–501: href='/pdfs/USReports/USREPORTS-NNN_PDFA.pdf'
+    const re1 = /id='(\d+)'\s+href='(\/pdfs\/USReports\/USREPORTS-(\d+)_PDFA\.pdf)'/gi;
+    let m;
+    while ((m = re1.exec(html)) !== null) {
+        const vol = parseInt(m[3], 10);
+        if (vol >= 2 && vol <= 587) map.set(vol, SCOTUS_BASE + m[2]);
+    }
+
+    // Volumes 502–587: href='boundvolumes/NNNbv.pdf' (relative to /opinions/)
+    const re2 = /id='(\d+)'\s+href='(boundvolumes\/\d+bv\.pdf)'/gi;
+    while ((m = re2.exec(html)) !== null) {
+        const vol = parseInt(m[1], 10);
+        if (vol >= 2 && vol <= 587) map.set(vol, `${SCOTUS_BASE}/opinions/${m[2]}`);
+    }
+
+    _US_REPORTS_URL_MAP = map;
+    return map;
+}
+
+// Extract the text content of one page of a PDF via pdftotext.
+async function _pdfPageText(pdfPath, pageNum) {
+    try {
+        const { stdout } = await _execFile('pdftotext', [
+            '-f', String(pageNum), '-l', String(pageNum), pdfPath, '-',
+        ], { timeout: 30000 });
+        return stdout || '';
+    } catch {
+        return '';
+    }
+}
+
+// Detect how many PDF pages precede the page numbered "1" in the volume.
+//
+// Phase 1: scan for a page whose text contains the title pattern
+//   "CASES/OASES/DECISIONS/REPORTS ... IN/OF THE ... SUPREME COURT OF THE
+//   UNITED STATES". OASES is an OCR artefact for CASES; REPORTS covers the
+//   "REPORTS OF THE DECISIONS ..." title form used in some early volumes.
+//   That page IS page 1 of the volume, so page_offset = p - 1.
+//
+// Phase 2 (fallback): look for three consecutive PDF pages whose text begins
+//   with the page numbers 2, 3, and 4 respectively. If found, the PDF page
+//   preceding the "2" page is volume page 1, so page_offset = p - 2.
+async function _detectReportPageOffset(pdfPath) {
+    if (_PAGE_OFFSET_CACHE.has(pdfPath)) return _PAGE_OFFSET_CACHE.get(pdfPath);
+    let result = null;
+
+    const titleRe = /(?:CASES\b|OASES\b|DECISIONS\b|REPORTS\b)[\s\S]{0,150}(?:IN|OF) THE[\s\S]{0,150}SUPREME COURT OF THE UNITED STATES/i;
+    for (let p = 1; p <= 200; p++) {
+        const text = await _pdfPageText(pdfPath, p);
+        if (titleRe.test(text)) {
+            result = p - 1;
+            break;
+        }
+    }
+
+    if (result === null) {
+        // Heuristic: a standalone page number (2, 3, or 4) appearing at the
+        // start of a line within the first 200 chars of OCR text.
+        const hasPageNum = (text, n) => new RegExp(`(?:^|\\n)\\s*${n}[\\s\\n]`).test(text.slice(0, 200));
+        for (let p = 2; p <= 200; p++) {
+            const t2 = await _pdfPageText(pdfPath, p);
+            if (hasPageNum(t2, 2)) {
+                const t3 = await _pdfPageText(pdfPath, p + 1);
+                const t4 = await _pdfPageText(pdfPath, p + 2);
+                if (hasPageNum(t3, 3) && hasPageNum(t4, 4)) {
+                    result = p - 2;
+                    break;
+                }
+            }
+        }
+    }
+
+    _PAGE_OFFSET_CACHE.set(pdfPath, result);
+    return result;
+}
+
+// Export page 1 of a PDF as a JPEG at outputJpgPath. Returns true on success.
+async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
+    // pdftoppm names the output <prefix>-NNN.jpg where NNN is the zero-padded
+    // page number (padding width matches the total page count of the PDF).
+    const prefix = outputJpgPath.slice(0, -4); // strip ".jpg"
+    const dir    = path.dirname(prefix);
+    const base   = path.basename(prefix);
+    try {
+        await _execFile('pdftoppm', [
+            '-jpeg', '-r', '150',
+            '-f', String(pdfPage), '-l', String(pdfPage),
+            pdfPath, prefix,
+        ], { timeout: 60000 });
+        // Find the file pdftoppm actually created (suffix depends on total page count).
+        const created = fs.readdirSync(dir).find(f => f.startsWith(base + '-') && f.endsWith('.jpg'));
+        if (created) {
+            const tmp = path.join(dir, created);
+            if (tmp !== outputJpgPath) fs.renameSync(tmp, outputJpgPath);
+            return true;
+        }
+    } catch (e) {
+        console.log(`    Warning: pdftoppm failed for ${path.basename(pdfPath)}: ${e.message || e}`);
+    }
+    return false;
+}
+
+// For every term in terms.json, scan cases.json for U.S. Reports volume
+// numbers (from usCite fields), cross-reference against the bound volumes
+// listed on USReports.aspx, and build/maintain the "reports" array on
+// each term group entry. Cover images are generated via pdftoppm if absent;
+// page_offset values are computed via pdftotext if absent.
+async function syncTermsReports(termFilter) {
+    let tj;
+    try { tj = _readJson(TERMS_JSON); } catch { return; }
+    if (!Array.isArray(tj)) return;
+
+    // Load reports.json to seed the page_offset cache so PDFs are not
+    // re-scanned on subsequent runs. -1 means detection was attempted but
+    // failed; cache it as null so _detectReportPageOffset skips it.
+    let reportsDb = {};
+    try {
+        const raw = _readJson(REPORTS_JSON);
+        if (raw && typeof raw === 'object' && !Array.isArray(raw)) reportsDb = raw;
+    } catch { /* file may not exist yet */ }
+    for (const [key, val] of Object.entries(reportsDb)) {
+        if (typeof val?.page_offset === 'number') {
+            _PAGE_OFFSET_CACHE.set(path.join(PDFS_DIR, key + '.pdf'),
+                val.page_offset === -1 ? null : val.page_offset);
+        }
+    }
+
+    console.log('Fetching USReports.aspx ...');
+    const urlMap = await _fetchUsReportsUrlMap();
+    if (!urlMap.size) {
+        console.log('Warning: no bound volume URLs found on USReports.aspx');
+        return;
+    }
+    if (_VERBOSE)
+        console.log(`  Found ${urlMap.size} bound volume URLs (${Math.min(...urlMap.keys())}–${Math.max(...urlMap.keys())})`);
+
+    let modified = false;
+
+    for (const decade of tj) {
+        for (let i = 0; i < (decade.groups || []).length; i++) {
+            const page = decade.groups[i];
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const termMatch = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!termMatch) continue;
+
+            const term = termMatch[1];
+            if (termFilter && term !== termFilter) continue;
+
+            const termDir   = path.join(TERMS_DIR, term);
+            const casesPath = path.join(termDir, 'cases.json');
+
+            let cases = [];
+            try {
+                cases = _readJson(casesPath);
+                if (!Array.isArray(cases)) cases = [];
+            } catch { continue; }
+
+            // Collect unique volume numbers referenced in usCite fields.
+            const volSet = new Set();
+            for (const c of cases) {
+                const cm = /^(\d+)\s+U\.S\./.exec(c.usCite || '');
+                if (cm) {
+                    const vol = parseInt(cm[1], 10);
+                    if (vol >= 2 && vol <= 587 && urlMap.has(vol)) volSet.add(vol);
+                }
+            }
+            if (!volSet.size) continue;
+
+            const sortedVols = [...volSet].sort((a, b) => a - b);
+
+            // Build lookup of existing report entries by href so we can
+            // preserve page_offset values that are already computed.
+            const existingByHref = new Map();
+            for (const r of (page.reports || [])) {
+                if (r.href) existingByHref.set(r.href, r);
+            }
+
+            const reports = [];
+            for (const vol of sortedVols) {
+                const href    = urlMap.get(vol);
+                const volStr  = String(vol).padStart(3, '0');
+                const pdfPath = path.join(PDFS_DIR, `v${volStr}.pdf`);
+
+                if (!fs.existsSync(pdfPath)) {
+                    if (_VERBOSE) console.log(`  ${term}: v${volStr}.pdf not found locally, skipping`);
+                    continue;
+                }
+
+                const coverName = `v${volStr}-cover.jpg`;
+                const coverPath = path.join(termDir, coverName);
+
+                // Resolve page_offset before computing the cover page number.
+                // reports.json is definitive: if it has a valid value that differs
+                // from terms.json, terms.json is updated to match. If reports.json
+                // has an entry for this volume but no valid page_offset (user cleared
+                // it to force re-detection), or if neither source has a value, scan
+                // the PDF to determine it.
+                const volKey = `v${volStr}`;
+                let pageOffset = existingByHref.get(href)?.page_offset ?? null;
+                const dbOffset = reportsDb[volKey]?.page_offset;
+                if (typeof dbOffset === 'number') {
+                    // reports.json is authoritative — override terms.json if different.
+                    const dbNorm = dbOffset >= 0 ? dbOffset : null;
+                    if (pageOffset !== dbNorm) {
+                        pageOffset = dbNorm;
+                        // Cover was generated from the old page — delete it so it gets
+                        // regenerated from the corrected page_offset.
+                        if (fs.existsSync(coverPath)) {
+                            if (!_DRY_RUN) fs.unlinkSync(coverPath);
+                            else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
+                        }
+                    }
+                } else if (volKey in reportsDb || pageOffset == null) {
+                    // Entry in reports.json has no valid page_offset (cleared to force
+                    // re-detection), OR nothing known yet — scan the PDF.
+                    const prevOffset = pageOffset;
+                    console.log(`  ${term}: detecting page offset for v${volStr} ...`);
+                    pageOffset = await _detectReportPageOffset(pdfPath);
+                    const storedOffset = pageOffset ?? -1;
+                    if (pageOffset == null) {
+                        console.log(`  ${term}: could not detect page offset for v${volStr}`);
+                    } else if (_VERBOSE) {
+                        console.log(`  ${term}: v${volStr} page_offset = ${pageOffset}`);
+                    }
+                    reportsDb[volKey] = { page_offset: storedOffset };
+                    const sorted = Object.fromEntries(Object.keys(reportsDb).sort().map(k => [k, reportsDb[k]]));
+                    _writeJson(REPORTS_JSON, sorted);
+                    // If the offset changed, delete the stale cover so it gets regenerated.
+                    if (pageOffset !== prevOffset && fs.existsSync(coverPath)) {
+                        if (!_DRY_RUN) fs.unlinkSync(coverPath);
+                        else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
+                    }
+                }
+
+                // Generate (or regenerate) the cover image from the page
+                // numbered "1" in the volume (PDF page = page_offset + 1).
+                if (!fs.existsSync(coverPath)) {
+                    const coverPdfPage = pageOffset != null ? pageOffset + 1 : 1;
+                    console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
+                    if (!_DRY_RUN) {
+                        await _generateReportCover(pdfPath, coverPath, coverPdfPage);
+                    } else {
+                        console.log(`  [dry-run] would generate ${path.relative(REPO_ROOT, coverPath)}`);
+                    }
+                }
+
+                const report = { volume: vol, cover: coverName, href, page_offset: pageOffset ?? -1 };
+                reports.push(report);
+            }
+
+            if (!reports.length) continue;
+
+            if (JSON.stringify(page.reports) !== JSON.stringify(reports)) {
+                page.reports = reports;
+                modified = true;
+                _writeJson(TERMS_JSON, tj);
+                console.log(`  ${term}: updated reports (volumes ${sortedVols.join(', ')})`);
+            }
+        }
+    }
+
+    if (modified) {
+        console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} ${path.relative(REPO_ROOT, TERMS_JSON)} (reports)`);
+    } else {
+        console.log('terms.json reports: no changes needed.');
     }
 }
 
@@ -7094,7 +7389,7 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
-       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--verbose] [--dry-run]
+       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports] [--verbose] [--dry-run]
        node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
@@ -8305,6 +8600,11 @@ async function main() {
     if (positional.length > 2) {
         console.log(USAGE);
         process.exit(1);
+    }
+
+    if (flags.has('--reports')) {
+        await syncTermsReports(positional[0] || null);
+        return;
     }
 
     let allTerms = [];

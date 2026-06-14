@@ -9,6 +9,7 @@ html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; flex-shrink: 0; margin-left: 8px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+#journal-cover-btn[hidden] { display: none; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
 #journal-cover-btn:hover #journal-cover-img { opacity: 0.8; }
 #journal-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }

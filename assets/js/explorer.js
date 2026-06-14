@@ -19,6 +19,7 @@ let _currentOyezHref    = null; // oyez URL for the active case (used by audio d
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
+let _currentFiles       = [];        // files.json entries for the active case (used by file: dropdown options)
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
 
@@ -4398,7 +4399,7 @@ function _buildJournalRefOptions(caseEntry, term) {
 // the opinion PDF (if any) opens full-height in the document viewer. Used for
 // historical cases without playable audio, and when a collection click forces
 // no-audio display (forceNoAudio: true).
-function loadCaseAsOpinion(term, caseEntry) {
+async function loadCaseAsOpinion(term, caseEntry) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
 
@@ -4460,9 +4461,19 @@ function loadCaseAsOpinion(term, caseEntry) {
   _currentOpinionHref = caseEntry.opinion_href || null;
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
-  if (journalOpts.length && (decisionText || journalOpts.length > 1) || _currentVideoEntries.length) {
+  const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+  const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
+  _currentFiles = _opRawFiles;
+  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length) {
     decisionLabel.hidden = true;
     audioSelect.innerHTML = '';
+    _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = 'file:' + f.file;
+      const t = f.title || '';
+      opt.textContent = t.length > 40 ? t.slice(0, 40) + '…' : t;
+      audioSelect.appendChild(opt);
+    });
     journalOpts.forEach(j => {
       const opt = document.createElement('option');
       opt.value = j.value;
@@ -4877,7 +4888,20 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   }
 
   const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
+  _currentFiles = rawFiles;
   links = rawFiles.filter(f => f.refs);
+  if (rawFiles.length) {
+    const _fileSel = document.getElementById('audio-select');
+    const _fileFrag = document.createDocumentFragment();
+    rawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = 'file:' + f.file;
+      const t = f.title || '';
+      opt.textContent = t.length > 40 ? t.slice(0, 40) + '…' : t;
+      _fileFrag.appendChild(opt);
+    });
+    _fileSel.insertBefore(_fileFrag, _fileSel.firstChild);
+  }
 
   playerSection.hidden = false;
   audioControls.hidden = false;
@@ -5265,6 +5289,12 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     if (entry) {
       showDocViewer({ href: entry.href, title: entry.title }, { force: true });
     }
+    return;
+  }
+  if (e.target.value.startsWith('file:')) {
+    const fileNum = parseInt(e.target.value.slice(5), 10);
+    const file = _currentFiles.find(f => f.file === fileNum);
+    if (file?.href) showDocViewer({ href: file.href, title: file.title || '' }, { force: true });
     return;
   }
   const val = parseInt(e.target.value, 10); // 1-based index into the date-sorted audio list
