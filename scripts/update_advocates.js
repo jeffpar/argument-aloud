@@ -1911,6 +1911,13 @@ async function main() {
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
         }
+        // Assign appearance numbers: 1 = first (oldest) appearance, N = most recent.
+        // cases[] is sorted newest-first so index 0 maps to appearance N.
+        const _n = entry.cases.length;
+        for (let _i = 0; _i < _n; _i++) {
+            delete entry.cases[_i].appearance;
+            entry.cases[_i].appearance = _n - _i;
+        }
         envelope.cases = entry.cases;
         writeJson(caseFile, envelope);
     }
