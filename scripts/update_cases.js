@@ -372,6 +372,7 @@ export async function checkOpinionForCase(filesPath, caseNumber, term, printHead
     const newEntry = {
         file:   maxId + 1,
         type:   'opinion',
+        group:  'other',
         title:  'Opinion in ' + opinion.name,
         date:   opinion.date,
         author: opinion.author,
@@ -1309,10 +1310,9 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
                 if (typeof e.file === 'number' && e.file > maxId) maxId = e.file;
             }
             const localHref = `/courts/ussc/terms/${term}/${relCase}/${fname}`;
-            const newEntry = { file: maxId + 1, title: _titleFromFilename(fname) };
-            const ftype = _fileTypeFromName(fname);
-            if (ftype) newEntry.type = ftype;
-            newEntry.href = localHref;
+            const rawType = _fileTypeFromName(fname);
+            const [ftype, fgroup] = _fileTypeGroup(rawType);
+            const newEntry = { file: maxId + 1, type: ftype, group: fgroup, title: _titleFromFilename(fname), href: localHref };
             filesData.push(newEntry);
             tracked.add(fname);
             filesModified = true;
@@ -1322,6 +1322,108 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
             _writeJson(filesPath, filesData);
         }
     }
+}
+
+// Valid normalized type and group values for files.json entries.
+const _FILE_TYPES  = new Set(['brief', 'opinion', 'reference', 'other']);
+const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'reference', 'other']);
+
+// Map a legacy files.json "type" to [normalizedType, group].
+// Only called for entries that are NOT already in the normalized format.
+// "petitioner"|"respondent"|"amicus" → ["brief",     <original>]
+// "reference"                        → ["reference", "reference"]
+// "brief"|"opinion"                  → [<original>,  "other"]
+// anything else (including missing)  → ["other",     "other"]
+function _fileTypeGroup(rawType) {
+    if (rawType === 'petitioner' || rawType === 'respondent' || rawType === 'amicus')
+        return ['brief', rawType];
+    if (rawType === 'reference')
+        return ['reference', 'reference'];
+    if (rawType === 'brief' || rawType === 'opinion')
+        return [rawType, 'other'];
+    return ['other', 'other'];
+}
+
+// Return the correct group for a given normalized type.
+// "reference" must always use group "reference"; everything else keeps its group.
+function _canonicalGroup(type, group) {
+    if (type === 'reference') return 'reference';
+    return group;
+}
+
+// Return a normalized copy of a files.json entry with property order:
+// file → type → group → (remaining keys in original order).
+// If the entry already has valid type+group values, they are preserved as-is
+// (subject to _canonicalGroup); otherwise the legacy type is mapped via _fileTypeGroup().
+function _normalizeFileEntry(entry) {
+    if (!entry || typeof entry !== 'object') return entry;
+    let newType, newGroup;
+    if (_FILE_TYPES.has(entry.type) && _FILE_GROUPS.has(entry.group)) {
+        newType  = entry.type;
+        newGroup = _canonicalGroup(entry.type, entry.group);
+    } else {
+        [newType, newGroup] = _fileTypeGroup(entry.type || null);
+    }
+    const rebuilt = {};
+    if ('file' in entry) rebuilt.file = entry.file;
+    rebuilt.type  = newType;
+    rebuilt.group = newGroup;
+    for (const [k, v] of Object.entries(entry)) {
+        if (k !== 'file' && k !== 'type' && k !== 'group') rebuilt[k] = v;
+    }
+    return rebuilt;
+}
+
+// Returns true if entry already has valid type, group, and property order.
+function _fileEntryIsNormalized(entry) {
+    if (!entry || typeof entry !== 'object') return true;
+    if (!_FILE_TYPES.has(entry.type) || !_FILE_GROUPS.has(entry.group)) return false;
+    if (entry.group !== _canonicalGroup(entry.type, entry.group)) return false;
+    const keys = Object.keys(entry);
+    const fi = keys.indexOf('file');
+    const ti = keys.indexOf('type');
+    const gi = keys.indexOf('group');
+    return ti >= 0 && gi >= 0 && ti === fi + 1 && gi === ti + 1;
+}
+
+// Normalize every file entry in files.json across all cases in the given term(s).
+// Property-order rule: file → type → group → (rest).
+// Type-mapping rules: see _fileTypeGroup().
+function cleanupFilesJson(termFilter, caseFilter, dryRun = false) {
+    const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const termDirs = termFilter
+        ? [termFilter]
+        : fs.readdirSync(termsDir).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+
+    let totalFiles = 0, totalChanged = 0;
+    for (const term of termDirs) {
+        const casesDir = path.join(termsDir, term, 'cases');
+        if (!fs.existsSync(casesDir)) continue;
+        const folders = fs.readdirSync(casesDir).filter(n => !n.startsWith('.'));
+        for (const folder of folders) {
+            if (caseFilter && folder !== caseFilter) continue;
+            const filesPath = path.join(casesDir, folder, 'files.json');
+            if (!fs.existsSync(filesPath)) continue;
+            let data;
+            try { data = _readJson(filesPath); } catch { continue; }
+            if (!Array.isArray(data)) continue;
+
+            let changed = false;
+            const normalized = data.map(entry => {
+                if (_fileEntryIsNormalized(entry)) return entry;
+                changed = true;
+                return _normalizeFileEntry(entry);
+            });
+
+            if (changed) {
+                totalChanged++;
+                console.log(`  ${term}/${folder}: updated files.json`);
+                _writeJson(filesPath, normalized);
+            }
+            totalFiles++;
+        }
+    }
+    console.log(`cleanupFilesJson: checked ${totalFiles} files.json, updated ${totalChanged}.`);
 }
 
 function checkAudioDates(casesPath, term, dryRun = false) {
@@ -7496,6 +7598,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
+       node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
@@ -8710,6 +8813,11 @@ async function main() {
 
     if (flags.has('--reports')) {
         await syncTermsReports(positional[0] || null);
+        return;
+    }
+
+    if (flags.has('--cleanup-files')) {
+        cleanupFilesJson(positional[0] || null, positional[1] || null, dryRun);
         return;
     }
 

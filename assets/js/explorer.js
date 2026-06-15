@@ -2500,21 +2500,19 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         basePath,
         argumentDates: null,
         computeEntries: (rawFiles) => {
-          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', other:'Other', reference:'References' };
-          const ORDER = ['petitioner','respondent','amicus','other','reference'];
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', reference:'References', other:'Other' };
+          const ORDER = ['petitioner','respondent','amicus','reference','other'];
           const MERGE_AMICUS_OTHER = true;
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','reference','other','transcript','opinion']);
           const groups = {};
           rawFiles.forEach(f => {
-            let key = (f.type || '').toLowerCase();
-            if (key === 'appellant' || key === 'appellants') key = 'petitioner';
-            else if (key === 'appellee' || key === 'appellees') key = 'respondent';
-            else if (key === 'brief' || key === 'briefs') key = '';
-            if (!key) {
-              const t = (f.title || '').toLowerCase();
-              if (/\bappellants?\b|\bpetitioners?\b/.test(t)) key = 'petitioner';
-              else if (/\bappellees?\b|\brespondents?\b/.test(t)) key = 'respondent';
-              else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) key = 'amicus';
-              else key = 'other';
+            let key = (f.group || '').toLowerCase();
+            if (!_TERM_GROUP_KEYS.has(key)) {
+              // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
+              key = (f.type || '').toLowerCase();
+              if (key === 'appellant' || key === 'appellants') key = 'petitioner';
+              else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+              if (!_TERM_GROUP_KEYS.has(key)) key = 'other';
             }
             if (!groups[key]) groups[key] = [];
             groups[key].push(f);
@@ -3758,7 +3756,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
       argumentDates,
       computeEntries: (rawFiles) => {
         // Allowed category labels and their render order.
-        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'Other', 'References'];
+        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'References', 'Other'];
         // Default categories when the collection doesn't specify any.
         const DEFAULT_CATS = ['Petitioner', 'Respondent', 'Other'];
         const activeCats = (Array.isArray(categories) && categories.length)
@@ -3766,24 +3764,23 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','other','transcript','brief']);
         function resolveCategory(f) {
-          let sem = (f.type || '').toLowerCase();
-          if (sem === 'appellant' || sem === 'appellants') sem = 'petitioner';
-          else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
-          if (!sem) {
-            // Infer from title when type is absent.
-            const t = (f.title || '').toLowerCase();
-            if (/\bappellants?\b|\bpetitioners?\b/.test(t)) sem = 'petitioner';
-            else if (/\bappellees?\b|\brespondents?\b|\bfor the (united states|government|solicitor general)\b/.test(t)) sem = 'respondent';
-            else if (/\bamici?\s+curiae\b|\bamicus\b|\bamici\b/.test(t)) sem = 'amicus';
-            else if ((f.title || '').startsWith('Transcript of ')) sem = 'transcript';
-            else sem = 'other';
+          // Prefer the explicit group property when it carries a known semantic key.
+          let sem = (f.group || '').toLowerCase();
+          if (!_COLL_SEM_KEYS.has(sem)) {
+            // Fallback for synthetic entries (virtual transcripts, injected opinions) without a group.
+            sem = (f.type || '').toLowerCase();
+            if (sem === 'appellant' || sem === 'appellants') sem = 'petitioner';
+            else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
+            if (!_COLL_SEM_KEYS.has(sem)) sem = 'other';
           }
           // Preference order per semantic type → category label.
           const prefs = {
             petitioner: ['Petitioner', 'Briefs', 'Other'],
             respondent: ['Respondent', 'Briefs', 'Other'],
             amicus:     ['Amicus', 'Briefs', 'Other'],
+            reference:  ['References', 'Other'],
             brief:      ['Briefs', 'Other'],
             transcript: ['Transcripts', 'Other'],
             other:      ['Other'],
