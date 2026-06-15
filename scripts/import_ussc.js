@@ -2364,6 +2364,142 @@ async function backfillOpinionHrefs(casesPath, term) {
     }
 }
 
+// ── Step N: import media files from supremecourt.gov/media/media.aspx ────────
+
+const _MEDIA_PAGE_URL = 'https://www.supremecourt.gov/media/media.aspx';
+
+async function importMediaFiles(termsRoot) {
+    const fullHtml = await fetchHtml(_MEDIA_PAGE_URL);
+
+    // Extract just the MediaCase section using table-depth counting, so the
+    // </tr> fix below doesn't corrupt other tables on the page.
+    const divStart   = fullHtml.indexOf('<div id="MediaCase">');
+    const tableStart = fullHtml.indexOf('<table', divStart);
+    if (divStart === -1 || tableStart === -1) {
+        console.log('importMediaFiles: could not find #MediaCase table');
+        return;
+    }
+    let depth = 0, pos = tableStart;
+    while (pos < fullHtml.length) {
+        const nextOpen  = fullHtml.indexOf('<table', pos);
+        const nextClose = fullHtml.indexOf('</table>', pos);
+        if (nextClose === -1) break;
+        if (nextOpen !== -1 && nextOpen < nextClose) { depth++; pos = nextOpen + 6; }
+        else { depth--; pos = nextClose + 8; if (depth === 0) break; }
+    }
+    let section = fullHtml.slice(divStart, pos) + '</div>';
+
+    // The page uses CRLF and some data rows omit their closing </tr>; insert
+    // the missing tag so node-html-parser doesn't detach those rows' <td> children.
+    section = section.replace(/(<\/td>)([ \t]*\r?\n[ \t]*)(<tr\b)/gi, '$1$2</tr>$2$3');
+
+    const root  = parseHtml(section);
+    const table = root.querySelector('#MediaCase table');
+    if (!table) {
+        console.log('importMediaFiles: could not find #MediaCase table');
+        return;
+    }
+
+    // Cache loaded terms so we only read each cases.json once.
+    const termCasesCache = new Map();
+
+    function getCases(term) {
+        if (!termCasesCache.has(term)) {
+            const cp = path.join(termsRoot, term, 'cases.json');
+            termCasesCache.set(term, exists(cp) ? readJson(cp) : []);
+        }
+        return termCasesCache.get(term);
+    }
+
+    let currentTerm = null;
+
+    for (const tr of table.querySelectorAll('tr')) {
+        // Term header row: <td class="termyearTD">
+        const termTd = tr.querySelector('td.termyearTD');
+        if (termTd) {
+            // Inner text like "2020 Term" → "2020-10"
+            const termMatch = /(\d{4})\s+Term/i.exec(termTd.text || '');
+            currentTerm = termMatch ? `${termMatch[1]}-10` : null;
+            continue;
+        }
+
+        // Data row must have exactly 4 tds
+        const tds = tr.querySelectorAll('td');
+        if (tds.length < 4 || !currentTerm) continue;
+
+        const rawDate = (tds[0].text || '').trim();
+        const docket  = (tds[1].text || '').trim();
+        const mediaTd = tds[2];
+
+        if (!docket) continue;
+
+        // Determine file type and href
+        let fileType = null;
+        let fileHref = null;
+        let fileTitle = null;
+
+        // MP4: direct <a href="...mp4">
+        const mp4a = mediaTd.querySelector('a[href*=".mp4"]');
+        if (mp4a) {
+            fileType  = 'mp4';
+            fileHref  = mp4a.getAttribute('href') || '';
+            fileTitle = 'MP4 File';
+        } else {
+            // MP3: <source src="...mp3"> inside a modal
+            const src = mediaTd.querySelector('source[src*=".mp3"]');
+            if (src) {
+                fileType  = 'mp3';
+                fileHref  = src.getAttribute('src') || '';
+                fileTitle = 'MP3 Audio File';
+            }
+        }
+
+        if (!fileType || !fileHref) continue;
+
+        const fileDate = parseDate(rawDate);
+        if (!fileDate) {
+            console.log(`  importMediaFiles: could not parse date '${rawDate}' for docket ${docket}`);
+            continue;
+        }
+
+        // Find matching case in the term's cases.json
+        const cases = getCases(currentTerm);
+        const matchedCase = cases.find(c => {
+            const numbers = String(c.number || '').split(',').map(s => s.trim());
+            return numbers.includes(docket);
+        });
+
+        if (!matchedCase) {
+            console.log(`  importMediaFiles: no case found for docket ${docket} in term ${currentTerm}`);
+            continue;
+        }
+
+        const caseNumber = matchedCase.number;
+        const caseDir    = path.join(termsRoot, currentTerm, 'cases', _caseFolder(caseNumber));
+        const filesPath  = path.join(caseDir, 'files.json');
+
+        let files = exists(filesPath) ? readJson(filesPath) : [];
+
+        // Skip if an entry with the same href already exists
+        if (files.some(f => f.href === fileHref)) continue;
+
+        const maxId  = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
+        const newEntry = {
+            file:  maxId + 1,
+            type:  fileType,
+            group: 'media',
+            title: fileTitle,
+            date:  fileDate,
+            href:  fileHref,
+        };
+
+        files.push(newEntry);
+        if (!exists(caseDir)) fs.mkdirSync(caseDir, { recursive: true });
+        writeJson(filesPath, files);
+        reportChange(`  Added ${fileType.toUpperCase()} entry to ${path.relative(termsRoot, filesPath)}`);
+    }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 function _printUsage() {
@@ -2482,6 +2618,9 @@ async function main() {
     if (CHECK_URLS) {
         await upgradeDeadOpinionHrefs(casesPath);
     }
+
+    console.log('Importing media files from supremecourt.gov/media/media.aspx...');
+    await importMediaFiles(termsRoot);
 
     syncFilesCount(casesPath);
     if (!_anyChanges) {

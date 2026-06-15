@@ -1391,6 +1391,10 @@ function collapseDocViewer() {
 function hideDocViewerFully() {
   const panel = document.getElementById('doc-viewer');
   if (panel.hidden) return;
+  const videoEl = document.getElementById('doc-viewer-video');
+  const audioEl = document.getElementById('doc-viewer-audio');
+  if (videoEl) { videoEl.pause(); videoEl.style.display = 'none'; }
+  if (audioEl) { audioEl.pause(); audioEl.style.display = 'none'; }
   if (panel.classList.contains('collapsed')) {
     // Already at header height — just hide instantly
     panel.classList.remove('collapsed');
@@ -1480,7 +1484,9 @@ function toEmbedUrl(href) {
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {  const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const isPdf  = /\.pdf(#|\?|$)/i.test(link.href);
-  const inPane = isPdf || link.view === 'pane';
+  const isMp4  = /\.mp4(#|\?|$)/i.test(link.href);
+  const isMp3  = /\.mp3(#|\?|$)/i.test(link.href);
+  const inPane = isPdf || isMp4 || isMp3 || link.view === 'pane';
 
   // Build the effective href, appending #page=N if applicable
   const effectiveHref = (() => {
@@ -1513,16 +1519,34 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   );
   activeBottomLinkText = link.href || null;
 
+  const videoEl = document.getElementById('doc-viewer-video');
+  const audioEl = document.getElementById('doc-viewer-audio');
   if (inPane) {
     card.style.display = 'none';
-    const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
-    const isNew = !_pdfIframePool.has(src);
-    const iframe = _getOrCreatePdfIframe(src);
-    // Show only this iframe; others stay hidden but alive — no reload needed on return.
-    for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
-    if (isNew) iframe.src = src;
+    if (isMp4) {
+      for (const el of _pdfIframePool.values()) el.style.display = 'none';
+      audioEl.style.display = 'none';
+      if (videoEl.src !== effectiveHref) { videoEl.src = effectiveHref; videoEl.load(); }
+      videoEl.style.display = 'block';
+    } else if (isMp3) {
+      for (const el of _pdfIframePool.values()) el.style.display = 'none';
+      videoEl.style.display = 'none';
+      if (audioEl.src !== effectiveHref) { audioEl.src = effectiveHref; audioEl.load(); }
+      audioEl.style.display = 'block';
+    } else {
+      videoEl.style.display = 'none';
+      audioEl.style.display = 'none';
+      const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
+      const isNew = !_pdfIframePool.has(src);
+      const iframe = _getOrCreatePdfIframe(src);
+      // Show only this iframe; others stay hidden but alive — no reload needed on return.
+      for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
+      if (isNew) iframe.src = src;
+    }
   } else {
     for (const el of _pdfIframePool.values()) el.style.display = 'none';
+    videoEl.style.display = 'none';
+    audioEl.style.display = 'none';
     card.style.display = '';
     document.getElementById('doc-viewer-card-title').textContent = link.title || getRefTexts(link)[0] || '';
     document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
@@ -2504,8 +2528,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const ORDER = ['petitioner','respondent','amicus','reference','other'];
           const MERGE_AMICUS_OTHER = true;
           const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','reference','other','transcript','opinion']);
+          const mediaFiles = rawFiles.filter(f => (f.group || '').toLowerCase() === 'media');
           const groups = {};
           rawFiles.forEach(f => {
+            if ((f.group || '').toLowerCase() === 'media') return;
             let key = (f.group || '').toLowerCase();
             if (!_TERM_GROUP_KEYS.has(key)) {
               // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
@@ -2537,10 +2563,14 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
             entries.push({ kind: isSoloOther ? 'flat' : 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
           });
-          if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
-          if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           const groupEntries = entries.filter(e => e.kind === 'group');
           if (groupEntries.length === 1) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
+          if (mediaFiles.length) {
+            mediaFiles.sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+            entries.push({ kind: 'flat', files: mediaFiles });
+          }
+          if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
+          if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
         },
       });
@@ -3794,10 +3824,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
 
         const opinionFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion');
         const transcriptFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript');
+        const mediaFiles = rawFiles.filter(f => (f.group || '').toLowerCase() === 'media');
         const groups = {};
         rawFiles.forEach(f => {
           const fType = (f.type || '').toLowerCase();
           if (fType === 'opinion' || fType === 'transcript') return;
+          if ((f.group || '').toLowerCase() === 'media') return;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -3830,6 +3862,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
             files: groups[typeKey],
           });
         });
+        if (mediaFiles.length) {
+          mediaFiles.sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+          entries.push({ kind: 'flat', files: mediaFiles });
+        }
         if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 

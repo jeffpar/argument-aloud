@@ -98,6 +98,27 @@
     "categories": ["Briefs", "Transcripts", "Other"]
   },
   {
+    "name": "Media Files Cited",
+    "file": "/courts/ussc/collections/media.json",
+    "groups": [
+      {
+        "name": "Audio Files",
+        "conditions": [
+          "COUNT(file.type == 'mp3') > 0"
+        ],
+        "order": "decided:ascending"
+      },
+      {
+        "name": "Video Files",
+        "conditions": [
+          "COUNT(file.type == 'mp4') > 0"
+        ],
+        "order": "decided:ascending"
+      }
+    ],
+    "search": "cases:title"
+  },
+  {
     "name": "Outstanding Issues",
     "file": "/courts/ussc/collections/issues.json",
     "groups": [

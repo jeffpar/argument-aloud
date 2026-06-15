@@ -1995,6 +1995,20 @@ button.term-case-count.sort-active:hover {
   display: none;
 }
 
+#doc-viewer-video {
+  display: none;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background: #000;
+}
+
+#doc-viewer-audio {
+  display: none;
+  width: calc(100% - 48px);
+  margin: auto 24px;
+}
+
 /* ── Mobile layout (≤ 768px) ────────────────────────────── */
 @media (max-width: 768px) {
   body {

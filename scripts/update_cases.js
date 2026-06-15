@@ -1325,8 +1325,8 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
 }
 
 // Valid normalized type and group values for files.json entries.
-const _FILE_TYPES  = new Set(['brief', 'opinion', 'reference', 'other']);
-const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'reference', 'other']);
+const _FILE_TYPES  = new Set(['brief', 'opinion', 'reference', 'other', 'mp4', 'mp3']);
+const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'reference', 'other', 'media']);
 
 // Map a legacy files.json "type" to [normalizedType, group].
 // Only called for entries that are NOT already in the normalized format.
@@ -1348,6 +1348,7 @@ function _fileTypeGroup(rawType) {
 // "reference" must always use group "reference"; everything else keeps its group.
 function _canonicalGroup(type, group) {
     if (type === 'reference') return 'reference';
+    if (type === 'mp4' || type === 'mp3') return 'media';
     return group;
 }
 
@@ -4963,8 +4964,10 @@ function _collectTaggedLeafEntries(entries) {
 //   property op value            e.g.  argument >= '1955-10-01'
 //   COUNT(event.prop) op value   e.g.  COUNT(event.audio_href) == 0
 //   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_href && !event.aligned
+//   COUNT(file.prop == 'v') op n e.g.  COUNT(file.type == 'mp3') > 0
 const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
 const _COND_COUNT_RE       = /^COUNT\(event\.(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
+const _COND_FILE_COUNT_RE  = /^COUNT\(file\.(\w+)\s*(==|!=)\s*'([^']*)'\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 const _COND_EV_PROP_RE     = /^event\.(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
 const _COND_EV_TRUTHY_RE   = /^event\.(\w+)$/;
 const _COND_EV_FALSY_RE    = /^!event\.(\w+)$/;
@@ -4982,6 +4985,16 @@ function _loadTranscriptCached(filePath) {
     let data = null;
     try { data = _readJson(filePath); } catch { /* file missing or invalid */ }
     _transcriptCache.set(filePath, data);
+    return data;
+}
+
+const _filesCache = new Map();
+
+function _loadFilesCached(filePath) {
+    if (_filesCache.has(filePath)) return _filesCache.get(filePath);
+    let data = null;
+    try { data = _readJson(filePath); } catch { /* file missing or invalid */ }
+    _filesCache.set(filePath, data);
     return data;
 }
 
@@ -5008,7 +5021,9 @@ function _parseEventSubcondition(s) {
 
 function _parseCaseCondition(str) {
     const s = (str || '').trim();
-    let m = _COND_COUNT_RE.exec(s);
+    let m = _COND_FILE_COUNT_RE.exec(s);
+    if (m) return { type: 'fileCount', prop: m[1], condOp: m[2], condValue: m[3], op: m[4], threshold: parseFloat(m[5]) };
+    m = _COND_COUNT_RE.exec(s);
     if (m) return { type: 'count', array: 'events', subprop: m[1], op: m[2], value: parseFloat(m[3]) };
     m = _COND_PROP_RE.exec(s);
     if (m) {
@@ -5039,7 +5054,18 @@ function _applyCompOp(lhs, op, rhs) {
 function _matchesCaseConditions(c, conditions, termDir = '') {
     for (const cond of conditions) {
         if (!cond) continue;
-        if (cond.type === 'property') {
+        if (cond.type === 'fileCount') {
+            const folder = (c.number || c.id || '').split(',')[0].trim();
+            if (!folder) return false;
+            const filesPath = path.join(termDir, 'cases', folder, 'files.json');
+            const files = _loadFilesCached(filesPath);
+            if (!Array.isArray(files)) return false;
+            const count = files.filter(f =>
+                f && typeof f === 'object' &&
+                _applyCompOp(String(f[cond.prop] ?? ''), cond.condOp, cond.condValue)
+            ).length;
+            if (!_applyCompOp(count, cond.op, cond.threshold)) return false;
+        } else if (cond.type === 'property') {
             const val = c[cond.prop];
             if (val == null) return false;
             if (!_applyCompOp(val, cond.op, cond.value)) return false;
