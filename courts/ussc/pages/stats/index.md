@@ -3,15 +3,15 @@ layout: pane
 ---
 
 <style>
-.stats-title-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
-.stats-term-nav { width: 100%; display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.72rem; }
+.stats-title-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.6rem 8px; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+.stats-term-nav { width: 100%; display: flex; justify-content: space-between; font-size: 0.72rem; }
 .stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
 @media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
-#covers-row { display: flex; gap: 8px; align-items: flex-start; flex-shrink: 0; margin-left: 8px; }
+#covers-row { display: flex; gap: 8px; align-items: flex-start; flex-shrink: 0; }
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
 #journal-cover-btn[hidden] { display: none; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
@@ -35,6 +35,11 @@ html[data-theme="light"] .stat-label { color: #666; }
 @media (prefers-color-scheme: dark) { .stats-note { color: #6a7080; } }
 html[data-theme="dark"]  .stats-note { color: #6a7080; }
 html[data-theme="light"] .stats-note { color: #888; }
+
+@media (max-width: 600px) {
+  body { padding-top: 6px; }
+  .stats-title-row { margin-top: 0.2rem; }
+}
 
 /* Date-specific case list */
 .date-section { margin-bottom: 1.25rem; }
