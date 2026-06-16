@@ -2625,7 +2625,7 @@ async function importCitedUrls(casesPath, term) {
 
 const _ORIG_JURISDICTION_URL = `${BASE_URL}/casedocuments/original_jurisdiction_cases.aspx`;
 
-async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase = null) {
+async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase = null, filePrefix = null) {
     // sourceCase overrides which case number to look up on the web page;
     // files are always written to the caseFilter directory.
     const lookupCase = sourceCase || caseFilter;
@@ -2688,7 +2688,7 @@ async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase
 
     for (const { title, date, href } of items) {
         if (existingHrefs.has(href)) continue;
-        const entry = { file: ++maxId, type: 'other', group: 'other', title };
+        const entry = { file: ++maxId, type: 'other', group: 'other', title: filePrefix ? `${filePrefix}${title}` : title };
         if (date) entry.date = date;
         entry.href = href;
         files.push(entry);
@@ -2703,13 +2703,45 @@ async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase
     } else {
         console.log('No new documents to add.');
     }
+
+    // Tag the case entry in cases.json as "Original Jurisdiction Archive".
+    const TAG = 'Original Jurisdiction Archive';
+    if (exists(casesPath)) {
+        const cases = readJson(casesPath);
+        let caseModified = false;
+        for (let i = 0; i < cases.length; i++) {
+            const c = cases[i];
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            if (!nums.includes(caseFilter)) continue;
+            if (Array.isArray(c.tags)) {
+                if (!c.tags.includes(TAG)) {
+                    c.tags.push(TAG);
+                    caseModified = true;
+                }
+            } else {
+                // Rebuild object so tags appears immediately after title.
+                const updated = {};
+                for (const [k, v] of Object.entries(c)) {
+                    updated[k] = v;
+                    if (k === 'title') updated.tags = [TAG];
+                }
+                cases[i] = updated;
+                caseModified = true;
+            }
+            break;
+        }
+        if (caseModified) {
+            writeJson(casesPath, cases);
+            reportChange(`  Tagged ${caseFilter} as "${TAG}" in cases.json`);
+        }
+    }
 }
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
-    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig [SOURCE] --prefix "TEXT"');
 }
 
 async function main() {
@@ -2717,13 +2749,24 @@ async function main() {
     const argv = process.argv.slice(2);
 
     // --orig may be followed by an optional source case number (e.g. --orig 4-Orig).
-    // Extract it before the general flag/args split so it doesn't inflate args.length.
+    // --prefix must be followed by a string value (e.g. --prefix "Oregon v. Mitchell: ").
+    // Extract both before the general flag/args split so their values don't inflate args.length.
     let origSource = null;
-    const _origIdx = argv.indexOf('--orig');
+    let filePrefix = null;
     const _argvWork = [...argv];
-    if (_origIdx >= 0 && _origIdx + 1 < argv.length && !argv[_origIdx + 1].startsWith('--')) {
-        origSource = argv[_origIdx + 1];
+    const _origIdx = _argvWork.indexOf('--orig');
+    if (_origIdx >= 0 && _origIdx + 1 < _argvWork.length && !_argvWork[_origIdx + 1].startsWith('--')) {
+        origSource = _argvWork[_origIdx + 1];
         _argvWork.splice(_origIdx + 1, 1);
+    }
+    const _prefixIdx = _argvWork.indexOf('--prefix');
+    if (_prefixIdx >= 0) {
+        if (_prefixIdx + 1 >= _argvWork.length || _argvWork[_prefixIdx + 1].startsWith('--')) {
+            console.log('Error: --prefix requires a value (e.g. --prefix "Oregon v. Mitchell: ")');
+            process.exit(1);
+        }
+        filePrefix = _argvWork[_prefixIdx + 1];
+        _argvWork.splice(_prefixIdx, 2);
     }
 
     const flags = new Set(_argvWork.filter(a => a.startsWith('--')));
@@ -2771,7 +2814,7 @@ async function main() {
         }
         const origLabel = origSource ? `${caseFilter} (source: ${origSource})` : caseFilter;
         console.log(`Importing original jurisdiction documents for ${term} / ${origLabel} ...`);
-        await importOriginalJurisdictionFiles(casesPath, caseFilter, origSource);
+        await importOriginalJurisdictionFiles(casesPath, caseFilter, origSource, filePrefix);
         syncFilesCount(casesPath);
         if (!_anyChanges) console.log('Nothing added/updated.');
         if (_rl) _rl.close();
