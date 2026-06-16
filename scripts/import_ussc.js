@@ -2605,13 +2605,16 @@ async function importCitedUrls(casesPath, term) {
 
 const _ORIG_JURISDICTION_URL = `${BASE_URL}/casedocuments/original_jurisdiction_cases.aspx`;
 
-async function importOriginalJurisdictionFiles(casesPath, caseFilter) {
-    const origM = ORIG_RE.exec(caseFilter);
+async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase = null) {
+    // sourceCase overrides which case number to look up on the web page;
+    // files are always written to the caseFilter directory.
+    const lookupCase = sourceCase || caseFilter;
+    const origM = ORIG_RE.exec(lookupCase);
     if (!origM) {
-        console.log(`Error: "${caseFilter}" is not an original-jurisdiction case number (expected e.g. 1-Orig)`);
+        console.log(`Error: "${lookupCase}" is not an original-jurisdiction case number (expected e.g. 1-Orig)`);
         return;
     }
-    const caseNum = origM[1];   // e.g. "1" from "1-Orig"
+    const caseNum = origM[1];   // e.g. "4" from "4-Orig"
 
     let html;
     try {
@@ -2692,8 +2695,19 @@ function _printUsage() {
 async function main() {
     _anyChanges = false;
     const argv = process.argv.slice(2);
-    const flags = new Set(argv.filter(a => a.startsWith('--')));
-    const args  = argv.filter(a => !a.startsWith('--'));
+
+    // --orig may be followed by an optional source case number (e.g. --orig 4-Orig).
+    // Extract it before the general flag/args split so it doesn't inflate args.length.
+    let origSource = null;
+    const _origIdx = argv.indexOf('--orig');
+    const _argvWork = [...argv];
+    if (_origIdx >= 0 && _origIdx + 1 < argv.length && !argv[_origIdx + 1].startsWith('--')) {
+        origSource = argv[_origIdx + 1];
+        _argvWork.splice(_origIdx + 1, 1);
+    }
+
+    const flags = new Set(_argvWork.filter(a => a.startsWith('--')));
+    const args  = _argvWork.filter(a => !a.startsWith('--'));
 
     const fetchDocket   = flags.has('--docket');
     const forceReparse  = flags.has('--reparse');
@@ -2735,8 +2749,9 @@ async function main() {
             console.log('Error: --orig requires a case number (e.g. import_ussc.js 1980-10 1-Orig --orig)');
             process.exit(1);
         }
-        console.log(`Importing original jurisdiction documents for ${term} / ${caseFilter} ...`);
-        await importOriginalJurisdictionFiles(casesPath, caseFilter);
+        const origLabel = origSource ? `${caseFilter} (source: ${origSource})` : caseFilter;
+        console.log(`Importing original jurisdiction documents for ${term} / ${origLabel} ...`);
+        await importOriginalJurisdictionFiles(casesPath, caseFilter, origSource);
         syncFilesCount(casesPath);
         if (!_anyChanges) console.log('Nothing added/updated.');
         if (_rl) _rl.close();
