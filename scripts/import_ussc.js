@@ -106,7 +106,7 @@ function _docketNumber(caseNumber, termYear) {
         const override = _DOCKET_MAP.get(`${termYear}|${caseNumber}`);
         if (override) return override;
         const yy = termYear.slice(-2);
-        return `${yy}O${m[1]}`;
+        return `${yy}o${m[1]}`;
     }
     return caseNumber;
 }
@@ -222,6 +222,9 @@ function parseAnyDates(s) {
 
 function _normalizeNumber(num) {
     let n = (num || '').trim().replace(/\.$/, '');
+    // "22O142" (SCOTUS original-jurisdiction docket format) → "142-Orig"
+    const origO = /^\d{2}[Oo](\d+)$/.exec(n);
+    if (origO) return `${origO[1]}-Orig`;
     n = n.replace(_ORIG_NORM_RE, '-Orig');
     return n;
 }
@@ -954,8 +957,11 @@ async function fetchDocketInfo(number, termYear = '') {
     const primary = number.split(',')[0].trim();
     const internal = _docketNumber(primary, termYear);
     const yearInt = /^\d+$/.test(termYear) ? parseInt(termYear, 10) : 0;
-    const url = yearInt >= 2017
+    const isOrig  = ORIG_RE.test(primary);
+    const url = yearInt >= 2017 && !isOrig
         ? `${BASE_URL}/docket/docketfiles/html/public/${internal}.html`
+        : yearInt >= 2017
+        ? `${BASE_URL}/search.aspx?filename=/docket/docketfiles/html/public/${internal}.html`
         : `${BASE_URL}/search.aspx?filename=/docketfiles/${internal}.htm`;
     vprint(`  ${url}`);
     let html;
@@ -2142,6 +2148,8 @@ function _shouldUpdateUsCite(existingCite, newCite) {
 //   "22-orig" → "22-Orig"
 //   "25a1314" → "25A1314"
 function _docketKeyToNumber(docketKey) {
+    const origO = /^\d{2}[Oo](\d+)$/.exec(docketKey);
+    if (origO) return `${origO[1]}-Orig`;
     const origM = /^(\d+)-orig$/.exec(docketKey);
     if (origM) return `${origM[1]}-Orig`;
     const aM = /^(\d+)(a)(\d+)$/i.exec(docketKey);
@@ -2184,12 +2192,18 @@ async function importOpinionCases(casesPath, term) {
     for (const [docketKey, opinion] of Object.entries(opinions)) {
         if (existingLower.has(docketKey)) continue;
 
-        if (laterTermLower.has(docketKey)) {
-            vprint(`Skipping opinion ${docketKey} (already in ${laterTermLower.get(docketKey)})`);
+        const number = _docketKeyToNumber(docketKey);
+        const numberLower = _normalizeNumber(number).toLowerCase();
+
+        // docketKey may differ from the stored case number (e.g. "22o141" vs
+        // "141-orig"), so check both forms before treating this as a new case.
+        if (existingLower.has(numberLower)) continue;
+
+        if (laterTermLower.has(docketKey) || laterTermLower.has(numberLower)) {
+            const laterTerm = laterTermLower.get(docketKey) || laterTermLower.get(numberLower);
+            vprint(`Skipping opinion ${docketKey} (already in ${laterTerm})`);
             continue;
         }
-
-        const number = _docketKeyToNumber(docketKey);
 
         if (!ADD_CASES) {
             console.log(`  WARNING: ${number} has an opinion but is not in cases.json; pass --cases to add it`);
@@ -2500,11 +2514,98 @@ async function importMediaFiles(termsRoot) {
     }
 }
 
+// ── Step N+1: import cited URLs from supremecourt.gov/opinions/cited_urls/NN ──
+
+async function importCitedUrls(casesPath, term) {
+    const year2 = term.split('-')[0].slice(-2);
+    const pageUrl = `${BASE_URL}/opinions/cited_urls/${year2}`;
+
+    let html;
+    try {
+        html = await fetchHtml(pageUrl);
+    } catch (exc) {
+        console.log(`Warning: could not fetch cited_urls page: ${exc.message || exc}`);
+        return;
+    }
+
+    const data = exists(casesPath) ? readJson(casesPath) : [];
+
+    const caseByNumber = new Map();
+    for (const c of data) {
+        for (const part of (c.number || '').split(',')) {
+            const n = _normalizeNumber(part.trim());
+            if (n) caseByNumber.set(n.toLowerCase(), c);
+        }
+    }
+
+    const root = parseHtml(html);
+    const table = root.querySelector('table.table');
+    if (!table) {
+        vprint('importCitedUrls: could not find data table');
+        return;
+    }
+
+    for (const tr of table.querySelectorAll('tr')) {
+        const tds = tr.querySelectorAll('td');
+        if (tds.length < 2) continue;
+
+        const caseNumText = (tds[0].text || '').trim();
+        if (!caseNumText) continue;
+
+        const caseNum = _normalizeNumber(caseNumText);
+        const matchedCase = caseByNumber.get(caseNum.toLowerCase());
+        if (!matchedCase) continue;
+
+        const ul = tds[1].querySelector('ul');
+        if (!ul) continue;
+
+        const items = [];
+        for (const li of ul.querySelectorAll('li')) {
+            const a = li.querySelector('a');
+            if (!a) continue;
+            const rawHref = (a.getAttribute('href') || '').trim();
+            const source  = (a.getAttribute('title') || '').trim();
+            if (!rawHref || !source) continue;
+            const href = _resolveHref(rawHref, BASE_URL);
+            if (href) items.push({ href, source });
+        }
+        if (!items.length) continue;
+
+        const decisionDate = matchedCase.decision || '';
+        const caseDir  = path.join(path.dirname(casesPath), 'cases', _caseFolder(matchedCase.number));
+        const filesPath = path.join(caseDir, 'files.json');
+
+        let files = exists(filesPath) ? readJson(filesPath) : [];
+        const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
+        let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
+        let added = 0;
+
+        for (const { href, source } of items) {
+            if (existingHrefs.has(href)) continue;
+            let title;
+            try { title = new URL(source).hostname; } catch { title = source; }
+            const newEntry = { file: ++maxId, type: 'url', group: 'reference', title };
+            if (decisionDate) newEntry.date = decisionDate;
+            newEntry.href = href;
+            newEntry.source = source;
+            files.push(newEntry);
+            existingHrefs.add(href);
+            added++;
+        }
+
+        if (added) {
+            ensureDir(caseDir);
+            writeJson(filesPath, files);
+            reportChange(`  Added ${added} cited URL(s) to ${path.relative(path.dirname(casesPath), filesPath)}`);
+        }
+    }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
-    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls');
 }
 
 async function main() {
@@ -2513,8 +2614,9 @@ async function main() {
     const flags = new Set(argv.filter(a => a.startsWith('--')));
     const args  = argv.filter(a => !a.startsWith('--'));
 
-    const fetchDocket = flags.has('--docket');
-    const forceReparse = flags.has('--reparse');
+    const fetchDocket   = flags.has('--docket');
+    const forceReparse  = flags.has('--reparse');
+    const citedUrlsOnly = flags.has('--cited-urls');
     VERBOSE     = flags.has('--verbose');
     ADD_CASES   = flags.has('--cases');
     CHECK_URLS  = flags.has('--checkurls');
@@ -2536,6 +2638,15 @@ async function main() {
     }
     const yearStr = m[1];
     const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+
+    if (citedUrlsOnly) {
+        console.log(`Importing cited URLs for ${term} ...`);
+        await importCitedUrls(casesPath, term);
+        syncFilesCount(casesPath);
+        if (!_anyChanges) console.log('Nothing added/updated.');
+        if (_rl) _rl.close();
+        return;
+    }
 
     if (caseFilter) {
         console.log(`Single-case mode: ${term} / ${caseFilter}`);
@@ -2621,6 +2732,9 @@ async function main() {
 
     console.log('Importing media files from supremecourt.gov/media/media.aspx...');
     await importMediaFiles(termsRoot);
+
+    console.log('Importing cited URLs from supremecourt.gov/opinions/cited_urls...');
+    await importCitedUrls(casesPath, term);
 
     syncFilesCount(casesPath);
     if (!_anyChanges) {

@@ -184,7 +184,9 @@ async function _fixDeadOpinionPdfHrefs(opinions) {
     return result;
 }
 
-const _ORIG_DOCKET_RE = /^(\d+),\s*orig\.?$/i;
+// Matches "141, Orig." (comma) or "22O141" / "17O141" (term-prefixed) formats.
+// In both cases capture the original case number (not the term prefix).
+const _ORIG_DOCKET_RE = /^(?:(\d+),\s*orig\.?|\d{2}[Oo](\d+))$/i;
 const _PAREN_RE       = /\s*\([^)]*\)\s*$/;
 
 const _OPINIONS_PATTERN = new RegExp(
@@ -210,7 +212,7 @@ function _parseOpinionsHtml(html, baseHrefPrefix, pattern = _OPINIONS_PATTERN) {
         }
         const docket = docketRaw.replace(_PAREN_RE, '');
         const om = _ORIG_DOCKET_RE.exec(docket);
-        const docketKey = om ? `${om[1]}-orig` : docket.toLowerCase();
+        const docketKey = om ? `${om[1] || om[2]}-orig` : docket.toLowerCase();
         const entry = {
             date:   dateIso,
             name,
@@ -225,30 +227,33 @@ function _parseOpinionsHtml(html, baseHrefPrefix, pattern = _OPINIONS_PATTERN) {
 
 async function _fetchOpinionsViaWayback(year2digit) {
     const yearInt = 2000 + parseInt(year2digit, 10);
+    // Use the end of the term as a lower bound so we don't pick up a
+    // mid-term snapshot that lacks opinions issued after it.
     const minDate     = `${yearInt + 1}0701`;
-    const maxDate     = `${yearInt + 1}0930235959`;
     const opinionsUrl = `${SCOTUS_BASE}/opinions/slipopinion/${year2digit}`;
 
+    // Target roughly 8 years after the term — late enough for usCite values to
+    // have appeared in U.S. Reports, early enough to avoid later page shrinkage.
+    const targetDate   = `${yearInt + 8}1201`;
     const cdxApi = `${_WAYBACK_CDX_URL}?url=${encodeURIComponent(opinionsUrl)}`
-                 + `&output=json&from=${minDate}&to=${maxDate}&limit=5&statuscode=200`;
+                 + `&output=json&from=${minDate}&to=${targetDate}&statuscode=200`
+                 + `&fl=timestamp&limit=-1`;
     if (_VERBOSE) console.log(`  Querying Wayback CDX: ${cdxApi}`);
 
-    let cdxRows;
+    let snapshotTs;
     try {
         const txt = await _fetchHtml(cdxApi);
-        cdxRows = JSON.parse(txt);
+        const rows = JSON.parse(txt);
+        if (!Array.isArray(rows) || rows.length < 2) {
+            if (_VERBOSE) console.log(`  No Wayback snapshot found for slipopinion/${year2digit} before ${targetDate}.`);
+            return {};
+        }
+        const tsIdx = rows[0].indexOf('timestamp');
+        snapshotTs = rows[rows.length - 1][tsIdx >= 0 ? tsIdx : 0];
     } catch (exc) {
         console.log(`    Warning: Wayback CDX query failed: ${exc.message || exc}`);
         return {};
     }
-    if (!Array.isArray(cdxRows) || cdxRows.length < 2) {
-        if (_VERBOSE) console.log(`  No Wayback snapshot found for slipopinion/${year2digit} in ${minDate.slice(0,8)}–${maxDate.slice(0,8)}.`);
-        return {};
-    }
-
-    const header = cdxRows[0];
-    const tsIdx  = header.indexOf('timestamp') >= 0 ? header.indexOf('timestamp') : 1;
-    const snapshotTs  = cdxRows[1][tsIdx];
     const snapshotUrl = `https://web.archive.org/web/${snapshotTs}/${opinionsUrl}`;
 
     if (_VERBOSE) console.log(`  Fetching Wayback snapshot: ${snapshotUrl}`);
@@ -301,8 +306,24 @@ export async function fetchOpinions(year2digit, checkUrls = false) {
 
     if (Object.keys(opinions).length === 0) {
         opinions = await _fetchOpinionsViaWayback(year2digit);
-    } else if (checkUrls) {
-        opinions = await _fixDeadOpinionPdfHrefs(opinions);
+    } else {
+        // Even when the live page works, supplement with Wayback to recover
+        // opinions that have fallen off the live page over time, and to fill
+        // in usCite values that post-date the original snapshots.
+        // _fetchOpinionsViaWayback's minDate guard (year+1 July) means this
+        // is a fast no-op (one CDX lookup, no HTML fetch) for current and
+        // near-future terms where no qualifying snapshots exist yet.
+        const wayback = await _fetchOpinionsViaWayback(year2digit);
+        for (const [key, wp] of Object.entries(wayback)) {
+            if (!opinions[key]) {
+                opinions[key] = wp;
+            } else if (!opinions[key].cite && wp.cite) {
+                opinions[key].cite = wp.cite;
+            }
+        }
+        if (checkUrls) {
+            opinions = await _fixDeadOpinionPdfHrefs(opinions);
+        }
     }
 
     _OPINIONS_CACHE.set(cacheKey, opinions);
@@ -1690,7 +1711,7 @@ async function verifyCase(termDir, caseNumber, checkUrls, opinionsOnly) {
         if (!printed[0]) { console.log(`${caseNumber}:`); printed[0] = true; }
     };
     await verifyFilesJson(filesPath, path.dirname(filesPath), checkUrls, printHeader, opinionsOnly);
-    await checkOpinionForCase(filesPath, caseNumber, path.basename(termDir), printHeader);
+    if (opinionsOnly) await checkOpinionForCase(filesPath, caseNumber, path.basename(termDir), printHeader);
 }
 
 function deduplicateCases(casesPath) {
@@ -7623,6 +7644,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
+       node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
@@ -7776,6 +7798,48 @@ async function runImportTags(filePath, dryRun) {
     }
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// --missing-cite: list decided cases that have no usCite
+// ─────────────────────────────────────────────────────────────────────────────
+
+function runMissingCite(termFilter, { argued = false } = {}) {
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+    let total = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            if (!c.decision || c.usCite) continue;
+            if (argued) {
+                const hasArgDate = !!(c.argument || c.reargument ||
+                    (c.events || []).some(e => e && (e.type === 'argument' || e.type === 'reargument') && e.date));
+                if (!hasArgDate) continue;
+            }
+            const number = c.number || c.id || '?';
+            const title  = (firstTitle(c.title) || '').slice(0, 60);
+            console.log(`${term}/${number}  ${title}`);
+            total++;
+        }
+    }
+
+    console.log(`${total} case(s) missing usCite.`);
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --dissents: build courts/ussc/people/justices/oral_dissents.json
@@ -8329,7 +8393,7 @@ async function processOneTerm(term, opts) {
             applySpeakerMapToCase(path.join(casesDir, d), speakerMap, dryRun);
         }
         // Sync files counts, decision hrefs, and decision dates after verifyCase
-        // loop, since checkOpinionForCase may have added new opinion entries.
+        // loop, since --opinions may have added new opinion entries.
         if (fs.existsSync(casesPath)) {
             if (!dryRun) syncFilesCount(casesPath);
             syncOpinionHrefFromFiles(casesPath);
@@ -8810,6 +8874,11 @@ async function main() {
 
     if (flags.has('--unargued')) {
         runUnargued(positional[0] || null, positional[1] || null);
+        return;
+    }
+
+    if (flags.has('--missing-cite')) {
+        runMissingCite(positional[0] || null, { argued: flags.has('--argued') });
         return;
     }
 
