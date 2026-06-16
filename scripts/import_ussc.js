@@ -757,6 +757,11 @@ function _resolveHref(href, baseUrl) {
     try { return new URL(href, baseUrl).toString(); } catch { return null; }
 }
 
+function _sourceHostname(source) {
+    const urlStr = /^https?:\/\//i.test(source) ? source : 'https://' + source;
+    try { return new URL(urlStr).hostname; } catch { return source; }
+}
+
 function _cellText(td) {
     return (td.text || '').split(/\s+/).filter(Boolean).join(' ');
 }
@@ -2576,20 +2581,23 @@ async function importCitedUrls(casesPath, term) {
         const filesPath = path.join(caseDir, 'files.json');
 
         let files = exists(filesPath) ? readJson(filesPath) : [];
-        const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
+        const existingByHref = new Map(files.filter(f => f.href).map(f => [f.href, f]));
         let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         let added = 0;
 
         for (const { href, source } of items) {
-            if (existingHrefs.has(href)) continue;
-            let title;
-            try { title = new URL(source).hostname; } catch { title = source; }
-            const newEntry = { file: ++maxId, type: 'url', group: 'reference', title };
+            const correctTitle = _sourceHostname(source);
+            const existing = existingByHref.get(href);
+            if (existing) {
+                if (existing.title !== correctTitle) { existing.title = correctTitle; added++; }
+                continue;
+            }
+            const newEntry = { file: ++maxId, type: 'url', group: 'reference', title: correctTitle };
             if (decisionDate) newEntry.date = decisionDate;
             newEntry.href = href;
             newEntry.source = source;
             files.push(newEntry);
-            existingHrefs.add(href);
+            existingByHref.set(href, newEntry);
             added++;
         }
 

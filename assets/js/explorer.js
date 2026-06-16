@@ -2101,6 +2101,7 @@ function _makeCaseFileItem(f, caseEntry) {
   if (f.file != null) fi.dataset.fileId = f.file;
   if (f.href)        fi.dataset.fileHref = f.href;
   fi.textContent = f.title;
+  if (f.source) fi.title = f.source;
   fi.addEventListener('click', e => {
     e.stopPropagation();
     document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
@@ -2139,9 +2140,9 @@ function _makeCaseFileItem(f, caseEntry) {
 }
 
 // Append a collapsible group <li> containing the given file items under fileUl.
-function _renderFileGroup(fileUl, label, files, makeFileItem) {
+function _renderFileGroup(fileUl, label, files, makeFileItem, open = false) {
   const groupLi = document.createElement('li');
-  groupLi.className = 'file-type-group';
+  groupLi.className = 'file-type-group' + (open ? ' open' : '');
 
   const typeHeader = document.createElement('div');
   typeHeader.className = 'file-type-header';
@@ -2560,11 +2561,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const entries = [];
           effectiveOrder.forEach(typeKey => {
             if (!groups[typeKey]?.length) return;
-            const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
-            entries.push({ kind: isSoloOther ? 'flat' : 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
+            entries.push({ kind: 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
           });
           const groupEntries = entries.filter(e => e.kind === 'group');
-          if (groupEntries.length === 1) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
+          const _alwaysLabeled = new Set(['References', 'Other']);
+          if (groupEntries.length === 1 && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
           if (mediaFiles.length) {
             mediaFiles.sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
             entries.push({ kind: 'flat', files: mediaFiles });
@@ -3857,7 +3858,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
         effectiveOrder.forEach(typeKey => {
           if (!groups[typeKey] || !groups[typeKey].length) return;
           entries.push({
-            kind: suppressHeader ? 'flat' : 'group',
+            kind: suppressHeader && typeKey !== 'References' && typeKey !== 'Other' ? 'flat' : 'group',
             label: typeKey,
             files: groups[typeKey],
           });
