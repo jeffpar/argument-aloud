@@ -2525,14 +2525,12 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         basePath,
         argumentDates: null,
         computeEntries: (rawFiles) => {
-          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', reference:'References', other:'Other' };
-          const ORDER = ['petitioner','respondent','amicus','reference','other'];
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', reference:'References', media:'Media', other:'Other' };
+          const ORDER = ['petitioner','respondent','amicus','reference','media','other'];
           const MERGE_AMICUS_OTHER = true;
-          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','reference','other','transcript','opinion']);
-          const mediaFiles = rawFiles.filter(f => (f.group || '').toLowerCase() === 'media');
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','opinion']);
           const groups = {};
           rawFiles.forEach(f => {
-            if ((f.group || '').toLowerCase() === 'media') return;
             let key = (f.group || '').toLowerCase();
             if (!_TERM_GROUP_KEYS.has(key)) {
               // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
@@ -2564,12 +2562,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             entries.push({ kind: 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
           });
           const groupEntries = entries.filter(e => e.kind === 'group');
-          const _alwaysLabeled = new Set(['References', 'Other']);
+          const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
           if (groupEntries.length === 1 && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
-          if (mediaFiles.length) {
-            mediaFiles.sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
-            entries.push({ kind: 'flat', files: mediaFiles });
-          }
           if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
           if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
@@ -3787,15 +3781,15 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
       argumentDates,
       computeEntries: (rawFiles) => {
         // Allowed category labels and their render order.
-        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'References', 'Other'];
+        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'References', 'Media', 'Other'];
         // Default categories when the collection doesn't specify any.
-        const DEFAULT_CATS = ['Petitioner', 'Respondent', 'Other'];
+        const DEFAULT_CATS = ['Petitioner', 'Respondent', 'Media', 'Other'];
         const activeCats = (Array.isArray(categories) && categories.length)
           ? categories : DEFAULT_CATS;
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
-        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','other','transcript','brief']);
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','brief']);
         function resolveCategory(f) {
           // Prefer the explicit group property when it carries a known semantic key.
           let sem = (f.group || '').toLowerCase();
@@ -3812,6 +3806,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
             respondent: ['Respondent', 'Briefs', 'Other'],
             amicus:     ['Amicus', 'Briefs', 'Other'],
             reference:  ['References', 'Other'],
+            media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
             transcript: ['Transcripts', 'Other'],
             other:      ['Other'],
@@ -3825,12 +3820,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
 
         const opinionFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion');
         const transcriptFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript');
-        const mediaFiles = rawFiles.filter(f => (f.group || '').toLowerCase() === 'media');
         const groups = {};
         rawFiles.forEach(f => {
           const fType = (f.type || '').toLowerCase();
           if (fType === 'opinion' || fType === 'transcript') return;
-          if ((f.group || '').toLowerCase() === 'media') return;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -3858,15 +3851,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
         effectiveOrder.forEach(typeKey => {
           if (!groups[typeKey] || !groups[typeKey].length) return;
           entries.push({
-            kind: suppressHeader && typeKey !== 'References' && typeKey !== 'Other' ? 'flat' : 'group',
+            kind: suppressHeader && typeKey !== 'References' && typeKey !== 'Media' && typeKey !== 'Other' ? 'flat' : 'group',
             label: typeKey,
             files: groups[typeKey],
           });
         });
-        if (mediaFiles.length) {
-          mediaFiles.sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
-          entries.push({ kind: 'flat', files: mediaFiles });
-        }
         if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 

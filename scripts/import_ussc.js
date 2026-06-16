@@ -757,9 +757,13 @@ function _resolveHref(href, baseUrl) {
     try { return new URL(href, baseUrl).toString(); } catch { return null; }
 }
 
-function _sourceHostname(source) {
-    const urlStr = /^https?:\/\//i.test(source) ? source : 'https://' + source;
-    try { return new URL(urlStr).hostname; } catch { return source; }
+// Returns { title, source } where source is only set when the raw string is a URL.
+// Non-URL strings (eg. "The White House Blog (Sept. 15, 2011)") become the title directly.
+function _parseSource(raw) {
+    const s = (raw || '').replace(/\s+/g, '');
+    const urlStr = /^https?:\/\//i.test(s) ? s : 'https://' + s;
+    try { return { title: new URL(urlStr).hostname, source: raw }; }
+    catch { return { title: raw || '', source: null }; }
 }
 
 function _cellText(td) {
@@ -2581,22 +2585,30 @@ async function importCitedUrls(casesPath, term) {
         const filesPath = path.join(caseDir, 'files.json');
 
         let files = exists(filesPath) ? readJson(filesPath) : [];
-        const existingByHref = new Map(files.filter(f => f.href).map(f => [f.href, f]));
+        const allByHref      = new Map(files.filter(f => f.href).map(f => [f.href, f]));
+        const existingByHref = new Map(files.filter(f => f.href && f.group === 'reference').map(f => [f.href, f]));
         let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         let added = 0;
 
         for (const { href, source } of items) {
-            const correctTitle = _sourceHostname(source);
+            const { title: correctTitle, source: correctSource } = _parseSource(source);
             const existing = existingByHref.get(href);
             if (existing) {
                 if (existing.title !== correctTitle) { existing.title = correctTitle; added++; }
                 continue;
             }
+            const other = allByHref.get(href);
+            if (other) {
+                // href already used by a non-reference entry (eg. media); apply URL source but don't add a duplicate
+                if (other.group === 'media' && correctSource && other.source !== correctSource) { other.source = correctSource; added++; }
+                continue;
+            }
             const newEntry = { file: ++maxId, type: 'url', group: 'reference', title: correctTitle };
             if (decisionDate) newEntry.date = decisionDate;
             newEntry.href = href;
-            newEntry.source = source;
+            if (correctSource) newEntry.source = correctSource;
             files.push(newEntry);
+            allByHref.set(href, newEntry);
             existingByHref.set(href, newEntry);
             added++;
         }
