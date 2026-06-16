@@ -2601,11 +2601,92 @@ async function importCitedUrls(casesPath, term) {
     }
 }
 
+// ── Step 2d: original jurisdiction case documents ─────────────────────────
+
+const _ORIG_JURISDICTION_URL = `${BASE_URL}/casedocuments/original_jurisdiction_cases.aspx`;
+
+async function importOriginalJurisdictionFiles(casesPath, caseFilter) {
+    const origM = ORIG_RE.exec(caseFilter);
+    if (!origM) {
+        console.log(`Error: "${caseFilter}" is not an original-jurisdiction case number (expected e.g. 1-Orig)`);
+        return;
+    }
+    const caseNum = origM[1];   // e.g. "1" from "1-Orig"
+
+    let html;
+    try {
+        html = await fetchHtml(_ORIG_JURISDICTION_URL);
+    } catch (exc) {
+        console.log(`Warning: could not fetch original jurisdiction page: ${exc.message || exc}`);
+        return;
+    }
+
+    const root = parseHtml(html);
+
+    // The page uses accordion cards with id="Orig{N}" on the heading anchor
+    // and id="cell_Orig{N}" on the collapsible content div.
+    const contentDiv = root.querySelector(`[id='cell_Orig${caseNum}']`);
+    if (!contentDiv) {
+        console.log(`Could not find documents for original case No. ${caseNum} on the page`);
+        return;
+    }
+
+    const items = [];
+    for (const tr of contentDiv.querySelectorAll('tr')) {
+        const tds = tr.querySelectorAll('td');
+        if (tds.length < 2) continue;
+        const dateRaw = (tds[0].text || '').trim();
+        const a = tds[1].querySelector('a');
+        if (!a) continue;
+        const title   = (a.text || '').trim();
+        const rawHref = (a.getAttribute('href') || '').trim();
+        if (!title || !rawHref) continue;
+
+        let date = '';
+        const dm = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(dateRaw);
+        if (dm) date = `${dm[3]}-${dm[1].padStart(2, '0')}-${dm[2].padStart(2, '0')}`;
+
+        const href = _resolveHref(rawHref, BASE_URL);
+        if (href) items.push({ title, date, href });
+    }
+
+    if (!items.length) {
+        console.log(`No documents found for original case No. ${caseNum}`);
+        return;
+    }
+
+    const caseDir  = path.join(path.dirname(casesPath), 'cases', caseFilter);
+    const filesPath = path.join(caseDir, 'files.json');
+    let files = exists(filesPath) ? readJson(filesPath) : [];
+
+    const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
+    let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
+    let added = 0;
+
+    for (const { title, date, href } of items) {
+        if (existingHrefs.has(href)) continue;
+        const entry = { file: ++maxId, type: 'other', group: 'other', title };
+        if (date) entry.date = date;
+        entry.href = href;
+        files.push(entry);
+        existingHrefs.add(href);
+        added++;
+    }
+
+    if (added) {
+        ensureDir(caseDir);
+        writeJson(filesPath, files);
+        reportChange(`  Added ${added} document(s) to ${path.relative(path.dirname(casesPath), filesPath)}`);
+    } else {
+        console.log('No new documents to add.');
+    }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
-    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig');
 }
 
 async function main() {
@@ -2617,6 +2698,7 @@ async function main() {
     const fetchDocket   = flags.has('--docket');
     const forceReparse  = flags.has('--reparse');
     const citedUrlsOnly = flags.has('--cited-urls');
+    const origOnly      = flags.has('--orig');
     VERBOSE     = flags.has('--verbose');
     ADD_CASES   = flags.has('--cases');
     CHECK_URLS  = flags.has('--checkurls');
@@ -2642,6 +2724,19 @@ async function main() {
     if (citedUrlsOnly) {
         console.log(`Importing cited URLs for ${term} ...`);
         await importCitedUrls(casesPath, term);
+        syncFilesCount(casesPath);
+        if (!_anyChanges) console.log('Nothing added/updated.');
+        if (_rl) _rl.close();
+        return;
+    }
+
+    if (origOnly) {
+        if (!caseFilter) {
+            console.log('Error: --orig requires a case number (e.g. import_ussc.js 1980-10 1-Orig --orig)');
+            process.exit(1);
+        }
+        console.log(`Importing original jurisdiction documents for ${term} / ${caseFilter} ...`);
+        await importOriginalJurisdictionFiles(casesPath, caseFilter);
         syncFilesCount(casesPath);
         if (!_anyChanges) console.log('Nothing added/updated.');
         if (_rl) _rl.close();
