@@ -72,8 +72,8 @@ Another anomaly arises when the Court invites *amicus* parties to argue on behal
   - [Griffin v. Maryland (No. 26)](/courts/ussc/?term=1963-10&case=6) [[Oyez](https://www.oyez.org/cases/1962/6)]
   - [Lombard v. Louisiana (No. 58)](/courts/ussc/?term=1962-10&case=58) [[Oyez](https://www.oyez.org/cases/1962/58)]
   - [Gober v. Birmingham (No. 66)](/courts/ussc/?term=1962-10&case=66) [[Oyez](https://www.oyez.org/cases/1962/66)]
-  - [Shuttlesworth v. Birmingham (No. 67)](/courts/ussc/?term=1962-10&case=67) [[Oyez](https://www.oyez.org/cases/1962/67)]
   - [Peterson v. Greenville (No. 71)](/courts/ussc/?term=1962-10&case=71) [[Oyez](https://www.oyez.org/cases/1962/71)]
+  - [Shuttlesworth v. Birmingham (No. 67)](/courts/ussc/?term=1962-10&case=67) [[Oyez](https://www.oyez.org/cases/1962/67)]
 
 On the third day, the Solicitor General and others then argued as *amici*, and while the Solicitor General argued with respect to *all* the cases, other attorneys (e.g., Joseph Kaufman) argued only with respect to specific cases (e.g., No. 26).  Unfortunately, Oyez didn't have an easy way to attach *amicus* arguments to multiple cases, so it simply tacked all the *amicus* arguments onto **Shuttlesworth v. City of Birmingham** [see [November 7, 1962](https://www.oyez.org/cases/1962/67)].  Since there are no notations to explain this, anyone looking for the complete set of arguments in another case (e.g., **Griffin v. Maryland**) will not know where to find the *amicus* arguments, or even that they exist.
 
@@ -98,15 +98,15 @@ Once a case has been granted, and *particularly* once a case has been argued, it
 
 Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB makes some effort to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court invariably provides a reason for its action, and yet SCDB does *not* always record them.
 
-The 1952 term is illustrative.  Looking through [U.S. Reports Volume 344](https://tile.loc.gov/storage-services/service/ll/usrep/usrep344/usrep344decisionspercuriam/usrep344decisionspercuriam.pdf), you can easily spot three deadlocked cases from that term, all "affirmed by an equally divided Court":
+The 1952 term is illustrative.  Looking through [U.S. Reports Volume 344](https://tile.loc.gov/storage-services/service/ll/usrep/usrep344/usrep344decisionspercuriam/usrep344decisionspercuriam.pdf), one can easily spot these deadlocked cases from that term, all "affirmed by an equally divided Court":
 
-  - No. 13 at 344 U.S. 860 (SCDB ID 1952-160)
-  - No. 24 at 344 U.S. 861 (SCDB ID 1952-159)
-  - No. 218 at 344 U.S. 916 (SCDB ID 1952-143)
+  - [United States v. Bell Aircraft Corp. (No. 13)](/courts/ussc/?term=1952-10&case=13) at 344 U.S. 860
+  - [Gulf Research & Development Co. v. Leahy (No. 24)](/courts/ussc/?term=1952-10&case=24) at 344 U.S. 861
+  - [Martinez v. Neelly (No. 218)](/courts/ussc/?term=1952-10&case=218) at 344 U.S. 916
 
-all of which SCDB dutifully records.  And yet a number of other cases that were decided by a brief *per curiam* opinion were not recorded by SCDB:
+all of which SCDB dutifully records as well.  And yet a number of other cases that were decided by a brief *per curiam* opinion were not recorded by SCDB:
 
-  - Nos. 197 and 198 at 344 U.S. 923
+  - [United States v. Wilson (Nos. 197,198)](/courts/ussc/?term=1952-10&case=197) at 344 U.S. 923
   - No. 390 at 344 U.S. 924
 
 Those are significant omissions, because all three cases (Nos. 197, 198 and 390) were fully briefed *and* argued *and* decided, the lack of a detailed opinion notwithstanding.

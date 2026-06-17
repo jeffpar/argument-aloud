@@ -1573,9 +1573,49 @@ function warnOpinionHrefWithoutDecision(casesPath, term) {
     }
 }
 
+// Parse a page_numbers string like "1:85,801:717" into a sorted array of
+// {start, pdfPage} breakpoints. Each breakpoint means: for US Reports pages
+// starting at `start`, the PDF page is reportPage + (pdfPage - start).
+function _parsePageNumbers(str) {
+    if (!str) return [];
+    return str.split(',').map(s => {
+        const parts = s.trim().split(':').map(Number);
+        return { start: parts[0], pdfPage: parts[1] };
+    }).filter(e => e.start > 0 && e.pdfPage > 0).sort((a, b) => a.start - b.start);
+}
+
+// Given parsed page_numbers breakpoints and a US Reports page number, return
+// the corresponding PDF page, or null if no applicable breakpoint is found.
+function _pdfPageFor(pageNumbers, reportPage) {
+    if (!pageNumbers.length) return null;
+    let match = null;
+    for (const e of pageNumbers) {
+        if (e.start <= reportPage) match = e;
+        else break;
+    }
+    if (!match) return null;
+    return reportPage + (match.pdfPage - match.start);
+}
+
+// Convert a raw numeric page offset (PDF page of US Reports page 1, minus 1)
+// to the "1:<offset+1>" page_numbers string, or null if the offset is invalid.
+function _offsetToPageNumbers(offset) {
+    if (offset == null || offset < 0) return null;
+    return `1:${offset + 1}`;
+}
+
+// Extract the numeric offset for the first breakpoint from a page_numbers
+// string (used when syncTermsReports compares against reports.json offsets).
+function _pageNumbersToOffset(str) {
+    const parsed = _parsePageNumbers(str);
+    if (!parsed.length) return null;
+    return parsed[0].pdfPage - parsed[0].start;
+}
+
 // Build/update the decision_reports field on each case whose usCite contains
 // "<volume> U.S. <page>" and whose volume matches an entry in the term's reports
-// array. The value is reports[].href + "#page=<page + page_offset>".
+// array. The value is reports[].href + "#page=<pdfPage>" where pdfPage is
+// derived from the report's page_numbers breakpoints.
 function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
@@ -1599,8 +1639,8 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         const page = parseInt(m[2], 10);
         const report = byVolume.get(vol);
         if (!report) continue;
-        if (typeof report.page_offset !== 'number') continue;
-        const pdfPage = page + report.page_offset;
+        const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page);
+        if (pdfPage == null) continue;
         const url = report.href + '#page=' + pdfPage;
         if (c.decision_reports === url) continue;
         c.decision_reports = url;
@@ -4761,7 +4801,7 @@ async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
 // numbers (from usCite fields), cross-reference against the bound volumes
 // listed on USReports.aspx, and build/maintain the "reports" array on
 // each term group entry. Cover images are generated via pdftoppm if absent;
-// page_offset values are computed via pdftotext if absent.
+// page_numbers values are computed via pdftotext if absent.
 async function syncTermsReports(termFilter) {
     let tj;
     try { tj = _readJson(TERMS_JSON); } catch { return; }
@@ -4848,7 +4888,7 @@ async function syncTermsReports(termFilter) {
             const sortedVols = [...volSet].sort((a, b) => a - b);
 
             // Build lookup of existing report entries by href so we can
-            // preserve page_offset values that are already computed.
+            // preserve page_numbers values that are already computed.
             const existingByHref = new Map();
             for (const r of (page.reports || [])) {
                 if (r.href) existingByHref.set(r.href, r);
@@ -4868,14 +4908,14 @@ async function syncTermsReports(termFilter) {
                 const coverName = `v${volStr}-cover.jpg`;
                 const coverPath = path.join(termDir, coverName);
 
-                // Resolve page_offset before computing the cover page number.
+                // Resolve page offset before computing the cover page number.
                 // reports.json is definitive: if it has a valid value that differs
                 // from terms.json, terms.json is updated to match. If reports.json
-                // has an entry for this volume but no valid page_offset (user cleared
-                // it to force re-detection), or if neither source has a value, scan
+                // has an entry for this volume but no valid page_offset (cleared to
+                // force re-detection), or if neither source has a value, scan
                 // the PDF to determine it.
                 const volKey = `v${volStr}`;
-                let pageOffset = existingByHref.get(href)?.page_offset ?? null;
+                let pageOffset = _pageNumbersToOffset(existingByHref.get(href)?.page_numbers) ?? null;
                 const dbOffset = reportsDb[volKey]?.page_offset;
                 if (typeof dbOffset === 'number') {
                     // reports.json is authoritative — override terms.json if different.
@@ -4883,7 +4923,7 @@ async function syncTermsReports(termFilter) {
                     if (pageOffset !== dbNorm) {
                         pageOffset = dbNorm;
                         // Cover was generated from the old page — delete it so it gets
-                        // regenerated from the corrected page_offset.
+                        // regenerated from the corrected offset.
                         if (fs.existsSync(coverPath)) {
                             if (!_DRY_RUN) fs.unlinkSync(coverPath);
                             else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
@@ -4924,10 +4964,10 @@ async function syncTermsReports(termFilter) {
                             console.log(`  [dry-run] would delete duplicate ${path.relative(REPO_ROOT, coverPath)}`);
                         }
                     }
-                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, page_offset: pageOffset ?? -1 });
+                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, ...(pageOffset != null && { page_numbers: _offsetToPageNumbers(pageOffset) }) });
                 } else {
                     // Generate (or regenerate) the cover image from the page
-                    // numbered "1" in the volume (PDF page = page_offset + 1).
+                    // numbered "1" in the volume (PDF page = pageOffset + 1).
                     if (!fs.existsSync(coverPath)) {
                         const coverPdfPage = pageOffset != null ? pageOffset + 1 : 1;
                         console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
@@ -4940,7 +4980,7 @@ async function syncTermsReports(termFilter) {
                     if (!coverRegistry.has(vol)) {
                         coverRegistry.set(vol, { term, coverName });
                     }
-                    reports.push({ volume: vol, cover: coverName, href, page_offset: pageOffset ?? -1 });
+                    reports.push({ volume: vol, cover: coverName, href, ...(pageOffset != null && { page_numbers: _offsetToPageNumbers(pageOffset) }) });
                 }
             }
 
@@ -8658,10 +8698,14 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
 
     } else {
         // ── Full update: replace all vote data ─────────────────────────────
-        const afterVotes = getValues('--votes');
+        let afterVotes = getValues('--votes');
         if (afterVotes.length < 2) {
             console.error('ERROR: --votes requires: win|loss VOTE_STRING [AUTHOR]');
             process.exit(1);
+        }
+        // Accept both "win|loss N-N" and "N-N win|loss" orderings.
+        if (/^\d+-\d+$/.test(afterVotes[0]) && (afterVotes[1] === 'win' || afterVotes[1] === 'loss')) {
+            afterVotes = [afterVotes[1], afterVotes[0], ...afterVotes.slice(2)];
         }
         const [outcome, voteString, authorRaw] = afterVotes;
         if (outcome !== 'win' && outcome !== 'loss') {
@@ -8740,6 +8784,189 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
     }
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// --add: manually add a new case entry to a term's cases.json
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function runAddCase(term, title, argv, dryRun) {
+    _ensureSeniorityLoaded();
+
+    const getValues = (flag) => {
+        const idx = argv.indexOf(flag);
+        if (idx === -1) return [];
+        const end = argv.findIndex((a, i) => i > idx && a.startsWith('--'));
+        return argv.slice(idx + 1, end === -1 ? undefined : end);
+    };
+    const getValue = (flag) => getValues(flag)[0] || null;
+
+    const numberRaw     = getValue('--number');
+    if (!numberRaw) {
+        console.error('ERROR: --add requires --number');
+        process.exit(1);
+    }
+    const argumentRaw   = getValue('--argument');
+    const reargumentRaw = getValue('--reargument');
+    const decisionRaw   = getValue('--decision');
+
+    // Parse speaker options and build advocates list. Scan argv linearly so
+    // that repeated flags (e.g. two --petitioner entries) are each captured.
+    const _TITLE_RE = /^(Mr|Mrs|Miss|Ms)\.?$/i;
+    const _SPEAKER_ROLES_SET = new Set(['petitioner', 'respondent', 'appellant', 'appellee', 'plaintiff', 'defendant']);
+    const speakers = [];
+    for (let i = 0; i < argv.length; i++) {
+        if (!argv[i].startsWith('--')) continue;
+        const role = argv[i].slice(2);
+        if (!_SPEAKER_ROLES_SET.has(role)) continue;
+        const tokens = [];
+        while (i + 1 < argv.length && !argv[i + 1].startsWith('--')) tokens.push(argv[++i]);
+        if (!tokens.length) {
+            console.error(`ERROR: --${role} requires a name`);
+            process.exit(1);
+        }
+        let titleStr = '';
+        let nameTokens = tokens;
+        if (_TITLE_RE.test(tokens[0])) {
+            titleStr = tokens[0].replace(/\.?$/, '.').toUpperCase();
+            nameTokens = tokens.slice(1);
+        }
+        const name = nameTokens.join(' ').toUpperCase();
+        if (!name) {
+            console.error(`ERROR: --${role} requires a name`);
+            process.exit(1);
+        }
+        speakers.push({ role, name, title: titleStr });
+    }
+
+    // Build event objects — one per argument date, one per reargument date.
+    const _makeEventTitle = (type, date) => {
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date || '');
+        if (!m) return type === 'reargument' ? 'Oral Reargument' : 'Oral Argument';
+        const label = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
+        return type === 'reargument' ? `Oral Reargument on ${label}` : `Oral Argument on ${label}`;
+    };
+
+    const events = [];
+    if (speakers.length > 0) {
+        const advocates = speakers.map(s => {
+            const adv = { name: s.name };
+            if (s.title) adv.title = s.title;
+            adv.role = s.role;
+            return reorderAdvocate(adv);
+        });
+        const argDates   = argumentRaw   ? argumentRaw.split(',').map(s => s.trim()).filter(Boolean)   : [];
+        const reargDates = reargumentRaw ? reargumentRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
+        for (const date of argDates) {
+            events.push(reorderEvent({ type: 'argument',   date, title: _makeEventTitle('argument',   date), advocates }));
+        }
+        for (const date of reargDates) {
+            events.push(reorderEvent({ type: 'reargument', date, title: _makeEventTitle('reargument', date), advocates }));
+        }
+    }
+
+    // Assemble case entry with computed day labels and files placeholder.
+    const entry = { title, number: numberRaw };
+    if (argumentRaw) {
+        entry.argument = argumentRaw;
+        const argDays = _computeDays(argumentRaw);
+        if (argDays) entry.argument_days = argDays;
+    }
+    if (reargumentRaw) {
+        entry.reargument = reargumentRaw;
+        const reargDays = _computeDays(reargumentRaw);
+        if (reargDays) entry.reargument_days = reargDays;
+    }
+    if (decisionRaw) {
+        entry.decision = decisionRaw;
+        const decDays = _computeDays(decisionRaw);
+        if (decDays) entry.decision_days = decDays;
+    }
+    const citeRaw = getValues('--cite').join(' ').trim();
+    if (citeRaw) {
+        const cm = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(citeRaw);
+        if (!cm) {
+            console.error(`ERROR: --cite value must be "N U.S. N" (e.g. "344 U.S. 923"), got "${citeRaw}"`);
+            process.exit(1);
+        }
+        entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
+        const vol = Number(cm[1]), page = parseInt(cm[2], 10);
+        try {
+            const tj = _readJson(TERMS_JSON);
+            if (Array.isArray(tj)) {
+                const termEntry = tj.flatMap(d => d.groups || []).find(p =>
+                    /\/terms\/([^/]+)\/cases\.json$/.exec(p.file || (typeof p.cases === 'string' ? p.cases : '') || '')?.[1] === term
+                );
+                const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
+                const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page);
+                if (report && pdfPage != null) {
+                    entry.decision_reports = report.href + '#page=' + pdfPage;
+                }
+            }
+        } catch {}
+    }
+    entry.files = 0;
+    if (events.length) entry.events = events;
+    const orderedEntry = reorderCase(entry);
+
+    // Load (or create) cases.json and check for duplicates.
+    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+    let cases = [];
+    if (fs.existsSync(casesPath)) {
+        try { cases = _readJson(casesPath); } catch {}
+    }
+    if (!Array.isArray(cases)) cases = [];
+
+    const numbers = numberRaw.split(',').map(s => s.trim()).filter(Boolean);
+    const exists = cases.some(c => c && numbers.some(n =>
+        c.id === n || (c.number || '').split(',').map(s => s.trim()).includes(n)
+    ));
+    if (exists) {
+        console.error(`ERROR: Case with number "${numberRaw}" already exists in ${term}/cases.json`);
+        process.exit(1);
+    }
+
+    const hasVoteArgs = argv.some(a => ['--votes', '--minority', '--recused', '--dissent'].includes(a));
+
+    if (dryRun) {
+        console.log(`[dry-run] Would add to ${term}/cases.json: ${numberRaw} — ${firstTitle(title)}`);
+        if (events.length) {
+            console.log(`[dry-run] Would create ${events.length} event(s) with ${speakers.length} advocate(s) each`);
+        }
+        if (hasVoteArgs) {
+            console.log(`[dry-run] Would apply vote update for ${numbers[0]}.`);
+        }
+        console.log(`[dry-run] Would update title indexes and terms.json`);
+        return;
+    }
+
+    // Push, sort into canonical position, write.
+    cases.push(orderedEntry);
+    sortCases(term, cases, false);
+    _writeJson(casesPath, cases);
+    console.log(`Added "${firstTitle(title)}" (${numberRaw}) to ${term}/cases.json`);
+
+    // Apply vote data if vote-related flags are present.
+    if (hasVoteArgs) {
+        await runVotesUpdate(term, numbers[0], argv, false);
+    }
+
+    // Rebuild title word indexes (requires all terms so each char file is complete).
+    let allTerms = [];
+    try {
+        const tj = _readJson(TERMS_JSON);
+        if (Array.isArray(tj)) {
+            allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+                if (page.term) return page.term;
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+                return m ? m[1] : null;
+            })).filter(Boolean);
+        }
+    } catch {}
+    processTitleIndex(allTerms, false);
+
+    // Sync case counts in terms.json.
+    syncTermsJson();
+}
+
 async function main() {
     const argv = process.argv.slice(2);
     if (argv.includes('--help') || argv.includes('-h')) {
@@ -8765,7 +8992,7 @@ async function main() {
             } else {
                 const key = a.slice(2);
                 // Flags that take a value
-                if (['case', 'import'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                if (['case', 'import', 'add'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
                     flagValues[key] = argv[++i];
                 } else {
                     boolFlags.add(key);
@@ -8799,7 +9026,7 @@ async function main() {
     // consolidated `number` like "23-456,23-457"). Runs for both default and
     // --scdb modes.
     const _explicitCase = positional[1] || flagValues.case || null;
-    if (_explicitCase && positional[0]) {
+    if (_explicitCase && positional[0] && !flagValues.add) {
         const cp = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', positional[0], 'cases.json');
         if (fs.existsSync(cp)) {
             try {
@@ -8827,6 +9054,16 @@ async function main() {
                 }
             } catch {}
         }
+    }
+
+    // Add-case mode: --add TITLE
+    if (flagValues.add) {
+        if (!positional[0]) {
+            console.error('ERROR: --add requires a TERM (e.g. 1952-10)');
+            process.exit(1);
+        }
+        await runAddCase(positional[0], flagValues.add, argv, dryRun);
+        return;
     }
 
     // Vote-update mode: --votes/--minority/--recused/--dissent

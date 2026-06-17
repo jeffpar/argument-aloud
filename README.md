@@ -40,6 +40,14 @@ There is still more work to do in terms of producing a complete and accurate lis
 
   - Happily, the U.S. Supreme Court continues to "up its game" and now provides online copies of all [U.S. Reports Volumes](https://www.supremecourt.gov/opinions/USReports.aspx), so that may prove to be a better, more reliable source going forward.  We will need to add a process for converting all `opinion_href` links to the correct page within those PDFs.
 
+## Examples
+
+Adding cases from the command-line:
+
+`node scripts/update_cases.js 1952-10 --add "United States v. Wilson|United States v. Purchasing Corporation of America" --number 197,198 --argument 1953-01-05,1953-01-06 --decision 1953-02-02 --cite 344 U.S. 923 --votes 6-2 loss --dissent douglas burton --recused clark --appellant John F. Davis --appellee Selden S. McNeer`
+
+`node scripts/update_cases.js 1952-10 --add "Ward v. United States" --number 390 --argument 1953-01-13 --decision 1953-02-02 --cite 344 U.S. 924 --votes 9-0 win --petitioner John M. Coe --petitioner Ralph E. Powe --respondent John R. Benney`
+
 ## MIT License
 
 Project design (c) 2026 by Jeff Parsons
