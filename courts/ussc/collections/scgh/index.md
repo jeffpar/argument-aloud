@@ -1,7 +1,6 @@
 ---
 layout: pane
 title: "Supreme Court's Greatest Hits"
-description: "Landmark U.S. Supreme Court cases organized by topic — Commerce, Federalism, Free Speech, Civil Rights, Privacy, and more. Explore oral argument audio and transcripts."
 preview: scgh1.jpg
 ---
 

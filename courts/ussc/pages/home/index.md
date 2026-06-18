@@ -11,6 +11,8 @@ Not sure where to start? Here are some links to help you dive in.
   - [Current Term](/courts/ussc/?term=current)
   - [Top Advocates](/courts/ussc/?collection=top_advocates)
   - [Women Advocates](/courts/ussc/?collection=women_advocates)
+  - [Lone Dissents](/courts/ussc/?collection=lone_dissents)
+  - [Vocal Justices](/courts/ussc/?collection=vocal_justices)
   - [Noteworthy Cases](/courts/ussc/?collection=noteworthy)
   - *NEW*! [Roll the Supreme Court Dice](/courts/ussc/?action=randomize&start=1955-10)
 

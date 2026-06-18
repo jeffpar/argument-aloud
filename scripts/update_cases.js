@@ -1616,23 +1616,59 @@ function warnOpinionHrefWithoutDecision(casesPath, term) {
     }
 }
 
+// Convert a roman numeral string (e.g. "cxxv") to an integer, or NaN if the
+// string contains non-roman characters.
+function _parseRomanNumeral(s) {
+    const vals = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
+    let total = 0, prev = 0;
+    for (const ch of s.toLowerCase().split('').reverse()) {
+        const v = vals[ch];
+        if (!v) return NaN;
+        if (v < prev) total -= v; else total += v;
+        prev = v;
+    }
+    return total > 0 ? total : NaN;
+}
+
 // Parse a page_numbers string like "1:85,801:717" into a sorted array of
-// {start, pdfPage} breakpoints. Each breakpoint means: for US Reports pages
-// starting at `start`, the PDF page is reportPage + (pdfPage - start).
+// {start, pdfPage} breakpoints. Roman numeral starts (e.g. "vi:490") are
+// tagged with roman:true and startStr, and sorted after all arabic breakpoints.
 function _parsePageNumbers(str) {
     if (!str) return [];
-    return str.split(',').map(s => {
-        const parts = s.trim().split(':').map(Number);
-        return { start: parts[0], pdfPage: parts[1] };
-    }).filter(e => e.start > 0 && e.pdfPage > 0).sort((a, b) => a.start - b.start);
+    const entries = [];
+    for (const s of str.split(',')) {
+        const t = s.trim();
+        if (!t) continue;
+        const colon = t.indexOf(':');
+        if (colon < 0) continue;
+        const startStr = t.slice(0, colon).trim();
+        const pdfPage  = Number(t.slice(colon + 1).trim());
+        if (!Number.isFinite(pdfPage) || pdfPage <= 0) continue;
+        const startNum = Number(startStr);
+        if (Number.isFinite(startNum) && startNum > 0) {
+            entries.push({ start: startNum, pdfPage });
+        } else {
+            const romanVal = _parseRomanNumeral(startStr);
+            if (Number.isFinite(romanVal) && romanVal > 0) {
+                entries.push({ start: romanVal, pdfPage, roman: true, startStr });
+            }
+        }
+    }
+    // Arabic breakpoints first (sorted by start), then roman (sorted by start).
+    return entries.sort((a, b) => {
+        if (!!a.roman !== !!b.roman) return a.roman ? 1 : -1;
+        return a.start - b.start;
+    });
 }
 
 // Given parsed page_numbers breakpoints and a US Reports page number, return
 // the corresponding PDF page, or null if no applicable breakpoint is found.
-function _pdfPageFor(pageNumbers, reportPage) {
-    if (!pageNumbers.length) return null;
+// Pass roman=true to look up a roman-numeral page (e.g. "cxxv" → 125).
+function _pdfPageFor(pageNumbers, reportPage, roman = false) {
+    const bps = pageNumbers.filter(e => !!e.roman === roman);
+    if (!bps.length) return null;
     let match = null;
-    for (const e of pageNumbers) {
+    for (const e of bps) {
         if (e.start <= reportPage) match = e;
         else break;
     }
@@ -1650,7 +1686,7 @@ function _offsetToPageNumbers(offset) {
 // Extract the numeric offset for the first breakpoint from a page_numbers
 // string (used to compute the cover page for US Reports page 1).
 function _pageNumbersToOffset(str) {
-    const parsed = _parsePageNumbers(str);
+    const parsed = _parsePageNumbers(str).filter(e => !e.roman);
     if (!parsed.length) return null;
     return parsed[0].pdfPage - parsed[0].start;
 }
@@ -1688,13 +1724,16 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
         const usCite = (c.usCite || '').trim();
         if (!usCite) continue;
-        const m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite);
+        const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
         if (!m) continue;
-        const vol  = parseInt(m[1], 10);
-        const page = parseInt(m[2], 10);
+        const vol     = parseInt(m[1], 10);
+        const pgStr   = m[2];
+        const isRoman = /^[ivxlcdmIVXLCDM]+$/.test(pgStr);
+        const page    = isRoman ? _parseRomanNumeral(pgStr) : parseInt(pgStr, 10);
+        if (!Number.isFinite(page) || page <= 0) continue;
         const report = byVolume.get(vol);
         if (!report) continue;
-        const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page);
+        const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page, isRoman);
         if (pdfPage == null) continue;
         const url = report.href + '#page=' + pdfPage;
         if (c.decision_reports === url) continue;
@@ -1720,7 +1759,7 @@ function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
     const secondSegmentStart = new Map();
     for (const r of reports) {
         if (!r.volume || !r.page_numbers) continue;
-        const bps = _parsePageNumbers(r.page_numbers);
+        const bps = _parsePageNumbers(r.page_numbers).filter(e => !e.roman);
         if (bps.length >= 2) secondSegmentStart.set(Number(r.volume), bps[1].start);
     }
     if (!secondSegmentStart.size) return;
@@ -5139,6 +5178,9 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 //   4. Full detection for new volumes not yet in reports.json.
                 const volKey = `v${volStr}`;
                 let pageNumbers = existingByHref.get(href)?.page_numbers ?? null;
+                // Save any roman bps from the original terms.json entry; they must
+                // be preserved even when reports.json provides the arabic bps.
+                const tjRomanBps = _parsePageNumbers(pageNumbers ?? '').filter(e => e.roman);
                 const dbPageNumbers = _reportsDbPageNumbers(reportsDb[volKey]);
 
                 const _writeReportsDb = () => {
@@ -5154,19 +5196,27 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
                 if (dbPageNumbers !== undefined) {
                     if (pageNumbers !== null && pageNumbers !== dbPageNumbers) {
-                        // Check if terms.json extends reports.json (user manually added breakpoints).
-                        const dbBps = _parsePageNumbers(dbPageNumbers || '');
-                        const tjBps = _parsePageNumbers(pageNumbers || '');
+                        // Compare arabic-only bps; roman bps are user metadata and never
+                        // written to reports.json.
+                        const dbBps = _parsePageNumbers(dbPageNumbers || '').filter(e => !e.roman);
+                        const tjBps = _parsePageNumbers(pageNumbers || '').filter(e => !e.roman);
+                        const arabicMatch = dbBps.length === tjBps.length &&
+                            dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                         const tjExtends = tjBps.length > dbBps.length &&
                             dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                         if (tjExtends) {
-                            // terms.json is more complete; update reports.json to match.
-                            reportsDb[volKey] = { page_numbers: pageNumbers };
+                            // terms.json has more arabic breakpoints; write arabic-only to
+                            // reports.json and keep pageNumbers (with roman bps) for terms.json.
+                            const arabicOnly = tjBps.map(b => `${b.start}:${b.pdfPage}`).join(',');
+                            reportsDb[volKey] = { page_numbers: arabicOnly };
                             _writeReportsDb();
                             needsPhase3b.delete(volKey);
-                            console.log(`  ${term}: v${volStr} page_numbers extended to ${pageNumbers} (from terms.json)`);
+                            console.log(`  ${term}: v${volStr} page_numbers extended to ${arabicOnly} (from terms.json)`);
+                        } else if (arabicMatch) {
+                            // Same arabic bps; keep terms.json value (may have roman bps or
+                            // trailing-comma difference). pageNumbers stays as-is.
                         } else {
-                            // reports.json wins; cover may need regeneration.
+                            // reports.json wins for arabic bps; cover may need regeneration.
                             pageNumbers = dbPageNumbers;
                             _deleteStaleCover();
                         }
@@ -5194,8 +5244,8 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 // _detectPhase3 now. The result (with trailing comma if nothing found)
                 // is written to reports.json so future runs skip the expensive scan.
                 if (needsPhase3b.has(volKey) && typeof pageNumbers === 'string' &&
-                        !pageNumbers.endsWith(',') && _parsePageNumbers(pageNumbers).length === 1) {
-                    const bps = _parsePageNumbers(pageNumbers);
+                        !pageNumbers.endsWith(',') && _parsePageNumbers(pageNumbers).filter(e => !e.roman).length === 1) {
+                    const bps = _parsePageNumbers(pageNumbers).filter(e => !e.roman);
                     const initialOffset = bps[0].pdfPage - bps[0].start;
                     console.log(`  ${term}: checking secondary page_numbers for v${volStr} ...`);
                     const { breakpoints, phase3bSearched } = await _detectPhase3(pdfPath, initialOffset);
@@ -5218,22 +5268,33 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 // Re-verify existing two-breakpoint mappings using the current algorithm
                 // (backward scan may correct a second breakpoint that was set too late).
                 if (needsPhase3bVerify.has(volKey) && typeof pageNumbers === 'string' &&
-                        _parsePageNumbers(pageNumbers).length === 2) {
-                    const bps = _parsePageNumbers(pageNumbers);
+                        _parsePageNumbers(pageNumbers).filter(e => !e.roman).length === 2) {
+                    const bps = _parsePageNumbers(pageNumbers).filter(e => !e.roman);
                     const initialOffset = bps[0].pdfPage - bps[0].start;
                     if (_VERBOSE) console.log(`  ${term}: re-verifying phase3 for v${volStr} ...`);
                     const { breakpoints } = await _detectPhase3(pdfPath, initialOffset);
                     if (breakpoints.length === 2) {
                         const verified = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                        if (verified !== pageNumbers) {
-                            console.log(`  ${term}: v${volStr} corrected page_numbers: ${pageNumbers} → ${verified}`);
-                            pageNumbers = verified;
-                            reportsDb[volKey] = { page_numbers: pageNumbers };
+                        const arabicPageNumbers = bps.map(b => `${b.start}:${b.pdfPage}`).join(',');
+                        if (verified !== arabicPageNumbers) {
+                            console.log(`  ${term}: v${volStr} corrected page_numbers: ${arabicPageNumbers} → ${verified}`);
+                            pageNumbers = verified; // roman bps reattached by post-process below
+                            reportsDb[volKey] = { page_numbers: verified };
                             _writeReportsDb();
                             _deleteStaleCover();
                         }
                     }
                     needsPhase3bVerify.delete(volKey);
+                }
+
+                // Re-attach any roman bps from the original terms.json entry that may
+                // have been displaced by reports.json or Phase 3b detection.
+                if (pageNumbers && tjRomanBps.length > 0 &&
+                        !_parsePageNumbers(pageNumbers).some(e => e.roman)) {
+                    const hasTrailing = pageNumbers.endsWith(',');
+                    const base = hasTrailing ? pageNumbers.slice(0, -1) : pageNumbers;
+                    const romanStr = tjRomanBps.map(e => `${e.startStr}:${e.pdfPage}`).join(',');
+                    pageNumbers = `${base},${romanStr}${hasTrailing ? ',' : ''}`;
                 }
 
                 // If an earlier term already has the canonical cover for this
