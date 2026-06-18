@@ -4806,46 +4806,15 @@ function syncTermsJson() {
 
 // ── U.S. Reports sync ────────────────────────────────────────────────────────
 
-// Cache: Map<volumeNum, absoluteUrl> built from USReports.aspx, null = not yet fetched.
-let _US_REPORTS_URL_MAP = null;
-
 // Cache: Map<pdfPath, page_numbers string | null> so each PDF is scanned at most once per run.
 const _PAGE_OFFSET_CACHE = new Map();
 
-// Fetch USReports.aspx and return a Map<volumeNum, absoluteUrl> for all
-// bound volumes (2–587). Excludes preliminary-print and PP files.
-async function _fetchUsReportsUrlMap() {
-    if (_US_REPORTS_URL_MAP) return _US_REPORTS_URL_MAP;
-
-    const aspxUrl = `${SCOTUS_BASE}/opinions/USReports.aspx`;
-    let html;
-    try {
-        html = await _fetchHtml(aspxUrl, 30000);
-    } catch (e) {
-        console.log(`  Warning: could not fetch USReports.aspx: ${e.message || e}`);
-        _US_REPORTS_URL_MAP = new Map();
-        return _US_REPORTS_URL_MAP;
-    }
-
-    const map = new Map();
-
-    // Volumes 2–501: href='/pdfs/USReports/USREPORTS-NNN_PDFA.pdf'
-    const re1 = /id='(\d+)'\s+href='(\/pdfs\/USReports\/USREPORTS-(\d+)_PDFA\.pdf)'/gi;
-    let m;
-    while ((m = re1.exec(html)) !== null) {
-        const vol = parseInt(m[3], 10);
-        if (vol >= 2 && vol <= 587) map.set(vol, SCOTUS_BASE + m[2]);
-    }
-
-    // Volumes 502–587: href='boundvolumes/NNNbv.pdf' (relative to /opinions/)
-    const re2 = /id='(\d+)'\s+href='(boundvolumes\/\d+bv\.pdf)'/gi;
-    while ((m = re2.exec(html)) !== null) {
-        const vol = parseInt(m[1], 10);
-        if (vol >= 2 && vol <= 587) map.set(vol, `${SCOTUS_BASE}/opinions/${m[2]}`);
-    }
-
-    _US_REPORTS_URL_MAP = map;
-    return map;
+// Derive the canonical supremecourt.gov URL for a US Reports bound volume.
+// Volumes 2–501 use the USREPORTS-NNN_PDFA.pdf path; 502+ use boundvolumes/NNNbv.pdf.
+function _deriveReportHref(vol) {
+    const v = Number(vol);
+    if (v >= 502) return `${SCOTUS_BASE}/opinions/boundvolumes/${v}bv.pdf`;
+    return `${SCOTUS_BASE}/pdfs/USReports/USREPORTS-${v}_PDFA.pdf`;
 }
 
 // Extract the text content of one page of a PDF via pdftotext.
@@ -5121,19 +5090,27 @@ async function syncTermsReports(termFilter, volFilter = null) {
         }
     }
 
-    console.log('Fetching USReports.aspx ...');
-    const urlMap = await _fetchUsReportsUrlMap();
-    if (!urlMap.size) {
-        console.log('Warning: no bound volume URLs found on USReports.aspx');
+    // Build a set of locally available volumes from the PDFs directory.
+    const localVols = new Set();
+    if (fs.existsSync(PDFS_DIR)) {
+        for (const f of fs.readdirSync(PDFS_DIR)) {
+            const m = /^v(\d{3})\.pdf$/i.exec(f);
+            if (m) localVols.add(parseInt(m[1], 10));
+        }
+    }
+    if (!localVols.size) {
+        console.log(`No local US Reports PDFs found in ${path.relative(REPO_ROOT, PDFS_DIR)}`);
         return;
     }
     if (_VERBOSE)
-        console.log(`  Found ${urlMap.size} bound volume URLs (${Math.min(...urlMap.keys())}–${Math.max(...urlMap.keys())})`);
+        console.log(`  Found ${localVols.size} local PDFs (v${Math.min(...localVols)}–v${Math.max(...localVols)})`);
 
-    // Pre-pass: build a registry of the earliest term where each volume's
-    // cover image already exists on disk. Later terms referencing the same
-    // volume will use a relative path instead of a duplicate file.
-    const coverRegistry = new Map(); // vol (number) → { term: string, coverName: string }
+    // Pre-pass: (1) build a registry of the earliest term where each volume's
+    // cover image already exists on disk; (2) collect the best-known href for
+    // each volume from existing terms.json entries so we don't need to derive
+    // it for volumes already tracked.
+    const coverRegistry = new Map();   // vol → { term, coverName }
+    const existingHrefByVol = new Map(); // vol → href
     for (const decade of tj) {
         for (const page of (decade.groups || [])) {
             const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
@@ -5142,11 +5119,14 @@ async function syncTermsReports(termFilter, volFilter = null) {
             const pageTerm = termMatch[1];
             const pageTermDir = path.join(TERMS_DIR, pageTerm);
             for (const r of (page.reports || [])) {
-                if (!r.volume || coverRegistry.has(r.volume)) continue;
+                if (!r.volume) continue;
+                const v = Number(r.volume);
+                if (r.href && !existingHrefByVol.has(v)) existingHrefByVol.set(v, r.href);
+                if (coverRegistry.has(v)) continue;
                 const cover = r.cover || '';
-                if (cover.startsWith('../')) continue; // already a relative reference
+                if (cover.startsWith('../')) continue;
                 if (fs.existsSync(path.join(pageTermDir, cover))) {
-                    coverRegistry.set(r.volume, { term: pageTerm, coverName: cover });
+                    coverRegistry.set(v, { term: pageTerm, coverName: cover });
                 }
             }
         }
@@ -5173,38 +5153,33 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 if (!Array.isArray(cases)) cases = [];
             } catch { continue; }
 
-            // Collect unique volume numbers referenced in usCite fields.
+            // Collect unique volume numbers referenced in usCite fields that
+            // also have a local PDF available.
             const volSet = new Set();
             for (const c of cases) {
                 const cm = /^(\d+)\s+U\.S\./.exec(c.usCite || '');
                 if (cm) {
                     const vol = parseInt(cm[1], 10);
-                    if (vol >= 2 && vol <= 587 && urlMap.has(vol)) volSet.add(vol);
+                    if (vol >= 2 && localVols.has(vol)) volSet.add(vol);
                 }
             }
             if (!volSet.size) continue;
 
             const sortedVols = [...volSet].sort((a, b) => a - b);
 
-            // Build lookup of existing report entries by href so we can
-            // preserve page_numbers values that are already computed.
-            const existingByHref = new Map();
+            // Build lookup of existing report entries by volume number.
+            const existingByVol = new Map();
             for (const r of (page.reports || [])) {
-                if (r.href) existingByHref.set(r.href, r);
+                if (r.volume != null) existingByVol.set(Number(r.volume), r);
             }
 
             const reports = [];
             for (const vol of sortedVols) {
                 if (volFilter !== null && vol !== volFilter) continue;
 
-                const href    = urlMap.get(vol);
                 const volStr  = String(vol).padStart(3, '0');
                 const pdfPath = path.join(PDFS_DIR, `v${volStr}.pdf`);
-
-                if (!fs.existsSync(pdfPath)) {
-                    if (_VERBOSE) console.log(`  ${term}: v${volStr}.pdf not found locally, skipping`);
-                    continue;
-                }
+                const href    = existingHrefByVol.get(vol) ?? _deriveReportHref(vol);
 
                 const coverName = `v${volStr}-cover.jpg`;
                 const coverPath = path.join(termDir, coverName);
@@ -5220,7 +5195,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 //      result (possibly with trailing comma sentinel) to reports.json.
                 //   4. Full detection for new volumes not yet in reports.json.
                 const volKey = `v${volStr}`;
-                let pageNumbers = existingByHref.get(href)?.page_numbers ?? null;
+                let pageNumbers = existingByVol.get(vol)?.page_numbers ?? null;
                 // Save any roman bps from the original terms.json entry; they must
                 // be preserved even when reports.json provides the arabic bps.
                 const tjRomanBps = _parsePageNumbers(pageNumbers ?? '').filter(e => e.roman);
