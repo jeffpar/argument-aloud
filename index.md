@@ -23,9 +23,9 @@ Every U.S. Supreme Court case ends in a decision, but it starts with arguments, 
 
 Unfortunately, all those pieces tend to be scattered across websites like [The Oyez Project](https://www.oyez.org), [The National Archives](https://catalog.archives.gov/id/594), and last but not least, [The U.S. Supreme Court](https://www.supremecourt.gov), which directs you to different pages for *every* one of those pieces.  Other essential bits of information, such as copies of statutes, records from the lower courts, etc, can usually be found in the briefs or elsewhere, but you have to know where to look.
 
-So we've created this [Media Hub](/courts/ussc) to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+So we've created this [Media Hub](/courts/ussc) to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.  This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
-This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
+Thoughts, suggestions, or other inquiries can be sent to [admin@argumentaloud.org](mailto:admin@argumentaloud.org).
 
 [![U.S. Supreme Court Courtroom](/assets/img/courtroom.jpg)](https://www.supremecourt.gov/about/photos.aspx)  
 [[Repository]](https://github.com/jeffpar/argument-aloud)

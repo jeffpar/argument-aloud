@@ -4867,6 +4867,18 @@ function _extractLeadingPageNum(text) {
     return m ? parseInt(m[1], 10) : null;
 }
 
+// Extract a roman-numeral page number from the leading text of a US Reports
+// PDF page. Returns {val, str} or null. Requires 2+ roman chars (avoids
+// single-letter false positives) and limits the range to iv–l (4–50).
+function _extractLeadingRomanNum(text) {
+    const m = /^\s*([ivxlcdmIVXLCDM]{2,8})\s/.exec((text || '').slice(0, 80));
+    if (!m) return null;
+    const str = m[1].toLowerCase();
+    const val = _parseRomanNumeral(str);
+    if (!Number.isFinite(val) || val < 4 || val > 50) return null;
+    return { val, str };
+}
+
 // Return the total page count of a PDF via pdfinfo, or null on failure.
 async function _pdfPageCount(pdfPath) {
     try {
@@ -5010,6 +5022,37 @@ async function _detectPhase3(pdfPath, offset) {
     }
 
     return { breakpoints, phase3bSearched };
+}
+
+// Detect roman-numeral appendix pages in a US Reports bound volume PDF.
+//
+// Scans the last TAIL_CHECK pages; if any have a roman-numeral leading page
+// number (e.g. "vi"), scans backward up to SCAN_BACK more pages to find
+// the lowest roman-numeral page in that section. Returns
+// {start, pdfPage, roman:true, startStr} or null if no roman section found.
+async function _detectRomanSection(pdfPath, totalPages) {
+    const TAIL_CHECK = 10;
+    const SCAN_BACK  = 200;
+
+    // Quick negative: scan the last TAIL_CHECK pages for any roman numeral.
+    let seedPdfPage = null;
+    for (let p = totalPages; p >= Math.max(1, totalPages - TAIL_CHECK + 1); p--) {
+        if (_extractLeadingRomanNum(await _pdfPageText(pdfPath, p))) { seedPdfPage = p; break; }
+    }
+    if (seedPdfPage === null) return null;
+
+    // Found a roman-numeral page. Scan backward up to SCAN_BACK pages and
+    // record the minimum roman value (= start of the appendix section).
+    // We don't stop at the first non-roman page because blank or image-only
+    // pages in the middle of the section would otherwise cut the scan short.
+    let minVal = Infinity, minPdfPage = null, minStr = null;
+    for (let p = seedPdfPage; p >= Math.max(1, seedPdfPage - SCAN_BACK + 1); p--) {
+        const r = _extractLeadingRomanNum(await _pdfPageText(pdfPath, p));
+        if (r && r.val < minVal) { minVal = r.val; minPdfPage = p; minStr = r.str; }
+    }
+
+    if (minPdfPage === null) return null;
+    return { start: minVal, pdfPage: minPdfPage, roman: true, startStr: minStr };
 }
 
 // Export page 1 of a PDF as a JPEG at outputJpgPath. Returns true on success.
@@ -5193,6 +5236,12 @@ async function syncTermsReports(termFilter, volFilter = null) {
                         else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
                     }
                 };
+                // Update reportsDb for this volume, preserving the roman_searched
+                // sentinel so Phase 4 doesn't re-run after an arabic-only update.
+                const _setReportsEntry = (pn) => {
+                    reportsDb[volKey] = { page_numbers: pn,
+                        ...(reportsDb[volKey]?.roman_searched && { roman_searched: true }) };
+                };
 
                 if (dbPageNumbers !== undefined) {
                     if (pageNumbers !== null && pageNumbers !== dbPageNumbers) {
@@ -5208,7 +5257,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                             // terms.json has more arabic breakpoints; write arabic-only to
                             // reports.json and keep pageNumbers (with roman bps) for terms.json.
                             const arabicOnly = tjBps.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                            reportsDb[volKey] = { page_numbers: arabicOnly };
+                            _setReportsEntry(arabicOnly);
                             _writeReportsDb();
                             needsPhase3b.delete(volKey);
                             console.log(`  ${term}: v${volStr} page_numbers extended to ${arabicOnly} (from terms.json)`);
@@ -5234,7 +5283,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     } else if (_VERBOSE) {
                         console.log(`  ${term}: v${volStr} page_numbers = ${pageNumbers}`);
                     }
-                    reportsDb[volKey] = { page_numbers: pageNumbers };
+                    _setReportsEntry(pageNumbers);
                     _writeReportsDb();
                     if (pageNumbers !== prevPageNumbers) _deleteStaleCover();
                 }
@@ -5260,7 +5309,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                         pageNumbers = newPageNumbers;
                         _deleteStaleCover();
                     }
-                    reportsDb[volKey] = { page_numbers: pageNumbers };
+                    _setReportsEntry(pageNumbers);
                     _writeReportsDb();
                     needsPhase3b.delete(volKey);
                 }
@@ -5279,7 +5328,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                         if (verified !== arabicPageNumbers) {
                             console.log(`  ${term}: v${volStr} corrected page_numbers: ${arabicPageNumbers} → ${verified}`);
                             pageNumbers = verified; // roman bps reattached by post-process below
-                            reportsDb[volKey] = { page_numbers: verified };
+                            _setReportsEntry(verified);
                             _writeReportsDb();
                             _deleteStaleCover();
                         }
@@ -5295,6 +5344,26 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     const base = hasTrailing ? pageNumbers.slice(0, -1) : pageNumbers;
                     const romanStr = tjRomanBps.map(e => `${e.startStr}:${e.pdfPage}`).join(',');
                     pageNumbers = `${base},${romanStr}${hasTrailing ? ',' : ''}`;
+                }
+
+                // Phase 4: detect roman-numeral appendix pages. Runs once per volume
+                // when arabic detection is complete (trailing comma) and no roman bps
+                // are present yet. Results go to terms.json only (not reports.json);
+                // the roman_searched sentinel in reports.json marks "ran, found nothing".
+                if (typeof pageNumbers === 'string' && pageNumbers.endsWith(',') &&
+                        !_parsePageNumbers(pageNumbers).some(e => e.roman) &&
+                        !reportsDb[volKey]?.roman_searched) {
+                    const totalPages = await _pdfPageCount(pdfPath);
+                    const romanBp = totalPages ? await _detectRomanSection(pdfPath, totalPages) : null;
+                    if (romanBp) {
+                        const base = pageNumbers.slice(0, -1); // strip trailing comma
+                        pageNumbers = `${base},${romanBp.startStr}:${romanBp.pdfPage},`;
+                        console.log(`  ${term}: v${volStr} roman appendix: ${romanBp.startStr} → PDF page ${romanBp.pdfPage}`);
+                    } else {
+                        reportsDb[volKey] = { ...reportsDb[volKey], roman_searched: true };
+                        _writeReportsDb();
+                        if (_VERBOSE) console.log(`  ${term}: v${volStr} no roman appendix pages found`);
+                    }
                 }
 
                 // If an earlier term already has the canonical cover for this
