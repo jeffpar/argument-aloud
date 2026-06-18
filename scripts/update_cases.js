@@ -4,7 +4,7 @@
  * by default. Pass --dry-run to suppress all file writes.
  *
  * Usage:
- *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports] [--verbose] [--dry-run]
+ *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
  *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
@@ -1605,11 +1605,23 @@ function _offsetToPageNumbers(offset) {
 }
 
 // Extract the numeric offset for the first breakpoint from a page_numbers
-// string (used when syncTermsReports compares against reports.json offsets).
+// string (used to compute the cover page for US Reports page 1).
 function _pageNumbersToOffset(str) {
     const parsed = _parsePageNumbers(str);
     if (!parsed.length) return null;
     return parsed[0].pdfPage - parsed[0].start;
+}
+
+// Read the page_numbers value from a reports.json entry, supporting both the
+// new {page_numbers} format and the legacy {page_offset} format.
+// Returns: a string (known mapping), null (tried but failed), or undefined (not in db).
+function _reportsDbPageNumbers(entry) {
+    if (!entry || typeof entry !== 'object') return undefined;
+    if ('page_numbers' in entry) return entry.page_numbers;
+    if (typeof entry.page_offset === 'number') {
+        return entry.page_offset >= 0 ? _offsetToPageNumbers(entry.page_offset) : null;
+    }
+    return undefined;
 }
 
 // Build/update the decision_reports field on each case whose usCite contains
@@ -1648,6 +1660,46 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         for (const k of Object.keys(c)) delete c[k];
         Object.assign(c, reordered);
         modified = true;
+    }
+    if (modified) _writeJson(casesPath, data);
+}
+
+// Remove decision_loc links that reference a US Reports page in the second (or
+// later) page_numbers segment of a multi-book bound volume. The Library of
+// Congress only digitized the first physical book, so those URLs do not exist.
+// A LOC URL encodes volume and page as: usrep{vol3}{page}/usrep{vol3}{page}.pdf
+function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
+    const data = _readJson(casesPath);
+    if (!Array.isArray(data)) return;
+    const reports = termEntry?.reports || [];
+
+    // Build a map from volume number → first US Reports page of the second segment.
+    const secondSegmentStart = new Map();
+    for (const r of reports) {
+        if (!r.volume || !r.page_numbers) continue;
+        const bps = _parsePageNumbers(r.page_numbers);
+        if (bps.length >= 2) secondSegmentStart.set(Number(r.volume), bps[1].start);
+    }
+    if (!secondSegmentStart.size) return;
+
+    let modified = false;
+    for (const c of data) {
+        if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
+        const loc = c.decision_loc || '';
+        if (!loc) continue;
+        // Parse the LOC URL: ...usrep{vol3}{page}/usrep{vol3}{page}.pdf
+        const m = /usrep(\d{3})(\d+)\/usrep\d+\.pdf$/i.exec(loc);
+        if (!m) continue;
+        const vol  = parseInt(m[1], 10);
+        const page = parseInt(m[2], 10);
+        const breakStart = secondSegmentStart.get(vol);
+        if (breakStart !== undefined && page >= breakStart) {
+            delete c.decision_loc;
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            modified = true;
+        }
     }
     if (modified) _writeJson(casesPath, data);
 }
@@ -4675,7 +4727,7 @@ function syncTermsJson() {
 // Cache: Map<volumeNum, absoluteUrl> built from USReports.aspx, null = not yet fetched.
 let _US_REPORTS_URL_MAP = null;
 
-// Cache: Map<pdfPath, page_offset|null> so each PDF is scanned at most once per run.
+// Cache: Map<pdfPath, page_numbers string | null> so each PDF is scanned at most once per run.
 const _PAGE_OFFSET_CACHE = new Map();
 
 // Fetch USReports.aspx and return a Map<volumeNum, absoluteUrl> for all
@@ -4726,49 +4778,156 @@ async function _pdfPageText(pdfPath, pageNum) {
     }
 }
 
-// Detect how many PDF pages precede the page numbered "1" in the volume.
+// Extract the leading page number from the OCR text of a US Reports PDF page.
+// Returns an integer or null if no clear number is found.
+function _extractLeadingPageNum(text) {
+    const m = /^\s*(\d{1,4})\s/.exec((text || '').slice(0, 100));
+    return m ? parseInt(m[1], 10) : null;
+}
+
+// Return the total page count of a PDF via pdfinfo, or null on failure.
+async function _pdfPageCount(pdfPath) {
+    try {
+        const { stdout } = await _execFile('pdfinfo', [pdfPath], { timeout: 30000 });
+        const m = /^Pages:\s+(\d+)/m.exec(stdout);
+        return m ? parseInt(m[1], 10) : null;
+    } catch {
+        return null;
+    }
+}
+
+// Detect the page_numbers mapping for a US Reports bound volume PDF.
 //
 // Phase 1: scan for a page whose text contains the title pattern
 //   "CASES/OASES/DECISIONS/REPORTS ... IN/OF THE ... SUPREME COURT OF THE
 //   UNITED STATES". OASES is an OCR artefact for CASES; REPORTS covers the
 //   "REPORTS OF THE DECISIONS ..." title form used in some early volumes.
-//   That page IS page 1 of the volume, so page_offset = p - 1.
+//   That page IS page 1 of the volume, so the initial offset is p - 1.
 //
 // Phase 2 (fallback): look for three consecutive PDF pages whose text begins
 //   with the page numbers 2, 3, and 4 respectively. If found, the PDF page
-//   preceding the "2" page is volume page 1, so page_offset = p - 2.
-async function _detectReportPageOffset(pdfPath) {
+//   preceding the "2" page is volume page 1, so the initial offset is p - 2.
+//
+// Phase 3a: after finding the initial offset, check for secondary remappings
+//   at fixed candidates 801 and 901 — the most common discontinuity points.
+//   Read the PDF page expected under the current offset; if the printed page
+//   number differs, compute the new offset and verify it by checking the page
+//   that should be at the candidate under the new offset. If confirmed, add a
+//   breakpoint to the page_numbers string (e.g. "1:85,801:717").
+// Phase 3b: fallback when 3a finds nothing. Use pdfinfo to get the total page
+//   count, read the last page's printed number to detect any offset mismatch,
+//   then binary-search for the first PDF page with the new offset and record it
+//   as the second breakpoint.
+async function _detectPageNumbers(pdfPath) {
     if (_PAGE_OFFSET_CACHE.has(pdfPath)) return _PAGE_OFFSET_CACHE.get(pdfPath);
-    let result = null;
+    let offset = null;
 
+    // Phase 1
     const titleRe = /(?:CASES\b|OASES\b|DECISIONS\b|REPORTS\b)[\s\S]{0,150}(?:IN|OF) THE[\s\S]{0,150}SUPREME COURT OF THE UNITED STATES/i;
     for (let p = 1; p <= 200; p++) {
         const text = await _pdfPageText(pdfPath, p);
-        if (titleRe.test(text)) {
-            result = p - 1;
-            break;
-        }
+        if (titleRe.test(text)) { offset = p - 1; break; }
     }
 
-    if (result === null) {
-        // Heuristic: a standalone page number (2, 3, or 4) appearing at the
-        // start of a line within the first 200 chars of OCR text.
+    // Phase 2 (fallback)
+    if (offset === null) {
         const hasPageNum = (text, n) => new RegExp(`(?:^|\\n)\\s*${n}[\\s\\n]`).test(text.slice(0, 200));
         for (let p = 2; p <= 200; p++) {
             const t2 = await _pdfPageText(pdfPath, p);
             if (hasPageNum(t2, 2)) {
                 const t3 = await _pdfPageText(pdfPath, p + 1);
                 const t4 = await _pdfPageText(pdfPath, p + 2);
-                if (hasPageNum(t3, 3) && hasPageNum(t4, 4)) {
-                    result = p - 2;
-                    break;
+                if (hasPageNum(t3, 3) && hasPageNum(t4, 4)) { offset = p - 2; break; }
+            }
+        }
+    }
+
+    if (offset === null) {
+        _PAGE_OFFSET_CACHE.set(pdfPath, null);
+        return null;
+    }
+
+    const { breakpoints, phase3bSearched } = await _detectPhase3(pdfPath, offset);
+    const base = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
+    // Append trailing comma when Phase 3b ran but found no secondary breakpoint,
+    // so re-runs skip the expensive binary search for this volume.
+    const pageNumbers = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
+    _PAGE_OFFSET_CACHE.set(pdfPath, pageNumbers);
+    return pageNumbers;
+}
+
+// Run Phase 3 (secondary breakpoint detection) given the initial PDF offset.
+// Returns { breakpoints, phase3bSearched } where breakpoints is an array of
+// {start, pdfPage} objects and phase3bSearched is true when Phase 3b ran.
+async function _detectPhase3(pdfPath, offset) {
+    const breakpoints = [{ start: 1, pdfPage: offset + 1 }];
+    let currentOffset = offset;
+
+    // Phase 3a: try fixed candidates near the known discontinuity range.
+    for (const C of [801, 901]) {
+        const expectedPdfPage = C + currentOffset;
+        const text = await _pdfPageText(pdfPath, expectedPdfPage);
+        if (!text) continue;
+        const P = _extractLeadingPageNum(text);
+        if (P === null || P === C) continue;
+        const newOffset = expectedPdfPage - P;
+        if (newOffset === currentOffset) continue;
+        // Verify by checking the page that should hold C under the new offset.
+        const actualPdfPage = C + newOffset;
+        if (actualPdfPage < 1) continue;
+        const verifyText = await _pdfPageText(pdfPath, actualPdfPage);
+        if (_extractLeadingPageNum(verifyText) === C) {
+            breakpoints.push({ start: C, pdfPage: actualPdfPage });
+            currentOffset = newOffset;
+        }
+    }
+
+    // Phase 3b: if no secondary breakpoint found via fixed candidates, check the
+    // last page to detect any offset discontinuity, then binary-search for its start.
+    let phase3bSearched = false;
+    if (breakpoints.length === 1) {
+        const totalPages = await _pdfPageCount(pdfPath);
+        if (totalPages !== null) {
+            phase3bSearched = true;
+            // Find the last page with a readable printed page number.
+            let lastPrinted = null, lastPdfPage = null;
+            for (let p = totalPages; p >= Math.max(1, totalPages - 30); p--) {
+                const n = _extractLeadingPageNum(await _pdfPageText(pdfPath, p));
+                if (n !== null) { lastPrinted = n; lastPdfPage = p; break; }
+            }
+            if (lastPrinted !== null && lastPdfPage - lastPrinted !== currentOffset) {
+                const newOffset = lastPdfPage - lastPrinted;
+                // Binary search for the first PDF page whose printed number implies newOffset.
+                const searchLo = Math.max(offset + 2, 500 + currentOffset);
+                let lo = searchLo, hi = lastPdfPage;
+                while (lo < hi) {
+                    const mid = (lo + hi) >> 1;
+                    const n = _extractLeadingPageNum(await _pdfPageText(pdfPath, mid));
+                    if (n !== null && mid - n === newOffset) hi = mid; else lo = mid + 1;
+                }
+                let bPrinted = _extractLeadingPageNum(await _pdfPageText(pdfPath, lo));
+                // Require the break to start at a reasonable US Reports page (>= 500).
+                if (bPrinted !== null && lo - bPrinted === newOffset && bPrinted >= 500) {
+                    // The binary search skips unreadable pages by treating them as old-regime,
+                    // so it may land on a page later than the true first page of the new segment.
+                    // Scan backwards to find the actual first page with newOffset.
+                    // For unreadable pages, assume they are in the new segment and use the
+                    // implied printed number (p - newOffset) so the first page of a new
+                    // physical book that lacks a legible page number is not skipped.
+                    for (let p = lo - 1; p >= searchLo; p--) {
+                        const pn = _extractLeadingPageNum(await _pdfPageText(pdfPath, p));
+                        if (pn === null) { lo = p; bPrinted = p - newOffset; continue; } // unreadable — assume new segment
+                        if (p - pn === newOffset) { lo = p; bPrinted = pn; continue; }   // confirmed new segment
+                        break;                                                            // old-regime page — stop
+                    }
+                    breakpoints.push({ start: bPrinted, pdfPage: lo });
+                    currentOffset = newOffset;
                 }
             }
         }
     }
 
-    _PAGE_OFFSET_CACHE.set(pdfPath, result);
-    return result;
+    return { breakpoints, phase3bSearched };
 }
 
 // Export page 1 of a PDF as a JPEG at outputJpgPath. Returns true on success.
@@ -4802,23 +4961,38 @@ async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
 // listed on USReports.aspx, and build/maintain the "reports" array on
 // each term group entry. Cover images are generated via pdftoppm if absent;
 // page_numbers values are computed via pdftotext if absent.
-async function syncTermsReports(termFilter) {
+async function syncTermsReports(termFilter, volFilter = null) {
     let tj;
     try { tj = _readJson(TERMS_JSON); } catch { return; }
     if (!Array.isArray(tj)) return;
 
     // Load reports.json to seed the page_offset cache so PDFs are not
     // re-scanned on subsequent runs. -1 means detection was attempted but
-    // failed; cache it as null so _detectReportPageOffset skips it.
+    // failed; cache it as null so _detectPageNumbers skips it.
+    // Volumes with a single-breakpoint page_numbers and no trailing comma
+    // (meaning Phase 3b hasn't run yet) are tracked in needsPhase3b and
+    // NOT seeded into the cache, so _detectPhase3 runs fresh for them.
     let reportsDb = {};
     try {
         const raw = _readJson(REPORTS_JSON);
         if (raw && typeof raw === 'object' && !Array.isArray(raw)) reportsDb = raw;
     } catch { /* file may not exist yet */ }
+    const needsPhase3b = new Set();
+    const needsPhase3bVerify = new Set();
     for (const [key, val] of Object.entries(reportsDb)) {
-        if (typeof val?.page_offset === 'number') {
-            _PAGE_OFFSET_CACHE.set(path.join(PDFS_DIR, key + '.pdf'),
-                val.page_offset === -1 ? null : val.page_offset);
+        const pn = _reportsDbPageNumbers(val);
+        if (pn === undefined) continue;
+        if (typeof pn === 'string' && !pn.endsWith(',') && _parsePageNumbers(pn).length === 1) {
+            // Single-breakpoint, not yet Phase-3b-searched — don't seed cache.
+            needsPhase3b.add(key);
+        } else {
+            _PAGE_OFFSET_CACHE.set(path.join(PDFS_DIR, key + '.pdf'), pn);
+            if (typeof pn === 'string' && !pn.endsWith(',') && _parsePageNumbers(pn).length === 2) {
+                // Two-breakpoint entry — re-verify the second breakpoint start with the
+                // current algorithm (binary search + backward scan) in case it was set
+                // by an older version that may have landed on the wrong page.
+                needsPhase3bVerify.add(key);
+            }
         }
     }
 
@@ -4896,6 +5070,8 @@ async function syncTermsReports(termFilter) {
 
             const reports = [];
             for (const vol of sortedVols) {
+                if (volFilter !== null && vol !== volFilter) continue;
+
                 const href    = urlMap.get(vol);
                 const volStr  = String(vol).padStart(3, '0');
                 const pdfPath = path.join(PDFS_DIR, `v${volStr}.pdf`);
@@ -4908,47 +5084,113 @@ async function syncTermsReports(termFilter) {
                 const coverName = `v${volStr}-cover.jpg`;
                 const coverPath = path.join(termDir, coverName);
 
-                // Resolve page offset before computing the cover page number.
-                // reports.json is definitive: if it has a valid value that differs
-                // from terms.json, terms.json is updated to match. If reports.json
-                // has an entry for this volume but no valid page_offset (cleared to
-                // force re-detection), or if neither source has a value, scan
-                // the PDF to determine it.
+                // Resolve page_numbers before computing the cover page.
+                // Priority (highest to lowest):
+                //   1. terms.json value that extends reports.json (user-added breakpoints):
+                //      if terms.json has all of reports.json's breakpoints plus more, treat
+                //      terms.json as authoritative and update reports.json to match.
+                //   2. reports.json value (definitive for everything else).
+                //   3. Phase 3b check for single-breakpoint volumes (needsPhase3b): run
+                //      _detectPhase3 to find any secondary breakpoint, then write the
+                //      result (possibly with trailing comma sentinel) to reports.json.
+                //   4. Full detection for new volumes not yet in reports.json.
                 const volKey = `v${volStr}`;
-                let pageOffset = _pageNumbersToOffset(existingByHref.get(href)?.page_numbers) ?? null;
-                const dbOffset = reportsDb[volKey]?.page_offset;
-                if (typeof dbOffset === 'number') {
-                    // reports.json is authoritative — override terms.json if different.
-                    const dbNorm = dbOffset >= 0 ? dbOffset : null;
-                    if (pageOffset !== dbNorm) {
-                        pageOffset = dbNorm;
-                        // Cover was generated from the old page — delete it so it gets
-                        // regenerated from the corrected offset.
-                        if (fs.existsSync(coverPath)) {
-                            if (!_DRY_RUN) fs.unlinkSync(coverPath);
-                            else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
-                        }
-                    }
-                } else if (volKey in reportsDb || pageOffset == null) {
-                    // Entry in reports.json has no valid page_offset (cleared to force
-                    // re-detection), OR nothing known yet — scan the PDF.
-                    const prevOffset = pageOffset;
-                    console.log(`  ${term}: detecting page offset for v${volStr} ...`);
-                    pageOffset = await _detectReportPageOffset(pdfPath);
-                    const storedOffset = pageOffset ?? -1;
-                    if (pageOffset == null) {
-                        console.log(`  ${term}: could not detect page offset for v${volStr}`);
-                    } else if (_VERBOSE) {
-                        console.log(`  ${term}: v${volStr} page_offset = ${pageOffset}`);
-                    }
-                    reportsDb[volKey] = { page_offset: storedOffset };
+                let pageNumbers = existingByHref.get(href)?.page_numbers ?? null;
+                const dbPageNumbers = _reportsDbPageNumbers(reportsDb[volKey]);
+
+                const _writeReportsDb = () => {
                     const sorted = Object.fromEntries(Object.keys(reportsDb).sort().map(k => [k, reportsDb[k]]));
                     _writeJson(REPORTS_JSON, sorted);
-                    // If the offset changed, delete the stale cover so it gets regenerated.
-                    if (pageOffset !== prevOffset && fs.existsSync(coverPath)) {
+                };
+                const _deleteStaleCover = () => {
+                    if (fs.existsSync(coverPath)) {
                         if (!_DRY_RUN) fs.unlinkSync(coverPath);
                         else console.log(`  [dry-run] would delete stale ${path.relative(REPO_ROOT, coverPath)}`);
                     }
+                };
+
+                if (dbPageNumbers !== undefined) {
+                    if (pageNumbers !== null && pageNumbers !== dbPageNumbers) {
+                        // Check if terms.json extends reports.json (user manually added breakpoints).
+                        const dbBps = _parsePageNumbers(dbPageNumbers || '');
+                        const tjBps = _parsePageNumbers(pageNumbers || '');
+                        const tjExtends = tjBps.length > dbBps.length &&
+                            dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                        if (tjExtends) {
+                            // terms.json is more complete; update reports.json to match.
+                            reportsDb[volKey] = { page_numbers: pageNumbers };
+                            _writeReportsDb();
+                            needsPhase3b.delete(volKey);
+                            console.log(`  ${term}: v${volStr} page_numbers extended to ${pageNumbers} (from terms.json)`);
+                        } else {
+                            // reports.json wins; cover may need regeneration.
+                            pageNumbers = dbPageNumbers;
+                            _deleteStaleCover();
+                        }
+                    } else {
+                        pageNumbers = dbPageNumbers;
+                    }
+                } else if (volKey in reportsDb || pageNumbers == null) {
+                    // Entry in reports.json has no page_numbers (cleared to force
+                    // re-detection), OR nothing known yet — scan the PDF.
+                    const prevPageNumbers = pageNumbers;
+                    console.log(`  ${term}: detecting page numbers for v${volStr} ...`);
+                    pageNumbers = await _detectPageNumbers(pdfPath);
+                    if (pageNumbers == null) {
+                        console.log(`  ${term}: could not detect page numbers for v${volStr}`);
+                    } else if (_VERBOSE) {
+                        console.log(`  ${term}: v${volStr} page_numbers = ${pageNumbers}`);
+                    }
+                    reportsDb[volKey] = { page_numbers: pageNumbers };
+                    _writeReportsDb();
+                    if (pageNumbers !== prevPageNumbers) _deleteStaleCover();
+                }
+
+                // Phase 3b check: for volumes with a single-breakpoint mapping that
+                // haven't yet been searched for a secondary discontinuity, run
+                // _detectPhase3 now. The result (with trailing comma if nothing found)
+                // is written to reports.json so future runs skip the expensive scan.
+                if (needsPhase3b.has(volKey) && typeof pageNumbers === 'string' &&
+                        !pageNumbers.endsWith(',') && _parsePageNumbers(pageNumbers).length === 1) {
+                    const bps = _parsePageNumbers(pageNumbers);
+                    const initialOffset = bps[0].pdfPage - bps[0].start;
+                    console.log(`  ${term}: checking secondary page_numbers for v${volStr} ...`);
+                    const { breakpoints, phase3bSearched } = await _detectPhase3(pdfPath, initialOffset);
+                    const base = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
+                    const newPageNumbers = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
+                    if (newPageNumbers !== pageNumbers) {
+                        if (breakpoints.length > 1) {
+                            console.log(`  ${term}: v${volStr} secondary breakpoint found: ${newPageNumbers}`);
+                        } else if (_VERBOSE) {
+                            console.log(`  ${term}: v${volStr} no secondary breakpoint (${newPageNumbers})`);
+                        }
+                        pageNumbers = newPageNumbers;
+                        _deleteStaleCover();
+                    }
+                    reportsDb[volKey] = { page_numbers: pageNumbers };
+                    _writeReportsDb();
+                    needsPhase3b.delete(volKey);
+                }
+
+                // Re-verify existing two-breakpoint mappings using the current algorithm
+                // (backward scan may correct a second breakpoint that was set too late).
+                if (needsPhase3bVerify.has(volKey) && typeof pageNumbers === 'string' &&
+                        _parsePageNumbers(pageNumbers).length === 2) {
+                    const bps = _parsePageNumbers(pageNumbers);
+                    const initialOffset = bps[0].pdfPage - bps[0].start;
+                    if (_VERBOSE) console.log(`  ${term}: re-verifying phase3 for v${volStr} ...`);
+                    const { breakpoints } = await _detectPhase3(pdfPath, initialOffset);
+                    if (breakpoints.length === 2) {
+                        const verified = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
+                        if (verified !== pageNumbers) {
+                            console.log(`  ${term}: v${volStr} corrected page_numbers: ${pageNumbers} → ${verified}`);
+                            pageNumbers = verified;
+                            reportsDb[volKey] = { page_numbers: pageNumbers };
+                            _writeReportsDb();
+                            _deleteStaleCover();
+                        }
+                    }
+                    needsPhase3bVerify.delete(volKey);
                 }
 
                 // If an earlier term already has the canonical cover for this
@@ -4964,12 +5206,12 @@ async function syncTermsReports(termFilter) {
                             console.log(`  [dry-run] would delete duplicate ${path.relative(REPO_ROOT, coverPath)}`);
                         }
                     }
-                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, ...(pageOffset != null && { page_numbers: _offsetToPageNumbers(pageOffset) }) });
+                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, ...(pageNumbers && { page_numbers: pageNumbers }) });
                 } else {
                     // Generate (or regenerate) the cover image from the page
-                    // numbered "1" in the volume (PDF page = pageOffset + 1).
+                    // numbered "1" in the volume.
                     if (!fs.existsSync(coverPath)) {
-                        const coverPdfPage = pageOffset != null ? pageOffset + 1 : 1;
+                        const coverPdfPage = _pdfPageFor(_parsePageNumbers(pageNumbers ?? ''), 1) ?? 1;
                         console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
                         if (!_DRY_RUN) {
                             await _generateReportCover(pdfPath, coverPath, coverPdfPage);
@@ -4980,17 +5222,35 @@ async function syncTermsReports(termFilter) {
                     if (!coverRegistry.has(vol)) {
                         coverRegistry.set(vol, { term, coverName });
                     }
-                    reports.push({ volume: vol, cover: coverName, href, ...(pageOffset != null && { page_numbers: _offsetToPageNumbers(pageOffset) }) });
+                    reports.push({ volume: vol, cover: coverName, href, ...(pageNumbers && { page_numbers: pageNumbers }) });
                 }
             }
 
             if (!reports.length) continue;
 
-            if (JSON.stringify(page.reports) !== JSON.stringify(reports)) {
-                page.reports = reports;
+            // When filtering by volume, merge only the updated entry back into the
+            // existing page.reports array to preserve all other volume entries.
+            const mergedReports = volFilter !== null && page.reports?.length
+                ? page.reports.map(r => reports.find(nr => nr.volume === r.volume) || r)
+                : reports;
+
+            if (JSON.stringify(page.reports) !== JSON.stringify(mergedReports)) {
+                page.reports = mergedReports;
                 modified = true;
                 _writeJson(TERMS_JSON, tj);
-                console.log(`  ${term}: updated reports (volumes ${sortedVols.join(', ')})`);
+                console.log(`  ${term}: updated reports (volumes ${reports.map(r => r.volume).join(', ')})`);
+            } else {
+                // page.reports may already equal mergedReports textually, but
+                // page_numbers could have been updated in-memory above (Phase 3b
+                // or tjExtends). Ensure page.reports reflects the latest values.
+                page.reports = mergedReports;
+            }
+
+            // Recompute decision_reports links so they reflect any page_numbers changes.
+            // Also remove any decision_loc that references a page in the second segment.
+            if (!_DRY_RUN) {
+                addDecisionReports(casesPath, page, '');
+                pruneSecondSegmentDecisionLoc(casesPath, page, '');
             }
         }
     }
@@ -7676,7 +7936,7 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
-       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports] [--verbose] [--dry-run]
+       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
        node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
@@ -8413,7 +8673,10 @@ async function processOneTerm(term, opts) {
                 const m = /\/terms\/([^/]+)\/cases\.json$/.exec(g.file || '');
                 return m && m[1] === term;
             });
-            if (_termEntry?.reports?.length) addDecisionReports(casesPath, _termEntry, caseFilter || '');
+            if (_termEntry?.reports?.length) {
+                addDecisionReports(casesPath, _termEntry, caseFilter || '');
+                pruneSecondSegmentDecisionLoc(casesPath, _termEntry, caseFilter || '');
+            }
         }
         if (checkUrls && !caseFilter) await checkCaseHrefs(casesPath, term, opinionsOnly);
     }
@@ -8992,7 +9255,7 @@ async function main() {
             } else {
                 const key = a.slice(2);
                 // Flags that take a value
-                if (['case', 'import', 'add'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                if (['case', 'import', 'add', 'volume'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
                     flagValues[key] = argv[++i];
                 } else {
                     boolFlags.add(key);
@@ -9144,7 +9407,8 @@ async function main() {
     }
 
     if (flags.has('--reports')) {
-        await syncTermsReports(positional[0] || null);
+        const volFilter = flagValues.volume ? parseInt(flagValues.volume, 10) : null;
+        await syncTermsReports(positional[0] || null, volFilter);
         return;
     }
 

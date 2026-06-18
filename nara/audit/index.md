@@ -106,8 +106,8 @@ The 1952 term is illustrative.  Looking through [U.S. Reports Volume 344](https:
 
 all of which SCDB dutifully records as well.  And yet a number of other cases that were decided by a brief *per curiam* opinion were not recorded by SCDB:
 
-  - [United States v. Wilson (Nos. 197,198)](/courts/ussc/?term=1952-10&case=197) at 344 U.S. 923
-  - No. 390 at 344 U.S. 924
+  - [United States v. Wilson (Nos. 197, 198)](/courts/ussc/?term=1952-10&case=197) at 344 U.S. 923
+  - [Ward v. United States (No. 390)](/courts/ussc/?term=1952-10&case=390) at 344 U.S. 924
 
 Those are significant omissions, because all three cases (Nos. 197, 198 and 390) were fully briefed *and* argued *and* decided, the lack of a detailed opinion notwithstanding.
 
