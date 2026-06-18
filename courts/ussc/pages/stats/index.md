@@ -41,6 +41,13 @@ html[data-theme="light"] .stats-note { color: #888; }
   .stats-title-row { margin-top: 0.2rem; }
 }
 
+/* Chart CSS variables */
+:root { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#666; --chart-tip-bg:#f5f6fa; }
+@media (prefers-color-scheme: dark) { :root { --chart-grid:#2d2f38; --chart-axis:#3a3d47; --chart-label:#9da5b4; --chart-tip-bg:#21242c; } }
+html[data-theme="dark"]  { --chart-grid:#2d2f38; --chart-axis:#3a3d47; --chart-label:#9da5b4; --chart-tip-bg:#21242c; }
+html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#666; --chart-tip-bg:#f5f6fa; }
+#history-view { padding: 0.5rem 0 0.25rem; }
+
 /* Date-specific case list */
 .date-section { margin-bottom: 1.25rem; }
 .date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
@@ -127,6 +134,7 @@ html[data-theme="light"] .date-section h3 { color: #888; }
     </div>
   </div>
   <p class="stats-note" id="stats-note"></p>
+  <div id="history-view" hidden></div>
 </div>
 
 <script>
@@ -167,10 +175,139 @@ html[data-theme="light"] .date-section h3 { color: #888; }
     return c.id || (c.number || '').split(',')[0].trim() || '';
   }
 
+  function renderHistoryChart(container, data) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var W = 760, H = 300;
+    var P = { t: 10, r: 16, b: 36, l: 40 };
+    var cW = W - P.l - P.r, cH = H - P.t - P.b;
+    var n = data.length;
+    var maxRaw = 0;
+    for (var i = 0; i < n; i++) maxRaw = Math.max(maxRaw, data[i].d, data[i].ad);
+    var step = maxRaw > 200 ? 50 : maxRaw > 100 ? 25 : 10;
+    var maxY = Math.ceil(maxRaw * 1.1 / step) * step;
+    function xOf(i) { return P.l + i / (n - 1) * cW; }
+    function yOf(v) { return P.t + cH * (1 - v / maxY); }
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', '100%');
+    svg.style.cssText = 'display:block;overflow:visible';
+    function svgEl(tag, attrs, style) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in (attrs || {})) e.setAttribute(k, attrs[k]);
+      if (style) e.style.cssText = style;
+      return e;
+    }
+    for (var yv = 0; yv <= maxY; yv += step) {
+      var yp = yOf(yv);
+      svg.appendChild(svgEl('line', { x1:P.l, x2:P.l+cW, y1:yp, y2:yp }, 'stroke:var(--chart-grid);stroke-width:1'));
+      var yt = svgEl('text', { x:P.l-4, y:yp+4, 'text-anchor':'end' }, 'fill:var(--chart-label);font-size:10px;font-family:inherit');
+      yt.textContent = yv; svg.appendChild(yt);
+    }
+    svg.appendChild(svgEl('line', { x1:P.l, x2:P.l+cW, y1:P.t+cH, y2:P.t+cH }, 'stroke:var(--chart-axis);stroke-width:1'));
+    svg.appendChild(svgEl('line', { x1:P.l, x2:P.l, y1:P.t, y2:P.t+cH }, 'stroke:var(--chart-axis);stroke-width:1'));
+    var lastYr = -1;
+    for (var i = 0; i < n; i++) {
+      var yr = parseInt(data[i].t, 10);
+      if (yr % 20 === 0 && yr !== lastYr) {
+        lastYr = yr;
+        var xt = svgEl('text', { x:xOf(i).toFixed(1), y:P.t+cH+13, 'text-anchor':'middle' }, 'fill:var(--chart-label);font-size:10px;font-family:inherit');
+        xt.textContent = yr; svg.appendChild(xt);
+      }
+    }
+    function makePath(field, color) {
+      var d = '';
+      for (var i = 0; i < n; i++) d += (i ? 'L' : 'M') + xOf(i).toFixed(1) + ' ' + yOf(data[i][field]).toFixed(1);
+      return svgEl('path', { d:d, fill:'none', stroke:color, 'stroke-width':'1.5', 'stroke-linejoin':'round' });
+    }
+    svg.appendChild(makePath('ad', '#ff9f40'));
+    svg.appendChild(makePath('d',  '#4a9eff'));
+    var cursor = svgEl('line', { x1:P.l, x2:P.l, y1:P.t, y2:P.t+cH }, 'stroke:var(--chart-label);stroke-width:1;opacity:0;pointer-events:none');
+    svg.appendChild(cursor);
+    var tip = svgEl('g', {}, 'opacity:0;pointer-events:none');
+    tip.appendChild(svgEl('rect', { rx:'3', width:'88', height:'46' }, 'fill:var(--chart-tip-bg);stroke:var(--chart-axis);stroke-width:1'));
+    var tipT = [svgEl('text',{},null), svgEl('text',{},null), svgEl('text',{},null)];
+    tipT.forEach(function(t) { t.style.cssText = 'fill:var(--chart-label);font-size:10px;font-family:inherit'; tip.appendChild(t); });
+    svg.appendChild(tip);
+    var hit = svgEl('rect', { x:P.l, y:P.t, width:cW, height:cH, fill:'transparent' }, 'cursor:crosshair');
+    svg.appendChild(hit);
+    var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function onHover(clientX) {
+      var r = svg.getBoundingClientRect();
+      var idx = Math.max(0, Math.min(n - 1, Math.round(((clientX - r.left) / r.width * W - P.l) * (n - 1) / cW)));
+      var row = data[idx], cx = xOf(idx).toFixed(1);
+      cursor.setAttribute('x1', cx); cursor.setAttribute('x2', cx); cursor.style.opacity = '0.4';
+      var parts = row.t.split('-');
+      tipT[0].textContent = (MON[parseInt(parts[1],10)-1]||'') + ' ' + parts[0];
+      tipT[1].textContent = 'Decided: ' + row.d;
+      tipT[2].textContent = 'Arg. days: ' + row.ad;
+      tipT.forEach(function(t, i) { t.setAttribute('x', 6); t.setAttribute('y', 12 + i * 13); });
+      var tx = +cx + 6;
+      if (tx + 88 > P.l + cW) tx = +cx - 94;
+      tip.setAttribute('transform', 'translate(' + tx + ',' + (P.t + 4) + ')');
+      tip.style.opacity = '1';
+    }
+    hit.addEventListener('mousemove', function(e) { onHover(e.clientX); });
+    hit.addEventListener('touchmove', function(e) { e.preventDefault(); onHover(e.touches[0].clientX); }, { passive: false });
+    hit.addEventListener('mouseleave', function() { cursor.style.opacity='0'; tip.style.opacity='0'; });
+    container.appendChild(svg);
+    var leg = document.createElement('div');
+    leg.style.cssText = 'display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:0.72rem;';
+    [['Cases decided','#4a9eff'],['Argument days','#ff9f40']].forEach(function(item) {
+      var s = document.createElement('span');
+      s.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
+      var sw = document.createElement('span');
+      sw.style.cssText = 'width:18px;height:2px;background:'+item[1]+';display:inline-block;border-radius:1px;flex-shrink:0';
+      var lb = document.createElement('span');
+      lb.textContent = item[0]; lb.style.color = 'var(--chart-label)';
+      s.appendChild(sw); s.appendChild(lb); leg.appendChild(s);
+    });
+    container.appendChild(leg);
+  }
+
   var params = new URLSearchParams(location.search);
   var term = params.get('term');
   var date = params.get('date');
   if (!term) return;
+  if (term === 'all') {
+    document.getElementById('stat-term-title').textContent = 'All Terms';
+    fetch('/courts/ussc/terms.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(data) {
+        // Fill stat boxes from the hidden {name:'All'} container's summary group.
+        var summary = null;
+        for (var i = data.length - 1; i >= 0; i--) {
+          if (data[i].hidden && data[i].groups && data[i].groups[0] && data[i].groups[0].id === 'all') {
+            summary = data[i].groups[0]; break;
+          }
+        }
+        if (summary) {
+          document.getElementById('stat-decided').textContent      = summary.decided.toLocaleString();
+          document.getElementById('stat-argued-cases').textContent  = summary.argued.toLocaleString();
+          document.getElementById('stat-argument-days').textContent = summary.argDays.toLocaleString();
+          document.getElementById('stat-with-audio').textContent    = summary.audio.toLocaleString();
+        }
+        // Build per-term chart data from non-hidden group entries.
+        var chartData = [];
+        data.forEach(function(decade) {
+          if (decade.hidden) return;
+          (decade.groups || []).forEach(function(g) {
+            if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays });
+          });
+        });
+        if (chartData.length) {
+          var histView = document.getElementById('history-view');
+          histView.hidden = false;
+          renderHistoryChart(histView, chartData);
+        }
+        var termCount = 0;
+        data.forEach(function(d) { termCount += (d.groups || []).length; });
+        document.getElementById('stats-note').textContent = 'Totals across all ' + termCount + ' terms';
+      })
+      .catch(function() {
+        document.getElementById('stats-note').textContent = 'Could not load data.';
+      });
+    return;
+  }
   document.getElementById('stat-term-title').textContent = termTitle(term);
   if (date) document.getElementById('stat-date-title').textContent = fmtDate(date);
 

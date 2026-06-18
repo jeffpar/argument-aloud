@@ -234,6 +234,9 @@ const _SUFFIX_JR_SR_RE = /,?\s+(JR|SR)\.?\s*$/i;
 const _SUFFIX_ROMAN_RE = /,?\s+(II|III|IV)\s*$/i;
 
 function normalizeNameSuffix(name) {
+    // Normalize curly/smart apostrophes to straight apostrophe so that
+    // "O’TOOLE" and "O’TOOLE" produce the same advocate key.
+    name = name.replace(/[‘’ʼ]/g, "'");
     let m = _SUFFIX_JR_SR_RE.exec(name);
     if (m) {
         const base = name.slice(0, m.index);
@@ -1781,6 +1784,35 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             if (ca !== cb) return cb - ca;
             return (a.name || '').localeCompare(b.name || '');
         });
+
+    // Merge entries that map to the same file ID (e.g., "G.J." vs "GJ", or
+    // straight vs curly apostrophes that slipped through normalization).
+    // The entry that sorts first (most cases, then alphabetically) is canonical;
+    // its cases list is extended with any unique cases from the duplicate(s).
+    {
+        const seenIds = new Map(); // advId -> canonical entry
+        const merged = [];
+        for (const entry of output) {
+            const advId = entry.id || makeAdvocateId(entry.name);
+            if (!seenIds.has(advId)) {
+                seenIds.set(advId, entry);
+                merged.push(entry);
+            } else {
+                const canon = seenIds.get(advId);
+                for (const c of entry.cases) {
+                    const ck = `${c.term}|${c.number}|${c.argument || c.reargument || ''}`;
+                    if (!canon.cases.some(x => `${x.term}|${x.number}|${x.argument || x.reargument || ''}` === ck)) {
+                        canon.cases.push(c);
+                    }
+                }
+                if (entry.previously) {
+                    canon.previously = [...new Set([...(canon.previously || []), ...entry.previously])].sort();
+                }
+                console.log(`  Merged duplicate advocate "${entry.name}" into "${canon.name}" (same id: ${advId})`);
+            }
+        }
+        output = merged;
+    }
 
     // Skip one-word names.
     const skipped = output.filter(e => e.name.split(/\s+/).length === 1);

@@ -4752,7 +4752,7 @@ function _buildNoteworthyCollection(allTerms) {
     return { output, skipped: 0, unmatched: 0 };
 }
 
-const _PAGE_KEY_ORDER = ['name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports'];
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports', 'decided', 'argued', 'argDays', 'audio'];
 
 function syncTermsJson() {
     let tj;
@@ -4760,6 +4760,8 @@ function syncTermsJson() {
     if (!Array.isArray(tj)) return;
 
     let modified = false;
+    let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0;
+
     for (const decade of tj) {
         for (let i = 0; i < (decade.groups || []).length; i++) {
             const page = decade.groups[i];
@@ -4768,24 +4770,46 @@ function syncTermsJson() {
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
             if (!m) continue;
 
-            const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', m[1], 'cases.json');
-            let count = 0;
+            const termId = m[1];
+            const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'cases.json');
+            let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0;
             if (fs.existsSync(casesPath)) {
                 try {
                     const data = _readJson(casesPath);
-                    if (Array.isArray(data)) count = data.length;
+                    if (Array.isArray(data)) {
+                        count   = data.length;
+                        decided = data.filter(c => c.decision || c.dateDecision).length;
+                        argued  = data.filter(c => c.argument  || c.reargument).length;
+                        const argDaySet = new Set();
+                        data.forEach(c => {
+                            for (const field of ['argument', 'reargument']) {
+                                if (c[field]) c[field].split(',').forEach(d => { const s = d.trim(); if (s) argDaySet.add(s); });
+                            }
+                        });
+                        argDays = argDaySet.size;
+                        audio   = data.filter(c => (c.events || []).some(e => e.audio_href)).length;
+                    }
                 } catch {}
             }
+            totalDecided += decided;
+            totalArgued  += argued;
+            totalArgDays += argDays;
+            totalAudio   += audio;
 
-            // Rebuild page with canonical key order, file=URL, cases=count.
+            // Rebuild page with canonical key order, file=URL, cases=count, stats at end.
             const newPage = {};
             for (const k of _PAGE_KEY_ORDER) {
-                if (k === 'file') { newPage.file = fileUrl; continue; }
-                if (k === 'cases') { newPage.cases = count; continue; }
-                if (k === 'term') { if (page.term) newPage.term = page.term; continue; }
+                if (k === 'id')      { newPage.id = termId; continue; }
+                if (k === 'file')    { newPage.file = fileUrl; continue; }
+                if (k === 'cases')   { newPage.cases = count; continue; }
+                if (k === 'term')    { if (page.term) newPage.term = page.term; continue; }
+                if (k === 'decided') { newPage.decided = decided; continue; }
+                if (k === 'argued')  { newPage.argued  = argued;  continue; }
+                if (k === 'argDays') { newPage.argDays = argDays; continue; }
+                if (k === 'audio')   { newPage.audio   = audio;   continue; }
                 if (Object.prototype.hasOwnProperty.call(page, k)) newPage[k] = page[k];
             }
-            // Preserve any extra keys not in the canonical order.
+            // Preserve extra keys not in the canonical order.
             for (const k of Object.keys(page)) {
                 if (!_PAGE_KEY_ORDER.includes(k)) newPage[k] = page[k];
             }
@@ -4795,6 +4819,24 @@ function syncTermsJson() {
                 modified = true;
             }
         }
+    }
+
+    // Strip any legacy bare all-terms entry (old format: {id:'all'} without groups).
+    while (tj.length > 0 && tj[tj.length - 1].id === 'all' && !tj[tj.length - 1].groups) {
+        tj.pop(); modified = true;
+    }
+    // Update or append the hidden all-terms container.
+    const newSummaryGroup = { id: 'all', decided: totalDecided, argued: totalArgued, argDays: totalArgDays, audio: totalAudio };
+    const newContainer    = { name: 'All', hidden: true, groups: [newSummaryGroup] };
+    const lastItem = tj[tj.length - 1];
+    if (lastItem?.hidden === true && lastItem?.name === 'All' && Array.isArray(lastItem?.groups)) {
+        if (JSON.stringify(lastItem.groups[0]) !== JSON.stringify(newSummaryGroup)) {
+            tj[tj.length - 1] = newContainer;
+            modified = true;
+        }
+    } else {
+        tj.push(newContainer);
+        modified = true;
     }
 
     if (modified) {
@@ -9388,6 +9430,7 @@ async function runAddCase(term, title, argv, dryRun) {
     // Sync case counts in terms.json.
     syncTermsJson();
 }
+
 
 async function main() {
     const argv = process.argv.slice(2);

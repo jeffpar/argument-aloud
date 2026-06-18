@@ -2679,8 +2679,13 @@ function buildNav(title = 'Terms') {
   const _navSearchBtn = document.getElementById('nav-search-btn');
   if (_navSearchBtn) { _navSearchBtn.removeAttribute('hidden'); termsHeader.appendChild(_navSearchBtn); }
   termsHeader.addEventListener('click', (e) => {
-    if (termsTog.contains(e.target)) termsLi.classList.toggle('open');
-    else if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
+    if (termsTog.contains(e.target)) {
+      termsLi.classList.toggle('open');
+    } else {
+      if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
+      navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date']));
+      restoreFromURL();
+    }
   });
   termsLi.appendChild(termsHeader);
   const _navSearchRow = document.getElementById('nav-search-row');
@@ -6297,14 +6302,15 @@ async function init() {
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {
-        TERMS_GROUPED = [...data].reverse().map(d => ({ ...d, groups: [...(d.groups || [])].reverse() }));
+        TERMS_GROUPED = [...data].filter(d => !d.hidden).reverse().map(d => ({ ...d, groups: [...(d.groups || [])].reverse() }));
         // Build flat TERMS array for lookups (term derived from cases URL).
-        TERMS = data.flatMap(decade =>
-          (decade.groups || []).map(page => {
+        TERMS = data.flatMap(decade => {
+          if (decade.hidden) return [];
+          return (decade.groups || []).map(page => {
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return { ...page, term: m ? m[1] : '' };
-          })
-        );
+          });
+        });
       } else if (entry.file.endsWith('collections.json')) {
         COLLECTIONS = data;
       } else if (entry.file.endsWith('topics.json')) {
@@ -6738,6 +6744,8 @@ async function restoreFromURL() {
       requestAnimationFrame(() => navItem.scrollIntoView({ behavior: 'instant', block: 'center' }));
     }
     showPageViewer(linkParam, { pushState: false });
+  } else if (termParam === 'all') {
+    showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
