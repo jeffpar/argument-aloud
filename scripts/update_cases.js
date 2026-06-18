@@ -18,6 +18,7 @@
  *   node update_cases.js 2025-10 --checkurls --opinions
  *   node update_cases.js 2025-10 --dry-run          # report only, no writes
  *   node update_cases.js 2025-10 --verbose          # extra logging
+ *   node update_cases.js --advocates                # rebuild advocate index only
  *   node update_cases.js 1979-10 --roles            # derive advocate roles for each
  *                                                   #   argument event (petitioner /
  *                                                   #   respondent / appellant / appellee /
@@ -63,6 +64,8 @@ import {
     CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
     caseKeyOrder, reorderCase, reorderEvent, reorderAdvocate, reorderVote,
 } from './schema.js';
+
+import { syncAdvocates as _syncAdvocatesFromScript } from './update_advocates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT   = path.resolve(__dirname, '..');
@@ -1446,6 +1449,46 @@ function cleanupFilesJson(termFilter, caseFilter, dryRun = false) {
         }
     }
     console.log(`cleanupFilesJson: checked ${totalFiles} files.json, updated ${totalChanged}.`);
+}
+
+// For files.json files where every entry has type="brief" and group="other",
+// reclassify: type → "file"; group → "briefs" if title contains "brief" (case-
+// insensitive), otherwise "other".
+function tidyFilesJson(termFilter, caseFilter) {
+    const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const termDirs = termFilter
+        ? [termFilter]
+        : fs.readdirSync(termsDir).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+
+    let totalFiles = 0, totalChanged = 0;
+    for (const term of termDirs) {
+        const casesDir = path.join(termsDir, term, 'cases');
+        if (!fs.existsSync(casesDir)) continue;
+        for (const folder of fs.readdirSync(casesDir).filter(n => !n.startsWith('.'))) {
+            if (caseFilter && folder !== caseFilter) continue;
+            const filesPath = path.join(casesDir, folder, 'files.json');
+            if (!fs.existsSync(filesPath)) continue;
+            let data;
+            try { data = _readJson(filesPath); } catch { continue; }
+            if (!Array.isArray(data) || !data.length) continue;
+
+            // Only process files where every entry is type=brief, group=other.
+            if (!data.every(e => e.type === 'brief' && e.group === 'other')) continue;
+
+            const updated = data.map(e => ({
+                ...e,
+                type: 'file',
+                group: /brief/i.test(e.title || '') ? 'briefs' : 'other',
+            }));
+
+            totalFiles++;
+            if (!_jsonChanged(filesPath, updated)) continue;
+            totalChanged++;
+            console.log(`  ${term}/${folder}: tidied files.json`);
+            _writeJson(filesPath, updated);
+        }
+    }
+    console.log(`tidyFilesJson: checked ${totalFiles} qualifying files.json, updated ${totalChanged}.`);
 }
 
 function checkAudioDates(casesPath, term, dryRun = false) {
@@ -5283,10 +5326,13 @@ function _collectTaggedLeafEntries(entries) {
 
 // Regex patterns for the supported condition forms:
 //   property op value            e.g.  argument >= '1955-10-01'
+//   property == undefined        e.g.  id == undefined  (property absent or null)
+//   property != undefined        e.g.  id != undefined  (property present)
 //   COUNT(event.prop) op value   e.g.  COUNT(event.audio_href) == 0
 //   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_href && !event.aligned
 //   COUNT(file.prop == 'v') op n e.g.  COUNT(file.type == 'mp3') > 0
 const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
+const _COND_UNDEF_RE       = /^(\w+)\s*(==|!=)\s*undefined$/;
 const _COND_COUNT_RE       = /^COUNT\(event\.(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 const _COND_FILE_COUNT_RE  = /^COUNT\(file\.(\w+)\s*(==|!=)\s*'([^']*)'\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 const _COND_EV_PROP_RE     = /^event\.(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
@@ -5346,6 +5392,8 @@ function _parseCaseCondition(str) {
     if (m) return { type: 'fileCount', prop: m[1], condOp: m[2], condValue: m[3], op: m[4], threshold: parseFloat(m[5]) };
     m = _COND_COUNT_RE.exec(s);
     if (m) return { type: 'count', array: 'events', subprop: m[1], op: m[2], value: parseFloat(m[3]) };
+    m = _COND_UNDEF_RE.exec(s);
+    if (m) return { type: 'existence', prop: m[1], exists: m[2] === '!=' };
     m = _COND_PROP_RE.exec(s);
     if (m) {
         const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
@@ -5386,8 +5434,13 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
                 _applyCompOp(String(f[cond.prop] ?? ''), cond.condOp, cond.condValue)
             ).length;
             if (!_applyCompOp(count, cond.op, cond.threshold)) return false;
+        } else if (cond.type === 'existence') {
+            const present = c[cond.prop] != null;
+            if (present !== cond.exists) return false;
         } else if (cond.type === 'property') {
-            const val = c[cond.prop];
+            const val = cond.prop === 'term' && termDir
+                ? path.basename(termDir)
+                : c[cond.prop];
             if (val == null) return false;
             if (!_applyCompOp(val, cond.op, cond.value)) return false;
         } else if (cond.type === 'count') {
@@ -7948,6 +8001,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
+       node update_cases.js --advocates                       # rebuild advocate index only
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -9417,6 +9471,19 @@ async function main() {
         return;
     }
 
+    if (flags.has('--files')) {
+        tidyFilesJson(positional[0] || null, positional[1] || null);
+        return;
+    }
+
+    if (flags.has('--advocates')) {
+        const allTermDirs = fs.readdirSync(TERMS_DIR)
+            .filter(n => /^\d{4}-\d{2}$/.test(n)).sort()
+            .map(n => path.join(TERMS_DIR, n));
+        await _syncAdvocatesFromScript(allTermDirs, { verbose });
+        return;
+    }
+
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
@@ -9502,6 +9569,9 @@ async function main() {
         processCollectionSets(allTerms, false);
         processTitleIndex(allTerms, false);
         await runDissentCheck(null);
+        // Advocate index rebuild (final phase).
+        const _allTermDirs = allTerms.map(t => path.join(TERMS_DIR, t));
+        await _syncAdvocatesFromScript(_allTermDirs, { verbose });
     }
 
     if (!caseFilter) {

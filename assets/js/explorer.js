@@ -2525,13 +2525,14 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         basePath,
         argumentDates: null,
         computeEntries: (rawFiles) => {
-          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', reference:'References', media:'Media', other:'Other' };
-          const ORDER = ['petitioner','respondent','amicus','reference','media','other'];
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', reference:'References', media:'Media', other:'Other' };
+          const ORDER = ['petitioner','respondent','amicus','briefs','reference','media','other'];
           const MERGE_AMICUS_OTHER = true;
-          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','opinion']);
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','reference','media','other','transcript','opinion']);
           const groups = {};
           rawFiles.forEach(f => {
             let key = (f.group || '').toLowerCase();
+            if (key === 'brief') key = 'briefs';
             if (!_TERM_GROUP_KEYS.has(key)) {
               // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
               key = (f.type || '').toLowerCase();
@@ -3650,7 +3651,7 @@ async function loadHighlight(highlight) {
   }
 }
 
-function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categories) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
   const caseKey = caseRef.term + '/' + caseRef.number;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
@@ -3782,14 +3783,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
       computeEntries: (rawFiles) => {
         // Allowed category labels and their render order.
         const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'References', 'Media', 'Other'];
-        // Default categories when the collection doesn't specify any.
-        const DEFAULT_CATS = ['Petitioner', 'Respondent', 'Media', 'Other'];
-        const activeCats = (Array.isArray(categories) && categories.length)
-          ? categories : DEFAULT_CATS;
+        const activeCats = ALL_CATS;
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
-        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','brief']);
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','brief','briefs']);
         function resolveCategory(f) {
           // Prefer the explicit group property when it carries a known semantic key.
           let sem = (f.group || '').toLowerCase();
@@ -3808,6 +3806,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, categor
             reference:  ['References', 'Other'],
             media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
+            briefs:     ['Briefs', 'Other'],
             transcript: ['Transcripts', 'Other'],
             other:      ['Other'],
           };
@@ -4197,7 +4196,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       if (Array.isArray(group.cases)) {
         // Embedded format: build case items from the in-memory array.
         for (const caseRef of group.cases) {
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id));
         }
         n = group.cases.length;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -4224,7 +4223,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
               groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
             }
             for (const caseRef of advocateCases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, collEntry.categories));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id));
             }
             n = advocateCases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);

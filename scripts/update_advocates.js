@@ -1350,49 +1350,9 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
     return anyChange;
 }
 
-// ── Main ───────────────────────────────────────────────────────────────────
+// ── Bulk advocate sync (exported for use by update_cases.js) ─────────────────
 
-async function main() {
-    const argv = process.argv.slice(2);
-    const verbose       = argv.includes('--verbose') || argv.includes('-v');
-    const showWomen     = argv.includes('--women');
-    const markdownMode  = argv.includes('--markdown');
-
-    // ── Term-specific single-name advocate fix ────────────────────────────
-    const termArg     = argv.find(a => /^\d{4}-\d{2}$/.test(a));
-    const replaceIdx  = argv.indexOf('--replace');
-    const replaceMode = replaceIdx !== -1;
-    const replaceOld  = replaceMode ? (argv[replaceIdx + 1] || '').trim() : '';
-    const replaceNew  = replaceMode ? (argv[replaceIdx + 2] || '').trim() : '';
-
-    if (termArg) {
-        if (replaceMode) {
-            applyReplace(termArg, replaceOld.toUpperCase(), replaceNew.toUpperCase());
-            return;
-        } else {
-            const speakerIssues = checkAndFixTranscriptSpeakers(termArg, { verbose });
-            const result = await checkAndFixSingleNames(termArg, { verbose });
-            if (result === 'clean' && !speakerIssues) {
-                console.log(`No problems found in term ${termArg}`);
-                return;
-            }
-            if (speakerIssues) {
-                console.log('\nSkipping advocate file updates due to speaker mismatches.');
-                return;
-            }
-            if (!result) {
-                console.log('\nSkipping advocate file updates due to unresolved single-name advocates.');
-                return;
-            }
-        }
-    }
-
-    const termDirs = listSubdirs(TERMS_DIR);
-    if (termDirs.length === 0) {
-        console.error(`No term directories found under ${TERMS_DIR}`);
-        process.exit(1);
-    }
-
+export async function syncAdvocates(termDirs, { verbose = false, showWomen = false, markdownMode = false } = {}) {
     const advocates = loadExisting();
     // Purge any bogus justice-corruption names that may have been persisted
     // from a previous run before this filter existed.
@@ -2464,7 +2424,55 @@ async function main() {
 
 }
 
-main().catch(err => {
-    console.error(err);
-    process.exit(1);
-});
+// ── Main (CLI wrapper) ────────────────────────────────────────────────────────
+
+async function main() {
+    const argv = process.argv.slice(2);
+    const verbose       = argv.includes('--verbose') || argv.includes('-v');
+    const showWomen     = argv.includes('--women');
+    const markdownMode  = argv.includes('--markdown');
+
+    const termArg     = argv.find(a => /^\d{4}-\d{2}$/.test(a));
+    const replaceIdx  = argv.indexOf('--replace');
+    const replaceMode = replaceIdx !== -1;
+    const replaceOld  = replaceMode ? (argv[replaceIdx + 1] || '').trim() : '';
+    const replaceNew  = replaceMode ? (argv[replaceIdx + 2] || '').trim() : '';
+
+    if (termArg) {
+        if (replaceMode) {
+            applyReplace(termArg, replaceOld.toUpperCase(), replaceNew.toUpperCase());
+            return;
+        } else {
+            const speakerIssues = checkAndFixTranscriptSpeakers(termArg, { verbose });
+            const result = await checkAndFixSingleNames(termArg, { verbose });
+            if (result === 'clean' && !speakerIssues) {
+                console.log(`No problems found in term ${termArg}`);
+                return;
+            }
+            if (speakerIssues) {
+                console.log('\nSkipping advocate file updates due to speaker mismatches.');
+                return;
+            }
+            if (!result) {
+                console.log('\nSkipping advocate file updates due to unresolved single-name advocates.');
+                return;
+            }
+        }
+    }
+
+    const dirs = listSubdirs(TERMS_DIR);
+    if (dirs.length === 0) {
+        console.error(`No term directories found under ${TERMS_DIR}`);
+        process.exit(1);
+    }
+    await syncAdvocates(dirs, { verbose, showWomen, markdownMode });
+}
+
+const _isMain = (() => {
+    try { return path.resolve(process.argv[1] || '') === fileURLToPath(import.meta.url); }
+    catch { return false; }
+})();
+
+if (_isMain) {
+    main().catch(err => { console.error(err); process.exit(1); });
+}

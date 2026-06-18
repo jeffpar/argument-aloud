@@ -87,15 +87,13 @@
     "name": "Historical Briefs",
     "file": "/courts/ussc/collections/briefs.json",
     "search": "cases:title",
-    "order": "argued:ascending",
-    "categories": ["Petitioner", "Respondent", "Amicus", "Briefs", "Transcripts", "Other"]
+    "order": "argued:ascending"
   },
   {
     "name": "Historical Transcripts",
     "file": "/courts/ussc/collections/transcripts.json",
     "search": "cases:title",
-    "order": "argued:ascending",
-    "categories": ["Briefs", "Transcripts", "Other"]
+    "order": "argued:ascending"
   },
   {
     "name": "Media Files Cited",
@@ -154,6 +152,14 @@
         ],
         "order": "argued:ascending",
         "link": "/courts/ussc/transcripts/updates"
+      },
+      {
+        "name": "Cases Missing from SCDB",
+        "conditions": [
+          "term <= '2024-10'",
+          "id == undefined"
+        ],
+        "order": "decided:ascending"
       }
     ],
     "search": "cases:title"
