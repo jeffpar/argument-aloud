@@ -81,12 +81,20 @@ That spreadsheet contains all previously available data, along with any women ad
   - [Lisa S. Blatt](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=lisa_s_blatt) argued on April 20, 2026 in [T. M. v. Univ. of MD Medical Sys. Corp. (No. 25-197)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=25-197)
   - [Sarah M. Harris](https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=sarah_m_harris) argued on April 27, 2026 in [Monsanto Co. v. Durnell (No. 24-1068)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=24-1068)
 
-It's worth noting when discussing advocate appearances, the unit of measure is generally "argument", not "case".  Sometimes arguments for multiple cases are consolidated into a single argument, which can lead to some confusion and inflated numbers.
+It's worth noting when discussing advocate appearances, the unit of measure is generally "argument", not "case", and sometimes an attorney will present arguments for multiple cases at the same time (for example, as an *amicus curiae* or friend of the Court), so counting the number of *cases* they argued may differ from the number of *arguments* they made.
 
-For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) argued only 23 times, despite having 24 cases attributed to her. Adding to the confusion is Earl Warren's comment about her "27 [cases] in the Supreme Court" during his remarks at her retirement gala in January 1972. But again, our interest here is number of arguments, not number of cases, and Margolin's arguments in the following 3 cases were *consolidated* arguments that included 4 other cases:
+For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) appears to have argued 23 times in 27 cases:
 
   - [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was argued with [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688)
   - [Powell v. United States Cartridge Co. (No. 96)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was argued with **Aaron v. Ford, Bacon & Davis, Inc. (No. 79)** and **Creel v. Lone Star Defense Corp. (No. 58)**
   - [Maneja v. Waialua Agricultural Co. (No. 357)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was argued with **Waialua Agricultural Co. v. Maneja (No. 358)**
 
-Those consolidated arguments mean that, over a set of 27 cases, she argued 23 times.  However, you will still see 24 *cases* attributed to her, because [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was decided separately from [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688).
+However, 24 *cases* are attributed to her, because [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was decided separately from [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688).
+
+With respect to her arguments in those cases, the [1944 U.S. Supreme Court Journal](https://www.supremecourt.gov/pdfs/journals/scannedjournals/1944_journal.pdf#page=220) simply says:
+
+> Miss Bessie Margolin for L. Metcalfe Walling, Administrator of the Wage and Hour Division, United States Department of Labor, in Nos. 688 and 820, as amicus curiae, by special leave of Court.
+
+So while one could certainly argue that she made two *arguments*, it's safer to say that she made one *appearance* during which she made multiple arguments.  And that is consistent with what the Court counts.  On April 23, 2025, when the Court congratulated Edwin Kneedler on his "160th argument," they were actually counting appearances, not discrete arguments (consolidated or otherwise).
+
+Generally, the *appearance* vs. *argument* situation is clearer.  For example, if you look at Nos. 554 and 555 in the [1942 U.S. Supreme Court Journal](https://www.supremecourt.gov/pdfs/journals/scannedjournals/1944_journal.pdf#page=161), you'll see two non-consolidated, consecutively-argued cases, but Solicitor General Fahy is listed in each case, making it clear that he made two *appearances* and two *arguments*.  On the other hand, the cases were ultimately decided together, so only one *case* is attributed to him (see [319 U.S. 190](https://tile.loc.gov/storage-services/service/ll/usrep/usrep319/usrep319190/usrep319190.pdf)).
