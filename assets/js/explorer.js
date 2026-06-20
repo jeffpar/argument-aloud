@@ -1178,6 +1178,7 @@ let TOPICS      = []; // populated from topics.json in init()
 const _COLLECTION_ALIASES = { loners: 'lone_dissents' };
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 const _titleIndexCache   = new Map(); // first-char → inflight Promise or resolved index object
+const _keywordIndexCache = new Map(); // first-char → inflight Promise or resolved index object
 
 async function fetchTermCases(term) {
   if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
@@ -1192,14 +1193,25 @@ async function fetchTermCases(term) {
   return cases;
 }
 
-async function _fetchTitleIndex(ch) {
-  if (_titleIndexCache.has(ch)) return _titleIndexCache.get(ch);
-  const p = fetch('/courts/ussc/indexes/cases/titles/' + ch + '.json')
+async function _fetchTitleIndex(prefix) {
+  if (_titleIndexCache.has(prefix)) return _titleIndexCache.get(prefix);
+  const p = fetch('/courts/ussc/indexes/cases/titles/' + prefix + '.json')
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
-  _titleIndexCache.set(ch, p);
+  _titleIndexCache.set(prefix, p);
   const data = await p;
-  _titleIndexCache.set(ch, data);
+  _titleIndexCache.set(prefix, data);
+  return data;
+}
+
+async function _fetchKeywordIndex(prefix) {
+  if (_keywordIndexCache.has(prefix)) return _keywordIndexCache.get(prefix);
+  const p = fetch('/courts/ussc/indexes/cases/keywords/' + prefix + '.json', { cache: 'reload' })
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}));
+  _keywordIndexCache.set(prefix, p);
+  const data = await p;
+  _keywordIndexCache.set(prefix, data);
   return data;
 }
 
@@ -1210,8 +1222,10 @@ function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
   // Apply deletes first.
   deletes.forEach(k => url.searchParams.delete(k));
-  // Always remove 'link' when navigating to a case/collection.
+  // Always remove 'link' and 'find' when navigating — 'find' is only meaningful
+  // on keyword-search result URLs and is re-added explicitly by those callers.
   url.searchParams.delete('link');
+  url.searchParams.delete('find');
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
   // Enforce canonical parameter order: collection, group/id, highlight, term, case, event, turn, file, then rest.
@@ -1304,16 +1318,20 @@ function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
     });
   });
 
-  // Search mark positions (win over refs at same start position)
+  // Search mark positions (win over refs at same start position).
+  // Each whitespace-delimited token is highlighted independently so that
+  // multi-word queries (e.g. "qualified immunity") mark both words wherever
+  // they appear, rather than requiring them to be adjacent.
   if (searchQuery) {
-    const qLower = searchQuery.toLowerCase();
     const hayLower = rawText.toLowerCase();
-    let i = 0;
-    while (i < hayLower.length) {
-      const pos = hayLower.indexOf(qLower, i);
-      if (pos === -1) break;
-      marks.push({ start: pos, end: pos + searchQuery.length, kind: 'search' });
-      i = pos + searchQuery.length;
+    for (const tok of searchQuery.trim().toLowerCase().split(/\s+/).filter(t => t)) {
+      let i = 0;
+      while (i < hayLower.length) {
+        const pos = hayLower.indexOf(tok, i);
+        if (pos === -1) break;
+        marks.push({ start: pos, end: pos + tok.length, kind: 'search' });
+        i = pos + tok.length;
+      }
     }
   }
 
@@ -1772,23 +1790,46 @@ function _setCaseInfoRow2(caseEntry) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
 
   // Replaces the contents of `el` with a prefix label followed by one
-  // clickable <a> per individual ISO date in the comma-separated dateStr.
+  // clickable <a> per date or consecutive same-month day range.
+  // e.g. "1949-12-08,1949-12-09" \u2192 one link: "December 8\u20139, 1949"
+  //      "1979-04-30,1979-05-01" \u2192 two links: "April 30, 1979 \u00b7 May 1, 1979"
+  // Each link navigates to the first date in its group.
   function _setDateLinks(el, prefix, dateStr) {
     while (el.firstChild) el.removeChild(el.firstChild);
     if (!dateStr) { el.hidden = true; return; }
     el.hidden = false;
     const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
+
+    // Build segments: runs of consecutive days within the same month+year.
+    const segments = []; // [{ y, m, days: [int], firstIso }]
+    for (const iso of dates) {
+      const [y, m, d] = iso.split('-');
+      const day = parseInt(d, 10);
+      const last = segments[segments.length - 1];
+      if (last && last.y === y && last.m === m && last.days[last.days.length - 1] === day - 1) {
+        last.days.push(day);
+      } else {
+        segments.push({ y, m, days: [day], firstIso: iso });
+      }
+    }
+
     el.appendChild(document.createTextNode(prefix + '\u00a0'));
-    dates.forEach((iso, i) => {
+    segments.forEach((seg, i) => {
       if (i > 0) el.appendChild(document.createTextNode('\u00a0\u00b7\u00a0'));
+      const { firstIso, y, m, days } = seg;
       const a = document.createElement('a');
-      a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(iso);
+      a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
       a.className = 'date-link';
-      a.textContent = formatDecisionDate(iso);
+      if (days.length > 1) {
+        const month = MONTHS[parseInt(m, 10) - 1] || m;
+        a.textContent = month + '\u00a0' + days[0] + '\u2013' + days[days.length - 1] + ',\u00a0' + y;
+      } else {
+        a.textContent = formatDecisionDate(firstIso);
+      }
       a.addEventListener('click', (e) => {
         e.preventDefault();
-        navigate(buildUrlParams({ term, date: iso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
-        updateEmptyStateForTerm(term, iso);
+        navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
+        updateEmptyStateForTerm(term, firstIso);
       });
       el.appendChild(a);
     });
@@ -1819,9 +1860,7 @@ function _setCaseInfoRow3(caseEntry) {
     row.hidden = true;
     return;
   }
-  const majority = caseEntry.votes
-    .filter(v => v.vote === 'majority')
-    .map(v => _voteName(v.name));
+  const majorityVotes = caseEntry.votes.filter(v => v.vote === 'majority');
   const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
   const firstTitle = (caseEntry.title || '').split('|')[0];
   let party;
@@ -1831,7 +1870,28 @@ function _setCaseInfoRow3(caseEntry) {
     const parts = firstTitle.split(' v. ');
     party = (parts[1] || parts[0]).trim();
   }
-  span.textContent = score + ' (' + majority.join(', ') + ') in favor of ' + party;
+
+  // Determine opinion author link params if a justice has opinion:true.
+  const opinionVote = majorityVotes.find(v => v.opinion === true);
+  const term = _currentCaseKey ? _currentCaseKey.split('/')[0] : '';
+  const caseNum = new URLSearchParams(location.search).get('case') || caseId(caseEntry);
+  const opinionId = (opinionVote && term && caseNum) ? _makeAdvocateId(opinionVote.name) : null;
+
+  span.textContent = '';
+  span.appendChild(document.createTextNode(score + ' ('));
+  majorityVotes.forEach((v, i) => {
+    if (i > 0) span.appendChild(document.createTextNode(', '));
+    const displayName = _voteName(v.name);
+    if (v.opinion === true && opinionId) {
+      const a = document.createElement('a');
+      a.href = '?' + new URLSearchParams({ collection: 'op_justices', id: opinionId, term, case: caseNum });
+      a.textContent = displayName;
+      span.appendChild(a);
+    } else {
+      span.appendChild(document.createTextNode(displayName));
+    }
+  });
+  span.appendChild(document.createTextNode(') in favor of ' + party));
   row.hidden = false;
 }
 
@@ -5731,6 +5791,12 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   document.addEventListener('touchend', onEnd);
 })();
 
+// Set by the transcript-search IIFE below; called after transcriptloaded to
+// open the search overlay and run a pre-populated query.
+let _transcriptSearchInit  = null;
+// Set by the transcript-search IIFE; called to close the overlay from outside.
+let _transcriptSearchClose = null;
+
 // ── Transcript search ────────────────────────────────────────────────────────
 (function () {
   const overlay     = document.getElementById('search-overlay');
@@ -5800,10 +5866,15 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     const query   = input.value.trim();
     const speaker = speakerSelect.value;
     if (!query && !speaker) { updateStatus(); return; }
-    const queryLower = query ? query.toLowerCase() : null;
+    // Split into tokens so multi-word queries match turns containing all words
+    // individually (not necessarily as an exact phrase).
+    const tokens = query ? query.toLowerCase().split(/\s+/).filter(t => t) : [];
     turns.forEach((turn, idx) => {
       if (speaker && turn.name !== speaker) return;
-      if (queryLower && !turn.text.toLowerCase().includes(queryLower)) return;
+      if (tokens.length) {
+        const textLower = turn.text.toLowerCase();
+        if (!tokens.every(t => textLower.includes(t))) return;
+      }
       matchIndices.push(idx);
     });
     updateStatus();
@@ -6004,7 +6075,36 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
       updateStatus();
     }
   });
+
+  // Expose an entry point for auto-running a search from the URL ?find= param.
+  // Called after the transcriptloaded handler above has already reset the input.
+  _transcriptSearchInit = (query) => {
+    openSearch();
+    input.value = query;
+    clearHighlights();
+    matchIndices = [];
+    matchCursor  = -1;
+    delete input.dataset.lastSearchKey;
+    computeMatches();
+    input.dataset.lastSearchKey = query.trim().toLowerCase() + '|' + speakerSelect.value;
+    if (matchIndices.length) {
+      matchCursor = -1;
+      // Defer scroll one frame so input.focus() inside openSearch() doesn't
+      // compete with scrollIntoView and win.
+      requestAnimationFrame(() => goToMatch(1));
+    }
+  };
+  _transcriptSearchClose = closeSearch;
 })();
+
+// When a transcript loads and the URL contains ?find=<query>, open the
+// transcript search overlay and highlight all occurrences of the query.
+// This listener is registered after the search IIFE's own transcriptloaded
+// handler (which resets the input), so it runs second.
+document.addEventListener('transcriptloaded', () => {
+  const findParam = new URLSearchParams(location.search).get('find');
+  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam.trim());
+});
 
 // Find a rendered file-item element by the URL 'file' param value.
 // Supports both numeric IDs (data-file-id) and href-basename strings (data-file-href).
@@ -6017,6 +6117,9 @@ function findFileItem(param) {
   return document.querySelector(`.file-item[data-file-href$="${CSS.escape('/' + s)}"]`)
       || document.querySelector(`.file-item[data-file-href="${CSS.escape(s)}"]`);
 }
+
+// Exposed by the nav search IIFE so restoreFromURL can open and run a search.
+let _navSearchActivate = null;
 
 // ── Nav case search ───────────────────────────────────────────────────────────
 (function () {
@@ -6055,7 +6158,7 @@ function findFileItem(param) {
       .filter(t => t.length >= 3 && /^[a-z1-9]/.test(t));
   }
 
-  // Return refs for `token` from `index`.
+  // Return refs for `token` from a title index (values are string arrays).
   // If `token` ends with '*' do a prefix search; otherwise require an exact match.
   function _refsForToken(index, token) {
     const out = new Set();
@@ -6067,6 +6170,46 @@ function findFileItem(param) {
     } else {
       const arr = index[token];
       if (arr) for (const r of arr) out.add(r);
+    }
+    return out;
+  }
+
+  // Return a Map<ref, [eventIdx, turnNum] | null> for `token` from a keyword
+  // index.  Current format: values are objects { ref: [ev, turn] } where ref is
+  // either a short id ("YYYY-NNN") for standard October terms or "term/id-or-number".
+  // Legacy format (pre-location): values are arrays [ref, ...] — those refs are
+  // returned with loc=null (no turn navigation) until rebuilt.
+  // For prefix wildcards, keeps the earliest location per ref.
+  function _locationsForToken(index, token) {
+    const out = new Map(); // ref → [ev, turn, count] | null
+    const earlier = (a, b) => a && b && (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]));
+    const addLocs = (val) => {
+      if (!val) return;
+      if (Array.isArray(val)) {
+        // Legacy array format: each element is a "term/ref" string with no location.
+        for (const r of val) if (!out.has(r)) out.set(r, null);
+      } else {
+        for (const [ref, loc] of Object.entries(val)) {
+          if (!out.has(ref)) {
+            out.set(ref, loc);
+          } else {
+            // For prefix matches: keep earliest location, accumulate counts.
+            const prev = out.get(ref);
+            const prevCount = prev ? (prev[2] || 0) : 0;
+            const newCount  = loc  ? (loc[2]  || 0) : 0;
+            const base = earlier(loc, prev) ? loc : (earlier(prev, loc) ? prev : (prev ?? loc));
+            out.set(ref, base ? [base[0], base[1], prevCount + newCount] : null);
+          }
+        }
+      }
+    };
+    if (token.endsWith('*')) {
+      const prefix = token.slice(0, -1);
+      for (const [k, val] of Object.entries(index)) {
+        if (k.startsWith(prefix)) addLocs(val);
+      }
+    } else {
+      addLocs(index[token]);
     }
     return out;
   }
@@ -6095,7 +6238,9 @@ function findFileItem(param) {
     const q = query.trim();
     if (!q) { _showNormal(); return; }
 
-    const toks = _tokens(q);
+    // A leading '"' switches to transcript keyword search instead of title search.
+    const keywordMode = q.startsWith('"');
+    const toks = _tokens(keywordMode ? q.slice(1) : q);
     if (!toks.length) {
       // Query has content but every token is too short to be in the index.
       if (inner) inner.hidden = true;
@@ -6104,40 +6249,90 @@ function findFileItem(param) {
     }
 
     // Fetch required index files in parallel (cached after first load).
-    const chars = [...new Set(toks.map(t => t[0]))]; // first char is always a-z or 1-9 (never *)
+    // Index files are keyed by the first 2 chars of each token; all tokens are
+    // guaranteed ≥ 3 chars by _tokens(), so the prefix is always available.
+    const prefixes = [...new Set(toks.map(t => t.slice(0, 2)))];
+    const fetchIndex = keywordMode ? _fetchKeywordIndex : _fetchTitleIndex;
     const indexMap = Object.fromEntries(
-      await Promise.all(chars.map(async ch => [ch, await _fetchTitleIndex(ch)]))
+      await Promise.all(prefixes.map(async p => [p, await fetchIndex(p)]))
     );
 
-    // Intersect ref sets across all tokens.
-    let combined = null;
+    // Intersect across all tokens.
+    // Title mode: Set<"term/ref">; keyword mode: Map<"term/ref", [ev, turn] | null>
+    // with the earliest location kept when a ref appears under multiple tokens.
+    // null locs (legacy index format) are treated as "unknown location" — kept
+    // in the intersection but not used for turn navigation.
+    const earlier = (a, b) => a && b && (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]));
+    let combined = null; // Set or Map depending on mode
     for (const tok of toks) {
-      const refs = _refsForToken(indexMap[tok[0]] || {}, tok);
-      combined = combined === null ? refs : new Set([...combined].filter(r => refs.has(r)));
-      if (!combined.size) break;
+      if (keywordMode) {
+        const locs = _locationsForToken(indexMap[tok.slice(0, 2)] || {}, tok);
+        if (combined === null) {
+          combined = locs;
+        } else {
+          const next = new Map();
+          for (const [ref, a] of combined) {
+            if (!locs.has(ref)) continue;
+            const b = locs.get(ref);
+            // Keep the earliest [ev, turn] location; count = min across tokens —
+            // the rarest token's unique-turn count bounds how many co-occurring turns
+            // can exist, giving a meaningful per-case relevance score.
+            const base = earlier(a, b) ? a : (earlier(b, a) ? b : (a ?? b));
+            const minCount = Math.min(a ? (a[2] || 0) : 0, b ? (b[2] || 0) : 0);
+            next.set(ref, base ? [base[0], base[1], minCount] : null);
+          }
+          combined = next;
+        }
+        if (!combined.size) break;
+      } else {
+        const refs = _refsForToken(indexMap[tok.slice(0, 2)] || {}, tok);
+        combined = combined === null ? refs : new Set([...combined].filter(r => refs.has(r)));
+        if (!combined.size) break;
+      }
     }
 
     // Group matched refs by term.
+    // For keyword mode, values are Map<id, [ev, turn]>; for title mode, Set<id>.
+    // Keyword index refs may be short ("YYYY-NNN") when the term is the matching
+    // October term — infer it from the id's year prefix in that case.
+    const activeTerm = new URLSearchParams(location.search).get('term');
+    const termFilter = (activeTerm && activeTerm !== 'all') ? activeTerm : null;
     const byTerm = new Map();
-    for (const ref of (combined || [])) {
+    for (const ref of (combined?.keys?.() ?? combined ?? [])) {
       const i = ref.indexOf('/');
-      const term = ref.slice(0, i), id = ref.slice(i + 1);
-      if (!byTerm.has(term)) byTerm.set(term, []);
-      byTerm.get(term).push(id);
+      const term = i === -1 ? ref.slice(0, 4) + '-10' : ref.slice(0, i);
+      const id   = i === -1 ? ref                     : ref.slice(i + 1);
+      if (termFilter && term !== termFilter) continue;
+      if (keywordMode) {
+        if (!byTerm.has(term)) byTerm.set(term, new Map());
+        byTerm.get(term).set(id, combined.get(ref));
+      } else {
+        if (!byTerm.has(term)) byTerm.set(term, []);
+        byTerm.get(term).push(id);
+      }
     }
 
     // Fetch only the cases.json files for terms that have matches.
-    const results = [];
-    await Promise.all([...byTerm].map(async ([term, ids]) => {
+    const results = []; // { term, c, loc?, count? }
+    await Promise.all([...byTerm].map(async ([term, idData]) => {
       const cases = await fetchTermCases(term);
-      const idSet = new Set(ids);
-      for (const c of cases) {
-        if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+      if (keywordMode) {
+        for (const c of cases) {
+          const loc = idData.has(c.id) ? idData.get(c.id) : idData.has(c.number) ? idData.get(c.number) : undefined;
+          if (loc !== undefined) results.push({ term, c, loc, count: loc ? (loc[2] || 0) : 0 });
+        }
+      } else {
+        const idSet = new Set(idData);
+        for (const c of cases) {
+          if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+        }
       }
     }));
 
-    // Sort most-recent term first, then by title within a term.
+    // Keyword mode: sort by total occurrence count descending, then by most-recent term.
+    // Title mode: sort by most-recent term first, then alphabetically within a term.
     results.sort((a, b) =>
+      (keywordMode ? ((b.count || 0) - (a.count || 0)) : 0) ||
       b.term.localeCompare(a.term) ||
       (caseTitle(a.c.title) || '').localeCompare(caseTitle(b.c.title) || '')
     );
@@ -6154,28 +6349,49 @@ function findFileItem(param) {
       li.textContent = 'No matches found';
       resultsEl.appendChild(li);
     } else {
-      for (const { term, c } of results.slice(0, MAX)) {
-        const urlId = c.id || (c.number ? c.number.split(',')[0].trim() : '');
-        const href  = buildUrlParams({ term, case: urlId },
-          ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn']);
+      for (const { term, c, loc, count } of results.slice(0, MAX)) {
+        const urlId = (c.number ? c.number.split(',')[0].trim() : '') || c.id || '';
+        const updates = { term, case: urlId };
+        const deletes = ['collection', 'group', 'id', 'highlight', 'file'];
+        if (loc) { updates.event = loc[0]; updates.turn = loc[1]; }
+        else deletes.push('event', 'turn');
+        if (keywordMode) updates.find = q.slice(1).replace(/"$/, '').trim();
+        else deletes.push('find');
+        const href = buildUrlParams(updates, deletes);
         const li  = document.createElement('li');
         li.className = 'case-item';
         const div = document.createElement('div');
         div.className = 'case-header';
         const a = document.createElement('a');
         a.className = 'case-title-nav';
-        a.textContent = caseTitle(c.title) || urlId;
+        const title = caseTitle(c.title) || urlId;
+        if (keywordMode) {
+          const year = (c.decided || c.argued || '').slice(0, 4) || term.slice(0, 4);
+          a.textContent = title + ' (' + year + ')';
+        } else {
+          a.textContent = title;
+        }
         a.href = href;
         a.title = (c.number || c.id || '') + '  ·  ' + term;
         a.addEventListener('click', e => {
           e.preventDefault();
+          if (keywordMode) {
+            const findVal = q.slice(1).replace(/"$/, '').trim();
+            const cur = new URL(location.href);
+            cur.searchParams.set('find', findVal);
+            history.replaceState(null, '', cur.pathname + '?' + cur.searchParams.toString());
+          }
           navigate(href);
           restoreFromURL();
           closeNavSearch();
         });
         const lbl = document.createElement('span');
         lbl.className = 'nav-search-term-label';
-        lbl.textContent = term;
+        if (keywordMode) {
+          lbl.textContent = count + ' match' + (count === 1 ? '' : 'es');
+        } else {
+          lbl.textContent = term;
+        }
         div.appendChild(a);
         div.appendChild(lbl);
         li.appendChild(div);
@@ -6218,8 +6434,27 @@ function findFileItem(param) {
   });
 
   navSearchInput.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeNavSearch();
+    if (e.key === 'Escape') { closeNavSearch(); return; }
+    if (e.key === 'Enter') {
+      const val = navSearchInput.value.trim();
+      if (val.startsWith('"')) {
+        const findQuery = val.slice(1).replace(/"$/, '').trim();
+        if (findQuery) {
+          const url = new URL(location.href);
+          url.searchParams.set('find', findQuery);
+          ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
+          history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
+        }
+      }
+    }
   });
+
+  _navSearchActivate = (findQuery) => {
+    const q = '"' + findQuery + '"';
+    openNavSearch();
+    navSearchInput.value = q;
+    runNavSearch(q);
+  };
 })();
 
 // ── Random case picker ───────────────────────────────────────────────────────
@@ -6385,11 +6620,20 @@ async function restoreFromURL() {
     return;
   }
 
+  // ── ?find= without a case → open nav keyword search ─────────────────────────
+  // Run the search but do NOT return — let the rest of restoreFromURL continue
+  // so that other params (e.g. term=all) are still handled normally.
+  const findParam = params.get('find');
+  const caseParam = params.get('case');
+  if (!caseParam) _transcriptSearchClose?.();
+  if (findParam && !caseParam && _navSearchActivate) {
+    _navSearchActivate(findParam);
+  }
+
   const linkParam       = params.get('link');
   let termParam         = params.get('term');
   if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
-  const caseParam       = params.get('case');
   let collectionParam = params.get('collection');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
     collectionParam = _COLLECTION_ALIASES[collectionParam];

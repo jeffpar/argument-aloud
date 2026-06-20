@@ -3969,13 +3969,13 @@ function processLoneDissenters(termsToProcess, dryRun) {
 }
 
 // Scan every term's cases.json, find cases where a justice has "opinion": true,
-// and rebuild courts/ussc/people/justices/author_justices.json plus per-justice
-// files in courts/ussc/people/justices/author/.
+// and rebuild courts/ussc/people/justices/op_justices.json plus per-justice
+// files in courts/ussc/people/justices/op/.
 function processOpinionAuthors(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
-    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'author');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'author_justices.json');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'op');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'op_justices.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();
@@ -4075,7 +4075,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
             const stem = name.slice(0, -5);
             if (knownIds.has(stem)) continue;
             _unlinkSync(path.join(JUSTICES_DIR, name));
-            if (_VERBOSE) console.log(`  Removed stale opinion-author file: courts/ussc/people/justices/author/${name}`);
+            if (_VERBOSE) console.log(`  Removed stale opinion-author file: courts/ussc/people/justices/op/${name}`);
         }
     }
 
@@ -5913,11 +5913,14 @@ function processCollectionSets(allTerms, dryRun) {
 }
 
 // ── Title word index ──────────────────────────────────────────────────────────
-// Builds courts/ussc/indexes/cases/titles/{a-z,1-9}.json.
-// Each file maps every word that begins with that letter/digit (across all
-// case titles in every term) to a sorted array of "term/id" reference strings.
+// Builds courts/ussc/indexes/cases/titles/{aa,ab,...,zz,1a,...}.json.
+// Each file maps every word that begins with that two-letter prefix (across all
+// case titles in every term) to a sorted array of ref strings.  For standard
+// October terms where c.id starts with the term year (e.g. "2019-036" in
+// "2019-10"), the ref is just the id; otherwise it is "term/id-or-number".
 // Words are lowercased; any non-alphanumeric character is treated as a word
 // break; words shorter than 3 characters are omitted.
+// Within each file, words are ordered by frequency (most cases first).
 // Files are written compact (no indentation).
 
 function processTitleIndex(allTerms, dryRun) {
@@ -5926,7 +5929,7 @@ function processTitleIndex(allTerms, dryRun) {
         fs.mkdirSync(INDEX_DIR, { recursive: true });
     }
 
-    // word → Set of "term/ref" strings
+    // word → Set of ref strings
     const wordRefs = new Map();
 
     for (const term of allTerms) {
@@ -5936,33 +5939,41 @@ function processTitleIndex(allTerms, dryRun) {
         try { cases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(cases)) continue;
 
+        const termYYYY = term.slice(0, 4);
+        const isOctoberTerm = term.endsWith('-10');
+
         for (const c of cases) {
             const title = c.title;
             if (!title) continue;
-            const ref = `${term}/${c.id || c.number}`;
+            const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
+            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
             const words = title.toLowerCase().split(/[^a-z0-9]+/);
             for (const word of words) {
                 if (word.length < 3) continue;
-                const ch = word[0];
-                if (!/[a-z1-9]/.test(ch)) continue;
+                if (!/^[a-z1-9]/.test(word)) continue;
                 if (!wordRefs.has(word)) wordRefs.set(word, new Set());
                 wordRefs.get(word).add(ref);
             }
         }
     }
 
-    // Group words by their first character, then write one file per character.
-    const byChar = new Map();
+    // Group words by their first two characters, then write one file per prefix.
+    const byPrefix = new Map();
     for (const [word, refs] of wordRefs) {
-        const ch = word[0];
-        if (!byChar.has(ch)) byChar.set(ch, {});
-        byChar.get(ch)[word] = [...refs].sort();
+        const prefix = word.slice(0, 2);
+        if (!byPrefix.has(prefix)) byPrefix.set(prefix, {});
+        byPrefix.get(prefix)[word] = [...refs].sort();
     }
 
     let written = 0;
-    for (const [ch, index] of byChar) {
-        const outPath = path.join(INDEX_DIR, `${ch}.json`);
-        const sorted = Object.fromEntries(Object.keys(index).sort().map(k => [k, index[k]]));
+    for (const [prefix, index] of byPrefix) {
+        const outPath = path.join(INDEX_DIR, `${prefix}.json`);
+        // Sort by frequency (number of refs) descending, then alphabetically.
+        const sorted = Object.fromEntries(
+            Object.keys(index)
+                .sort((a, b) => index[b].length - index[a].length || a.localeCompare(b))
+                .map(k => [k, index[k]])
+        );
         const content = JSON.stringify(sorted);
         if (dryRun) {
             if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, outPath)}`);
@@ -5974,6 +5985,161 @@ function processTitleIndex(allTerms, dryRun) {
     }
 
     if (written) console.log(`Title index: wrote ${written} file(s) in courts/ussc/indexes/cases/titles/`);
+}
+
+// Words excluded from the keyword (transcript) index.
+// The 3-char minimum enforced during tokenisation already drops single-letter
+// words and two-letter words (a, an, as, at, be, by, do, go, he, if, in, is,
+// it, me, my, no, of, on, or, so, to, up, us, we), so only 3+ char words need
+// to be listed here.
+const KEYWORD_STOP_WORDS = new Set([
+    // Articles / demonstratives
+    'the', 'this', 'that', 'these', 'those',
+    // Personal pronouns
+    'you', 'your', 'yours', 'him', 'his', 'her', 'hers',
+    'they', 'them', 'their', 'theirs', 'our', 'ours', 'its',
+    // Relative / interrogative
+    'who', 'whom', 'whose', 'what', 'which', 'how', 'why', 'when', 'where',
+    // Forms of "to be"
+    'was', 'are', 'were', 'been', 'being',
+    // Modals / auxiliaries
+    'can', 'did', 'has', 'had', 'have', 'will', 'would', 'shall', 'should',
+    'may', 'might', 'must', 'could',
+    // High-frequency verbs
+    'get', 'got', 'let', 'put', 'set', 'say', 'said', 'use', 'used',
+    'make', 'made', 'come', 'came', 'see', 'saw', 'look', 'know', 'think',
+    'take', 'took', 'give', 'gave', 'mean', 'means', 'meant', 'need',
+    'going', 'does', 'done',
+    // Prepositions / conjunctions / adverbs (3+ chars)
+    'for', 'from', 'with', 'out', 'off', 'per', 'not', 'nor', 'but',
+    'and', 'then', 'than', 'all', 'any', 'few', 'own', 'due', 'now',
+    'yet', 'too', 'also', 'just', 'even', 'back', 'only', 'well', 'very',
+    'here', 'there', 'some', 'such', 'each', 'into', 'onto', 'over',
+    'under', 'about', 'after', 'again', 'other', 'while', 'before',
+    // Common transcript filler / courtesy words
+    'sir', 'yes', 'right', 'okay', 'sure', 'sort',
+    // Misc function words
+    'one', 'two', 'three', 'new', 'more', 'most', 'much', 'many',
+    'both', 'same', 'way', 'like', 'been',
+]);
+
+// Scan every term's cases.json, read all referenced transcript files, and
+// rebuild courts/ussc/indexes/cases/keywords/{ch}.json.
+// Format matches the title index: { "word": ["term/ref", ...], ... }
+// Scan every term's cases.json, read all referenced transcript files, and
+// rebuild courts/ussc/indexes/cases/keywords/{ch}.json.
+//
+// Index format (differs from the title index):
+//   { "word": { "term/ref": [eventIdx, turnNum], ... }, ... }
+// where eventIdx is the 1-based position of the event in c.events and turnNum
+// is turn.turn from the transcript — together they form the first occurrence of
+// the word in that case, suitable for use as ?event=N&turn=N URL params.
+function processKeywordIndex(allTerms, dryRun) {
+    const INDEX_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'keywords');
+    if (!dryRun && !fs.existsSync(INDEX_DIR)) {
+        fs.mkdirSync(INDEX_DIR, { recursive: true });
+    }
+
+    // word → Map<ref, [eventIdx, turnNum]>  (first occurrence per case)
+    // ref is a short id ("YYYY-NNN") when term is YYYY-10 and c.id starts with YYYY;
+    // otherwise the full "term/id-or-number" string.
+    const wordLocs = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const termYYYY = term.slice(0, 4);
+        const isOctoberTerm = term.endsWith('-10');
+
+        for (const c of cases) {
+            if (!Array.isArray(c.events)) continue;
+
+            // Use a short key (just c.id) when the term is a standard October term and
+            // the id year matches; the lookup side can infer "YYYY-10" from the id prefix.
+            const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
+            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+
+            // Dates that have an oyez transcript — used to skip redundant ussc transcripts.
+            const oyezDates = new Set(
+                c.events.filter(e => e.source === 'oyez' && e.text_href).map(e => e.date)
+            );
+
+            // word → [eventIdx, turnNum] of first occurrence; word → unique (event,turn) pairs
+            const caseFirstLoc  = new Map();
+            const caseWordTurns = new Map(); // word → Set<"eventIdx:turnNum">
+            for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
+                const ev = c.events[evIdx];
+                if (!ev.text_href) continue;
+                // Only index oyez transcripts (the default/primary source) plus titled
+                // non-oyez transcripts that have no oyez counterpart on the same date.
+                if (ev.source !== 'oyez') {
+                    if (!ev.title || oyezDates.has(ev.date)) continue;
+                }
+                const txPath = path.join(TERMS_DIR, term, 'cases', ev.text_href);
+                if (!fs.existsSync(txPath)) continue;
+                let tx;
+                try { tx = _readJson(txPath); } catch { continue; }
+                if (!Array.isArray(tx.turns)) continue;
+                const eventIdx = evIdx + 1; // 1-based, matches ?event= URL param
+                for (const turn of tx.turns) {
+                    if (!turn.text) continue;
+                    const words = turn.text.toLowerCase().split(/[^a-z]+/);
+                    for (const word of words) {
+                        if (word.length < 3) continue;
+                        if (KEYWORD_STOP_WORDS.has(word)) continue;
+                        if (!caseFirstLoc.has(word)) {
+                            caseFirstLoc.set(word, [eventIdx, turn.turn]);
+                        }
+                        if (!caseWordTurns.has(word)) caseWordTurns.set(word, new Set());
+                        caseWordTurns.get(word).add(`${eventIdx}:${turn.turn}`);
+                    }
+                }
+            }
+
+            for (const [word, loc] of caseFirstLoc) {
+                if (!wordLocs.has(word)) wordLocs.set(word, new Map());
+                // Third element: number of distinct (event, turn) pairs containing this word.
+                // Used at query time to approximate co-occurrence count across tokens via min().
+                wordLocs.get(word).set(ref, [loc[0], loc[1], caseWordTurns.get(word)?.size || 0]);
+            }
+        }
+    }
+
+    // Group words by their first two characters, then write one file per prefix.
+    // Value for each word is a plain object { ref: [ev, turn], ... }
+    // with refs sorted so the output is deterministic.
+    const byPrefix = new Map();
+    for (const [word, locMap] of wordLocs) {
+        const prefix = word.slice(0, 2);
+        if (!byPrefix.has(prefix)) byPrefix.set(prefix, {});
+        const sortedRefs = [...locMap.keys()].sort();
+        byPrefix.get(prefix)[word] = Object.fromEntries(sortedRefs.map(r => [r, locMap.get(r)]));
+    }
+
+    let written = 0;
+    for (const [prefix, index] of byPrefix) {
+        const outPath = path.join(INDEX_DIR, `${prefix}.json`);
+        // Sort by frequency (number of cases) descending, then alphabetically.
+        const sorted = Object.fromEntries(
+            Object.keys(index)
+                .sort((a, b) => Object.keys(index[b]).length - Object.keys(index[a]).length || a.localeCompare(b))
+                .map(k => [k, index[k]])
+        );
+        const content = JSON.stringify(sorted);
+        if (dryRun) {
+            if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, outPath)}`);
+        } else {
+            let changed = true;
+            try { changed = fs.readFileSync(outPath, 'utf8') !== content; } catch { /* new file */ }
+            if (changed) { fs.writeFileSync(outPath, content, 'utf8'); written++; }
+        }
+    }
+
+    if (written || _VERBOSE) console.log(`Keyword index: wrote ${written} file(s) in courts/ussc/indexes/cases/keywords/`);
 }
 
 function _scdbVotesSubset(row) {
@@ -9632,6 +9798,21 @@ async function main() {
         return;
     }
 
+    if (flags.has('--keyword-index') || flags.has('--title-index')) {
+        let allTerms = [];
+        try {
+            const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+            allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+                if (page.term) return page.term;
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+                return m ? m[1] : null;
+            })).filter(Boolean);
+        } catch {}
+        if (flags.has('--title-index'))   processTitleIndex(allTerms, false);
+        if (flags.has('--keyword-index')) processKeywordIndex(allTerms, false);
+        return;
+    }
+
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
@@ -9716,6 +9897,7 @@ async function main() {
         processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
         processTitleIndex(allTerms, false);
+        processKeywordIndex(allTerms, false);
         await runDissentCheck(null);
         // Advocate index rebuild (final phase).
         const _allTermDirs = allTerms.map(t => path.join(TERMS_DIR, t));

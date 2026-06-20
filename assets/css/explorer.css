@@ -1037,6 +1037,18 @@ button.term-case-count.sort-active:hover {
   flex: 1;
 }
 
+#case-vote a {
+  color: #888;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+#case-vote a:hover {
+  color: #4a9eff;
+  text-decoration-color: #4a9eff;
+}
+
 #favorite-btn {
   background: none;
   border: none;
