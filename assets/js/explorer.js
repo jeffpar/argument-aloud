@@ -1239,7 +1239,9 @@ function buildUrlParams(updates, deletes = []) {
   const event      = url.searchParams.get('event');
   const turn       = url.searchParams.get('turn');
   const file       = url.searchParams.get('file');
-  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file'];
+  const sortPrm    = url.searchParams.get('sort');
+  const orderPrm   = url.searchParams.get('o');
+  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
@@ -1252,11 +1254,21 @@ function buildUrlParams(updates, deletes = []) {
   if (event != null) reordered.push(['event', event]);
   if (turn != null) reordered.push(['turn', turn]);
   if (file != null) reordered.push(['file', file]);
+  if (sortPrm  != null) reordered.push(['sort', sortPrm]);
+  if (orderPrm != null) reordered.push(['o',    orderPrm]);
   reordered.push(...rest);
   url.search = new URLSearchParams(reordered).toString();
   return url;
 }
 
+
+// Parse the ?sort= and ?o= URL params into { mode, asc }.
+// sort = mode name; o = 'a' (ascending) | 'd' (descending, default when omitted is ascending).
+function _parseSortParam(sortStr, orderStr) {
+  if (!sortStr) return null;
+  if (!['cases', 'argued', 'decided', 'votes', 'hours', 'none'].includes(sortStr)) return null;
+  return { mode: sortStr, asc: orderStr !== 'd' };
+}
 
 // Normalise link.refs (string or array) to an array of strings.
 function getRefs(link) {
@@ -2670,7 +2682,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           history.replaceState(null, '', url);
         }
       }
-      loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
+      await loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
+      if (!fromRestore && mode === 'decided' && caseEntry.events?.some(a => a.audio_href) && hasDecisionHref(caseEntry)) {
+        const de = _buildDecisionEntries(caseEntry)[0];
+        if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
+      }
       if (fileRestore != null && !caseEntry.events?.length) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
@@ -2743,7 +2759,7 @@ function buildNav(title = 'Terms') {
       termsLi.classList.toggle('open');
     } else {
       if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
-      navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date']));
+      navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date', 'sort', 'o']));
       restoreFromURL();
     }
   });
@@ -2836,8 +2852,10 @@ function buildNav(title = 'Terms') {
       const _now = new Date();
       const _currentTerm = (_now.getMonth() >= 9 ? _now.getFullYear() : _now.getFullYear() - 1) + '-10';
       const _isCurrentTerm = term === _currentTerm;
-      let _sortMode = _isCurrentTerm ? 'decided' : 'cases';
-      let _sortAsc  = !_isCurrentTerm;
+      const _defaultMode = _isCurrentTerm ? 'decided' : 'cases';
+      const _defaultAsc  = !_isCurrentTerm;
+      let _sortMode = _defaultMode;
+      let _sortAsc  = _defaultAsc;
       let _casesCache = null; // cached after first fetch
 
       const _SORT_OPTIONS = [
@@ -2856,6 +2874,7 @@ function buildNav(title = 'Terms') {
           ({ mode, asc }) => {
             _sortMode = mode;
             _sortAsc  = asc;
+            history.replaceState(null, '', buildUrlParams({ sort: _sortMode, o: _sortAsc ? 'a' : 'd' }, []));
             const visible = _casesCache ? _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0) : null;
             const count = visible ? visible.length : null;
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
@@ -2909,6 +2928,16 @@ function buildNav(title = 'Terms') {
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         termCount.classList.add('sort-active');
       };
+      termLi._applySortParam = (mode, asc) => {
+        _sortMode = mode;
+        _sortAsc  = asc;
+        if (_casesCache) {
+          buildTermCasesSorted(term, _casesCache, ul, _sortMode, _sortAsc);
+          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+          termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
+          termCount.classList.add('sort-active');
+        }
+      };
 
       termHeader.addEventListener('click', async (e) => {
         if (termTog.contains(e.target)) {
@@ -2921,7 +2950,7 @@ function buildNav(title = 'Terms') {
             }
             updateEmptyStateForTerm(null);
             // Term collapsed — remove term param too.
-            const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn']);
+            const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn', 'sort', 'o']);
             navigate(url);
             document.getElementById('topbar-term').textContent = '';
             return;
@@ -2944,8 +2973,13 @@ function buildNav(title = 'Terms') {
         }
         updateEmptyStateForTerm(term);
         document.getElementById('topbar-term').textContent = termDisplayName(term);
-        // Update URL: set term param, clear case/audio/file/turn/date params.
-        const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn']);
+        // Update URL: set term param, clear navigation params.
+        // Always reflect the term's current sort: include sort+o when non-default, delete otherwise.
+        const _nonDefaultSort = _sortMode !== _defaultMode || _sortAsc !== _defaultAsc;
+        const url = buildUrlParams(
+          { term, ...(_nonDefaultSort ? { sort: _sortMode, o: _sortAsc ? 'a' : 'd' } : {}) },
+          ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
+        );
         navigate(url);
       });
 
@@ -3453,7 +3487,7 @@ function buildCollectionItem(sectionUl, collEntry) {
       collLi.classList.toggle('open');
       if (!collLi.classList.contains('open')) {
         _onCollClose?.();
-        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight']);
+        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o']);
         navigate(url);
         return;
       }
@@ -3463,7 +3497,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     // Open (or already open): build, navigate, show page.
     await _ensureCollectionBuilt();
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
-    const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link']);
+    const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
     navigate(url);
   });
 
@@ -3996,7 +4030,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
       );
       navigate(url);
     }
-    loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn });
+    await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn });
+    if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
+        ci.closest('ul')?.dataset.sortMode === 'decided') {
+      const de = _buildDecisionEntries(caseEntry)[0];
+      if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
+    }
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
@@ -4224,6 +4263,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         groupUl.classList.remove('coll-sort-date');
       }
       if (!asc) _sortedItems.reverse();
+      groupUl.dataset.sortMode = mode;
       _renderGroupPage();
     }
 
@@ -4236,6 +4276,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           const reversal = mode === _groupSortMode;
           _groupSortMode = mode;
           _groupSortAsc  = asc;
+          history.replaceState(null, '', buildUrlParams({ sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' }, []));
           groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
           _applyGroupSortMode(_groupSortMode, _groupSortAsc, { reversal });
         },
@@ -4305,6 +4346,13 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupLi._ensureCases = _ensureGroupCases;
     groupLi._rawCases = Array.isArray(group.cases) ? group.cases : null;
     groupLi._activateCount = () => { groupCount.classList.add('sort-active'); groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc); };
+    groupLi._applySortParam = (mode, asc) => {
+      _groupSortMode = mode;
+      _groupSortAsc  = asc;
+      groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
+      groupCount.classList.add('sort-active');
+      _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+    };
     groupLi._centerOnItem = (item) => {
       const idx = _sortedItems.indexOf(item);
       if (idx < 0) return;
@@ -4328,9 +4376,13 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
       const groupOrId = group.id != null ? { id: group.id } : { group: groupNumber };
       const deleteOther = group.id != null ? ['group'] : ['id'];
+      // Always reflect the group's current sort in the URL: include sort+o when non-default,
+      // delete them when back to default. This keeps the URL accurate even when returning to
+      // a group whose closure already holds a customised sort from a previous visit.
+      const _nonDefaultSort = _groupSortMode !== _defaultSortMode || _groupSortAsc !== _defaultSortAsc;
       const url = buildUrlParams(
-        { collection: collId, ...groupOrId },
-        [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn'],
+        { collection: collId, ...groupOrId, ...(_nonDefaultSort ? { sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' } : {}) },
+        [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
       );
       history.replaceState(null, '', url);
       await _ensureGroupCases();
@@ -6646,6 +6698,7 @@ async function restoreFromURL() {
   const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into caseEntry.events (original on-disk order)
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
+  const _parsedSort = _parseSortParam(params.get('sort'), params.get('o'));
 
   // ── Collection restore ───────────────────────────────────────────────────
 
@@ -6700,6 +6753,7 @@ async function restoreFromURL() {
         groupLi.classList.add('open');
         await groupLi._ensureCases?.();
         groupLi._activateCount?.();
+        if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
         const hlEl = groupLi.querySelector(`.highlight-item[data-highlight-idx="${highlightParam}"]`);
         if (hlEl) {
           if (!isMobile()) requestAnimationFrame(() => hlEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
@@ -6728,6 +6782,7 @@ async function restoreFromURL() {
         groupLi.classList.add('open');
         await groupLi._ensureCases?.();
         groupLi._activateCount?.();
+        if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
         if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
         else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
@@ -6759,6 +6814,7 @@ async function restoreFromURL() {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
+          if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
           _caseSearchRoot = groupLi;
         }
       } else if (groupParam) {
@@ -6768,6 +6824,7 @@ async function restoreFromURL() {
           groupLi.classList.add('open');
           await groupLi._ensureCases?.();
           groupLi._activateCount?.();
+          if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
           _caseSearchRoot = groupLi;
         }
       }
@@ -6888,7 +6945,8 @@ async function restoreFromURL() {
       termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
-      termLi._showSortLabel?.();
+      if (_parsedSort) termLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
+      else termLi._showSortLabel?.();
       // Prefetch counts for remaining terms in the decade (same as clicking the decade header).
       if (decLi) {
         (async () => {
@@ -6999,7 +7057,8 @@ async function restoreFromURL() {
       termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
-      termLi._showSortLabel?.();
+      if (_parsedSort) termLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
+      else termLi._showSortLabel?.();
       // Prefetch counts for sibling terms in the decade.
       if (decLi) {
         (async () => {
