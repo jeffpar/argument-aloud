@@ -6040,7 +6040,23 @@ function processKeywordIndex(allTerms, dryRun) {
         fs.mkdirSync(INDEX_DIR, { recursive: true });
     }
 
-    // word → Map<ref, [eventIdx, turnNum]>  (first occurrence per case)
+    // Load justices for nid lookup (name → nid).
+    const justiceNidByName = new Map();
+    try {
+        const justicesData = _readJson(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
+        for (const [name, j] of Object.entries(justicesData)) {
+            if (j.nid) {
+                justiceNidByName.set(name, j.nid);
+                for (const alt of (j.alternates || [])) justiceNidByName.set(alt, j.nid);
+            }
+        }
+    } catch { /* ignore — justice data is optional */ }
+
+    // word → Map<ref, [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, ...]>
+    // First 3 elements are the first-occurrence location and turn-count (unchanged).
+    // Additional groups of 4 (eventIdx, turnNum, wordPos, nid) record the first occurrence
+    // of this word per justice whose title contains "JUSTICE", enabling navigation to the
+    // justice's first turn and sequential phrase filtering by justice.
     // ref is a short id ("YYYY-NNN") when term is YYYY-10 and c.id starts with YYYY;
     // otherwise the full "term/id-or-number" string.
     const wordLocs = new Map();
@@ -6071,6 +6087,7 @@ function processKeywordIndex(allTerms, dryRun) {
             // word → [eventIdx, turnNum] of first occurrence; word → unique (event,turn) pairs
             const caseFirstLoc  = new Map();
             const caseWordTurns = new Map(); // word → Set<"eventIdx:turnNum">
+            const caseJusticeLocs = new Map(); // word → Map<nid, wordPos> (first per justice)
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
                 if (!ev.text_href) continue;
@@ -6085,10 +6102,23 @@ function processKeywordIndex(allTerms, dryRun) {
                 try { tx = _readJson(txPath); } catch { continue; }
                 if (!Array.isArray(tx.turns)) continue;
                 const eventIdx = evIdx + 1; // 1-based, matches ?event= URL param
+
+                // Build name → title map from the transcript's speaker list.
+                const speakerTitleMap = new Map();
+                if (Array.isArray(tx.media?.speakers)) {
+                    for (const s of tx.media.speakers) {
+                        if (s.name && s.title) speakerTitleMap.set(s.name, s.title);
+                    }
+                }
+
                 for (const turn of tx.turns) {
                     if (!turn.text) continue;
+                    const speakerTitle = speakerTitleMap.get(turn.name) || '';
+                    const isJustice = speakerTitle.includes('JUSTICE');
+                    const justiceNid = isJustice ? justiceNidByName.get(turn.name) : undefined;
                     const words = turn.text.toLowerCase().split(/[^a-z]+/);
-                    for (const word of words) {
+                    for (let wIdx = 0; wIdx < words.length; wIdx++) {
+                        const word = words[wIdx];
                         if (word.length < 3) continue;
                         if (KEYWORD_STOP_WORDS.has(word)) continue;
                         if (!caseFirstLoc.has(word)) {
@@ -6096,6 +6126,11 @@ function processKeywordIndex(allTerms, dryRun) {
                         }
                         if (!caseWordTurns.has(word)) caseWordTurns.set(word, new Set());
                         caseWordTurns.get(word).add(`${eventIdx}:${turn.turn}`);
+                        if (justiceNid !== undefined) {
+                            if (!caseJusticeLocs.has(word)) caseJusticeLocs.set(word, new Map());
+                            const jMap = caseJusticeLocs.get(word);
+                            if (!jMap.has(justiceNid)) jMap.set(justiceNid, [eventIdx, turn.turn, wIdx + 1]);
+                        }
                     }
                 }
             }
@@ -6104,7 +6139,12 @@ function processKeywordIndex(allTerms, dryRun) {
                 if (!wordLocs.has(word)) wordLocs.set(word, new Map());
                 // Third element: number of distinct (event, turn) pairs containing this word.
                 // Used at query time to approximate co-occurrence count across tokens via min().
-                wordLocs.get(word).set(ref, [loc[0], loc[1], caseWordTurns.get(word)?.size || 0]);
+                const entry = [loc[0], loc[1], caseWordTurns.get(word)?.size || 0];
+                // Append (eventIdx, turnNum, wordPos, nid) groups for the first occurrence of
+                // this word per justice, enabling navigation to and sequential filtering by justice.
+                const jMap = caseJusticeLocs.get(word);
+                if (jMap) { for (const [nid, data] of jMap) entry.push(data[0], data[1], data[2], nid); }
+                wordLocs.get(word).set(ref, entry);
             }
         }
     }

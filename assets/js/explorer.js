@@ -1215,6 +1215,35 @@ async function _fetchKeywordIndex(prefix) {
   return data;
 }
 
+let _justiceNidData = null;
+let _justiceNidPromise = null;
+
+async function _fetchJusticeNids() {
+  if (_justiceNidData) return _justiceNidData;
+  if (_justiceNidPromise) return _justiceNidPromise;
+  _justiceNidPromise = fetch('/data/ussc/justices.json')
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}))
+    .then(raw => {
+      const byLastName = new Map();
+      const byFullName = new Map();
+      for (const [name, j] of Object.entries(raw)) {
+        if (!j.nid) continue;
+        byFullName.set(name.toLowerCase(), j.nid);
+        const parts = name.trim().split(/\s+/);
+        byLastName.set(parts[parts.length - 1].toLowerCase(), j.nid);
+        for (const alt of (j.alternates || [])) {
+          byFullName.set(alt.toLowerCase(), j.nid);
+          const altParts = alt.trim().split(/\s+/);
+          byLastName.set(altParts[altParts.length - 1].toLowerCase(), j.nid);
+        }
+      }
+      _justiceNidData = { byLastName, byFullName };
+      return _justiceNidData;
+    });
+  return _justiceNidPromise;
+}
+
 // Called when nav search opens: loads all not-yet-built term case lists.
 // ── URL param helper ─────────────────────────────────────────────────────────
 // Rebuilds URLSearchParams so that 'collection' is always first, and 'group' or 'id' is second.
@@ -1222,10 +1251,11 @@ function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
   // Apply deletes first.
   deletes.forEach(k => url.searchParams.delete(k));
-  // Always remove 'link' and 'find' when navigating — 'find' is only meaningful
-  // on keyword-search result URLs and is re-added explicitly by those callers.
+  // Always remove 'link', 'find', and 'speaker' when navigating — they are only
+  // meaningful on keyword-search result URLs and are re-added explicitly by callers.
   url.searchParams.delete('link');
   url.searchParams.delete('find');
+  url.searchParams.delete('speaker');
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
   // Enforce canonical parameter order: collection, group/id, highlight, term, case, event, turn, file, then rest.
@@ -6128,10 +6158,21 @@ let _transcriptSearchClose = null;
     }
   });
 
-  // Expose an entry point for auto-running a search from the URL ?find= param.
-  // Called after the transcriptloaded handler above has already reset the input.
-  _transcriptSearchInit = (query) => {
+  // Expose an entry point for auto-running a search from the URL ?find= / ?speaker= params.
+  // Called after the transcriptloaded handler above has already reset the input and dropdown.
+  _transcriptSearchInit = (query, speakerName) => {
     openSearch();
+    // Select the matching speaker in the dropdown before running the search.
+    if (speakerName) {
+      const n = speakerName.trim().toLowerCase();
+      const opt = [...speakerSelect.options].find(o => {
+        if (!o.value) return false;
+        if (o.value.toLowerCase() === n) return true;
+        const parts = o.value.trim().split(/\s+/);
+        return parts[parts.length - 1].toLowerCase() === n;
+      });
+      if (opt) speakerSelect.value = opt.value;
+    }
     input.value = query;
     clearHighlights();
     matchIndices = [];
@@ -6149,13 +6190,15 @@ let _transcriptSearchClose = null;
   _transcriptSearchClose = closeSearch;
 })();
 
-// When a transcript loads and the URL contains ?find=<query>, open the
-// transcript search overlay and highlight all occurrences of the query.
+// When a transcript loads and the URL contains ?find= (and optionally ?speaker=),
+// open the transcript search overlay, pre-select the speaker, and highlight matches.
 // This listener is registered after the search IIFE's own transcriptloaded
-// handler (which resets the input), so it runs second.
+// handler (which resets the input and dropdown), so it runs second.
 document.addEventListener('transcriptloaded', () => {
-  const findParam = new URLSearchParams(location.search).get('find');
-  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam.trim());
+  const params       = new URLSearchParams(location.search);
+  const findParam    = params.get('find');
+  const speakerParam = params.get('speaker');
+  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam.trim(), speakerParam?.trim() || null);
 });
 
 // Find a rendered file-item element by the URL 'file' param value.
@@ -6266,6 +6309,30 @@ let _navSearchActivate = null;
     return out;
   }
 
+  // Justice entries in the extended loc array use groups of 4:
+  //   [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, e2, t2, p2, n2, ...]
+  // where each group (e, t, p, nid) is the first occurrence of the word by that justice.
+
+  // Returns the 1-based word positions for a given justice nid.
+  function _justicePositionsForNid(loc, nid) {
+    if (!loc || loc.length <= 3) return [];
+    const positions = [];
+    for (let i = 3; i + 3 < loc.length; i += 4) {
+      if (loc[i + 3] === nid) positions.push(loc[i + 2]);
+    }
+    return positions;
+  }
+
+  // Returns the [eventIdx, turnNum] for the first occurrence of the word by a given
+  // justice nid, for use as a navigation target. Returns null if not found.
+  function _justiceFirstLocForNid(loc, nid) {
+    if (!loc || loc.length <= 3) return null;
+    for (let i = 3; i + 3 < loc.length; i += 4) {
+      if (loc[i + 3] === nid) return [loc[i], loc[i + 1]];
+    }
+    return null;
+  }
+
   function _showNormal() {
     const termsSectionEl = document.querySelector('[data-section="terms"]');
     if (!termsSectionEl) return;
@@ -6292,7 +6359,21 @@ let _navSearchActivate = null;
 
     // A leading '"' switches to transcript keyword search instead of title search.
     const keywordMode = q.startsWith('"');
-    const toks = _tokens(keywordMode ? q.slice(1) : q);
+
+    // In keyword mode, text after the closing '"' is treated as a justice name filter.
+    // e.g. '"due process" alito' → keywords='due process', justiceFilter='alito'
+    let keywords = keywordMode ? q.slice(1) : q;
+    let justiceFilter = null;
+    if (keywordMode) {
+      const closeIdx = keywords.indexOf('"');
+      if (closeIdx !== -1) {
+        const afterQuote = keywords.slice(closeIdx + 1).trim();
+        keywords = keywords.slice(0, closeIdx);
+        if (afterQuote) justiceFilter = afterQuote;
+      }
+    }
+
+    const toks = _tokens(keywords);
     if (!toks.length) {
       // Query has content but every token is too short to be in the index.
       if (inner) inner.hidden = true;
@@ -6305,9 +6386,17 @@ let _navSearchActivate = null;
     // guaranteed ≥ 3 chars by _tokens(), so the prefix is always available.
     const prefixes = [...new Set(toks.map(t => t.slice(0, 2)))];
     const fetchIndex = keywordMode ? _fetchKeywordIndex : _fetchTitleIndex;
-    const indexMap = Object.fromEntries(
-      await Promise.all(prefixes.map(async p => [p, await fetchIndex(p)]))
-    );
+    const [indexMap, nidMaps] = await Promise.all([
+      Promise.all(prefixes.map(async p => [p, await fetchIndex(p)])).then(Object.fromEntries),
+      keywordMode && justiceFilter ? _fetchJusticeNids() : Promise.resolve(null),
+    ]);
+
+    // Resolve justice filter to a numeric nid (null if filter present but unrecognised).
+    let justiceNid = undefined;
+    if (justiceFilter !== null) {
+      const n = justiceFilter.toLowerCase();
+      justiceNid = nidMaps?.byFullName.get(n) ?? nidMaps?.byLastName.get(n) ?? null;
+    }
 
     // Intersect across all tokens.
     // Title mode: Set<"term/ref">; keyword mode: Map<"term/ref", [ev, turn] | null>
@@ -6316,9 +6405,11 @@ let _navSearchActivate = null;
     // in the intersection but not used for turn navigation.
     const earlier = (a, b) => a && b && (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]));
     let combined = null; // Set or Map depending on mode
+    const tokenLocs = []; // per-token Map<ref, locArray> saved for justice filter
     for (const tok of toks) {
       if (keywordMode) {
         const locs = _locationsForToken(indexMap[tok.slice(0, 2)] || {}, tok);
+        tokenLocs.push(locs);
         if (combined === null) {
           combined = locs;
         } else {
@@ -6340,6 +6431,38 @@ let _navSearchActivate = null;
         const refs = _refsForToken(indexMap[tok.slice(0, 2)] || {}, tok);
         combined = combined === null ? refs : new Set([...combined].filter(r => refs.has(r)));
         if (!combined.size) break;
+      }
+    }
+
+    // Apply justice filter: keep only cases where every token has a recorded first
+    // occurrence by the specified justice, and those positions are strictly increasing
+    // (matching the order the words were typed in the query).
+    // For matching cases, replace the nav loc with the justice's first (event, turn)
+    // for the first search token so clicking a result lands on the right turn.
+    if (keywordMode && justiceNid !== undefined && combined?.size) {
+      if (justiceNid === null) {
+        combined = new Map(); // unrecognised justice name → no results
+      } else {
+        const filtered = new Map();
+        for (const [ref, loc] of combined) {
+          let prevPos = -1;
+          let ok = true;
+          let navLoc = loc;
+          for (let ti = 0; ti < tokenLocs.length; ti++) {
+            const rawLoc = tokenLocs[ti].get(ref);
+            const positions = _justicePositionsForNid(rawLoc, justiceNid);
+            if (!positions.length) { ok = false; break; }
+            const p = positions[0];
+            if (p <= prevPos) { ok = false; break; }
+            prevPos = p;
+            if (ti === 0) {
+              const jl = _justiceFirstLocForNid(rawLoc, justiceNid);
+              if (jl) navLoc = [jl[0], jl[1], loc ? (loc[2] || 0) : 0];
+            }
+          }
+          if (ok) filtered.set(ref, navLoc);
+        }
+        combined = filtered;
       }
     }
 
@@ -6407,8 +6530,10 @@ let _navSearchActivate = null;
         const deletes = ['collection', 'group', 'id', 'highlight', 'file'];
         if (loc) { updates.event = loc[0]; updates.turn = loc[1]; }
         else deletes.push('event', 'turn');
-        if (keywordMode) updates.find = q.slice(1).replace(/"$/, '').trim();
-        else deletes.push('find');
+        if (keywordMode) {
+          updates.find = keywords.trim();
+          if (justiceFilter) updates.speaker = justiceFilter;
+        } else deletes.push('find');
         const href = buildUrlParams(updates, deletes);
         const li  = document.createElement('li');
         li.className = 'case-item';
@@ -6428,9 +6553,10 @@ let _navSearchActivate = null;
         a.addEventListener('click', e => {
           e.preventDefault();
           if (keywordMode) {
-            const findVal = q.slice(1).replace(/"$/, '').trim();
             const cur = new URL(location.href);
-            cur.searchParams.set('find', findVal);
+            cur.searchParams.set('find', keywords.trim());
+            if (justiceFilter) cur.searchParams.set('speaker', justiceFilter);
+            else cur.searchParams.delete('speaker');
             history.replaceState(null, '', cur.pathname + '?' + cur.searchParams.toString());
           }
           navigate(href);
@@ -6501,8 +6627,8 @@ let _navSearchActivate = null;
     }
   });
 
-  _navSearchActivate = (findQuery) => {
-    const q = '"' + findQuery + '"';
+  _navSearchActivate = (findQuery, justiceQuery) => {
+    const q = '"' + findQuery + '"' + (justiceQuery ? ' ' + justiceQuery : '');
     openNavSearch();
     navSearchInput.value = q;
     runNavSearch(q);
@@ -6675,11 +6801,12 @@ async function restoreFromURL() {
   // ── ?find= without a case → open nav keyword search ─────────────────────────
   // Run the search but do NOT return — let the rest of restoreFromURL continue
   // so that other params (e.g. term=all) are still handled normally.
-  const findParam = params.get('find');
-  const caseParam = params.get('case');
+  const findParam  = params.get('find');
+  const speakerParam = params.get('speaker');
+  const caseParam    = params.get('case');
   if (!caseParam) _transcriptSearchClose?.();
   if (findParam && !caseParam && _navSearchActivate) {
-    _navSearchActivate(findParam);
+    _navSearchActivate(findParam, speakerParam || null);
   }
 
   const linkParam       = params.get('link');
