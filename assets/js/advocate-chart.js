@@ -1,13 +1,17 @@
 /**
- * Renders a vertical bar chart of advocates over time.
+ * Renders a horizontal bar chart of advocates over time.
  *
  * @param {string} canvasId   - ID of the <canvas> element to render into
  * @param {string} dataUrl    - URL of the advocates JSON file to fetch
  * @param {string} collection - Collection ID used when building nav links (e.g. 'top_advocates')
+ * @param {object} options    - Optional: { limit: N } to cap the number of advocates shown
  */
 async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null } = {}) {
   const res = await fetch(dataUrl);
   let advocates = await res.json();
+
+  // Sort by cases descending so the most-argued advocates appear at the top
+  advocates = [...advocates].sort((a, b) => b.cases - a.cases);
   if (limit != null) advocates = advocates.slice(0, limit);
 
   function toDecimalYear(dateStr) {
@@ -31,7 +35,12 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
   const maxYear   = Math.ceil(Math.max(...allLasts)   / 10) * 10;
   const maxCases  = Math.max(...advocates.map(a => a.cases));
 
+  // Size the container to fit all rows at a comfortable height
+  const rowPx = 14;
+  const axisH = 50;
   const canvas = document.getElementById(canvasId);
+  canvas.parentElement.style.height = (advocates.length * rowPx + axisH) + 'px';
+
   new Chart(canvas, {
     type: 'bar',
     data: {
@@ -44,9 +53,11 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
         }),
         borderWidth: 0,
         borderSkipped: false,
+        barThickness: 10,
       }]
     },
     options: {
+      indexAxis: 'y',
       responsive: true,
       maintainAspectRatio: false,
       onClick(event, elements) {
@@ -58,14 +69,15 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
       },
       scales: {
         x: {
-          ticks: { maxRotation: 90, minRotation: 90, font: { size: 9 }, color: '#555' },
-          grid: { display: false },
-        },
-        y: {
           min: minYear,
           max: maxYear,
+          position: 'top',
           ticks: { stepSize: 10, callback: v => String(Math.round(v)), color: '#555' },
           grid: { color: 'rgba(0,0,0,0.08)' },
+        },
+        y: {
+          ticks: { font: { size: 9 }, color: '#555' },
+          grid: { display: false },
         },
       },
       plugins: {
@@ -75,7 +87,7 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
             title: items => titleCase(advocates[items[0].dataIndex].name),
             label: item => {
               const a = advocates[item.dataIndex];
-              return `${a.dateFirst.slice(0,4)}–${a.dateLast.slice(0,4)}  ·  ${a.cases} arguments`;
+              return `${a.dateFirst.slice(0, 4)}–${a.dateLast.slice(0, 4)}  ·  ${a.cases} arguments`;
             },
           },
         },

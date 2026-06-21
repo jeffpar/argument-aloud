@@ -4,10 +4,8 @@ layout: pane
 
 # Women Advocates
 
-<div style="overflow-x:auto;margin:1.5em 0">
-  <div style="min-width:900px;height:624px;position:relative">
-    <canvas id="women-chart"></canvas>
-  </div>
+<div style="margin:1.5em 0;position:relative">
+  <canvas id="women-chart"></canvas>
 </div>
 
 <script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100 });</script>
@@ -86,8 +84,8 @@ It's worth noting when discussing advocate appearances, the unit of measure is g
 For example, [Bessie Margolin](/courts/ussc/?collection=women_advocates&id=bessie_margolin) appears to have argued 23 times in 27 cases, and that numeric difference is because:
 
   - [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was argued with [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688)
-  - [Powell v. United States Cartridge Co. (No. 96)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was argued with **Aaron v. Ford, Bacon & Davis, Inc. (No. 79)** and **Creel v. Lone Star Defense Corp. (No. 58)**
-  - [Maneja v. Waialua Agricultural Co. (No. 357)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was argued with **Waialua Agricultural Co. v. Maneja (No. 358)**
+  - [Powell v. United States Cartridge Co. (No. 96)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1949-10&case=96%2C58%2C79) was argued with *Aaron v. Ford, Bacon & Davis, Inc. (No. 79)* and *Creel v. Lone Star Defense Corp. (No. 58)*
+  - [Maneja v. Waialua Agricultural Co. (No. 357)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1954-10&case=357%2C358&event=1) was argued with *Waialua Agricultural Co. v. Maneja (No. 358)*
 
 However, 24 *cases* are attributed to her, because [10 East 40th St. Bldg v. Callus (No. 820)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=820) was decided separately from [Borden v. Borella (No. 688)](/courts/ussc/?collection=women_advocates&id=bessie_margolin&term=1944-10&case=688).  And with respect to her *arguments* in those two cases, the [1944 U.S. Supreme Court Journal](https://www.supremecourt.gov/pdfs/journals/scannedjournals/1944_journal.pdf#page=220) does not mention her in the context of No. 688; it says only this:
 
@@ -101,6 +99,6 @@ Generally, the number of *appearances* and *arguments* are clear and congruent. 
 
 ###### Footnote 1
 
-In the [2012 Journal of Supreme Court History, Vol. 37, No. 1, Page 60](https://supremecourthistory.org/wp-content/uploads/2025/02/Volume-37-Number-1-2012.pdf#page=60), Marlene Trestman explains that Bessie Margolin was initially only going to argue No. 820, but was asked to also argue No. 688 at the last minute.  But even if we count her appearance as two arguments, it remains unclear how the Supreme Court itself would count it, and more to the point, how we should count all other such appearances, given that we don't generally have the benefit of additional context outside the Court's own records.
+In the [Journal of Supreme Court History, Vol. 37, No. 1, at 60 (2012)](https://supremecourthistory.org/wp-content/uploads/2025/02/Volume-37-Number-1-2012.pdf#page=60), Marlene Trestman explains that Bessie Margolin was initially only going to argue No. 820, but was asked to also argue No. 688 at the last minute.  But even if we count her appearance as two arguments, it remains unclear how the Supreme Court itself would count it, and more to the point, how we should count all other such appearances, given that we don't generally have the benefit of additional context outside the Court's own records.
 
 While it's worth noting that Nos. 688 and 820 were not consolidated for argument by the Court, we don't consider that dispositive, because as we've noted above, when that happens, the Court generally lists each person's argument in each case, even if that means mentioning the same person multiple times.  In Nos. 688 and 820, the Court did not do that.
