@@ -996,9 +996,13 @@ button.term-case-count.sort-active:hover {
   text-decoration: none;
 }
 
+#decision-date-label[href] {
+  color: #2672b4;
+}
+
 #decision-date-label[href]:hover {
   text-decoration: underline;
-  color: #2672b4;
+  color: #4a9eff;
 }
 
 #case-info-row2 {
@@ -2281,7 +2285,14 @@ button.term-case-count.sort-active:hover {
   }
 
   #decision-date-label            { color: #9da5b4; }
-  #decision-date-label[href]:hover { color: #5eaee0; }
+  #decision-date-label[href]       { color: #5eaee0; }
+  #decision-date-label[href]:hover { color: #7bc8f0; }
+
+  #case-argued .date-link, #case-reargued .date-link, #case-decided .date-link { color: #5eaee0; }
+  #case-argued .date-link:hover, #case-reargued .date-link:hover, #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+
+  #case-vote a       { color: #5eaee0; }
+  #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 
   #case-cite        { color: #6c7280; }
   #case-cite:hover  { color: #5eaee0; }
@@ -2557,7 +2568,12 @@ html[data-theme="dark"] #case-title-label               { color: #d0d3dc; }
 html[data-theme="dark"] #case-title-label a.case-title-link { color: inherit; }
 html[data-theme="dark"] #audio-select { color: #9da5b4; border-color: #404450; background: #252830; }
 html[data-theme="dark"] #decision-date-label            { color: #9da5b4; }
-html[data-theme="dark"] #decision-date-label[href]:hover { color: #5eaee0; }
+html[data-theme="dark"] #decision-date-label[href]       { color: #5eaee0; }
+html[data-theme="dark"] #decision-date-label[href]:hover { color: #7bc8f0; }
+html[data-theme="dark"] #case-argued .date-link, html[data-theme="dark"] #case-reargued .date-link, html[data-theme="dark"] #case-decided .date-link { color: #5eaee0; }
+html[data-theme="dark"] #case-argued .date-link:hover, html[data-theme="dark"] #case-reargued .date-link:hover, html[data-theme="dark"] #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
+html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-cite        { color: #6c7280; }
 html[data-theme="dark"] #case-cite:hover  { color: #5eaee0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }
@@ -2754,7 +2770,8 @@ html[data-theme="light"] #case-title-label               { color: #222; }
 html[data-theme="light"] #case-title-label a.case-title-link { color: inherit; }
 html[data-theme="light"] #audio-select { color: #555; border-color: #ccc; background: #fff; }
 html[data-theme="light"] #decision-date-label            { color: #555; }
-html[data-theme="light"] #decision-date-label[href]:hover { color: #2672b4; }
+html[data-theme="light"] #decision-date-label[href]       { color: #2672b4; }
+html[data-theme="light"] #decision-date-label[href]:hover { color: #4a9eff; }
 html[data-theme="light"] #case-cite        { color: #888; }
 html[data-theme="light"] #case-cite:hover  { color: #2672b4; }
 html[data-theme="light"] #tags-btn         { color: #888; }

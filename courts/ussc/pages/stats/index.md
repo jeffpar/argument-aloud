@@ -53,11 +53,16 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 .date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
 .date-case-list { list-style: none; margin: 0; padding: 0; }
 .date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
-.date-case-list a { color: inherit; text-decoration: none; }
+.date-case-list a { color: #2672b4; text-decoration: none; }
 .date-case-list a:hover { text-decoration: underline; color: #4a9eff; }
-@media (prefers-color-scheme: dark) { .date-section h3 { color: #6a7080; } }
+@media (prefers-color-scheme: dark) {
+  .date-section h3 { color: #6a7080; }
+  .date-case-list a { color: #5eaee0; }
+}
 html[data-theme="dark"]  .date-section h3 { color: #6a7080; }
 html[data-theme="light"] .date-section h3 { color: #888; }
+html[data-theme="dark"]  .date-case-list a { color: #5eaee0; }
+html[data-theme="light"] .date-case-list a { color: #2672b4; }
 </style>
 
 <div class="term-stats" id="stats-container">
