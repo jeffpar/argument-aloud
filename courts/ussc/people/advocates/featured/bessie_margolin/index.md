@@ -34,6 +34,10 @@ Marlene's book is of particular interest to the Argument Aloud crowd, because it
 
 Argument Aloud is indebted to Marlene's efforts, and we wish the lives of more advocates -- people who devoted so much of their time and energy to the law and the people it protects -- were as well documented as that of Bessie Margolin.
 
-See also: [*Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law*](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html?unlocked_article_code=1.r1A.f2Zr._Zi3hpJ_X7fM&smid=url-share)
+See also:
+
+  - [*Fair Labor: The Remarkable Life and Legal Career of Bessie Margolin (1909-1996)*](https://supremecourthistory.org/wp-content/uploads/2025/02/Volume-37-Number-1-2012.pdf#page=44), from The Journal of Supreme Court History, Vol. 37, No. 1, at 42 (2012).
+
+  - [*Bessie Margolin, Lawyer Who Turned Workers’ Hopes Into Law*](https://www.nytimes.com/2025/10/02/obituaries/bessie-margolin-overlooked.html), from The New York Times, Oct 2, 2025.
 
 [![Fair Labor Lawyer](/courts/ussc/people/advocates/featured/bessie_margolin/fair_labor_lawyer.jpg)](https://supremecourtgifts.org/products/fair-labor-lawyer-the-remarkab?variant=52556087591219)
