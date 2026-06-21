@@ -6,9 +6,21 @@
  * @param {string} collection - Collection ID used when building nav links (e.g. 'top_advocates')
  * @param {object} options    - Optional: { limit: N } to cap the number of advocates shown
  */
-async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null } = {}) {
+async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null, summaryId = null } = {}) {
   const res = await fetch(dataUrl);
   let advocates = await res.json();
+
+  if (summaryId) {
+    function formatDate(dateStr) {
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      return `${months[m - 1]} ${d}, ${y}`;
+    }
+    const earliest = advocates.reduce((min, a) => a.dateFirst < min ? a.dateFirst : min, advocates[0].dateFirst);
+    const latest   = advocates.reduce((max, a) => a.dateLast  > max ? a.dateLast  : max, advocates[0].dateLast);
+    document.getElementById(summaryId).textContent =
+      `From ${formatDate(earliest)} to ${formatDate(latest)}, ${advocates.length.toLocaleString()} women have argued at the U.S. Supreme Court.`;
+  }
 
   // Sort by cases descending so the most-argued advocates appear at the top
   advocates = [...advocates].sort((a, b) => b.cases - a.cases);
