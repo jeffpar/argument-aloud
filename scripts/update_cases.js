@@ -6052,11 +6052,12 @@ function processKeywordIndex(allTerms, dryRun) {
         }
     } catch { /* ignore — justice data is optional */ }
 
-    // word → Map<ref, [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, ...]>
+    // word → Map<ref, [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, c1, ...]>
     // First 3 elements are the first-occurrence location and turn-count (unchanged).
-    // Additional groups of 4 (eventIdx, turnNum, wordPos, nid) record the first occurrence
-    // of this word per justice whose title contains "JUSTICE", enabling navigation to the
-    // justice's first turn and sequential phrase filtering by justice.
+    // Additional groups of 5 (eventIdx, turnNum, wordPos, nid, turnCount) record the first
+    // occurrence of this word per justice whose title contains "JUSTICE", plus the count of
+    // distinct turns where that justice says this word, enabling navigation, sequential phrase
+    // filtering, and accurate per-justice match counts.
     // ref is a short id ("YYYY-NNN") when term is YYYY-10 and c.id starts with YYYY;
     // otherwise the full "term/id-or-number" string.
     const wordLocs = new Map();
@@ -6087,7 +6088,7 @@ function processKeywordIndex(allTerms, dryRun) {
             // word → [eventIdx, turnNum] of first occurrence; word → unique (event,turn) pairs
             const caseFirstLoc  = new Map();
             const caseWordTurns = new Map(); // word → Set<"eventIdx:turnNum">
-            const caseJusticeLocs = new Map(); // word → Map<nid, wordPos> (first per justice)
+            const caseJusticeLocs = new Map(); // word → Map<nid, [e, t, p, Set<"e:t">]>
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
                 if (!ev.text_href) continue;
@@ -6129,7 +6130,8 @@ function processKeywordIndex(allTerms, dryRun) {
                         if (justiceNid !== undefined) {
                             if (!caseJusticeLocs.has(word)) caseJusticeLocs.set(word, new Map());
                             const jMap = caseJusticeLocs.get(word);
-                            if (!jMap.has(justiceNid)) jMap.set(justiceNid, [eventIdx, turn.turn, wIdx + 1]);
+                            if (!jMap.has(justiceNid)) jMap.set(justiceNid, [eventIdx, turn.turn, wIdx + 1, new Set()]);
+                            jMap.get(justiceNid)[3].add(`${eventIdx}:${turn.turn}`);
                         }
                     }
                 }
@@ -6140,10 +6142,23 @@ function processKeywordIndex(allTerms, dryRun) {
                 // Third element: number of distinct (event, turn) pairs containing this word.
                 // Used at query time to approximate co-occurrence count across tokens via min().
                 const entry = [loc[0], loc[1], caseWordTurns.get(word)?.size || 0];
-                // Append (eventIdx, turnNum, wordPos, nid) groups for the first occurrence of
-                // this word per justice, enabling navigation to and sequential filtering by justice.
+                // Append per-justice groups: [e, t, p, nid, count, e2, t2, e3, t3, ...]
+                // where (e,t,p) is the first occurrence, count is the total distinct turns,
+                // and (e2,t2)...(eN,tN) are the additional turns beyond the first.
+                // This allows exact phrase-match counts via turn-set intersection at query time.
                 const jMap = caseJusticeLocs.get(word);
-                if (jMap) { for (const [nid, data] of jMap) entry.push(data[0], data[1], data[2], nid); }
+                if (jMap) {
+                    for (const [nid, data] of jMap) {
+                        const count = data[3].size;
+                        entry.push(data[0], data[1], data[2], nid, count);
+                        if (count > 1) {
+                            // Sort all turns; first is already (data[0], data[1])
+                            const turns = [...data[3]].map(s => s.split(':').map(Number))
+                                                      .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+                            for (let k = 1; k < turns.length; k++) entry.push(turns[k][0], turns[k][1]);
+                        }
+                    }
+                }
                 wordLocs.get(word).set(ref, entry);
             }
         }

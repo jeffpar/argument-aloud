@@ -1347,8 +1347,10 @@ function findWholeWordMatches(rawText, needle) {
 
 // Render a turn's text into textEl, applying ref-mark annotations from `links`
 // and optionally overlaying search marks for `searchQuery`.
-// When isCurrent is true, the search match gets the 'current' highlight class.
-function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
+// currentRange, if non-null, marks the specific occurrence as the active match.
+// currentRange, if provided, is {start, end} — character offsets in rawText.
+// Any search mark that falls entirely within [start, end) gets the 'current' class.
+function renderTurnText(textEl, rawText, searchQuery, currentRange) {
   const marks = [];
 
   // Ref mark positions (whole-word only)
@@ -1397,6 +1399,7 @@ function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
       frag.appendChild(span);
     } else {
       const mark = document.createElement('mark');
+      const isCurrent = currentRange != null && start >= currentRange.start && end <= currentRange.end;
       mark.className = 'turn-highlight' + (isCurrent ? ' current' : '');
       mark.textContent = rawText.slice(start, end);
       frag.appendChild(mark);
@@ -5283,7 +5286,7 @@ function renderTranscript() {
 
       sp.textContent = formatSpeaker(viewSpkr);
       if (_unknownSpeakerNames.has(typeof viewSpkr === 'string' ? viewSpkr : viewSpkr.name)) sp.classList.add('speaker-unknown');
-      renderTurnText(tx, viewText, null, false);
+      renderTurnText(tx, viewText, null, null);
 
       // Make non-justice speaker labels clickable links to advocate profiles.
       const spkrTitle = typeof viewSpkr === 'object' ? (viewSpkr.title || 'MR.') : '';
@@ -5893,8 +5896,8 @@ let _transcriptSearchClose = null;
   const speakersRow   = document.getElementById('search-speakers-row');
   const speakerSelect = document.getElementById('search-speakers');
 
-  let matchIndices = [];   // indices into turns[] that contain the query
-  let matchCursor  = -1;   // which match is currently highlighted
+  let matchEntries = [];   // [{turnIdx, start, end}] — one per phrase occurrence; start/end=-1 for speaker-only
+  let matchCursor  = -1;   // which entry is currently highlighted
 
   function openSearch() {
     overlay.classList.add('open');
@@ -5907,8 +5910,8 @@ let _transcriptSearchClose = null;
     // If a search match was navigated to, make it the selected (active) turn
     // without changing play/pause state.
     if (matchCursor >= 0) {
-      const targetIdx = matchIndices[matchCursor];
-      if (targetIdx !== activeTurnIdx) {
+      const targetIdx = matchEntries[matchCursor]?.turnIdx ?? -1;
+      if (targetIdx >= 0 && targetIdx !== activeTurnIdx) {
         if (activeTurnIdx >= 0) {
           document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
         }
@@ -5923,7 +5926,7 @@ let _transcriptSearchClose = null;
       }
     }
     clearHighlights();
-    matchIndices = [];
+    matchEntries = [];
     matchCursor  = -1;
     statusEl.textContent = '';
   }
@@ -5937,68 +5940,92 @@ let _transcriptSearchClose = null;
       visited.add(turnEl.id);
       const idx = parseInt(turnEl.id.slice(5), 10);
       const textEl = turnEl.querySelector('.turn-text');
-      if (textEl && turns[idx]) renderTurnText(textEl, turns[idx].text, null, false);
+      if (textEl && turns[idx]) renderTurnText(textEl, turns[idx].text, null, null);
     });
   }
 
   // Unified match computation: filters by selected speaker and/or text query.
+  // For text queries, counts exact phrase occurrences (all tokens adjacent, in order)
+  // rather than one match per turn.
   function computeMatches() {
     clearHighlights();
-    matchIndices = [];
+    matchEntries = [];
     const query   = input.value.trim();
     const speaker = speakerSelect.value;
     if (!query && !speaker) { updateStatus(); return; }
-    // Split into tokens so multi-word queries match turns containing all words
-    // individually (not necessarily as an exact phrase).
     const tokens = query ? query.toLowerCase().split(/\s+/).filter(t => t) : [];
+    // Exact phrase: all tokens joined by a single space
+    const phrase = tokens.join(' ');
     turns.forEach((turn, idx) => {
       if (speaker && turn.name !== speaker) return;
-      if (tokens.length) {
-        const textLower = turn.text.toLowerCase();
-        if (!tokens.every(t => textLower.includes(t))) return;
+      if (!tokens.length) {
+        // Speaker-only filter: one entry per matching turn (no char position)
+        matchEntries.push({ turnIdx: idx, start: -1, end: -1 });
+        return;
       }
-      matchIndices.push(idx);
+      const textLower = turn.text.toLowerCase();
+      let i = 0;
+      while (i < textLower.length) {
+        const pos = textLower.indexOf(phrase, i);
+        if (pos === -1) break;
+        matchEntries.push({ turnIdx: idx, start: pos, end: pos + phrase.length });
+        i = pos + phrase.length;
+      }
     });
     updateStatus();
-    // Re-render matching turns with highlighted spans only when text is entered.
-    if (query) matchIndices.forEach(idx => applyHighlight(idx, query, false));
+    // Re-render matching turns with highlighted spans (no 'current' mark yet).
+    if (query) {
+      const matchedTurns = new Set(matchEntries.map(e => e.turnIdx));
+      matchedTurns.forEach(idx => applyHighlight(idx, query, null));
+    }
   }
 
-  function applyHighlight(turnIdx, query, isCurrent) {
+  // Re-render a turn's text with search highlights.  currentRange, if non-null,
+  // marks the specific occurrence {start, end} as the active ('current') match.
+  function applyHighlight(turnIdx, query, currentRange) {
     const el = document.getElementById('turn-' + turnIdx);
     if (!el) return;
     const textEl = el.querySelector('.turn-text');
     if (!textEl) return;
-    renderTurnText(textEl, turns[turnIdx].text, query, isCurrent);
+    renderTurnText(textEl, turns[turnIdx].text, query, currentRange);
   }
 
-  function scrollToMatch(idx) {
-    const el = document.getElementById('turn-' + idx);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Scroll to the 'current' mark inside a turn, or fall back to the turn itself.
+  function scrollToCurrentMark(turnIdx) {
+    const turnEl = document.getElementById('turn-' + turnIdx);
+    const currentMark = turnEl?.querySelector('mark.turn-highlight.current');
+    if (currentMark) currentMark.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    else if (turnEl) turnEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function updateStatus() {
-    if (!matchIndices.length) {
+    if (!matchEntries.length) {
       statusEl.textContent = (input.value.trim() || speakerSelect.value) ? 'No matches found.' : '';
     } else {
-      statusEl.textContent = (matchCursor >= 0 ? (matchCursor + 1) + ' of ' : '') + matchIndices.length + ' match' + (matchIndices.length === 1 ? '' : 'es');
+      statusEl.textContent = (matchCursor >= 0 ? (matchCursor + 1) + ' of ' : '') + matchEntries.length + ' match' + (matchEntries.length === 1 ? '' : 'es');
     }
-    prevBtn.disabled = matchIndices.length === 0;
-    nextBtn.disabled = matchIndices.length === 0;
+    prevBtn.disabled = matchEntries.length === 0;
+    nextBtn.disabled = matchEntries.length === 0;
   }
 
   function goToMatch(delta) {
-    if (!matchIndices.length) return;
+    if (!matchEntries.length) return;
     const query = input.value.trim();
+    const prevTurnIdx = matchCursor >= 0 ? matchEntries[matchCursor].turnIdx : -1;
     // Remove 'current' styling from previous match
     if (matchCursor >= 0) {
-      applyHighlight(matchIndices[matchCursor], query, false);
-      document.getElementById('turn-' + matchIndices[matchCursor])?.classList.remove('search-current');
+      applyHighlight(matchEntries[matchCursor].turnIdx, query, null);
     }
-    matchCursor = (matchCursor + delta + matchIndices.length) % matchIndices.length;
-    applyHighlight(matchIndices[matchCursor], query, true);
-    document.getElementById('turn-' + matchIndices[matchCursor])?.classList.add('search-current');
-    scrollToMatch(matchIndices[matchCursor]);
+    matchCursor = (matchCursor + delta + matchEntries.length) % matchEntries.length;
+    const curr = matchEntries[matchCursor];
+    const currentRange = curr.start >= 0 ? { start: curr.start, end: curr.end } : null;
+    applyHighlight(curr.turnIdx, query, currentRange);
+    // Only move .search-current if the turn changed
+    if (prevTurnIdx !== curr.turnIdx) {
+      if (prevTurnIdx >= 0) document.getElementById('turn-' + prevTurnIdx)?.classList.remove('search-current');
+      document.getElementById('turn-' + curr.turnIdx)?.classList.add('search-current');
+    }
+    scrollToCurrentMark(curr.turnIdx);
     updateStatus();
   }
 
@@ -6033,10 +6060,10 @@ let _transcriptSearchClose = null;
       const speaker = speakerSelect.value;
       if (!query && !speaker) return;
       const key = query.toLowerCase() + '|' + speaker;
-      if (!matchIndices.length || key !== (input.dataset.lastSearchKey ?? '')) {
+      if (!matchEntries.length || key !== (input.dataset.lastSearchKey ?? '')) {
         computeMatches();
         input.dataset.lastSearchKey = key;
-        if (matchIndices.length) { matchCursor = -1; goToMatch(e.shiftKey ? -1 : 1); }
+        if (matchEntries.length) { matchCursor = -1; goToMatch(e.shiftKey ? -1 : 1); }
       } else {
         if (e.shiftKey) goToMatch(-1); else goToMatch(1);
       }
@@ -6046,9 +6073,9 @@ let _transcriptSearchClose = null;
   // Clear stale results as user edits the query (speaker selection is preserved).
   input.addEventListener('input', () => {
     refsSelect.value = '';
-    if (matchIndices.length || input.dataset.lastSearchKey) {
+    if (matchEntries.length || input.dataset.lastSearchKey) {
       clearHighlights();
-      matchIndices = [];
+      matchEntries = [];
       matchCursor = -1;
       delete input.dataset.lastSearchKey;
       updateStatus();
@@ -6059,10 +6086,10 @@ let _transcriptSearchClose = null;
     const query   = input.value.trim();
     const speaker = speakerSelect.value;
     if (!query && !speaker) return;
-    if (!matchIndices.length) {
+    if (!matchEntries.length) {
       computeMatches();
       input.dataset.lastSearchKey = query.toLowerCase() + '|' + speaker;
-      if (matchIndices.length) { matchCursor = -1; goToMatch(delta > 0 ? 1 : -1); }
+      if (matchEntries.length) { matchCursor = -1; goToMatch(delta > 0 ? 1 : -1); }
     } else {
       goToMatch(delta);
     }
@@ -6073,7 +6100,7 @@ let _transcriptSearchClose = null;
 
   // Clear highlights whenever a new transcript is loaded
   document.addEventListener('transcriptloaded', () => {
-    matchIndices = [];
+    matchEntries = [];
     matchCursor  = -1;
     input.value  = '';
     statusEl.textContent = '';
@@ -6122,7 +6149,7 @@ let _transcriptSearchClose = null;
     if (!ref) {
       input.value = '';
       clearHighlights();
-      matchIndices = [];
+      matchEntries = [];
       matchCursor = -1;
       delete input.dataset.lastSearchKey;
       updateStatus();
@@ -6132,19 +6159,19 @@ let _transcriptSearchClose = null;
     input.value = ref;
     // Clear stale state and run search immediately
     clearHighlights();
-    matchIndices = [];
+    matchEntries = [];
     matchCursor = -1;
     delete input.dataset.lastSearchKey;
     computeMatches();
     input.dataset.lastSearchKey = ref.toLowerCase() + '|' + speakerSelect.value;
-    if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+    if (matchEntries.length) { matchCursor = -1; goToMatch(1); }
     input.focus();
   });
 
   speakerSelect.addEventListener('change', () => {
     // Re-run search with updated speaker filter.
     clearHighlights();
-    matchIndices = [];
+    matchEntries = [];
     matchCursor = -1;
     delete input.dataset.lastSearchKey;
     const query   = input.value.trim();
@@ -6152,7 +6179,7 @@ let _transcriptSearchClose = null;
     if (query || speaker) {
       computeMatches();
       input.dataset.lastSearchKey = query.toLowerCase() + '|' + speaker;
-      if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+      if (matchEntries.length) { matchCursor = -1; goToMatch(1); }
     } else {
       updateStatus();
     }
@@ -6175,12 +6202,12 @@ let _transcriptSearchClose = null;
     }
     input.value = query;
     clearHighlights();
-    matchIndices = [];
+    matchEntries = [];
     matchCursor  = -1;
     delete input.dataset.lastSearchKey;
     computeMatches();
     input.dataset.lastSearchKey = query.trim().toLowerCase() + '|' + speakerSelect.value;
-    if (matchIndices.length) {
+    if (matchEntries.length) {
       matchCursor = -1;
       // Defer scroll one frame so input.focus() inside openSearch() doesn't
       // compete with scrollIntoView and win.
@@ -6309,26 +6336,29 @@ let _navSearchActivate = null;
     return out;
   }
 
-  // Justice entries in the extended loc array use groups of 4:
-  //   [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, e2, t2, p2, n2, ...]
-  // where each group (e, t, p, nid) is the first occurrence of the word by that justice.
+  // Justice entries in the extended loc array use variable-length groups:
+  //   [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, c1, e1b, t1b, ..., e2, t2, p2, n2, c2, ...]
+  // Each group starts with (e, t, p, nid, count): the first occurrence plus total distinct-turn count.
+  // When count > 1, (count-1) additional (e, t) pairs follow before the next group.
+  // Group stride: 5 + 2*(count-1) elements.
 
-  // Returns the 1-based word positions for a given justice nid.
-  function _justicePositionsForNid(loc, nid) {
-    if (!loc || loc.length <= 3) return [];
-    const positions = [];
-    for (let i = 3; i + 3 < loc.length; i += 4) {
-      if (loc[i + 3] === nid) positions.push(loc[i + 2]);
-    }
-    return positions;
-  }
-
-  // Returns the [eventIdx, turnNum] for the first occurrence of the word by a given
-  // justice nid, for use as a navigation target. Returns null if not found.
-  function _justiceFirstLocForNid(loc, nid) {
+  // Returns {e, t, p, turns} for a given justice nid, where turns is a Set of (e*1e6+t) values.
+  // Returns null if the nid is not found.
+  function _justiceDataForNid(loc, nid) {
     if (!loc || loc.length <= 3) return null;
-    for (let i = 3; i + 3 < loc.length; i += 4) {
-      if (loc[i + 3] === nid) return [loc[i], loc[i + 1]];
+    let i = 3;
+    while (i + 4 < loc.length) {
+      const count = loc[i + 4];
+      if (loc[i + 3] === nid) {
+        const turns = new Set();
+        turns.add(loc[i] * 1e6 + loc[i + 1]);
+        for (let k = 0; k < count - 1; k++) {
+          const ai = i + 5 + 2 * k;
+          if (ai + 1 < loc.length) turns.add(loc[ai] * 1e6 + loc[ai + 1]);
+        }
+        return { e: loc[i], t: loc[i + 1], p: loc[i + 2], turns };
+      }
+      i += 5 + 2 * Math.max(0, count - 1);
     }
     return null;
   }
@@ -6434,33 +6464,35 @@ let _navSearchActivate = null;
       }
     }
 
-    // Apply justice filter: keep only cases where every token has a recorded first
-    // occurrence by the specified justice, and those positions are strictly increasing
-    // (matching the order the words were typed in the query).
-    // For matching cases, replace the nav loc with the justice's first (event, turn)
-    // for the first search token so clicking a result lands on the right turn.
+    // Apply justice filter: keep only cases where the specified justice says ALL query
+    // words in at least one common turn (turn-set intersection).  The count equals the
+    // number of turns where the justice says all words; the nav loc points to the
+    // justice's first occurrence of the first search token.
     if (keywordMode && justiceNid !== undefined && combined?.size) {
       if (justiceNid === null) {
         combined = new Map(); // unrecognised justice name → no results
       } else {
         const filtered = new Map();
         for (const [ref, loc] of combined) {
-          let prevPos = -1;
+          let intersection = null; // Set of (e*1e6+t) values common to all tokens
+          let firstData = null;    // {e,t} nav target from token 0
           let ok = true;
-          let navLoc = loc;
           for (let ti = 0; ti < tokenLocs.length; ti++) {
-            const rawLoc = tokenLocs[ti].get(ref);
-            const positions = _justicePositionsForNid(rawLoc, justiceNid);
-            if (!positions.length) { ok = false; break; }
-            const p = positions[0];
-            if (p <= prevPos) { ok = false; break; }
-            prevPos = p;
-            if (ti === 0) {
-              const jl = _justiceFirstLocForNid(rawLoc, justiceNid);
-              if (jl) navLoc = [jl[0], jl[1], loc ? (loc[2] || 0) : 0];
+            const jd = _justiceDataForNid(tokenLocs[ti].get(ref), justiceNid);
+            if (!jd) { ok = false; break; }
+            if (intersection === null) {
+              intersection = jd.turns;
+              firstData = jd;
+            } else {
+              const next = new Set([...intersection].filter(x => jd.turns.has(x)));
+              intersection = next;
             }
           }
-          if (ok) filtered.set(ref, navLoc);
+          if (ok && intersection && intersection.size > 0) {
+            filtered.set(ref, firstData
+              ? [firstData.e, firstData.t, intersection.size]
+              : [loc[0], loc[1], intersection.size]);
+          }
         }
         combined = filtered;
       }
@@ -6615,20 +6647,23 @@ let _navSearchActivate = null;
     if (e.key === 'Escape') { closeNavSearch(); return; }
     if (e.key === 'Enter') {
       const val = navSearchInput.value.trim();
-      if (val.startsWith('"')) {
-        const findQuery = val.slice(1).replace(/"$/, '').trim();
-        if (findQuery) {
-          const url = new URL(location.href);
-          url.searchParams.set('find', findQuery);
-          ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
-          history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
-        }
+      if (val.startsWith('"') && val.length > 1) {
+        // Store the full query verbatim so the URL round-trips correctly.
+        const url = new URL(location.href);
+        url.searchParams.set('find', val);
+        url.searchParams.delete('speaker'); // embedded in find, not needed separately
+        ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
+        history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
       }
     }
   });
 
   _navSearchActivate = (findQuery, justiceQuery) => {
-    const q = '"' + findQuery + '"' + (justiceQuery ? ' ' + justiceQuery : '');
+    // findQuery may be the full query (e.g. '"strict scrutiny" scalia') or just keywords.
+    // If it already starts with '"', use it verbatim; otherwise wrap in quotes and append justice.
+    const q = findQuery.startsWith('"')
+      ? findQuery
+      : '"' + findQuery + '"' + (justiceQuery ? ' ' + justiceQuery : '');
     openNavSearch();
     navSearchInput.value = q;
     runNavSearch(q);
