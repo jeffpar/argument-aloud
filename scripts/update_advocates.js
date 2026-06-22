@@ -80,7 +80,7 @@ layout: pane
 
 # {{ page.title }}
 
-As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} {% if page.case_count == 1 %}case{% else %}cases{% endif %}, the last argument occurring on {{ page.last_argument }}.
 `;
 
 function relRepo(p) {
@@ -1519,6 +1519,7 @@ function syncJusticePages({ verbose = false } = {}) {
         dates.sort();
         advocateStats.set(adv.id, {
             caseCount: adv.cases.length,
+            firstArgument: dates.length ? isoToFullDate(dates[0]) : '',
             lastArgument: dates.length ? isoToFullDate(dates[dates.length - 1]) : '',
         });
     }
@@ -1535,6 +1536,7 @@ function syncJusticePages({ verbose = false } = {}) {
         const mdPath     = path.join(dir, 'index.md');
         const stats      = advocateStats.get(id) || {};
         const caseCount  = stats.caseCount || 0;
+        const firstArg   = stats.firstArgument || '';
         const lastArg    = stats.lastArgument || '';
 
         // Build "Served from X to Y" text, handling single or multiple tenures.
@@ -1554,8 +1556,19 @@ function syncJusticePages({ verbose = false } = {}) {
             ensureDir(dir);
             let text = `---\ntitle: ${title}\nlayout: pane`;
             if (caseCount)  text += `\ncase_count: ${caseCount}`;
+            if (firstArg)   text += `\nfirst_argument: ${firstArg}`;
             if (lastArg)    text += `\nlast_argument: ${lastArg}`;
-            text += `\n---\n\n# {{ page.title }}\n\n${servedText}\n`;
+            const body = [
+                '<div style="display:flex; gap:1em;">',
+                '<div style="flex:2; min-width:0; overflow:hidden;">',
+                '<h1>{{ page.title }}</h1>',
+                `<p>${servedText}</p>`,
+                "{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}case on {{ page.last_argument }}{% else %}cases from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}",
+                '</div>',
+                '<img src="portrait.jpg" alt="{{ page.title }}" style="flex:1; min-width:0; width:100%; height:auto; display:block; align-self:flex-start;" onerror="this.style.display=\'none\'">',
+                '</div>',
+            ].join('\n');
+            text += `\n---\n${body}\n`;
             writeText(mdPath, text);
             created++;
             if (verbose) console.log(`  Created justice page: ${relRepo(mdPath)}`);
@@ -1564,7 +1577,8 @@ function syncJusticePages({ verbose = false } = {}) {
             const original = mdText;
             if (caseCount) {
                 mdText = setFrontMatterScalar(mdText, 'case_count', caseCount);
-                if (lastArg) mdText = setFrontMatterScalar(mdText, 'last_argument', lastArg, 'case_count');
+                if (firstArg) mdText = setFrontMatterScalar(mdText, 'first_argument', firstArg, 'case_count');
+                if (lastArg)  mdText = setFrontMatterScalar(mdText, 'last_argument', lastArg, 'first_argument');
             }
             if (mdText !== original) {
                 writeText(mdPath, mdText);
