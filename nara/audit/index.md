@@ -82,7 +82,7 @@ These exceptions are what consume 90% of the time required to audit a single ter
 Working backwards before 1955, we will lose the benefit of any Oyez or NARA audio records that we can cross-reference, so the auditing process needs to incorporate other sources of data as well, such as:
 
   - [Library of Congress: United States Reports](https://www.loc.gov/collections/united-states-reports/)
-  - [The Supreme Court Database](http://scdb.wustl.edu)
+  - [The Supreme Court Database](https://scdb.la.psu.edu)
 
 ## The Supreme Court Database Revisited
 

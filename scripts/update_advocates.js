@@ -2497,45 +2497,55 @@ function _buildAltCiteMap() {
     return map;
 }
 
-// Parse a cases.txt file into an array of { raw, usCites[] } objects.
-// Handles:
-//   - Header paragraph lines before the first list item
-//   - List items starting with "  - " (with optional leading asterisks)
-//   - Continuation lines (including those that start "  - (" after a line wrap)
-//   - Multiple citations per entry separated by ";" or ","
-//   - OCR artifacts in volume numbers (1o, IT, ı1, g, …)
-function _parseCasesTxt(text, altCiteMap) {
-    // Reporter names recognised in nominative citations.
-    const CITE_RE = /([0-9ııoOiITg]+)\s+(Cranch|Wheaton|Peters|Howard|Black|Wallace|Dallas)\s+(\d+)/gi;
+// Parse an index.md file's markdown list items into an array of objects:
+//   { lineIdx, indent, prefix, title, usCites[], alreadyLinked }
+// 'indent'       = the "  - " list prefix
+// 'prefix'       = leading asterisks before the title (e.g. "**")
+// 'title'        = the case title text (stripped of asterisks and bracket notes)
+// 'usCites'      = resolved US Report citation strings (e.g. "17 U.S. 316")
+// 'alreadyLinked'= true if the title is already wrapped in a markdown link
+function _parseIndexMdItems(text, altCiteMap) {
+    const CITE_RE = /([0-9ıoOiITg]+)\s+(Cranch|Wheaton|Peters|Howard|Black|Wallace|Dallas)\s+(\d+)/gi;
 
-    // Collect raw entry strings, merging continuation lines.
-    const rawEntries = [];
-    let current = null;
-    for (const line of text.split('\n')) {
-        const listMatch = /^\s*-\s+(.*)/.exec(line);
-        if (listMatch) {
-            const content = listMatch[1].replace(/^\*+/, '').trim();
-            // A line starting "  - (" is a continuation of the previous entry
-            // (the source text hard-wrapped with a leading dash).
-            if (current !== null && content.startsWith('(')) {
-                current += ' ' + content;
-            } else {
-                if (current !== null) rawEntries.push(current);
-                current = content;
-            }
-        } else if (current !== null && line.trim()) {
-            current += ' ' + line.trim();
-        }
-    }
-    if (current !== null) rawEntries.push(current);
+    const lines = text.split('\n');
+    const items = [];
 
-    // Resolve each raw entry to US cite strings.
-    const groups = [];
-    for (const raw of rawEntries) {
+    for (let i = 0; i < lines.length; i++) {
+        const line      = lines[i];
+        const listMatch = /^(\s*-\s+)(.*)/.exec(line);
+        if (!listMatch) continue;
+
+        const indent  = listMatch[1];
+        const content = listMatch[2];
+
+        // Detect already-linked titles: "**[Title](url)" or "[Title](url)"
+        const alreadyLinked = /^\*{0,2}\[/.test(content);
+
+        // Extract leading asterisks
+        const prefixMatch = /^(\*+)/.exec(content);
+        const prefix      = prefixMatch ? prefixMatch[1] : '';
+        const afterPrefix = content.slice(prefix.length);
+
+        // Find where the title ends: first citation or bracket note
+        CITE_RE.lastIndex = 0;
+        const firstCiteMatch = CITE_RE.exec(afterPrefix);
+        CITE_RE.lastIndex = 0;
+        const bracketPos = afterPrefix.indexOf('[');
+        let titleEnd = afterPrefix.length;
+        if (firstCiteMatch && firstCiteMatch.index < titleEnd) titleEnd = firstCiteMatch.index;
+        if (bracketPos !== -1 && bracketPos < titleEnd) titleEnd = bracketPos;
+
+        // Strip trailing separators (, space) to get clean title; do NOT strip
+        // trailing periods so that abbreviations like "Co." stay intact.
+        const rawTitle = afterPrefix.slice(0, titleEnd).replace(/[,\s]+$/, '').trim();
+        // Strip any residual bracket note from raw title
+        const title = rawTitle.replace(/\s*\[.*$/, '').trim();
+
+        // Collect all resolved usCites from this line
         const usCites = [];
         CITE_RE.lastIndex = 0;
         let m;
-        while ((m = CITE_RE.exec(raw)) !== null) {
+        while ((m = CITE_RE.exec(afterPrefix)) !== null) {
             const nomVol = _normalizeNomVol(m[1]);
             if (nomVol == null) continue;
             const lookupKey = `${nomVol} ${m[2].toLowerCase()}`;
@@ -2543,9 +2553,12 @@ function _parseCasesTxt(text, altCiteMap) {
             if (usVol == null) continue;
             usCites.push(`${usVol} U.S. ${m[3]}`);
         }
-        if (usCites.length) groups.push({ raw, usCites });
+        CITE_RE.lastIndex = 0;
+
+        items.push({ lineIdx: i, indent, prefix, title, usCites, alreadyLinked });
     }
-    return groups;
+
+    return items;
 }
 
 // Add an advocate to a case's argument or reargument event, creating the event
@@ -2581,9 +2594,10 @@ function _addAdvocateEvent(c, type, advocateName, source = 'manual') {
     return true;
 }
 
-// Process "--add NAME": find the featured folder for NAME, parse its cases.txt,
+// Process "--add NAME": find the featured folder for NAME, parse its index.md,
 // resolve every nominative citation to a usCite, then add advocate events to
-// the matching cases in the terms/ tree.
+// the matching cases in the terms/ tree.  Also rewrites index.md to wrap each
+// matched case title in a markdown link.
 async function addFeaturedAdvocate(name, { verbose = false } = {}) {
     if (!name) {
         console.error('--add requires a name argument, e.g. --add "DANIEL WEBSTER"');
@@ -2593,49 +2607,72 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
     const advocateName = name.trim().toUpperCase();
     const folderKey    = advocateName.toLowerCase().replace(/\s+/g, '_');
     const featuredDir  = path.join(FEATURED_DIR, folderKey);
-    const casesTxtPath = path.join(featuredDir, 'cases.txt');
+    const indexMdPath  = path.join(featuredDir, 'index.md');
 
-    if (!exists(casesTxtPath)) {
-        console.error(`cases.txt not found: ${relRepo(casesTxtPath)}`);
+    if (!exists(indexMdPath)) {
+        console.error(`index.md not found: ${relRepo(indexMdPath)}`);
         process.exit(1);
     }
 
     console.log(`Adding advocate: ${advocateName}`);
 
-    const casesTxt   = readText(casesTxtPath);
-    const sourceMatch = /^Source:\s*(\S+)/mi.exec(casesTxt);
-    const source     = sourceMatch ? sourceMatch[1] : 'manual';
+    const indexMdText = readText(indexMdPath);
+    const sourceMatch = /^Source\s+ID:\s*`(\S+)`/mi.exec(indexMdText)
+                     || /^Source:\s*(\S+)/mi.exec(indexMdText);
+    const source      = sourceMatch ? sourceMatch[1] : 'manual';
     if (sourceMatch) console.log(`Source: ${source}`);
 
     const altCiteMap = _buildAltCiteMap();
-    const groups     = _parseCasesTxt(casesTxt, altCiteMap);
-    console.log(`Parsed ${groups.length} citation groups from ${relRepo(casesTxtPath)}`);
+    const items      = _parseIndexMdItems(indexMdText, altCiteMap);
+    console.log(`Parsed ${items.length} list items from ${relRepo(indexMdPath)}`);
 
-    // Build usCite → [{term, casesPath, caseIdx}] index across all terms.
+    // Build usCite → [{term, casesPath, caseIdx, caseId, caseTitle}] index and
+    // normalized title → [{…}] index across all terms.
     const usCiteIndex = new Map();
+    const titleIndex  = new Map();
     for (const termDir of listSubdirs(TERMS_DIR)) {
         const casesPath = path.join(termDir, 'cases.json');
         if (!exists(casesPath)) continue;
         const cases = readJson(casesPath);
         const term  = path.basename(termDir);
         for (let i = 0; i < cases.length; i++) {
-            const cite = cases[i].usCite;
-            if (!cite) continue;
-            if (!usCiteIndex.has(cite)) usCiteIndex.set(cite, []);
-            usCiteIndex.get(cite).push({ term, casesPath, caseIdx: i });
+            const c         = cases[i];
+            const caseId    = String(c.id || '').trim();
+            const caseTitle = String(c.title || '').split('|')[0].trim();
+            const entry     = { term, casesPath, caseIdx: i, caseId, caseTitle };
+            const cite      = c.usCite;
+            if (cite) {
+                if (!usCiteIndex.has(cite)) usCiteIndex.set(cite, []);
+                usCiteIndex.get(cite).push({ ...entry, usCite: cite });
+            }
+            if (caseTitle) {
+                const norm = caseTitle.toLowerCase().replace(/\s+/g, ' ');
+                if (!titleIndex.has(norm)) titleIndex.set(norm, []);
+                titleIndex.get(norm).push({ ...entry, usCite: cite });
+            }
         }
     }
 
-    // Collect which case indices need updating, grouped by cases.json path.
-    const pending = new Map();   // casesPath → Set<caseIdx>
-    let matched = 0, skipped = 0;
-    for (const { raw, usCites } of groups) {
-        for (const usCite of usCites) {
+    // For each list item, match by citation first, then by title.
+    const pending   = new Map();  // casesPath → Set<caseIdx>
+    const lineLinks = new Map();  // lineIdx → url (for index.md link insertion)
+    let matched = 0, notFound = 0;
+
+    for (const item of items) {
+        let primaryHit  = null;
+        let matchMethod = null;
+
+        // ── Citation match ──────────────────────────────────────────────────
+        for (const usCite of item.usCites) {
             const hits = usCiteIndex.get(usCite);
             if (!hits?.length) {
-                if (verbose) console.log(`  NOT FOUND: ${usCite}  («${raw.slice(0, 60)}»)`);
-                skipped++;
+                console.log(`  NOT FOUND: ${usCite}  («${item.title}»)`);
+                notFound++;
                 continue;
+            }
+            if (!primaryHit) {
+                primaryHit  = hits[0];
+                matchMethod = 'citation';
             }
             matched++;
             for (const { casesPath, caseIdx } of hits) {
@@ -2643,17 +2680,52 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
                 pending.get(casesPath).add(caseIdx);
             }
         }
-    }
-    console.log(`Matched: ${matched}  Not found: ${skipped}`);
 
-    // Apply updates, one cases.json file at a time.
+        // ── Title match (fallback when no citation produced a hit) ──────────
+        if (!primaryHit && item.title) {
+            const norm      = item.title.toLowerCase().replace(/\s+/g, ' ');
+            const titleHits = titleIndex.get(norm);
+            if (titleHits?.length) {
+                primaryHit  = titleHits[0];
+                matchMethod = 'title';
+                for (const { casesPath, caseIdx } of titleHits) {
+                    if (!pending.has(casesPath)) pending.set(casesPath, new Set());
+                    pending.get(casesPath).add(caseIdx);
+                }
+                // Verify there is also a citation match when matched by title.
+                const hitCites  = titleHits.map(h => h.usCite).filter(Boolean);
+                const confirmed = item.usCites.some(u => hitCites.includes(u));
+                if (!confirmed) {
+                    console.log(`  WARNING [title match, no citation confirm]: «${item.title}» → ${primaryHit.term}/${primaryHit.caseId}`);
+                }
+                matched++;
+            }
+        }
+
+        // ── Warn on title mismatch when matched by citation ─────────────────
+        if (primaryHit && matchMethod === 'citation' && item.title) {
+            const normOur  = primaryHit.caseTitle.toLowerCase().replace(/\s+/g, ' ');
+            const normItem = item.title.toLowerCase().replace(/\s+/g, ' ');
+            if (normOur !== normItem) {
+                console.log(`  WARNING [title mismatch]: «${item.title}» → «${primaryHit.caseTitle}» (${primaryHit.term}/${primaryHit.caseId})`);
+            }
+        }
+
+        // ── Record link for index.md update ────────────────────────────────
+        if (primaryHit && !item.alreadyLinked) {
+            lineLinks.set(item.lineIdx, `/courts/ussc?term=${primaryHit.term}&case=${primaryHit.caseId}`);
+        }
+    }
+    console.log(`Matched: ${matched}  Not found: ${notFound}`);
+
+    // Apply event updates, one cases.json at a time.
     let filesChanged = 0;
     for (const [casesPath, indices] of pending) {
-        const cases   = readJson(casesPath);
-        let changed   = false;
+        const cases  = readJson(casesPath);
+        let changed  = false;
         for (const idx of indices) {
-            const c   = cases[idx];
-            let mod   = false;
+            const c  = cases[idx];
+            let mod  = false;
             for (const type of ['argument', 'reargument']) {
                 if (_addAdvocateEvent(c, type, advocateName, source)) mod = true;
             }
@@ -2669,7 +2741,22 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
             console.log(`  wrote ${relRepo(casesPath)}`);
         }
     }
-    console.log(`Done — updated ${filesChanged} file(s)`);
+    console.log(`Done — updated ${filesChanged} cases.json file(s)`);
+
+    // Rewrite index.md, wrapping matched case titles in markdown links.
+    if (lineLinks.size > 0) {
+        const lines = indexMdText.split('\n');
+        for (const [lineIdx, url] of lineLinks) {
+            const item = items.find(it => it.lineIdx === lineIdx);
+            if (!item) continue;
+            const afterPrefix = lines[lineIdx].slice(item.indent.length + item.prefix.length);
+            lines[lineIdx] = item.indent + item.prefix
+                + `[${item.title}](${url})`
+                + afterPrefix.slice(item.title.length);
+        }
+        writeText(indexMdPath, lines.join('\n'));
+        console.log(`Updated ${lineLinks.size} link(s) in ${relRepo(indexMdPath)}`);
+    }
 }
 
 async function main() {

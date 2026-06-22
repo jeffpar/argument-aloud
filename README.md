@@ -12,7 +12,7 @@ This website barely scratches the surface of what is possible, but hopefully it 
 
 ## For The Sake of Accuracy
 
-We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov) and [The Oyez Project](https://www.oyez.org); however, authoritative does not mean error-free.  For example:
+We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](https://www.supremecourt.gov), as well as the [The National Archives](https://www.archives.gov), [The Oyez Project](https://www.oyez.org), and [The Supreme Court Database](https://scdb.la.psu.edu); however, authoritative does not mean error-free.  For example:
 
   - The transcript for [Rogers v. Tennessee (No. 99-6218)](https://www.supremecourt.gov/pdfs/transcripts/2000/99-6218.pdf) is incorrectly dated [11/08/00](https://www.supremecourt.gov/oral_arguments/argument_transcript/2000); the correct date is November 1, 2000.
 
