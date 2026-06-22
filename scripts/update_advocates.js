@@ -39,6 +39,7 @@ const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_
 const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
+const JUSTICES_ALL_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'all');
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
 const JOURNALS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
 const _SPEAKERS_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
@@ -79,7 +80,7 @@ layout: pane
 
 # {{ page.title }}
 
-As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
 `;
 
 function relRepo(p) {
@@ -904,7 +905,17 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         return (a.name || '').localeCompare(b.name || '');
     });
 
-    const newJson = JSON.stringify(coll, null, 2) + '\n';
+    // Rebuild each group with canonical field order: id, name, details, highlights, cases.
+    // details.page always points to the justice's page; highlights preserves any
+    // hand-authored entries that may have been added to an existing file.
+    const outputColl = coll.map(g => {
+        const id        = g.id || makeAdvocateId(g.name);
+        const details   = g.details   || { page: `/courts/ussc/people/justices/all/${id}` };
+        const highlights = g.highlights || [];
+        return { id, name: g.name, details, highlights, cases: g.cases };
+    });
+
+    const newJson = JSON.stringify(outputColl, null, 2) + '\n';
     const oldJson = exists(JUSTICE_ADVOCATES_FILE) ? readText(JUSTICE_ADVOCATES_FILE) : '';
     if (newJson !== oldJson) {
         writeText(JUSTICE_ADVOCATES_FILE, newJson);
@@ -1471,6 +1482,103 @@ function isoToFullDate(iso) {
     const mm = /^(\d{4})-(\d{2})-(\d{2})/.exec(d);
     if (!mm) return '';
     return `${_FULL_MONTHS[+mm[2] - 1]} ${+mm[3]}, ${mm[1]}`;
+}
+
+// ── Justice pages sync ────────────────────────────────────────────────────────
+
+/** Create/update courts/ussc/people/justices/all/<id>/index.md for every justice
+ *  in data/ussc/justices.json.  Existing files have only case_count and
+ *  last_argument updated in their front matter; the body is left untouched. */
+function syncJusticePages({ verbose = false } = {}) {
+    const justicesJsonPath = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
+    if (!exists(justicesJsonPath)) {
+        console.log('  NOTE: data/ussc/justices.json not found, skipping justice pages');
+        return;
+    }
+    let justicesData;
+    try { justicesData = readJson(justicesJsonPath); }
+    catch (e) { console.error(`  ERROR reading justices.json: ${e.message}`); return; }
+
+    // Build id -> { caseCount, lastArgument } from justice_advocates.json.
+    let justiceAdvocates = [];
+    if (exists(JUSTICE_ADVOCATES_FILE)) {
+        try { justiceAdvocates = readJson(JUSTICE_ADVOCATES_FILE); } catch { justiceAdvocates = []; }
+    }
+    const advocateStats = new Map();
+    for (const adv of justiceAdvocates) {
+        const dates = [];
+        for (const c of adv.cases || []) {
+            for (const field of ['argument', 'reargument']) {
+                const raw = c[field] || '';
+                for (const part of raw.split(',')) {
+                    const d = part.trim();
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) dates.push(d);
+                }
+            }
+        }
+        dates.sort();
+        advocateStats.set(adv.id, {
+            caseCount: adv.cases.length,
+            lastArgument: dates.length ? isoToFullDate(dates[dates.length - 1]) : '',
+        });
+    }
+
+    ensureDir(JUSTICES_ALL_DIR);
+    let created = 0, updated = 0;
+
+    for (const [canonicalName, entry] of Object.entries(justicesData)) {
+        const id         = makeAdvocateId(canonicalName);
+        const isChief    = (entry.titles || []).some(t => t.startsWith('CHIEF JUSTICE'));
+        const prefix     = isChief ? 'Chief Justice ' : 'Justice ';
+        const title      = prefix + properCase(canonicalName);
+        const dir        = path.join(JUSTICES_ALL_DIR, id);
+        const mdPath     = path.join(dir, 'index.md');
+        const stats      = advocateStats.get(id) || {};
+        const caseCount  = stats.caseCount || 0;
+        const lastArg    = stats.lastArgument || '';
+
+        // Build "Served from X to Y" text, handling single or multiple tenures.
+        const tenures = entry.tenures
+            ? entry.tenures
+            : [{ dateStart: entry.dateStart || '', dateStop: entry.dateStop || '' }];
+        const servedPhrases = tenures.map(t => {
+            const from = isoToFullDate(t.dateStart || '');
+            const to   = t.dateStop ? isoToFullDate(t.dateStop) : 'present';
+            return `from ${from} to ${to}`;
+        });
+        const servedText = servedPhrases.length > 1
+            ? `Served ${servedPhrases.slice(0, -1).join(', ')} and ${servedPhrases.at(-1)}.`
+            : `Served ${servedPhrases[0]}.`;
+
+        if (!exists(mdPath)) {
+            ensureDir(dir);
+            let text = `---\ntitle: ${title}\nlayout: pane`;
+            if (caseCount)  text += `\ncase_count: ${caseCount}`;
+            if (lastArg)    text += `\nlast_argument: ${lastArg}`;
+            text += `\n---\n\n# {{ page.title }}\n\n${servedText}\n`;
+            writeText(mdPath, text);
+            created++;
+            if (verbose) console.log(`  Created justice page: ${relRepo(mdPath)}`);
+        } else {
+            let mdText = readText(mdPath);
+            const original = mdText;
+            if (caseCount) {
+                mdText = setFrontMatterScalar(mdText, 'case_count', caseCount);
+                if (lastArg) mdText = setFrontMatterScalar(mdText, 'last_argument', lastArg, 'case_count');
+            }
+            if (mdText !== original) {
+                writeText(mdPath, mdText);
+                updated++;
+                if (verbose) console.log(`  Updated justice page: ${relRepo(mdPath)}`);
+            }
+        }
+    }
+
+    if (created || updated) {
+        console.log(`Justice pages: created ${created}, updated ${updated}`);
+    } else {
+        console.log('Justice pages: all up to date');
+    }
 }
 
 // ── Bulk advocate sync (exported for use by update_cases.js) ─────────────────
@@ -2473,6 +2581,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
 
     // ── Justice-advocates collection sync ────────────────────────────────
     syncJusticeAdvocates(termDirs, { verbose });
+    syncJusticePages({ verbose });
 
     // Duplicate-argument check.
     const dupSeen = new Map();

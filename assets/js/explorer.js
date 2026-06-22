@@ -4326,9 +4326,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     // For embedded format (cases is an array): build items from the in-memory array.
     // For split format (cases is a count, id is set): fetch the per-group JSON file.
     let _casesLoaded = false;
-    let _groupLink = group.link ?? null;
-    let _groupDocument = null;
+    let _groupLink = group.link ?? group.details?.page ?? null;
+    let _groupDocument = group.details?.web ?? null;
     groupLi._groupLink = _groupLink;
+    groupLi._groupDocument = _groupDocument;
     const _ensureGroupCases = async () => {
       if (_casesLoaded) return;
       _casesLoaded = true;
@@ -6948,6 +6949,7 @@ async function restoreFromURL() {
         if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
         else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
+        collLi._centerOnGroup?.(groupLi);
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
       }
     }

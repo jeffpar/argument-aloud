@@ -18,7 +18,7 @@ Born in New York to Russian Jewish parents who had just immigrated to the United
 
 [From *[Feminists Who Changed America, 1963-1975](https://archive.org/details/feministswhochan00love/page/298/mode/2up)* by Barbara J. Love]
 
-As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
 
 ## Additional Reading
 

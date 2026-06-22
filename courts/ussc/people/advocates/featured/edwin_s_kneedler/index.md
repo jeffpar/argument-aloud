@@ -4,7 +4,7 @@ layout: pane
 case_count: 160
 last_argument: April 23, 2025
 details:
-  web: https://en.wikipedia.org/wiki/Edwin_Kneedler
+  web_hidden: https://en.wikipedia.org/wiki/Edwin_Kneedler
 highlights:
   - title: "Recognition of Edwin Kneedler's 160 Arguments"
     date: "2025-04-23"
@@ -13,7 +13,7 @@ highlights:
 
 # {{ page.title }}
 
-As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
 
 ---
 

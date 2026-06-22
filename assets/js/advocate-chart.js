@@ -4,9 +4,9 @@
  * @param {string} canvasId   - ID of the <canvas> element to render into
  * @param {string} dataUrl    - URL of the advocates JSON file to fetch
  * @param {string} collection - Collection ID used when building nav links (e.g. 'top_advocates')
- * @param {object} options    - Optional: { limit: N } to cap the number of advocates shown
+ * @param {object} options    - Optional: { limit: N, afterYear: Y } to cap or filter advocates shown
  */
-async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null, summaryId = null, summaryLabel = 'advocates' } = {}) {
+async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null, afterYear = null, summaryId = null, summaryLabel = 'advocates' } = {}) {
   const res = await fetch(dataUrl);
   let advocates = await res.json();
 
@@ -33,6 +33,9 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
       `From ${formatDate(earliest)} to ${formatDate(latest)}, ${advocates.length.toLocaleString()} ${summaryLabel} have argued at the U.S. Supreme Court.`;
   }
 
+  // Filter to advocates whose last argument falls within the requested window.
+  if (afterYear != null) advocates = advocates.filter(a => parseInt(a.dateLast) >= afterYear);
+
   // Sort by cases descending so the most-argued advocates appear at the top
   advocates = [...advocates].sort((a, b) => b.cases - a.cases);
   if (limit != null) advocates = advocates.slice(0, limit);
@@ -54,7 +57,8 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
 
   const allFirsts = advocates.map(a => toDecimalYear(a.dateFirst));
   const allLasts  = advocates.map(a => toDecimalYear(a.dateLast));
-  const minYear   = Math.floor(Math.min(...allFirsts) / 10) * 10;
+  const dataMin   = Math.floor(Math.min(...allFirsts) / 10) * 10;
+  const minYear   = afterYear != null ? Math.max(dataMin, afterYear) : dataMin;
   const maxYear   = Math.ceil(Math.max(...allLasts)   / 10) * 10;
   const maxCases  = Math.max(...advocates.map(a => a.cases));
 
