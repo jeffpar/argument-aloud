@@ -12,6 +12,7 @@
  * Usage:
  *   node scripts/update_advocates.js [--verbose|-v] [--women] [--markdown]
  *                                    [TERM] [--replace OLD NEW]
+ *                                    [--add "ADVOCATE NAME"]
  *
  * © 2026 by Jeff Parsons
  */
@@ -21,7 +22,7 @@ import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 
-import { reorderEvent } from './schema.js';
+import { reorderEvent, reorderCase } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -41,6 +42,7 @@ const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'just
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
 const JOURNALS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
 const _SPEAKERS_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
+const REPORTS_JSON      = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 
 // ── Small helpers ──────────────────────────────────────────────────────────
 
@@ -578,13 +580,14 @@ function _jmBuildCaseIndices(termDirs) {
         for (const c of cases) {
             const raw = String(c.number || '').trim();
             const number = raw.split(',')[0].trim();
-            byKey.set(`${term}/${number}`, c);
+            const effectiveKey = number || String(c.id || '').trim();
+            byKey.set(`${term}/${effectiveKey}`, c);
             const cite = String(c.usCite || '').trim();
             if (cite) byUsCite.set(cite, [term, String(c.number || '')]);
             const title = firstTitle(String(c.title || '').trim());
             if (title) {
                 if (!byTitle.has(title)) byTitle.set(title, []);
-                byTitle.get(title).push([term, number]);
+                byTitle.get(title).push([term, effectiveKey]);
             }
         }
     }
@@ -1638,7 +1641,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const caseEntry = {
                         title: entryTitle,
                         term,
-                        number: subKey || number,
+                        number: subKey || number || c.id,
                         [dateFieldName]: audioDate,
                     };
                     // Internal-only: original consolidated number (used for
@@ -2458,11 +2461,228 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
 
 // ── Main (CLI wrapper) ────────────────────────────────────────────────────────
 
+// ── --add: add a featured advocate's cases to cases.json files ────────────
+
+// Normalize an OCR-corrupted volume-number string (e.g. "1o" → "10", "IT" →
+// "11", dotless-ı → 1, "g" → "9") and return the integer value.
+function _normalizeNomVol(s) {
+    const n = parseInt(
+        s.replace(/ı/g, '1')  // dotless ı → 1
+         .replace(/I/g, '1')       // uppercase I → 1  (IT → 11)
+         .replace(/T/g, '1')       // uppercase T → 1
+         .replace(/[oO]/g, '0')    // letter o/O → 0   (1o → 10)
+         .replace(/g/g, '9'),      // letter g → 9
+        10
+    );
+    return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+// Format an ISO date string as "Month D, YYYY".
+function _fmtDate(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    const MONTHS = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    return `${MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+// Build a map from lowercased alt_citation (e.g. "8 cranch") → US volume number.
+function _buildAltCiteMap() {
+    const map = new Map();
+    const db = exists(REPORTS_JSON) ? readJson(REPORTS_JSON) : {};
+    for (const [key, entry] of Object.entries(db)) {
+        if (entry.alt_citation) {
+            map.set(entry.alt_citation.toLowerCase(), parseInt(key.slice(1), 10));
+        }
+    }
+    return map;
+}
+
+// Parse a cases.txt file into an array of { raw, usCites[] } objects.
+// Handles:
+//   - Header paragraph lines before the first list item
+//   - List items starting with "  - " (with optional leading asterisks)
+//   - Continuation lines (including those that start "  - (" after a line wrap)
+//   - Multiple citations per entry separated by ";" or ","
+//   - OCR artifacts in volume numbers (1o, IT, ı1, g, …)
+function _parseCasesTxt(text, altCiteMap) {
+    // Reporter names recognised in nominative citations.
+    const CITE_RE = /([0-9ııoOiITg]+)\s+(Cranch|Wheaton|Peters|Howard|Black|Wallace|Dallas)\s+(\d+)/gi;
+
+    // Collect raw entry strings, merging continuation lines.
+    const rawEntries = [];
+    let current = null;
+    for (const line of text.split('\n')) {
+        const listMatch = /^\s*-\s+(.*)/.exec(line);
+        if (listMatch) {
+            const content = listMatch[1].replace(/^\*+/, '').trim();
+            // A line starting "  - (" is a continuation of the previous entry
+            // (the source text hard-wrapped with a leading dash).
+            if (current !== null && content.startsWith('(')) {
+                current += ' ' + content;
+            } else {
+                if (current !== null) rawEntries.push(current);
+                current = content;
+            }
+        } else if (current !== null && line.trim()) {
+            current += ' ' + line.trim();
+        }
+    }
+    if (current !== null) rawEntries.push(current);
+
+    // Resolve each raw entry to US cite strings.
+    const groups = [];
+    for (const raw of rawEntries) {
+        const usCites = [];
+        CITE_RE.lastIndex = 0;
+        let m;
+        while ((m = CITE_RE.exec(raw)) !== null) {
+            const nomVol = _normalizeNomVol(m[1]);
+            if (nomVol == null) continue;
+            const lookupKey = `${nomVol} ${m[2].toLowerCase()}`;
+            const usVol = altCiteMap.get(lookupKey);
+            if (usVol == null) continue;
+            usCites.push(`${usVol} U.S. ${m[3]}`);
+        }
+        if (usCites.length) groups.push({ raw, usCites });
+    }
+    return groups;
+}
+
+// Add an advocate to a case's argument or reargument event, creating the event
+// if it doesn't exist yet. Returns true if the case was modified.
+function _addAdvocateEvent(c, type, advocateName, source = 'manual') {
+    const dateField = c[type];
+    if (!dateField) return false;
+    const firstDate = dateField.split(',')[0].trim();
+
+    if (!c.events) c.events = [];
+    let ev = c.events.find(e => e.type === type);
+
+    if (ev) {
+        if ((ev.advocates || []).some(a => a.name === advocateName)) return false;
+        if (!ev.advocates) ev.advocates = [];
+        ev.advocates.push({ name: advocateName });
+        const idx = c.events.indexOf(ev);
+        c.events[idx] = reorderEvent(ev);
+        return true;
+    }
+
+    const label = type === 'reargument' ? 'Reargument' : 'Argument';
+    const newEv = reorderEvent({
+        source,
+        type,
+        date: firstDate,
+        title: `Oral ${label} on ${_fmtDate(firstDate)}`,
+        advocates: [{ name: advocateName }],
+    });
+    c.events.push(newEv);
+    // Keep events sorted by date.
+    c.events.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    return true;
+}
+
+// Process "--add NAME": find the featured folder for NAME, parse its cases.txt,
+// resolve every nominative citation to a usCite, then add advocate events to
+// the matching cases in the terms/ tree.
+async function addFeaturedAdvocate(name, { verbose = false } = {}) {
+    if (!name) {
+        console.error('--add requires a name argument, e.g. --add "DANIEL WEBSTER"');
+        process.exit(1);
+    }
+
+    const advocateName = name.trim().toUpperCase();
+    const folderKey    = advocateName.toLowerCase().replace(/\s+/g, '_');
+    const featuredDir  = path.join(FEATURED_DIR, folderKey);
+    const casesTxtPath = path.join(featuredDir, 'cases.txt');
+
+    if (!exists(casesTxtPath)) {
+        console.error(`cases.txt not found: ${relRepo(casesTxtPath)}`);
+        process.exit(1);
+    }
+
+    console.log(`Adding advocate: ${advocateName}`);
+
+    const casesTxt   = readText(casesTxtPath);
+    const sourceMatch = /^Source:\s*(\S+)/mi.exec(casesTxt);
+    const source     = sourceMatch ? sourceMatch[1] : 'manual';
+    if (sourceMatch) console.log(`Source: ${source}`);
+
+    const altCiteMap = _buildAltCiteMap();
+    const groups     = _parseCasesTxt(casesTxt, altCiteMap);
+    console.log(`Parsed ${groups.length} citation groups from ${relRepo(casesTxtPath)}`);
+
+    // Build usCite → [{term, casesPath, caseIdx}] index across all terms.
+    const usCiteIndex = new Map();
+    for (const termDir of listSubdirs(TERMS_DIR)) {
+        const casesPath = path.join(termDir, 'cases.json');
+        if (!exists(casesPath)) continue;
+        const cases = readJson(casesPath);
+        const term  = path.basename(termDir);
+        for (let i = 0; i < cases.length; i++) {
+            const cite = cases[i].usCite;
+            if (!cite) continue;
+            if (!usCiteIndex.has(cite)) usCiteIndex.set(cite, []);
+            usCiteIndex.get(cite).push({ term, casesPath, caseIdx: i });
+        }
+    }
+
+    // Collect which case indices need updating, grouped by cases.json path.
+    const pending = new Map();   // casesPath → Set<caseIdx>
+    let matched = 0, skipped = 0;
+    for (const { raw, usCites } of groups) {
+        for (const usCite of usCites) {
+            const hits = usCiteIndex.get(usCite);
+            if (!hits?.length) {
+                if (verbose) console.log(`  NOT FOUND: ${usCite}  («${raw.slice(0, 60)}»)`);
+                skipped++;
+                continue;
+            }
+            matched++;
+            for (const { casesPath, caseIdx } of hits) {
+                if (!pending.has(casesPath)) pending.set(casesPath, new Set());
+                pending.get(casesPath).add(caseIdx);
+            }
+        }
+    }
+    console.log(`Matched: ${matched}  Not found: ${skipped}`);
+
+    // Apply updates, one cases.json file at a time.
+    let filesChanged = 0;
+    for (const [casesPath, indices] of pending) {
+        const cases   = readJson(casesPath);
+        let changed   = false;
+        for (const idx of indices) {
+            const c   = cases[idx];
+            let mod   = false;
+            for (const type of ['argument', 'reargument']) {
+                if (_addAdvocateEvent(c, type, advocateName, source)) mod = true;
+            }
+            if (mod) {
+                cases[idx] = reorderCase(c);
+                changed = true;
+                if (verbose) console.log(`  ${c.usCite}  ${relRepo(casesPath)}`);
+            }
+        }
+        if (changed) {
+            writeJson(casesPath, cases);
+            filesChanged++;
+            console.log(`  wrote ${relRepo(casesPath)}`);
+        }
+    }
+    console.log(`Done — updated ${filesChanged} file(s)`);
+}
+
 async function main() {
     const argv = process.argv.slice(2);
     const verbose       = argv.includes('--verbose') || argv.includes('-v');
     const showWomen     = argv.includes('--women');
     const markdownMode  = argv.includes('--markdown');
+
+    const addIdx      = argv.indexOf('--add');
+    if (addIdx !== -1) {
+        await addFeaturedAdvocate((argv[addIdx + 1] || '').trim(), { verbose });
+        return;
+    }
 
     const termArg     = argv.find(a => /^\d{4}-\d{2}$/.test(a));
     const replaceIdx  = argv.indexOf('--replace');

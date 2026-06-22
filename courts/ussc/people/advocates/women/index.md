@@ -10,7 +10,7 @@ layout: pane
   <canvas id="women-chart"></canvas>
 </div>
 
-<script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100, summaryId: 'women-summary' });</script>
+<script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100, summaryId: 'women-summary', summaryLabel: 'women' });</script>
 
 ## Data Sources and Methodologies
 

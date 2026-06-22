@@ -6,9 +6,20 @@
  * @param {string} collection - Collection ID used when building nav links (e.g. 'top_advocates')
  * @param {object} options    - Optional: { limit: N } to cap the number of advocates shown
  */
-async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null, summaryId = null } = {}) {
+async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null, summaryId = null, summaryLabel = 'advocates' } = {}) {
   const res = await fetch(dataUrl);
   let advocates = await res.json();
+
+  // Normalize advocates whose `cases` is an array of case objects (e.g. justice_advocates.json)
+  // into the flat { cases, dateFirst, dateLast } shape the chart expects.
+  advocates = advocates.map(a => {
+    if (!Array.isArray(a.cases)) return a;
+    const dates = a.cases
+      .flatMap(c => (c.argument || c.reargument || '').split(','))
+      .filter(Boolean)
+      .sort();
+    return { ...a, dateFirst: dates[0], dateLast: dates[dates.length - 1], cases: a.cases.length };
+  });
 
   if (summaryId) {
     function formatDate(dateStr) {
@@ -19,7 +30,7 @@ async function renderAdvocateChart(canvasId, dataUrl, collection, { limit = null
     const earliest = advocates.reduce((min, a) => a.dateFirst < min ? a.dateFirst : min, advocates[0].dateFirst);
     const latest   = advocates.reduce((max, a) => a.dateLast  > max ? a.dateLast  : max, advocates[0].dateLast);
     document.getElementById(summaryId).textContent =
-      `From ${formatDate(earliest)} to ${formatDate(latest)}, ${advocates.length.toLocaleString()} women have argued at the U.S. Supreme Court.`;
+      `From ${formatDate(earliest)} to ${formatDate(latest)}, ${advocates.length.toLocaleString()} ${summaryLabel} have argued at the U.S. Supreme Court.`;
   }
 
   // Sort by cases descending so the most-argued advocates appear at the top
