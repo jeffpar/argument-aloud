@@ -2705,6 +2705,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         const urlDeletes = ['collection', 'group', 'id', 'highlight', 'file'];
         if (audioIdx >= 1) urlParams.event = audioIdx; else urlDeletes.push('event');
         if (initialTurn != null) urlParams.turn = initialTurn; else urlDeletes.push('turn');
+        document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
         navigate(buildUrlParams(urlParams, urlDeletes));
       } else {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
@@ -2716,6 +2717,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         }
       }
       await loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
+      if (fromRestore) trackPageView(location.href);
       if (!fromRestore && mode === 'decided' && caseEntry.events?.some(a => a.audio_href) && hasDecisionHref(caseEntry)) {
         const de = _buildDecisionEntries(caseEntry)[0];
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
@@ -3531,6 +3533,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     await _ensureCollectionBuilt();
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
     const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
+    document.title = (collEntry.name || collId) + ' | Argument Aloud';
     navigate(url);
   });
 
@@ -4061,9 +4064,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', ...(initialTurn ? [] : ['turn'])],
       );
+      document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
       navigate(url);
     }
     await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn });
+    if (fromRestore) trackPageView(location.href);
     if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
         ci.closest('ul')?.dataset.sortMode === 'decided') {
       const de = _buildDecisionEntries(caseEntry)[0];
@@ -4420,6 +4425,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       );
       history.replaceState(null, '', url);
       await _ensureGroupCases();
+      document.title = (group.name || '') + ' | Argument Aloud';
+      trackPageView(location.href);
       if (_groupLink && _groupDocument) showAdvocateDocument(_groupDocument, _groupLink, group.name || '');
       else if (_groupLink) showPageViewer(_groupLink, { pushState: false });
       else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
@@ -6897,6 +6904,8 @@ async function restoreFromURL() {
     const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.link || null;
     if (resolvedLink) showPageViewer(resolvedLink, { pushState: false });
+    if (collEntry?.name) document.title = collEntry.name + ' | Argument Aloud';
+    trackPageView(location.href);
     return;
   }
 
@@ -6946,6 +6955,9 @@ async function restoreFromURL() {
         await groupLi._ensureCases?.();
         groupLi._activateCount?.();
         if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
+        const _groupNameText = groupLi.querySelector('.month-name')?.textContent;
+        if (_groupNameText) document.title = _groupNameText + ' | Argument Aloud';
+        trackPageView(location.href);
         if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
         else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
