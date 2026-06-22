@@ -36,7 +36,7 @@ From the Appendix:
   - [U.S. v. Pirates](/courts/ussc?term=1820-02&case=1820-008), 5 Wheaton 184 (1820)
   - [U.S. v. Holmes](/courts/ussc?term=1820-02&case=1820-022), 5 Wheaton 412 (1820)
   - [The Bello Corrunes](/courts/ussc?term=1821-02&case=1821-012), 6 Wheaton 152 (1821)
-  - [Cohens v. Virginia](/courts/ussc?term=1821-02&case=1821-018), 6 Wheaton 430 (1821) [Second hearing on the merits]
+  - [Cohens v. Virginia](/courts/ussc?term=1821-02&case=1821-018), 6 Wheaton 264 (1821), 6 Wheaton 430 (1821) [Second hearing on the merits]
   - [Sullivan v. Fulton Steamboat Co.](/courts/ussc?term=1821-02&case=1821-022), 6 Wheaton 450 (1821)
   - [Hughes v. Blake](/courts/ussc?term=1821-02&case=1821-024), 6 Wheaton 453 (1821)
   - [Prevost v. Gratz](/courts/ussc?term=1821-02&case=1821-026), 6 Wheaton 481 (1821)
@@ -100,7 +100,7 @@ From the Appendix:
   - [Conrad v. Atlantic Insurance Co.](/courts/ussc?term=1828-01&case=1828-047), 1 Peters 386 (1828)
   - [D'Wolf v. Rabaud](/courts/ussc?term=1828-01&case=1828-051), 1 Peters 476 (1828)
   - **[American Insurance Co. v. Canter](/courts/ussc?term=1828-01&case=1828-050), 1 Peters 511 (1828), 2 Peters 554 (1829), 3 Peters 307 (1830)
-  - Pennock v. Dialogue, 2 Peters I (1829)
+  - [Pennock v. Dialogue](/courts/ussc?term=1829-01&case=1829-001), 2 Peters 1 (1829)
   - **[Foster v. Neilson](/courts/ussc?term=1829-01&case=1829-029), 2 Peters 253 (1829)
   - *[Wilkinson v. Leland](/courts/ussc?term=1829-01&case=1829-019), 2 Peters 627 (1829)
   - [Leland v. Wilkinson](/courts/ussc?term=1832-01&case=1832-036), 6 Peters 317 (1832)
@@ -134,7 +134,7 @@ From the Appendix:
   - [Carrington v. Merchant's Insurance Co.](/courts/ussc?term=1834-01&case=1834-030), 8 Peters 495 (1834)
   - [Hazard's Administrator v. New England Marine Insurance Co.](/courts/ussc?term=1834-01&case=1834-048), 8 Peters 557 (1834)
   - [Wheaton v. Peters](/courts/ussc?term=1834-01&case=1834-061), 8 Peters 591 (1834)
-  - New Orleans v. Armas and Cucullu, 9 Peters 223 (1835)
+  - [New Orleans v. Armas and Cucullu](/courts/ussc?term=1835-01&case=1835-013), 9 Peters 224 (1835)
   - [Piatt v. Vattier](/courts/ussc?term=1835-01&case=1835-015), 9 Peters 405 (1835)
   - [Harrison v. Nixon](/courts/ussc?term=1835-01&case=1835-007), 9 Peters 483 (1835)
   - [Chesapeake and Ohio Canal Co. v. Knapp](/courts/ussc?term=1835-01&case=1835-029), 9 Peters 541 (1835)
@@ -157,7 +157,7 @@ From the Appendix:
   - [Sprigg v. Bank of Mt. Pleasant](/courts/ussc?term=1840-01&case=1840-036), 14 Peters 201 (1840)
   - [Lessee of Pollard's Heir's v. Kibbe](/courts/ussc?term=1840-01&case=1840-021), 14 Peters 353 (1840)
   - *[Groves v. Slaughter](/courts/ussc?term=1841-01&case=1841-031), 15 Peters 449 (1841)
-  - Swift v. Tyson, 16 Peters I (1842) [Webster argued case at first hearing in 1840]
+  - [Swift v. Tyson](/courts/ussc?term=1842-01&case=1842-001), 16 Peters 1 (1842) [Webster argued case at first hearing in 1840]
   - [Minor v. Tillotson](/courts/ussc?term=1843-01&case=1843-025), 1 Howard 287 (1843), 2 Howard 392 (1844)
   - [Vidal v. Girard's Executors](/courts/ussc?term=1844-01&case=1844-010), 2 Howard 127 (1844)
   - [Foxcroft v. Mallett](/courts/ussc?term=1846-01&case=1846-034), 4 Howard 353 (1846)
