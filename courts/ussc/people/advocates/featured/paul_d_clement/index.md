@@ -1,10 +1,15 @@
 ---
+title: Paul D. Clement
 layout: pane
+case_count: 127
+last_argument: April 27, 2026
 ---
 
-# Paul D. Clement
+# {{ page.title }}
 
-As of this writing (May 2026), Paul Clement has argued a total of 127 times.
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+
+---
 
 [The Oyez Project](https://www.oyez.org/advocates/paul_d_clement) has a lower total because it's missing arguments. For example, he argued in all *three* of the consolidated cases in [National Federation of Independent Business v. Sebelius (2012)](/courts/ussc/?collection=top_advocates&id=paul_d_clement&term=2011-10&case=11-398), which Oyez lists only once.
 

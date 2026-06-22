@@ -57,6 +57,31 @@ const writeJson = (p, d) => { const s = JSON.stringify(d, null, 2) + '\n'; if (e
 const ensureDir = (p) => fs.mkdirSync(p, { recursive: true });
 const unlinkSafe = (p) => { try { fs.unlinkSync(p); } catch {} };
 
+/** Capitalise the first letter of a name and any letter that follows a space
+ *  or apostrophe; lowercase everything else. Input is typically all-uppercase. */
+function properCase(name) {
+    let out = '';
+    for (let i = 0; i < name.length; i++) {
+        const ch = name[i];
+        if (!/[a-zA-Z]/.test(ch)) { out += ch; continue; }
+        out += (i === 0 || name[i - 1] === ' ' || name[i - 1] === "'")
+            ? ch.toUpperCase() : ch.toLowerCase();
+    }
+    return out;
+}
+
+/** Template used when auto-creating a featured advocate index.md. */
+const FEATURED_TEMPLATE = `\
+---
+title: TBD
+layout: pane
+---
+
+# {{ page.title }}
+
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+`;
+
 function relRepo(p) {
     const r = path.relative(REPO_ROOT, p);
     return r.startsWith('..') ? p : r;
@@ -1356,6 +1381,98 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
     return anyChange;
 }
 
+// ── Featured advocate front matter ────────────────────────────────────────────
+
+/** Parse featured advocate front matter (between --- delimiters).
+ *  Handles the simple structure used in featured advocate index.md files:
+ *  - "details:" — a mapping of scalar string values (e.g. web, twitter)
+ *  - "highlights:" — a sequence of string-valued mappings
+ *  Returns { details: {}, highlights: [] }. */
+function parseFrontMatter(text) {
+    const result = { details: {}, highlights: [] };
+    const m = /^---\r?\n([\s\S]*?)\n---/.exec(text);
+    if (!m) return result;
+    const yaml = m[1];
+
+    /** Slice the indented block that follows a top-level key. */
+    const blockAfter = (key) => {
+        const idx = yaml.search(new RegExp(`^${key}\\s*:`, 'm'));
+        if (idx === -1) return null;
+        return yaml.slice(idx).replace(/^[^\n]*\n/, '');
+    };
+
+    const unquote = (s) => s.replace(/^"|"$/g, '').replace(/^'|'$/g, '').trim();
+
+    // ── details mapping ───────────────────────────────────────────────────────
+    const detailsBlock = blockAfter('details');
+    if (detailsBlock) {
+        for (const line of detailsBlock.split('\n')) {
+            if (line.trim() === '') continue;
+            if (/^\S/.test(line)) break;                      // next top-level key
+            const kv = /^[ \t]+([\w]+)\s*:\s*(.+)/.exec(line);
+            if (kv) result.details[kv[1]] = unquote(kv[2]);
+        }
+    }
+
+    // ── highlights sequence ───────────────────────────────────────────────────
+    const hlBlock = blockAfter('highlights');
+    if (hlBlock) {
+        let current = null;
+        for (const line of hlBlock.split('\n')) {
+            if (line.trim() === '') continue;
+            if (/^\S/.test(line)) break;                      // next top-level key
+            const itemStart = /^[ \t]+-\s*(.*)/.exec(line);
+            if (itemStart) {
+                if (current) result.highlights.push(current);
+                current = {};
+                const kv = /^([\w]+)\s*:\s*(.+)/.exec(itemStart[1]);
+                if (kv) current[kv[1]] = unquote(kv[2]);
+            } else if (current) {
+                const kv = /^[ \t]+([\w]+)\s*:\s*(.+)/.exec(line);
+                if (kv) current[kv[1]] = unquote(kv[2]);
+            }
+        }
+        if (current) result.highlights.push(current);
+    }
+
+    return result;
+}
+
+/** Set (add or update) a scalar key in the front matter of an index.md.
+ *  Inserts after `insertAfter` key if the key is new; appends if anchor absent.
+ *  Returns the new file text, or the original text if nothing changed. */
+function setFrontMatterScalar(text, key, value, insertAfter = 'layout') {
+    const m = /^---\r?\n([\s\S]*?)\n---/.exec(text);
+    if (!m) return text;
+    const yaml = m[1];
+    const strVal = String(value);
+    let newYaml;
+    if (new RegExp(`^${key}\\s*:`, 'm').test(yaml)) {
+        newYaml = yaml.replace(new RegExp(`^${key}\\s*:.*$`, 'm'), `${key}: ${strVal}`);
+    } else {
+        const anchorRe = new RegExp(`^(${insertAfter}\\s*:[^\\n]*)$`, 'm');
+        if (anchorRe.test(yaml)) {
+            newYaml = yaml.replace(anchorRe, `$1\n${key}: ${strVal}`);
+        } else {
+            newYaml = yaml.trimEnd() + `\n${key}: ${strVal}`;
+        }
+    }
+    if (newYaml === yaml) return text;
+    return text.slice(0, m.index) + `---\n${newYaml}\n---` + text.slice(m.index + m[0].length);
+}
+
+const _FULL_MONTHS = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'];
+
+/** Convert the first ISO date in a possibly comma-joined string to "Month D, YYYY". */
+function isoToFullDate(iso) {
+    if (!iso) return '';
+    const d = iso.split(',').at(-1).trim();  // take last date if multi-day
+    const mm = /^(\d{4})-(\d{2})-(\d{2})/.exec(d);
+    if (!mm) return '';
+    return `${_FULL_MONTHS[+mm[2] - 1]} ${+mm[3]}, ${mm[1]}`;
+}
+
 // ── Bulk advocate sync (exported for use by update_cases.js) ─────────────────
 
 export async function syncAdvocates(termDirs, { verbose = false, showWomen = false, markdownMode = false } = {}) {
@@ -1878,30 +1995,27 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     for (const entry of output) {
         const advId = entry.id || makeAdvocateId(entry.name);
         const caseFile = path.join(ADVOCATES_DIR, `${advId}.json`);
-        let existingDetails = {};
-        let existingHighlights = [];
-        if (exists(caseFile)) {
-            try {
-                const raw = readJson(caseFile);
-                if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
-                    existingDetails = raw.details || {};
-                    existingHighlights = raw.highlights || [];
-                }
-            } catch { /* ignore */ }
-        }
-        // Auto-derive page link from featured folder if an index.md exists there.
+        // Derive details and highlights from the featured folder (if any).
         const featuredDir = path.join(FEATURED_DIR, advId);
-        const featuredLink = exists(path.join(featuredDir, 'index.md'))
-            ? '/courts/ussc/people/advocates/featured/' + advId
-            : null;
-        // featuredLink takes precedence; fall back to whatever is already in details.page.
-        const resolvedLink = featuredLink ?? existingDetails.page ?? null;
-        const mergedDetails = { ...existingDetails };
-        if (resolvedLink != null) mergedDetails.page = resolvedLink;
-        else delete mergedDetails.page;
+        const featuredMd  = path.join(featuredDir, 'index.md');
+        const hasFeatured = exists(featuredMd);
+        const featuredMdText = hasFeatured ? readText(featuredMd) : null;
+        const fm          = featuredMdText ? parseFrontMatter(featuredMdText) : null;
+        const details     = hasFeatured
+            ? { page: '/courts/ussc/people/advocates/featured/' + advId, ...fm.details }
+            : {};
+        const highlights  = fm ? fm.highlights : [];
+        if (hasFeatured) {
+            const lastCase = entry.cases[0];  // cases[] is newest-first
+            const lastDate = lastCase ? isoToFullDate(lastCase.argument || lastCase.reargument || '') : '';
+            let mdText = featuredMdText;
+            mdText = setFrontMatterScalar(mdText, 'case_count', entry.cases.length);
+            if (lastDate) mdText = setFrontMatterScalar(mdText, 'last_argument', lastDate, 'case_count');
+            if (mdText !== featuredMdText) writeText(featuredMd, mdText);
+        }
         const envelope = {
-            details: mergedDetails,
-            highlights: existingHighlights,
+            details,
+            highlights,
         };
         if (entry.previously) {
             envelope.previously = [...new Set(entry.previously)].sort();
@@ -1947,6 +2061,20 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     const topIndex = index.slice(0, 100);
     writeJson(TOP_OUTPUT_FILE, topIndex);
     console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP_OUTPUT_FILE)}`);
+
+    // Auto-create a featured index.md for any top advocate that doesn't have one yet.
+    let featuredCreated = 0;
+    for (const adv of topIndex) {
+        const featuredDir = path.join(FEATURED_DIR, adv.id);
+        const featuredMd  = path.join(featuredDir, 'index.md');
+        if (!exists(featuredMd)) {
+            ensureDir(featuredDir);
+            writeText(featuredMd, FEATURED_TEMPLATE.replace('TBD', properCase(adv.name)));
+            featuredCreated++;
+            if (verbose) console.log(`  Created featured page: ${relRepo(featuredMd)}`);
+        }
+    }
+    if (featuredCreated) console.log(`Created ${featuredCreated} featured index.md file(s)`);
 
     // Women and transgender indices preserve the cases-descending sort from `output`.
     const womenIndex = index.filter(e => nameFeminine.get(e.name.toUpperCase()));
@@ -2617,7 +2745,7 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
     console.log(`Adding advocate: ${advocateName}`);
 
     const indexMdText = readText(indexMdPath);
-    const sourceMatch = /^Source\s+ID:\s*`(\S+)`/mi.exec(indexMdText)
+    const sourceMatch = /Source\s+ID:\s*`(\S+)`/i.exec(indexMdText)
                      || /^Source:\s*(\S+)/mi.exec(indexMdText);
     const source      = sourceMatch ? sourceMatch[1] : 'manual';
     if (sourceMatch) console.log(`Source: ${source}`);

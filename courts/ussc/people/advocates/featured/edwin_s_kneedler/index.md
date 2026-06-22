@@ -1,8 +1,21 @@
 ---
+title: Edwin S. Kneedler
 layout: pane
+case_count: 160
+last_argument: April 23, 2025
+details:
+  web: https://en.wikipedia.org/wiki/Edwin_Kneedler
+highlights:
+  - title: "Recognition of Edwin Kneedler's 160 Arguments"
+    date: "2025-04-23"
+    audio_href: "/courts/ussc/people/advocates/featured/edwin_s_kneedler/2025-04-23--Recognition.mp3"
 ---
 
-# Edwin S. Kneedler
+# {{ page.title }}
+
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
+
+---
 
 The 1979 Journal indicates that Edwin Smiley Kneedler's first argument that term was in [United States v. Bailey (No. 78-990)](/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler&term=1979-10&case=78-990) on November 7, 1979.
 

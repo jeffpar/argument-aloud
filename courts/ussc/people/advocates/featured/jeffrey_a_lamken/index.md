@@ -1,0 +1,10 @@
+---
+title: Jeffrey A. Lamken
+layout: pane
+case_count: 27
+last_argument: March 27, 2023
+---
+
+# {{ page.title }}
+
+As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued in {{ page.case_count }} cases, the last argument occurring on {{ page.last_argument }}.
