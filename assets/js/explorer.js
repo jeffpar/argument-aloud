@@ -1929,7 +1929,7 @@ function _setCaseInfoRow3(caseEntry) {
     const displayName = _voteName(v.name);
     if (v.opinion === true && opinionId) {
       const a = document.createElement('a');
-      a.href = '?' + new URLSearchParams({ collection: 'op_justices', id: opinionId, term, case: caseNum });
+      a.href = '?' + new URLSearchParams({ collection: 'opinions', id: opinionId, term, case: caseNum });
       a.textContent = displayName;
       span.appendChild(a);
     } else {
@@ -3355,6 +3355,33 @@ function buildCollectionItem(sectionUl, collEntry) {
     return;
   }
 
+  // Link-only entry: no data file — just shows a linked page in the viewer.
+  if (!collEntry.file && !collEntry.collection) {
+    if (!collEntry.link) return;
+    const collLi = document.createElement('li');
+    collLi.className = 'term-group case-item';
+    collLi.dataset.link = collEntry.link;
+    const collHeader = document.createElement('div');
+    collHeader.className = 'term-header';
+    const collLabel = document.createElement('span');
+    collLabel.className = 'term-label';
+    collLabel.style.cursor = 'pointer';
+    collLabel.textContent = collEntry.name;
+    collHeader.appendChild(collLabel);
+    collHeader.addEventListener('click', () => {
+      document.title = collEntry.name + ' | Argument Aloud';
+      const url = buildUrlParams(
+        { link: collEntry.link },
+        ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o'],
+      );
+      navigate(url);
+      showPageViewer(collEntry.link, { pushState: false });
+    });
+    collLi.appendChild(collHeader);
+    sectionUl.appendChild(collLi);
+    return;
+  }
+
   // Leaf entry: has a data file ('file' key; 'collection' supported for backward compat)
   const fileUrl = collEntry.file ?? collEntry.collection;
   const collId = fileUrl.split('/').pop().replace('.json', '');
@@ -4175,7 +4202,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       if (mode === 'cases') return (n + '\u00a0Cases') + arrow;
       return _sortModeLabel(mode, n, asc);
     };
-    groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
+    // Link-only groups (cases explicitly empty) have nothing to expand \u2014 hide chrome.
+    const _linkOnly = Array.isArray(group.cases) && group.cases.length === 0 && !hoursLabel;
+    if (_linkOnly) {
+      groupTog.hidden = true;
+      groupCount.hidden = true;
+    } else {
+      groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
+    }
 
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupName);

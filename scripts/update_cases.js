@@ -3969,13 +3969,13 @@ function processLoneDissenters(termsToProcess, dryRun) {
 }
 
 // Scan every term's cases.json, find cases where a justice has "opinion": true,
-// and rebuild courts/ussc/people/justices/op_justices.json plus per-justice
+// and rebuild courts/ussc/people/justices/opinions.json plus per-justice
 // files in courts/ussc/people/justices/op/.
 function processOpinionAuthors(termsToProcess, dryRun) {
     _ensureSeniorityLoaded();
     const PEOPLE_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'people');
-    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'op');
-    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'op_justices.json');
+    const JUSTICES_DIR  = path.join(PEOPLE_DIR, 'justices', 'opinions');
+    const INDEX_FILE    = path.join(PEOPLE_DIR, 'justices', 'opinions.json');
 
     // canonical name -> [case-entry, ...]
     const byJustice = new Map();

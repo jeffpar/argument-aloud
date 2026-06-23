@@ -3,9 +3,16 @@
     "name": "Justices",
     "collections": [
       {
+        "name": "Gallery",
+        "file": "/courts/ussc/people/justices/gallery.json",
+        "link": "/courts/ussc/collections/gallery",
+        "search": "name"
+      },
+      {
         "name": "Opinions",
-        "file": "/courts/ussc/people/justices/op_justices.json",
-        "folder": "/courts/ussc/people/justices/op",
+        "file": "/courts/ussc/people/justices/opinions.json",
+        "folder": "/courts/ussc/people/justices/opinions",
+        "link": "/courts/ussc/collections/opinions",
         "order": "decided:ascending",
         "search": "name",
         "pageLabel": "justices"

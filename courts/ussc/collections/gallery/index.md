@@ -1,0 +1,178 @@
+---
+layout: pane
+title: Gallery of Justices
+---
+
+<style>
+.jg-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.jg-heading {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.jg-sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.jg-sort-btn {
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  opacity: 0.45;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.6;
+  transition: opacity 0.15s;
+}
+.jg-sort-btn:hover  { opacity: 0.75; }
+.jg-sort-btn.active { opacity: 1; }
+.jg-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 8px;
+  padding-bottom: 24px;
+}
+@media (max-width: 600px) {
+  .jg-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.jg-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+a.jg-item { cursor: pointer; }
+a.jg-item:hover .jg-portrait { opacity: 0.82; }
+.jg-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #ccc;
+}
+html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
+.jg-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.jg-name {
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 5px;
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.2;
+}
+</style>
+
+<div class="jg-header">
+  <h2 class="jg-heading">Gallery</h2>
+  <div class="jg-sort-bar" id="jg-sort-bar">
+    <button class="jg-sort-btn active" data-sort="joined">Joined</button>
+    <button class="jg-sort-btn" data-sort="years">Years Served</button>
+    <button class="jg-sort-btn" data-sort="lone">Lone Dissents</button>
+    <button class="jg-sort-btn" data-sort="vocal">Vocal</button>
+  </div>
+</div>
+<div id="jg-grid" class="jg-grid"></div>
+
+<script>
+(function () {
+  var PORTRAIT_BASE = '/courts/ussc/people/justices/all/';
+  var OP_URL        = '/courts/ussc/?collection=opinions&id=';
+
+  var SORTERS = {
+    joined: function (a, b) {
+      return (a.dateFirst || '').localeCompare(b.dateFirst || '');
+    },
+    years: function (a, b) {
+      var ay = a.yearsServed != null ? a.yearsServed : -1;
+      var by = b.yearsServed != null ? b.yearsServed : -1;
+      return by - ay;
+    },
+    lone: function (a, b) {
+      var al = a.loneDissents != null ? a.loneDissents : -1;
+      var bl = b.loneDissents != null ? b.loneDissents : -1;
+      return bl - al;
+    },
+    vocal: function (a, b) {
+      var av = a.vocalSecs != null ? a.vocalSecs : -1;
+      var bv = b.vocalSecs != null ? b.vocalSecs : -1;
+      return bv - av;
+    },
+  };
+
+  var justices = [];
+  var activeSort = 'joined';
+
+  function renderGrid() {
+    var sorted = justices.slice().sort(SORTERS[activeSort]);
+    var grid = document.getElementById('jg-grid');
+    grid.innerHTML = '';
+    sorted.forEach(function (j) {
+      var words = j.name.trim().split(/\s+/);
+      var lastName = words[words.length - 1].toUpperCase();
+
+      var el = document.createElement(j.hasOp ? 'a' : 'div');
+      el.className = 'jg-item';
+      if (j.hasOp) el.href = OP_URL + j.id;
+
+      var portrait = document.createElement('div');
+      portrait.className = 'jg-portrait';
+
+      var img = document.createElement('img');
+      img.src = PORTRAIT_BASE + j.id + '/portrait.jpg';
+      img.alt = j.name;
+      img.loading = 'lazy';
+      img.onerror = function () { el.style.display = 'none'; };
+      portrait.appendChild(img);
+
+      var label = document.createElement('div');
+      label.className = 'jg-name';
+      label.textContent = lastName;
+
+      el.appendChild(portrait);
+      el.appendChild(label);
+      grid.appendChild(el);
+    });
+  }
+
+  document.getElementById('jg-sort-bar').addEventListener('click', function (e) {
+    var btn = e.target.closest('.jg-sort-btn');
+    if (!btn) return;
+    var sort = btn.dataset.sort;
+    if (sort === activeSort) return;
+    activeSort = sort;
+    document.querySelectorAll('.jg-sort-btn').forEach(function (b) {
+      b.classList.toggle('active', b === btn);
+    });
+    renderGrid();
+  });
+
+  fetch('/courts/ussc/people/justices/gallery.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      justices = data;
+      renderGrid();
+    });
+})();
+</script>
