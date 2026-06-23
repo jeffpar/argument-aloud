@@ -4153,6 +4153,8 @@ function processVocalJustices(allTerms, dryRun) {
             let eventIdx = 0;
             for (const ev of (c.events || [])) {
                 eventIdx++;
+                const evType = ev.type || 'argument';
+                if (evType !== 'argument' && evType !== 'reargument') continue;
                 const th = ev.text_href || '';
                 if (!th || /^https?:\/\//.test(th)) continue;
 

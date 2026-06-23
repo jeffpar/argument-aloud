@@ -5,7 +5,7 @@ title: Lone Dissents
 
 # Lone Dissents
 
-Justices ranked by number of lone dissents (cases where they were the sole dissenter).
+Justices ranked by number of lone dissents.
 
 <style>
 :root { --ld-grid:#eee; --ld-label:#666; }
