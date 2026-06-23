@@ -2995,6 +2995,7 @@ function buildNav(title = 'Terms') {
           updateEmptyStateForTerm(term);
           document.getElementById('topbar-term').textContent = termDisplayName(term);
           const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn']);
+          document.title = termDisplayName(term) + ' | Argument Aloud';
           navigate(url);
           return;
         } else {
@@ -3015,6 +3016,7 @@ function buildNav(title = 'Terms') {
           { term, ...(_nonDefaultSort ? { sort: _sortMode, o: _sortAsc ? 'a' : 'd' } : {}) },
           ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
         );
+        document.title = termDisplayName(term) + ' | Argument Aloud';
         navigate(url);
       });
 
@@ -7246,6 +7248,8 @@ async function restoreFromURL() {
       }
       updateEmptyStateForTerm(termParam, dateParam);
       document.getElementById('topbar-term').textContent = termDisplayName(termParam);
+      document.title = termDisplayName(termParam) + ' | Argument Aloud';
+      trackPageView(location.href);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
   } else {
