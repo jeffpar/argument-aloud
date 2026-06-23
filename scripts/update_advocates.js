@@ -40,7 +40,7 @@ const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
 const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICES_ALL_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'all');
-const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justices', 'justice_advocates.json');
+const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justice', 'justice_advocates.json');
 const JOURNALS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
 const _SPEAKERS_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'speakers.json');
 const REPORTS_JSON      = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
@@ -68,7 +68,7 @@ function properCase(name) {
         out += (i === 0 || name[i - 1] === ' ' || name[i - 1] === "'")
             ? ch.toUpperCase() : ch.toLowerCase();
     }
-    return out;
+    return out.replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
 }
 
 /** Template used when auto-creating a featured advocate index.md. */
@@ -1486,9 +1486,46 @@ function isoToFullDate(iso) {
 
 // ── Justice pages sync ────────────────────────────────────────────────────────
 
+/** Parse a "HH:MM:SS[.ss]" vocal total string into whole seconds. */
+function _parseTotalSecs(total) {
+    const m = /^(\d+):(\d{2}):(\d{2})(?:\.\d+)?$/.exec(total || '');
+    if (!m) return 0;
+    return +m[1] * 3600 + +m[2] * 60 + +m[3];
+}
+
+/** Sum tenure durations in fractional years (open tenures use today's date). */
+function _computeYearsServed(tenures) {
+    let totalMs = 0;
+    const now = Date.now();
+    for (const t of tenures) {
+        if (!t.dateStart) continue;
+        const start = Date.parse(t.dateStart);
+        const stop  = t.dateStop ? Date.parse(t.dateStop) : now;
+        if (isNaN(start) || isNaN(stop)) continue;
+        totalMs += Math.max(0, stop - start);
+    }
+    return totalMs / (365.25 * 24 * 3600 * 1000);
+}
+
+/** Return the HTML body for a justice page.
+ *  servedBase is the "Served from X to Y" sentence WITHOUT a trailing period. */
+function _justiceBody(servedBase) {
+    return [
+        '<div style="display:flex; gap:1em;">',
+        '<div style="flex:2; min-width:0; overflow:hidden;">',
+        '<h1>{{ page.title }}</h1>',
+        '<p>' + servedBase + '{% if page.years_served %} ({{ page.years_served }} years){% endif %}.</p>',
+        '{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}case on {{ page.last_argument }}{% else %}cases from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
+        '{% if page.opinions or page.lone_dissents %}<p>Wrote {% if page.opinions %}{{ page.opinions }} majority <a href="/courts/ussc/?collection=opinions&id={{ page.justice_id }}">opinion{% if page.opinions != 1 %}s{% endif %}</a>{% endif %}{% if page.opinions and page.lone_dissents %} and {% endif %}{% if page.lone_dissents %}{{ page.lone_dissents }} lone <a href="/courts/ussc/?collection=lone_dissents&id={{ page.justice_id }}">dissent{% if page.lone_dissents != 1 %}s{% endif %}</a>{% endif %}.</p>{% endif %}',
+        '{% if page.vocal_secs %}<p>Spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in oral arguments. <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">View vocal statistics &rsaquo;</a></p>{% endif %}',
+        '</div>',
+        '<img src="portrait.jpg" alt="{{ page.title }}" style="flex:1; min-width:0; width:100%; height:auto; display:block; align-self:flex-start;" onerror="this.style.display=\'none\'">',
+        '</div>',
+    ].join('\n');
+}
+
 /** Create/update courts/ussc/people/justices/all/<id>/index.md for every justice
- *  in data/ussc/justices.json.  Existing files have only case_count and
- *  last_argument updated in their front matter; the body is left untouched. */
+ *  in data/ussc/justices.json. */
 function syncJusticePages({ verbose = false } = {}) {
     const justicesJsonPath = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
     if (!exists(justicesJsonPath)) {
@@ -1499,7 +1536,7 @@ function syncJusticePages({ verbose = false } = {}) {
     try { justicesData = readJson(justicesJsonPath); }
     catch (e) { console.error(`  ERROR reading justices.json: ${e.message}`); return; }
 
-    // Build id -> { caseCount, lastArgument } from justice_advocates.json.
+    // Build id -> advocacy stats from justice_advocates.json.
     let justiceAdvocates = [];
     if (exists(JUSTICE_ADVOCATES_FILE)) {
         try { justiceAdvocates = readJson(JUSTICE_ADVOCATES_FILE); } catch { justiceAdvocates = []; }
@@ -1524,22 +1561,44 @@ function syncJusticePages({ verbose = false } = {}) {
         });
     }
 
+    // Build per-justice stats maps (opinions, lone dissents, vocal).
+    const justicesBase = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices');
+    const _loadCounts = (file) => {
+        const m = new Map();
+        try { for (const e of readJson(path.join(justicesBase, file))) if (e.id) m.set(e.id, e.cases || 0); }
+        catch {}
+        return m;
+    };
+    const opinionsMap = _loadCounts('opinions.json');
+    const loneMap     = _loadCounts('lone_dissents.json');
+    const vocalMap    = new Map();
+    try {
+        for (const e of readJson(path.join(justicesBase, 'vocal_justices.json'))) {
+            if (e.id) vocalMap.set(e.id, _parseTotalSecs(e.total));
+        }
+    } catch {}
+
     ensureDir(JUSTICES_ALL_DIR);
     let created = 0, updated = 0;
 
     for (const [canonicalName, entry] of Object.entries(justicesData)) {
-        const id         = makeAdvocateId(canonicalName);
-        const isChief    = (entry.titles || []).some(t => t.startsWith('CHIEF JUSTICE'));
-        const prefix     = isChief ? 'Chief Justice ' : 'Justice ';
-        const title      = prefix + properCase(canonicalName);
-        const dir        = path.join(JUSTICES_ALL_DIR, id);
-        const mdPath     = path.join(dir, 'index.md');
-        const stats      = advocateStats.get(id) || {};
-        const caseCount  = stats.caseCount || 0;
-        const firstArg   = stats.firstArgument || '';
-        const lastArg    = stats.lastArgument || '';
+        const id        = makeAdvocateId(canonicalName);
+        const isChief   = (entry.titles || []).some(t => t.startsWith('CHIEF JUSTICE'));
+        const prefix    = isChief ? 'Chief Justice ' : 'Justice ';
+        const title     = prefix + properCase(canonicalName);
+        const dir       = path.join(JUSTICES_ALL_DIR, id);
+        const mdPath    = path.join(dir, 'index.md');
+        const stats     = advocateStats.get(id) || {};
+        const caseCount = stats.caseCount || 0;
+        const firstArg  = stats.firstArgument || '';
+        const lastArg   = stats.lastArgument || '';
 
-        // Build "Served from X to Y" text, handling single or multiple tenures.
+        // Per-justice stats.
+        const opCount   = opinionsMap.get(id) || 0;
+        const loneCount = loneMap.get(id) || 0;
+        const vocalSecs = vocalMap.get(id) || 0;
+
+        // Build tenure text and compute years served.
         const tenures = entry.tenures
             ? entry.tenures
             : [{ dateStart: entry.dateStart || '', dateStop: entry.dateStop || '' }];
@@ -1548,26 +1607,24 @@ function syncJusticePages({ verbose = false } = {}) {
             const to   = t.dateStop ? isoToFullDate(t.dateStop) : 'present';
             return `from ${from} to ${to}`;
         });
-        const servedText = servedPhrases.length > 1
-            ? `Served ${servedPhrases.slice(0, -1).join(', ')} and ${servedPhrases.at(-1)}.`
-            : `Served ${servedPhrases[0]}.`;
+        const servedBase = 'Served ' + (servedPhrases.length > 1
+            ? servedPhrases.slice(0, -1).join(', ') + ' and ' + servedPhrases.at(-1)
+            : servedPhrases[0]);
+        const yrs    = _computeYearsServed(tenures);
+        const yrsStr = yrs > 0 ? yrs.toFixed(1) : '';
+
+        const body = _justiceBody(servedBase);
 
         if (!exists(mdPath)) {
             ensureDir(dir);
-            let text = `---\ntitle: ${title}\nlayout: pane`;
-            if (caseCount)  text += `\ncase_count: ${caseCount}`;
-            if (firstArg)   text += `\nfirst_argument: ${firstArg}`;
-            if (lastArg)    text += `\nlast_argument: ${lastArg}`;
-            const body = [
-                '<div style="display:flex; gap:1em;">',
-                '<div style="flex:2; min-width:0; overflow:hidden;">',
-                '<h1>{{ page.title }}</h1>',
-                `<p>${servedText}</p>`,
-                "{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}case on {{ page.last_argument }}{% else %}cases from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}",
-                '</div>',
-                '<img src="portrait.jpg" alt="{{ page.title }}" style="flex:1; min-width:0; width:100%; height:auto; display:block; align-self:flex-start;" onerror="this.style.display=\'none\'">',
-                '</div>',
-            ].join('\n');
+            let text = `---\ntitle: ${title}\nlayout: pane\njustice_id: ${id}`;
+            if (yrsStr)    text += `\nyears_served: ${yrsStr}`;
+            if (opCount)   text += `\nopinions: ${opCount}`;
+            if (loneCount) text += `\nlone_dissents: ${loneCount}`;
+            if (vocalSecs) text += `\nvocal_secs: ${vocalSecs}`;
+            if (caseCount) text += `\ncase_count: ${caseCount}`;
+            if (firstArg)  text += `\nfirst_argument: ${firstArg}`;
+            if (lastArg)   text += `\nlast_argument: ${lastArg}`;
             text += `\n---\n${body}\n`;
             writeText(mdPath, text);
             created++;
@@ -1575,11 +1632,25 @@ function syncJusticePages({ verbose = false } = {}) {
         } else {
             let mdText = readText(mdPath);
             const original = mdText;
+
+            // Update frontmatter fields.
+            mdText = setFrontMatterScalar(mdText, 'justice_id', id, 'layout');
+            if (yrsStr)    mdText = setFrontMatterScalar(mdText, 'years_served', yrsStr, 'justice_id');
+            if (opCount)   mdText = setFrontMatterScalar(mdText, 'opinions', opCount, 'years_served');
+            if (loneCount) mdText = setFrontMatterScalar(mdText, 'lone_dissents', loneCount, 'opinions');
+            if (vocalSecs) mdText = setFrontMatterScalar(mdText, 'vocal_secs', vocalSecs, 'lone_dissents');
             if (caseCount) {
                 mdText = setFrontMatterScalar(mdText, 'case_count', caseCount);
                 if (firstArg) mdText = setFrontMatterScalar(mdText, 'first_argument', firstArg, 'case_count');
                 if (lastArg)  mdText = setFrontMatterScalar(mdText, 'last_argument', lastArg, 'first_argument');
             }
+
+            // Migrate body to the new template if it uses an outdated format.
+            if (!mdText.includes('{% if page.opinions or page.lone_dissents %}')) {
+                const fmEnd = /^---\r?\n[\s\S]*?\n---\r?\n/.exec(mdText);
+                if (fmEnd) mdText = mdText.slice(0, fmEnd[0].length) + body + '\n';
+            }
+
             if (mdText !== original) {
                 writeText(mdPath, mdText);
                 updated++;
@@ -2214,7 +2285,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     index.sort((a, b) => a.name.localeCompare(b.name));
     ensureDir(path.dirname(OUTPUT_FILE));
     writeJson(OUTPUT_FILE, index);
-    console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)} and ${relRepo(ADVOCATES_DIR)}/`);
+    console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)}`);
 
     // ── ussc_women.csv ──────────────────────────────────────────
     let womenRows = [];

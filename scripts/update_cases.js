@@ -3660,10 +3660,12 @@ function _justiceSlug(name) {
 }
 
 // Title-case a canonical UPPER-CASE justice name (e.g. "OLIVER ELLSWORTH" → "Oliver Ellsworth").
+// Roman numeral suffixes after a comma (e.g. ", II") are fully uppercased.
 function _justiceDisplayName(canonical) {
     return String(canonical || '')
         .toLowerCase()
-        .replace(/\b([a-z])/g, (_, c) => c.toUpperCase());
+        .replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
+        .replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
 }
 
 // Return all justices serving on `isoDate` sorted by seniority:
@@ -4295,11 +4297,11 @@ function processVocalJustices(allTerms, dryRun) {
 // Scan every term's cases.json for event advocates whose names match a known
 // justice (from data/ussc/justices.json) AND whose argument date predates that
 // justice's appointment.  Adds any newly discovered cases to
-// courts/ussc/people/advocates/justices/justice_advocates.json without
+// courts/ussc/people/advocates/justice/justice_advocates.json without
 // disturbing entries that already exist there.
 function processJusticeAdvocates(allTerms, dryRun) {
     const JUSTICE_ADVOCATES_FILE = path.join(
-        REPO_ROOT, 'courts', 'ussc', 'people', 'advocates', 'justices', 'justice_advocates.json');
+        REPO_ROOT, 'courts', 'ussc', 'people', 'advocates', 'justice', 'justice_advocates.json');
 
     // Build a name-key → canonical map from justices.json.
     // Name key: upper-case, first + last token only (strips middle initials /

@@ -14,7 +14,6 @@ title: Gallery of Justices
 }
 .jg-heading {
   margin: 0;
-  font-size: 1.1rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -82,10 +81,18 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
   word-break: break-word;
   line-height: 1.2;
 }
+.jg-sub {
+  font-size: 0.48rem;
+  opacity: 0.65;
+  text-align: center;
+  margin-top: 2px;
+  line-height: 1.2;
+  word-break: break-word;
+}
 </style>
 
 <div class="jg-header">
-  <h2 class="jg-heading">Gallery</h2>
+  <h1 class="jg-heading">Gallery</h1>
   <div class="jg-sort-bar" id="jg-sort-bar">
     <button class="jg-sort-btn active" data-sort="joined">Joined</button>
     <button class="jg-sort-btn" data-sort="years">Years Served</button>
@@ -99,6 +106,29 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 (function () {
   var PORTRAIT_BASE = '/courts/ussc/people/justices/all/';
   var OP_URL        = '/courts/ussc/?collection=opinions&id=';
+
+  var MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+
+  function _fmtDate(iso) {
+    if (!iso) return '';
+    var p = iso.split('-');
+    return MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
+  }
+
+  function subLabel(j, sort) {
+    if (sort === 'joined') {
+      return _fmtDate(j.dateFirst);
+    } else if (sort === 'years') {
+      return j.yearsServed != null ? (+j.yearsServed).toFixed(1) + ' years' : '';
+    } else if (sort === 'lone') {
+      var n = j.loneDissents != null ? j.loneDissents : 0;
+      return n + ' dissent' + (n === 1 ? '' : 's');
+    } else if (sort === 'vocal') {
+      return j.vocalSecs != null ? (j.vocalSecs / 3600).toFixed(1) + ' hours' : '';
+    }
+    return '';
+  }
 
   var SORTERS = {
     joined: function (a, b) {
@@ -132,9 +162,9 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       var words = j.name.trim().split(/\s+/);
       var lastName = words[words.length - 1].toUpperCase();
 
-      var el = document.createElement(j.hasOp ? 'a' : 'div');
+      var el = document.createElement('a');
       el.className = 'jg-item';
-      if (j.hasOp) el.href = OP_URL + j.id;
+      el.href = j.link || (PORTRAIT_BASE + j.id);
 
       var portrait = document.createElement('div');
       portrait.className = 'jg-portrait';
@@ -150,8 +180,13 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       label.className = 'jg-name';
       label.textContent = lastName;
 
+      var sub = document.createElement('div');
+      sub.className = 'jg-sub';
+      sub.textContent = subLabel(j, activeSort);
+
       el.appendChild(portrait);
       el.appendChild(label);
+      el.appendChild(sub);
       grid.appendChild(el);
     });
   }

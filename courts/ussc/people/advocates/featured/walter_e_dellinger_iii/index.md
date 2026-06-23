@@ -1,5 +1,5 @@
 ---
-title: Walter E. Dellinger, Iii
+title: Walter E. Dellinger, III
 layout: pane
 case_count: 23
 last_argument: October 5, 2011

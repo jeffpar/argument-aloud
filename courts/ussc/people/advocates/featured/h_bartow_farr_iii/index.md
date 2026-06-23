@@ -1,5 +1,5 @@
 ---
-title: H. Bartow Farr, Iii
+title: H. Bartow Farr, III
 layout: pane
 case_count: 30
 last_argument: December 7, 2015

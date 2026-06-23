@@ -1,5 +1,5 @@
 ---
-title: Drew S. Days, Iii
+title: Drew S. Days, III
 layout: pane
 case_count: 21
 last_argument: October 29, 2007
