@@ -5925,6 +5925,71 @@ function processTitleIndex(allTerms, dryRun) {
     if (written) console.log(`Title index: wrote ${written} file(s) in courts/ussc/indexes/cases/titles/`);
 }
 
+// Builds courts/ussc/indexes/cases/numbers.json.
+// Maps each individual docket number (from the comma-separated "number" field)
+// to a sorted array of ref strings using the same shortened-ref convention as
+// processTitleIndex.  Normalization: lowercase; a hyphen immediately before
+// "Orig" or "Misc" is replaced with a space so that "22-Orig" and "22 orig"
+// both resolve to the index key "22 orig".
+// File is written compact (no indentation).
+
+function processNumberIndex(allTerms, dryRun) {
+    const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'numbers.json');
+
+    // normalized number → Set of ref strings
+    const numRefs = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const termYYYY = term.slice(0, 4);
+        const isOctoberTerm = term.endsWith('-10');
+
+        for (const c of cases) {
+            if (!c.number && !c.id) continue;
+            const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
+            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+
+            const addKey = (key) => {
+                if (!key) return;
+                if (!numRefs.has(key)) numRefs.set(key, new Set());
+                numRefs.get(key).add(ref);
+            };
+
+            // Index each comma-separated docket number.
+            for (const part of (c.number || '').split(',')) {
+                addKey(part.trim().replace(/-(?=Orig|Misc)/i, ' ').toLowerCase());
+            }
+
+            // Also index by case id so searches like "1972-161" resolve directly.
+            if (c.id) addKey(c.id.toLowerCase());
+        }
+    }
+
+    // Sort by frequency descending, then alphabetically.
+    const sorted = Object.fromEntries(
+        [...numRefs.entries()]
+            .sort(([a, ra], [b, rb]) => rb.size - ra.size || a.localeCompare(b))
+            .map(([key, refs]) => [key, [...refs].sort()])
+    );
+
+    const content = JSON.stringify(sorted);
+    if (dryRun) {
+        if (_VERBOSE) console.log(`  [dry-run] would write courts/ussc/indexes/cases/numbers.json`);
+    } else {
+        let changed = true;
+        try { changed = fs.readFileSync(OUT_FILE, 'utf8') !== content; } catch { /* new file */ }
+        if (changed) {
+            fs.writeFileSync(OUT_FILE, content, 'utf8');
+            console.log(`Number index: wrote courts/ussc/indexes/cases/numbers.json`);
+        }
+    }
+}
+
 // Words excluded from the keyword (transcript) index.
 // The 3-char minimum enforced during tokenisation already drops single-letter
 // words and two-letter words (a, an, as, at, be, by, do, go, he, if, in, is,
@@ -9585,6 +9650,7 @@ async function runAddCase(term, title, argv, dryRun) {
         }
     } catch {}
     processTitleIndex(allTerms, false);
+    processNumberIndex(allTerms, false);
 
     // Sync case counts in terms.json.
     syncTermsJson();
@@ -9791,7 +9857,7 @@ async function main() {
         return;
     }
 
-    if (flags.has('--keyword-index') || flags.has('--title-index')) {
+    if (flags.has('--keyword-index') || flags.has('--title-index') || flags.has('--number-index')) {
         let allTerms = [];
         try {
             const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
@@ -9802,6 +9868,7 @@ async function main() {
             })).filter(Boolean);
         } catch {}
         if (flags.has('--title-index'))   processTitleIndex(allTerms, false);
+        if (flags.has('--number-index'))  processNumberIndex(allTerms, false);
         if (flags.has('--keyword-index')) processKeywordIndex(allTerms, false);
         return;
     }
@@ -9890,6 +9957,7 @@ async function main() {
         processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
         processTitleIndex(allTerms, false);
+        processNumberIndex(allTerms, false);
         processKeywordIndex(allTerms, false);
         await runDissentCheck(null);
         // Advocate index rebuild (final phase).

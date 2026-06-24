@@ -8,13 +8,16 @@ Of all people who have argued at the U.S. Supreme Court over the last 70 years, 
 
 ## The Modern Era
 
+<div style="display:flex;justify-content:flex-end;margin-bottom:6px">
+  <div id="top-sort" class="chart-sort"></div>
+</div>
 <div style="margin:1.5em 0;position:relative">
   <canvas id="top-chart"></canvas>
 </div>
 
-<script>renderAdvocateChart('top-chart', 'top_advocates.json', 'top_advocates', { afterYear: 1920 });</script>
+<script>renderAdvocateChart('top-chart', 'top_advocates.json', 'top_advocates', { afterYear: 1920, mode: 'arguments', sortContainerId: 'top-sort' });</script>
 
-## Since The Dawn of Time
+## Since the Dawn of Time
 
 To go back more than 70 years, complete and accurate data is harder to come by.  For now, we refer you to a recent report on [Oyez](https://www.oyez.org/top-advocates); we're in the process of tracking down all the underlying data.
 

@@ -60,14 +60,35 @@ function stripFragment(url) {
     try { return new URL(url).href.split('#')[0]; } catch { return url.split('#')[0]; }
 }
 
+// POSIX NAME_MAX is 255 bytes on macOS APFS/HFS+ and Linux ext4.
+// During download the script writes to `destPath + '.tmp'` first, so the
+// filename on disk is temporarily 4 bytes longer.  Clamp to 251 so the
+// .tmp file also stays within the limit.
+const NAME_MAX_BYTES = 251;
+
+/**
+ * Return `name` truncated so its UTF-8 encoding fits within NAME_MAX_BYTES,
+ * while preserving the file extension and not splitting a multi-byte char.
+ */
+function safeFname(name) {
+    const ext    = path.extname(name);                      // e.g. '.pdf'
+    const extLen = Buffer.byteLength(ext, 'utf8');
+    const limit  = NAME_MAX_BYTES - extLen;
+    const stem   = name.slice(0, name.length - ext.length);
+    const stemBuf = Buffer.from(stem, 'utf8');
+    if (stemBuf.length <= limit) return name;               // already fits
+    // Slice at byte boundary, then drop any trailing incomplete multi-byte char.
+    return stemBuf.subarray(0, limit).toString('utf8').replace(/�$/, '') + ext;
+}
+
 /** Derive the cache filename from a URL (last path segment, URL-decoded). */
 function filenameFromUrl(url) {
     try {
         const u = new URL(url);
         const seg = u.pathname.split('/').filter(Boolean).pop() || 'file';
-        return decodeURIComponent(seg);
+        return safeFname(decodeURIComponent(seg));
     } catch {
-        return url.split('/').pop().split('#')[0] || 'file';
+        return safeFname(url.split('/').pop().split('#')[0] || 'file');
     }
 }
 
@@ -109,6 +130,37 @@ const results = {
     missing:    [],   // { term, caseKey, url, reason }
 };
 
+// ── Per-directory dead-URL registry ──────────────────────────────────────────
+// Dead URLs (permanent HTTP errors like 404) are recorded in a '.skipped' JSON
+// file inside each cache directory.  This avoids polluting the directory with
+// per-file sentinels while still preventing futile retries on subsequent runs.
+
+const SKIPPED_FILE = '.skipped';
+const _skippedSets = new Map();   // cacheDir → Set<url>
+
+function _loadSkipped(cacheDir) {
+    if (_skippedSets.has(cacheDir)) return _skippedSets.get(cacheDir);
+    const p = path.join(cacheDir, SKIPPED_FILE);
+    let set;
+    try   { set = new Set(JSON.parse(fs.readFileSync(p, 'utf8'))); }
+    catch { set = new Set(); }
+    _skippedSets.set(cacheDir, set);
+    return set;
+}
+
+function _saveSkipped(cacheDir) {
+    const set = _skippedSets.get(cacheDir);
+    if (!set) return;
+    ensureDir(cacheDir);
+    fs.writeFileSync(
+        path.join(cacheDir, SKIPPED_FILE),
+        JSON.stringify([...set].sort(), null, 2),
+    );
+}
+
+function isSkipped(cacheDir, url)   { return _loadSkipped(cacheDir).has(url); }
+function markSkipped(cacheDir, url) { _loadSkipped(cacheDir).add(url); _saveSkipped(cacheDir); }
+
 // ── HTTP fetch with timeout ───────────────────────────────────────────────────
 
 async function fetchWithTimeout(url) {
@@ -128,7 +180,7 @@ async function fetchWithTimeout(url) {
 
 /**
  * Download `url` to `destPath`.
- * Returns 'downloaded', 'skipped' (already exists + !force), or 'failed'.
+ * Returns 'downloaded', 'skipped' (already exists), or { status:'failed', permanent, reason }.
  */
 async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
     const rel = relRepo(destPath);
@@ -145,10 +197,12 @@ async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
     try {
         resp = await fetchWithTimeout(url);
     } catch (err) {
-        return { status: 'failed', reason: String(err?.message || err) };
+        return { status: 'failed', permanent: false, reason: String(err?.message || err) };
     }
     if (!resp.ok) {
-        return { status: 'failed', reason: `HTTP ${resp.status}` };
+        // 404 / 410 are permanent; other codes (5xx, 429…) may succeed later.
+        const permanent = resp.status === 404 || resp.status === 410;
+        return { status: 'failed', permanent, reason: `HTTP ${resp.status}` };
     }
     ensureDir(path.dirname(destPath));
     try {
@@ -158,7 +212,7 @@ async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
         fs.renameSync(tmp, destPath);
     } catch (err) {
         try { fs.unlinkSync(destPath + '.tmp'); } catch {}
-        return { status: 'failed', reason: String(err?.message || err) };
+        return { status: 'failed', permanent: false, reason: String(err?.message || err) };
     }
     return 'downloaded';
 }
@@ -167,9 +221,16 @@ async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
 
 async function processUrl(url, cacheDir, term, caseKey, opts) {
     const cleanUrl = stripFragment(url);
+
+    // Skip URLs that permanently failed in a previous run.
+    if (!opts.force && isSkipped(cacheDir, cleanUrl)) {
+        results.skipped++;
+        await sleep(DELAY_MS);
+        return;
+    }
+
     const fname    = filenameFromUrl(cleanUrl);
     const destPath = path.join(cacheDir, fname);
-
     const outcome  = await downloadAsset(cleanUrl, destPath, opts);
 
     if (typeof outcome === 'object' && outcome.status === 'failed') {
@@ -178,6 +239,7 @@ async function processUrl(url, cacheDir, term, caseKey, opts) {
         if (opts.verbose || !opts.quiet) {
             console.log(`  FAIL  ${cleanUrl}  (${outcome.reason})`);
         }
+        if (outcome.permanent && !opts.dryRun) markSkipped(cacheDir, cleanUrl);
     } else if (outcome === 'downloaded') {
         results.downloaded++;
     } else {

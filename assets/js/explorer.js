@@ -1215,6 +1215,19 @@ async function _fetchKeywordIndex(prefix) {
   return data;
 }
 
+let _numberIndex = null;
+let _numberIndexPromise = null;
+
+async function _fetchNumberIndex() {
+  if (_numberIndex) return _numberIndex;
+  if (_numberIndexPromise) return _numberIndexPromise;
+  _numberIndexPromise = fetch('/courts/ussc/indexes/cases/numbers.json')
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}))
+    .then(d => { _numberIndex = d; return d; });
+  return _numberIndexPromise;
+}
+
 let _justiceNidData = null;
 let _justiceNidPromise = null;
 
@@ -2523,6 +2536,14 @@ function _fmtMonthDay(dateStr, withYear = false) {
   return withYear ? base + ', ' + parts[0] : base;
 }
 
+// Returns the most recent argument date across both argument and reargument fields.
+function _lastArgDate(c) {
+  const dates = [];
+  if (c.argument)   String(c.argument).split(',').forEach(d => { if (d.trim()) dates.push(d.trim()); });
+  if (c.reargument) String(c.reargument).split(',').forEach(d => { if (d.trim()) dates.push(d.trim()); });
+  return dates.length ? dates.reduce((a, b) => a > b ? a : b) : '';
+}
+
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
@@ -2537,7 +2558,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
   let sorted;
   if (mode === 'argued') {
-    sorted = [...visible].sort((a, b) => (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
+    sorted = [...visible].sort((a, b) => { const da = _lastArgDate(a), db = _lastArgDate(b); return da < db ? -1 : da > db ? 1 : caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')); });
   } else if (mode === 'decided') {
     // Undecided cases (no decision date) always sort to the end regardless of direction.
     const decided   = visible.filter(c =>  c.decision);
@@ -2583,12 +2604,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
     if (mode === 'argued' || mode === 'decided') {
       // Replace icons with a compact date label
-      const dateStr = mode === 'argued' ? caseEntry.argument : caseEntry.decision;
-      // argument/decision can be multi-date (comma-separated); use the first
-      const firstDate = dateStr ? String(dateStr).split(',')[0].trim() : '';
+      // For argued: use the most recent date (including reargument); for decided: first date suffices
+      const dateKey = mode === 'argued' ? _lastArgDate(caseEntry) : (caseEntry.decision ? String(caseEntry.decision).split(',')[0].trim() : '');
       const dateLbl = document.createElement('span');
       dateLbl.className = 'case-sort-label';
-      dateLbl.textContent = _fmtMonthDay(firstDate);
+      dateLbl.textContent = _fmtMonthDay(dateKey);
       header.appendChild(dateLbl);
     } else if (mode === 'votes') {
       const maj = caseEntry.voteMajority, min = caseEntry.voteMinority;
@@ -3317,7 +3337,7 @@ function showPageViewer(url, { pushState = true } = {}) {
   // Mark the corresponding nav item active.
   document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active', 'open'));
   document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
-  const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(url)}"]`);
+  const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(url.split('?')[0])}"]`);
   if (navItem) navItem.classList.add('active-page');
   // Push ?link= URL, clearing all other params.
   // Replace %2F back to / so the URL stays readable (slashes are valid in query values).
@@ -3477,7 +3497,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
             });
           }
         }
-        _populateCollectionGroups(collUl, groups, collEntry, collId);
+        _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic);
         _collAllGroups = Array.from(collUl.querySelectorAll(':scope > .month-group'));
         if (_collAllGroups.length > COLL_PAGE_SIZE) _renderCollPage();
       } catch (e) {
@@ -3708,7 +3728,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   sectionUl.appendChild(collLi);
 }
 
-function _buildHighlightItem(highlight, highlightIdx, href = null) {
+function _buildHighlightItem(highlight, highlightIdx, href = null, isTopic = false) {
   const ci = document.createElement('li');
   ci.className = 'case-item highlight-item';
   ci.dataset.highlightIdx = String(highlightIdx);
@@ -3746,7 +3766,7 @@ function _buildHighlightItem(highlight, highlightIdx, href = null) {
       const groupOrId = groupId != null ? { id: groupId } : (groupIdx != null ? { group: groupIdx } : {});
       const deleteOther = groupId != null ? ['group'] : ['id'];
       const url = buildUrlParams(
-        { ...(collId ? { collection: collId } : {}), ...groupOrId, highlight: highlightIdx + 1 },
+        { ...(collId ? { [isTopic ? 'topic' : 'collection']: collId } : {}), ...groupOrId, highlight: highlightIdx + 1 },
         [...deleteOther, 'term', 'case', 'event', 'file', 'turn'],
       );
       navigate(url);
@@ -3824,7 +3844,7 @@ async function loadHighlight(highlight) {
   }
 }
 
-function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false) {
   const caseKey = caseRef.term + '/' + caseRef.number;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
@@ -3846,12 +3866,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
           : null,
     hasFiles:  !!caseRef.files,
     href:      buildUrlParams(
-      { collection: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number },
+      { [isTopic ? 'topic' : 'collection']: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number },
       [_ciDeleteOther, 'highlight', 'event', 'file', 'turn'],
     ),
   });
 
-  ci.dataset.argued  = (typeof caseRef.argument === 'string' ? caseRef.argument.split(',')[0].trim() : '') || (typeof caseRef.reargument === 'string' ? caseRef.reargument.split(',')[0].trim() : '') || '';
+  ci.dataset.argued  = _lastArgDate(caseRef);
   ci.dataset.decided = caseRef.decision || '';
   if (caseRef.vocal) ci.dataset.vocal = caseRef.vocal;
   const _sortLabel = document.createElement('span');
@@ -4093,7 +4113,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId) {
       const deleteOther = groupId != null ? ['group'] : ['id'];
       const url = buildUrlParams(
         {
-          collection: collId,
+          [isTopic ? 'topic' : 'collection']: collId,
           ...groupOrId,
           term: caseRef.term,
           case: caseRef.number,
@@ -4134,7 +4154,7 @@ function _parseVocalSecs(s) {
   return parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseFloat(m[3]);
 }
 
-function _populateCollectionGroups(collUl, groups, collEntry, collId) {
+function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = false) {
   // Base path for per-advocate JSON files (split format): collectionDir/folder/
   // Uses collEntry.folder if specified, otherwise falls back to collId.
   // An absolute folder path (starts with '/') is used directly; relative paths
@@ -4386,7 +4406,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       if (Array.isArray(group.cases)) {
         // Embedded format: build case items from the in-memory array.
         for (const caseRef of group.cases) {
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic));
         }
         n = group.cases.length;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -4407,13 +4427,13 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
               const _hlGroupOrId = _hlGroupId != null ? { id: _hlGroupId } : { group: groupNumber };
               const _hlDeleteOther = _hlGroupId != null ? 'group' : 'id';
               const hlHref = buildUrlParams(
-                { collection: collId, ..._hlGroupOrId, highlight: hlIdx + 1 },
+                { [isTopic ? 'topic' : 'collection']: collId, ..._hlGroupOrId, highlight: hlIdx + 1 },
                 [_hlDeleteOther, 'term', 'case', 'event', 'file', 'turn'],
               );
-              groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref));
+              groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref, isTopic));
             }
             for (const caseRef of advocateCases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic));
             }
             n = advocateCases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -4465,7 +4485,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       // a group whose closure already holds a customised sort from a previous visit.
       const _nonDefaultSort = _groupSortMode !== _defaultSortMode || _groupSortAsc !== _defaultSortAsc;
       const url = buildUrlParams(
-        { collection: collId, ...groupOrId, ...(_nonDefaultSort ? { sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' } : {}) },
+        { [isTopic ? 'topic' : 'collection']: collId, ...groupOrId, ...(_nonDefaultSort ? { sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' } : {}) },
         [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
       );
       history.replaceState(null, '', url);
@@ -6276,9 +6296,14 @@ let _transcriptSearchClose = null;
 // handler (which resets the input and dropdown), so it runs second.
 document.addEventListener('transcriptloaded', () => {
   const params       = new URLSearchParams(location.search);
-  const findParam    = params.get('find');
+  let findParam      = params.get('find')?.trim() ?? '';
   const speakerParam = params.get('speaker');
-  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam.trim(), speakerParam?.trim() || null);
+  // Strip keyword-mode quoting — transcript search wants the bare phrase, not the '"…"' wrapper.
+  if (findParam.startsWith('"')) {
+    const closeIdx = findParam.indexOf('"', 1);
+    findParam = closeIdx !== -1 ? findParam.slice(1, closeIdx) : findParam.slice(1);
+  }
+  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam, speakerParam?.trim() || null);
 });
 
 // Find a rendered file-item element by the URL 'file' param value.
@@ -6431,7 +6456,53 @@ let _navSearchActivate = null;
     }
   }
 
+  let _verifyGen = 0;
+
+  // Background phrase verification for keyword searches.
+  // Fetches each case's transcript(s), counts exact phrase occurrences, then
+  // updates the "? matches" label or removes the result if count is zero.
+  async function _verifyPhrases(phrase, tasks, gen) {
+    const CONCURRENCY = 3;
+    const queue = [...tasks];
+    await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
+      while (queue.length) {
+        if (gen !== _verifyGen) return;
+        const { term, c, lbl } = queue.shift();
+        const casesPath = '/courts/ussc/terms/' + term + '/cases/';
+        const hrefs = (c.events || []).map(e => e.text_href).filter(h => h && !/^https?:\/\//i.test(h));
+        if (!hrefs.length) continue; // no local transcript — leave "? matches"
+        let count = 0;
+        for (const href of hrefs) {
+          if (gen !== _verifyGen) return;
+          try {
+            const res = await fetch(casesPath + href);
+            if (!res.ok) continue;
+            const data = await res.json();
+            const turns = Array.isArray(data) ? data : (data.turns || []);
+            for (const turn of turns) {
+              let i = 0;
+              const text = (turn.text || '').toLowerCase();
+              while (true) {
+                const pos = text.indexOf(phrase, i);
+                if (pos === -1) break;
+                count++;
+                i = pos + phrase.length;
+              }
+            }
+          } catch (_) { /* skip unreadable transcript */ }
+        }
+        if (gen !== _verifyGen) return;
+        if (count === 0) {
+          lbl.closest('li')?.remove();
+        } else {
+          lbl.textContent = count + ' match' + (count === 1 ? '' : 'es');
+        }
+      }
+    }));
+  }
+
   async function runNavSearch(query) {
+    _verifyGen++; // cancel any in-flight phrase verification
     const termsSectionEl = document.querySelector('[data-section="terms"]');
     if (!termsSectionEl) return;
     const inner    = termsSectionEl.querySelector('.terms-list-inner');
@@ -6454,6 +6525,88 @@ let _navSearchActivate = null;
         keywords = keywords.slice(0, closeIdx);
         if (afterQuote) justiceFilter = afterQuote;
       }
+    }
+
+    // Number mode: query starts with '#' followed by a docket number.
+    // Examples: "#24-1260", "#22-Orig", "#22 orig", "#100".
+    // Normalisation mirrors processNumberIndex in update_cases.js: lowercase and
+    // replace a hyphen immediately before "orig"/"misc" with a space.
+    const numberMode = !keywordMode && q.startsWith('#');
+    if (numberMode) {
+      const numIndex = await _fetchNumberIndex();
+      const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
+      const refs = numIndex[normQ] ?? [];
+      const activeTerm = new URLSearchParams(location.search).get('term');
+      const termFilter = (activeTerm && activeTerm !== 'all') ? activeTerm : null;
+      const byTerm = new Map();
+      for (const ref of refs) {
+        const i = ref.indexOf('/');
+        const term = i === -1 ? ref.slice(0, 4) + '-10' : ref.slice(0, i);
+        const id   = i === -1 ? ref                     : ref.slice(i + 1);
+        if (termFilter && term !== termFilter) continue;
+        if (!byTerm.has(term)) byTerm.set(term, []);
+        byTerm.get(term).push(id);
+      }
+      const results = [];
+      await Promise.all([...byTerm].map(async ([term, idData]) => {
+        const cases = await fetchTermCases(term);
+        const idSet = new Set(idData);
+        for (const c of cases) {
+          if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+        }
+      }));
+      results.sort((a, b) =>
+        b.term.localeCompare(a.term) ||
+        (caseTitle(a.c.title) || '').localeCompare(caseTitle(b.c.title) || '')
+      );
+      if (inner) inner.hidden = true;
+      if (!resultsEl) return;
+      resultsEl.innerHTML = '';
+      if (!results.length) {
+        const li = document.createElement('li');
+        li.className = 'nav-search-no-results';
+        li.textContent = 'No matches found';
+        resultsEl.appendChild(li);
+      } else {
+        const MAX_N = 200;
+        for (const { term, c } of results.slice(0, MAX_N)) {
+          const urlId = (c.number ? c.number.split(',')[0].trim() : '') || c.id || '';
+          const href = buildUrlParams(
+            { term, case: urlId },
+            ['collection', 'group', 'id', 'highlight', 'file', 'event', 'turn', 'find'],
+          );
+          const li  = document.createElement('li');
+          li.className = 'case-item';
+          const div = document.createElement('div');
+          div.className = 'case-header';
+          const a = document.createElement('a');
+          a.className = 'case-title-nav';
+          a.textContent = caseTitle(c.title) || urlId;
+          a.href = href;
+          a.title = (c.number || c.id || '') + '  ·  ' + term;
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            navigate(href);
+            restoreFromURL();
+            closeNavSearch();
+          });
+          const lbl = document.createElement('span');
+          lbl.className = 'nav-search-term-label';
+          lbl.textContent = term;
+          div.appendChild(a);
+          div.appendChild(lbl);
+          li.appendChild(div);
+          resultsEl.appendChild(li);
+        }
+        if (results.length > MAX_N) {
+          const li = document.createElement('li');
+          li.className = 'nav-search-no-results';
+          li.textContent = '… and ' + (results.length - MAX_N) + ' more';
+          resultsEl.appendChild(li);
+        }
+      }
+      resultsEl.hidden = false;
+      return;
     }
 
     const toks = _tokens(keywords);
@@ -6609,6 +6762,7 @@ let _navSearchActivate = null;
       li.textContent = 'No matches found';
       resultsEl.appendChild(li);
     } else {
+      const verifyTasks = []; // { term, c, lbl } for background phrase check
       for (const { term, c, loc, count } of results.slice(0, MAX)) {
         const urlId = (c.number ? c.number.split(',')[0].trim() : '') || c.id || '';
         const updates = { term, case: urlId };
@@ -6616,7 +6770,7 @@ let _navSearchActivate = null;
         if (loc) { updates.event = loc[0]; updates.turn = loc[1]; }
         else deletes.push('event', 'turn');
         if (keywordMode) {
-          updates.find = keywords.trim();
+          updates.find = '"' + keywords.trim() + '"';
           if (justiceFilter) updates.speaker = justiceFilter;
         } else deletes.push('find');
         const href = buildUrlParams(updates, deletes);
@@ -6639,7 +6793,7 @@ let _navSearchActivate = null;
           e.preventDefault();
           if (keywordMode) {
             const cur = new URL(location.href);
-            cur.searchParams.set('find', keywords.trim());
+            cur.searchParams.set('find', '"' + keywords.trim() + '"');
             if (justiceFilter) cur.searchParams.set('speaker', justiceFilter);
             else cur.searchParams.delete('speaker');
             history.replaceState(null, '', cur.pathname + '?' + cur.searchParams.toString());
@@ -6651,7 +6805,8 @@ let _navSearchActivate = null;
         const lbl = document.createElement('span');
         lbl.className = 'nav-search-term-label';
         if (keywordMode) {
-          lbl.textContent = count + ' match' + (count === 1 ? '' : 'es');
+          lbl.textContent = '? matches';
+          verifyTasks.push({ term, c, lbl });
         } else {
           lbl.textContent = term;
         }
@@ -6665,6 +6820,11 @@ let _navSearchActivate = null;
         li.className = 'nav-search-no-results';
         li.textContent = '… and ' + (results.length - MAX) + ' more';
         resultsEl.appendChild(li);
+      }
+      if (keywordMode && verifyTasks.length) {
+        const phrase = toks.join(' ');
+        const gen = _verifyGen;
+        _verifyPhrases(phrase, verifyTasks, gen); // fire-and-forget
       }
     }
 
@@ -6700,11 +6860,12 @@ let _navSearchActivate = null;
     if (e.key === 'Escape') { closeNavSearch(); return; }
     if (e.key === 'Enter') {
       const val = navSearchInput.value.trim();
-      if (val.startsWith('"') && val.length > 1) {
-        // Store the full query verbatim so the URL round-trips correctly.
+      // Save search state for all modes: keyword ("), number (#), or plain title.
+      // Bare '"' or '#' with nothing after are not valid queries.
+      if (val.length > 0 && val !== '"' && val !== '#') {
         const url = new URL(location.href);
         url.searchParams.set('find', val);
-        url.searchParams.delete('speaker'); // embedded in find, not needed separately
+        url.searchParams.delete('speaker');
         ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
         history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
       }
@@ -6712,11 +6873,11 @@ let _navSearchActivate = null;
   });
 
   _navSearchActivate = (findQuery, justiceQuery) => {
-    // findQuery may be the full query (e.g. '"strict scrutiny" scalia') or just keywords.
-    // If it already starts with '"', use it verbatim; otherwise wrap in quotes and append justice.
+    // Keyword mode (starts with '"'): speaker/justice filter may be appended.
+    // Number mode (starts with '#') and title mode: use verbatim.
     const q = findQuery.startsWith('"')
-      ? findQuery
-      : '"' + findQuery + '"' + (justiceQuery ? ' ' + justiceQuery : '');
+      ? findQuery + (justiceQuery ? ' ' + justiceQuery : '')
+      : findQuery;
     openNavSearch();
     navSearchInput.value = q;
     runNavSearch(q);
@@ -6948,7 +7109,13 @@ async function restoreFromURL() {
     }
     const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.link || null;
-    if (resolvedLink) showPageViewer(resolvedLink, { pushState: false });
+    if (resolvedLink) {
+      const _sortV = params.get('sort');
+      const _linkWithSort = _sortV
+        ? resolvedLink + '?sort=' + encodeURIComponent(_sortV) + '&o=' + encodeURIComponent(params.get('o') || 'd')
+        : resolvedLink;
+      showPageViewer(_linkWithSort, { pushState: false });
+    }
     if (collEntry?.name) document.title = collEntry.name + ' | Argument Aloud';
     trackPageView(location.href);
     return;
@@ -7092,7 +7259,8 @@ async function restoreFromURL() {
         markCaseItemActive(ci);
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
-        if (fileParam != null || turnParam != null) {
+        const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
+        if ((fileParam != null || turnParam != null) && _hasAudio) {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
@@ -7141,7 +7309,7 @@ async function restoreFromURL() {
           ...(turnParam != null ? { initialTurn: turnParam } : {}),
           // Pass fileRestore so the title click handler can open the file directly
           // for no-audio cases (where transcriptloaded never fires).
-          fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.some(a => a.audio_href)) ? String(fileParam) : null,
+          fileRestore: (fileParam != null && !_hasAudio) ? String(fileParam) : null,
         }));
       }
     }
@@ -7193,7 +7361,8 @@ async function restoreFromURL() {
         : termParam + '/' + caseParam;
       const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
-        if (fileParam != null || turnParam != null) {
+        const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
+        if ((fileParam != null || turnParam != null) && _hasAudio) {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
@@ -7241,7 +7410,7 @@ async function restoreFromURL() {
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
           fromRestore: true,
           audioIdx: audioParam ?? 0,
-          fileRestore: (fileParam != null && matchedCase && !matchedCase.events?.length) ? String(fileParam) : null,
+          fileRestore: (fileParam != null && !_hasAudio) ? String(fileParam) : null,
         }));
         // For no-audio cases, file restore is handled inside the title click handler
         // (after ensureFilesLoaded). For audio cases it fires on transcriptloaded above.
@@ -7252,7 +7421,9 @@ async function restoreFromURL() {
     }
   } else if (linkParam) {
     // link URL: show the page viewer for the linked page.
-    const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(linkParam)}"], .term-group[data-link="${CSS.escape(linkParam)}"]`);
+    // Strip any sort params from the link before matching the nav item.
+    const linkBase = linkParam.split('?')[0];
+    const navItem = document.querySelector(`.case-item[data-link="${CSS.escape(linkBase)}"], .term-group[data-link="${CSS.escape(linkBase)}"]`);
     if (navItem) {
       // Expand all ancestor collapsible sections.
       navItem.classList.add('open');
@@ -7266,7 +7437,11 @@ async function restoreFromURL() {
       }
       requestAnimationFrame(() => navItem.scrollIntoView({ behavior: 'instant', block: 'center' }));
     }
-    showPageViewer(linkParam, { pushState: false });
+    const _sortV = params.get('sort');
+    const _linkWithSort = _sortV
+      ? linkBase + '?sort=' + encodeURIComponent(_sortV) + '&o=' + encodeURIComponent(params.get('o') || 'd')
+      : linkParam;
+    showPageViewer(_linkWithSort, { pushState: false });
   } else if (termParam === 'all') {
     showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
   } else if (termParam) {
@@ -7313,6 +7488,11 @@ window.addEventListener('message', async (e) => {
     await restoreFromURL();
   } else if (e.data?.type === 'ussc-open-doc' && e.data.href) {
     showDocViewer({ href: e.data.href, title: e.data.title || '' });
+  } else if (e.data?.type === 'ussc-update-sort' && e.data.sort) {
+    const newUrl = new URL(location.href);
+    newUrl.searchParams.set('sort', e.data.sort);
+    newUrl.searchParams.set('o', e.data.o || 'd');
+    history.replaceState(null, '', newUrl.toString());
   }
 });
 

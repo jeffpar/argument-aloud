@@ -40,9 +40,20 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script src="{{ '/assets/js/chart.js@4.4.9/dist/chart.umd.min.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=5"></script>
+  <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=9"></script>
   <script>(function(){var t=localStorage.getItem('aa-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
   <style>
+    /* ── Chart sort control ── */
+    .chart-sort { display:flex; gap:4px; align-items:center; flex-wrap:wrap; }
+    .chart-sort-btn {
+      padding:2px 8px; font-size:0.68rem; font-weight:600;
+      border-radius:12px; border:1px solid currentColor;
+      background:transparent; color:inherit; opacity:0.45;
+      cursor:pointer; white-space:nowrap; line-height:1.6;
+      transition:opacity 0.15s; font-family:inherit;
+    }
+    .chart-sort-btn:hover  { opacity:0.75; }
+    .chart-sort-btn.active { opacity:1; }
     @media (prefers-color-scheme: dark) {
       body, .wrapper {
         background: #1a1c22;

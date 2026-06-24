@@ -6,11 +6,14 @@ layout: pane
 
 <p id="women-summary"></p>
 
+<div style="display:flex;justify-content:flex-end;margin-bottom:6px">
+  <div id="women-sort" class="chart-sort"></div>
+</div>
 <div style="margin:1.5em 0;position:relative">
   <canvas id="women-chart"></canvas>
 </div>
 
-<script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100, summaryId: 'women-summary', summaryLabel: 'women' });</script>
+<script>renderAdvocateChart('women-chart', 'women_advocates.json', 'women_advocates', { limit: 100, summaryId: 'women-summary', summaryLabel: 'women', mode: 'arguments', sortContainerId: 'women-sort' });</script>
 
 ## Data Sources and Methodologies
 

@@ -94,10 +94,10 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 <div class="jg-header">
   <h1 class="jg-heading">Gallery</h1>
   <div class="jg-sort-bar" id="jg-sort-bar">
-    <button class="jg-sort-btn active" data-sort="joined">Joined</button>
-    <button class="jg-sort-btn" data-sort="years">Years Served</button>
-    <button class="jg-sort-btn" data-sort="lone">Lone Dissents</button>
-    <button class="jg-sort-btn" data-sort="vocal">Vocal</button>
+    <button class="jg-sort-btn active" data-sort="joined" data-label="Joined">Joined ↑</button>
+    <button class="jg-sort-btn" data-sort="years" data-label="Years Served">Years Served ↓</button>
+    <button class="jg-sort-btn" data-sort="lone" data-label="Lone Dissents">Lone Dissents ↓</button>
+    <button class="jg-sort-btn" data-sort="vocal" data-label="Vocal">Vocal ↓</button>
   </div>
 </div>
 <div id="jg-grid" class="jg-grid"></div>
@@ -131,31 +131,41 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
   }
 
   var SORTERS = {
-    joined: function (a, b) {
-      return (a.dateFirst || '').localeCompare(b.dateFirst || '');
-    },
-    years: function (a, b) {
-      var ay = a.yearsServed != null ? a.yearsServed : -1;
-      var by = b.yearsServed != null ? b.yearsServed : -1;
-      return by - ay;
-    },
-    lone: function (a, b) {
-      var al = a.loneDissents != null ? a.loneDissents : -1;
-      var bl = b.loneDissents != null ? b.loneDissents : -1;
-      return bl - al;
-    },
-    vocal: function (a, b) {
-      var av = a.vocalSecs != null ? a.vocalSecs : -1;
-      var bv = b.vocalSecs != null ? b.vocalSecs : -1;
-      return bv - av;
-    },
+    joined: function (a, b) { return (a.dateFirst || '').localeCompare(b.dateFirst || ''); },
+    years:  function (a, b) { return (a.yearsServed  != null ? a.yearsServed  : -1) - (b.yearsServed  != null ? b.yearsServed  : -1); },
+    lone:   function (a, b) { return (a.loneDissents != null ? a.loneDissents : -1) - (b.loneDissents != null ? b.loneDissents : -1); },
+    vocal:  function (a, b) { return (a.vocalSecs    != null ? a.vocalSecs    : -1) - (b.vocalSecs    != null ? b.vocalSecs    : -1); },
   };
 
-  var justices = [];
-  var activeSort = 'joined';
+  var DEFAULTS = { joined: true, years: false, lone: false, vocal: false };
+
+  var _params   = new URLSearchParams(location.search);
+
+  function _pushSortUrl(key, asc) {
+    var search = '?sort=' + key + '&o=' + (asc ? 'a' : 'd');
+    history.replaceState(null, '', location.pathname + search);
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'ussc-update-sort', sort: key, o: asc ? 'a' : 'd' }, location.origin);
+    }
+  }
+
+  var justices   = [];
+  var activeSort = _params.get('sort') || 'joined';
+  var activeAsc  = _params.has('o') ? _params.get('o') === 'a' : DEFAULTS[activeSort];
+
+  function updateButtons() {
+    document.querySelectorAll('.jg-sort-btn').forEach(function (b) {
+      var key = b.dataset.sort;
+      var on  = key === activeSort;
+      var asc = on ? activeAsc : DEFAULTS[key];
+      b.classList.toggle('active', on);
+      b.textContent = b.dataset.label + ' ' + (asc ? '↑' : '↓');
+    });
+  }
 
   function renderGrid() {
-    var sorted = justices.slice().sort(SORTERS[activeSort]);
+    var dir    = activeAsc ? 1 : -1;
+    var sorted = justices.slice().sort(function (a, b) { return SORTERS[activeSort](a, b) * dir; });
     var grid = document.getElementById('jg-grid');
     grid.innerHTML = '';
     sorted.forEach(function (j) {
@@ -196,11 +206,14 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
     var btn = e.target.closest('.jg-sort-btn');
     if (!btn) return;
     var sort = btn.dataset.sort;
-    if (sort === activeSort) return;
-    activeSort = sort;
-    document.querySelectorAll('.jg-sort-btn').forEach(function (b) {
-      b.classList.toggle('active', b === btn);
-    });
+    if (sort === activeSort) {
+      activeAsc = !activeAsc;
+    } else {
+      activeSort = sort;
+      activeAsc  = DEFAULTS[sort];
+    }
+    _pushSortUrl(activeSort, activeAsc);
+    updateButtons();
     renderGrid();
   });
 
@@ -208,6 +221,7 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
     .then(function (r) { return r.json(); })
     .then(function (data) {
       justices = data;
+      updateButtons();
       renderGrid();
     });
 })();
