@@ -3244,31 +3244,33 @@ function buildStaticPageItem(parentUl, page) {
     li.appendChild(header);
     li.appendChild(ul);
   } else {
-    li.className = 'case-item';
+    // Leaf item (no subgroups) — use term-group/term-header/term-label so it inherits
+    // the same font, weight, and muted color as collapsible section headers.
+    // Also carry case-item so the .case-item[data-link] active-page selector still works.
+    li.className = 'term-group case-item';
     if (page.link) li.dataset.link = page.link;
 
     const header = document.createElement('div');
-    header.className = 'case-header';
+    header.className = 'term-header';
 
-    let titleSpan;
+    let label;
     if (page.link) {
-      titleSpan = document.createElement('a');
-      titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = page.name;
-      titleSpan.style.cursor = 'pointer';
+      label = document.createElement('a');
+      label.className = 'term-label';
+      label.textContent = page.name;
       const _pu = new URL(location.href);
       _pu.search = '';
       _pu.searchParams.set('link', page.link);
       _pu.search = _pu.search.replace(/%2F/gi, '/');
-      titleSpan.href = _pu.toString();
-      titleSpan.addEventListener('click', (e) => { e.preventDefault(); showPageViewer(page.link); });
+      label.href = _pu.toString();
+      label.addEventListener('click', (e) => { e.preventDefault(); showPageViewer(page.link); });
     } else {
-      titleSpan = document.createElement('span');
-      titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = page.name;
+      label = document.createElement('span');
+      label.className = 'term-label';
+      label.textContent = page.name;
     }
 
-    header.appendChild(titleSpan);
+    header.appendChild(label);
     li.appendChild(header);
   }
 

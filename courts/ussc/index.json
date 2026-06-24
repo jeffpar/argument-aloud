@@ -12,34 +12,55 @@
     "file": "/courts/ussc/topics.json"
   },
   {
-    "name": "National Archives",
+    "name": "Sources",
     "groups": [
       {
-        "name": "U.S. Constitution",
-        "link": "/nara/constitution",
-        "hidden": true
+        "name": "U.S. Supreme Court",
+        "link": "https://www.supremecourt.gov"
       },
       {
-        "name": "U.S. Supreme Court Media",
-        "link": "/nara",
+        "name": "National Archives",
         "groups": [
           {
-            "name": "Black Series, October 1955 - December 1972",
-            "link": "/nara/audio/black"
+            "name": "U.S. Constitution",
+            "link": "/nara/constitution",
+            "hidden": true
           },
           {
-            "name": "Red Series, December 1972 - June 27, 2005",
-            "link": "/nara/audio/red"
-          },
-          {
-            "name": "Gold Series, October 3, 2005 - June 27, 2025",
-            "link": "/nara/audio/gold"
-          },
-          {
-            "name": "Auditing and Oddities",
-            "link": "/nara/audit"
+            "name": "U.S. Supreme Court Media",
+            "link": "/nara",
+            "groups": [
+              {
+                "name": "Black Series, October 1955 - December 1972",
+                "link": "/nara/audio/black"
+              },
+              {
+                "name": "Red Series, December 1972 - June 27, 2005",
+                "link": "/nara/audio/red"
+              },
+              {
+                "name": "Gold Series, October 3, 2005 - June 27, 2025",
+                "link": "/nara/audio/gold"
+              },
+              {
+                "name": "Auditing and Oddities",
+                "link": "/nara/audit"
+              }
+            ]
           }
         ]
+      },
+      {
+        "name": "The Oyez Project",
+        "link": "https://www.oyez.org"
+      },
+      {
+        "name": "Supreme Court Database",
+        "link": "https://scdb.la.psu.edu"
+      },
+      {
+        "name": "Supreme Court Historical Society",
+        "link": "https://supremecourthistory.org"
       }
     ]
   }
