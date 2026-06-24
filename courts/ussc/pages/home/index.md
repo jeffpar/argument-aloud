@@ -17,7 +17,9 @@ Not sure where to start? Here are some links to help you dive in.
   - [Noteworthy Cases](/courts/ussc/?collection=noteworthy)
   - *NEW*! [Roll the Supreme Court Dice](/courts/ussc/?action=randomize&start=1955-10)
 
-Topics is a section that will grow over time, as we add more "tags" to cases and group them [here](https://github.com/jeffpar/argument-aloud/tree/main/courts/ussc/collections).  The [1963 Term](https://github.com/jeffpar/argument-aloud/blob/main/courts/ussc/terms/1963-10/cases.json) has some examples of how cases are tagged internally.
+We also want to improve how all the pieces of information associated with a case are connected.  For example, here's an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+
+That example barely scratches the surface of what is possible, but hopefully it gives you some sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
 Thoughts, suggestions, or other inquiries can be sent to [admin@argumentaloud.org](mailto:admin@argumentaloud.org).
 

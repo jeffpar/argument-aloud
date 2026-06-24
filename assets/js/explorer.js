@@ -4470,7 +4470,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       );
       history.replaceState(null, '', url);
       await _ensureGroupCases();
-      document.title = (group.name || '') + ' | Argument Aloud';
+      document.title = formatSpeakerFull(group.name || '') + ' | Argument Aloud';
       trackPageView(location.href);
       if (_groupLink && _groupDocument) showAdvocateDocument(_groupDocument, _groupLink, group.name || '');
       else if (_groupLink) showPageViewer(_groupLink, { pushState: false });
@@ -7001,7 +7001,7 @@ async function restoreFromURL() {
         groupLi._activateCount?.();
         if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
         const _groupNameText = groupLi.querySelector('.month-name')?.textContent;
-        if (_groupNameText) document.title = _groupNameText + ' | Argument Aloud';
+        if (_groupNameText) document.title = formatSpeakerFull(_groupNameText) + ' | Argument Aloud';
         trackPageView(location.href);
         if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
         else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
