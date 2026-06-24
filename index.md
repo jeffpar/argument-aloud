@@ -92,7 +92,7 @@ html[data-theme="light"] .hp-card-title     { color: #2672b4; }
 
 <div class="hp-hero">
   <h1>Argument Aloud</h1>
-  <p class="hp-tagline">A media hub that connects (almost) every U.S. Supreme Court argument<br/>with all available files (briefs, transcripts, recordings, opinions) &mdash; all in one place.</p>
+  <p class="hp-tagline">A media hub that connects (almost) every U.S. Supreme Court argument with all available files (briefs, transcripts, recordings, opinions) &mdash; all in one place.</p>
   <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. RNC (No.&nbsp;24-1260)</a></p>
 </div>
 
