@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 /**
- * Downloads and caches external assets referenced in cases.json files:
+ * Downloads and caches external assets referenced in cases.json and files.json files.
+ *
+ * Default mode (cases.json assets):
  *   - decision_loc / decision_ussc / decision_reports  → PDF opinion
  *   - audio_href    → MP3 audio (from each event)
  *   - transcript_href → PDF transcript (from each event)
  *
- * Assets are stored under courts/ussc/cache/terms/<term>/<case-number>/<filename>.
+ * --files mode (files.json assets):
+ *   Scans every terms/<term>/cases/<case>/files.json and downloads the href
+ *   of each entry to courts/ussc/cache/terms/<term>/<case>/<filename>.
+ *
+ * All assets are stored under courts/ussc/cache/terms/<term>/<case-number>/<filename>.
  * At the end, reports which URLs are no longer reachable.
  *
  * Usage:
- *   node scripts/download.js [TERM [CASE]] [--dry-run] [--refetch] [--verbose]
+ *   node scripts/download.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
  *
  * Options:
  *   TERM       Term in YYYY-10 format (default: all terms)
  *   CASE       Docket number to limit to a single case
+ *   --files    Download assets from files.json entries instead of cases.json
  *   --dry-run  Show what would be downloaded without fetching anything
  *   --refetch  Re-download even if the file already exists in cache
- *   --verbose  Print each URL as it is checked / downloaded
+ *   --verbose  Print skipped files in addition to downloads
  *
  * © 2026 by Jeff Parsons
  */
@@ -126,14 +133,14 @@ async function fetchWithTimeout(url) {
 async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
     const rel = relRepo(destPath);
     if (!force && exists(destPath)) {
-        if (verbose) console.log(`  skip  ${rel}`);
+        if (verbose) console.log(`  skip  ${url}\n         → ${rel}`);
         return 'skipped';
     }
     if (dryRun) {
-        console.log(`  would download  ${url}  →  ${rel}`);
+        console.log(`  ${url}\n    → ${rel}  [dry-run]`);
         return 'downloaded';
     }
-    if (verbose) console.log(`  fetch ${url}`);
+    console.log(`  ${url}\n    → ${rel}`);
     let resp;
     try {
         resp = await fetchWithTimeout(url);
@@ -150,11 +157,9 @@ async function downloadAsset(url, destPath, { force, verbose, dryRun }) {
         await pipeline(resp.body, dest);
         fs.renameSync(tmp, destPath);
     } catch (err) {
-        // Clean up partial file
         try { fs.unlinkSync(destPath + '.tmp'); } catch {}
         return { status: 'failed', reason: String(err?.message || err) };
     }
-    if (verbose) console.log(`  saved ${rel}`);
     return 'downloaded';
 }
 
@@ -257,6 +262,69 @@ async function processTerm(term, caseFilter, opts) {
     }
 }
 
+// ── Process one case's files.json ─────────────────────────────────────────────
+
+async function processFilesForCase(term, caseId, opts) {
+    const filesJsonPath = path.join(TERMS_DIR, term, 'cases', caseId, 'files.json');
+    if (!exists(filesJsonPath)) return;
+
+    let entries;
+    try {
+        entries = readJson(filesJsonPath);
+    } catch (err) {
+        console.error(`  error reading ${relRepo(filesJsonPath)}: ${err.message}`);
+        return;
+    }
+
+    const tasks = entries.filter(e => e.href);
+    if (!tasks.length) return;
+
+    const cacheDir = path.join(CACHE_DIR, term, caseId);
+
+    for (let i = 0; i < tasks.length; i += CONCURRENCY) {
+        const batch = tasks.slice(i, i + CONCURRENCY);
+        await Promise.all(
+            batch.map(({ href }) => processUrl(href, cacheDir, term, caseId, opts))
+        );
+    }
+}
+
+// ── Process one term's files.json assets ──────────────────────────────────────
+
+async function processTermFilesMode(term, caseFilter, opts) {
+    const casesDir = path.join(TERMS_DIR, term, 'cases');
+    if (!exists(casesDir)) {
+        if (opts.verbose) console.log(`[${term}] no cases/ directory — skipping`);
+        return;
+    }
+
+    let caseIds;
+    try {
+        caseIds = fs.readdirSync(casesDir)
+            .filter(d => exists(path.join(casesDir, d, 'files.json')));
+    } catch (err) {
+        console.error(`[${term}] failed to read cases directory: ${err.message}`);
+        return;
+    }
+
+    if (caseFilter) {
+        caseIds = caseIds.filter(id => id === caseFilter);
+        if (!caseIds.length) {
+            console.warn(`[${term}] case '${caseFilter}' not found`);
+            return;
+        }
+    }
+
+    if (!caseIds.length) return;
+
+    console.log(`\n── ${term} (${caseIds.length} case(s) with files.json) ──`);
+
+    for (const caseId of caseIds.sort()) {
+        if (opts.verbose) console.log(`\n[${term}/${caseId}]`);
+        await processFilesForCase(term, caseId, opts);
+    }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -264,11 +332,12 @@ async function main() {
     const flags  = new Set(argv.filter(a => a.startsWith('--')));
     const args   = argv.filter(a => !a.startsWith('--'));
 
-    const dryRun  = flags.has('--dry-run');
-    const force   = flags.has('--refetch');
-    const verbose = flags.has('--verbose');
-    const quiet   = !verbose;
-    const opts    = { dryRun, force, verbose, quiet };
+    const filesMode = flags.has('--files');
+    const dryRun    = flags.has('--dry-run');
+    const force     = flags.has('--refetch');
+    const verbose   = flags.has('--verbose');
+    const quiet     = !verbose;
+    const opts      = { dryRun, force, verbose, quiet };
 
     const termArg = args[0] || null;
     const caseArg = args[1] || null;
@@ -294,11 +363,12 @@ async function main() {
     }
 
     if (dryRun) console.log('[dry-run mode — no files will be written]');
+    if (filesMode) console.log('[files mode — downloading files.json assets]');
 
     const startTime = Date.now();
 
     for (const term of terms) {
-        await processTerm(term, caseArg, opts);
+        await (filesMode ? processTermFilesMode(term, caseArg, opts) : processTerm(term, caseArg, opts));
     }
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

@@ -164,7 +164,8 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
       var el = document.createElement('a');
       el.className = 'jg-item';
-      el.href = j.link || (PORTRAIT_BASE + j.id);
+      el.href = '/courts/ussc/?collection=gallery&id=' + j.id;
+      el.target = '_top';
 
       var portrait = document.createElement('div');
       portrait.className = 'jg-portrait';

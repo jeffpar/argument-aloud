@@ -1246,11 +1246,14 @@ async function _fetchJusticeNids() {
 
 // Called when nav search opens: loads all not-yet-built term case lists.
 // ── URL param helper ─────────────────────────────────────────────────────────
-// Rebuilds URLSearchParams so that 'collection' is always first, and 'group' or 'id' is second.
+// Rebuilds URLSearchParams so that 'collection'/'topic' is always first, and 'group' or 'id' is second.
 function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
   // Apply deletes first.
   deletes.forEach(k => url.searchParams.delete(k));
+  // 'collection' and 'topic' are mutually exclusive nav params — deleting one removes the other.
+  if (deletes.includes('collection')) url.searchParams.delete('topic');
+  if (deletes.includes('topic'))      url.searchParams.delete('collection');
   // Always remove 'link', 'find', and 'speaker' when navigating — they are only
   // meaningful on keyword-search result URLs and are re-added explicitly by callers.
   url.searchParams.delete('link');
@@ -1258,8 +1261,12 @@ function buildUrlParams(updates, deletes = []) {
   url.searchParams.delete('speaker');
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // Enforce canonical parameter order: collection, group/id, highlight, term, case, event, turn, file, then rest.
+  // Setting one of the mutually exclusive nav params removes the other.
+  if ('collection' in updates) url.searchParams.delete('topic');
+  if ('topic'      in updates) url.searchParams.delete('collection');
+  // Enforce canonical parameter order: collection/topic, group/id, highlight, term, case, event, turn, file, then rest.
   const collection = url.searchParams.get('collection');
+  const topic      = url.searchParams.get('topic');
   const group      = url.searchParams.get('group');
   const id         = url.searchParams.get('id');
   const highlight  = url.searchParams.get('highlight');
@@ -1271,10 +1278,11 @@ function buildUrlParams(updates, deletes = []) {
   const file       = url.searchParams.get('file');
   const sortPrm    = url.searchParams.get('sort');
   const orderPrm   = url.searchParams.get('o');
-  const orderedKeys = ['collection', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
+  const orderedKeys = ['collection', 'topic', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
+  if (topic      != null) reordered.push(['topic',      topic]);
   if (group != null) reordered.push(['group', group]);
   if (id != null) reordered.push(['id', id]);
   if (highlight != null) reordered.push(['highlight', highlight]);
@@ -3044,7 +3052,7 @@ function _findCollectionEntry(entries, collId) {
   return null;
 }
 
-function buildCollectionsNav(title = 'Collections', data = COLLECTIONS) {
+function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic = false) {
   if (!data || !data.length) return null;
 
   const termListEl = document.getElementById('term-list');
@@ -3076,7 +3084,7 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS) {
     _sectionBuilt = true;
     for (const collEntry of data) {
       if (collEntry.hidden) continue;
-      buildCollectionItem(sectionUl, collEntry);
+      buildCollectionItem(sectionUl, collEntry, isTopic);
     }
   }
   sectionLi._ensureBuilt = () => _doSectionBuild();
@@ -3115,7 +3123,7 @@ function buildNavFromIndex(navData) {
           };
         }
       }
-      else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS);
+      else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS, true);
     } else if (entry.groups) {
       buildStaticNavSection(termListEl, entry);
     }
@@ -3323,7 +3331,7 @@ function showPageViewer(url, { pushState = true } = {}) {
   if (isMobile()) setMobileNavVisible(false);
 }
 
-function buildCollectionItem(sectionUl, collEntry) {
+function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   // Group entry: contains sub-collections with no data file of their own.
   if (Array.isArray(collEntry.collections)) {
     const groupLi = document.createElement('li');
@@ -3342,7 +3350,7 @@ function buildCollectionItem(sectionUl, collEntry) {
     groupUl.className = 'case-list';
     for (const child of collEntry.collections) {
       if (child.hidden) continue;
-      buildCollectionItem(groupUl, child);
+      buildCollectionItem(groupUl, child, isTopic);
     }
     groupHeader.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -3551,7 +3559,7 @@ function buildCollectionItem(sectionUl, collEntry) {
       collLi.classList.toggle('open');
       if (!collLi.classList.contains('open')) {
         _onCollClose?.();
-        const url = buildUrlParams({}, ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o']);
+        const url = buildUrlParams({}, ['collection', 'topic', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o']);
         navigate(url);
         return;
       }
@@ -3561,7 +3569,8 @@ function buildCollectionItem(sectionUl, collEntry) {
     // Open (or already open): build, navigate, show page.
     await _ensureCollectionBuilt();
     if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
-    const url = buildUrlParams({ collection: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
+    const _navParamKey = isTopic ? 'topic' : 'collection';
+    const url = buildUrlParams({ [_navParamKey]: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
     document.title = (collEntry.name || collId) + ' | Argument Aloud';
     navigate(url);
   });
@@ -6892,7 +6901,7 @@ async function restoreFromURL() {
   let termParam         = params.get('term');
   if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
-  let collectionParam = params.get('collection');
+  let collectionParam = params.get('collection') ?? params.get('topic');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
     collectionParam = _COLLECTION_ALIASES[collectionParam];
     params.set('collection', collectionParam);
