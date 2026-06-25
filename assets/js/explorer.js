@@ -3846,15 +3846,27 @@ async function loadHighlight(highlight) {
   }
 }
 
+function _ordinal(n) {
+  const mod100 = n % 100;
+  const mod10  = n % 10;
+  const suffix = (mod100 >= 11 && mod100 <= 13) ? 'th'
+    : mod10 === 1 ? 'st'
+    : mod10 === 2 ? 'nd'
+    : mod10 === 3 ? 'rd'
+    : 'th';
+  return n + suffix;
+}
+
 function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false) {
   const caseKey = caseRef.term + '/' + caseRef.number;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
   const _ciGroupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
   const _ciDeleteOther = groupId != null ? 'group' : 'id';
+  const _baseTitle = caseTitle(caseRef.title);
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
-    title:     caseTitle(caseRef.title),
+    title:     caseRef.appearance != null ? _baseTitle + ' (' + _ordinal(caseRef.appearance) + ')' : _baseTitle,
     tooltip:   argumentTooltip(caseRef.term, caseRef),
     // When a specific event index is stored, use it as the sole disambiguator
     // so the audioDate filter in loadCase doesn't block activation. Fall back
