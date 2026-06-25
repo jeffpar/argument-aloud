@@ -55,6 +55,7 @@ let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for jo
 let _currentFiles       = [];        // files.json entries for the active case (used by file: dropdown options)
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
+const _sectionLiById      = new Map(); // entry.id → top-level section <li>
 
 // ── Transcript edit mode state ──────────────────────────────────────────────
 let _editMode = false;
@@ -1175,7 +1176,7 @@ let TERMS = [];         // flat array {name, file, cases(count), term(derived), 
 let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
-const _COLLECTION_ALIASES = { loners: 'lone_dissents' };
+const _COLLECTION_ALIASES = { loners: 'lone_dissents', top_advocates: 'top100_advocates' };
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 const _titleIndexCache   = new Map(); // first-char → inflight Promise or resolved index object
 const _keywordIndexCache = new Map(); // first-char → inflight Promise or resolved index object
@@ -2798,13 +2799,14 @@ function _buildSortMenu(anchorEl, options, getState, onPick) {
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
-function buildNav(title = 'Terms') {
+function buildNav(title = 'Terms', id = '') {
   const termListEl = document.getElementById('term-list');
 
   // Wrap all decade groups in a top-level collapsible section.
   const termsLi = document.createElement('li');
   termsLi.className = 'terms-group';
   termsLi.dataset.section = 'terms';
+  if (id) _sectionLiById.set(id, termsLi);
   const termsHeader = document.createElement('div');
   termsHeader.className = 'terms-header';
   const termsTog = document.createElement('span');
@@ -3072,7 +3074,7 @@ function _findCollectionEntry(entries, collId) {
   return null;
 }
 
-function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic = false) {
+function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic = false, id = '') {
   if (!data || !data.length) return null;
 
   const termListEl = document.getElementById('term-list');
@@ -3080,6 +3082,7 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
   // Top-level section — styled like the Terms group
   const sectionLi = document.createElement('li');
   sectionLi.className = 'terms-group';
+  if (id) _sectionLiById.set(id, sectionLi);
 
   const sectionHeader = document.createElement('div');
   sectionHeader.className = 'terms-header';
@@ -3131,9 +3134,9 @@ function buildNavFromIndex(navData) {
   for (const entry of navData) {
     if (entry.hidden) continue;
     if (entry.file) {
-      if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms');
+      if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms', entry.id || '');
       else if (entry.file.endsWith('collections.json')) {
-        _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS);
+        _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS, false, entry.id || '');
         if (_collectionsSectionLi) {
           const _origCollEnsure = _collectionsSectionLi._ensureBuilt;
           let _favHooked = false;
@@ -3143,7 +3146,7 @@ function buildNavFromIndex(navData) {
           };
         }
       }
-      else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS, true);
+      else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS, true, entry.id || '');
     } else if (entry.groups) {
       buildStaticNavSection(termListEl, entry);
     }
@@ -3153,6 +3156,7 @@ function buildNavFromIndex(navData) {
 function buildStaticNavSection(termListEl, entry) {
   const sectionLi = document.createElement('li');
   sectionLi.className = 'terms-group';
+  if (entry.id) _sectionLiById.set(entry.id, sectionLi);
 
   const header = document.createElement('div');
   header.className = 'terms-header';
@@ -7091,6 +7095,19 @@ async function restoreFromURL() {
     params.set('collection', collectionParam);
     history.replaceState(null, '', '?' + params.toString());
   }
+
+  // General <id>=all: expand the matching top-level nav section.
+  // term=all is excluded here because it has dedicated stats-page handling below.
+  for (const [sectionId, sLi] of _sectionLiById) {
+    if (sectionId !== 'term' && params.get(sectionId) === 'all') {
+      sLi.classList.add('open');
+      sLi._ensureBuilt?.();
+      requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      trackPageView(location.href);
+      return;
+    }
+  }
+
   const groupParam      = params.get('group') != null ? parseInt(params.get('group'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
@@ -7466,6 +7483,11 @@ async function restoreFromURL() {
       : linkParam;
     showPageViewer(_linkWithSort, { pushState: false });
   } else if (termParam === 'all') {
+    const _termsSectionLi = _sectionLiById.get('term');
+    if (_termsSectionLi) {
+      _termsSectionLi.classList.add('open');
+      requestAnimationFrame(() => _termsSectionLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+    }
     showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.

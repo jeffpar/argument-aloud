@@ -140,7 +140,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
     <p class="hp-card-desc">Visit a gallery of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">years of service</a> and <a href="/courts/ussc/?collection=gallery&sort=vocal&o=d">time speaking</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">lone dissents</a> the justices have written.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?collection=all_advocates">
+  <div class="hp-card" data-href="/courts/ussc/?collection=top100_advocates">
     <div class="hp-icon">🎙️</div>
     <div class="hp-card-title">Advocates</div>
     <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top100_advocates">top 100 advocates</a>, or all the <a href="/courts/ussc/?collection=women_advocates">women</a> or <a href="/courts/ussc/?collection=justice_advocates">justices</a> who have argued cases &mdash; by name, frequency, or gender. Some have even received <a href="/courts/ussc/?collection=top100_advocates&id=edwin_s_kneedler&highlight=1">special recognition</a> for their service.</p>
@@ -152,16 +152,16 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
     <p class="hp-card-desc">Spot an error? Correct speaker labels or transcript text directly in the browser, then download your edits for submission (see the Transcripts menu at top right).</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?collection=briefs&group=1">
+  <div class="hp-card" data-href="/courts/ussc/?collection=all">
     <div class="hp-icon">📚</div>
     <div class="hp-card-title">Collections</div>
     <p class="hp-card-desc">Stroll through collections of historical <a href="/courts/ussc/?collection=briefs&group=1">briefs</a> and <a href="/courts/ussc/?collection=transcripts&group=1">transcripts</a>. Sift through old <a href="/courts/ussc/?collection=orig">Original Jurisdicion</a> cases. Or explore third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc?topic=noteworthy">
+  <div class="hp-card" data-href="/courts/ussc?topic=all">
     <div class="hp-icon">🗂️</div>
     <div class="hp-card-title">Topics</div>
-    <p class="hp-card-desc">Cases can also browsed by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a>, with more to come, or by constitutional amendment, statute, or other legal provision.</p>
+    <p class="hp-card-desc">Browse cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a> (with more to come), or view <a href="/courts/ussc/?topic=noteworthy">noteworthy</a> cases by constitutional provisions and more.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=all">
@@ -182,7 +182,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
     <p class="hp-card-desc">Mark cases as favorites or apply your own tags. Export your selections at any time for safekeeping or to share. Nothing is stored remotely, everything is saved in your browser.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc">
+  <div class="hp-card" data-href="/courts/ussc?source=all">
     <div class="hp-icon">🏛️</div>
     <div class="hp-card-title">Sources</div>
     <p class="hp-card-desc">Only trusted sources of data are used, starting with The U.S. Supreme Court, The National Archives, The Oyez Project, and other scholarly work.</p>

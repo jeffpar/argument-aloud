@@ -1,22 +1,64 @@
 [
   {
+    "id": "term",
     "name": "Terms",
     "file": "/courts/ussc/terms.json"
   },
   {
+    "id": "collection",
     "name": "Collections",
     "file": "/courts/ussc/collections.json"
   },
   {
+    "id": "topic",
     "name": "Topics",
     "file": "/courts/ussc/topics.json"
   },
   {
+    "id": "source",
     "name": "Sources",
     "groups": [
       {
         "name": "U.S. Supreme Court",
-        "link": "https://www.supremecourt.gov"
+        "link": "https://www.supremecourt.gov",
+        "groups": [
+          {
+            "name": "Argument Audio",
+            "link": "https://www.supremecourt.gov/oral_arguments/argument_audio/2025"
+          },
+          {
+            "name": "Argument Transcripts",
+            "link": "https://www.supremecourt.gov/oral_arguments/argument_transcript/2025"
+          },
+          {
+            "name": "Cited Media Files",
+            "link": "https://www.supremecourt.gov/media/media.aspx"
+          },
+          {
+            "name": "Cited Online Sources",
+            "link": "https://www.supremecourt.gov/opinions/cited_urls/25"
+          },
+          {
+            "name": "Docket Search",
+            "link": "https://www.supremecourt.gov/docket/docket.aspx"
+          },
+          {
+            "name": "Journals of the Court",
+            "link": "https://www.supremecourt.gov/orders/journal.aspx"
+          },
+          {
+            "name": "Opinions of the Court",
+            "link": "https://www.supremecourt.gov/opinions/slipopinion/25"
+          },
+          {
+            "name": "Original Jurisdiction Records",
+            "link": "https://www.supremecourt.gov/casedocuments/original_jurisdiction_cases.aspx"
+          },
+          {
+            "name": "U.S. Reports",
+            "link": "https://www.supremecourt.gov/opinions/USReports.aspx"
+          }
+        ]
       },
       {
         "name": "National Archives",
@@ -52,7 +94,17 @@
       },
       {
         "name": "The Oyez Project",
-        "link": "https://www.oyez.org"
+        "link": "https://www.oyez.org",
+        "groups": [
+          {
+            "name": "Current Cases",
+            "link": "https://www.oyez.org/cases/2025"
+          },
+          {
+            "name": "Top Advocates",
+            "link": "https://www.oyez.org/top-advocates"
+          }
+        ]
       },
       {
         "name": "Supreme Court Database",
