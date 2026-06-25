@@ -3,7 +3,7 @@
  *
  * @param {string} canvasId   - ID of the <canvas> element to render into
  * @param {string} dataUrl    - URL of the advocates JSON file to fetch
- * @param {string} collection - Collection ID used when building nav links (e.g. 'top_advocates')
+ * @param {string} collection - Collection ID used when building nav links (e.g. 'top100_advocates')
  * @param {object} options    - Optional: { limit, afterYear, summaryId, summaryLabel, mode, sortContainerId }
  */
 /**

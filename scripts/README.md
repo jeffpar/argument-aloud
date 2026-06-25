@@ -139,7 +139,7 @@ Rebuilds the advocate profile index from all transcript files. Scans every
 `text_href` transcript across all terms, extracts advocate speakers, and writes:
 
 - `courts/ussc/people/advocates/all_advocates.json` — full index
-- `courts/ussc/people/advocates/top/top_advocates.json` — top 100 by case count
+- `courts/ussc/people/advocates/top/top100_advocates.json` — top 100 by case count
 - `courts/ussc/people/advocates/all/{id}.json` — per-advocate case lists
 
 ```

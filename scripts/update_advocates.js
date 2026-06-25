@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Builds/updates courts/ussc/people/advocates/all_advocates.json (index),
- * courts/ussc/people/advocates/top_advocates.json (top 100 by case count), and
+ * courts/ussc/people/advocates/top100_advocates.json (top 100 by case count),
+ * courts/ussc/people/advocates/top21st_advocates.json (top advocates by 21st-century case count), and
  * courts/ussc/people/advocates/all/{id}.json (per-advocate case lists) from
  * transcript files.
  *
@@ -32,7 +33,8 @@ const REPO_ROOT         = path.resolve(__dirname, '..');
 const TERMS_DIR         = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const ADVOCATES_BASE    = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'advocates');
 const OUTPUT_FILE       = path.join(ADVOCATES_BASE, 'all_advocates.json');
-const TOP_OUTPUT_FILE   = path.join(ADVOCATES_BASE, 'top', 'top_advocates.json');
+const TOP100_OUTPUT_FILE  = path.join(ADVOCATES_BASE, 'top100',  'top100_advocates.json');
+const TOP21ST_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'top21st', 'top21st_advocates.json');
 const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women', 'women_advocates.json');
 const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
 const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_advocates.json');
@@ -2252,8 +2254,36 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     });
     // Top 100 advocates index (preserves cases-descending sort from `output`).
     const topIndex = index.slice(0, 100);
-    writeJson(TOP_OUTPUT_FILE, topIndex);
-    console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP_OUTPUT_FILE)}`);
+    writeJson(TOP100_OUTPUT_FILE, topIndex);
+    console.log(`Wrote ${topIndex.length} advocates to ${relRepo(TOP100_OUTPUT_FILE)}`);
+
+    // Top advocates for 21st-century terms (2000-10 onward), ranked by 21st-century argument count.
+    const TOP21ST_TERM_START = '2000-10';
+    const top21stIndex = output
+        .map(e => {
+            const c21 = e.cases.filter(c => (c.term || '') >= TOP21ST_TERM_START);
+            if (!c21.length) return null;
+            // e.cases is sorted newest-first, so c21 preserves that order.
+            const dateLast21  = c21[0].argument || c21[0].reargument || '';
+            const dateFirst21 = c21[c21.length - 1].argument || c21[c21.length - 1].reargument || '';
+            const entry = {
+                id:    e.id || makeAdvocateId(e.name),
+                name:  e.name,
+                cases: c21.length,
+            };
+            if (dateFirst21) entry.dateFirst = dateFirst21;
+            if (dateLast21)  entry.dateLast  = dateLast21;
+            if (e.previously) entry.previously = [...new Set(e.previously)].sort();
+            return entry;
+        })
+        .filter(Boolean)
+        .sort((a, b) => {
+            if (a.cases !== b.cases) return b.cases - a.cases;
+            return (a.name || '').localeCompare(b.name || '');
+        });
+    ensureDir(path.dirname(TOP21ST_OUTPUT_FILE));
+    writeJson(TOP21ST_OUTPUT_FILE, top21stIndex.slice(0, 100));
+    console.log(`Wrote ${Math.min(top21stIndex.length, 100)} advocates to ${relRepo(TOP21ST_OUTPUT_FILE)}`);
 
     // Auto-create a featured index.md for any top advocate that doesn't have one yet.
     let featuredCreated = 0;

@@ -4446,10 +4446,19 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
               );
               groupUl.appendChild(_buildHighlightItem(hl, hlIdx, hlHref, isTopic));
             }
-            for (const caseRef of advocateCases) {
+            // If the collection restricts to a minimum term, filter cases and
+            // renumber appearances starting from 1 for the earliest qualifying argument.
+            let _cases = advocateCases;
+            if (collEntry.minTerm) {
+              const sorted = advocateCases
+                .filter(c => (c.term || '') >= collEntry.minTerm)
+                .sort((a, b) => (a.argument || a.reargument || '') < (b.argument || b.reargument || '') ? -1 : 1);
+              _cases = sorted.map((c, i) => ({ ...c, appearance: i + 1 }));
+            }
+            for (const caseRef of _cases) {
               groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic));
             }
-            n = advocateCases.length;
+            n = _cases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
             // Refresh the count button now that we know the actual case count.
             if (groupCount.classList.contains('sort-active')) {

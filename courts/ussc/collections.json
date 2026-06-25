@@ -57,10 +57,20 @@
         "hidden": false
       },
       {
-        "name": "Top Advocates",
-        "file": "/courts/ussc/people/advocates/top/top_advocates.json",
-        "link": "/courts/ussc/people/advocates/top",
+        "name": "Top 100 Advocates",
+        "file": "/courts/ussc/people/advocates/top100/top100_advocates.json",
+        "link": "/courts/ussc/people/advocates/top100",
         "folder": "/courts/ussc/people/advocates/all",
+        "order": "argued:descending",
+        "search": "name",
+        "pageLabel": "advocates"
+      },
+      {
+        "name": "Top 21st Century Advocates",
+        "file": "/courts/ussc/people/advocates/top21st/top21st_advocates.json",
+        "link": "/courts/ussc/people/advocates/top21st",
+        "folder": "/courts/ussc/people/advocates/all",
+        "minTerm": "2000-10",
         "order": "argued:descending",
         "search": "name",
         "pageLabel": "advocates"

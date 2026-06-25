@@ -10,7 +10,7 @@ Not sure where to start? Here are some links to help you dive in.
 
   - [All Terms](/courts/ussc/?term=all)
   - [Current Term](/courts/ussc/?term=current)
-  - [Top Advocates](/courts/ussc/?collection=top_advocates)
+  - [Top Advocates](/courts/ussc/?collection=top100_advocates)
   - [Women Advocates](/courts/ussc/?collection=women_advocates)
   - [Lone Dissents](/courts/ussc/?collection=lone_dissents)
   - [Vocal Justices](/courts/ussc/?collection=vocal_justices)

@@ -143,7 +143,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?collection=all_advocates">
     <div class="hp-icon">🎙️</div>
     <div class="hp-card-title">Advocates</div>
-    <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top_advocates">top advocates</a>, including all the <a href="/courts/ussc/?collection=women_advocates">women</a> and <a href="/courts/ussc/?collection=justice_advocates">justices</a> who have argued cases &mdash; by name, frequency, or gender. Some have even received <a href="/courts/ussc/?collection=top_advocates&id=edwin_s_kneedler&highlight=1">special recognition</a> for their service.</p>
+    <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top100_advocates">top 100 advocates</a>, or all the <a href="/courts/ussc/?collection=women_advocates">women</a> or <a href="/courts/ussc/?collection=justice_advocates">justices</a> who have argued cases &mdash; by name, frequency, or gender. Some have even received <a href="/courts/ussc/?collection=top100_advocates&id=edwin_s_kneedler&highlight=1">special recognition</a> for their service.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-109">
