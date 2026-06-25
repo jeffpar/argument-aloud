@@ -3,15 +3,16 @@ layout: pane
 ---
 
 <style>
-.stats-title-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.6rem 8px; margin: 0.75rem 0 1.1rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
-.stats-term-nav { width: 100%; display: flex; justify-content: space-between; font-size: 0.72rem; }
-.stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; }
+.stats-title-row { display: flex; align-items: baseline; gap: 8px; margin: 0.75rem 0 0.6rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+.stats-title-row h2 { flex: 1; }
+.stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
+.stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
 @media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
-#covers-row { display: flex; gap: 8px; align-items: flex-start; flex-shrink: 0; }
+#covers-row { float: right; display: flex; gap: 8px; align-items: flex-start; margin-left: 1rem; }
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
 #journal-cover-btn[hidden] { display: none; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
@@ -36,6 +37,32 @@ html[data-theme="light"] .stat-label { color: #666; }
 html[data-theme="dark"]  .stats-note { color: #6a7080; }
 html[data-theme="light"] .stats-note { color: #888; }
 
+/* ── Term calendar ──────────────────────────────────────────────────────── */
+#term-calendar { margin: 1.25rem 0 0.75rem; }
+.term-calendar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem 2rem; }
+.cal-month-hdr {
+  font-size: 0.68rem; font-weight: 700; text-align: center;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding-bottom: 0.25rem; margin-bottom: 0.25rem;
+  border-bottom: 1px solid #ccc;
+}
+@media (prefers-color-scheme: dark) { .cal-month-hdr { border-color: #3a3d47; } }
+html[data-theme="dark"]  .cal-month-hdr { border-color: #3a3d47; }
+html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
+.cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 0.6rem; opacity: 0.45; margin-bottom: 0.1rem; }
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-day { text-align: center; font-size: 0.7rem; line-height: 1.75; border-radius: 2px; min-width: 0; }
+.cal-arg     { background: #d97070; color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-dec     { background: #6090cc; color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-arg-dec { background: linear-gradient(135deg, #d97070 50%, #6090cc 50%); color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-arg:hover     { background: #c85c5c; }
+.cal-dec:hover     { background: #4e7db8; }
+.cal-arg-dec:hover { background: linear-gradient(135deg, #c85c5c 50%, #4e7db8 50%); }
+.cal-sel { box-shadow: inset 0 0 0 2px #fbbf24; }
+@media (max-width: 600px) {
+  .term-calendar { grid-template-columns: repeat(2, 1fr); gap: 1rem 1rem; }
+}
+
 @media (max-width: 600px) {
   body { padding-top: 6px; }
   .stats-title-row { margin-top: 0.2rem; }
@@ -49,7 +76,10 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 #history-view { padding: 0.5rem 0 0.25rem; }
 
 /* Date-specific case list */
-.date-section { margin-bottom: 1.25rem; }
+.date-section { display: flow-root; margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0; }
+@media (prefers-color-scheme: dark) { .date-section { border-color: #2d2f38; } }
+html[data-theme="dark"]  .date-section { border-color: #2d2f38; }
+html[data-theme="light"] .date-section { border-color: #e0e0e0; }
 .date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
 .date-case-list { list-style: none; margin: 0; padding: 0; }
 .date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
@@ -68,20 +98,20 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
 <div class="term-stats" id="stats-container">
   <div class="stats-title-row">
     <h2 id="stat-term-title"></h2>
-    <div id="covers-row">
-      <button id="journal-cover-btn" hidden title="Open journal">
-        <img id="journal-cover-img" alt="Journal cover">
-        <span id="journal-cover-label">Journal</span>
-      </button>
-    </div>
     <div class="stats-term-nav" id="stats-term-nav" hidden>
       <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
       <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
     </div>
   </div>
 
-  <div class="date-section" id="date-section" hidden>
-    <h2 id="stat-date-title"></h2>
+  <div class="date-section" id="date-section">
+    <div id="covers-row">
+      <button id="journal-cover-btn" hidden title="Open journal">
+        <img id="journal-cover-img" alt="Journal cover">
+        <span id="journal-cover-label">Journal</span>
+      </button>
+    </div>
+    <h2 id="stat-date-title" hidden></h2>
     <div id="date-argued-section" hidden>
       <h3>Argued</h3>
       <ul id="date-argued-list" class="date-case-list"></ul>
@@ -139,6 +169,8 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     </div>
   </div>
   <p class="stats-note" id="stats-note"></p>
+  <h2 id="term-calendar-heading" hidden>U.S. Supreme Court Calendar</h2>
+  <div id="term-calendar" hidden></div>
   <div id="history-view" hidden></div>
 </div>
 
@@ -269,6 +301,64 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     container.appendChild(leg);
   }
 
+  function renderTermCalendar(container, termId, argDays, decDays, selectedDate) {
+    function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+    var MONTHS = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+    var DOW = ['S','M','T','W','T','F','S'];
+    var parts = termId.split('-');
+    var startYear = parseInt(parts[0], 10);
+    var startMonth = parseInt(parts[1], 10) - 1; // 0-based
+    var calEl = document.createElement('div');
+    calEl.className = 'term-calendar';
+    for (var mi = 0; mi < 12; mi++) {
+      var mo = (startMonth + mi) % 12;
+      var yr = startYear + Math.floor((startMonth + mi) / 12);
+      var mEl = document.createElement('div');
+      mEl.className = 'cal-month';
+      var hdr = document.createElement('div');
+      hdr.className = 'cal-month-hdr';
+      hdr.textContent = MONTHS[mo].toUpperCase() + ' ' + yr;
+      mEl.appendChild(hdr);
+      var dowRow = document.createElement('div');
+      dowRow.className = 'cal-dow';
+      DOW.forEach(function(n) { var s = document.createElement('span'); s.textContent = n; dowRow.appendChild(s); });
+      mEl.appendChild(dowRow);
+      var grid = document.createElement('div');
+      grid.className = 'cal-days';
+      var firstDow = new Date(Date.UTC(yr, mo, 1)).getUTCDay();
+      var daysInMo = new Date(Date.UTC(yr, mo + 1, 0)).getUTCDate();
+      for (var i = 0; i < firstDow; i++) { var em = document.createElement('span'); em.className = 'cal-day'; grid.appendChild(em); }
+      for (var d = 1; d <= daysInMo; d++) {
+        var iso = yr + '-' + pad2(mo + 1) + '-' + pad2(d);
+        var isArg = argDays.has(iso);
+        var isDec = decDays.has(iso);
+        var isSel = (iso === selectedDate);
+        var dayEl = document.createElement('span');
+        var cls = 'cal-day';
+        if (isArg && isDec) cls += ' cal-arg-dec';
+        else if (isArg) cls += ' cal-arg';
+        else if (isDec) cls += ' cal-dec';
+        if (isSel) cls += ' cal-sel';
+        dayEl.className = cls;
+        dayEl.textContent = d;
+        if (isArg || isDec) {
+          (function(isoDate) {
+            dayEl.addEventListener('click', function() {
+              var s = '?term=' + encodeURIComponent(termId) + '&date=' + encodeURIComponent(isoDate);
+              if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
+              else { location.href = s; }
+            });
+          })(iso);
+        }
+        grid.appendChild(dayEl);
+      }
+      mEl.appendChild(grid);
+      calEl.appendChild(mEl);
+    }
+    container.appendChild(calEl);
+  }
+
   var params = new URLSearchParams(location.search);
   var term = params.get('term');
   var date = params.get('date');
@@ -314,7 +404,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     return;
   }
   document.getElementById('stat-term-title').textContent = termTitle(term);
-  if (date) document.getElementById('stat-date-title').textContent = fmtDate(date);
+  if (date) { var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false; }
 
   // Load journal cover if available for this term.
   fetch('/courts/ussc/terms.json')
@@ -337,7 +427,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
         document.getElementById('stats-term-nav').hidden = false;
         if (prevEntry) {
           var prevBtn = document.getElementById('stat-prev-term');
-          prevBtn.textContent = '« ' + prevEntry.name;
+          prevBtn.textContent = '« ' + prevEntry.id.split('-')[0];
           prevBtn.hidden = false;
           prevBtn.addEventListener('click', function () {
             var s = '?term=' + encodeURIComponent(prevEntry.id);
@@ -347,7 +437,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
         }
         if (nextEntry) {
           var nextBtn = document.getElementById('stat-next-term');
-          nextBtn.textContent = nextEntry.name + ' »';
+          nextBtn.textContent = nextEntry.id.split('-')[0] + ' »';
           nextBtn.hidden = false;
           nextBtn.addEventListener('click', function () {
             var s = '?term=' + encodeURIComponent(nextEntry.id);
@@ -412,9 +502,6 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
 
       // ── Date section ────────────────────────────────────────────────────────
       if (date) {
-        var dateSection = document.getElementById('date-section');
-        dateSection.hidden = false;
-
         function casesOnDate(field) {
           return cases.filter(function (c) {
             if (!c[field]) return false;
@@ -475,6 +562,20 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
         });
       });
       var argDays = argDaySet.size;
+
+      var decDaySet = new Set();
+      cases.forEach(function (c) {
+        if (c.decision) c.decision.split(',').forEach(function (d) { var t = d.trim(); if (t) decDaySet.add(t); });
+      });
+
+      var calContainer = document.getElementById('term-calendar');
+      if (calContainer && (argDaySet.size || decDaySet.size)) {
+        renderTermCalendar(calContainer, term, argDaySet, decDaySet, date || null);
+        calContainer.hidden = false;
+        var calHdr = document.getElementById('term-calendar-heading');
+        if (calHdr) calHdr.hidden = false;
+      }
+
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
       // (only oyez provides aligned transcripts; ussc never does)

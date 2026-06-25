@@ -3297,7 +3297,7 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
     transcriptViewer.hidden = true;
     pageViewer.hidden = false;
     const pf = document.getElementById('page-viewer-frame');
-    if (pf.src !== new URL(linkUrl, location.href).href) pf.src = linkUrl;
+    _frameNavigate(pf, linkUrl);
     transcriptViewer.classList.remove('no-audio');
   } else {
     // Document only: hide page-viewer, use no-audio trick so doc-viewer fills right pane.
@@ -3328,6 +3328,23 @@ function resetToHome() {
   if (isMobile()) setMobileNavVisible(false);
 }
 
+// Navigate the page-viewer iframe using location.replace() so that the iframe
+// does not push its own entry into the joint session history.  Each logical
+// navigation in the parent already owns one pushState entry; a separate iframe
+// src-change entry causes the back button to show mismatched URL/content.
+// Falls back to pf.src for the very first load (contentWindow still blank).
+function _frameNavigate(pf, url) {
+  const targetHref = new URL(url, location.href).href;
+  try {
+    const cur = pf.contentWindow?.location.href;
+    if (cur && cur !== 'about:blank') {
+      if (cur !== targetHref) pf.contentWindow.location.replace(targetHref);
+      return;
+    }
+  } catch (e) {}
+  if (pf.src !== targetHref) pf.src = url;
+}
+
 function showPageViewer(url, { pushState = true } = {}) {
   playerSection.hidden = true;
   audioControls.hidden = true;
@@ -3339,7 +3356,7 @@ function showPageViewer(url, { pushState = true } = {}) {
   docPanel.hidden = true;
   pageViewer.hidden = false;
   const pf = document.getElementById('page-viewer-frame');
-  if (pf.src !== new URL(url, location.href).href) pf.src = url;
+  _frameNavigate(pf, url);
   // Mark the corresponding nav item active.
   document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active', 'open'));
   document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
