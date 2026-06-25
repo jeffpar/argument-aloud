@@ -3,7 +3,7 @@ title: Justice Samuel Alito
 layout: pane
 justice_id: samuel_alito
 years_served: 20.4
-opinions: 136
+opinions: 139
 lone_dissents: 13
 vocal_secs: 208605
 case_count: 12

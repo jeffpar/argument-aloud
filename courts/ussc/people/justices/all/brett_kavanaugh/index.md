@@ -3,7 +3,7 @@ title: Justice Brett Kavanaugh
 layout: pane
 justice_id: brett_kavanaugh
 years_served: 7.7
-opinions: 47
+opinions: 48
 lone_dissents: 1
 vocal_secs: 92714
 case_count: 1
