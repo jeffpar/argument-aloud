@@ -105,12 +105,19 @@ image: /assets/img/aa_exterior1.jpg
 
     <div id="audio-controls" hidden>
       <div id="audio-row">
-        <audio id="audio-player" controls preload="metadata"></audio>
-        <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
-        <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
-        <button id="prev-speaker-btn" title="Previous turn by speaker" aria-label="Previous turn by speaker" disabled>&#8249;🗣️</button>
-        <button id="next-speaker-btn" title="Next turn by speaker" aria-label="Next turn by speaker" disabled>🗣️&#8250;</button>
-        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+        <audio id="audio-player" preload="metadata"></audio>
+        <div id="audio-playback">
+          <button id="play-pause-btn" title="Play" aria-label="Play" disabled>&#9654;</button>
+          <span id="audio-current-time">0:00</span>
+          <input id="audio-seek-bar" type="range" min="0" max="100" value="0" step="any" aria-label="Seek" disabled>
+        </div>
+        <div id="audio-nav">
+          <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
+          <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
+          <button id="prev-speaker-btn" title="Previous turn by speaker" aria-label="Previous turn by speaker" disabled>&#8249;&#8249;</button>
+          <button id="next-speaker-btn" title="Next turn by speaker" aria-label="Next turn by speaker" disabled>&#8250;&#8250;</button>
+          <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+        </div>
       </div>
       <div id="unaligned-note" hidden>The audio for this case has not yet been synchronized with a transcript.</div>
     </div>

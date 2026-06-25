@@ -1276,6 +1276,21 @@ button.term-case-count.sort-active:hover {
   gap: 8px;
 }
 
+#audio-playback {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+#audio-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 #unaligned-note {
   font-size: 11.5px;
   color: #c0392b;
@@ -1283,10 +1298,51 @@ button.term-case-count.sort-active:hover {
   line-height: 1.4;
 }
 #audio-player {
+  display: none; /* custom controls replace native; see #play-pause-btn etc. */
+}
+
+#play-pause-btn {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 6px 7px;
+  font-size: 15px;
+  line-height: 1;
+  color: #666;
+  transition: background 0.1s, color 0.1s;
+}
+
+#play-pause-btn:hover:not(:disabled) {
+  background: #e4eef8;
+  color: #2672b4;
+  border-color: #a8c8e8;
+}
+
+#play-pause-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+#audio-current-time {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #666;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#audio-seek-bar {
   flex: 1;
-  display: block;
-  height: 36px; /* normalize Chrome (~54px) to match Safari (~34px) */
   min-width: 0;
+  cursor: pointer;
+  accent-color: #2672b4;
+}
+
+#audio-seek-bar:disabled {
+  cursor: default;
+  opacity: 0.4;
 }
 
 #prev-speaker-btn,
@@ -2146,6 +2202,7 @@ button.term-case-count.sort-active:hover {
     cursor: pointer;
     line-height: 1;
   }
+
 }
 
 /* ── Dark mode ──────────────────────────────────────────── */
@@ -2305,6 +2362,7 @@ button.term-case-count.sort-active:hover {
 
   #unaligned-note { color: #e06060; }
 
+  #play-pause-btn,
   #prev-speaker-btn,
   #prev-turn-btn,
   #next-turn-btn,
@@ -2313,6 +2371,7 @@ button.term-case-count.sort-active:hover {
     border-color: #404450;
     color: #9da5b4;
   }
+  #play-pause-btn:hover:not(:disabled),
   #prev-speaker-btn:hover:not(:disabled),
   #prev-turn-btn:hover:not(:disabled),
   #next-turn-btn:hover:not(:disabled),
@@ -2321,6 +2380,14 @@ button.term-case-count.sort-active:hover {
     background: #252a35;
     color: #5eaee0;
     border-color: #4a7090;
+  }
+
+  #audio-current-time {
+    color: #9da5b4;
+  }
+
+  #audio-seek-bar {
+    accent-color: #5eaee0;
   }
 
   /* Search modal */
@@ -2589,16 +2656,21 @@ html[data-theme="dark"] #case-questions   { color: #9da5b4; }
 html[data-theme="dark"] .questions-more { color: #5eaee0; background: linear-gradient(to right, transparent, #1a1c22 30%); }
 html[data-theme="dark"] #unaligned-note { color: #e06060; }
 
+html[data-theme="dark"] #play-pause-btn,
 html[data-theme="dark"] #prev-speaker-btn,
 html[data-theme="dark"] #prev-turn-btn,
 html[data-theme="dark"] #next-turn-btn,
 html[data-theme="dark"] #next-speaker-btn,
 html[data-theme="dark"] #search-btn { border-color: #404450; color: #9da5b4; }
+html[data-theme="dark"] #play-pause-btn:hover:not(:disabled),
 html[data-theme="dark"] #prev-speaker-btn:hover:not(:disabled),
 html[data-theme="dark"] #prev-turn-btn:hover:not(:disabled),
 html[data-theme="dark"] #next-turn-btn:hover:not(:disabled),
 html[data-theme="dark"] #next-speaker-btn:hover:not(:disabled),
 html[data-theme="dark"] #search-btn:hover { background: #252a35; color: #5eaee0; border-color: #4a7090; }
+html[data-theme="dark"] #audio-current-time { color: #9da5b4; }
+html[data-theme="dark"] #audio-seek-bar { accent-color: #5eaee0; }
+
 
 html[data-theme="dark"] #search-overlay { background: rgba(0,0,0,0.6); }
 html[data-theme="dark"] #search-box { background: #1e2028; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
@@ -2787,16 +2859,20 @@ html[data-theme="light"] #case-questions   { color: #444; }
 html[data-theme="light"] .questions-more { color: #0066cc; background: linear-gradient(to right, transparent, #fafafa 30%); }
 html[data-theme="light"] #unaligned-note { color: #c0392b; }
 
+html[data-theme="light"] #play-pause-btn,
 html[data-theme="light"] #prev-speaker-btn,
 html[data-theme="light"] #prev-turn-btn,
 html[data-theme="light"] #next-turn-btn,
 html[data-theme="light"] #next-speaker-btn,
 html[data-theme="light"] #search-btn { border-color: #ccc; color: #666; }
+html[data-theme="light"] #play-pause-btn:hover:not(:disabled),
 html[data-theme="light"] #prev-speaker-btn:hover:not(:disabled),
 html[data-theme="light"] #prev-turn-btn:hover:not(:disabled),
 html[data-theme="light"] #next-turn-btn:hover:not(:disabled),
 html[data-theme="light"] #next-speaker-btn:hover:not(:disabled),
 html[data-theme="light"] #search-btn:hover { background: #e4eef8; color: #2672b4; border-color: #a8c8e8; }
+html[data-theme="light"] #audio-current-time,
+html[data-theme="light"] #audio-seek-bar { accent-color: #2672b4; }
 
 html[data-theme="light"] #search-overlay { background: rgba(0,0,0,0.35); }
 html[data-theme="light"] #search-box { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.22); }

@@ -980,6 +980,9 @@ const playerSection   = document.getElementById('player-section');
 const audioControls   = document.getElementById('audio-controls');
 const pageViewer      = document.getElementById('page-viewer');
 const transcriptViewer = document.getElementById('transcript-viewer');
+const playPauseBtn     = document.getElementById('play-pause-btn');
+const audioSeekBar     = document.getElementById('audio-seek-bar');
+const audioCurrentTime = document.getElementById('audio-current-time');
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
@@ -1002,6 +1005,15 @@ function navigate(url) {
 function parseTime(s) {
   const [h, m, sec] = s.split(':');
   return parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
+}
+
+function formatTime(secs) {
+  if (!isFinite(secs) || isNaN(secs) || secs < 0) return '0:00';
+  const h = Math.floor(secs / 3600);
+  const m = Math.floor((secs % 3600) / 60);
+  const s = Math.floor(secs % 60);
+  if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  return `${m}:${String(s).padStart(2, '0')}`;
 }
 
 const MONTHS = ['January','February','March','April','May','June',
@@ -5794,6 +5806,68 @@ document.getElementById('next-speaker-btn').addEventListener('click', () => {
   for (let i = current + 1; i < turns.length; i++) {
     if (turns[i]?.name === speaker) { jumpToTurn(i); return; }
   }
+});
+
+// ── Custom audio controls ────────────────────────────────────────────────────
+
+function _syncPlayPauseBtn() {
+  const playing = !audio.paused && !audio.ended;
+  playPauseBtn.textContent = playing ? '⏸' : '▶';
+  playPauseBtn.title = playing ? 'Pause' : 'Play';
+  playPauseBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+}
+
+playPauseBtn.addEventListener('click', () => {
+  audio.paused || audio.ended ? audio.play().catch(() => {}) : audio.pause();
+});
+
+let _seekBarDragging = false;
+audioSeekBar.addEventListener('mousedown',  () => { _seekBarDragging = true; });
+audioSeekBar.addEventListener('touchstart', () => { _seekBarDragging = true; }, { passive: true });
+audioSeekBar.addEventListener('input', () => {
+  audioCurrentTime.textContent = formatTime(parseFloat(audioSeekBar.value));
+});
+audioSeekBar.addEventListener('change', () => {
+  _seekBarDragging = false;
+  audio.currentTime = parseFloat(audioSeekBar.value);
+});
+
+audio.addEventListener('play',  _syncPlayPauseBtn);
+audio.addEventListener('pause', _syncPlayPauseBtn);
+audio.addEventListener('ended', _syncPlayPauseBtn);
+
+audio.addEventListener('loadedmetadata', () => {
+  if (isFinite(audio.duration) && audio.duration > 0) {
+    audioSeekBar.max = audio.duration;
+    audioSeekBar.disabled = false;
+  }
+  _syncPlayPauseBtn();
+});
+
+audio.addEventListener('timeupdate', () => {
+  if (_seekBarDragging) return;
+  audioCurrentTime.textContent = formatTime(audio.currentTime);
+  if (audio.duration > 0 && isFinite(audio.duration)) {
+    audioSeekBar.value = audio.currentTime;
+  }
+});
+
+audio.addEventListener('seeked', () => {
+  if (_seekBarDragging) return;
+  audioCurrentTime.textContent = formatTime(audio.currentTime);
+  if (audio.duration > 0 && isFinite(audio.duration)) {
+    audioSeekBar.value = audio.currentTime;
+  }
+});
+
+audio.addEventListener('emptied', () => {
+  // Enable play immediately if a new src is being loaded — don't wait for
+  // loadedmetadata, which iOS Safari may not fire until after a user gesture.
+  playPauseBtn.disabled = !audio.hasAttribute('src');
+  audioSeekBar.disabled = true;
+  audioSeekBar.value = 0;
+  audioCurrentTime.textContent = '0:00';
+  _syncPlayPauseBtn();
 });
 
 // ── Case info: tap to scroll back to document browser on mobile ──────────
