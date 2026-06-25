@@ -4,13 +4,14 @@ layout: pane
 
 <style>
 .stats-title-row { display: flex; align-items: baseline; gap: 8px; margin: 0.75rem 0 0.6rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
-.stats-title-row h2 { flex: 1; }
+.stats-title-row h1, .stats-title-row h2 { flex: 1; }
 .stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
 .stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
 @media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
+.term-stats h1 { font-size: 1.4rem; font-weight: 700; margin: 0; border: none; padding: 0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
 #covers-row { float: right; display: flex; gap: 8px; align-items: flex-start; margin-left: 1rem; }
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
@@ -97,7 +98,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
 
 <div class="term-stats" id="stats-container">
   <div class="stats-title-row">
-    <h2 id="stat-term-title"></h2>
+    <h1 id="stat-term-title"></h1>
     <div class="stats-term-nav" id="stats-term-nav" hidden>
       <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
       <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
