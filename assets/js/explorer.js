@@ -1273,6 +1273,14 @@ function buildUrlParams(updates, deletes = []) {
   url.searchParams.delete('link');
   url.searchParams.delete('find');
   url.searchParams.delete('speaker');
+  // Remove any section-level "=all" nav params (e.g. source=all) that are not
+  // being explicitly set in this call.  term/collection/topic have their own
+  // handling above; all other registered section IDs are mutually exclusive with
+  // term/case/collection navigation and must not bleed through.
+  for (const sectionId of _sectionLiById.keys()) {
+    if (sectionId === 'term' || sectionId === 'collection' || sectionId === 'topic') continue;
+    if (!(sectionId in updates)) url.searchParams.delete(sectionId);
+  }
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
   // Setting one of the mutually exclusive nav params removes the other.

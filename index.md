@@ -131,19 +131,19 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?term=all">
     <div class="hp-icon">⚖️</div>
     <div class="hp-card-title">Cases</div>
-    <p class="hp-card-desc">Browse cases from the earliest argued case in <a href="/courts/ussc/?term=1791-08&case=1791-001">1791</a> to the <a href="/courts/ussc/?term=2025-10">present</a>. Where available, cases include all supporting materials, and of course, the Court's final decision.</p>
+    <p class="hp-card-desc">Browse cases from the earliest argued case in <a href="/courts/ussc/?term=1791-08&case=1791-001">1791</a> to the <a href="/courts/ussc/?term=2025-10">Present</a>. Where available, cases include all supporting materials, and of course, the Court's final decision.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?collection=gallery">
     <div class="hp-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:1.6rem;height:1.6rem" fill="#c8955c"><rect height="20" transform="matrix(0.7075 -0.7067 0.7067 0.7075 -5.6854 13.7194)" width="4" x="11.73" y="3.73"/><rect height="8" transform="matrix(0.707 -0.7072 0.7072 0.707 0.3157 11.246)" width="4" x="11.73" y="1.24"/><rect height="8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.1722 7.7256)" width="4" x="3.24" y="9.73"/></svg></div>
     <div class="hp-card-title">Justices</div>
-    <p class="hp-card-desc">Visit a gallery of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">years of service</a> and <a href="/courts/ussc/?collection=gallery&sort=vocal&o=d">time speaking</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">lone dissents</a> the justices have written.</p>
+    <p class="hp-card-desc">Visit a gallery of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">Years of Service</a> or <a href="/courts/ussc/?collection=gallery&sort=vocal&o=d">Hours Spoken</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">Opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">Lone Dissents</a> the justices have written.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?collection=top100_advocates">
     <div class="hp-icon">🎙️</div>
     <div class="hp-card-title">Advocates</div>
-    <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top100_advocates">top 100 advocates</a>, or all the <a href="/courts/ussc/?collection=women_advocates">women</a> or <a href="/courts/ussc/?collection=justice_advocates">justices</a> who have argued cases &mdash; by name, frequency, or gender. Some have even received <a href="/courts/ussc/?collection=top100_advocates&id=edwin_s_kneedler&highlight=1">special recognition</a> for their service.</p>
+    <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top100_advocates">Top 100 Advocates</a>, or all the <a href="/courts/ussc/?collection=women_advocates">Women</a> or <a href="/courts/ussc/?collection=justice_advocates">Justices</a> who have argued cases. Some have even received <a href="/courts/ussc/?collection=top100_advocates&id=edwin_s_kneedler&highlight=1">Special Recognition</a> for their service.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-109">
@@ -155,19 +155,19 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?collection=all">
     <div class="hp-icon">📚</div>
     <div class="hp-card-title">Collections</div>
-    <p class="hp-card-desc">Stroll through collections of historical <a href="/courts/ussc/?collection=briefs&group=1">briefs</a> and <a href="/courts/ussc/?collection=transcripts&group=1">transcripts</a>. Sift through old <a href="/courts/ussc/?collection=orig">Original Jurisdicion</a> cases. Or explore third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
+    <p class="hp-card-desc">Stroll through collections of historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a> and <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>. Sift through old <a href="/courts/ussc/?collection=orig">Original Jurisdicion</a> cases. Or explore third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc?topic=all">
     <div class="hp-icon">🗂️</div>
     <div class="hp-card-title">Topics</div>
-    <p class="hp-card-desc">Browse cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a> (with more to come), or view <a href="/courts/ussc/?topic=noteworthy">noteworthy</a> cases by constitutional provisions and more.</p>
+    <p class="hp-card-desc">Browse cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a> (with more to come), or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=all">
     <div class="hp-icon">🔍</div>
     <div class="hp-card-title">Searches</div>
-    <p class="hp-card-desc">Search by <a href="/courts/ussc/?term=all&find=%2323-1197">case number</a>, <a href="/courts/ussc/?term=all&find=Miranda">case title</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>transcript text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=2011-10&case=11-393&event=4&turn=35&find="broccoli"&speaker=scalia'>broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
+    <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=2011-10&case=11-393&event=4&turn=35&find="broccoli"&speaker=scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc">
