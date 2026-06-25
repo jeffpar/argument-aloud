@@ -7250,9 +7250,12 @@ async function restoreFromURL() {
     const resolvedLink = linkParam || collEntry?.link || null;
     if (resolvedLink) {
       const _sortV = params.get('sort');
-      const _linkWithSort = _sortV
-        ? resolvedLink + '?sort=' + encodeURIComponent(_sortV) + '&o=' + encodeURIComponent(params.get('o') || 'd')
-        : resolvedLink;
+      const _sV    = params.get('s');
+      let _linkWithSort = resolvedLink;
+      const _extra = [];
+      if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
+      if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
+      if (_extra.length) _linkWithSort += '?' + _extra.join('&');
       showPageViewer(_linkWithSort, { pushState: false });
     }
     if (collEntry?.name) document.title = collEntry.name + ' | Argument Aloud';
@@ -7577,9 +7580,11 @@ async function restoreFromURL() {
       requestAnimationFrame(() => navItem.scrollIntoView({ behavior: 'instant', block: 'center' }));
     }
     const _sortV = params.get('sort');
-    const _linkWithSort = _sortV
-      ? linkBase + '?sort=' + encodeURIComponent(_sortV) + '&o=' + encodeURIComponent(params.get('o') || 'd')
-      : linkParam;
+    const _sV    = params.get('s');
+    const _extra = [];
+    if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
+    if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
+    const _linkWithSort = _extra.length ? linkBase + '?' + _extra.join('&') : linkBase;
     showPageViewer(_linkWithSort, { pushState: false });
   } else if (termParam === 'all') {
     const _termsSectionLi = _sectionLiById.get('term');
@@ -7636,6 +7641,8 @@ window.addEventListener('message', async (e) => {
     const newUrl = new URL(location.href);
     newUrl.searchParams.set('sort', e.data.sort);
     newUrl.searchParams.set('o', e.data.o || 'd');
+    if (e.data.s) newUrl.searchParams.set('s', e.data.s);
+    else          newUrl.searchParams.delete('s');
     history.replaceState(null, '', newUrl.toString());
   }
 });

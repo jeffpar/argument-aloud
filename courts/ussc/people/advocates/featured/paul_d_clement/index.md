@@ -14,7 +14,7 @@ As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case
 From [Clement & Murphy, PLLC](https://www.clementmurphy.com/who-we-are/paul-clement/):
 
 > Paul served as the 43rd Solicitor General of the United States from June 2005 until June 2008. Before his confirmation as Solicitor General, he served as Acting Solicitor General for nearly a year and as Principal Deputy Solicitor General for over three years.
-
+>
 > Paul has argued over 100 cases before the United States Supreme Court, including [Loper Bright v. Raimondo](/courts/ussc/?term=2023-10&case=22-451), [NetChoice v. Moody](/courts/ussc/?term=2023-10&case=22-277), [Axon Enterprise v. FTC](/courts/ussc/?term=2022-10&case=21-86), [Rucho v. Common Cause](/courts/ussc/?term=2018-10&case=18-422), [Epic Systems Corp. v. Lewis](/courts/ussc/?term=2017-10&case=16-285), [Hobby Lobby v. Burwell](/courts/ussc/?term=2013-10&case=13-354), [United States v. Booker](/courts/ussc/?term=2004-10&case=04-104), [Tennessee v. Lane](/courts/ussc/?term=2003-10&case=02-1667), and [McConnell v. FEC](/courts/ussc/?term=2003-10&case=02-1674). Paul has argued more Supreme Court cases since 2000 than any lawyer in or out of government.
 
 ---

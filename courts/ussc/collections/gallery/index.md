@@ -6,26 +6,25 @@ title: Gallery of Justices
 <style>
 .jg-header {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 8px;
   margin-bottom: 14px;
-  flex-wrap: wrap;
+}
+.jg-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 .jg-heading {
   margin: 0;
   font-weight: 700;
   white-space: nowrap;
 }
-.jg-controls {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
 .jg-sort-bar {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 4px;
 }
 .jg-filter-label {
@@ -110,17 +109,17 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 </style>
 
 <div class="jg-header">
-  <h1 class="jg-heading">Gallery</h1>
-  <div class="jg-controls">
-    <div class="jg-sort-bar" id="jg-sort-bar">
-      <button class="jg-sort-btn active" data-sort="joined" data-label="Joined">Seniority</button>
-      <button class="jg-sort-btn" data-sort="years" data-label="Served">Served ↓</button>
-      <button class="jg-sort-btn" data-sort="lone" data-label="Lone Dissents">Lone Dissents ↓</button>
-      <button class="jg-sort-btn" data-sort="vocal" data-label="Vocal">Vocal ↓</button>
-    </div>
+  <div class="jg-header-row">
+    <h1 class="jg-heading">Gallery</h1>
     <label class="jg-filter-label" id="jg-active-label">
-      <input type="checkbox" id="jg-active-only"> Now serving
+      <input type="checkbox" id="jg-active-only"> Currently Serving
     </label>
+  </div>
+  <div class="jg-sort-bar" id="jg-sort-bar">
+    <button class="jg-sort-btn active" data-sort="joined" data-label="Joined">Seniority</button>
+    <button class="jg-sort-btn" data-sort="years" data-label="Served">Served ↓</button>
+    <button class="jg-sort-btn" data-sort="lone" data-label="Lone Dissents">Lone Dissents ↓</button>
+    <button class="jg-sort-btn" data-sort="vocal" data-label="Vocal">Vocal ↓</button>
   </div>
 </div>
 <div id="jg-grid" class="jg-grid"></div>
@@ -174,14 +173,16 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
   var _oParam        = _params.get('o');
   var activeSeniority = activeSort === 'joined' && (_oParam == null || _oParam === 'seniority');
   var activeAsc      = _oParam === 'a' ? true : (_oParam === 'd' ? false : DEFAULTS[activeSort]);
-  var activeOnly     = false;
+  var activeOnly     = _params.get('s') === '1';
 
-  function _pushSortUrl() {
+  function _pushUrl() {
     var o = (activeSort === 'joined' && activeSeniority) ? '' : (activeAsc ? 'a' : 'd');
-    var search = '?sort=' + activeSort + (o ? '&o=' + o : '');
+    var search = '?sort=' + activeSort + (o ? '&o=' + o : '') + (activeOnly ? '&s=1' : '');
     history.replaceState(null, '', location.pathname + search);
     if (window.parent !== window) {
-      window.parent.postMessage({ type: 'ussc-update-sort', sort: activeSort, o: o || 'seniority' }, location.origin);
+      var msg = { type: 'ussc-update-sort', sort: activeSort, o: o || 'seniority' };
+      if (activeOnly) msg.s = '1';
+      window.parent.postMessage(msg, location.origin);
     }
   }
 
@@ -262,13 +263,14 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       activeSeniority = sort === 'joined';
       activeAsc       = DEFAULTS[sort];
     }
-    _pushSortUrl();
+    _pushUrl();
     updateButtons();
     renderGrid();
   });
 
   document.getElementById('jg-active-only').addEventListener('change', function (e) {
     activeOnly = e.target.checked;
+    _pushUrl();
     renderGrid();
   });
 
@@ -282,6 +284,7 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
         }
         return j;
       });
+      document.getElementById('jg-active-only').checked = activeOnly;
       updateButtons();
       renderGrid();
     });
