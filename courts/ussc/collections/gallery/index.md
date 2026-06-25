@@ -17,11 +17,29 @@ title: Gallery of Justices
   font-weight: 700;
   white-space: nowrap;
 }
+.jg-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .jg-sort-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
 }
+.jg-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.65;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+.jg-filter-label:hover { opacity: 0.9; }
 .jg-sort-btn {
   padding: 2px 8px;
   font-size: 0.68rem;
@@ -93,11 +111,16 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
 <div class="jg-header">
   <h1 class="jg-heading">Gallery</h1>
-  <div class="jg-sort-bar" id="jg-sort-bar">
-    <button class="jg-sort-btn active" data-sort="joined" data-label="Joined">Joined ↑</button>
-    <button class="jg-sort-btn" data-sort="years" data-label="Years Served">Years Served ↓</button>
-    <button class="jg-sort-btn" data-sort="lone" data-label="Lone Dissents">Lone Dissents ↓</button>
-    <button class="jg-sort-btn" data-sort="vocal" data-label="Vocal">Vocal ↓</button>
+  <div class="jg-controls">
+    <div class="jg-sort-bar" id="jg-sort-bar">
+      <button class="jg-sort-btn active" data-sort="joined" data-label="Joined">Seniority</button>
+      <button class="jg-sort-btn" data-sort="years" data-label="Served">Served ↓</button>
+      <button class="jg-sort-btn" data-sort="lone" data-label="Lone Dissents">Lone Dissents ↓</button>
+      <button class="jg-sort-btn" data-sort="vocal" data-label="Vocal">Vocal ↓</button>
+    </div>
+    <label class="jg-filter-label" id="jg-active-label">
+      <input type="checkbox" id="jg-active-only"> Now serving
+    </label>
   </div>
 </div>
 <div id="jg-grid" class="jg-grid"></div>
@@ -116,9 +139,9 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
     return MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
   }
 
-  function subLabel(j, sort) {
+  function subLabel(j, sort, seniority) {
     if (sort === 'joined') {
-      return _fmtDate(j.dateFirst);
+      return seniority ? (j.title || 'Justice') : _fmtDate(j.dateStart);
     } else if (sort === 'years') {
       return j.yearsServed != null ? (+j.yearsServed).toFixed(1) + ' years' : '';
     } else if (sort === 'lone') {
@@ -131,7 +154,12 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
   }
 
   var SORTERS = {
-    joined: function (a, b) { return (a.dateFirst || '').localeCompare(b.dateFirst || ''); },
+    seniority: function (a, b) {
+      var ac = a.title === 'Chief Justice', bc = b.title === 'Chief Justice';
+      if (ac !== bc) return ac ? -1 : 1;
+      return (a.dateStart || '').localeCompare(b.dateStart || '');
+    },
+    joined: function (a, b) { return (a.dateStart || '').localeCompare(b.dateStart || ''); },
     years:  function (a, b) { return (a.yearsServed  != null ? a.yearsServed  : -1) - (b.yearsServed  != null ? b.yearsServed  : -1); },
     lone:   function (a, b) { return (a.loneDissents != null ? a.loneDissents : -1) - (b.loneDissents != null ? b.loneDissents : -1); },
     vocal:  function (a, b) { return (a.vocalSecs    != null ? a.vocalSecs    : -1) - (b.vocalSecs    != null ? b.vocalSecs    : -1); },
@@ -139,38 +167,53 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
   var DEFAULTS = { joined: true, years: false, lone: false, vocal: false };
 
-  var _params   = new URLSearchParams(location.search);
+  var _params = new URLSearchParams(location.search);
 
-  function _pushSortUrl(key, asc) {
-    var search = '?sort=' + key + '&o=' + (asc ? 'a' : 'd');
+  // Tri-state for "joined": seniority (default, no arrow) → asc ↑ → desc ↓ → seniority
+  var activeSort     = _params.get('sort') || 'joined';
+  var _oParam        = _params.get('o');
+  var activeSeniority = activeSort === 'joined' && (_oParam == null || _oParam === 'seniority');
+  var activeAsc      = _oParam === 'a' ? true : (_oParam === 'd' ? false : DEFAULTS[activeSort]);
+  var activeOnly     = false;
+
+  function _pushSortUrl() {
+    var o = (activeSort === 'joined' && activeSeniority) ? '' : (activeAsc ? 'a' : 'd');
+    var search = '?sort=' + activeSort + (o ? '&o=' + o : '');
     history.replaceState(null, '', location.pathname + search);
     if (window.parent !== window) {
-      window.parent.postMessage({ type: 'ussc-update-sort', sort: key, o: asc ? 'a' : 'd' }, location.origin);
+      window.parent.postMessage({ type: 'ussc-update-sort', sort: activeSort, o: o || 'seniority' }, location.origin);
     }
   }
-
-  var justices   = [];
-  var activeSort = _params.get('sort') || 'joined';
-  var activeAsc  = _params.has('o') ? _params.get('o') === 'a' : DEFAULTS[activeSort];
 
   function updateButtons() {
     document.querySelectorAll('.jg-sort-btn').forEach(function (b) {
       var key = b.dataset.sort;
       var on  = key === activeSort;
-      var asc = on ? activeAsc : DEFAULTS[key];
       b.classList.toggle('active', on);
-      b.textContent = b.dataset.label + ' ' + (asc ? '↑' : '↓');
+      if (key === 'joined' && on && activeSeniority) {
+        b.textContent = 'Seniority';
+      } else {
+        var asc = on ? activeAsc : DEFAULTS[key];
+        b.textContent = b.dataset.label + ' ' + (asc ? '↑' : '↓');
+      }
     });
   }
 
   function renderGrid() {
-    var dir    = activeAsc ? 1 : -1;
-    var sorted = justices.slice().sort(function (a, b) { return SORTERS[activeSort](a, b) * dir; });
+    var pool = activeOnly ? justices.filter(function (j) { return !j.dateStop; }) : justices;
+    var sorted;
+    if (activeSort === 'joined' && activeSeniority) {
+      sorted = pool.slice().sort(SORTERS.seniority);
+    } else {
+      var dir = activeAsc ? 1 : -1;
+      sorted = pool.slice().sort(function (a, b) { return SORTERS[activeSort](a, b) * dir; });
+    }
     var grid = document.getElementById('jg-grid');
     grid.innerHTML = '';
     sorted.forEach(function (j) {
-      var words = j.name.trim().split(/\s+/);
+      var words    = j.name.trim().split(/\s+/);
       var lastName = words[words.length - 1].toUpperCase();
+      var prefix   = j.title === 'Chief Justice' ? 'C.J. ' : 'J. ';
 
       var el = document.createElement('a');
       el.className = 'jg-item';
@@ -189,11 +232,11 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
       var label = document.createElement('div');
       label.className = 'jg-name';
-      label.textContent = lastName;
+      label.textContent = prefix + lastName;
 
       var sub = document.createElement('div');
       sub.className = 'jg-sub';
-      sub.textContent = subLabel(j, activeSort);
+      sub.textContent = subLabel(j, activeSort, activeSeniority);
 
       el.appendChild(portrait);
       el.appendChild(label);
@@ -207,20 +250,38 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
     if (!btn) return;
     var sort = btn.dataset.sort;
     if (sort === activeSort) {
-      activeAsc = !activeAsc;
+      if (sort === 'joined') {
+        if (activeSeniority)     { activeSeniority = false; activeAsc = true;  }  // → Joined ↑
+        else if (activeAsc)      { activeAsc = false; }                             // → Joined ↓
+        else                     { activeSeniority = true; }                        // → Seniority
+      } else {
+        activeAsc = !activeAsc;
+      }
     } else {
-      activeSort = sort;
-      activeAsc  = DEFAULTS[sort];
+      activeSort      = sort;
+      activeSeniority = sort === 'joined';
+      activeAsc       = DEFAULTS[sort];
     }
-    _pushSortUrl(activeSort, activeAsc);
+    _pushSortUrl();
     updateButtons();
+    renderGrid();
+  });
+
+  document.getElementById('jg-active-only').addEventListener('change', function (e) {
+    activeOnly = e.target.checked;
     renderGrid();
   });
 
   fetch('/courts/ussc/people/justices/gallery.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      justices = data;
+      var nowMs = Date.now();
+      justices = data.map(function (j) {
+        if (!j.dateStop && j.dateStart) {
+          j.yearsServed = Math.max(0, nowMs - Date.parse(j.dateStart)) / (365.25 * 86400000);
+        }
+        return j;
+      });
       updateButtons();
       renderGrid();
     });

@@ -3911,15 +3911,15 @@ function processLoneDissenters(termsToProcess, dryRun) {
             (a.title || '').localeCompare(b.title || ''));
         const caseCount = list.length;
         // list is sorted oldest→newest; [0] = oldest, [last] = newest.
-        const dateFirst = caseCount ? (list[0].decision || list[0].argument || '') : '';
-        const dateLast  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
+        const dateStart = caseCount ? (list[0].decision || list[0].argument || '') : '';
+        const dateStop  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
         const entry = {
             id:    _justiceSlug(canonical),
             name:  _justiceDisplayName(canonical),
             cases: caseCount,
         };
-        if (dateFirst) entry.dateFirst = dateFirst;
-        if (dateLast)  entry.dateLast  = dateLast;
+        if (dateStart) entry.dateStart = dateStart;
+        if (dateStop)  entry.dateStop  = dateStop;
         index.push(entry);
     }
     const _lonLastName = (name) => (name || '').trim().split(/\s+/).pop() || '';
@@ -4028,15 +4028,15 @@ function processOpinionAuthors(termsToProcess, dryRun) {
             (a.title || '').localeCompare(b.title || ''));
         const caseCount = list.length;
         // list is sorted oldest→newest; [0] = oldest, [last] = newest.
-        const dateFirst = caseCount ? (list[0].decision || list[0].argument || '') : '';
-        const dateLast  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
+        const dateStart = caseCount ? (list[0].decision || list[0].argument || '') : '';
+        const dateStop  = caseCount ? (list[caseCount - 1].decision || list[caseCount - 1].argument || '') : '';
         const entry = {
             id:    _justiceSlug(canonical),
             name:  _justiceDisplayName(canonical),
             cases: caseCount,
         };
-        if (dateFirst) entry.dateFirst = dateFirst;
-        if (dateLast)  entry.dateLast  = dateLast;
+        if (dateStart) entry.dateStart = dateStart;
+        if (dateStop)  entry.dateStop  = dateStop;
         index.push(entry);
     }
     const _opLastName = (name) => (name || '').trim().split(/\s+/).pop() || '';

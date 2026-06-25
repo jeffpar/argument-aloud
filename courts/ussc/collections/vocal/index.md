@@ -65,7 +65,7 @@ html[data-theme="light"] { --vc-grid:#eee;    --vc-label:#666; }
       });
     } else if (sortKey === 'date') {
       arr.sort(function (a, b) {
-        var da = a.dateFirst || '', db = b.dateFirst || '';
+        var da = a.dateStart || '', db = b.dateStart || '';
         return sortAsc ? da.localeCompare(db) : db.localeCompare(da);
       });
     } else {
@@ -94,8 +94,8 @@ html[data-theme="light"] { --vc-grid:#eee;    --vc-label:#666; }
     allJustices = results[0];
     var gallery = results[1];
     var dateMap = {};
-    gallery.forEach(function (g) { dateMap[g.id] = g.dateFirst; });
-    allJustices.forEach(function (j) { j.dateFirst = dateMap[j.id] || ''; });
+    gallery.forEach(function (g) { dateMap[g.id] = g.dateStart; });
+    allJustices.forEach(function (j) { j.dateStart = dateMap[j.id] || ''; });
 
     maxHours    = Math.max.apply(null, allJustices.map(function (j) { return parseHours(j.total); }));
     currentData = sorted();

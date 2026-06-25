@@ -1516,7 +1516,7 @@ function _justiceBody(servedBase) {
         '<div style="display:flex; gap:1em;">',
         '<div style="flex:2; min-width:0; overflow:hidden;">',
         '<h1>{{ page.title }}</h1>',
-        '<p>' + servedBase + '{% if page.years_served %} ({{ page.years_served }} years){% endif %}.</p>',
+        '<p>' + servedBase + '{% if page.years_served %}{% assign yr_str = page.years_served | append: "" | remove: ".0" %} ({{ yr_str }} year{% unless yr_str == "1" %}s{% endunless %} or {{ page.days_served }} days){% endif %}.</p>',
         '{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}case on {{ page.last_argument }}{% else %}cases from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
         '{% if page.opinions or page.lone_dissents %}<p>Wrote {% if page.opinions %}{{ page.opinions }} majority <a href="/courts/ussc/?collection=opinions&id={{ page.justice_id }}">opinion{% if page.opinions != 1 %}s{% endif %}</a>{% endif %}{% if page.opinions and page.lone_dissents %} and {% endif %}{% if page.lone_dissents %}{{ page.lone_dissents }} lone <a href="/courts/ussc/?collection=lone_dissents&id={{ page.justice_id }}">dissent{% if page.lone_dissents != 1 %}s{% endif %}</a>{% endif %}.</p>{% endif %}',
         '{% if page.vocal_secs %}<p>Spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in oral arguments. <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">View vocal statistics &rsaquo;</a></p>{% endif %}',
@@ -1579,6 +1579,12 @@ function syncJusticePages({ verbose = false } = {}) {
             if (e.id) vocalMap.set(e.id, _parseTotalSecs(e.total));
         }
     } catch {}
+    const wikiMap = new Map();
+    try {
+        for (const e of readJson(path.join(justicesBase, 'gallery.json'))) {
+            if (e.id && e.wikipedia) wikiMap.set(e.id, e.wikipedia);
+        }
+    } catch {}
 
     ensureDir(JUSTICES_ALL_DIR);
     let created = 0, updated = 0;
@@ -1612,16 +1618,28 @@ function syncJusticePages({ verbose = false } = {}) {
         const servedBase = 'Served ' + (servedPhrases.length > 1
             ? servedPhrases.slice(0, -1).join(', ') + ' and ' + servedPhrases.at(-1)
             : servedPhrases[0]);
-        const yrs    = _computeYearsServed(tenures);
-        const yrsStr = yrs > 0 ? yrs.toFixed(1) : '';
+        const yrs      = _computeYearsServed(tenures);
+        const yrsStr   = yrs > 0 ? yrs.toFixed(1) : '';
+        const isActive = tenures.length > 0 && !tenures[tenures.length - 1].dateStop;
+        const dateStartIso = isActive ? (tenures[0].dateStart || '') : '';
+        const daysMs   = tenures.reduce((sum, t) => {
+            if (!t.dateStart) return sum;
+            const s = Date.parse(t.dateStart), e = t.dateStop ? Date.parse(t.dateStop) : Date.now();
+            return sum + Math.max(0, e - s);
+        }, 0);
+        const daysStr  = yrs > 0 ? Math.round(daysMs / 86400000).toLocaleString('en-US') : '';
+        const wikiUrl  = wikiMap.get(id) || '';
 
         const body = _justiceBody(servedBase);
 
         if (!exists(mdPath)) {
             ensureDir(dir);
             let text = `---\ntitle: ${title}\nlayout: pane\njustice_id: ${id}`;
-            if (yrsStr)    text += `\nyears_served: ${yrsStr}`;
-            if (opCount)   text += `\nopinions: ${opCount}`;
+            if (dateStartIso) text += `\ndate_start: ${dateStartIso}`;
+            if (wikiUrl)      text += `\nwikipedia_url: ${wikiUrl}`;
+            if (yrsStr)       text += `\nyears_served: ${yrsStr}`;
+            if (daysStr)      text += `\ndays_served: "${daysStr}"`;
+            if (opCount)      text += `\nopinions: ${opCount}`;
             if (loneCount) text += `\nlone_dissents: ${loneCount}`;
             if (vocalSecs) text += `\nvocal_secs: ${vocalSecs}`;
             if (caseCount) text += `\ncase_count: ${caseCount}`;
@@ -1637,7 +1655,10 @@ function syncJusticePages({ verbose = false } = {}) {
 
             // Update frontmatter fields.
             mdText = setFrontMatterScalar(mdText, 'justice_id', id, 'layout');
-            if (yrsStr)    mdText = setFrontMatterScalar(mdText, 'years_served', yrsStr, 'justice_id');
+            if (dateStartIso) mdText = setFrontMatterScalar(mdText, 'date_start', dateStartIso, 'justice_id');
+            if (wikiUrl)      mdText = setFrontMatterScalar(mdText, 'wikipedia_url', wikiUrl, dateStartIso ? 'date_start' : 'justice_id');
+            if (yrsStr)       mdText = setFrontMatterScalar(mdText, 'years_served', yrsStr, wikiUrl ? 'wikipedia_url' : (dateStartIso ? 'date_start' : 'justice_id'));
+            if (daysStr)      mdText = setFrontMatterScalar(mdText, 'days_served', `"${daysStr}"`, 'years_served');
             if (opCount)   mdText = setFrontMatterScalar(mdText, 'opinions', opCount, 'years_served');
             if (loneCount) mdText = setFrontMatterScalar(mdText, 'lone_dissents', loneCount, 'opinions');
             if (vocalSecs) mdText = setFrontMatterScalar(mdText, 'vocal_secs', vocalSecs, 'lone_dissents');

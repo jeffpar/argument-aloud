@@ -5812,7 +5812,7 @@ document.getElementById('next-speaker-btn').addEventListener('click', () => {
 
 function _syncPlayPauseBtn() {
   const playing = !audio.paused && !audio.ended;
-  playPauseBtn.textContent = playing ? '⏸' : '▶';
+  playPauseBtn.textContent = playing ? '⏸︎' : '▶︎';
   playPauseBtn.title = playing ? 'Pause' : 'Play';
   playPauseBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
 }
@@ -7631,7 +7631,7 @@ window.addEventListener('message', async (e) => {
     navigate(url);
     await restoreFromURL();
   } else if (e.data?.type === 'ussc-open-doc' && e.data.href) {
-    showDocViewer({ href: e.data.href, title: e.data.title || '' });
+    showDocViewer({ href: e.data.href, title: e.data.title || '', view: e.data.view });
   } else if (e.data?.type === 'ussc-update-sort' && e.data.sort) {
     const newUrl = new URL(location.href);
     newUrl.searchParams.set('sort', e.data.sort);

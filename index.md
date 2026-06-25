@@ -161,7 +161,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc?topic=all">
     <div class="hp-icon">🗂️</div>
     <div class="hp-card-title">Topics</div>
-    <p class="hp-card-desc">Browse cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a> (with more to come), or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
+    <p class="hp-card-desc">Peruse cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a> (with more to come), or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=all">

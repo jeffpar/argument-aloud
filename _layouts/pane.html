@@ -119,6 +119,37 @@
   <div class="wrapper">
     {{ content }}
   </div>
+  {%- if page.date_start %}
+  <script>
+    (function () {
+      var ms   = Date.now() - Date.parse('{{ page.date_start }}');
+      var days = Math.round(ms / 86400000);
+      var yrs  = ms / (365.25 * 86400000);
+      var yr   = yrs.toFixed(1).replace(/\.0$/, '');
+      var txt  = '(' + yr + ' year' + (yr === '1' ? '' : 's') + ' or ' + days.toLocaleString() + ' days)';
+      document.querySelectorAll('p').forEach(function (p) {
+        if (p.textContent.indexOf('to present') >= 0) {
+          p.innerHTML = p.innerHTML.replace(/\([^)]*(?:\byears?\b|\bdays\b)[^)]*\)/, txt);
+        }
+      });
+    })();
+  </script>
+  {%- endif %}
+  {%- if page.wikipedia_url %}
+  <style>.jp-frame { cursor: pointer; }</style>
+  <script>
+    document.querySelector('.jp-frame').addEventListener('click', function () {
+      if (window.parent !== window) {
+        window.parent.postMessage(
+          { type: 'ussc-open-doc', href: '{{ page.wikipedia_url }}', title: '{{ page.title }} — Wikipedia', view: 'pane' },
+          location.origin
+        );
+      } else {
+        window.open('{{ page.wikipedia_url }}', '_blank', 'noopener,noreferrer');
+      }
+    });
+  </script>
+  {%- endif %}
   <script>
     // Same-page anchor links (#id) should scroll within the iframe, not navigate _top.
     document.addEventListener('click', (e) => {

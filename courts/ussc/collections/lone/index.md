@@ -55,8 +55,8 @@ html[data-theme="light"] { --ld-grid:#eee;    --ld-label:#666; }
     } else if (sortKey === 'date') {
       arr.sort(function (a, b) {
         return sortAsc
-          ? a.dateFirst.localeCompare(b.dateFirst)
-          : b.dateFirst.localeCompare(a.dateFirst);
+          ? a.dateStart.localeCompare(b.dateStart)
+          : b.dateStart.localeCompare(a.dateStart);
       });
     } else {
       arr.sort(function (a, b) { return sortAsc ? a.cases - b.cases : b.cases - a.cases; });
@@ -127,8 +127,8 @@ html[data-theme="light"] { --ld-grid:#eee;    --ld-label:#666; }
                 title: function (items) { return currentData[items[0].dataIndex].name; },
                 label: function (item)  {
                   var j     = currentData[item.dataIndex];
-                  var first = j.dateFirst.slice(0, 4);
-                  var last  = j.dateLast.slice(0, 4);
+                  var first = j.dateStart.slice(0, 4);
+                  var last  = j.dateStop.slice(0, 4);
                   var range = first === last ? first : first + '–' + last;
                   return j.cases + ' lone dissent' + (j.cases === 1 ? '' : 's') + '  ·  ' + range;
                 },
