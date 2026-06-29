@@ -1819,11 +1819,17 @@ function setCaseTitleLabel(term, caseEntry, optionText) {
   span.appendChild(a);
 }
 
-// Format an ISO date "YYYY-MM-DD" → "Month\u00a0D,\u00a0YYYY" for display.
+// Format an ISO date "YYYY-MM-DD", "YYYY-MM", or "YYYY" → readable string.
+// Partial dates: "YYYY-MM" → "Mon YYYY", "YYYY" → "YYYY", missing → "".
 function formatDecisionDate(iso) {
   if (!iso) return '';
-  const [y, m, d] = iso.split('-');
-  return (MONTHS[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+  const parts = iso.split('-');
+  const y = parts[0], m = parts[1], d = parts[2];
+  if (!y) return '';
+  if (!m) return y;
+  const monthName = MONTHS[parseInt(m, 10) - 1] || m;
+  if (!d) return monthName + '\u00a0' + y;
+  return monthName + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
 }
 
 function hasDecisionHref(c) {

@@ -4293,6 +4293,306 @@ function processVocalJustices(allTerms, dryRun) {
 }
 
 // =====================================================================
+// Bench groups
+// =====================================================================
+
+// Build courts/ussc/people/justices/benches.json: one entry per distinct
+// composition of the Court.  A new bench is recorded each time the membership
+// changes (a justice joins or departs).  The first bench starts the day after
+// the Court's very first departure.
+function processBenches(dryRun) {
+    _ensureSeniorityLoaded();
+
+    const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'benches.json');
+
+    if (!fs.existsSync(_SCDB_JUSTICES)) {
+        console.log('processBenches: justices.json not found, skipping.');
+        return;
+    }
+    const raw = JSON.parse(fs.readFileSync(_SCDB_JUSTICES, 'utf8'));
+
+    // Build a flat list of every continuous period of service.
+    const allTenures = [];
+    for (const [canonical, spec] of Object.entries(raw)) {
+        const canonUpper = canonical.toUpperCase();
+        const id = _justiceSlug(canonical);
+        const tenureList = Array.isArray(spec.tenures)
+            ? spec.tenures.map(t => ({ dateStart: t.dateStart || '', dateStop: t.dateStop || '' }))
+            : [{ dateStart: spec.dateStart || '', dateStop: spec.dateStop || '' }];
+        for (const { dateStart, dateStop } of tenureList) {
+            if (dateStart) allTenures.push({ canonical: canonUpper, id, dateStart, dateStop });
+        }
+    }
+
+    // Add n days to an ISO date string.
+    function addDays(isoDate, n) {
+        const ms = Date.parse(isoDate + 'T12:00:00Z') + n * 86400000;
+        return new Date(ms).toISOString().slice(0, 10);
+    }
+
+    // Return all tenures active on the given ISO date.
+    function servingOn(date) {
+        return allTenures.filter(t =>
+            t.dateStart <= date && (!t.dateStop || t.dateStop >= date)
+        );
+    }
+
+    // Stable sort key for a set of serving tenures.
+    function compositionKey(tenures) {
+        return tenures.map(t => t.canonical).sort().join('\0');
+    }
+
+    // Normalize same-day handoffs: if justice B's dateStart equals justice A's
+    // dateStop (e.g. Breyer retired 2022-06-30, Jackson sworn in 2022-06-30),
+    // push B's dateStart to A's dateStop+1 for all bench calculations.
+    // This collapses what would be two separate change dates into one, preventing
+    // a phantom 1-day bench and ensuring the outgoing court ends on its natural
+    // last day while the incoming court starts the following day.
+    const stopDateSet = new Set(allTenures.filter(t => t.dateStop).map(t => t.dateStop));
+    for (const t of allTenures) {
+        if (stopDateSet.has(t.dateStart)) {
+            t.dateStart = addDays(t.dateStart, 1);
+        }
+    }
+
+    // The first bench starts the day after the Court's first departure.
+    const firstStop = allTenures
+        .filter(t => t.dateStop)
+        .map(t => t.dateStop)
+        .sort()[0];
+    if (!firstStop) { console.log('processBenches: no departures found, skipping.'); return; }
+    const firstChangeDate = addDays(firstStop, 1);
+
+    // Collect all composition-change dates from firstChangeDate onward:
+    //   - dateStart: a justice joins on this day → bench changes on this day
+    //   - dateStop+1: a justice's last day was dateStop → bench changes the next day
+    const changeDates = new Set([firstChangeDate]);
+    for (const t of allTenures) {
+        if (t.dateStart >= firstChangeDate) changeDates.add(t.dateStart);
+        if (t.dateStop) {
+            const next = addDays(t.dateStop, 1);
+            if (next >= firstChangeDate) changeDates.add(next);
+        }
+    }
+    const sortedChangeDates = [...changeDates].sort();
+
+    // True if `canonical` held the chief-justice title at any point within
+    // the bench's date range [dateStart, dateStop].  Handles the case where a
+    // sitting associate is elevated to CJ mid-bench without a membership change.
+    function wasChiefDuring(canonical, dateStart, dateStop) {
+        const ranges = _scdbJusticesChief[canonical];
+        if (!ranges) return false;
+        const effStop = dateStop || '9999-99-99';
+        return ranges.some(r =>
+            (!r.start || r.start <= effStop) &&
+            (!r.stop  || r.stop  >= dateStart)
+        );
+    }
+
+    // Phase 1: walk change dates, collecting raw bench spans {dateStart, dateStop, key}.
+    const rawBenches = [];
+    let prevKey   = null;
+    let benchStart = null;
+
+    for (const date of sortedChangeDates) {
+        const serving = servingOn(date);
+        if (!serving.length) continue;
+        const key = compositionKey(serving);
+        if (key === prevKey) continue;
+
+        if (prevKey !== null && benchStart !== null) {
+            rawBenches.push({ dateStart: benchStart, dateStop: addDays(date, -1), key: prevKey });
+        }
+        prevKey    = key;
+        benchStart = date;
+    }
+    if (prevKey !== null && benchStart !== null) {
+        rawBenches.push({ dateStart: benchStart, dateStop: '', key: prevKey });
+    }
+
+    // Phase 2: drop benches that are "incomplete precursor" compositions —
+    // specifically any leading run of benches at the start where each bench's
+    // members are a strict subset of the immediately following bench.
+    // Example: the first post-departure bench has 5 justices; the next bench
+    // has all 5 plus Johnson → the 5-member bench is redundant as a "first".
+    function isStrictSubset(keyA, keyB) {
+        const setA = new Set(keyA.split('\0'));
+        const setB = new Set(keyB.split('\0'));
+        if (setA.size >= setB.size) return false;
+        for (const c of setA) if (!setB.has(c)) return false;
+        return true;
+    }
+    // Find how many leading benches form a strictly-ascending membership chain.
+    let skipCount = 0;
+    while (
+        skipCount < rawBenches.length - 1 &&
+        isStrictSubset(rawBenches[skipCount].key, rawBenches[skipCount + 1].key)
+    ) skipCount++;
+    // Drop any remaining 0-or-1-day phantom benches.  After the same-day
+    // normalization above, same-day handoffs no longer produce phantoms.
+    // Any residual phantoms come from other edge cases (e.g. a justice
+    // departing and an unrelated justice joining on consecutive days).
+    const filteredBenches = rawBenches.slice(skipCount).filter(b =>
+        !b.dateStop || b.dateStop > addDays(b.dateStart, 1)
+    );
+
+    // Phase 3: drop benches (with a known dateStop) that have no decision dates
+    // within their date range — e.g. pure summer-recess or confirmation-gap
+    // periods where the court never sat.  Also collect full case metadata here
+    // so Phase 5 can write per-bench case files without a second pass.
+    const decisionDates = new Set();
+    const allCases = [];
+    for (const termName of fs.readdirSync(TERMS_DIR).sort()) {
+        if (!/^\d{4}-\d{2}$/.test(termName)) continue;
+        const casesPath = path.join(TERMS_DIR, termName, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases; try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            if (!c.decision) continue;
+            const dec = c.decision.slice(0, 10);
+            decisionDates.add(dec);
+            const baseTitle = firstTitle(c.title) || '';
+            const decMatch = /^(\d{4})/.exec(dec);
+            const titled = (baseTitle && decMatch) ? `${baseTitle} (${decMatch[1]})` : baseTitle;
+            const meta = { title: titled, term: termName, number: c.number || c.id || '', argument: c.argument || '', decision: dec };
+            if (c.files) meta.files = c.files;
+            allCases.push(meta);
+        }
+    }
+    allCases.sort((a, b) => a.decision.localeCompare(b.decision));
+    const filteredBenches2 = filteredBenches.filter(b =>
+        !b.dateStop ||   // always keep the currently-active bench
+        [...decisionDates].some(d => d >= b.dateStart && d <= b.dateStop)
+    );
+
+    // Pre-Phase 4: assign each case to a bench.  After the phantom-merge above,
+    // the only cases that can fall outside all bench ranges are those decided
+    // before the first bench's dateStart (the court's very first sessions, before
+    // any justice had departed).  Those go to bench 0.
+    function assignCaseToBench(decision, benchDates) {
+        for (let i = 0; i < benchDates.length; i++) {
+            const { dateStart, dateStop } = benchDates[i];
+            if (decision >= dateStart && (!dateStop || decision <= dateStop)) return i;
+        }
+        return 0; // pre-court cases → first bench
+    }
+    const benchDates = filteredBenches2.map(b => ({ dateStart: b.dateStart, dateStop: b.dateStop }));
+    const benchCaseLists = filteredBenches2.map(() => []);
+    for (const m of allCases) {
+        benchCaseLists[assignCaseToBench(m.decision, benchDates)].push(m);
+    }
+
+    // Phase 4: assign IDs and names, then build final output.
+    // ID:   {slug}{n}  (e.g. "jay1", "roberts15") — number always present, no underscore.
+    // Name: {Display}{n} ({yearRange})             — omit end-year when same as start year.
+    const chiefNameCount = {};
+    let lastChiefSlug    = '';
+    let lastChiefDisplay = '';
+
+    const benches = filteredBenches2.map(({ dateStart, dateStop, key }, benchIdx) => {
+        const canonicals = key.split('\0');
+
+        // Look up the tenure record active on dateStart for each justice.
+        const servingTenures = canonicals.map(c => {
+            const t = allTenures.find(t2 =>
+                t2.canonical === c &&
+                t2.dateStart <= dateStart &&
+                (!t2.dateStop || t2.dateStop >= dateStart)
+            );
+            return t || { canonical: c, id: _justiceSlug(c.toLowerCase()), dateStart: '9999-99-99', dateStop: '' };
+        });
+
+        // Sort: chief first (anyone who was CJ during any part of this bench),
+        // then associates by ascending dateStart of their current tenure.
+        servingTenures.sort((a, b) => {
+            const aC = wasChiefDuring(a.canonical, dateStart, dateStop) ? 0 : 1;
+            const bC = wasChiefDuring(b.canonical, dateStart, dateStop) ? 0 : 1;
+            if (aC !== bC) return aC - bC;
+            return a.dateStart.localeCompare(b.dateStart) ||
+                   a.canonical.localeCompare(b.canonical);
+        });
+
+        // Identify chief (if any) — whoever was CJ at any point during this bench.
+        const chiefCanonical = canonicals.find(c => wasChiefDuring(c, dateStart, dateStop));
+
+        // Year range: omit end-year when it equals the start year.
+        const startYear = dateStart.slice(0, 4);
+        const stopYear  = dateStop ? dateStop.slice(0, 4) : '';
+        const yearRange = !stopYear           ? `${startYear}–`
+                        : stopYear === startYear ? startYear
+                        : `${startYear}–${stopYear}`;
+
+        let benchId, benchName;
+        if (chiefCanonical) {
+            const parts    = chiefCanonical.trim().split(/\s+/);
+            const lastName = parts[parts.length - 1];
+            const slug     = lastName.toLowerCase();
+            const display  = lastName[0] + lastName.slice(1).toLowerCase();
+            lastChiefSlug    = slug;
+            lastChiefDisplay = display;
+            chiefNameCount[slug] = (chiefNameCount[slug] || 0) + 1;
+            const n = chiefNameCount[slug];
+            benchId   = `${slug}${n}`;
+            benchName = `${display} ${n} (${yearRange})`;
+        } else {
+            // No sitting CJ — continue numbering under the last known CJ's name.
+            chiefNameCount[lastChiefSlug] = (chiefNameCount[lastChiefSlug] || 0) + 1;
+            const n = chiefNameCount[lastChiefSlug];
+            benchId   = `${lastChiefSlug}${n}`;
+            benchName = `${lastChiefDisplay} ${n} (${yearRange})`;
+        }
+
+        return { id: benchId, name: benchName, dateStart, dateStop, cases: benchCaseLists[benchIdx].length, justices: servingTenures.map(t => t.id) };
+    });
+
+    const changed = _jsonChanged(OUT_FILE, benches);
+    if (changed) _writeJson(OUT_FILE, benches);
+    if (_VERBOSE || changed) {
+        const verb = dryRun ? 'Would write' : 'Written';
+        console.log(`processBenches: ${verb} ${benches.length} bench(es) to ${path.relative(REPO_ROOT, OUT_FILE)}`);
+    }
+
+    // Phase 5: write per-bench case files to courts/ussc/people/justices/benches/
+    const BENCHES_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'benches');
+    if (!fs.existsSync(BENCHES_DIR)) _mkdirSync(BENCHES_DIR, { recursive: true });
+
+    const knownBenchIds = new Set(benches.map(b => b.id));
+    let benchFilesWritten = 0;
+    for (let bIdx = 0; bIdx < benches.length; bIdx++) {
+        const bench = benches[bIdx];
+        const benchCases = benchCaseLists[bIdx];
+        const file = path.join(BENCHES_DIR, `${bench.id}.json`);
+        let highlights = [];
+        if (fs.existsSync(file)) {
+            try {
+                const raw = _readJson(file);
+                if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+                    highlights = raw.highlights || [];
+                }
+            } catch { /* ignore */ }
+        }
+        const details = { page: `/courts/ussc/collections/benches/?id=${bench.id}` };
+        const output = { details, highlights, cases: benchCases };
+        if (_jsonChanged(file, output)) { _writeJson(file, output); benchFilesWritten++; }
+    }
+
+    // Remove stale per-bench files.
+    for (const name of fs.readdirSync(BENCHES_DIR)) {
+        if (!name.endsWith('.json')) continue;
+        const stem = name.slice(0, -5);
+        if (knownBenchIds.has(stem)) continue;
+        _unlinkSync(path.join(BENCHES_DIR, name));
+        if (_VERBOSE) console.log(`  Removed stale bench file: courts/ussc/people/justices/benches/${name}`);
+    }
+
+    if (_VERBOSE || benchFilesWritten > 0) {
+        const verb = dryRun ? 'Would write' : 'Written';
+        console.log(`processBenches: ${verb} ${benchFilesWritten} per-bench case file(s) to courts/ussc/people/justices/benches/`);
+    }
+}
+
+// =====================================================================
 // Justice-advocate auto-discovery
 // =====================================================================
 
@@ -9954,6 +10254,7 @@ async function main() {
         processLoneDissenters(allTerms, false);
         processOpinionAuthors(allTerms, false);
         processVocalJustices(allTerms, false);
+        processBenches(false);
         processJusticeAdvocates(allTerms, false);
         processCollectionSets(allTerms, false);
         processTitleIndex(allTerms, false);

@@ -216,9 +216,11 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       var lastName = words[words.length - 1].toUpperCase();
       var prefix   = j.title === 'Chief Justice' ? 'C.J. ' : 'J. ';
 
+      var coll = activeSort === 'lone'  ? 'lone_dissents'  :
+                 activeSort === 'vocal' ? 'vocal_justices' : 'gallery';
       var el = document.createElement('a');
       el.className = 'jg-item';
-      el.href = '/courts/ussc/?collection=gallery&id=' + j.id;
+      el.href = '/courts/ussc/?collection=' + coll + '&id=' + j.id;
       el.target = '_top';
 
       var portrait = document.createElement('div');
