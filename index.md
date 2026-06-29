@@ -123,7 +123,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
 <div class="hp-hero">
   <h1>Argument Aloud</h1>
   <p class="hp-tagline">A media hub that connects (almost) every U.S. Supreme Court argument with all available files (briefs, transcripts, recordings, opinions) &mdash; all in one place.</p>
-  <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. RNC (No.&nbsp;24-1260)</a></p>
+  <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. Republican National Committee (No.&nbsp;24-1260)</a></p>
 </div>
 
 <div class="hp-grid">
@@ -158,7 +158,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
     <p class="hp-card-desc">Stroll through collections of historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a> and <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>. Sift through old <a href="/courts/ussc/?collection=orig">Original Jurisdicion</a> cases. Or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc?topic=all">
+  <div class="hp-card" data-href="/courts/ussc/?topic=all">
     <div class="hp-icon">🗂️</div>
     <div class="hp-card-title">Topics</div>
     <p class="hp-card-desc">Explore cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a>, or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
@@ -170,13 +170,13 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
     <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=2011-10&case=11-393&event=4&turn=35&find="broccoli"&speaker=scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc">
+  <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">
     <div class="hp-icon">🔗</div>
     <div class="hp-card-title">Links</div>
     <p class="hp-card-desc">As you're reading and listening to a transcript, notice that every speaker is a link, and every date is a window onto what else happened on the same day.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc">
+  <div class="hp-card" data-href="/courts/ussc?collection=all">
     <div class="hp-icon">🔖</div>
     <div class="hp-card-title">Tags</div>
     <p class="hp-card-desc">Mark cases as favorites or apply your own tags. Export your selections at any time for safekeeping or to share. Nothing is stored remotely, everything is saved in your browser.</p>

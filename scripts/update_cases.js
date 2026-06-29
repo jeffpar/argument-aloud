@@ -6651,8 +6651,6 @@ function _scdbApplyOpinionUpdate(c, row) {
     const [citeVol, citePage] = _scdbParseUsCite(effectiveUsCite);
 
     const next = { ...c };
-    if (volume       && !_scdbFieldPresent(c, 'volume') && volume !== citeVol)  next.volume = volume;
-    if (page         && !_scdbFieldPresent(c, 'page')   && page   !== citePage) next.page = page;
     if (usCite       && !_scdbFieldPresent(c, 'usCite'))       next.usCite = usCite;
     if (maj  !== null && !_scdbFieldPresent(c, 'voteMajority')) next.voteMajority = maj;
     if (minv !== null && !_scdbFieldPresent(c, 'voteMinority')) next.voteMinority = minv;
@@ -6665,13 +6663,6 @@ function _scdbApplyOpinionUpdate(c, row) {
         }
     }
     if (opinionHref  && !_scdbFieldPresent(c, 'decision_loc')) next.decision_loc = opinionHref;
-
-    // Strip redundant volume/page if usCite already implies them.
-    if (_scdbFieldPresent(next, 'usCite')) {
-        const [nvCv, nvCp] = _scdbParseUsCite(next.usCite);
-        if (nvCv && next.volume === nvCv) delete next.volume;
-        if (nvCp && next.page === nvCp) delete next.page;
-    }
 
     const reordered = reorderCase(next);
     if (JSON.stringify(reordered) === JSON.stringify(c)) return false;
@@ -6956,8 +6947,6 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     if (usCite) {
         obj.usCite = usCite;
         const [volume, page] = _scdbParseUsCite(usCite);
-        if (volume) obj.volume = volume;
-        if (page)   obj.page = page;
         const href = _scdbLocOpinionHref(volume, page);
         if (href)   obj.decision_loc = href;
     }
@@ -9508,8 +9497,6 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
     if (opinion.cite) {
         const cm = /^(\d+)\s+U\.S\.[\s\xa0]+(\d+)$/.exec(opinion.cite.trim());
         if (cm) {
-            entry.volume = cm[1];
-            entry.page   = cm[2];
             entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
         }
     }

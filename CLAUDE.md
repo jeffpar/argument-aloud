@@ -1,4 +1,4 @@
-# Argument Aloud – Workspace Instructions
+# Argument Aloud – Claude Instructions
 
 ## Overview
 
@@ -20,11 +20,11 @@ bundle exec jekyll serve --host 0.0.0.0 --port 4008
 _config.yml          Jekyll config (remote minimal theme, data_dir: data)
 _layouts/            Page templates (argument, default, document, post)
 _includes/           Partials (arguments.html audit widget, collection.html)
-assets/js/           explorer.js – ~2600-line vanilla JS SPA
+assets/js/           explorer.js – large vanilla JS SPA (~7000+ lines)
 assets/css/          explorer.css (SPA), document.css, style.scss
 courts/ussc/         Case/term data + HTML entry points
 data/                Jekyll data directory (site.data.*)
-scripts/             import/validation/alignment scripts (requires node.js)
+scripts/             Import/update/alignment scripts (Node.js)
 ```
 
 ## Data Conventions
@@ -35,22 +35,22 @@ scripts/             import/validation/alignment scripts (requires node.js)
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
 
 ### Case schema (in `cases.json`)
-Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Use `reorder_case()` / `reorder_event()` when writing new objects.
+Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Always call `reorderCase()` / `reorderEvent()` when writing new objects.
+
+`volume` and `page` are **not written** to new cases — they are derived from `usCite` at read time. Existing cases that still carry them are cleaned up by `update_cases.js`.
+
 ```json
 {
   "id": "2024-123",
   "title": "Case Name v. Other Party",
   "number": "24-1260",
-  "oyez": "https://www.oyez.org/cases/2024/24-1260",
+  "oyez_href": "https://www.oyez.org/cases/2024/24-1260",
   "questions": "Plain-text questions presented",
   "questions_href": "https://…/pdf",
   "argument": "YYYY-MM-DD",
-  "reargument": "YYYY-MM-DD",
   "decision": "YYYY-MM-DD",
-  "volume": "601",
-  "page": "1",
   "usCite": "601 U.S. 1",
-  "dateDecision": "Weekday, Month D, YYYY",
+  "result": "affirmed|reversed|vacated|…",
   "voteMajority": 6,
   "voteMinority": 3,
   "votes": [{"name": "JOHN ROBERTS", "vote": "majority"}],
@@ -65,11 +65,9 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
       "transcript_href": "https://…/pdf",
       "text_href": "YYYY-MM-DD.json",
       "advocates": [{"name": "LAST NAME", "title": "MR.", "role": "Petitioner"}],
-      "aligned": true,
-      "redundant": true
+      "aligned": true
     }
   ],
-  "opinion_href": "https://…",
   "files": 0
 }
 ```
@@ -83,7 +81,7 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
   ]
 }
 ```
-- `time` is `HH:MM:SS.FF` (frame-based, `.FF` treated as decimal seconds in JS)
+- `time` is `HH:MM:SS.FF` (frame-based; `.FF` treated as decimal seconds in JS)
 - Speaker `name` is ALL CAPS last name (or full name); `title` is role: `CHIEF JUSTICE`, `JUSTICE`, `GENERAL` (AG), `MR.`, `MS.`
 - `turn` is 1-based
 
@@ -94,21 +92,63 @@ Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, c
 
 | Script | Purpose | Usage |
 |---|---|---|
-| `import_nara.js` | Fetch historical data from NARA | `node scripts/import_nara.js` |
-| `import_oyez.js` | Fetch historical data using Oyez API | `node scripts/import_oyez.js` |
 | `import_ussc.js` | Scrape SCOTUS listing, extract PDF transcripts | `node scripts/import_ussc.js 2025-10` |
-| `verify_cases.js` | Validate URLs, sync metadata, detect new opinions | `node scripts/verify_cases.js 2025-10 [CASE] [--checkurls]` |
-| `update_advocates.js` | Rebuild advocate profiles from all terms | `node scripts/update_advocates.js` |
-| `schema.js` | Canonical key ordering helpers; import and call `reorder_case()` / `reorder_event()` | (library, not run directly) |
+| `import_oyez.js` | Fetch audio + aligned transcripts from Oyez API | `node scripts/import_oyez.js 2025-10` |
+| `import_nara.js` | Refresh NARA catalog JSON | `node scripts/import_nara.js` |
+| `update_cases.js` | Verify/fix metadata; apply vote/decision data | `node scripts/update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--dry-run]` |
+| `update_advocates.js` | Rebuild advocate profiles from all transcripts | `node scripts/update_advocates.js` |
+| `download.js` | Cache PDFs, MP3s, and opinion HTML locally | `node scripts/download.js [TERM [CASE]] [--justia] [--refetch]` |
+| `schema.js` | Canonical key ordering helpers (library, not run directly) | `import { reorderCase, reorderEvent } from './schema.js'` |
 
-**Dependencies:** `pdftotext` (poppler-utils via Homebrew), `pip install faster-whisper rapidfuzz`, `brew install ffmpeg`
+**Dependencies:** `pdftotext` (poppler via `brew install poppler`), `pip install faster-whisper rapidfuzz`, `brew install ffmpeg`
+
+## Typical Workflow
+
+```bash
+# 1. Pull new argument listings and transcripts (run daily or when new args appear)
+node scripts/import_ussc.js 2025-10
+
+# 2. Pull Oyez audio + aligned transcripts (run within a week of import_ussc.js)
+node scripts/import_oyez.js 2025-10
+
+# 3. Verify and auto-fix metadata (key ordering, sort, etc.)
+node scripts/update_cases.js 2025-10
+
+# 4. Rebuild advocate profiles whenever new transcripts were added
+node scripts/update_advocates.js
+```
+
+## Updating Decisions (Votes)
+
+Use a single `update_cases.js` command to record the outcome, vote tally, opinion author, and individual justice votes:
+
+```bash
+# 5-4 win for petitioner; Barrett wrote majority; Alito dissented; Thomas/Gorsuch/Kavanaugh also in minority
+node scripts/update_cases.js 2025-10 24-1260 --votes win 5-4 barrett \
+  --dissent alito --minority thomas gorsuch kavanaugh
+
+# Unanimous win, Roberts authored
+node scripts/update_cases.js 2024-10 2024-001 --votes win 9-0 roberts
+
+# 6-3 loss; Kagan wrote dissent; Sotomayor and Jackson also in minority
+node scripts/update_cases.js 2025-10 24-109 --votes loss 6-3 alito \
+  --dissent kagan --minority sotomayor jackson
+
+# Jackson recused; otherwise unanimous
+node scripts/update_cases.js 2024-10 2024-022 --votes win 8-0 kavanaugh \
+  --recused jackson
+```
+
+- `--dissent` authors are automatically counted in the minority — no need to repeat them in `--minority`
+- Justice names are matched by last name against `data/ussc/justices.json` for the decision date
 
 ## Front-End (explorer.js SPA)
 
-The main interactive page is a single-page app built with ~3200 lines of vanilla JS.
+The main interactive page is a large vanilla JS single-page app in `assets/js/explorer.js`.
 
 **Key patterns:**
-- `init()` — entry point; loads `terms.json` and `collections.json`, builds nav tree
+- `init()` — entry point; loads `index.json`, `terms.json`, `collections.json`, builds nav tree
+- `restoreFromURL()` — reads URL params and restores UI state on load/navigation
 - `parseTime(s)` — `"HH:MM:SS.FF"` → seconds (float)
 - `formatSpeaker(name)` — `"JUSTICE THOMAS"` → `"J. Thomas"`, `"GENERAL X"` → `"Gen. X"`
 - `renderTurnText(el, rawText, query, isCurrent)` — renders transcript with `[ref]` marks and search highlights
@@ -116,6 +156,8 @@ The main interactive page is a single-page app built with ~3200 lines of vanilla
 - `findCurrentTurn(t)` — binary search over `turnTimes[]` to find active turn
 
 **State globals:** `turns[]`, `turnTimes[]`, `activeTurnIdx`, `TERMS[]`, `COLLECTIONS[]`, `caseSpeakers[]`
+
+**URL params:** `term=`, `case=`, `event=`, `turn=`, `collection=`, `topic=`, `source=`, `find=`. The pseudo-value `=all` on any top-level nav section ID (e.g. `term=all`, `collection=all`, `topic=all`, `source=all`) expands that section in the sidebar.
 
 ## CSS Layout
 
@@ -133,7 +175,4 @@ The main interactive page is a single-page app built with ~3200 lines of vanilla
 - **`data/` is Jekyll's data dir** — files in `data/courts/ussc/` are accessible as `site.data.courts.ussc.*` in templates.
 - **Audio timing uses frames** — `HH:MM:SS.FF` where `.FF` is frame number treated as decimal; `parseTime()` handles this correctly.
 - **`courts/ussc/index.html` is the SPA entry point**, not `index.md` — it uses `layout: argument`.
-
-## Related Docs
-
-- [scripts/README.md](../scripts/README.md) — detailed script usage and step-by-step descriptions
+- **`volume` and `page` are derived from `usCite`** — never write them to a new case object.

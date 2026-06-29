@@ -458,6 +458,26 @@ async function closePWBrowser() {
     if (_pwContext) { await _pwContext.close(); _pwContext = null; _pwPage = null; }
 }
 
+// Cloudflare challenge titles that require waiting (with or without user action).
+const CF_CHALLENGE_TITLES = ['Just a moment...', 'Verify you are human'];
+
+/**
+ * If the current page is a Cloudflare challenge, print a notice and wait
+ * indefinitely for it to clear (either auto-resolve or manual CAPTCHA solve).
+ */
+async function waitForCloudflare(page, url) {
+    const title = await page.title();
+    if (!CF_CHALLENGE_TITLES.includes(title)) return;
+    process.stdout.write('\x07');  // terminal bell
+    console.log(`\n  [Cloudflare challenge detected for ${url}]`);
+    console.log('  → Solve the verification in the Chrome window; the script will resume automatically.\n');
+    await page.waitForFunction(
+        (titles) => !titles.includes(document.title),
+        CF_CHALLENGE_TITLES,
+        { timeout: 0 },  // wait indefinitely
+    );
+}
+
 async function playwrightDownload(url, destPath) {
     const page = await getPWPage();
     try {
@@ -466,15 +486,7 @@ async function playwrightDownload(url, destPath) {
         if (status === 404 || status === 410) {
             return { status: 'failed', permanent: true, reason: `HTTP ${status}` };
         }
-        // If Cloudflare challenge is present, wait up to 2 minutes for it to auto-resolve
-        // (it performs a navigation when solved, so title will change)
-        if (await page.title() === 'Just a moment...') {
-            await page.waitForFunction(
-                () => document.title !== 'Just a moment...',
-                null,
-                { timeout: 120000 }
-            );
-        }
+        await waitForCloudflare(page, url);
         const html = await page.content();
         ensureDir(path.dirname(destPath));
         const tmp = destPath + '.tmp';
@@ -545,13 +557,7 @@ async function fetchJustiaVolumePages(volFilter, opts) {
         const page = await getPWPage();
         try {
             await page.goto(listingUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-            if (await page.title() === 'Just a moment...') {
-                await page.waitForFunction(
-                    () => document.title !== 'Just a moment...',
-                    null,
-                    { timeout: 120000 }
-                );
-            }
+            await waitForCloudflare(page, listingUrl);
             listingHtml = await page.content();
         } catch (err) {
             console.error(`  FAIL  ${listingUrl}  (${err.message.split('\n')[0]})`);
