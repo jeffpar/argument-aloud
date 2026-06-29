@@ -16,11 +16,21 @@
  *
  * Usage:
  *   node scripts/download.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
+ *   node scripts/download.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
  *
  * Options:
  *   TERM       Term in YYYY-10 format (default: all terms)
  *   CASE       Docket number to limit to a single case
+ *   VOLUME     Volume number or "usXXX" name to limit --justia to one volume
  *   --files    Download assets from files.json entries instead of cases.json
+ *   --justia   Download opinion HTML from supreme.justia.com using the index
+ *              files in courts/ussc/opinions/html/usXXX.html.  Each opinion is
+ *              saved as courts/ussc/opinions/html/usXXX/usXXX-NNNN.html where
+ *              NNNN is the 4-digit 0-padded page number from the citation.
+ *              Uses Playwright/Chromium to bypass Cloudflare bot protection.
+ *              Combined with --refetch, first fetches fresh volume index pages
+ *              from supreme.justia.com/cases/federal/us/volume/ before
+ *              downloading opinions (existing files kept on fetch failure).
  *   --dry-run  Show what would be downloaded without fetching anything
  *   --refetch  Re-download even if the file already exists in cache
  *   --verbose  Print skipped files in addition to downloads
@@ -28,15 +38,18 @@
  * © 2026 by Jeff Parsons
  */
 
-import fs   from 'node:fs';
-import path from 'node:path';
+import fs                from 'node:fs';
+import path              from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { pipeline } from 'node:stream/promises';
+import { pipeline }      from 'node:stream/promises';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, '..');
-const TERMS_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-const CACHE_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
+const REPO_ROOT      = path.resolve(__dirname, '..');
+const TERMS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+const CACHE_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
+const OPINIONS_HTML  = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
+const PW_PROFILE_DIR = path.join(REPO_ROOT, '.playwright-profile');
+const JUSTIA_BASE    = 'https://supreme.justia.com';
 
 const USER_AGENT = 'Mozilla/5.0 argument-aloud/download';
 const TIMEOUT_MS = 30_000;
@@ -387,6 +400,260 @@ async function processTermFilesMode(term, caseFilter, opts) {
     }
 }
 
+// ── Justia volume-index mode ──────────────────────────────────────────────────
+
+/**
+ * Parse a volume index HTML file and return an array of
+ * { url, destPath } for every opinion linked within it.
+ *
+ * The href pattern inside these files is:
+ *   href="/cases/federal/us/{vol}/{page}/"  class="case-name"
+ * We derive the destination from the HTML filename, e.g.:
+ *   us001.html  →  us001/us001-0005.html  for page 5
+ */
+function parseJustiaVolume(htmlFile) {
+    const basename = path.basename(htmlFile, '.html');   // e.g. "us001"
+    const html = fs.readFileSync(htmlFile, 'utf8');
+    const re = /href="(\/cases\/federal\/us\/\d+\/(\d+)\/)" class="case-name"/g;
+    const entries = [];
+    const seen = new Set();
+    let m;
+    while ((m = re.exec(html)) !== null) {
+        const relPath = m[1];
+        const page    = parseInt(m[2], 10);
+        if (seen.has(page)) continue;
+        seen.add(page);
+        const page4   = String(page).padStart(4, '0');
+        const url     = JUSTIA_BASE + relPath;
+        const destDir = path.join(OPINIONS_HTML, basename);
+        const destPath = path.join(destDir, `${basename}-${page4}.html`);
+        entries.push({ url, destPath });
+    }
+    return entries;
+}
+
+// ── Playwright browser (shared across all Justia downloads) ──────────────────
+// Uses a persistent Chrome profile so Cloudflare clearance cookies survive
+// across runs.  If challenged on first use, solve the CAPTCHA once in the
+// visible window; subsequent requests (and future runs) reuse the saved cookies.
+
+let _pwContext = null;
+let _pwPage    = null;
+
+async function getPWPage() {
+    if (_pwPage) {
+        try { await _pwPage.title(); return _pwPage; } catch { _pwContext = null; _pwPage = null; }
+    }
+    const { chromium } = await import('playwright');
+    _pwContext = await chromium.launchPersistentContext(PW_PROFILE_DIR, {
+        headless: false,
+        channel: 'chrome',
+        args: ['--disable-blink-features=AutomationControlled'],
+    });
+    _pwPage = await _pwContext.newPage();
+    return _pwPage;
+}
+
+async function closePWBrowser() {
+    if (_pwContext) { await _pwContext.close(); _pwContext = null; _pwPage = null; }
+}
+
+async function playwrightDownload(url, destPath) {
+    const page = await getPWPage();
+    try {
+        const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+        const status = response?.status() ?? 0;
+        if (status === 404 || status === 410) {
+            return { status: 'failed', permanent: true, reason: `HTTP ${status}` };
+        }
+        // If Cloudflare challenge is present, wait up to 2 minutes for it to auto-resolve
+        // (it performs a navigation when solved, so title will change)
+        if (await page.title() === 'Just a moment...') {
+            await page.waitForFunction(
+                () => document.title !== 'Just a moment...',
+                null,
+                { timeout: 120000 }
+            );
+        }
+        const html = await page.content();
+        ensureDir(path.dirname(destPath));
+        const tmp = destPath + '.tmp';
+        fs.writeFileSync(tmp, html, 'utf8');
+        fs.renameSync(tmp, destPath);
+        return 'downloaded';
+    } catch (err) {
+        return { status: 'failed', permanent: false, reason: err.message.split('\n')[0] };
+    }
+}
+
+async function downloadJustiaEntry({ url, destPath }, basename, opts) {
+    const cacheDir = path.dirname(destPath);
+    if (!opts.force && isSkipped(cacheDir, url)) {
+        results.skipped++;
+        return;
+    }
+    if (!opts.force && exists(destPath)) {
+        if (opts.verbose) console.log(`  skip  ${url}`);
+        results.skipped++;
+        return;
+    }
+    const rel = relRepo(destPath);
+    if (opts.dryRun) {
+        console.log(`  ${url}\n    → ${rel}  [dry-run]`);
+        results.downloaded++;
+        return;
+    }
+    console.log(`  ${url}\n    → ${rel}`);
+    const outcome = await playwrightDownload(url, destPath);
+    if (typeof outcome === 'object' && outcome.status === 'failed') {
+        results.failed++;
+        results.missing.push({ term: basename, caseKey: path.basename(destPath), url, reason: outcome.reason });
+        console.log(`  FAIL  ${url}  (${outcome.reason})`);
+        if (outcome.permanent) markSkipped(cacheDir, url);
+    } else {
+        results.downloaded++;
+    }
+    await sleep(DELAY_MS);
+}
+
+async function processJustiaVolume(htmlFile, opts) {
+    const basename = path.basename(htmlFile, '.html');
+    const entries  = parseJustiaVolume(htmlFile);
+    if (!entries.length) return;
+
+    console.log(`\n── ${basename} (${entries.length} opinion(s)) ──`);
+
+    // Sequential — Playwright uses a single shared page/context
+    for (const e of entries) {
+        await downloadJustiaEntry(e, basename, opts);
+    }
+}
+
+/**
+ * Phase 1 of --justia --refetch: fetch fresh volume index pages (usXXX.html)
+ * by reading the Justia volume listing and downloading each volume's index page.
+ * Existing files are never overwritten unless the fetch succeeds.
+ */
+async function fetchJustiaVolumePages(volFilter, opts) {
+    const listingUrl = `${JUSTIA_BASE}/cases/federal/us/volume/`;
+    console.log(`\n── Phase 1: refreshing volume index pages ──`);
+    console.log(`  ${listingUrl}`);
+
+    // Fetch the volume listing to discover all volume numbers.
+    let listingHtml;
+    if (!opts.dryRun) {
+        const page = await getPWPage();
+        try {
+            await page.goto(listingUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            if (await page.title() === 'Just a moment...') {
+                await page.waitForFunction(
+                    () => document.title !== 'Just a moment...',
+                    null,
+                    { timeout: 120000 }
+                );
+            }
+            listingHtml = await page.content();
+        } catch (err) {
+            console.error(`  FAIL  ${listingUrl}  (${err.message.split('\n')[0]})`);
+            return;
+        }
+    }
+
+    // Parse volume numbers from the listing page links.
+    const re = /href="\/cases\/federal\/us\/(\d+)\/"/g;
+    const volNums = new Set();
+    if (listingHtml) {
+        let m;
+        while ((m = re.exec(listingHtml)) !== null) {
+            const n = parseInt(m[1], 10);
+            if (n >= 1 && n <= 700) volNums.add(n);
+        }
+    }
+
+    if (!opts.dryRun && !volNums.size) {
+        console.error('  Could not parse any volume links from the listing page');
+        return;
+    }
+
+    let volumes = [...volNums].sort((a, b) => a - b);
+
+    if (volFilter) {
+        const norm = volFilter.startsWith('us')
+            ? parseInt(volFilter.replace(/^us0*/, ''), 10)
+            : parseInt(volFilter, 10);
+        volumes = volumes.filter(v => v === norm);
+        if (!volumes.length && !opts.dryRun) {
+            console.error(`  Volume '${volFilter}' not found in the Justia listing`);
+            return;
+        }
+    }
+
+    if (!opts.dryRun) console.log(`  Found ${volNums.size} volumes — fetching ${volumes.length}`);
+
+    ensureDir(OPINIONS_HTML);
+
+    for (const volNum of volumes) {
+        const padded   = String(volNum).padStart(3, '0');
+        const basename = `us${padded}`;
+        const destPath = path.join(OPINIONS_HTML, `${basename}.html`);
+        const stagePath = destPath + '.new';
+        const url      = `${JUSTIA_BASE}/cases/federal/us/${volNum}/`;
+        const rel      = relRepo(destPath);
+
+        if (opts.dryRun) {
+            console.log(`  ${url}\n    → ${rel}  [dry-run]`);
+            continue;
+        }
+
+        console.log(`  ${url}\n    → ${rel}`);
+        const outcome = await playwrightDownload(url, stagePath);
+        if (typeof outcome === 'object' && outcome.status === 'failed') {
+            console.log(`  FAIL  ${url}  (${outcome.reason})`);
+            try { fs.unlinkSync(stagePath); } catch {}
+            try { fs.unlinkSync(stagePath + '.tmp'); } catch {}
+        } else {
+            fs.renameSync(stagePath, destPath);
+        }
+
+        await sleep(DELAY_MS);
+    }
+}
+
+async function processJustiaAll(volFilter, opts) {
+    // Phase 1 (--refetch only): refresh volume index HTML files from Justia.
+    if (opts.force) {
+        await fetchJustiaVolumePages(volFilter, opts);
+    }
+
+    // Phase 2: download individual opinions from each volume index file.
+    console.log(`\n── Phase 2: downloading opinions ──`);
+
+    let htmlFiles;
+    try {
+        htmlFiles = fs.readdirSync(OPINIONS_HTML)
+            .filter(f => /^us\d+\.html$/.test(f))
+            .sort()
+            .map(f => path.join(OPINIONS_HTML, f));
+    } catch (err) {
+        console.error(`Cannot read ${relRepo(OPINIONS_HTML)}: ${err.message}`);
+        process.exit(1);
+    }
+
+    if (volFilter) {
+        // Accept either "us001" or "1" as a filter
+        const norm = volFilter.startsWith('us') ? volFilter : 'us' + volFilter.padStart(3, '0');
+        htmlFiles = htmlFiles.filter(f => path.basename(f, '.html') === norm);
+        if (!htmlFiles.length) {
+            console.error(`No HTML file found for volume '${volFilter}'`);
+            process.exit(1);
+        }
+    }
+
+    for (const htmlFile of htmlFiles) {
+        await processJustiaVolume(htmlFile, opts);
+    }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -394,15 +661,38 @@ async function main() {
     const flags  = new Set(argv.filter(a => a.startsWith('--')));
     const args   = argv.filter(a => !a.startsWith('--'));
 
-    const filesMode = flags.has('--files');
-    const dryRun    = flags.has('--dry-run');
-    const force     = flags.has('--refetch');
-    const verbose   = flags.has('--verbose');
-    const quiet     = !verbose;
-    const opts      = { dryRun, force, verbose, quiet };
+    const filesMode  = flags.has('--files');
+    const justiaMode = flags.has('--justia');
+    const dryRun     = flags.has('--dry-run');
+    const force      = flags.has('--refetch');
+    const verbose    = flags.has('--verbose');
+    const quiet      = !verbose;
+    const opts       = { dryRun, force, verbose, quiet };
 
     const termArg = args[0] || null;
     const caseArg = args[1] || null;
+
+    // ── Justia mode ───────────────────────────────────────────────────────────
+    if (justiaMode) {
+        if (dryRun) console.log('[dry-run mode — no files will be written]');
+        console.log('[justia mode — downloading opinion HTML from supreme.justia.com]');
+        const startTime = Date.now();
+        try {
+            await processJustiaAll(termArg, opts);
+        } finally {
+            await closePWBrowser();
+        }
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+        console.log('\n');
+        console.log('══════════════════════════════════════════');
+        console.log('  Justia download summary');
+        console.log('══════════════════════════════════════════');
+        console.log(`  Downloaded : ${results.downloaded}`);
+        console.log(`  Skipped    : ${results.skipped} (already cached)`);
+        console.log(`  Failed     : ${results.failed}`);
+        console.log(`  Time       : ${elapsed}s`);
+        return;
+    }
 
     if (!exists(CACHE_DIR)) {
         console.error(`Cache directory not found: ${relRepo(CACHE_DIR)}`);
