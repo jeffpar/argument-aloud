@@ -407,26 +407,34 @@ async function processTermFilesMode(term, caseFilter, opts) {
  * { url, destPath } for every opinion linked within it.
  *
  * The href pattern inside these files is:
- *   href="/cases/federal/us/{vol}/{page}/"  class="case-name"
- * We derive the destination from the HTML filename, e.g.:
+ *   href="/cases/federal/us/{vol}/{page}[/{suffix}]/"  class="case-name"
+ * For volumes ≤ 577 the page segment is a plain number (zero-padded to 4 digits):
  *   us001.html  →  us001/us001-0005.html  for page 5
+ * For volumes > 577 the segment may be a case number (e.g. "18-556"), used as-is:
+ *   us589.html  →  us589/us589-18-556.html
+ * Original jurisdiction cases have an extra "orig" path segment:
+ *   us585.html  →  us585/us585-0142-orig.html  for /585/142/orig/
  */
 function parseJustiaVolume(htmlFile) {
     const basename = path.basename(htmlFile, '.html');   // e.g. "us001"
     const html = fs.readFileSync(htmlFile, 'utf8');
-    const re = /href="(\/cases\/federal\/us\/\d+\/(\d+)\/)" class="case-name"/g;
+    const re = /href="(\/cases\/federal\/us\/\d+\/([\d-]+)(?:\/(orig))?\/)" class="case-name"/g;
     const entries = [];
     const seen = new Set();
     let m;
     while ((m = re.exec(html)) !== null) {
         const relPath = m[1];
-        const page    = parseInt(m[2], 10);
-        if (seen.has(page)) continue;
-        seen.add(page);
-        const page4   = String(page).padStart(4, '0');
-        const url     = JUSTIA_BASE + relPath;
-        const destDir = path.join(OPINIONS_HTML, basename);
-        const destPath = path.join(destDir, `${basename}-${page4}.html`);
+        const pageStr = m[2];                            // e.g. "5", "18-556", or "142"
+        const suffix  = m[3] || '';                      // e.g. "orig" or ""
+        const key     = suffix ? `${pageStr}/${suffix}` : pageStr;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        // Pure numeric pages are zero-padded to 4 digits; hyphenated case numbers are used as-is.
+        const pagePart = /^\d+$/.test(pageStr) ? String(parseInt(pageStr, 10)).padStart(4, '0') : pageStr;
+        const filePart = suffix ? `${pagePart}-${suffix}` : pagePart;
+        const url      = JUSTIA_BASE + relPath;
+        const destDir  = path.join(OPINIONS_HTML, basename);
+        const destPath = path.join(destDir, `${basename}-${filePart}.html`);
         entries.push({ url, destPath });
     }
     return entries;
@@ -548,7 +556,8 @@ async function processJustiaVolume(htmlFile, opts) {
  */
 async function fetchJustiaVolumePages(volFilter, opts) {
     const listingUrl = `${JUSTIA_BASE}/cases/federal/us/volume/`;
-    console.log(`\n── Phase 1: refreshing volume index pages ──`);
+    const label = opts.force ? 'refreshing all volume index pages' : 'fetching missing volume index pages';
+    console.log(`\n── Phase 1: ${label} ──`);
     console.log(`  ${listingUrl}`);
 
     // Fetch the volume listing to discover all volume numbers.
@@ -594,14 +603,26 @@ async function fetchJustiaVolumePages(volFilter, opts) {
         }
     }
 
-    if (!opts.dryRun) console.log(`  Found ${volNums.size} volumes — fetching ${volumes.length}`);
+    // When not force-refetching, skip volumes that already have a local HTML file.
+    const toFetch = opts.force ? volumes : volumes.filter(v => {
+        const padded = String(v).padStart(3, '0');
+        return !fs.existsSync(path.join(OPINIONS_HTML, `us${padded}`, `us${padded}.html`));
+    });
 
-    ensureDir(OPINIONS_HTML);
+    if (!opts.dryRun) {
+        const newNote = opts.force ? '' : ` (${toFetch.length} missing)`;
+        console.log(`  Found ${volNums.size} volumes${newNote}`);
+        if (!toFetch.length) {
+            console.log('  All volume index pages already on disk — nothing to fetch');
+            return;
+        }
+    }
 
-    for (const volNum of volumes) {
+    for (const volNum of toFetch) {
         const padded   = String(volNum).padStart(3, '0');
         const basename = `us${padded}`;
-        const destPath = path.join(OPINIONS_HTML, `${basename}.html`);
+        const destDir  = path.join(OPINIONS_HTML, basename);
+        const destPath = path.join(destDir, `${basename}.html`);
         const stagePath = destPath + '.new';
         const url      = `${JUSTIA_BASE}/cases/federal/us/${volNum}/`;
         const rel      = relRepo(destPath);
@@ -612,6 +633,7 @@ async function fetchJustiaVolumePages(volFilter, opts) {
         }
 
         console.log(`  ${url}\n    → ${rel}`);
+        ensureDir(destDir);
         const outcome = await playwrightDownload(url, stagePath);
         if (typeof outcome === 'object' && outcome.status === 'failed') {
             console.log(`  FAIL  ${url}  (${outcome.reason})`);
@@ -626,10 +648,9 @@ async function fetchJustiaVolumePages(volFilter, opts) {
 }
 
 async function processJustiaAll(volFilter, opts) {
-    // Phase 1 (--refetch only): refresh volume index HTML files from Justia.
-    if (opts.force) {
-        await fetchJustiaVolumePages(volFilter, opts);
-    }
+    // Phase 1: read the Justia volume listing to discover all volumes; fetch any
+    // that are missing locally (or all of them when --refetch is specified).
+    await fetchJustiaVolumePages(volFilter, opts);
 
     // Phase 2: download individual opinions from each volume index file.
     console.log(`\n── Phase 2: downloading opinions ──`);
@@ -637,9 +658,10 @@ async function processJustiaAll(volFilter, opts) {
     let htmlFiles;
     try {
         htmlFiles = fs.readdirSync(OPINIONS_HTML)
-            .filter(f => /^us\d+\.html$/.test(f))
+            .filter(d => /^us\d+$/.test(d))
             .sort()
-            .map(f => path.join(OPINIONS_HTML, f));
+            .map(d => path.join(OPINIONS_HTML, d, `${d}.html`))
+            .filter(f => fs.existsSync(f));
     } catch (err) {
         console.error(`Cannot read ${relRepo(OPINIONS_HTML)}: ${err.message}`);
         process.exit(1);

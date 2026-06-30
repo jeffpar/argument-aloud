@@ -20,15 +20,14 @@ export const CASE_KEY_ORDER = [
     'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_errors',
-    'notes',
+    'note',
 ];
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
     'audio_href', 'audio_href_bad', 'bad_audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
     'journal_ref',
-    'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view',
-    'notes',
+    'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view'
 ];
 
 export const ADVOCATE_KEY_ORDER = [

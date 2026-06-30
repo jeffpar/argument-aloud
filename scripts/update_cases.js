@@ -6861,7 +6861,7 @@ function _scdbCleanTitle(title) {
     if (!title) return title;
     let s = title.replace(/,?\s*\bet\s+al\.?/gi, '').trim().replace(/\s+/g, ' ');
     const tokens = s.split(' ');
-    return tokens.map((token, i) => {
+    const result = tokens.map((token, i) => {
         const m = token.match(/^([^A-Za-z0-9]*)([A-Za-z0-9][A-Za-z0-9'-]*)([^A-Za-z0-9]*)$/);
         if (!m) return token;
         const [, pre, word, post] = m;
@@ -6878,6 +6878,8 @@ function _scdbCleanTitle(title) {
         }).join('-');
         return pre + cased + post;
     }).join(' ');
+    // Capitalize the letter immediately following a Capital+apostrophe pair (e.g. D'Utricht).
+    return result.replace(/([A-Z]')([a-z])/g, (_, cap, ch) => cap + ch.toUpperCase());
 }
 
 function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
@@ -9944,6 +9946,243 @@ async function runAddCase(term, title, argv, dryRun) {
 }
 
 
+// ── --justia: scan downloaded Justia HTML opinions for cases missing in cases.json ──
+
+function _decodeHtmlEntities(str) {
+    return str
+        .replace(/&amp;/gi,  '&')
+        .replace(/&lt;/gi,   '<')
+        .replace(/&gt;/gi,   '>')
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;|&apos;/gi, "'")
+        .replace(/&nbsp;/gi, ' ')
+        .replace(/&#(\d+);/g,      (_, n) => String.fromCodePoint(parseInt(n, 10)))
+        .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+}
+
+function _isAllCapsTitle(title) {
+    // True when the title (ignoring the " v. " separator) is entirely uppercase.
+    if (!title) return false;
+    const stripped = title.replace(/\s+v\.\s*/gi, ' ').trim();
+    return /[A-Z]/.test(stripped) && stripped === stripped.toUpperCase();
+}
+
+function _parseJustiaDate(s) {
+    // "March 14-15, 1889" | "December 6, 2021" → "YYYY-MM-DD" (first day of range)
+    if (!s) return null;
+    const MONTHS = {
+        january:1, february:2, march:3, april:4, may:5, june:6,
+        july:7, august:8, september:9, october:10, november:11, december:12,
+    };
+    const m = /^(\w+)\s+(\d+)(?:-\d+)?,\s*(\d{4})/.exec(s.trim());
+    if (!m) return null;
+    const mo = MONTHS[m[1].toLowerCase()];
+    if (!mo) return null;
+    return `${m[3]}-${String(mo).padStart(2,'0')}-${String(parseInt(m[2],10)).padStart(2,'0')}`;
+}
+
+function _matchesOtherCourt(text) {
+    // Any court name that mentions a US state (e.g. "Supreme Court of Pennsylvania",
+    // "High Court of Errors and Appeals of Pennsylvania", "Circuit Court, Pennsylvania District").
+    if (/\bCourt\b.{0,80}Pennsylvania\b/i.test(text)) return true;
+    // Catch circuit courts by state (e.g. "Circuit Court, Virginia District") but NOT
+    // "Circuit Court of..." or "Circuit Court for..." which appear in SCOTUS "appeal from" headers.
+    if (/\bCircuit\s+Court(?!\s+(?:of|for)\b)/i.test(text)) return true;
+    return false;
+}
+
+function _isOtherCourtHtml(html) {
+    // Join all headertext span content so split-element patterns like
+    // "SUPREME COURT" / "OF PENNSYLVANIA" merge into one string.
+    const spanRe = /<span\b[^>]+class="headertext"[^>]*>([\s\S]*?)<\/span>/gi;
+    const parts = [];
+    let m;
+    while ((m = spanRe.exec(html)) !== null) {
+        parts.push(m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim());
+    }
+    if (_matchesOtherCourt(parts.join(' ').replace(/\s+/g, ' '))) return true;
+
+    // Also scan the first 15 non-empty <p> tags — some court names appear in plain
+    // paragraphs without the headertext class but adjacent to headertext paragraphs.
+    const pRe = /<p(?:\s[^>]*)?>([^]*?)<\/p>/gi;
+    let pCount = 0;
+    while ((m = pRe.exec(html)) !== null && pCount < 15) {
+        const text = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        if (!text) continue;
+        if (_matchesOtherCourt(text)) return true;
+        pCount++;
+    }
+    return false;
+}
+
+function _parseJustiaOpinionHtml(html) {
+    const info = { title: null, usCite: null, year: null, numbers: [], argued: [], reargued: [], decided: null };
+
+    // <title>Case Name | VOL U.S. PAGE (YEAR) | Justia...</title>
+    const titleM = /<title>([^<]+)<\/title>/i.exec(html);
+    if (titleM) {
+        const raw = titleM[1].trim();
+        const m = /^(.+?)\s*\|\s*(\d+\s+U\.S\.\s+[\d_]+)\s*\((\d{4})\)/.exec(raw);
+        if (m) {
+            info.title  = m[1].trim();
+            info.usCite = m[2].replace(/\s+/g, ' ').trim();
+            info.year   = parseInt(m[3], 10);
+        }
+    }
+
+    // Old format: <p class="headertext">TEXT</p>
+    const htRe = /<p\b[^>]+class="headertext"[^>]*>([\s\S]*?)<\/p>/gi;
+    let m;
+    while ((m = htRe.exec(html)) !== null) {
+        const text = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().replace(/\.$/, '');
+        const noM    = /^Nos?\.\s+(.+)$/i.exec(text);
+        if (noM)   { info.numbers.push(...noM[1].split(/\s*,\s*/).map(s => s.trim()).filter(Boolean)); continue; }
+        const argM   = /^Argued:?\s+(.+)$/i.exec(text);
+        if (argM)  { info.argued.push(argM[1].trim()); continue; }
+        const reargM = /^Re-?argued:?\s+(.+)$/i.exec(text);
+        if (reargM){ info.reargued.push(reargM[1].trim()); continue; }
+        const decM   = /^Decided:?\s+(.+)$/i.exec(text);
+        if (decM)  { info.decided = decM[1].trim(); }
+    }
+
+    // Newer format: <strong>LABEL</strong>...<span>VALUE</span>
+    if (!info.numbers.length && !info.argued.length && !info.decided) {
+        const strongRe = /<strong>([\s\S]*?)<\/strong>[\s\S]*?<span>([\s\S]*?)<\/span>/gi;
+        while ((m = strongRe.exec(html)) !== null) {
+            const key = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().replace(/:$/, '').toLowerCase();
+            const val = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+            if (!val) continue;
+            if (/^docket\s+no\.?$/.test(key) || /^nos?\.?$/.test(key)) {
+                info.numbers.push(...val.split(/\s*,\s*/).map(s => s.trim()).filter(Boolean));
+            } else if (key === 'argued')         { info.argued.push(val); }
+            else if (/^re-?argued$/.test(key))  { info.reargued.push(val); }
+            else if (key === 'decided')          { info.decided = val; }
+        }
+    }
+
+    return info;
+}
+
+async function runJustiaCheck(volFilter, opts) {
+    const { backfill, verbose } = opts;
+    const OPINIONS_HTML = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
+
+    // Collect usNNN subdirectories.
+    let subDirs;
+    try {
+        subDirs = fs.readdirSync(OPINIONS_HTML).filter(n => /^us\d+$/.test(n)).sort();
+    } catch (err) {
+        console.error(`Cannot read ${OPINIONS_HTML}: ${err.message}`); return;
+    }
+
+    if (volFilter) {
+        const norm = volFilter.startsWith('us')
+            ? volFilter
+            : `us${String(parseInt(volFilter, 10)).padStart(3, '0')}`;
+        subDirs = subDirs.filter(d => d === norm);
+        if (!subDirs.length) { console.error(`Volume '${volFilter}' not found`); return; }
+    }
+
+    // Build lookup tables from all terms' cases.json.
+    const knownCites   = new Map(); // usCite  → { term, id }
+    const knownNumbers = new Map(); // number  → [{ term, id }, ...]
+    try {
+        const termNames = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+        for (const termName of termNames) {
+            const cp = path.join(TERMS_DIR, termName, 'cases.json');
+            try {
+                const cases = JSON.parse(fs.readFileSync(cp, 'utf8'));
+                for (const c of cases) {
+                    if (c.usCite) knownCites.set(c.usCite, { term: termName, id: c.id });
+                    if (c.number) {
+                        for (const num of c.number.split(/\s*,\s*/).map(s => s.trim()).filter(Boolean)) {
+                            if (!knownNumbers.has(num)) knownNumbers.set(num, []);
+                            knownNumbers.get(num).push({ term: termName, id: c.id });
+                        }
+                    }
+                }
+            } catch {}
+        }
+    } catch (err) {
+        console.error(`Cannot load terms: ${err.message}`); return;
+    }
+
+    const missing    = [];
+    const foundCases = [];
+
+    for (const subDir of subDirs) {
+        const dirPath = path.join(OPINIONS_HTML, subDir);
+        let htmlFiles;
+        try {
+            htmlFiles = fs.readdirSync(dirPath).filter(f => /^us\d+-.+\.html$/.test(f)).sort();
+        } catch { continue; }
+
+        for (const file of htmlFiles) {
+            const basename = file.replace(/\.html$/, '');
+            let html;
+            try { html = fs.readFileSync(path.join(dirPath, file), 'utf8'); } catch { continue; }
+
+            if (_isOtherCourtHtml(html)) {
+                if (verbose) console.log(`  skip  ${basename}  (other court)`);
+                continue;
+            }
+
+            const info = _parseJustiaOpinionHtml(html);
+            if (!info.usCite) {
+                if (verbose) console.log(`  skip  ${basename}  (no usCite parsed)`);
+                continue;
+            }
+
+            let found = false;
+            if (!info.usCite.includes('_')) {
+                // Known citation — match exactly.
+                found = knownCites.has(info.usCite);
+            } else {
+                // Unreported (___) — fall back to case-number match.
+                for (const num of info.numbers) {
+                    if (knownNumbers.has(num)) { found = true; break; }
+                }
+            }
+
+            if (found) foundCases.push({ basename, info });
+            else       missing.push({ basename, info });
+        }
+    }
+
+    // Decode HTML entities and normalize all-caps titles before printing.
+    for (const { info } of [...foundCases, ...missing]) {
+        if (info.title) info.title = _decodeHtmlEntities(info.title);
+        if (_isAllCapsTitle(info.title)) info.title = _scdbCleanTitle(info.title);
+    }
+
+    // Print report: found cases first, then missing.
+    function _printCaseLine({ basename, info }, suffix) {
+        const dates = [];
+        for (const d of info.argued)   dates.push(`Argued ${d}`);
+        for (const d of info.reargued) dates.push(`Reargued ${d}`);
+        if (info.decided)   dates.push(`Decided ${info.decided}`);
+        else if (info.year) dates.push(`Decided ${info.year}`);
+        const datePart = dates.length ? ` (${dates.join('; ')})` : '';
+        console.log(`${basename}: ${info.title}${datePart}${suffix}`);
+    }
+
+    if (verbose) for (const entry of foundCases) _printCaseLine(entry, ' (found)');
+    for (const entry of missing) {
+        const ignored = entry.info.year && entry.info.year < 1791 ? ' (ignored)' : '';
+        if (ignored) { if (verbose) _printCaseLine(entry, ignored); continue; }
+        _printCaseLine(entry, '');
+    }
+
+    const actionable = missing.filter(({ info }) => !info.year || info.year >= 1791);
+    const parts = [];
+    if (foundCases.length) parts.push(`${foundCases.length} found`);
+    if (actionable.length) parts.push(`${actionable.length} missing`);
+    if (missing.length > actionable.length) parts.push(`${missing.length - actionable.length} ignored`);
+    console.log(`\n${parts.length ? parts.join(', ') : 'No cases'}`);
+    if (actionable.length && !backfill) console.log('(Re-run with --backfill to add the missing ones.)');
+}
+
+
 async function main() {
     const argv = process.argv.slice(2);
     if (argv.includes('--help') || argv.includes('-h')) {
@@ -10093,6 +10332,14 @@ async function main() {
 
     if (flags.has('--missing-cite')) {
         runMissingCite(positional[0] || null, { argued: flags.has('--argued') });
+        return;
+    }
+
+    if (flags.has('--justia')) {
+        await runJustiaCheck(positional[0] || null, {
+            backfill: flags.has('--backfill'),
+            verbose,
+        });
         return;
     }
 
