@@ -1722,20 +1722,16 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     let modified = false;
     for (const c of data) {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
+        // If decision_reports already carries an explicit #page=N, leave it alone.
+        if (/#page=\d+$/.test(c.decision_reports || '')) continue;
         const usCite = (c.usCite || '').trim();
         if (!usCite) continue;
         const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
         if (!m) continue;
-        const vol     = parseInt(m[1], 10);
-        const pgStr   = m[2];
-        const isRoman = /^[ivxlcdmIVXLCDM]+$/.test(pgStr);
-        const page    = isRoman ? _parseRomanNumeral(pgStr) : parseInt(pgStr, 10);
-        if (!Number.isFinite(page) || page <= 0) continue;
+        const vol    = parseInt(m[1], 10);
         const report = byVolume.get(vol);
-        if (!report) continue;
-        const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page, isRoman);
-        if (pdfPage == null) continue;
-        const url = report.href + '#page=' + pdfPage;
+        if (!report?.href) continue;
+        const url = report.href;
         if (c.decision_reports === url) continue;
         c.decision_reports = url;
         const reordered = reorderCase(c);
@@ -4549,8 +4545,8 @@ function processBenches(dryRun) {
     const changed = _jsonChanged(OUT_FILE, benches);
     if (changed) _writeJson(OUT_FILE, benches);
     if (_VERBOSE || changed) {
-        const verb = dryRun ? 'Would write' : 'Written';
-        console.log(`processBenches: ${verb} ${benches.length} bench(es) to ${path.relative(REPO_ROOT, OUT_FILE)}`);
+        const verb = dryRun ? 'Would write' : 'Wrote';
+        console.log(`${verb} ${benches.length} bench(es) to ${path.relative(REPO_ROOT, OUT_FILE)}`);
     }
 
     // Phase 5: write per-bench case files to courts/ussc/people/justices/benches/
@@ -4587,8 +4583,8 @@ function processBenches(dryRun) {
     }
 
     if (_VERBOSE || benchFilesWritten > 0) {
-        const verb = dryRun ? 'Would write' : 'Written';
-        console.log(`processBenches: ${verb} ${benchFilesWritten} per-bench case file(s) to courts/ussc/people/justices/benches/`);
+        const verb = dryRun ? 'Would write' : 'Wrote';
+        console.log(`${verb} ${benchFilesWritten} per-bench case listing to courts/ussc/people/justices/benches/`);
     }
 }
 
@@ -5393,6 +5389,48 @@ async function syncTermsReports(termFilter, volFilter = null) {
         }
     }
 
+    // Pre-pass: propagate any manual reports.json edits into terms.json page_numbers.
+    // decision_reports recomputation is handled by the standard update_cases.js flow.
+    {
+        let tjModified = false;
+        for (const decade of tj) {
+            for (const page of (decade.groups || [])) {
+                const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+                const termMatch = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+                if (!termMatch) continue;
+                const term = termMatch[1];
+                if (termFilter && term !== termFilter) continue;
+                if (!Array.isArray(page.reports)) continue;
+
+                for (const r of page.reports) {
+                    if (r.volume == null) continue;
+                    const volKey = `v${String(r.volume).padStart(3, '0')}`;
+                    const dbEntry = reportsDb[volKey];
+                    if (!dbEntry) continue;
+                    const dbPageNumbers = _reportsDbPageNumbers(dbEntry);
+                    if (dbPageNumbers == null || dbPageNumbers === r.page_numbers) continue;
+
+                    const dbBps = _parsePageNumbers(dbPageNumbers || '').filter(e => !e.roman);
+                    const tjBps = _parsePageNumbers(r.page_numbers || '').filter(e => !e.roman);
+                    const arabicMatch = dbBps.length === tjBps.length &&
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                    if (arabicMatch) continue;
+                    const tjExtends = tjBps.length > dbBps.length &&
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                    if (tjExtends) continue;
+
+                    console.log(`  ${term}: vol ${r.volume} page_numbers: ${r.page_numbers ?? '(none)'} → ${dbPageNumbers}`);
+                    r.page_numbers = dbPageNumbers;
+                    tjModified = true;
+                }
+            }
+        }
+        if (tjModified) {
+            if (!_DRY_RUN) _writeJson(TERMS_JSON, tj);
+            console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} terms.json (propagated reports.json page_numbers)`);
+        }
+    }
+
     // Build a set of locally available volumes from the PDFs directory.
     const localVols = new Set();
     if (fs.existsSync(PDFS_DIR)) {
@@ -5674,12 +5712,6 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 page.reports = mergedReports;
             }
 
-            // Recompute decision_reports links so they reflect any page_numbers changes.
-            // Also remove any decision_loc that references a page in the second segment.
-            if (!_DRY_RUN) {
-                addDecisionReports(casesPath, page, '');
-                pruneSecondSegmentDecisionLoc(casesPath, page, '');
-            }
         }
     }
 
@@ -9390,8 +9422,26 @@ async function processOneTerm(term, opts) {
                 return m && m[1] === term;
             });
             if (_termEntry?.reports?.length) {
+                // Patch page_numbers from reports.json (may have been manually updated
+                // since the last --reports run) so decision_reports uses current values.
+                let _reportsDb = {};
+                try { const raw = _readJson(REPORTS_JSON); if (raw && !Array.isArray(raw)) _reportsDb = raw; } catch {}
+                let _tjModified = false;
+                for (const r of _termEntry.reports) {
+                    if (r.volume == null) continue;
+                    const volKey = `v${String(r.volume).padStart(3, '0')}`;
+                    const dbPn = _reportsDbPageNumbers(_reportsDb[volKey]);
+                    if (dbPn == null || dbPn === r.page_numbers) continue;
+                    const dbBps = _parsePageNumbers(dbPn).filter(e => !e.roman);
+                    const tjBps = _parsePageNumbers(r.page_numbers || '').filter(e => !e.roman);
+                    const same = dbBps.length === tjBps.length &&
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                    const tjExt = !same && tjBps.length > dbBps.length &&
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                    if (!same && !tjExt) { r.page_numbers = dbPn; _tjModified = true; }
+                }
+                if (_tjModified) _writeJson(TERMS_JSON, _tj);
                 addDecisionReports(casesPath, _termEntry, caseFilter || '');
-                pruneSecondSegmentDecisionLoc(casesPath, _termEntry, caseFilter || '');
             }
         }
         if (checkUrls && !caseFilter) await checkCaseHrefs(casesPath, term, opinionsOnly);

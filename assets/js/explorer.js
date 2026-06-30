@@ -1837,6 +1837,34 @@ function hasDecisionHref(c) {
   return !!(c && (c.decision_loc || c.decision_ussc || c.decision_reports));
 }
 
+// Parse a page_numbers string ("1:19,33:34") into [{start, pdfPage}] breakpoints.
+function _parsePnBps(pn) {
+  if (!pn) return [];
+  return pn.split(',').map(seg => {
+    const colon = seg.indexOf(':');
+    if (colon < 0) return null;
+    const start   = parseInt(seg.slice(0, colon).trim(), 10);
+    const pdfPage = parseInt(seg.slice(colon + 1).trim(), 10);
+    return (isFinite(start) && isFinite(pdfPage)) ? { start, pdfPage } : null;
+  }).filter(Boolean).sort((a, b) => a.start - b.start);
+}
+
+// Compute the PDF page for a given US Reports logical page using the term's
+// reports[] page_numbers mapping.  Returns null if no mapping is available.
+function _reportPdfPage(usCite, termEntry) {
+  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite.trim());
+  if (!m) return null;
+  const vol  = parseInt(m[1], 10);
+  const page = parseInt(m[2], 10);
+  const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
+  if (!report?.page_numbers) return null;
+  const bps = _parsePnBps(report.page_numbers);
+  let match = null;
+  for (const bp of bps) { if (bp.start <= page) match = bp; }
+  if (!match) return null;
+  return page + (match.pdfPage - match.start);
+}
+
 // Returns [{value, href, title}] in display order: LOC, USSC, US Reports.
 function _buildDecisionEntries(caseEntry) {
   if (!caseEntry) return [];
@@ -1849,9 +1877,16 @@ function _buildDecisionEntries(caseEntry) {
   if (caseEntry.decision_ussc)
     entries.push({ value: 'decision_ussc',    href: caseEntry.decision_ussc,
                    title: dateLabel + '\u00a0(USSC)' });
-  if (caseEntry.decision_reports)
-    entries.push({ value: 'decision_reports', href: caseEntry.decision_reports,
+  if (caseEntry.decision_reports) {
+    let href = caseEntry.decision_reports;
+    if (!href.includes('#page=')) {
+      const termEntry = TERMS.find(t => t.term === _currentTerm);
+      const pdfPage = _reportPdfPage(caseEntry.usCite, termEntry);
+      if (pdfPage != null) href = href + '#page=' + pdfPage;
+    }
+    entries.push({ value: 'decision_reports', href,
                    title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
+  }
   return entries;
 }
 
