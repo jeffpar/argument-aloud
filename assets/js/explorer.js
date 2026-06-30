@@ -1275,6 +1275,7 @@ async function _fetchJusticeNids() {
 // Rebuilds URLSearchParams so that 'collection'/'topic' is always first, and 'group' or 'id' is second.
 function buildUrlParams(updates, deletes = []) {
   const url = new URL(location.href);
+  url.hash = '';
   // Apply deletes first.
   deletes.forEach(k => url.searchParams.delete(k));
   // 'collection' and 'topic' are mutually exclusive nav params — deleting one removes the other.
@@ -4242,7 +4243,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     const groupLi = document.createElement('li');
     groupLi.className = 'month-group';
     groupLi.dataset.groupIdx = String(groupNumber);
-    if (group.id != null) groupLi.dataset.groupId = group.id;
+    if (group.id != null) { groupLi.dataset.groupId = group.id; groupLi.id = group.id; }
 
     // Precompute search text for collection filtering (used by inline search).
     {
@@ -7245,12 +7246,17 @@ async function restoreFromURL() {
     const collLi = _sLi?.querySelector(
       `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
     );
+    const _hash = location.hash.slice(1);
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
       while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
-      requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      const _hashEl = _hash ? document.getElementById(_hash) : null;
+      if (_hashEl) {
+        collLi._centerOnGroup?.(_hashEl);
+        requestAnimationFrame(() => _hashEl.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      } else requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
     const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.link || null;
@@ -7261,6 +7267,7 @@ async function restoreFromURL() {
       const _extra = [];
       if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
       if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
+      if (_hash)  { _extra.push('anchor=' + encodeURIComponent(_hash)); }
       if (_extra.length) _linkWithSort += '?' + _extra.join('&');
       showPageViewer(_linkWithSort, { pushState: false });
     }
@@ -7645,6 +7652,7 @@ window.addEventListener('message', async (e) => {
     showDocViewer({ href: e.data.href, title: e.data.title || '', view: e.data.view });
   } else if (e.data?.type === 'ussc-update-sort' && e.data.sort) {
     const newUrl = new URL(location.href);
+    newUrl.hash = '';
     newUrl.searchParams.set('sort', e.data.sort);
     newUrl.searchParams.set('o', e.data.o || 'd');
     if (e.data.s) newUrl.searchParams.set('s', e.data.s);

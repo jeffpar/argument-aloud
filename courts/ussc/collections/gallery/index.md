@@ -106,6 +106,15 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
   line-height: 1.2;
   word-break: break-word;
 }
+@keyframes jg-jiggle {
+  0%   { transform: scale(1);    }
+  30%  { transform: scale(0.88); }
+  65%  { transform: scale(1.12); }
+  100% { transform: scale(1);    }
+}
+.jg-jiggle {
+  animation: jg-jiggle 1.4s ease-in-out 1;
+}
 </style>
 
 <div class="jg-header">
@@ -140,7 +149,7 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
   function subLabel(j, sort, seniority) {
     if (sort === 'joined') {
-      return seniority ? (j.title || 'Justice') : _fmtDate(j.dateStart);
+      return _fmtDate(j.dateStart);
     } else if (sort === 'years') {
       return j.yearsServed != null ? (+j.yearsServed).toFixed(1) + ' years' : '';
     } else if (sort === 'lone') {
@@ -166,7 +175,9 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
   var DEFAULTS = { joined: true, years: false, lone: false, vocal: false };
 
-  var _params = new URLSearchParams(location.search);
+  var _params   = new URLSearchParams(location.search);
+  var _anchorId = _params.get('anchor') || location.hash.slice(1);
+  var _anchored = false;
 
   // Tri-state for "joined": seniority (default, no arrow) → asc ↑ → desc ↓ → seniority
   var activeSort     = _params.get('sort') || 'joined';
@@ -218,9 +229,15 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
       var coll = activeSort === 'lone'  ? 'lone_dissents'  :
                  activeSort === 'vocal' ? 'vocal_justices' : 'gallery';
+      var sortExtra = '';
+      if (coll === 'gallery' && !(activeSort === 'joined' && activeSeniority)) {
+        sortExtra += '&sort=' + activeSort + '&o=' + (activeAsc ? 'a' : 'd');
+      }
+      if (activeOnly) sortExtra += '&s=1';
       var el = document.createElement('a');
       el.className = 'jg-item';
-      el.href = '/courts/ussc/?collection=' + coll + '&id=' + j.id;
+      el.id = j.id;
+      el.href = '/courts/ussc/?collection=' + coll + '&id=' + j.id + sortExtra;
       el.target = '_top';
 
       var portrait = document.createElement('div');
@@ -246,6 +263,15 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       el.appendChild(sub);
       grid.appendChild(el);
     });
+    if (_anchorId && !_anchored) {
+      _anchored = true;
+      var _anchorEl = document.getElementById(_anchorId);
+      if (_anchorEl) requestAnimationFrame(function () {
+        _anchorEl.scrollIntoView({ behavior: 'instant', block: 'center' });
+        _anchorEl.classList.add('jg-jiggle');
+        setTimeout(function () { _anchorEl.classList.remove('jg-jiggle'); }, 1400);
+      });
+    }
   }
 
   document.getElementById('jg-sort-bar').addEventListener('click', function (e) {

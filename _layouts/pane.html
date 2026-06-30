@@ -135,19 +135,60 @@
     })();
   </script>
   {%- endif %}
-  {%- if page.wikipedia_url %}
+  {%- if page.justice_id %}
   <style>.jp-frame { cursor: pointer; }</style>
   <script>
     document.querySelector('.jp-frame').addEventListener('click', function () {
-      if (window.parent !== window) {
-        window.parent.postMessage(
-          { type: 'ussc-open-doc', href: '{{ page.wikipedia_url }}', title: '{{ page.title }} — Wikipedia', view: 'pane' },
-          location.origin
-        );
-      } else {
-        window.open('{{ page.wikipedia_url }}', '_blank', 'noopener,noreferrer');
+      var parentParams = new URLSearchParams(
+        window.parent !== window ? window.parent.location.search : location.search
+      );
+      var GALLERY_COLLS = ['gallery', 'lone_dissents', 'vocal_justices'];
+      var pColl = parentParams.get('collection');
+      var coll  = GALLERY_COLLS.includes(pColl) ? pColl : 'gallery';
+      var extra = '';
+      if (coll === 'gallery') {
+        var s = parentParams.get('sort'), o = parentParams.get('o');
+        if (s) extra += '&sort=' + s;
+        if (o) extra += '&o=' + o;
       }
+      var sf = parentParams.get('s');
+      if (sf) extra += '&s=' + sf;
+      var url = '/courts/ussc/?collection=' + coll + extra + '#{{ page.justice_id }}';
+      if (window.parent !== window) { window.parent.location.href = url; }
+      else { window.location.href = url; }
     });
+  </script>
+  {%- endif %}
+  {%- if page.wikipedia_url %}
+  <script>
+    (function () {
+      var frame = document.querySelector('.jp-frame');
+      var textCol = frame ? frame.previousElementSibling : null;
+      if (textCol) {
+        var p = document.createElement('p');
+        var a = document.createElement('a');
+        a.id = 'jp-wiki-link';
+        a.href = '{{ page.wikipedia_url }}';
+        a.textContent = 'Wikipedia';
+        p.appendChild(document.createTextNode('See also: '));
+        p.appendChild(a);
+        textCol.appendChild(p);
+      }
+      var link = document.getElementById('jp-wiki-link');
+      if (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.parent !== window) {
+            window.parent.postMessage(
+              { type: 'ussc-open-doc', href: '{{ page.wikipedia_url }}', title: '{{ page.title }} — Wikipedia', view: 'pane' },
+              location.origin
+            );
+          } else {
+            window.open('{{ page.wikipedia_url }}', '_blank', 'noopener,noreferrer');
+          }
+        });
+      }
+    })();
   </script>
   {%- endif %}
   <script>
