@@ -4,7 +4,7 @@ layout: pane
 justice_id: brett_kavanaugh
 wikipedia_url: https://en.wikipedia.org/wiki/Brett_Kavanaugh
 date_start: 2018-10-06
-opinions: 48
+opinions: 51
 lone_dissents: 1
 vocal_secs: 92714
 case_count: 1

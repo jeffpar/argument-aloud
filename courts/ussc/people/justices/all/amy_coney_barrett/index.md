@@ -4,7 +4,7 @@ layout: pane
 justice_id: amy_coney_barrett
 wikipedia_url: https://en.wikipedia.org/wiki/Amy_Coney_Barrett
 date_start: 2020-10-27
-opinions: 35
+opinions: 36
 vocal_secs: 60137
 ---
 <div style="display:flex; gap:1em;">

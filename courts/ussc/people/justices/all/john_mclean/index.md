@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/John_McLean
 years_served: 32.1
 days_served: "11,711"
 opinions: 247
-lone_dissents: 25
+lone_dissents: 24
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">

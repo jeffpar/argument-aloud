@@ -4,7 +4,7 @@ layout: pane
 justice_id: elena_kagan
 wikipedia_url: https://en.wikipedia.org/wiki/Elena_Kagan
 date_start: 2010-08-07
-opinions: 107
+opinions: 108
 lone_dissents: 1
 vocal_secs: 224450
 case_count: 6
