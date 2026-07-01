@@ -1336,6 +1336,17 @@ function buildUrlParams(updates, deletes = []) {
   return url;
 }
 
+// Navigate to <id>=all for a top-level nav section (e.g. collection=all,
+// topic=all, source=all) — the "expand and show everything" pseudo-value
+// documented for these sections, mirroring what buildNav() does for Terms.
+function _navigateToSectionAll(id) {
+  if (!id) return;
+  navigate(buildUrlParams(
+    { [id]: 'all' },
+    ['term', 'date', 'case', 'event', 'turn', 'file', 'collection', 'topic', 'source', 'group', 'id', 'highlight', 'link', 'sort', 'o'],
+  ));
+}
+
 
 // Parse the ?sort= and ?o= URL params into { mode, asc }.
 // sort = mode name; o = 'a' (ascending) | 'd' (descending, default when omitted is ascending).
@@ -2888,6 +2899,7 @@ function buildNav(title = 'Terms', id = '') {
       termsLi.classList.toggle('open');
     } else {
       if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
+      document.title = title + ' | Argument Aloud';
       navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date', 'sort', 'o']));
       restoreFromURL();
     }
@@ -3181,6 +3193,8 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
     else if (!sectionLi.classList.contains('open')) sectionLi.classList.add('open');
     if (sectionLi.classList.contains('open')) {
       sectionLi._ensureBuilt();
+      document.title = title + ' | Argument Aloud';
+      _navigateToSectionAll(id);
     }
   });
 
@@ -3236,8 +3250,17 @@ function buildStaticNavSection(termListEl, entry) {
   header.appendChild(tog);
   header.appendChild(label);
   header.addEventListener('click', (e) => {
-    if (tog.contains(e.target)) sectionLi.classList.toggle('open');
-    else if (!sectionLi.classList.contains('open')) sectionLi.classList.add('open');
+    if (tog.contains(e.target)) {
+      sectionLi.classList.toggle('open');
+      if (sectionLi.classList.contains('open')) {
+        if (entry.name) document.title = entry.name + ' | Argument Aloud';
+        _navigateToSectionAll(entry.id);
+      }
+    } else if (!sectionLi.classList.contains('open')) {
+      sectionLi.classList.add('open');
+      if (entry.name) document.title = entry.name + ' | Argument Aloud';
+      _navigateToSectionAll(entry.id);
+    }
   });
 
   const ul = document.createElement('ul');
@@ -3245,7 +3268,7 @@ function buildStaticNavSection(termListEl, entry) {
 
   for (const page of entry.groups || []) {
     if (page.hidden) continue;
-    buildStaticPageItem(ul, page);
+    buildStaticPageItem(ul, page, null, null, [entry.name]);
   }
 
   sectionLi.appendChild(header);
@@ -3257,7 +3280,7 @@ function buildStaticNavSection(termListEl, entry) {
 // top-level Sources entry that itself declared an "id" — see the ?source=
 // scheme below. Deeper descendants (and children of id-less sources, e.g.
 // National Archives) fall back to the older generic ?link= page scheme.
-function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null) {
+function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null, ancestorNames = []) {
   if (page.hidden) return;
   const li = document.createElement('li');
   const hasSubPages = Array.isArray(page.groups) && page.groups.length > 0;
@@ -3278,7 +3301,11 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null)
   // the ?source=/&group= scheme; everything else keeps the old ?link= scheme.
   const usesSourceScheme = isTopLevelSource ? !!thisSourceId : (!!thisSourceId && groupIndex != null);
 
+  // Breadcrumb title, e.g. "Docket Search | U.S. Supreme Court | Sources | Argument Aloud".
+  const pageTitle = [page.name, ...ancestorNames, 'Argument Aloud'].filter(Boolean).join(' | ');
+
   function openPage() {
+    document.title = pageTitle;
     if (linkUrl) showAdvocateDocument(linkUrl, pagePath, page.name || '');
     else if (pagePath) showPageViewer(pagePath);
   }
@@ -3348,11 +3375,13 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null)
         e.preventDefault(); // prevent anchor navigation; SPA handler manages routing
         li.classList.add('open');
         updateNavUrl();
-        openPage();
+        openPage(); // openPage() also updates document.title
       } else if (tog.contains(e.target)) {
         li.classList.toggle('open');
+        if (li.classList.contains('open')) document.title = pageTitle;
       } else if (!li.classList.contains('open')) {
         li.classList.add('open');
+        document.title = pageTitle;
       }
     });
 
@@ -3361,8 +3390,9 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null)
     // Only pass sourceId one level deep — grandchildren of an id-having
     // source aren't addressable via ?group= (there's just the one slot).
     const childSourceId = isTopLevelSource ? thisSourceId : null;
+    const childAncestorNames = [page.name, ...ancestorNames];
     page.groups.forEach((subPage, i) => {
-      buildStaticPageItem(ul, subPage, childSourceId, i + 1);
+      buildStaticPageItem(ul, subPage, childSourceId, i + 1, childAncestorNames);
     });
 
     li.appendChild(header);
@@ -7345,6 +7375,8 @@ async function restoreFromURL() {
     if (sectionId !== 'term' && params.get(sectionId) === 'all') {
       sLi.classList.add('open');
       sLi._ensureBuilt?.();
+      const _sectionName = sLi.querySelector('.terms-label')?.textContent;
+      if (_sectionName) document.title = _sectionName + ' | Argument Aloud';
       requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
       trackPageView(location.href);
       return;
@@ -7772,6 +7804,8 @@ async function restoreFromURL() {
         ancestor = ancestor.parentElement;
       }
       requestAnimationFrame(() => navItem.scrollIntoView({ behavior: 'instant', block: 'center' }));
+      const _navItemName = navItem.querySelector('.term-label, .terms-label')?.textContent;
+      if (_navItemName) document.title = _navItemName + ' | Argument Aloud';
     }
     const _sortV = params.get('sort');
     const _sV    = params.get('s');
@@ -7785,6 +7819,8 @@ async function restoreFromURL() {
     if (_termsSectionLi) {
       _termsSectionLi.classList.add('open');
       requestAnimationFrame(() => _termsSectionLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
+      if (_termsName) document.title = _termsName + ' | Argument Aloud';
     }
     showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
   } else if (termParam) {
