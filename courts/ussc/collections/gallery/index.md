@@ -1,6 +1,6 @@
 ---
 layout: pane
-title: Gallery of Justices
+title: Justice Gallery
 ---
 
 <style>
@@ -119,7 +119,7 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
 
 <div class="jg-header">
   <div class="jg-header-row">
-    <h1 class="jg-heading">Gallery</h1>
+    <h1 class="jg-heading">Justice Gallery</h1>
     <label class="jg-filter-label" id="jg-active-label">
       <input type="checkbox" id="jg-active-only"> Currently Serving
     </label>

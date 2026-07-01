@@ -155,7 +155,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?collection=all">
     <div class="hp-icon">📚</div>
     <div class="hp-card-title">Collections</div>
-    <p class="hp-card-desc">Sift through collections of historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a> and <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>, or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
+    <p class="hp-card-desc">Sift through historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a>, <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>, and <a href="/courts/ussc/?collection=orig&group=1">Original Jurisdiction Cases</a>, or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?topic=all">

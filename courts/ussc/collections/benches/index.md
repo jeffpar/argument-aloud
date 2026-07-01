@@ -1,9 +1,13 @@
 ---
 layout: pane
-title: Benches
+title: Justice Benches
 ---
 
 <style>
+.jb-page-title {
+  margin: 0 0 14px;
+  font-weight: 700;
+}
 .jb-separator {
   border: none;
   border-top: 1px solid currentColor;
@@ -168,6 +172,11 @@ html[data-theme="dark"] .jb-portrait { background: #3a3c45; }
       container.appendChild(meta);
       container.appendChild(renderRow(bench, justiceMap));
     } else {
+      var pageTitle = document.createElement('h1');
+      pageTitle.className = 'jb-page-title';
+      pageTitle.textContent = 'Justice Benches';
+      container.appendChild(pageTitle);
+
       var grandTotal = 0;
       benches.forEach(function (bench, i) {
         if (i > 0) {

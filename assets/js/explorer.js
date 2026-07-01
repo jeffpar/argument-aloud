@@ -4603,6 +4603,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       if (_groupLink && _groupDocument) showAdvocateDocument(_groupDocument, _groupLink, group.name || '');
       else if (_groupLink) showPageViewer(_groupLink, { pushState: false });
       else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
+      // The group itself has no link/document (e.g. a single-group collection
+      // like Original Jurisdiction's "Archive") — fall back to the collection's
+      // own link so the page-viewer isn't left blank.
+      else if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
     });
 
     groupLi.appendChild(groupHeader);
@@ -7408,6 +7412,13 @@ async function restoreFromURL() {
         if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
         else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
+        else {
+          // The group itself has no link/document (e.g. a single-group collection
+          // like Original Jurisdiction's "Archive") — fall back to the collection's
+          // own link so the page-viewer isn't left blank.
+          const collEntry = _findAnyCollectionEntry(collectionParam);
+          if (collEntry?.link) showPageViewer(collEntry.link, { pushState: false });
+        }
         collLi._centerOnGroup?.(groupLi);
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
       }
