@@ -183,6 +183,14 @@
         "link": "/courts/ussc/transcripts/updates"
       },
       {
+        "name": "Cases Missing from LOC",
+        "conditions": [
+          "volume <= 578",
+          "decision_loc == undefined"
+        ],
+        "order": "decided:ascending"
+      },
+      {
         "name": "Cases Missing from SCDB",
         "conditions": [
           "term <= '2024-10'",

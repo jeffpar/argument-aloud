@@ -176,11 +176,12 @@ function markSkipped(cacheDir, url) { _loadSkipped(cacheDir).add(url); _saveSkip
 
 // ── HTTP fetch with timeout ───────────────────────────────────────────────────
 
-async function fetchWithTimeout(url) {
+async function fetchWithTimeout(url, method = 'GET') {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
     try {
         return await fetch(url, {
+            method,
             headers: { 'User-Agent': USER_AGENT },
             signal: ctrl.signal,
         });
@@ -684,6 +685,61 @@ async function processJustiaAll(volFilter, opts) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
+// ── --checkloc: probe every decision_loc URL for 404s ────────────────────────
+
+async function checkDecisionLoc(termArg, { verbose }) {
+    let terms;
+    if (termArg) {
+        terms = [termArg];
+    } else {
+        try {
+            terms = fs.readdirSync(TERMS_DIR).filter(d => /^\d{4}-\d{2}$/.test(d)).sort();
+        } catch (err) {
+            console.error(`Cannot read ${TERMS_DIR}: ${err.message}`); return;
+        }
+    }
+
+    // Collect unique base URLs (strip #fragment) with their first-seen case reference.
+    const entries = [];
+    const seen = new Set();
+    for (const term of terms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        let cases;
+        try { cases = readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            if (!c.decision_loc) continue;
+            const url = stripFragment(c.decision_loc);
+            if (seen.has(url)) continue;
+            seen.add(url);
+            entries.push({ url, term, ref: c.id || c.number || '?' });
+        }
+    }
+
+    if (!entries.length) { console.log('No decision_loc URLs found.'); return; }
+    console.log(`Checking ${entries.length} decision_loc URL(s)...`);
+
+    const failed = [];
+    for (let i = 0; i < entries.length; i += CONCURRENCY) {
+        await Promise.all(entries.slice(i, i + CONCURRENCY).map(async ({ url, term, ref }) => {
+            try {
+                const resp = await fetchWithTimeout(url, 'HEAD');
+                if (resp.status === 404) {
+                    failed.push({ url, term, ref });
+                    console.log(`  404  ${url}  [${term}/${ref}]`);
+                } else if (verbose) {
+                    console.log(`  ${resp.status}  ${url}`);
+                }
+            } catch (err) {
+                if (verbose) console.log(`  ERR  ${url}  (${err.message.split('\n')[0]})`);
+            }
+        }));
+        if (i + CONCURRENCY < entries.length) await sleep(DELAY_MS);
+    }
+
+    console.log(`\n${failed.length} of ${entries.length} URL(s) returned 404.`);
+}
+
 async function main() {
     const argv   = process.argv.slice(2);
     const flags  = new Set(argv.filter(a => a.startsWith('--')));
@@ -699,6 +755,50 @@ async function main() {
 
     const termArg = args[0] || null;
     const caseArg = args[1] || null;
+
+    // ── Check 404 mode ───────────────────────────────────────────────────────
+    if (flags.has('--check404')) {
+        if (!termArg) {
+            console.error('Usage: download.js --check404 <file>');
+            process.exit(1);
+        }
+        const filePath = path.resolve(termArg);
+        let lines;
+        try {
+            lines = fs.readFileSync(filePath, 'utf8').split('\n')
+                .map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+        } catch (err) {
+            console.error(`Cannot read ${filePath}: ${err.message}`);
+            process.exit(1);
+        }
+        if (!lines.length) { console.log('No URLs found in file.'); return; }
+        console.log(`Checking ${lines.length} URL(s) from ${path.basename(filePath)}...`);
+        const recovered = [];
+        for (let i = 0; i < lines.length; i += CONCURRENCY) {
+            await Promise.all(lines.slice(i, i + CONCURRENCY).map(async url => {
+                try {
+                    const resp = await fetchWithTimeout(url, 'HEAD');
+                    if (resp.status !== 404) {
+                        recovered.push({ url, status: resp.status });
+                        console.log(`  ${resp.status}  ${url}`);
+                    } else if (verbose) {
+                        console.log(`  404  ${url}`);
+                    }
+                } catch (err) {
+                    if (verbose) console.log(`  ERR  ${url}  (${err.message.split('\n')[0]})`);
+                }
+            }));
+            if (i + CONCURRENCY < lines.length) await sleep(DELAY_MS);
+        }
+        console.log(`\n${recovered.length} of ${lines.length} URL(s) no longer return 404.`);
+        return;
+    }
+
+    // ── Check LOC mode ────────────────────────────────────────────────────────
+    if (flags.has('--checkloc')) {
+        await checkDecisionLoc(termArg, opts);
+        return;
+    }
 
     // ── Justia mode ───────────────────────────────────────────────────────────
     if (justiaMode) {

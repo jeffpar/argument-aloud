@@ -13,7 +13,7 @@
 
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
-    'questions', 'questions_href',
+    'docket_href', 'questions', 'questions_href',
     'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
     'usCite',
     'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
@@ -25,7 +25,7 @@ export const CASE_KEY_ORDER = [
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'audio_href', 'audio_href_bad', 'bad_audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
+    'audio_href', 'bad_audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
     'journal_ref',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view'
 ];

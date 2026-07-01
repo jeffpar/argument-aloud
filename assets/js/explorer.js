@@ -2626,7 +2626,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     // Undecided cases (no decision date) always sort to the end regardless of direction.
     const decided   = visible.filter(c =>  c.decision);
     const undecided = visible.filter(c => !c.decision);
-    decided.sort((a, b) => a.decision < b.decision ? -1 : a.decision > b.decision ? 1 : caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
+    decided.sort((a, b) => a.decision < b.decision ? -1 : a.decision > b.decision ? 1 : _lastArgDate(a).localeCompare(_lastArgDate(b)) || caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
     undecided.sort((a, b) => caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
     if (!asc) decided.reverse();
     sorted = [...decided, ...undecided];
@@ -4447,7 +4447,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         _sortedItems.sort((a, b) => {
           const av = a.dataset[key] || '';
           const bv = b.dataset[key] || '';
-          return av < bv ? -1 : av > bv ? 1 : 0;
+          if (av !== bv) return av < bv ? -1 : 1;
+          if (mode === 'decided') return (a.dataset.argued || '').localeCompare(b.dataset.argued || '');
+          return 0;
         });
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'hours') {
@@ -5132,7 +5134,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   }
   const audioSelect = document.getElementById('audio-select');
   audioSelect.innerHTML = '';
-  // Journal entries appear first, before audio.
+  // Docket Search appears first when available.
+  if (caseEntry.docket_href) {
+    const docketOpt = document.createElement('option');
+    docketOpt.value = 'docket-page';
+    docketOpt.textContent = 'Docket Search';
+    audioSelect.appendChild(docketOpt);
+  }
+  // Journal entries appear next, before audio.
   const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
   _currentJournalRefs = _jrMap;
   _journalOpts.forEach(j => {
@@ -5187,7 +5196,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'oyez-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('video:') && !v.startsWith('file:'))
+    .filter(v => v !== 'oyez-page' && v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -5688,6 +5697,12 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   // Always reset to case-level notes first; audio entry selection below will
   // override with event-specific notes if the chosen entry has any.
   _setCaseNotes(_currentCaseEntry?.notes || '');
+  if (e.target.value === 'docket-page') {
+    if (_currentCaseEntry?.docket_href) {
+      showDocViewer({ href: _currentCaseEntry.docket_href, title: 'Docket Search', view: 'pane' }, { force: true });
+    }
+    return;
+  }
   if (e.target.value.startsWith('decision_')) {
     const de = _currentDecisionEntries.find(d => d.value === e.target.value);
     if (de) showDocViewer({ href: de.href, title: de.title }, { force: true });
@@ -6703,7 +6718,13 @@ let _navSearchActivate = null;
     if (numberMode) {
       const numIndex = await _fetchNumberIndex();
       const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
-      const refs = numIndex[normQ] ?? [];
+      let refs = [];
+      if (normQ) {
+        const seen = new Set();
+        for (const [key, val] of Object.entries(numIndex)) {
+          if (key.includes(normQ)) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
+        }
+      }
       const activeTerm = new URLSearchParams(location.search).get('term');
       const termFilter = (activeTerm && activeTerm !== 'all') ? activeTerm : null;
       const byTerm = new Map();
@@ -6749,7 +6770,10 @@ let _navSearchActivate = null;
           div.className = 'case-header';
           const a = document.createElement('a');
           a.className = 'case-title-nav';
-          a.textContent = caseTitle(c.title) || urlId;
+          const _numLabel = c.number
+            ? ' (' + (c.number.includes(',') ? 'Nos. ' : 'No. ') + c.number.replace(/-(?=Orig|Misc)/gi, ' ') + ')'
+            : '';
+          a.textContent = (caseTitle(c.title) || urlId) + _numLabel;
           a.href = href;
           a.title = (c.number || c.id || '') + '  ·  ' + term;
           a.addEventListener('click', e => {

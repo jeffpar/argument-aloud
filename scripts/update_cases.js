@@ -9,6 +9,11 @@
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
+ *   node update_cases.js --issues                     # regenerate auto-computed groups in issues.json
+ *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_href to cases.json
+ *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_href
+ *   node update_cases.js [TERM] --docket --old        # write old-format URLs (no probe); defaults to terms ≤ 2015-10
+ *   node update_cases.js [TERM] --docket --new        # write new-format URLs (no probe); defaults to terms ≥ 2017-10
  *
  * Examples:
  *   node update_cases.js                            # verify + fix all terms
@@ -3903,6 +3908,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
     for (const [canonical, list] of byJustice) {
         list.sort((a, b) =>
             (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
+            (a.argument || '').localeCompare(b.argument || '') ||
             (a.term || '').localeCompare(b.term || '') ||
             (a.title || '').localeCompare(b.title || ''));
         const caseCount = list.length;
@@ -4020,6 +4026,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
     for (const [canonical, list] of byJustice) {
         list.sort((a, b) =>
             (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
+            (a.argument || '').localeCompare(b.argument || '') ||
             (a.term || '').localeCompare(b.term || '') ||
             (a.title || '').localeCompare(b.title || ''));
         const caseCount = list.length;
@@ -4456,7 +4463,7 @@ function processBenches(dryRun) {
             allCases.push(meta);
         }
     }
-    allCases.sort((a, b) => a.decision.localeCompare(b.decision));
+    allCases.sort((a, b) => a.decision.localeCompare(b.decision) || (a.argument || '').localeCompare(b.argument || ''));
     const filteredBenches2 = filteredBenches.filter(b =>
         !b.dateStop ||   // always keep the currently-active bench
         [...decisionDates].some(d => d >= b.dateStart && d <= b.dateStop)
@@ -4768,10 +4775,12 @@ function processJusticeAdvocates(allTerms, dryRun) {
 // Collection-set builders: transcripts.json / briefs.json / noteworthy.json
 // =====================================================================
 
-const _COLLECTIONS_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
-const _INDEX_JSON       = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
-const _TRANSCRIPTS_PATH = path.join(_COLLECTIONS_DIR, 'transcripts.json');
-const _BRIEFS_PATH      = path.join(_COLLECTIONS_DIR, 'briefs.json');
+const _COLLECTIONS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
+const _COLLECTIONS_REGISTRY = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
+const _INDEX_JSON            = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
+const _TRANSCRIPTS_PATH      = path.join(_COLLECTIONS_DIR, 'transcripts.json');
+const _BRIEFS_PATH           = path.join(_COLLECTIONS_DIR, 'briefs.json');
+const _ISSUES_PATH           = path.join(_COLLECTIONS_DIR, 'issues.json');
 const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
 
 const _TRANSCRIPTS_SET_BASENAME = 'Transcripts';
@@ -10232,6 +10241,286 @@ async function runJustiaCheck(volFilter, opts) {
     if (actionable.length && !backfill) console.log('(Re-run with --backfill to add the missing ones.)');
 }
 
+// =====================================================================
+// --docket: probe SCOTUS docket URLs and store docket_href on each case
+// =====================================================================
+
+const _DOCKET_NEW = n => `https://www.supremecourt.gov/docket/docketfiles/html/public/${n}.html`;
+const _DOCKET_OLD = n => `https://www.supremecourt.gov/search.aspx?filename=/docketfiles/${n}.htm`;
+
+// Markers that distinguish a real docket page from a blank "Search Results" shell.
+const _DOCKET_CONTENT_RE = /v\.\s+[A-Z]|Petition for|Cert Granted|Argued|Decided/i;
+
+// Return the docket_href for a given primary docket number, or null if neither format works.
+async function _probeDocketNum(num) {
+    // New format: a 200 HEAD means the file exists and has real content.
+    const [newOk] = await _request(_DOCKET_NEW(num), 'HEAD');
+    if (newOk) return _DOCKET_NEW(num);
+
+    // Old format always returns 200 (even for blank "Search Results"),
+    // so we need to GET and verify body content.
+    try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 15000);
+        try {
+            const resp = await fetch(_DOCKET_OLD(num), {
+                redirect: 'follow',
+                headers: { 'User-Agent': USER_AGENT },
+                signal: ctrl.signal,
+            });
+            if (resp.ok) {
+                const text = await resp.text();
+                if (_DOCKET_CONTENT_RE.test(text)) return _DOCKET_OLD(num);
+            }
+        } finally { clearTimeout(t); }
+    } catch {}
+
+    return null;
+}
+
+async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun = false, verbose = false, assumeOld = false, assumeNew = false } = {}) {
+    const termsDir = TERMS_DIR;
+    const allTerms = fs.readdirSync(termsDir).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    let termDirs;
+    if (termFilter) {
+        termDirs = [termFilter];
+    } else if (assumeOld) {
+        termDirs = allTerms.filter(t => t >= '2000-10' && t <= '2015-10');
+    } else if (assumeNew) {
+        termDirs = allTerms.filter(t => t >= '2017-10');
+    } else {
+        termDirs = allTerms;
+    }
+
+    let scanned = 0, updated = 0, skipped = 0, failed = 0;
+    const CONCURRENCY = 3;
+
+    for (const term of termDirs) {
+        const casesPath = path.join(termsDir, term, 'cases.json');
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        // Collect candidates: cases with a standard docket number (DD-NNNN) or
+        // original jurisdiction ("N-Orig" / "No. N, Orig.") → converted to "YYO<N>".
+        const candidates = [];
+        const termYY = term.slice(2, 4);
+        for (const c of cases) {
+            const rawNum = c.number || '';
+            const firstNum = rawNum.split(',')[0].trim();
+            let docketNum;
+            if (/^\d{2}-\d+$/.test(firstNum)) {
+                docketNum = firstNum;
+            } else {
+                const origM = /(?:No\.\s*)?(\d+)[-,]\s*Orig\.?$/i.exec(rawNum);
+                if (origM) docketNum = `${termYY}O${origM[1]}`;
+                else continue; // skip non-standard numbers (Misc, etc.)
+            }
+            if (caseFilter && firstNum !== caseFilter && c.id !== caseFilter &&
+                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+            if (!refetch && c.docket_href) { skipped++; continue; }
+            candidates.push({ c, firstNum, docketNum });
+        }
+
+        if (!candidates.length) continue;
+        const action = assumeOld ? 'writing old-format' : assumeNew ? 'writing new-format' : 'probing';
+        console.log(`${term}: ${action} ${candidates.length} case(s)…`);
+
+        // Process in batches (or write directly when format is assumed).
+        let modified = false;
+        for (let i = 0; i < candidates.length; i += CONCURRENCY) {
+            const batch = candidates.slice(i, i + CONCURRENCY);
+            let results;
+            if (assumeOld) {
+                results = batch.map(({ docketNum }) => _DOCKET_OLD(docketNum));
+            } else if (assumeNew) {
+                results = batch.map(({ docketNum }) => _DOCKET_NEW(docketNum));
+            } else {
+                results = await Promise.all(batch.map(({ docketNum }) => _probeDocketNum(docketNum)));
+            }
+            for (let j = 0; j < batch.length; j++) {
+                const { c, firstNum, docketNum } = batch[j];
+                const href = results[j];
+                scanned++;
+                if (href) {
+                    if (verbose || !dryRun) {
+                        const verb = dryRun ? 'would set' : 'set';
+                        const label = `${term}/${docketNum !== firstNum ? docketNum : firstNum}`;
+                        if (verbose) console.log(`  ${verb} docket_href  ${label}  ${href}`);
+                    }
+                    if (!dryRun) {
+                        c.docket_href = href;
+                        const reordered = reorderCase(c);
+                        Object.keys(c).forEach(k => delete c[k]);
+                        Object.assign(c, reordered);
+                        modified = true;
+                        updated++;
+                    }
+                } else {
+                    failed++;
+                    if (verbose) console.log(`  no docket found  ${term}/${docketNum !== firstNum ? docketNum : firstNum}`);
+                }
+            }
+            // Pause between batches when probing to avoid rate-limiting.
+            if (!assumeOld && !assumeNew && i + CONCURRENCY < candidates.length) await sleep(500);
+        }
+
+        if (modified) _writeJson(casesPath, cases);
+    }
+
+    const verb = dryRun ? 'Would update' : 'Updated';
+    console.log(`\nScanned ${scanned}, ${verb.toLowerCase()} ${updated}, no page found ${failed}, already set ${skipped}.`);
+}
+
+// =====================================================================
+// --issues: regenerate condition-based groups in issues.json
+// =====================================================================
+
+// Resolve a field name to its value, supporting computed fields.
+// Computed: 'volume' → first integer in caseObj.usCite (e.g. "601 U.S. 1" → 601)
+function _resolveIssueField(field, caseObj, term) {
+    if (field === 'term')   return { value: term, numeric: false };
+    if (field === 'volume') {
+        const m = /^(\d+)\s/.exec(caseObj.usCite || '');
+        return { value: m ? parseInt(m[1], 10) : null, numeric: true };
+    }
+    return { value: caseObj[field], numeric: false };
+}
+
+function _evalIssueCondition(cond, caseObj, term) {
+    const s = cond.trim();
+    // "FIELD == undefined"
+    let m = /^(\w+)\s*==\s*undefined$/.exec(s);
+    if (m) {
+        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        return v === undefined || v === null || v === '';
+    }
+    // "FIELD != undefined"
+    m = /^(\w+)\s*!=\s*undefined$/.exec(s);
+    if (m) {
+        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        return v !== undefined && v !== null && v !== '';
+    }
+    // "FIELD OP NUMBER" (numeric comparison)
+    m = /^(\w+)\s*(<=|>=|<|>|==|!=)\s*(\d+)$/.exec(s);
+    if (m) {
+        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        if (v === null || v === undefined) return false;
+        const lhs = Number(v), rhs = Number(m[3]), op = m[2];
+        if (op === '<=') return lhs <= rhs;
+        if (op === '>=') return lhs >= rhs;
+        if (op === '<')  return lhs <  rhs;
+        if (op === '>')  return lhs >  rhs;
+        if (op === '==') return lhs === rhs;
+        if (op === '!=') return lhs !== rhs;
+    }
+    // "FIELD OP 'VALUE'" (string comparison)
+    m = /^(\w+)\s*(<=|>=|<|>|==|!=)\s*'([^']*)'$/.exec(s);
+    if (m) {
+        const { value: raw } = _resolveIssueField(m[1], caseObj, term);
+        const v = String(raw ?? ''), rhs = m[3], op = m[2];
+        if (op === '<=') return v <= rhs;
+        if (op === '>=') return v >= rhs;
+        if (op === '<')  return v <  rhs;
+        if (op === '>')  return v >  rhs;
+        if (op === '==') return v === rhs;
+        if (op === '!=') return v !== rhs;
+    }
+    return false;
+}
+
+function runGenerateIssues(dryRun) {
+    // Read the collections registry to find condition-based groups
+    let registry;
+    try { registry = _readJson(_COLLECTIONS_REGISTRY); } catch { registry = []; }
+    const issuesEntry = registry.find(c => {
+        const f = c.file || c.collection || '';
+        return f.endsWith('issues.json') || f.endsWith('/issues.json');
+    });
+    if (!issuesEntry) {
+        console.log('No Outstanding Issues entry found in collections.json');
+        return;
+    }
+
+    // Only process groups whose conditions are all simple (top-level field comparisons).
+    // Complex conditions using COUNT(), event.*, &&, !, etc. are left to manual curation.
+    const _isSimpleCond = c => /^[\w]+\s*(==|!=|<=|>=|<|>)\s*('.*'|undefined|\d+)$/.test(c.trim());
+    const condGroups = (issuesEntry.groups || []).filter(
+        g => Array.isArray(g.conditions) && g.conditions.length > 0 &&
+             g.conditions.every(_isSimpleCond)
+    );
+    if (!condGroups.length) {
+        console.log('No auto-generatable condition groups found');
+        return;
+    }
+
+    // Read all cases.json files
+    const termDirs = fs.readdirSync(TERMS_DIR)
+        .filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    const allEntries = [];
+    for (const term of termDirs) {
+        const cp = path.join(TERMS_DIR, term, 'cases.json');
+        let cases;
+        try { cases = _readJson(cp); } catch { continue; }
+        for (const c of (Array.isArray(cases) ? cases : [])) {
+            allEntries.push({ term, c });
+        }
+    }
+    console.log(`Scanned ${termDirs.length} terms, ${allEntries.length} total cases`);
+
+    // Read existing issues.json; preserve groups not being auto-generated
+    let existing = [];
+    try { existing = _readJson(_ISSUES_PATH); } catch {}
+    const genNames = new Set(condGroups.map(g => g.name));
+    const preserved = Array.isArray(existing) ? existing.filter(g => !genNames.has(g.name)) : [];
+
+    // Build generated groups
+    const generated = [];
+    for (const grpDef of condGroups) {
+        const matching = allEntries.filter(({ term, c }) =>
+            grpDef.conditions.every(cond => _evalIssueCondition(cond, c, term))
+        );
+
+        const [orderKey, orderDir] = (grpDef.order || '').split(':');
+        const sortAsc = orderDir !== 'descending';
+        matching.sort((a, b) => {
+            if (orderKey === 'decided') {
+                const cmp = (a.c.decision || '').localeCompare(b.c.decision || '');
+                if (cmp !== 0) return sortAsc ? cmp : -cmp;
+                const arg = (a.c.argument || '').localeCompare(b.c.argument || '');
+                return sortAsc ? arg : -arg;
+            }
+            const av = orderKey === 'argued' ? (a.c.argument || '') : a.term;
+            const bv = orderKey === 'argued' ? (b.c.argument || '') : b.term;
+            return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+        });
+
+        const cases = matching.map(({ term, c }) => {
+            const year = (c.decision || c.argument || '').slice(0, 4);
+            const ref = {
+                title: c.title + (year ? ` (${year})` : ''),
+                term,
+                number: c.number || c.id,
+            };
+            if (c.argument) ref.argument = c.argument.split(',')[0].trim();
+            if (c.decision) ref.decision = c.decision;
+            return ref;
+        });
+
+        generated.push({ name: grpDef.name, cases });
+        console.log(`  "${grpDef.name}": ${cases.length} cases`);
+    }
+
+    // Rebuild: preserved (manually curated) groups first, then generated groups
+    const updated = [...preserved, ...generated];
+    if (!dryRun) {
+        _writeJson(_ISSUES_PATH, updated);
+        console.log(`Wrote ${path.relative(REPO_ROOT, _ISSUES_PATH)}`);
+    } else {
+        console.log(`[dry-run] Would write ${path.relative(REPO_ROOT, _ISSUES_PATH)}`);
+    }
+}
+
 
 async function main() {
     const argv = process.argv.slice(2);
@@ -10388,6 +10677,22 @@ async function main() {
     if (flags.has('--justia')) {
         await runJustiaCheck(positional[0] || null, {
             backfill: flags.has('--backfill'),
+            verbose,
+        });
+        return;
+    }
+
+    if (flags.has('--issues')) {
+        runGenerateIssues(dryRun);
+        return;
+    }
+
+    if (flags.has('--docket')) {
+        await runDocketScan(positional[0] || null, positional[1] || null, {
+            refetch: flags.has('--refetch'),
+            assumeOld: flags.has('--old'),
+            assumeNew: flags.has('--new'),
+            dryRun,
             verbose,
         });
         return;
