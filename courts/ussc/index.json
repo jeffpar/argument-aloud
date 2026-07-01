@@ -19,42 +19,53 @@
     "name": "Sources",
     "groups": [
       {
+        "id": "ussc",
         "name": "U.S. Supreme Court",
         "link": "https://www.supremecourt.gov",
         "groups": [
           {
+            "id": "audio",
             "name": "Argument Audio",
             "link": "https://www.supremecourt.gov/oral_arguments/argument_audio/2025"
           },
           {
+            "id": "transcripts",
             "name": "Argument Transcripts",
             "link": "https://www.supremecourt.gov/oral_arguments/argument_transcript/2025"
           },
           {
+            "id": "media",
             "name": "Cited Media Files",
             "link": "https://www.supremecourt.gov/media/media.aspx"
           },
           {
+            "id": "online",
             "name": "Cited Online Sources",
             "link": "https://www.supremecourt.gov/opinions/cited_urls/25"
           },
           {
+            "id": "docket",
             "name": "Docket Search",
+            "page": "/courts/ussc/sources/docket",
             "link": "https://www.supremecourt.gov/docket/docket.aspx"
           },
           {
+            "id": "journals",
             "name": "Journals of the Court",
             "link": "https://www.supremecourt.gov/orders/journal.aspx"
           },
           {
+            "id": "opinions",
             "name": "Opinions of the Court",
             "link": "https://www.supremecourt.gov/opinions/slipopinion/25"
           },
           {
+            "id": "orig",
             "name": "Original Jurisdiction Records",
             "link": "https://www.supremecourt.gov/casedocuments/original_jurisdiction_cases.aspx"
           },
           {
+            "id": "reports",
             "name": "U.S. Reports",
             "link": "https://www.supremecourt.gov/opinions/USReports.aspx"
           }
@@ -65,28 +76,28 @@
         "groups": [
           {
             "name": "U.S. Constitution",
-            "link": "/nara/constitution",
+            "page": "/nara/constitution",
             "hidden": true
           },
           {
             "name": "U.S. Supreme Court Media",
-            "link": "/nara",
+            "page": "/nara",
             "groups": [
               {
+                "name": "Auditing and Oddities",
+                "page": "/nara/audit"
+              },
+              {
                 "name": "Black Series, October 1955 - December 1972",
-                "link": "/nara/audio/black"
+                "page": "/nara/audio/black"
               },
               {
                 "name": "Red Series, December 1972 - June 27, 2005",
-                "link": "/nara/audio/red"
+                "page": "/nara/audio/red"
               },
               {
                 "name": "Gold Series, October 3, 2005 - June 27, 2025",
-                "link": "/nara/audio/gold"
-              },
-              {
-                "name": "Auditing and Oddities",
-                "link": "/nara/audit"
+                "page": "/nara/audio/gold"
               }
             ]
           }

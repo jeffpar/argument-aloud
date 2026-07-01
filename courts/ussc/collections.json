@@ -5,14 +5,14 @@
       {
         "name": "Gallery",
         "file": "/courts/ussc/people/justices/gallery.json",
-        "link": "/courts/ussc/collections/gallery",
+        "page": "/courts/ussc/collections/gallery",
         "search": "name"
       },
       {
         "name": "Benches",
         "file": "/courts/ussc/people/justices/benches.json",
         "folder": "/courts/ussc/people/justices/benches",
-        "link": "/courts/ussc/collections/benches",
+        "page": "/courts/ussc/collections/benches",
         "order": "decided:ascending",
         "search": "name"
       },
@@ -20,7 +20,7 @@
         "name": "Opinions",
         "file": "/courts/ussc/people/justices/opinions.json",
         "folder": "/courts/ussc/people/justices/opinions",
-        "link": "/courts/ussc/collections/opinions",
+        "page": "/courts/ussc/collections/opinions",
         "order": "decided:ascending",
         "search": "name",
         "pageLabel": "justices"
@@ -29,7 +29,7 @@
         "name": "Lone Dissents",
         "file": "/courts/ussc/people/justices/lone_dissents.json",
         "folder": "/courts/ussc/people/justices/lone",
-        "link": "/courts/ussc/collections/lone",
+        "page": "/courts/ussc/collections/lone",
         "order": "decided:ascending",
         "search": "name",
         "pageLabel": "justices"
@@ -44,7 +44,7 @@
         "name": "Vocal Justices",
         "file": "/courts/ussc/people/justices/vocal_justices.json",
         "folder": "/courts/ussc/people/justices/vocal",
-        "link": "/courts/ussc/collections/vocal",
+        "page": "/courts/ussc/collections/vocal",
         "order": "hours:descending",
         "search": "name",
         "pageLabel": "justices"
@@ -57,7 +57,7 @@
       {
         "name": "All Advocates",
         "file": "/courts/ussc/people/advocates/all_advocates.json",
-        "link": "/courts/ussc/people/advocates",
+        "page": "/courts/ussc/people/advocates",
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argued:descending",
         "search": "name",
@@ -67,7 +67,7 @@
       {
         "name": "Top 100 Advocates",
         "file": "/courts/ussc/people/advocates/top100/top100_advocates.json",
-        "link": "/courts/ussc/people/advocates/top100",
+        "page": "/courts/ussc/people/advocates/top100",
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argued:descending",
         "search": "name",
@@ -76,7 +76,7 @@
       {
         "name": "Top 21st Century Advocates",
         "file": "/courts/ussc/people/advocates/top21st/top21st_advocates.json",
-        "link": "/courts/ussc/people/advocates/top21st",
+        "page": "/courts/ussc/people/advocates/top21st",
         "folder": "/courts/ussc/people/advocates/all",
         "minTerm": "2000-10",
         "order": "argued:descending",
@@ -86,7 +86,7 @@
       {
         "name": "Justice Advocates",
         "file": "/courts/ussc/people/advocates/justice/justice_advocates.json",
-        "link": "/courts/ussc/people/advocates/justice",
+        "page": "/courts/ussc/people/advocates/justice",
         "order": "argued:descending",
         "search": "name",
         "pageLabel": "advocates"
@@ -94,7 +94,7 @@
       {
         "name": "Women Advocates",
         "file": "/courts/ussc/people/advocates/women/women_advocates.json",
-        "link": "/courts/ussc/people/advocates/women",
+        "page": "/courts/ussc/people/advocates/women",
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argued:descending",
         "search": "name",
@@ -125,7 +125,7 @@
   {
     "name": "Media Files",
     "file": "/courts/ussc/collections/media.json",
-    "link": "/courts/ussc/collections/media",
+    "page": "/courts/ussc/collections/media",
     "groups": [
       {
         "name": "Audio Files",
@@ -147,7 +147,7 @@
   {
     "name": "Original Jurisdiction",
     "file": "/courts/ussc/collections/orig.json",
-    "link": "/courts/ussc/collections/orig",
+    "page": "/courts/ussc/collections/orig",
     "groups": [
       {
         "name": "Archive",
@@ -180,7 +180,7 @@
           "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
         ],
         "order": "argued:ascending",
-        "link": "/courts/ussc/transcripts/updates"
+        "page": "/courts/ussc/transcripts/updates"
       },
       {
         "name": "Cases Missing from LOC",
@@ -202,9 +202,9 @@
     "search": "cases:title"
   },
   {
-    "name": "Supreme Court's Greatest Hits",
+    "name": "Greatest Hits",
     "file": "/courts/ussc/collections/scgh.json",
-    "link": "/courts/ussc/collections/scgh",
+    "page": "/courts/ussc/collections/scgh",
     "groups": [
       {
         "name": "Commerce",

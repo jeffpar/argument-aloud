@@ -1299,9 +1299,10 @@ function buildUrlParams(updates, deletes = []) {
   // Setting one of the mutually exclusive nav params removes the other.
   if ('collection' in updates) url.searchParams.delete('topic');
   if ('topic'      in updates) url.searchParams.delete('collection');
-  // Enforce canonical parameter order: collection/topic, group/id, highlight, term, case, event, turn, file, then rest.
+  // Enforce canonical parameter order: collection/topic, source, group/id, highlight, term, case, event, turn, file, then rest.
   const collection = url.searchParams.get('collection');
   const topic      = url.searchParams.get('topic');
+  const source     = url.searchParams.get('source');
   const group      = url.searchParams.get('group');
   const id         = url.searchParams.get('id');
   const highlight  = url.searchParams.get('highlight');
@@ -1313,11 +1314,12 @@ function buildUrlParams(updates, deletes = []) {
   const file       = url.searchParams.get('file');
   const sortPrm    = url.searchParams.get('sort');
   const orderPrm   = url.searchParams.get('o');
-  const orderedKeys = ['collection', 'topic', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
+  const orderedKeys = ['collection', 'topic', 'source', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
   if (topic      != null) reordered.push(['topic',      topic]);
+  if (source     != null) reordered.push(['source',     source]);
   if (group != null) reordered.push(['group', group]);
   if (id != null) reordered.push(['id', id]);
   if (highlight != null) reordered.push(['highlight', highlight]);
@@ -3251,14 +3253,64 @@ function buildStaticNavSection(termListEl, entry) {
   termListEl.appendChild(sectionLi);
 }
 
-function buildStaticPageItem(parentUl, page) {
+// sourceId/groupIndex are only set for items exactly one level below a
+// top-level Sources entry that itself declared an "id" — see the ?source=
+// scheme below. Deeper descendants (and children of id-less sources, e.g.
+// National Archives) fall back to the older generic ?link= page scheme.
+function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null) {
   if (page.hidden) return;
   const li = document.createElement('li');
   const hasSubPages = Array.isArray(page.groups) && page.groups.length > 0;
+  // "page" is an internal page path (e.g. National Archives entries) shown
+  // full-size in the page-viewer iframe. "link" is a true third-party URL
+  // (e.g. the other Sources entries), opened in the doc-viewer pane. An entry
+  // can have both (e.g. "Docket Search"): the page shows up top, and the
+  // link opens alongside it in the doc-viewer pane below — same split view
+  // showAdvocateDocument() uses for an advocate's bio page + source document.
+  // With no "page" at all, showAdvocateDocument's "document only" branch
+  // maximizes the doc-viewer to fill the right side.
+  const pagePath = page.page || null;
+  const linkUrl  = page.link || null;
+
+  const isTopLevelSource = sourceId === null;
+  const thisSourceId = isTopLevelSource ? (page.id || null) : sourceId;
+  // Only a top-level source with an id, or an immediate child of one, uses
+  // the ?source=/&group= scheme; everything else keeps the old ?link= scheme.
+  const usesSourceScheme = isTopLevelSource ? !!thisSourceId : (!!thisSourceId && groupIndex != null);
+
+  function openPage() {
+    if (linkUrl) showAdvocateDocument(linkUrl, pagePath, page.name || '');
+    else if (pagePath) showPageViewer(pagePath);
+  }
+
+  function navUrl() {
+    if (usesSourceScheme) {
+      const updates = isTopLevelSource ? { source: thisSourceId } : { source: thisSourceId, group: groupIndex };
+      return buildUrlParams(updates, ['collection', 'topic', 'term', 'date', 'case', 'event', 'turn', 'file', 'id', 'highlight', 'sort', 'o']);
+    }
+    if (pagePath) {
+      const u = new URL(location.href);
+      u.search = '';
+      u.searchParams.set('link', pagePath);
+      u.search = u.search.replace(/%2F/gi, '/');
+      return u;
+    }
+    return null;
+  }
+
+  function updateNavUrl() {
+    const url = navUrl();
+    if (url) navigate(url);
+  }
 
   if (hasSubPages) {
     li.className = 'term-group';
-    if (page.link) li.dataset.link = page.link;
+    if (pagePath) li.dataset.link = pagePath;
+    if (usesSourceScheme) {
+      if (isTopLevelSource) li.dataset.sourceId = thisSourceId;
+      else li.dataset.groupIndex = String(groupIndex);
+    }
+    li._openPage = openPage;
 
     const header = document.createElement('div');
     header.className = 'term-header';
@@ -3268,16 +3320,18 @@ function buildStaticPageItem(parentUl, page) {
     tog.textContent = '▶';
 
     let label;
-    if (page.link) {
+    if (usesSourceScheme || pagePath) {
       label = document.createElement('a');
       label.className = 'term-label';
       label.textContent = page.name;
       label.style.cursor = 'pointer';
-      const _lu = new URL(location.href);
-      _lu.search = '';
-      _lu.searchParams.set('link', page.link);
-      _lu.search = _lu.search.replace(/%2F/gi, '/');
-      label.href = _lu.toString();
+      label.href = navUrl().toString();
+    } else if (linkUrl) {
+      label = document.createElement('a');
+      label.className = 'term-label';
+      label.textContent = page.name;
+      label.style.cursor = 'pointer';
+      label.href = linkUrl;
     } else {
       label = document.createElement('span');
       label.className = 'term-label';
@@ -3290,10 +3344,11 @@ function buildStaticPageItem(parentUl, page) {
     // stopPropagation prevents the click from bubbling up to a parent terms-header.
     header.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (page.link && label.contains(e.target)) {
+      if ((pagePath || linkUrl) && label.contains(e.target)) {
         e.preventDefault(); // prevent anchor navigation; SPA handler manages routing
         li.classList.add('open');
-        showPageViewer(page.link);
+        updateNavUrl();
+        openPage();
       } else if (tog.contains(e.target)) {
         li.classList.toggle('open');
       } else if (!li.classList.contains('open')) {
@@ -3303,9 +3358,12 @@ function buildStaticPageItem(parentUl, page) {
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';
-    for (const subPage of page.groups) {
-      buildStaticPageItem(ul, subPage);
-    }
+    // Only pass sourceId one level deep — grandchildren of an id-having
+    // source aren't addressable via ?group= (there's just the one slot).
+    const childSourceId = isTopLevelSource ? thisSourceId : null;
+    page.groups.forEach((subPage, i) => {
+      buildStaticPageItem(ul, subPage, childSourceId, i + 1);
+    });
 
     li.appendChild(header);
     li.appendChild(ul);
@@ -3314,22 +3372,23 @@ function buildStaticPageItem(parentUl, page) {
     // the same font, weight, and muted color as collapsible section headers.
     // Also carry case-item so the .case-item[data-link] active-page selector still works.
     li.className = 'term-group case-item';
-    if (page.link) li.dataset.link = page.link;
+    if (pagePath) li.dataset.link = pagePath;
+    if (usesSourceScheme) {
+      if (isTopLevelSource) li.dataset.sourceId = thisSourceId;
+      else li.dataset.groupIndex = String(groupIndex);
+    }
+    li._openPage = openPage;
 
     const header = document.createElement('div');
     header.className = 'term-header';
 
     let label;
-    if (page.link) {
+    if (usesSourceScheme || pagePath || linkUrl) {
       label = document.createElement('a');
       label.className = 'term-label';
       label.textContent = page.name;
-      const _pu = new URL(location.href);
-      _pu.search = '';
-      _pu.searchParams.set('link', page.link);
-      _pu.search = _pu.search.replace(/%2F/gi, '/');
-      label.href = _pu.toString();
-      label.addEventListener('click', (e) => { e.preventDefault(); showPageViewer(page.link); });
+      label.href = (usesSourceScheme || pagePath) ? navUrl().toString() : linkUrl;
+      label.addEventListener('click', (e) => { e.preventDefault(); updateNavUrl(); openPage(); });
     } else {
       label = document.createElement('span');
       label.className = 'term-label';
@@ -3355,12 +3414,16 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
   document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
 
   if (linkUrl) {
-    // Show link page in top half, document in doc-viewer below.
+    // Show link page in the top third, document in the doc-viewer below
+    // filling the bottom two-thirds.
     transcriptViewer.hidden = true;
     pageViewer.hidden = false;
     const pf = document.getElementById('page-viewer-frame');
     _frameNavigate(pf, linkUrl);
     transcriptViewer.classList.remove('no-audio');
+    const target = Math.round(document.getElementById('main-panel').clientHeight * 2 / 3);
+    docViewerOpenHeight = target;
+    document.getElementById('doc-viewer').style.height = target + 'px';
   } else {
     // Document only: hide page-viewer, use no-audio trick so doc-viewer fills right pane.
     transcriptViewer.hidden = false;
@@ -3470,10 +3533,10 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
 
   // Link-only entry: no data file — just shows a linked page in the viewer.
   if (!collEntry.file && !collEntry.collection) {
-    if (!collEntry.link) return;
+    if (!collEntry.page) return;
     const collLi = document.createElement('li');
     collLi.className = 'term-group case-item';
-    collLi.dataset.link = collEntry.link;
+    collLi.dataset.link = collEntry.page;
     const collHeader = document.createElement('div');
     collHeader.className = 'term-header';
     const collLabel = document.createElement('span');
@@ -3484,11 +3547,11 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     collHeader.addEventListener('click', () => {
       document.title = collEntry.name + ' | Argument Aloud';
       const url = buildUrlParams(
-        { link: collEntry.link },
+        { link: collEntry.page },
         ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o'],
       );
       navigate(url);
-      showPageViewer(collEntry.link, { pushState: false });
+      showPageViewer(collEntry.page, { pushState: false });
     });
     collLi.appendChild(collHeader);
     sectionUl.appendChild(collLi);
@@ -3515,9 +3578,9 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
 
   collHeader.appendChild(collTog);
   collHeader.appendChild(collLabel);
-  if (collEntry.link) {
+  if (collEntry.page) {
     collLabel.style.cursor = 'pointer';
-    collLi.dataset.link = collEntry.link;
+    collLi.dataset.link = collEntry.page;
   }
 
   const collUl = document.createElement('ul');
@@ -3532,7 +3595,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
         const res = await fetch(fileUrl, { cache: 'reload' });
         if (!res.ok) return;
         let groups = await res.json();
-        // Merge extra properties (e.g. 'link') from collEntry.groups definitions into fetched groups.
+        // Merge extra properties (e.g. 'page') from collEntry.groups definitions into fetched groups.
         if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
           const defs = new Map(collEntry.groups.map(g => [g.name, g]));
           groups = groups.map(g => {
@@ -3673,7 +3736,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     }
     // Open (or already open): build, navigate, show page.
     await _ensureCollectionBuilt();
-    if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
+    if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
     const _navParamKey = isTopic ? 'topic' : 'collection';
     const url = buildUrlParams({ [_navParamKey]: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
     document.title = (collEntry.name || collId) + ' | Argument Aloud';
@@ -4495,9 +4558,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     // For embedded format (cases is an array): build items from the in-memory array.
     // For split format (cases is a count, id is set): fetch the per-group JSON file.
     let _casesLoaded = false;
-    let _groupLink = group.link ?? group.details?.page ?? null;
+    let _groupPage = group.page ?? group.details?.page ?? null;
     let _groupDocument = group.details?.web ?? null;
-    groupLi._groupLink = _groupLink;
+    groupLi._groupPage = _groupPage;
     groupLi._groupDocument = _groupDocument;
     const _ensureGroupCases = async () => {
       if (_casesLoaded) return;
@@ -4517,9 +4580,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
             const advocateData = await r.json();
             const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
             const advocateCases = Array.isArray(advocateData) ? advocateData : (advocateData.cases || []);
-            _groupLink = Array.isArray(advocateData) ? null : (advocateData.details?.page ?? null);
+            _groupPage = Array.isArray(advocateData) ? null : (advocateData.details?.page ?? null);
             _groupDocument = Array.isArray(advocateData) ? null : (advocateData.details?.web ?? null);
-            groupLi._groupLink = _groupLink;
+            groupLi._groupPage = _groupPage;
             groupLi._groupDocument = _groupDocument;
             for (const [hlIdx, hl] of highlights.entries()) {
               const _hlGroupId = group.id ?? null;
@@ -4600,13 +4663,13 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       await _ensureGroupCases();
       document.title = formatSpeakerFull(group.name || '') + ' | Argument Aloud';
       trackPageView(location.href);
-      if (_groupLink && _groupDocument) showAdvocateDocument(_groupDocument, _groupLink, group.name || '');
-      else if (_groupLink) showPageViewer(_groupLink, { pushState: false });
+      if (_groupPage && _groupDocument) showAdvocateDocument(_groupDocument, _groupPage, group.name || '');
+      else if (_groupPage) showPageViewer(_groupPage, { pushState: false });
       else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
-      // The group itself has no link/document (e.g. a single-group collection
+      // The group itself has no page/document (e.g. a single-group collection
       // like Original Jurisdiction's "Archive") — fall back to the collection's
-      // own link so the page-viewer isn't left blank.
-      else if (collEntry.link) showPageViewer(collEntry.link, { pushState: false });
+      // own page so the page-viewer isn't left blank.
+      else if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
     });
 
     groupLi.appendChild(groupHeader);
@@ -7288,6 +7351,33 @@ async function restoreFromURL() {
     }
   }
 
+  // ?source=<id>[&group=<1-based index>] — expand a Sources entry (built by
+  // buildStaticPageItem) and show its page/link, or a specific child group's.
+  {
+    const sourceParam = params.get('source');
+    if (sourceParam) {
+      const sourcesLi = _sectionLiById.get('source');
+      if (sourcesLi) {
+        sourcesLi.classList.add('open');
+        sourcesLi._ensureBuilt?.();
+        const srcLi = sourcesLi.querySelector(`[data-source-id="${CSS.escape(sourceParam)}"]`);
+        if (srcLi) {
+          srcLi.classList.add('open');
+          const srcGroupParam = params.get('group');
+          let targetLi = srcLi;
+          if (srcGroupParam != null) {
+            const grpLi = srcLi.querySelector(`:scope > ul > [data-group-index="${CSS.escape(srcGroupParam)}"]`);
+            if (grpLi) targetLi = grpLi;
+          }
+          targetLi._openPage?.();
+          requestAnimationFrame(() => targetLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+        }
+      }
+      trackPageView(location.href);
+      return;
+    }
+  }
+
   const groupParam      = params.get('group') != null ? parseInt(params.get('group'), 10) : null;
   const idParam         = params.get('id') ?? null;
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
@@ -7343,7 +7433,7 @@ async function restoreFromURL() {
       } else requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
     const collEntry = _findAnyCollectionEntry(collectionParam);
-    const resolvedLink = linkParam || collEntry?.link || null;
+    const resolvedLink = linkParam || collEntry?.page || null;
     if (resolvedLink) {
       const _sortV = params.get('sort');
       const _sV    = params.get('s');
@@ -7409,15 +7499,15 @@ async function restoreFromURL() {
         const _groupNameText = groupLi.querySelector('.month-name')?.textContent;
         if (_groupNameText) document.title = formatSpeakerFull(_groupNameText) + ' | Argument Aloud';
         trackPageView(location.href);
-        if (groupLi._groupLink && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupLink, '');
-        else if (groupLi._groupLink) showPageViewer(groupLi._groupLink, { pushState: false });
+        if (groupLi._groupPage && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupPage, '');
+        else if (groupLi._groupPage) showPageViewer(groupLi._groupPage, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
         else {
-          // The group itself has no link/document (e.g. a single-group collection
+          // The group itself has no page/document (e.g. a single-group collection
           // like Original Jurisdiction's "Archive") — fall back to the collection's
-          // own link so the page-viewer isn't left blank.
+          // own page so the page-viewer isn't left blank.
           const collEntry = _findAnyCollectionEntry(collectionParam);
-          if (collEntry?.link) showPageViewer(collEntry.link, { pushState: false });
+          if (collEntry?.page) showPageViewer(collEntry.page, { pushState: false });
         }
         collLi._centerOnGroup?.(groupLi);
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
