@@ -6486,6 +6486,8 @@ document.addEventListener('transcriptloaded', () => {
     const closeIdx = findParam.indexOf('"', 1);
     findParam = closeIdx !== -1 ? findParam.slice(1, closeIdx) : findParam.slice(1);
   }
+  // A bare '?' is reserved shorthand for "open an empty search box", not a literal query.
+  if (findParam === '?' && _transcriptSearchInit) { _transcriptSearchInit('', speakerParam?.trim() || null); return; }
   if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam, speakerParam?.trim() || null);
 });
 
@@ -6718,11 +6720,17 @@ let _navSearchActivate = null;
     if (numberMode) {
       const numIndex = await _fetchNumberIndex();
       const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
+      // Purely numeric queries (e.g. "#2") must match a whole docket number
+      // exactly -- otherwise "#2" would substring-match "22-1260", "1972-161",
+      // etc. Non-numeric patterns like "orig"/"misc" still substring-match so
+      // "#orig" finds any Orig case number.
+      const numericQuery = normQ !== '' && !/[a-z]/i.test(normQ);
       let refs = [];
       if (normQ) {
         const seen = new Set();
         for (const [key, val] of Object.entries(numIndex)) {
-          if (key.includes(normQ)) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
+          const isMatch = numericQuery ? key === normQ : key.includes(normQ);
+          if (isMatch) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
         }
       }
       const activeTerm = new URLSearchParams(location.search).get('term');
@@ -7065,6 +7073,9 @@ let _navSearchActivate = null;
   });
 
   _navSearchActivate = (findQuery, justiceQuery) => {
+    // A bare '?' is a reserved shorthand for "open an empty search box" —
+    // e.g. from a shared link like ?find=%3F — so don't search for it literally.
+    if (findQuery === '?') { openNavSearch(); return; }
     // Keyword mode (starts with '"'): speaker/justice filter may be appended.
     // Number mode (starts with '#') and title mode: use verbatim.
     const q = findQuery.startsWith('"')
@@ -7311,6 +7322,16 @@ async function restoreFromURL() {
       while (_ag && _sLi.contains(_ag)) { _ag.classList.add('open'); _ag = _ag.parentElement?.closest('.term-group'); }
       collLi.classList.add('open');
       await collLi._ensureBuilt?.();
+      // A collection with only one nested group (e.g. Original Jurisdiction's
+      // sole "Archive" group) has nothing else to browse, so expand it too —
+      // otherwise landing here always requires one more click for no reason.
+      const _soleGroups = collLi.querySelectorAll(':scope > .case-list > .month-group');
+      if (_soleGroups.length === 1) {
+        const _soleGroup = _soleGroups[0];
+        _soleGroup.classList.add('open');
+        await _soleGroup._ensureCases?.();
+        _soleGroup._activateCount?.();
+      }
       const _hashEl = _hash ? document.getElementById(_hash) : null;
       if (_hashEl) {
         collLi._centerOnGroup?.(_hashEl);
