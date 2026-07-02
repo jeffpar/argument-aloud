@@ -3285,8 +3285,8 @@ function processScdbDownloads(verbose) {
 
 const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
-const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_citations.csv');
-const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
+const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'ussc', 'citations.csv');
+const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'ussc', 'dates.csv');
 const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
 const _SCDB_JUSTICES    = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
 const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
@@ -4832,7 +4832,16 @@ function _decisionYearOf(c) {
     return dec ? dec.slice(0, 4) : '';
 }
 
-function _setCaseEntry(c, term) {
+// Canonical fields _setCaseEntry itself computes — anything else found on an
+// existing collection entry (e.g. a hand-curated "gallery" array) is extra,
+// hand-added data that must be carried forward rather than dropped on rebuild.
+// 'turn' isn't set by _setCaseEntry itself, but _casesByConditions computes it
+// dynamically for fileCount/eventMatch conditions, so it's canonical too —
+// otherwise a stale value could leak in as "extra" from a prior run's group.
+const _CASE_ENTRY_FIELDS = new Set(
+    ['title', 'term', 'number', 'argument', 'reargument', 'decision', 'files', 'event', 'transcript', 'turn']);
+
+function _setCaseEntry(c, term, extra = null) {
     const year = _decisionYearOf(c);
     const baseTitle = firstTitle(c.title) || '';
     const title = year ? `${baseTitle} (${year})` : baseTitle;
@@ -4846,6 +4855,7 @@ function _setCaseEntry(c, term) {
     const events = Array.isArray(c.events) ? c.events : [];
     if (events.some(e => e.audio_href))  entry.event      = true;
     if (events.some(e => e.text_href))   entry.transcript = true;
+    if (extra) Object.assign(entry, extra);
     return entry;
 }
 
@@ -4864,6 +4874,31 @@ function _loadExistingSet(filePath) {
         if (term && num) keys.add(`${term}\u0000${num}`);
     }
     return { existingCases: cases, existingKeys: keys };
+}
+
+// Scan every group in an existing tags/conditions collection file and return a
+// (term, first-docket-piece) -> {extra fields} map for any per-case properties
+// beyond what _setCaseEntry computes (e.g. a hand-curated "gallery" array).
+// _buildTagsCollection fully rebuilds its case entries from cases.json on every
+// run, so without this, any such hand-added field would be silently dropped.
+function _loadExtraFieldsByKey(filePath) {
+    const map = new Map();
+    let data;
+    try { data = _readJson(filePath); } catch { return map; }
+    if (!Array.isArray(data)) return map;
+    for (const group of data) {
+        for (const c of (group.cases || [])) {
+            const term = (c.term   || '').trim();
+            const num  = (c.number || '').split(',')[0].trim();
+            if (!term || !num) continue;
+            const extra = {};
+            for (const k of Object.keys(c)) {
+                if (!_CASE_ENTRY_FIELDS.has(k)) extra[k] = c[k];
+            }
+            if (Object.keys(extra).length) map.set(`${term}\u0000${num}`, extra);
+        }
+    }
+    return map;
 }
 
 // Find LD-source argument events and build the transcripts collection.
@@ -5846,6 +5881,14 @@ function _applyCompOp(lhs, op, rhs) {
     return false;
 }
 
+// 'volume' is never stored on a case object — like 'page', it's derived from
+// usCite at read time (see CLAUDE.md) — so any condition/field referencing it
+// must re-derive it here rather than reading caseObj.volume directly.
+function _deriveVolumeFromUsCite(caseObj) {
+    const m = /^(\d+)\s/.exec(caseObj.usCite || '');
+    return m ? parseInt(m[1], 10) : null;
+}
+
 function _matchesCaseConditions(c, conditions, termDir = '') {
     for (const cond of conditions) {
         if (!cond) continue;
@@ -5866,7 +5909,9 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
         } else if (cond.type === 'property') {
             const val = cond.prop === 'term' && termDir
                 ? path.basename(termDir)
-                : c[cond.prop];
+                : cond.prop === 'volume'
+                    ? _deriveVolumeFromUsCite(c)
+                    : c[cond.prop];
             if (val == null) return false;
             if (!_applyCompOp(val, cond.op, cond.value)) return false;
         } else if (cond.type === 'count') {
@@ -5967,7 +6012,7 @@ function _findFirstMatchingEventOrigIdx(events, eventMatchCond) {
 }
 
 // Scan allTerms for cases that satisfy requiredTags, filter, AND all conditions.
-function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
+function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null) {
     const hasFileCount = conditions.some(cond =>
         cond.type === 'eventMatch' &&
         cond.subconditions.some(sub => sub.type === 'eventFileCount')
@@ -5997,7 +6042,8 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
             }
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             if (!_matchesCaseConditions(c, conditions, termDir)) continue;
-            const entry = _setCaseEntry(c, term);
+            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            const entry = _setCaseEntry(c, term, extraByKey?.get(key));
             if (hasFileCount) {
                 const info = _findFirstEventAndTurn(c, conditions, termDir);
                 if (info) {
@@ -6037,7 +6083,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}) {
 
 // Scan allTerms for cases that match a set of required tags; return sorted
 // case entries.
-function _casesByTags(allTerms, requiredTags, filter = {}) {
+function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null) {
     const cases = [];
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -6049,7 +6095,8 @@ function _casesByTags(allTerms, requiredTags, filter = {}) {
             if (!Array.isArray(c.tags)) continue;
             if (!requiredTags.every(t => c.tags.includes(t))) continue;
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-            cases.push(_setCaseEntry(c, term));
+            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            cases.push(_setCaseEntry(c, term, extraByKey?.get(key)));
         }
     }
     cases.sort((a, b) =>
@@ -6070,7 +6117,11 @@ function _casesByTags(allTerms, requiredTags, filter = {}) {
 // group's required "tags" list. This lets collections.json express "one group
 // per topic tag, for every case tagged Noteworthy" without enumerating every
 // topic in advance.
-function _buildTagsCollection(allTerms, collEntry) {
+function _buildTagsCollection(allTerms, collEntry, filePath = null) {
+    // Carry forward any hand-added per-case fields (e.g. "gallery") from the
+    // collection's existing output, since every branch below rebuilds case
+    // entries from scratch via _setCaseEntry.
+    const extraByKey = filePath ? _loadExtraFieldsByKey(filePath) : null;
     if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
         const output = [];
         for (const g of collEntry.groups) {
@@ -6089,7 +6140,8 @@ function _buildTagsCollection(allTerms, collEntry) {
                         if (!Array.isArray(c.tags)) continue;
                         if (!requiredTags.every(t => c.tags.includes(t))) continue;
                         if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-                        const entry = _setCaseEntry(c, term);
+                        const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+                        const entry = _setCaseEntry(c, term, extraByKey?.get(key));
                         for (const tag of c.tags) {
                             if (requiredTags.includes(tag)) continue;
                             if (!fanOut.has(tag)) fanOut.set(tag, []);
@@ -6113,9 +6165,9 @@ function _buildTagsCollection(allTerms, collEntry) {
                 let cases;
                 if (Array.isArray(g.conditions) && g.conditions.length) {
                     const parsed = g.conditions.map(_parseCaseCondition).filter(Boolean);
-                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter);
+                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey);
                 } else {
-                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter) : [];
+                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey) : [];
                 }
                 output.push({ name: g.name || g.title || '', cases });
             }
@@ -6123,7 +6175,7 @@ function _buildTagsCollection(allTerms, collEntry) {
         return output;
     }
     // Flat (single-group) form.
-    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || []) }];
+    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey) }];
 }
 
 function processCollectionSets(allTerms, dryRun) {
@@ -6148,7 +6200,7 @@ function processCollectionSets(allTerms, dryRun) {
             const fileUrl = collEntry.file || collEntry.collection;
             // Resolve the file URL (absolute path starting with '/') to a local path.
             const filePath = path.join(REPO_ROOT, fileUrl.replace(/^\//, ''));
-            const output = _buildTagsCollection(allTerms, collEntry);
+            const output = _buildTagsCollection(allTerms, collEntry, filePath);
             taggedCollections.push({ collEntry, filePath, output });
         }
     }
@@ -7111,7 +7163,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     let backfillDatesMap = null;
     if (backfill) {
         try { backfillDatesMap = _loadDatesCsv(); }
-        catch (e) { console.log(`WARNING: could not load ussc_dates.csv for backfill date checks: ${e.message}`); }
+        catch (e) { console.log(`WARNING: could not load dates.csv for backfill date checks: ${e.message}`); }
     }
 
     // Pre-build a global set of every SCDB case id already tracked in ANY term
@@ -7511,7 +7563,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 console.log(`[${term}] ${unmatchedScdb.length} SCDB case(s) ${verb} (missing from cases.json):`);
                 for (const k of unmatchedScdb) {
                     let built = _scdbBuildCaseFromSources(scdb[k], k, ldTitles, ldDatesAll[k] || []);
-                    // Check built dates against ussc_dates.csv (scotus source) and record/apply any differences.
+                    // Check built dates against dates.csv (scotus source) and record/apply any differences.
                     if (backfillDatesMap && backfillDatesMap.has(k)) {
                         const csv = backfillDatesMap.get(k);
                         const errFields = [];
@@ -7702,16 +7754,16 @@ async function runScdb(opts) {
 
 // ═══════════════════════════════════════════════════════════════════════════
 // --dates: verify argument/decision dates and usCite against
-//          data/aa/ussc_dates.csv
+//          data/ussc/dates.csv
 // ═══════════════════════════════════════════════════════════════════════════
 
-const _DATES_CSV_PATH = path.join(REPO_ROOT, 'data', 'aa', 'ussc_dates.csv');
+const _DATES_CSV_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'dates.csv');
 
 function _loadDatesCsv() {
     const text = fs.readFileSync(_DATES_CSV_PATH, 'utf8');
     const lines = text.split(/\r\n|\r|\n/);
     while (lines.length && lines[lines.length - 1] === '') lines.pop();
-    if (!lines.length) throw new Error('ussc_dates.csv is empty');
+    if (!lines.length) throw new Error('dates.csv is empty');
 
     const header    = _splitCsvLine(lines[0]);
     const idIdx     = header.indexOf('caseId');
@@ -7720,7 +7772,7 @@ function _loadDatesCsv() {
     const decIdx    = header.indexOf('dateDecision');
     const sourceIdx = header.indexOf('source');
     if (idIdx < 0 || citeIdx < 0 || argIdx < 0 || decIdx < 0) {
-        throw new Error('ussc_dates.csv missing expected columns (caseId, usCite, dateArgument, dateDecision)');
+        throw new Error('dates.csv missing expected columns (caseId, usCite, dateArgument, dateDecision)');
     }
 
     const map = new Map();
@@ -7764,10 +7816,10 @@ async function runDatesCheck(termFilter, caseFilter, update) {
     try {
         datesMap = _loadDatesCsv();
     } catch (e) {
-        console.error(`ERROR: could not read ussc_dates.csv: ${e.message}`);
+        console.error(`ERROR: could not read dates.csv: ${e.message}`);
         process.exit(1);
     }
-    console.log(`Loaded ${datesMap.size.toLocaleString()} cases from ussc_dates.csv.\n`);
+    console.log(`Loaded ${datesMap.size.toLocaleString()} cases from dates.csv.\n`);
 
     let allTerms = [];
     try {
@@ -7820,7 +7872,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             const row = datesMap.get(c.id);
             if (!row) {
                 totalMissingInCsv++;
-                if (_VERBOSE) console.log(`  ${term}/${c.id} (${firstTitle(c.title) || '?'}): not found in ussc_dates.csv`);
+                if (_VERBOSE) console.log(`  ${term}/${c.id} (${firstTitle(c.title) || '?'}): not found in dates.csv`);
                 continue;
             }
 
@@ -8697,7 +8749,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
        node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose] [--debug]
-       node update_cases.js [TERM [CASE]] --dates                              # verify dates vs ussc_dates.csv
+       node update_cases.js [TERM [CASE]] --dates                              # verify dates vs dates.csv
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
@@ -8740,9 +8792,9 @@ Examples:
   node update_cases.js [TERM] --scdb --backfill --dry-run    # preview missing cases without adding
   node update_cases.js [TERM] --scdb --backfill --all --dry-run
 
-  node update_cases.js --dates                             # check all terms vs ussc_dates.csv
-  node update_cases.js 1793-02 --dates                     # check one term vs ussc_dates.csv
-  node update_cases.js 1793-02 1793-001 --dates            # check one case vs ussc_dates.csv
+  node update_cases.js --dates                             # check all terms vs dates.csv
+  node update_cases.js 1793-02 --dates                     # check one term vs dates.csv
+  node update_cases.js 1793-02 1793-001 --dates            # check one case vs dates.csv
   node update_cases.js --dates --verbose                   # also list cases absent from CSV
 
   node update_cases.js --split                             # find opinion events needing a split
@@ -10380,10 +10432,7 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
 // Computed: 'volume' → first integer in caseObj.usCite (e.g. "601 U.S. 1" → 601)
 function _resolveIssueField(field, caseObj, term) {
     if (field === 'term')   return { value: term, numeric: false };
-    if (field === 'volume') {
-        const m = /^(\d+)\s/.exec(caseObj.usCite || '');
-        return { value: m ? parseInt(m[1], 10) : null, numeric: true };
-    }
+    if (field === 'volume') return { value: _deriveVolumeFromUsCite(caseObj), numeric: true };
     return { value: caseObj[field], numeric: false };
 }
 

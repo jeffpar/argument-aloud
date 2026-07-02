@@ -37,7 +37,7 @@ More recently, Marlene published the article [*Women Advocates Before the Suprem
 
 Going forward, our internal data no longer relies on spreadsheets, but as a convenience for people who still prefer them, we continue to automatically generate the following:
 
-  - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/aa/ussc_women.csv)
+  - [USSC Women Advocates](https://github.com/jeffpar/argument-aloud/blob/main/data/ussc/women.csv)
   
 That spreadsheet contains all previously available data, along with any women advocates discovered since.  As of April 29, 2026 (the last day of arguments in the October 2025 Term), the list of additional women includes:
 

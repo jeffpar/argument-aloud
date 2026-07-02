@@ -36,7 +36,7 @@ const OUTPUT_FILE       = path.join(ADVOCATES_BASE, 'all_advocates.json');
 const TOP100_OUTPUT_FILE  = path.join(ADVOCATES_BASE, 'top100',  'top100_advocates.json');
 const TOP21ST_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'top21st', 'top21st_advocates.json');
 const WOMEN_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'women', 'women_advocates.json');
-const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'aa', 'ussc_women.csv');
+const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'women.csv');
 const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
@@ -2357,7 +2357,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     writeJson(OUTPUT_FILE, index);
     console.log(`Wrote ${output.length} advocates to ${relRepo(OUTPUT_FILE)}`);
 
-    // ── ussc_women.csv ──────────────────────────────────────────
+    // ── women.csv ──────────────────────────────────────────
     let womenRows = [];
     for (const [nameUpper, entry] of Object.entries(advocates)) {
         if (!nameFeminine.get(nameUpper)) continue;

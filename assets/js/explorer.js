@@ -2874,6 +2874,41 @@ function _buildSortMenu(anchorEl, options, getState, onPick) {
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
+// Wires a collapsible sidebar row (term, collection, group, top-level section, ...)
+// so a click anywhere on it — from the triangle through the end of the label —
+// behaves consistently:
+//   - closed  -> open it (onOpen)
+//   - open, and isSelected() is true (this row IS the current selection) -> close it (onClose)
+//   - open, but isSelected() is false (row was left open while browsing, something
+//     else is the current selection) -> re-select it without closing (onOpen)
+// The triangle always opens/closes regardless of selection, matching the label except
+// that a closing triangle click never re-checks isSelected (it's closing either way).
+// isSelected defaults to always-true for pure containers with no URL identity of
+// their own (e.g. decade groups), where open and selected are the same thing.
+function _wireAccordionHeader(header, { tog, li, isSelected = () => true, onOpen, onClose, stopPropagation = false, silentTriangleOpen = false } = {}) {
+  header.addEventListener('click', async (e) => {
+    if (stopPropagation) e.stopPropagation();
+    if (tog && tog.contains(e.target)) {
+      if (li.classList.contains('open')) {
+        li.classList.remove('open');
+        await onClose?.(e);
+        return;
+      }
+      li.classList.add('open');
+      if (silentTriangleOpen) return;
+    } else if (li.classList.contains('open')) {
+      if (isSelected()) {
+        li.classList.remove('open');
+        await onClose?.(e);
+        return;
+      }
+    } else {
+      li.classList.add('open');
+    }
+    await onOpen?.(e);
+  });
+}
+
 function buildNav(title = 'Terms', id = '') {
   const termListEl = document.getElementById('term-list');
 
@@ -2894,15 +2929,16 @@ function buildNav(title = 'Terms', id = '') {
   termsHeader.appendChild(termsLabel);
   const _navSearchBtn = document.getElementById('nav-search-btn');
   if (_navSearchBtn) { _navSearchBtn.removeAttribute('hidden'); termsHeader.appendChild(_navSearchBtn); }
-  termsHeader.addEventListener('click', (e) => {
-    if (termsTog.contains(e.target)) {
-      termsLi.classList.toggle('open');
-    } else {
-      if (!termsLi.classList.contains('open')) termsLi.classList.add('open');
+  _wireAccordionHeader(termsHeader, {
+    tog: termsTog,
+    li: termsLi,
+    isSelected: () => new URLSearchParams(location.search).get('term') === 'all',
+    silentTriangleOpen: true,
+    onOpen: () => {
       document.title = title + ' | Argument Aloud';
       navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date', 'sort', 'o']));
       restoreFromURL();
-    }
+    },
   });
   termsLi.appendChild(termsHeader);
   const _navSearchRow = document.getElementById('nav-search-row');
@@ -2929,23 +2965,16 @@ function buildNav(title = 'Terms', id = '') {
 
     decHeader.appendChild(decTog);
     decHeader.appendChild(decLabel);
-    decHeader.addEventListener('click', (e) => {
-      if (decTog.contains(e.target)) {
-        decLi.classList.toggle('open');
-      } else if (!decLi.classList.contains('open')) {
-        decLi.classList.add('open');
-      } else {
-        return;
-      }
-      if (decLi.classList.contains('open')) {
+    _wireAccordionHeader(decHeader, {
+      tog: decTog,
+      li: decLi,
+      onOpen: async () => {
         // Prefetch case counts for all terms in this decade, newest first.
-        (async () => {
-          const termEls = [...decUl.querySelectorAll('.term-group[data-term]')];
-          for (const el of termEls) {
-            await el._ensureCount?.();
-          }
-        })();
-      }
+        const termEls = [...decUl.querySelectorAll('.term-group[data-term]')];
+        for (const el of termEls) {
+          await el._ensureCount?.();
+        }
+      },
     });
     decLi.appendChild(decHeader);
 
@@ -3080,50 +3109,42 @@ function buildNav(title = 'Terms', id = '') {
         }
       };
 
-      termHeader.addEventListener('click', async (e) => {
-        if (termTog.contains(e.target)) {
-          if (!termLi.classList.toggle('open')) {
-            termCount.classList.remove('sort-active');
-            // Reset to plain count label when collapsed
-            if (_casesCache) {
-              const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
-              termCount.textContent = visible.length + '\u00a0Cases';
-            }
-            updateEmptyStateForTerm(null);
-            // Term collapsed — remove term param too.
-            const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn', 'sort', 'o']);
-            navigate(url);
-            document.getElementById('topbar-term').textContent = '';
-            return;
+      _wireAccordionHeader(termHeader, {
+        tog: termTog,
+        li: termLi,
+        isSelected: () => new URLSearchParams(location.search).get('term') === term,
+        onClose: () => {
+          termCount.classList.remove('sort-active');
+          // Reset to plain count label when collapsed
+          if (_casesCache) {
+            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+            termCount.textContent = visible.length + '\u00a0Cases';
           }
-        } else if (termLi.classList.contains('open')) {
-          // Already open — still show stats and reset URL to term-only.
+          updateEmptyStateForTerm(null);
+          // Term collapsed — remove term param too.
+          const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn', 'sort', 'o']);
+          navigate(url);
+          document.getElementById('topbar-term').textContent = '';
+        },
+        onOpen: async () => {
+          await ensureBuilt();
+          termCount.classList.add('sort-active');
+          if (_casesCache) {
+            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+            termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
+          }
           updateEmptyStateForTerm(term);
           document.getElementById('topbar-term').textContent = termDisplayName(term);
-          const url = buildUrlParams({ term }, ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn']);
+          // Update URL: set term param, clear navigation params.
+          // Always reflect the term's current sort: include sort+o when non-default, delete otherwise.
+          const _nonDefaultSort = _sortMode !== _defaultMode || _sortAsc !== _defaultAsc;
+          const url = buildUrlParams(
+            { term, ...(_nonDefaultSort ? { sort: _sortMode, o: _sortAsc ? 'a' : 'd' } : {}) },
+            ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
+          );
           document.title = termDisplayName(term) + ' | Argument Aloud';
           navigate(url);
-          return;
-        } else {
-          termLi.classList.add('open');
-        }
-        await ensureBuilt();
-        termCount.classList.add('sort-active');
-        if (_casesCache) {
-          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
-          termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
-        }
-        updateEmptyStateForTerm(term);
-        document.getElementById('topbar-term').textContent = termDisplayName(term);
-        // Update URL: set term param, clear navigation params.
-        // Always reflect the term's current sort: include sort+o when non-default, delete otherwise.
-        const _nonDefaultSort = _sortMode !== _defaultMode || _sortAsc !== _defaultAsc;
-        const url = buildUrlParams(
-          { term, ...(_nonDefaultSort ? { sort: _sortMode, o: _sortAsc ? 'a' : 'd' } : {}) },
-          ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
-        );
-        document.title = termDisplayName(term) + ' | Argument Aloud';
-        navigate(url);
+        },
       });
 
       termLi.appendChild(ul);
@@ -3188,14 +3209,15 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
   }
   sectionLi._ensureBuilt = () => _doSectionBuild();
 
-  sectionHeader.addEventListener('click', (e) => {
-    if (sectionTog.contains(e.target)) sectionLi.classList.toggle('open');
-    else if (!sectionLi.classList.contains('open')) sectionLi.classList.add('open');
-    if (sectionLi.classList.contains('open')) {
+  _wireAccordionHeader(sectionHeader, {
+    tog: sectionTog,
+    li: sectionLi,
+    isSelected: () => !!id && new URLSearchParams(location.search).get(id) === 'all',
+    onOpen: () => {
       sectionLi._ensureBuilt();
       document.title = title + ' | Argument Aloud';
       _navigateToSectionAll(id);
-    }
+    },
   });
 
   sectionLi.appendChild(sectionHeader);
@@ -3249,18 +3271,14 @@ function buildStaticNavSection(termListEl, entry) {
 
   header.appendChild(tog);
   header.appendChild(label);
-  header.addEventListener('click', (e) => {
-    if (tog.contains(e.target)) {
-      sectionLi.classList.toggle('open');
-      if (sectionLi.classList.contains('open')) {
-        if (entry.name) document.title = entry.name + ' | Argument Aloud';
-        _navigateToSectionAll(entry.id);
-      }
-    } else if (!sectionLi.classList.contains('open')) {
-      sectionLi.classList.add('open');
+  _wireAccordionHeader(header, {
+    tog,
+    li: sectionLi,
+    isSelected: () => !!entry.id && new URLSearchParams(location.search).get(entry.id) === 'all',
+    onOpen: () => {
       if (entry.name) document.title = entry.name + ' | Argument Aloud';
       _navigateToSectionAll(entry.id);
-    }
+    },
   });
 
   const ul = document.createElement('ul');
@@ -3367,12 +3385,28 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
 
     header.appendChild(tog);
     header.appendChild(label);
-    // Single handler: clicking the label always opens + loads; clicking the toggle toggles.
-    // stopPropagation prevents the click from bubbling up to a parent terms-header.
+    // Whether this item is the one currently reflected in the URL — i.e. open AND
+    // selected, so a click anywhere on the row should close it rather than reselect.
+    function isSelected() {
+      const params = new URLSearchParams(location.search);
+      if (usesSourceScheme) {
+        const expectedGroup = isTopLevelSource ? null : String(groupIndex);
+        return params.get('source') === thisSourceId && (params.get('group') || null) === expectedGroup;
+      }
+      if (pagePath) return params.get('link') === pagePath;
+      return true; // no distinct URL identity — open implies selected
+    }
+    // Single handler: clicking the label always opens + loads (or closes if already
+    // open+selected); clicking the toggle toggles. stopPropagation prevents the click
+    // from bubbling up to a parent terms-header.
     header.addEventListener('click', (e) => {
       e.stopPropagation();
       if ((pagePath || linkUrl) && label.contains(e.target)) {
         e.preventDefault(); // prevent anchor navigation; SPA handler manages routing
+        if (li.classList.contains('open') && isSelected()) {
+          li.classList.remove('open');
+          return;
+        }
         li.classList.add('open');
         updateNavUrl();
         openPage(); // openPage() also updates document.title
@@ -3382,6 +3416,8 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
       } else if (!li.classList.contains('open')) {
         li.classList.add('open');
         document.title = pageTitle;
+      } else if (isSelected()) {
+        li.classList.remove('open');
       }
     });
 
@@ -3488,16 +3524,25 @@ function resetToHome() {
 // navigation in the parent already owns one pushState entry; a separate iframe
 // src-change entry causes the back button to show mismatched URL/content.
 // Falls back to pf.src for the very first load (contentWindow still blank).
+// Directory-style permalinks (e.g. /collections/benches) get redirected by the
+// server to add a trailing slash, so the iframe's post-load location never
+// matches a freshly-built target href literally. Compare with trailing
+// slashes stripped so re-requesting the same page is recognized as a no-op
+// instead of triggering a needless (and visibly flickery) reload.
+function _sameFrameLocation(a, b) {
+  return a.replace(/\/$/, '') === b.replace(/\/$/, '');
+}
+
 function _frameNavigate(pf, url) {
   const targetHref = new URL(url, location.href).href;
   try {
     const cur = pf.contentWindow?.location.href;
     if (cur && cur !== 'about:blank') {
-      if (cur !== targetHref) pf.contentWindow.location.replace(targetHref);
+      if (!_sameFrameLocation(cur, targetHref)) pf.contentWindow.location.replace(targetHref);
       return;
     }
   } catch (e) {}
-  if (pf.src !== targetHref) pf.src = url;
+  if (!_sameFrameLocation(pf.src, targetHref)) pf.src = url;
 }
 
 function showPageViewer(url, { pushState = true } = {}) {
@@ -3552,8 +3597,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     }
     groupHeader.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (groupTog.contains(e.target)) groupLi.classList.toggle('open');
-      else if (!groupLi.classList.contains('open')) groupLi.classList.add('open');
+      groupLi.classList.toggle('open');
     });
     groupLi.appendChild(groupHeader);
     groupLi.appendChild(groupUl);
@@ -3749,28 +3793,25 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   };
 
   let _onCollClose = null;
+  const _navParamKey = isTopic ? 'topic' : 'collection';
 
-  collHeader.addEventListener('click', async (e) => {
-    e.stopPropagation();
-    if (collTog.contains(e.target)) {
-      // Toggle click: can open or close.
-      collLi.classList.toggle('open');
-      if (!collLi.classList.contains('open')) {
-        _onCollClose?.();
-        const url = buildUrlParams({}, ['collection', 'topic', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o']);
-        navigate(url);
-        return;
-      }
-    } else if (!collLi.classList.contains('open')) {
-      collLi.classList.add('open');
-    }
-    // Open (or already open): build, navigate, show page.
-    await _ensureCollectionBuilt();
-    if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
-    const _navParamKey = isTopic ? 'topic' : 'collection';
-    const url = buildUrlParams({ [_navParamKey]: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
-    document.title = (collEntry.name || collId) + ' | Argument Aloud';
-    navigate(url);
+  _wireAccordionHeader(collHeader, {
+    tog: collTog,
+    li: collLi,
+    stopPropagation: true,
+    isSelected: () => new URLSearchParams(location.search).get(_navParamKey) === collId,
+    onClose: () => {
+      _onCollClose?.();
+      const url = buildUrlParams({}, ['collection', 'topic', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o']);
+      navigate(url);
+    },
+    onOpen: async () => {
+      await _ensureCollectionBuilt();
+      if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
+      const url = buildUrlParams({ [_navParamKey]: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
+      document.title = (collEntry.name || collId) + ' | Argument Aloud';
+      navigate(url);
+    },
   });
 
   // ── Collection inline search ─────────────────────────────────────────────
@@ -4261,6 +4302,14 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
 
   titleSpan.addEventListener('click', async (e) => {
     const fromRestore = !!e.fromRestore;
+    if (!fromRestore && ci.classList.contains('active')) {
+      // Already the selected case — clicking the title just toggles its file list open/closed.
+      if (ci.classList.toggle('open')) {
+        const caseEntry = await _fetchCaseEntry();
+        if (caseEntry) await ensureCollFileListBuilt(caseEntry);
+      }
+      return;
+    }
     // Synchronous selection feedback before any async fetch.
     if (!fromRestore) markCaseItemActive(ci);
     const caseEntry = await _fetchCaseEntry();
@@ -4665,41 +4714,43 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       _renderGroupPage();
     };
 
-    groupHeader.addEventListener('click', async (e) => {
-      if (groupTog.contains(e.target)) {
-        groupLi.classList.toggle('open');
-        if (!groupLi.classList.contains('open')) {
-          groupCount.classList.remove('sort-active');
-          groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
-          return;
-        }
-      } else if (!groupLi.classList.contains('open')) {
-        groupLi.classList.add('open');
-      }
-      // Open (or already open): update URL, load cases, show page.
-      groupCount.classList.add('sort-active');
-      groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
-      const groupOrId = group.id != null ? { id: group.id } : { group: groupNumber };
-      const deleteOther = group.id != null ? ['group'] : ['id'];
-      // Always reflect the group's current sort in the URL: include sort+o when non-default,
-      // delete them when back to default. This keeps the URL accurate even when returning to
-      // a group whose closure already holds a customised sort from a previous visit.
-      const _nonDefaultSort = _groupSortMode !== _defaultSortMode || _groupSortAsc !== _defaultSortAsc;
-      const url = buildUrlParams(
-        { [isTopic ? 'topic' : 'collection']: collId, ...groupOrId, ...(_nonDefaultSort ? { sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' } : {}) },
-        [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
-      );
-      history.replaceState(null, '', url);
-      await _ensureGroupCases();
-      document.title = formatSpeakerFull(group.name || '') + ' | Argument Aloud';
-      trackPageView(location.href);
-      if (_groupPage && _groupDocument) showAdvocateDocument(_groupDocument, _groupPage, group.name || '');
-      else if (_groupPage) showPageViewer(_groupPage, { pushState: false });
-      else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
-      // The group itself has no page/document (e.g. a single-group collection
-      // like Original Jurisdiction's "Archive") — fall back to the collection's
-      // own page so the page-viewer isn't left blank.
-      else if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
+    _wireAccordionHeader(groupHeader, {
+      tog: groupTog,
+      li: groupLi,
+      isSelected: () => {
+        const params = new URLSearchParams(location.search);
+        if (params.get(isTopic ? 'topic' : 'collection') !== collId) return false;
+        return group.id != null ? params.get('id') === String(group.id) : params.get('group') === String(groupNumber);
+      },
+      onClose: () => {
+        groupCount.classList.remove('sort-active');
+        groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
+      },
+      onOpen: async () => {
+        groupCount.classList.add('sort-active');
+        groupCount.textContent = _groupSortModeLabel(_groupSortMode, _groupSortAsc);
+        const groupOrId = group.id != null ? { id: group.id } : { group: groupNumber };
+        const deleteOther = group.id != null ? ['group'] : ['id'];
+        // Always reflect the group's current sort in the URL: include sort+o when non-default,
+        // delete them when back to default. This keeps the URL accurate even when returning to
+        // a group whose closure already holds a customised sort from a previous visit.
+        const _nonDefaultSort = _groupSortMode !== _defaultSortMode || _groupSortAsc !== _defaultSortAsc;
+        const url = buildUrlParams(
+          { [isTopic ? 'topic' : 'collection']: collId, ...groupOrId, ...(_nonDefaultSort ? { sort: _groupSortMode, o: _groupSortAsc ? 'a' : 'd' } : {}) },
+          [...deleteOther, 'highlight', 'term', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
+        );
+        history.replaceState(null, '', url);
+        await _ensureGroupCases();
+        document.title = formatSpeakerFull(group.name || '') + ' | Argument Aloud';
+        trackPageView(location.href);
+        if (_groupPage && _groupDocument) showAdvocateDocument(_groupDocument, _groupPage, group.name || '');
+        else if (_groupPage) showPageViewer(_groupPage, { pushState: false });
+        else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
+        // The group itself has no page/document (e.g. a single-group collection
+        // like Original Jurisdiction's "Archive") — fall back to the collection's
+        // own page so the page-viewer isn't left blank.
+        else if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
+      },
     });
 
     groupLi.appendChild(groupHeader);
@@ -7378,6 +7429,10 @@ async function restoreFromURL() {
       const _sectionName = sLi.querySelector('.terms-label')?.textContent;
       if (_sectionName) document.title = _sectionName + ' | Argument Aloud';
       requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      // Unlike term=all (which has its own stats page), these sections have no
+      // dedicated landing page — show the same default page as the bare URL so
+      // the right pane isn't left blank.
+      showPageViewer('/courts/ussc/pages/home', { pushState: false });
       trackPageView(location.href);
       return;
     }

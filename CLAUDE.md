@@ -172,7 +172,7 @@ The main interactive page is a large vanilla JS single-page app in `assets/js/ex
 
 - **Never edit `_site/`** — it's Jekyll build output, overwritten on every build.
 - **`_config.yml` excludes `scripts/` and `sources/`** — changes there won't affect the built site.
-- **`data/` is Jekyll's data dir** — files in `data/courts/ussc/` are accessible as `site.data.courts.ussc.*` in templates.
+- **`data/` is Jekyll's data dir** — eg, files in `data/ussc/` are accessible as `site.data.ussc.*` in templates.
 - **Audio timing uses frames** — `HH:MM:SS.FF` where `.FF` is frame number treated as decimal; `parseTime()` handles this correctly.
 - **`courts/ussc/index.html` is the SPA entry point**, not `index.md` — it uses `layout: argument`.
-- **`volume` and `page` are derived from `usCite`** — never write them to a new case object.
+- **`volume` and `page` are derived internally from `usCite`** — they are no longer written to case objects.
