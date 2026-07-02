@@ -1879,6 +1879,8 @@ function _reportPdfPage(usCite, termEntry) {
 }
 
 // Returns [{value, href, title}] in display order: LOC, USSC, US Reports.
+// Used by the case-page document dropdown, which lists every available
+// decision source with its own (LOC)/(USSC)/(usCite) suffix.
 function _buildDecisionEntries(caseEntry) {
   if (!caseEntry) return [];
   const dateStr  = caseEntry.decision || '';
@@ -1901,6 +1903,21 @@ function _buildDecisionEntries(caseEntry) {
                    title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
   }
   return entries;
+}
+
+// Returns the single best decision entry {value, href, title} for contexts
+// that show just one decision link (case file list, scales-icon quick-open):
+// prefer decision_loc, then decision_ussc, then decision_reports — same
+// priority order as _buildDecisionEntries, whose href/page-anchor computation
+// this reuses. Unlike the dropdown, the title always uses the usCite rather
+// than a (LOC)/(USSC) source suffix.
+function _buildPrimaryDecisionEntry(caseEntry) {
+  const first = _buildDecisionEntries(caseEntry)[0];
+  if (!first) return null;
+  const dateStr   = caseEntry.decision || '';
+  const dateLabel = dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision';
+  const title = dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
+  return { value: first.value, href: first.href, title };
 }
 
 // Returns [{value, href, title}] for each unique transcript_href across events, date-sorted.
@@ -2397,10 +2414,10 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
   _applyTranscriptViews(rawFiles, caseEntry);
   _injectVirtualTranscripts(rawFiles, caseEntry, opts.argumentDates ?? null);
 
-  // When decision hrefs are present, drop any opinion entries from files.json (prefer decision hrefs).
-  // When none are present, normalise files.json opinion titles to "Decision on <date>".
-  const _decisionFileEntries = _buildDecisionEntries(caseEntry);
-  if (_decisionFileEntries.length) {
+  // When a decision href is present, drop any opinion entry from files.json (prefer the decision href).
+  // When none is present, normalise files.json opinion titles to "Decision on <date>".
+  const _primaryDecision = _buildPrimaryDecisionEntry(caseEntry);
+  if (_primaryDecision) {
     const idx = rawFiles.findIndex(f => (f.type || '').toLowerCase() === 'opinion');
     if (idx !== -1) rawFiles.splice(idx, 1);
   } else {
@@ -2413,9 +2430,10 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     });
   }
 
-  // Append one "Decision on <Date> (<source>)" entry per available decision href.
-  for (const de of _decisionFileEntries) {
-    rawFiles.push({ type: 'opinion', title: de.title, href: de.href });
+  // Append a single "Decision on <Date> (<usCite>)" entry, choosing decision_loc,
+  // else decision_ussc, else decision_reports \u2014 whichever is available first.
+  if (_primaryDecision) {
+    rawFiles.push({ type: 'opinion', title: _primaryDecision.title, href: _primaryDecision.href });
   }
 
   const { entries, hideToggle = false } = opts.computeEntries(rawFiles);
@@ -2704,7 +2722,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ring: opinionCircleData(caseEntry),
           onClick: hasOpinion ? (e) => {
             e.stopPropagation();
-            const _firstDecision = _buildDecisionEntries(caseEntry)[0];
+            const _firstDecision = _buildPrimaryDecisionEntry(caseEntry);
             const opinionFile = _firstDecision
               ? { href: _firstDecision.href, title: _firstDecision.title }
               : null;
@@ -2823,7 +2841,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       await loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
       if (fromRestore) trackPageView(location.href);
       if (!fromRestore && mode === 'decided' && caseEntry.events?.some(a => a.audio_href) && hasDecisionHref(caseEntry)) {
-        const de = _buildDecisionEntries(caseEntry)[0];
+        const de = _buildPrimaryDecisionEntry(caseEntry);
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
       if (fileRestore != null && !caseEntry.events?.length) {
@@ -4134,7 +4152,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Synchronous selection feedback before any async fetch.
     if (!ci.classList.contains('active')) markCaseItemActive(ci);
     const caseEntry = await _fetchCaseEntry();
-    const _firstDE = _buildDecisionEntries(caseEntry)[0];
+    const _firstDE = _buildPrimaryDecisionEntry(caseEntry);
     if (!_firstDE) return;
     const opinionFile = { href: _firstDE.href, title: _firstDE.title };
     if (caseRef.event) {
@@ -4368,7 +4386,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     if (fromRestore) trackPageView(location.href);
     if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
         ci.closest('ul')?.dataset.sortMode === 'decided') {
-      const de = _buildDecisionEntries(caseEntry)[0];
+      const de = _buildPrimaryDecisionEntry(caseEntry);
       if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
     }
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
