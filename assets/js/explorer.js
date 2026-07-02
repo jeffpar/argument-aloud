@@ -5316,7 +5316,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     opt.textContent = j.title;
     audioSelect.appendChild(opt);
   });
-  sortedAudio.forEach((a) => {
+  const _appendAudioOption = (a) => {
     const opt = document.createElement('option');
     opt.value = allAudio.indexOf(a) + 1;
     const _dtKey = (a.type || 'argument') + ':' + (a.date ?? '');
@@ -5326,14 +5326,19 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
       : '';
     opt.textContent = audioEntryLabel(a, _suffix);
     audioSelect.appendChild(opt);
-  });
-  // Transcript PDF sentinels appear after audio entries.
+  };
+  // Argument/reargument audio entries first, then transcript PDF sentinels,
+  // then opinion audio entries — transcripts always precede any opinion
+  // entry, even when an opinion's audio-only event chronologically sorts
+  // before the argument's transcript-bearing event.
+  sortedAudio.filter(a => a.type !== 'opinion').forEach(_appendAudioOption);
   _currentTranscriptEntries.forEach(te => {
     const opt = document.createElement('option');
     opt.value = te.value;
     opt.textContent = te.title;
     audioSelect.appendChild(opt);
   });
+  sortedAudio.filter(a => a.type === 'opinion').forEach(_appendAudioOption);
   // Append sentinel options linking to decision PDFs, in order: LOC, USSC, US Reports.
   _currentDecisionEntries.forEach(de => {
     const sentinelOpt = document.createElement('option');
