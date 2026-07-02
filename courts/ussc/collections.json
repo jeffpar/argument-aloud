@@ -183,6 +183,14 @@
         "page": "/courts/ussc/transcripts/updates"
       },
       {
+        "name": "Cases with Opinion Transcripts",
+        "conditions": [
+          "event.source == 'ussc' && event.type == 'opinion'"
+        ],
+        "order": "decided:ascending",
+        "page": "/courts/ussc/transcripts/opinions"
+      },
+      {
         "name": "Cases Missing from LOC",
         "conditions": [
           "volume <= 578",
